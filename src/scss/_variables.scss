@@ -1,0 +1,46 @@
+$breakpoint7: 1920px;
+$breakpoint6: 1640px;
+$breakpoint5: 1440px;
+$breakpoint4: 1200px;
+$breakpoint3: 992px;
+$breakpoint2: 768px;
+$breakpoint1: 576px;
+$breakpoint0: 480px;
+
+
+:root {
+    // system colours
+    --system-black: #000000;
+    --system-white: #FFFFFF;
+    --system-gray: #CCCCCC;
+    --system-charcoal: #5f5f5f;
+
+    // brand colours
+    --brand-color-blue: #1A2B50;
+    --brand-color-purple: #99AAFF;
+    --brand-color-purple2: #7484D7;
+    --brand-color-purple3: #3B3B90;
+    --brand-color-purple4: #1E1E6A;
+    --brand-color-grey: #EEEEEE;
+    --brand-color-grey2: #EAEBF1;
+
+    // header specific styles
+    --colour-slogan-highlight: var(--brand-color-purple);
+    --colour-social-links: var(--brand-color-purple3);
+    --colour-social-background: var(--brand-color-purple);
+    
+    // global styles
+    --colour-text: var(--color-black);
+    --colour-headers: var(--brand-color-blue);
+    --colour-links: var(--brand-color-purple2);
+
+
+    // utils
+    --button-hamburger: var(--brand-color-purple3);
+    --button-border-purple: var(--brand-color-purple3);
+    --color-menu-chevrons: var(--brand-color-purple);
+    --color-submit-button: var(--brand-color-purple2);
+    --color-footer-bg: var(--brand-color-purple4);
+
+    --color-pod-bg-1: var(--brand-color-grey2);
+}

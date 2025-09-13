@@ -1,0 +1,33 @@
+<div class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+
+                <div class="logo-lists">
+                    <a href="index.html" class="logo"><img src="images/logo-reversed.png" alt="ABIM" /></a>
+                    <div class="lists">
+                        <div class="list">
+                            <ul>
+                                <li {% if main_page === "about" %} class="active" {% endif %}><a href="about.html">About / Facts</a></li>
+                                <li {% if main_page === "news" %} class="active" {% endif %}><a href="news.html">News</a></li>
+                                <li {% if main_page === "members" %} class="active" {% endif %}><a href="members.html">Members Directory</a></li>
+                                <li {% if main_page === "product" %} class="active" {% endif %}><a href="product.html">Product Directory</a></li>
+                                <li {% if main_page === "careers" %} class="active" {% endif %}><a href="careers.html">Careers & Scholarships</a></li>
+                                <li {% if main_page === "resources" %} class="active" {% endif %}><a href="partners.html">Resources</a></li>
+                            </ul>
+                        </div>
+                        <div class="list">
+                            <ul>
+                                <li {% if main_page === "privacy" %} class="active" {% endif %}><a href="#">Privacy</a></li>
+                                <li {% if main_page === "terms" %} class="active" {% endif %}><a href="#">Terms & Conditions</a></li>
+                                <li {% if main_page === "cookies" %} class="active" {% endif %}><a href="#">Cookie policy</a></li>
+                                <li {% if main_page === "sitemap" %} class="active" {% endif %}><a href="#">Sitemap</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

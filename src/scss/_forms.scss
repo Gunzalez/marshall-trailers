@@ -1,0 +1,128 @@
+
+.form {
+  [type="submit"] {
+    display: inline-block;
+    margin: 1rem 0;
+
+    @media (min-width: $breakpoint3) {
+      margin: 2rem 0;
+    }
+  }
+
+  a {
+    color: var(--button-border-purple);
+    font-weight: bold;
+  }
+
+  textarea { 
+    border: 1px solid var(--system-black);
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    height: inherit;
+    outline: none;
+    border-radius: 1px;
+    background-color: white;
+    color: var(--colour-text);
+    padding: .75rem 1rem;
+    resize: none;
+    width: 100%;
+  }
+
+  select {
+    border: 1px solid var(--system-black);
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      height: inherit;
+      outline: none;
+      border-radius: 1px;
+
+    background-image:
+      linear-gradient(45deg, transparent 50%, gray 50%),
+      linear-gradient(135deg, gray 50%, transparent 50%),
+      linear-gradient(to right, #ccc, #ccc);
+    background-position:
+      calc(100% - 20px) calc(1em + 2px),
+      calc(100% - 15px) calc(1em + 2px),
+      calc(100% - 2.5em) 0.5em;
+    background-size:
+      5px 5px,
+      5px 5px,
+      1px 1.5em;
+    background-repeat: no-repeat;
+  }
+  
+  select:focus {
+    background-image:
+      linear-gradient(45deg, green 50%, transparent 50%),
+      linear-gradient(135deg, transparent 50%, green 50%),
+      linear-gradient(to right, #ccc, #ccc);
+    background-position:
+      calc(100% - 15px) 1em,
+      calc(100% - 20px) 1em,
+      calc(100% - 2.5em) 0.5em;
+    background-size:
+      5px 5px,
+      5px 5px,
+      1px 1.5em;
+    background-repeat: no-repeat;
+    border-color: green;
+    outline: 0;
+  }
+
+  input {
+    &[type="text"],
+    &[type="email"],
+    &[type="phone"],
+    // &[type="checkbox"],
+    // &[type="radio"],
+    &[type="tel"],
+    &[type="number"],
+    &[type="password"]
+    {
+      border: 1px solid var(--colour-text);
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      height: inherit;
+      outline: none;
+      border-radius: 1px;
+      background-color: white;
+      color: var(--colour-text);
+      padding: .375rem .875rem;
+    }
+  }
+
+  .form-group {
+    margin-bottom: 1.25rem;
+  
+    label {
+      line-height: 130%;
+      font-size: 1rem;
+      display: block;
+      padding-bottom: .5rem;
+    
+      @media (min-width: $breakpoint3) {
+        font-size: 1.25rem;
+      }
+    }
+
+    &.checkbox-group {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.2rem;
+      margin-top: .5rem;
+
+      label {
+        cursor: pointer;
+        font-weight: bold;
+      }
+
+      input {
+        transform: scale(1.5);
+        margin-top: .35rem;
+      }
+    }
+  }
+}
