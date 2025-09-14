@@ -1,70 +1,93 @@
 
-<div class="container">
-    <div class="row">
-
-        <div class="col-sm-12">
-            <div class="header">
-
-                <div class="logo-slogan">
-                    <a href="index.html" class="logo"><img src="images/logo-abim.png" alt="ABIM" /></a>
-                    <div class="slogan">
-                        <p>Association <span>of</span> Bakery Ingredient Manufacturers</p>
-                    </div>
-                </div>
-                <div class="social-search-buttton">
-                    <ul class="social">
-                        <li><a href="https://www.linkedin.com/company/association-of-bakery-ingredient-manufacturers/mycompany/?viewAsMember=true" target="_blank" aria-label="Linked website" class="icon"><span><i class="fa-brands fa-linkedin"></i></span></a></li>
-                        <li><a href="contact.html" class="button">Contact Us</a></li>
-                        <li><a href="contact.html" class="button">Join ABIM</a></li>
-                    </ul>
-                    <form class="search" action="" method="">
-                        <input type="text" placeholder="Search..." />
-                        <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
-                    </form>
-                    <button type="button" aria-label="open menu" id="toggle-navigation" class="mobile-nav-trigger hamburger hamburger--spring" aria-hidden="true">
-                        <span class="hamburger-box">
-                            <span class="hamburger-inner"></span>
-                        </span>
-                    </button>
-                </div>  
-
+<div class="mx-auto max-w-[var(--max-width)] px-4 py-4 bg-white border-b border-gray-200 bg-yellow-500">
+    <div class="flex items-center justify-between">
+        <div class="flex items-center">
+            <a href="index.html" class="logo">
+                <img src="images/logo-marshall-trailers.png" alt="Marshall Trailers" class="h-12">
+            </a>
+            <div class="slogan">
+                <p>Association <span class="text-red-500">of</span> Bakery Ingredient Manufacturers</p>
             </div>
         </div>
-        <div class="col-sm-12">
-            <div class="global-navigation">
-                <nav id="menu">
-                    <ul>
-                        <li {% if main_page === "about" %} class="active" {% endif %}><a href="about.html">About</a>
-                            <ul>
-                                <li {% if sub_page === "about-1" %} class="active" {% endif %}><a href="join.html">Join ABIM</a></li>
-                                <li {% if sub_page === "about-2" %} class="active" {% endif %}><a href="facts.html">Industry Facts</a></li>
-                                <li {% if sub_page === "about-3" %} class="active" {% endif %}><a href="structure.html">Our Structure</a></li>
-                            </ul>
-                        </li>
-                        <li {% if main_page === "news" %} class="active" {% endif %}><a href="news.html">News</a></li>
-                        <li {% if main_page === "members" %} class="active" {% endif %}><a href="members.html">Members</a></li>
-                        <li {% if main_page === "product" %} class="active" {% endif %}><a href="product.html">Product</a></li>
-                        <li {% if main_page === "careers" %} class="active" {% endif %}><a href="careers.html">Careers / Training</a>
-                            <ul>
-                                <li {% if sub_page === "careers-1" %} class="active" {% endif %}><a href="#">WCB Busary</a></li>
-                                <li {% if sub_page === "careers-2" %} class="active" {% endif %}><a href="#">ABST Support</a></li>
-                                <li {% if sub_page === "careers-3" %} class="active" {% endif %}><a href="#">ABIM Award Winners</a></li>
-                            </ul>
-                        </li>
-                        <li {% if main_page === "resources" %} class="active" {% endif %}><a href="partners.html">Resources</a>
-                            <ul>
-                                <li {% if sub_page === "resources-1" %} class="active" {% endif %}><a href="partners.html">Links & Partners</a></li>
-                                <li {% if sub_page === "resources-2" %} class="active" {% endif %}><a href="documents.html">Useful Documents</a></li>
-                            </ul>
-                        </li>
-                        <li class="mobile-button"><a href="join.html">Joins Us</a></li>
-                        <li class="mobile-button"><a href="contact.html">Contact ABIM</a></li>
-                        <li class="mobile-button"><a href="#">Careers & Scholarships</a></li>
-                    </ul>
-                </nav>
-            </div>
+        <div class="flex items-center space-x-4">
+            <ul class="flex space-x-4">
+                <li class="flex items-center">
+                    <a href="https://www.linkedin.com/company/association-of-bakery-ingredient-manufacturers/mycompany/?viewAsMember=true" target="_blank" aria-label="LinkedIn website" class="icon text-gray-600 hover:text-gray-800">
+                        <i class="fa-brands fa-linkedin fa-lg"></i>
+                    </a>
+                </li>
+                <li class="flex items-center">
+                    <a href="contact.html" class="button bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600">Contact Us</a>
+                </li>
+                <li class="flex items-center">
+                    <a href="join.html" class="button bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600">Join Marshall Trailers</a>
+                </li>
+            </ul>
         </div>
-
     </div>
+
+    {# <div class="col-sm-12">
+        <div class="header">
+
+            <div class="logo-slogan">
+                <a href="index.html" class="logo"><img src="images/logo-marshall-trailers.png" alt="Marshall Trailers" /></a>
+                <div class="slogan">
+                    <p>Association <span>of</span> Bakery Ingredient Manufacturers</p>
+                </div>
+            </div>
+            <div class="social-search-button">
+                <ul class="social">
+                    <li><a href="https://www.linkedin.com/company/association-of-bakery-ingredient-manufacturers/mycompany/?viewAsMember=true" target="_blank" aria-label="Linked website" class="icon"><span><i class="fa-brands fa-linkedin"></i></span></a></li>
+                    <li><a href="contact.html" class="button">Contact Us</a></li>
+                    <li><a href="contact.html" class="button">Join Marshall Trailers</a></li>
+                </ul>
+                <form class="search" action="" method="">
+                    <input type="text" placeholder="Search..." />
+                    <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </form>
+                <button type="button" aria-label="open menu" id="toggle-navigation" class="mobile-nav-trigger hamburger hamburger--spring" aria-hidden="true">
+                    <span class="hamburger-box">
+                        <span class="hamburger-inner"></span>
+                    </span>
+                </button>
+            </div>  
+
+        </div>
+    </div>
+    <div class="col-sm-12">
+        <div class="global-navigation">
+            <nav id="menu">
+                <ul>
+                    <li {% if main_page === "about" %} class="active" {% endif %}><a href="about.html">About</a>
+                        <ul>
+                            <li {% if sub_page === "about-1" %} class="active" {% endif %}><a href="join.html">Join Marshall Trailers</a></li>
+                            <li {% if sub_page === "about-2" %} class="active" {% endif %}><a href="facts.html">Industry Facts</a></li>
+                            <li {% if sub_page === "about-3" %} class="active" {% endif %}><a href="structure.html">Our Structure</a></li>
+                        </ul>
+                    </li>
+                    <li {% if main_page === "news" %} class="active" {% endif %}><a href="news.html">News</a></li>
+                    <li {% if main_page === "members" %} class="active" {% endif %}><a href="members.html">Members</a></li>
+                    <li {% if main_page === "product" %} class="active" {% endif %}><a href="product.html">Product</a></li>
+                    <li {% if main_page === "careers" %} class="active" {% endif %}><a href="careers.html">Careers / Training</a>
+                        <ul>
+                            <li {% if sub_page === "careers-1" %} class="active" {% endif %}><a href="#">WCB Busary</a></li>
+                            <li {% if sub_page === "careers-2" %} class="active" {% endif %}><a href="#">ABST Support</a></li>
+                            <li {% if sub_page === "careers-3" %} class="active" {% endif %}><a href="#">Marshall Trailers Award Winners</a></li>
+                        </ul>
+                    </li>
+                    <li {% if main_page === "resources" %} class="active" {% endif %}><a href="partners.html">Resources</a>
+                        <ul>
+                            <li {% if sub_page === "resources-1" %} class="active" {% endif %}><a href="partners.html">Links & Partners</a></li>
+                            <li {% if sub_page === "resources-2" %} class="active" {% endif %}><a href="documents.html">Useful Documents</a></li>
+                        </ul>
+                    </li>
+                    <li class="mobile-button"><a href="join.html">Joins Us</a></li>
+                    <li class="mobile-button"><a href="contact.html">Contact Marshall Trailers</a></li>
+                    <li class="mobile-button"><a href="#">Careers & Scholarships</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div> #}
+
 </div>
 

@@ -1,13 +1,13 @@
 (function () {
   "use strict";
 
-  var abim = {};
+  var marshallTrailers = {};
 
   /**
    * @menu
    * Implements the dropdown menu behaviour
    */
-  abim.menu = {
+  marshallTrailers.menu = {
     init: function () {
       var menu = new Mmenu(
         "#menu",
@@ -46,7 +46,7 @@
    * A collection of utility functions
    * Used by other functions
    */
-  abim.utils = {
+  marshallTrailers.utils = {
     /**
      * ### function preloadImage
      * preloads a single image
@@ -74,7 +74,7 @@
       var loadedCounter = 0;
       var toBeLoadedNumber = urls.length;
       urls.forEach(function (url) {
-        abim.utils.preloadImage(url, function () {
+        marshallTrailers.utils.preloadImage(url, function () {
           loadedCounter++;
           if (loadedCounter == toBeLoadedNumber) {
             allImagesLoadedCallback();
@@ -126,7 +126,7 @@
    * Implements the Slick plugin
    * Preloads images before plugin initiation
    */
-  abim.carousel = {
+  marshallTrailers.carousel = {
     init: function () {
       /** get list of images to preload */
       var imgUrls = [];
@@ -139,7 +139,7 @@
       });
 
       /** initiate carousel after images are loaded */
-      abim.carousel.preloadImages(imgUrls, abim.carousel.initSlick);
+      marshallTrailers.carousel.preloadImages(imgUrls, marshallTrailers.carousel.initSlick);
     },
 
     /** initiate the carousel */
@@ -181,7 +181,7 @@
       var loadedCounter = 0;
       var toBeLoadedNumber = urls.length;
       urls.forEach(function (url) {
-        abim.carousel.preloadImage(url, function () {
+        marshallTrailers.carousel.preloadImage(url, function () {
           loadedCounter++;
           if (loadedCounter == toBeLoadedNumber) {
             allImagesLoadedCallback();
@@ -198,7 +198,7 @@
    * Handles dropdown switching behaviour for mobile
    * Handles tabs filtering for desktop
    */
-  abim.products = {
+  marshallTrailers.products = {
     init: function () {
       $("#mobile-switcher").on("submit", function (event) {
         event.preventDefault();
@@ -256,7 +256,7 @@
    * @backToTop
    * Helps navigate up and down long pages
    */
-  abim.backToTop = {
+  marshallTrailers.backToTop = {
     init: function () {
       var btn = $("#back-to-top");
 
@@ -279,13 +279,10 @@
    * @init
    * one init to rule them all
    */
-  abim.init = function () {
-    abim.menu.init();
-    abim.carousel.init();
-    abim.products.init();
-    abim.backToTop.init();
+  marshallTrailers.init = function () {
+    
   };
 
   /** Runs the global init */
-  abim.init();
+  marshallTrailers.init();
 })();

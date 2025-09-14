@@ -1,10 +1,10 @@
 <div class="footer">
-    <div class="container">
+    <div class="max-w-[var(--max-width)] mx-auto pt-2">
         <div class="row">
             <div class="col-md-12">
 
                 <div class="logo-lists">
-                    <a href="index.html" class="logo"><img src="images/logo-reversed.png" alt="ABIM" /></a>
+                    <a href="index.html" class="logo"><img src="images/logo-reversed.png" alt="Marshall Trailers" /></a>
                     <div class="lists">
                         <div class="list">
                             <ul>
