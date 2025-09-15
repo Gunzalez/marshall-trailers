@@ -45,6 +45,13 @@ function jsTask() {
   );
 }
 
+// images
+function imagesTask() {
+  console.log("object")
+    return gulp.src('src/images/**/*.+(png|jpg|gif|svg)')
+        .pipe(gulp.dest('website/images'));
+}
+
 // html
 function htmlTask() {
   return (
@@ -103,8 +110,9 @@ function cacheBusterTask() {
 
 // watch
 function watchTask() {
-  watch([files.scssPath, files.jsPath], parallel(scssTask, jsTask, htmlTask));
+  watch([files.scssPath, files.jsPath], parallel(scssTask, jsTask, htmlTask, imagesTask));
   watch(["website/js/scripts.js"], jshintTask);
+  watch(["src/images/*.+(png|jpg|gif|svg)"], imagesTask);
   watch(["website/*.html"], browserSyncReload);
   watch(["src/html/**/*.+(html|nunjucks)"], htmlTask);
 }
@@ -112,7 +120,7 @@ function watchTask() {
 // Default task
 exports.default = series(
   browserSyncServe,
-  parallel(scssTask, jsTask, htmlTask),
+  parallel(scssTask, jsTask, htmlTask, imagesTask),
   jshintTask,
   cacheBusterTask,
   watchTask
