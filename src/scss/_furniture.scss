@@ -21,14 +21,22 @@ body {
   font-optical-sizing: auto;
   margin: 0;
   padding: 0;
-
-  font-family: "Outfit", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: normal;
+  
+  font-family: "Amiko", sans-serif;
+  font-weight: 400;
   font-style: normal;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  color: var(--colour-headers);
+  font-family: "Amiko", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
 
 strong {
   font-weight: bold;
 }
+
