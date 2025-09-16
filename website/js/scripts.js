@@ -7,10 +7,10 @@
    * @menu
    * Implements the dropdown menu behaviour
    */
-  marshallTrailers.menu = {
+  marshallTrailers.mobileNavigation = {
     init: function () {
       var menu = new Mmenu(
-        "#menu",
+        "#desktop-navigation",
         {
           extensions: ["position-right", "pagedim-black", "position-front"],
         },
@@ -22,20 +22,10 @@
       );
       var api = menu.API;
 
-      $("#toggle-navigation").on("click", function (evnt) {
-        evnt.preventDefault();
+      $("#toggle-mobile-navigation").on("click", function (event) {
+        event.preventDefault();
         api.open();
       });
-
-      // $(".close-menu").on("click", function (evnt) {
-      //   evnt.preventDefault();
-      //   api.close();
-      // });
-
-      // adds chevrons to desktopp menu AFTER it has been cloned for mobile nav above
-      $("#menu ul ul")
-        .parent()
-        .append('<i class="fa-solid fa-caret-down"></i>');
     },
   };
 
@@ -288,16 +278,26 @@
       var closeBtn = $("#close-navigation");
       var topNav = $("#top-navigation");
       var topNavHeight = topNav.data("top-nav-height");
-      
+
       openBtn.on("click", function (e) {
         e.preventDefault();
-        topNav.css("margin-top", "0px");
+        marshallTrailers.topNavigation.open();
       });
 
       closeBtn.on("click", function (e) {
         e.preventDefault();
-        topNav.css("margin-top", -topNavHeight + "px");
+        marshallTrailers.topNavigation.close();
       });
+    },
+    open: function () {
+      var topNav = $("#top-navigation");
+      topNav.css("margin-top", "0px");
+    },
+
+    close: function () {
+      var topNav = $("#top-navigation");
+      var topNavHeight = topNav.data("top-nav-height");
+      topNav.css("margin-top", -topNavHeight + "px");
     },
   };
 
@@ -307,6 +307,7 @@
    */
   marshallTrailers.init = function () {
     marshallTrailers.topNavigation.init();
+    marshallTrailers.mobileNavigation.init();
   };
 
   /** Runs the global init */

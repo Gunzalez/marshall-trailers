@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-   <head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Marshall Trailers - Association of Bakery Ingredient Manufacturers</title>
 
-    <!-- meta --> 
+    <!-- meta -->
     <meta name="keywords" content="Association of Bakery Ingredient Manufacturers, Marshall Trailers, baking industry, ingredients">
-		<meta name="description" content="Marshall Trailers represents and promotes the common interests of UK companies who manufacture and supply a wide range of quality ingredients to the baking industry.">
+    <meta name="description" content="Marshall Trailers represents and promotes the common interests of UK companies who manufacture and supply a wide range of quality ingredients to the baking industry.">
     <meta name="language" content="en-gb">
 
     <!-- favicon -->
@@ -22,9 +22,9 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
       type="text/css">
     <link rel="stylesheet" href="css/styles.css" type="text/css">
-    
+
     <!-- javaScript -->
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4" defer></script>
     <script src="js/vendor/imagesloaded.pkgd.min.js" defer></script>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"
@@ -33,7 +33,7 @@
     <script src="js/vendor/slick/slick.min.js" defer></script>
     <script src="js/vendor/fslightbox.js" defer></script>
     <script src="js/vendor/jquery.validate.min.js" defer></script>
-    <script src="js/vendor/mmenu.js" defer></script> 
+    <script src="js/vendor/mmenu.js" defer></script>
     <script src="js/vendor/lozad.min.js" defer></script>
     <script src="js/scripts.js?cb=123" defer></script>
 
@@ -41,9 +41,9 @@
   <body>
     <a id="back-to-top" class="back-to-top"></a>
     <div id="page">
-    {% include "partials/_header.nunjucks" %}
-    {% block content %} {% endblock %}
-    {% include "partials/_footer.nunjucks" %}
+      {% include "partials/_header.nunjucks" %}
+      {% block content %}{% endblock %}
+      {% include "partials/_footer.nunjucks" %}
     </div>
   </body>
 </html>

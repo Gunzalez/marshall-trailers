@@ -1,4 +1,4 @@
-.main-menu {
+#top-navigation .main-menu {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -7,11 +7,11 @@
   justify-content: start;
 }
 
-.main-menu li {
+#top-navigation .main-menu li {
   position: relative;
 }
 
-.main-menu a {
+#top-navigation .main-menu a {
   display: block;
   padding: 8px 20px 5px 20px;
   text-decoration: none;
@@ -20,23 +20,23 @@
   white-space: nowrap;
 }
 
-.main-menu li:hover > a {
+#top-navigation .main-menu li:hover > a {
   background-color: white;
 }
 
-.main-menu > li > a {
+#top-navigation .main-menu > li > a {
   border-bottom: 3px solid transparent;
 }
 
-.main-menu > li:hover > a {
+#top-navigation .main-menu > li:hover > a {
   border-bottom: 3px solid var(--brand-yellow);
 }
 
-.main-menu > li > ul > li > a {
+#top-navigation .main-menu > li > ul > li > a {
     border-right: 4px solid white;
 }
 
-.submenu {
+#top-navigation .submenu {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -47,12 +47,12 @@
   display: none;
 }
 
-.submenu li {
+#top-navigation .submenu li {
   width: 100%;
   padding-top: 4px;;
 }
 
-.submenu a {
+#top-navigation .submenu a {
   padding: 8px 20px 5px 16px;
   color: black;
     border-left: 4px solid var(--brand-gray);
@@ -60,17 +60,17 @@
   background-color: var(--brand-gray);
 }
 
-.main-menu li:hover > .submenu {
+#top-navigation .main-menu li:hover > .submenu {
   display: block;
 }
 
 /* For the 3rd level menu */
-.submenu .submenu {
+#top-navigation .submenu .submenu {
   top: 0;
   left: 100%;
 }
 
-.submenu li:hover > a {
+#top-navigation .submenu li:hover > a {
     background-color: white;
     border-left: 4px solid var(--brand-yellow);
 }

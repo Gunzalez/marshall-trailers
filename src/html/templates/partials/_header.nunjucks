@@ -10,8 +10,8 @@
                         </button>
                     </div>
                 </div>
-                <nav>
-                    <ul id="desktop-navigation" class="main-menu">
+                <nav id="desktop-navigation">
+                    <ul class="main-menu">
                         <li class="has-submenu">
                             <a href="/products" title="Products">Products</a>
                             <ul class="submenu">
