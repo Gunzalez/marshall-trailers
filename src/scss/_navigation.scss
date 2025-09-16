@@ -74,3 +74,52 @@
     background-color: white;
     border-left: 4px solid var(--brand-yellow);
 }
+
+
+
+/* mobile navigation */
+
+/* SlideOut Menu */
+/* ================================================================= */
+.mm-panels {
+  --colour-links: var(--system-black);
+
+  .mm-panel {
+    background-color: white;
+  }
+
+  a {
+    font-size: 1rem;
+    color: var(--brand-red) !important;
+  }
+
+  .mm-btn:after, .mm-btn:before {
+    border-color: var(--brand-yellow) !important;
+  }
+
+  .active {
+    a {
+    font-weight: bold;
+      color: var(--brand-red) !important;
+    }
+  }
+
+  // Hides the "MENU" part
+  > div {
+    &:first-child {
+      .mm-navbar_sticky {
+        display: none;
+      }
+    }
+  }
+
+  // Hides second part of slide out subnav
+  // Using opacity:0 so it remains interactive
+  .mm-navbar_sticky {
+    > a {
+      &:last-child {
+        opacity: 0;
+      }
+    }
+  }
+}
