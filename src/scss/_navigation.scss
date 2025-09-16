@@ -1,7 +1,3 @@
-body {
-  font-family: sans-serif;
-}
-
 .main-menu {
   list-style: none;
   margin: 0;
@@ -12,76 +8,60 @@ body {
 }
 
 .main-menu li {
-  position: relative; /* Essential for positioning the dropdown */
+  position: relative;
 }
 
 .main-menu a {
   display: block;
-  padding: 5px 20px;
+  padding: 8px 20px 5px 20px;
   text-decoration: none;
   transition: background-color 0.3s;
   font-size: 1rem;
   white-space: nowrap;
 }
 
-.main-menu ul li {
-    border-bottom: 2px solid white;
+
+.main-menu li:hover > a {
+  background-color: white;
 }
 
 .main-menu > li > a {
-    border-bottom: 3px solid transparent;
+  border-bottom: 3px solid transparent;
 }
 
-.main-menu > li > a:hover {
-    border-bottom: 3px solid var(--brand-yellow);
+.main-menu > li:hover > a {
+  border-bottom: 3px solid var(--brand-yellow);
 }
-
-.main-menu > li > a:has(ul[style*="display: block"]) {
-    border-bottom: 3px solid var(--brand-yellow);
-}
-
-
 
 .main-menu > li > ul > li > a {
     border-right: 4px solid white;
 }
 
 
-
-
-
-
-/* Submenu Styling */
 .submenu {
   list-style: none;
   margin: 0;
   padding: 0;
   position: absolute;
-  top: 100%; /* Positions the dropdown right below the parent item */
+  top: 100%;
   left: 0;
   min-width: 200px;
-  background-color: var(--brand-gray);
-  display: none; /* Hides the submenu by default */
+  display: none;
 }
 
 .submenu li {
-  width: 100%; /* Ensures sub-menu items fill the container */
+  width: 100%;
+  padding-top: 4px;;
 }
-
 
 .submenu a {
+  padding: 8px 20px 5px 16px;
+  color: black;
     border-left: 4px solid var(--brand-gray);
-    padding-left: 16px;
+    
+  background-color: var(--brand-gray);
 }
 
-.submenu a:hover {
-    background-color: white;
-    border-left: 4px solid var(--brand-yellow);
-}
-
-
-
-/* Show submenu on hover */
 .main-menu li:hover > .submenu {
   display: block;
 }
@@ -89,5 +69,10 @@ body {
 /* For the 3rd level menu */
 .submenu .submenu {
   top: 0;
-  left: 100%; /* Positions the 3rd level to the right of the 2nd level */
+  left: 100%;
+}
+
+.submenu li:hover > a {
+    background-color: white;
+    border-left: 4px solid var(--brand-yellow);
 }

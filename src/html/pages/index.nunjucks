@@ -5,6 +5,8 @@
 
     <div class="hero"></div>
 
-    <div class="max-w-[var(--max-width)] mx-auto px-4 py-8 bg-pink-500"></div>
+    <div class="max-w-[var(--max-width)] mx-auto px-4 py-8 bg-gray-50 h-[900px]">
+        Copy, lot and lot of copy
+    </div>
 
 {% endblock %}
