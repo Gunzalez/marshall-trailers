@@ -2,3 +2,13 @@
 @import "furniture";
 @import "fonts";
 
+
+.hero {
+    height: 300px;
+    background-color: orangered;
+
+    @media (min-width: $breakpoint1) {
+        height: 620px;
+    }
+}
+

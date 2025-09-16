@@ -139,7 +139,10 @@
       });
 
       /** initiate carousel after images are loaded */
-      marshallTrailers.carousel.preloadImages(imgUrls, marshallTrailers.carousel.initSlick);
+      marshallTrailers.carousel.preloadImages(
+        imgUrls,
+        marshallTrailers.carousel.initSlick
+      );
     },
 
     /** initiate the carousel */
@@ -276,11 +279,34 @@
   };
 
   /**
+   * @backToTop
+   * Helps navigate up and down long pages
+   */
+  marshallTrailers.topNavigation = {
+    init: function () {
+      var openBtn = $("#open-navigation");
+      var closeBtn = $("#close-navigation");
+      var topNav = $("#top-navigation");
+      var topNavHeight = topNav.data("top-nav-height");
+      
+      openBtn.on("click", function (e) {
+        e.preventDefault();
+        topNav.css("margin-top", "0px");
+      });
+
+      closeBtn.on("click", function (e) {
+        e.preventDefault();
+        topNav.css("margin-top", -topNavHeight + "px");
+      });
+    },
+  };
+
+  /**
    * @init
    * one init to rule them all
    */
   marshallTrailers.init = function () {
-    
+    marshallTrailers.topNavigation.init();
   };
 
   /** Runs the global init */
