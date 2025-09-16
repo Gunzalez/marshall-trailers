@@ -276,8 +276,11 @@
     init: function () {
       var openBtn = $("#open-navigation");
       var closeBtn = $("#close-navigation");
-      var topNav = $("#top-navigation");
-      var topNavHeight = topNav.data("top-nav-height");
+      var topDrawer = $("#top-drawer");
+
+      topDrawer.on('mouseleave', function() {
+        marshallTrailers.topNavigation.close();
+      });
 
       openBtn.on("click", function (e) {
         e.preventDefault();
@@ -300,6 +303,11 @@
       topNav.css("margin-top", -topNavHeight + "px");
     },
   };
+
+  // resize events */
+  $(window).on("resize", function () {
+    marshallTrailers.topNavigation.close();
+  });
 
   /**
    * @init
