@@ -1,6 +1,6 @@
 <div class="footer">
 
-    <div class="max-w-[var(--max-width)] mx-auto pt-8">
+    <div class="max-w-[var(--max-width)] mx-auto p-4">
         <p>© Marshall's Trailers 2024</p>
         <p>All Rights Reserved</p>
     </div>
