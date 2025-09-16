@@ -1,6 +1,5 @@
 <div class="bg-white flex items-center justify-center absolute w-full z-50 top-0 shadow-md">
-    <div id="top-navigation" data-top-nav-height="600" class="h-[600px]  w-full max-w-[var(--max-width)] mx-auto p-4 transition-all duration-300 ease-in-out relative">
-
+    <div id="top-navigation" data-top-nav-height="620" class="h-[620px] mt-[-620px] w-full max-w-[var(--max-width)] mx-auto p-4 transition-all duration-300 ease-in-out relative">
         <div class="absolute inset-0 p-4 w-full flex gap-4 items-start justify-end">
             <div class="flex flex-col gap-8 w-full">
                 <div class="flex w-full justify-between items-start">
@@ -12,32 +11,341 @@
                     </div>
                 </div>
                 <nav>
-                    <ul>
+                    <ul id="desktop-navigation" class="main-menu">
+                        <li class="has-submenu">
+                            <a href="/products" title="Products">Products</a>
+                            <ul class="submenu">
+                                <li>
+                                    <a href="/range/silage-grain-trailers">Silage / Grain Trailers</a>
+                                    <ul class="submenu">
+                                        <li>
+                                            <a href="/silage-grain-trailers/qm6" title="QM-6">QM-6 - 6.5 tons</a>
+                                        </li>
+                                        <li>
+                                            <a href="/silage-grain-trailers/qm8" title="QM-8">QM-8 - 8.5 tons</a>
+                                        </li>
+                                        <li>
+                                            <a href="/silage-grain-trailers/qm11" title="QM-11">QM-11 - 11 tons</a>
+                                        </li>
+                                        <li>
+                                            <a href="/silage-grain-trailers/qm12" title="QM-12">QM-12 - 12 tons</a>
+                                        </li>
+                                        <li>
+                                            <a href="/silage-grain-trailers/qm1200" title="QM-1200">QM-1200 - 12 tons</a>
+                                        </li>
+                                        <li>
+                                            <a href="/silage-grain-trailers/qm14" title="QM-14">QM-14 - 14.5 tons</a>
+                                        </li>
+                                        <li>
+                                            <a href="/silage-grain-trailers/qm1400" title="QM-1400">QM-1400 - 14.5 tons</a>
+                                        </li>
+                                        <li>
+                                            <a href="/silage-grain-trailers/qm16" title="QM-16">QM-16 - 16.5 tons</a>
+                                        </li>
+                                        <li>
+                                            <a href="/silage-grain-trailers/qm1600" title="QM-1600">QM-1600 - 16.5 tons</a>
+                                        </li>
+                                        <li>
+                                            <a href="/silage-grain-trailers/qm1800" title="QM-1800">QM-1800 - 18.5 tons</a>
+                                        </li>
+                                        <li>
+                                            <a href="/silage-grain-trailers/additional-equipment" title="Addtional Equipment">Addtional Equipment</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="/range/dropside-trailers">Drop-Side Trailers</a>
+                                    <ul class="submenu">
+                                        <li>
+                                            <a href="/dropside-trailers/s1" title="S-1">S-1 - 1.5 tons</a>
+                                        </li>
+                                        <li>
+                                            <a href="/dropside-trailers/s2" title="S-2">S-2 - 2 tons</a>
+                                        </li>
+                                        <li>
+                                            <a href="/dropside-trailers/s4" title="S-4">S-4 - 4 tons</a>
+                                        </li>
+                                        <li>
+                                            <a href="/dropside-trailers/s5" title="S-5">S-5 - 5 tons</a>
+                                        </li>
+                                        <li>
+                                            <a href="/dropside-trailers/s6" title="S-6">S-6 - 6.5 tons</a>
+                                        </li>
+                                        <li>
+                                            <a href="/dropside-trailers/s85" title="S-85">S-85 - 8.5 tons</a>
+                                        </li>
+                                        <li>
+                                            <a href="/dropside-trailers/s10" title="S-10">S-10 - 10.5 tons</a>
+                                        </li>
+                                        <li>
+                                            <a href="/dropside-trailers/additional-equipment" title="Addtional Equipment">Addtional Equipment</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="/range/flat-bale-trailers">Flat / Bale Trailers</a>
+                                    <ul class="submenu">
+                                        <li>
+                                            <a href="/flat-bale-trailers/bc21" title="BC-21">BC-21 - 21' x 8' / 10 tons</a>
+                                        </li>
+                                        <li>
+                                            <a href="/flat-bale-trailers/bc2510t" title="BC-25-10T">BC-25-10T - 25' x 8'</a>
+                                        </li>
+                                        <li>
+                                            <a href="/flat-bale-trailers/bc2512t" title="BC-25-12T">BC-25-12T - 25' x 8' 4"</a>
+                                        </li>
+                                        <li>
+                                            <a href="/flat-bale-trailers/bc28" title="BC-28">BC-28 - 28' x 8' 4" / 14 tons</a>
+                                        </li>
+                                        <li>
+                                            <a href="/flat-bale-trailers/bc32tan" title="BC-32-TAN">BC-32-TAN - 32' x 8' 4" / 14 tons</a>
+                                        </li>
+                                        <li>
+                                            <a href="/flat-bale-trailers/bc32tri" title="BC-32-TRI">BC-32-TRI - 32' x 8' 4" / 16 tons</a>
+                                        </li>
+                                        <li>
+                                            <a href="/flat-bale-trailers/bc36tan" title="BC-36-TAN">BC-36-TAN - 36' x 8' 4" / 16 tons</a>
+                                        </li>
+                                        <li>
+                                            <a href="/flat-bale-trailers/bc36tri" title="BC-36-TRI">BC-36-TRI - 36' x 8' 4" / 16 tons</a>
+                                        </li>
+                                        <li>
+                                            <a href="/flat-bale-trailers/additional-equipment" title="Addtional Equipment">Addtional Equipment</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="/range/low-loader-trailers">Low Loader Trailers</a>
+                                    <ul class="submenu">
+                                        <li>
+                                            <a href="/low-loader-trailers/ll26tan" title="LL-26-TAN">LL-26-TAN - 16 tons</a>
+                                        </li>
+                                        <li>
+                                            <a href="/low-loader-trailers/ll33tri" title="LL-33-TRI">LL-33-TRI - 21 tons</a>
+                                        </li>
+                                        <li>
+                                            <a href="/low-loader-trailers/additional-equipment" title="Addtional Equipment">Addtional Equipment</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="/range/dumper-trailers">Dumper Trailers</a>
+                                    <ul class="submenu">
+                                        <li>
+                                            <a href="/dumper-trailers/hd6" title="HD-6">HD-6 - 6 tons / 3.7 cu.mtrs</a>
+                                        </li>
+                                        <li>
+                                            <a href="/dumper-trailers/hd8" title="HD-8">HD-8 - 8 tons / 5.4 cu.mtrs</a>
+                                        </li>
+                                        <li>
+                                            <a href="/dumper-trailers/hd12" title="HD-12">HD-12 - 12 tons / 7 cu.mtrs</a>
+                                        </li>
+                                        <li>
+                                            <a href="/dumper-trailers/hd14" title="HD-14">HD-14 - 14 tons / 8.7 cu.mtrs</a>
+                                        </li>
+                                        <li>
+                                            <a href="/dumper-trailers/hd16" title="HD-16">HD-16 - 16 tons / 10.5 cu.mtrs</a>
+                                        </li>
+                                        <li>
+                                            <a href="/dumper-trailers/additional-equipment" title="Addtional Equipment">Addtional Equipment</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="/range/feed-trailers">Feed Trailers</a>
+                                    <ul class="submenu">
+                                        <li>
+                                            <a href="/feed-trailers/ft15" title="FT-15">FT-15 - 15' Long</a>
+                                        </li>
+                                        <li>
+                                            <a href="/feed-trailers/ft20" title="FT-20">FT-20 - 20' Long</a>
+                                        </li>
+                                        <li>
+                                            <a href="/feed-trailers/additional-equipment" title="Addtional Equipment">Addtional Equipment</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="/range/livestock-trailers-containers">Livestock Trailers / Containers</a>
+                                    <ul class="submenu">
+                                        <li>
+                                            <a href="/livestock-trailers-containers/lst21" title="LST-21">LST-21 - 21' Long</a>
+                                        </li>
+                                        <li>
+                                            <a href="/livestock-trailers-containers/lst25" title="LST-25">LST-25 - 25' Long</a>
+                                        </li>
+                                        <li>
+                                            <a href="/livestock-trailers-containers/lst28" title="LST-28">LST-28 - 28' Long</a>
+                                        </li>
+                                        <li>
+                                            <a href="/livestock-trailers-containers/lst32" title="LST-32">LST-32 - 32' Long</a>
+                                        </li>
+                                        <li>
+                                            <a href="/livestock-trailers-containers/additional-equipment" title="Addtional Equipment">Addtional Equipment</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="/range/muck-spreaders">Muck Spreaders</a>
+                                    <ul class="submenu">
+                                        <li>
+                                            <a href="/muck-spreaders/ms60" title="MS-60">MS-60 - 6 cu.yds</a>
+                                        </li>
+                                        <li>
+                                            <a href="/muck-spreaders/ms75" title="MS-75">MS-75 - 7.5 cu.yds</a>
+                                        </li>
+                                        <li>
+                                            <a href="/muck-spreaders/ms90" title="MS-90">MS-90 - 9 cu.yds</a>
+                                        </li>
+                                        <li>
+                                            <a href="/muck-spreaders/ms105" title="MS-105">MS-105 - 10.5 cu.yds</a>
+                                        </li>
+                                        <li>
+                                            <a href="/muck-spreaders/additional-equipment" title="Addtional Equipment">Addtional Equipment</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="/range/rear-discharge-muck-spreaders">Rear Discharge Muck Spreaders</a>
+                                    <ul class="submenu">
+                                        <li>
+                                            <a href="/rear-discharge-muck-spreaders/ves1500" title="VES-1500">VES-1500 - 9 tons</a>
+                                        </li>
+                                        <li>
+                                            <a href="/rear-discharge-muck-spreaders/ves2000" title="VES-2000">VES-2000 - 12 tons</a>
+                                        </li>
+                                        <li>
+                                            <a href="/rear-discharge-muck-spreaders/ves2500" title="VES-2500">VES-2500 - 14 tons</a>
+                                        </li>
+                                        <li>
+                                            <a href="/rear-discharge-muck-spreaders/additional-equipment" title="Addtional Equipment">Addtional Equipment</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="/range/tankers">Tankers</a>
+                                    <ul class="submenu">
+                                        <li>
+                                            <a href="/tankers/st1200" title="ST-1200">ST-1200 - 1220 gallons</a>
+                                        </li>
+                                        <li>
+                                            <a href="/tankers/st1400" title="ST-1400">ST-1400 - 1400 gallons</a>
+                                        </li>
+                                        <li>
+                                            <a href="/tankers/st1600" title="ST-1600">ST-1600 - 1550 gallons</a>
+                                        </li>
+                                        <li>
+                                            <a href="/tankers/st1800" title="ST-1800">ST-1800 - 1800 gallons</a>
+                                        </li>
+                                        <li>
+                                            <a href="/tankers/st2000" title="ST-2000">ST-2000 - 2150 gallons</a>
+                                        </li>
+                                        <li>
+                                            <a href="/tankers/st2300" title="ST-2300">ST-2300 - 2340 gallons</a>
+                                        </li>
+                                        <li>
+                                            <a href="/tankers/st2550" title="ST-2550">ST-2550 - 2560 gallons</a>
+                                        </li>
+                                        <li>
+                                            <a href="/tankers/st3000" title="ST-3000">ST-3000 - 3000 gallons</a>
+                                        </li>
+                                        <li>
+                                            <a href="/tankers/st3500" title="ST-3500">ST-3500 - 3500 gallons</a>
+                                        </li>
+                                        <li>
+                                            <a href="/tankers/additional-equipment" title="Addtional Equipment">Addtional Equipment</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="/range/people-carrier-trailers">People Carrier Trailers</a>
+                                    <ul class="submenu">
+                                        <li>
+                                            <a href="/people-carrier-trailers/pc21" title="PC-21">PC-21 - 21' x 8' / 27 People</a>
+                                        </li>
+                                        <li>
+                                            <a href="/people-carrier-trailers/additional-equipment" title="Addtional Equipment">Addtional Equipment</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="/dealer-fit" title="Dealer Fit">Dealer Fit</a>
+                                </li>
+                            </ul>
+                        </li>
+
                         <li>
-                            <a href="product.html">Product</a>
+                            <a href="/configure-machine" title="Configure a Marshall Machine">Configure / Order</a>
                         </li>
                         <li>
-                            <a href="configure.html">Configure/Order</a>
+                            <a href="/spares" title="Spares">Spares</a>
                         </li>
                         <li>
-                            <a href="spares.html">Spares</a>
+                            <a href="/stock-clearance" title="Stock Clearance">Stock Clearance</a>
+                        </li>
+                        <li  class="has-submenu">
+                            <a href="/downloads" title="Downloads">Downloads</a>
+                            <ul class="submenu">
+                                <li>
+                                    <a href="/downloads/owners-manuals" title="Owners Manuals">Owners Manuals</a>
+                                </li>
+                                <li>
+                                    <a href="/downloads/general" title="General Documents">General Documents</a>
+                                </li>
+                                <li>
+                                    <a href="/downloads/product-gallery" title="Product Image Gallery">Product Gallery</a>
+                                </li>
+                                <li>
+                                    <a href="/downloads/image-gallery" title="Featured Image Gallery">Featured Images</a>
+                                </li>
+                                <li>
+                                    <a href="/downloads/videos" title="Videos">Videos</a>
+                                </li>
+
+                            </ul>
+                        </li>
+                        <li class="has-submenu">
+                            <a href="/news" title="News">News</a>
+                            <ul class="submenu">
+                                <li>
+                                    <a href="/events" title="Events">Events</a>
+                                </li>
+                                <li>
+                                    <a href="/industry-topics" title="Indusrty Topics">Industry Topics</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="has-submenu">
+                            <a href="/about-us" title="About Us">About us</a>
+                            <ul class="submenu">
+                                <li>
+                                    <a href="/our-brand-story" title="Our Brand Story">Our Brand Story</a>
+                                </li>
+                                <li>
+                                    <a href="/merchandise" title="Merchandise">Merchandise</a>
+                                </li>
+                                <li>
+                                    <a href="/faqs" title="FAQ's">FAQ's</a>
+                                </li>
+                                <li>
+                                    <a href="/glossary" title="Glossary">Glossary</a>
+                                </li>
+                                <li>
+                                    <a href="/recruitment" title="Recruitment">Recruitment</a>
+                                </li>
+                                <li>
+                                    <a href="/links" title="Links">Links</a>
+                                </li>
+                            </ul>
                         </li>
                         <li>
-                            <a href="stock.html">Stock Clearance</a>
+                            <a href="/contact-us" title="Contact">Contact</a>
                         </li>
-                        <li>
-                            <a href="download.html">Downloads</a>
-                        </li>
-                        <li>
-                            <a href="news.html">News</a>
-                        </li>
-                        <li>
-                            <a href="contact.html">Contact</a>
-                        </li>
-                        <li>
-                            <a href="search.html">Search</a>
+                        <li class="no-bg">
+                            <a href="/search" title="Search the our site">Search</a>
                         </li>
                     </ul>
+
                 </nav>
             </div>
         </div>
