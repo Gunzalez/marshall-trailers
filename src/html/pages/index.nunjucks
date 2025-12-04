@@ -3,7 +3,7 @@
 
 {% block content %}
 
-    <div class="hero"></div>
+    <div class="hero" style="background-image: url('images/sample-hero.png');"></div>
 
     <div class="max-w-[var(--max-width)] mx-auto p-4 bg-gray-50 h-[900px]">
         Copy, lots and lots of copy, and carousels and such
