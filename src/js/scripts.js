@@ -278,7 +278,7 @@
       var closeBtn = $("#close-navigation");
       var topDrawer = $("#top-drawer");
 
-      topDrawer.on('mouseleave', function() {
+      topDrawer.on("mouseleave", function () {
         marshallTrailers.topNavigation.close();
       });
 

@@ -1,10 +1,10 @@
 <div id="top-drawer" class="bg-white flex items-center justify-center absolute w-full z-50 top-0 shadow-md">
-    <div id="top-navigation" data-top-nav-height="700" class="w-full max-w-[var(--max-width)] mx-auto p-4 transition-all duration-300 ease-in-out relative">
-        <div class="absolute inset-0 p-4 w-full flex gap-4 items-start justify-end">
-            <div class="flex flex-col gap-8 w-full">
+    <div id="top-navigation" data-top-nav-height="160" class="w-full max-w-[var(--max-width)] mx-auto px-4 transition-all duration-300 ease-in-out relative">
+        <div class="inset-0 pt-4 w-full flex gap-4 items-start justify-end">
+            <div class="flex flex-col gap-4 w-full">
                 <div class="flex w-full justify-between items-start">
                     <img src="images/logo-marshall-trailers-color.png" alt="Marshall Trailers Logo" class="h-12 sm:h-20">
-                    <div class="flex flex-col gap-2 items-end pt-12">
+                    <div class="flex flex-col gap-2 items-start">
                         <button type="button" aria-label="open menu" id="close-navigation" class="cursor-pointer">
                             <i class="fa-solid fa-xmark text-lg"></i>
                         </button>
@@ -348,23 +348,17 @@
                 </nav>
             </div>
         </div>
-
     </div>
 </div>
-<div class="mx-auto top-0 left-1/2 -translate-x-1/2 w-full max-w-[var(--max-width)] px-4 py-4 absolute">
-    <div class="flex items-center justify-between">
+<div class="mx-auto top-0 left-1/2 -translate-x-1/2 w-full max-w-[var(--max-width)] p-4 absolute">
+    <div class="flex items-start justify-between">
         <img src="images/logo-marshall-trailers.png" alt="Marshall Trailers Logo" class="h-12 sm:h-20">
         <div class="flex flex-col gap-2 items-end hidden sm:flex text-white">
-            <div class="flex gap-4 items-center text-white border-b border-white pb-1">
+            <div class="flex gap-4 items-center text-white">
                 <a href="contact.html" class="text-white mr-8">Register / Login</a>
                 <i class="fa-solid fa-phone"></i>
                 <i class="fa-solid fa-at"></i>
-            </div>
-            <div class="flex gap-4 items-center text-white">
-                <i class="fa-solid fa-sliders"></i>
-                <i class="fa-solid fa-gears"></i>
-                <i class="fa-solid fa-gear"></i>
-                <button type="button" aria-label="open menu" id="open-navigation" class="ml-6 cursor-pointer">
+                <button type="button" aria-label="open menu" id="open-navigation" class="cursor-pointer">
                     <i class="fa-solid fa-bars"></i>
                 </button>
             </div>
