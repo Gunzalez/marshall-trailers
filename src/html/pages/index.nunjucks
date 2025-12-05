@@ -15,7 +15,7 @@
         <h2>Product Ranges</h2>
         <div class="carousel-mini">
             <div v-for="(range, i) in productRanges" :key="i" class="slide">
-                <h3 class="title">[[ range.title ]]</h3>
+                <h4 class="title">[[ range.title ]]</h4>
                 <div class="image-wrapper">
                     <a :href="range.url"><img :src="range.image" :alt="range.title"></a>
                 </div>
@@ -32,7 +32,7 @@
     </div>
 
     <script>
-        var productRanges = [
+        var productRangesData = [
             {
                 title: 'Drop-side Trailers',
                 image: 'images/range-1.png',
@@ -69,16 +69,14 @@
         ]
 
         document.addEventListener('DOMContentLoaded', () => {
-            const {createApp, onMounted} = Vue;
+            const {createApp, onMounted, ref} = Vue;
             createApp({
                 delimiters: [
                     '[[', ']]'
                 ],
-
-                data() {
-                    return {productRanges: productRanges}
-                },
                 setup() {
+                    const productRanges = ref(productRangesData);
+
                     onMounted(() => {
                         if (window.miniCarousel) {
                             window
@@ -86,22 +84,24 @@
                                 .init();
                         }
                     });
-                },
-                methods: {
-                    prev() {
+
+                    const prev = () => {
                         if (window.miniCarousel) {
                             window
                                 .miniCarousel
                                 .prev();
                         }
-                    },
-                    next() {
+                    }
+
+                    const next = () => {
                         if (window.miniCarousel) {
                             window
                                 .miniCarousel
                                 .next();
                         }
                     }
+
+                    return {productRanges, prev, next}
                 }
             }).mount('#carousel-mini');
         });
