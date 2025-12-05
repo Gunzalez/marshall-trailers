@@ -1,5 +1,5 @@
 <div id="top-drawer" class="bg-white flex items-center justify-center absolute w-full z-50 top-0 shadow-md">
-    <div id="top-navigation" data-top-nav-height="160" class="w-full max-w-[var(--max-width)] mx-auto px-4 transition-all duration-300 ease-in-out relative">
+    <div id="top-navigation" data-top-nav-height="160" class="w-full max-w-[var(--max-width)] mx-auto px-4 mt-4 transition-all duration-300 ease-in-out relative">
         <div class="inset-0 pt-4 w-full flex gap-4 items-start justify-end">
             <div class="flex flex-col gap-4 w-full">
                 <div class="flex w-full justify-between items-start">
@@ -350,8 +350,8 @@
         </div>
     </div>
 </div>
-<div class="mx-auto top-0 left-1/2 -translate-x-1/2 w-full max-w-[var(--max-width)] p-4 absolute">
-    <div class="flex items-start justify-between">
+<div class="mx-auto top-0 left-1/2 -translate-x-1/2 w-full max-w-[var(--max-width)] z-10 p-4 absolute">
+    <div class="flex items-center sm:items-start justify-between">
         <img src="images/logo-marshall-trailers.png" alt="Marshall Trailers Logo" class="h-12 sm:h-20">
         <div class="flex flex-col gap-2 items-end hidden sm:flex text-white">
             <div class="flex gap-4 items-center text-white">
