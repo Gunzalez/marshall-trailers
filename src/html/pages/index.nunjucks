@@ -5,9 +5,10 @@
 
     <div class="hero">
         <div class="carousel-main">
-            <div class="slide" style="background-image: url('images/sample-hero.png');">your content</div>
-            <div class="slide" style="background-image: url('images/sample-hero-2.png');">your content</div>
-            <div class="slide" style="background-image: url('images/sample-hero-3.png');">your content</div>
+            <div class="slide" style="background-image: url('images/sample-hero.jpg');">your content</div>
+            <div class="slide" style="background-image: url('images/sample-hero-2.jpg');">your content</div>
+            <div class="slide" style="background-image: url('images/sample-hero-3.jpg');">your content</div>
+            <div class="slide" style="background-image: url('images/sample-hero-4.jpg');">your content</div>
         </div>
     </div>
 

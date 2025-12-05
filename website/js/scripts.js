@@ -97,7 +97,7 @@
      * ### object attributes
      * utils for adding and extracting data attributes from HTMl elements
      *
-     * @returns object containing swetter and getter functions
+     * @returns object containing setter and getter functions
      */
     attributes: {
       set: function (element, attr, value) {
@@ -143,6 +143,7 @@
         infinite: true,
         autoplay: true,
         arrows: false,
+        fade: true,
         autoplaySpeed: 7000,
         cssEase: "linear",
       });
@@ -181,6 +182,30 @@
           }
         });
       });
+    },
+  };
+
+  marshallTrailers.miniCarousel = {
+    $carouselMini: null,
+
+    init: function () {
+      this.$carouselMini = $(".carousel-mini").slick({
+        dots: false,
+        slidesToShow: 3,
+        slidesToScroll: 3,
+        autoplay: false,
+        autoplaySpeed: 2000,
+        infinite: true,
+        arrows: false,
+      });
+    },
+
+    next: function () {
+      this.$carouselMini.slick("slickNext");
+    },
+
+    prev: function () {
+      this.$carouselMini.slick("slickPrev");
     },
   };
 
@@ -278,7 +303,7 @@
       var closeBtn = $("#close-navigation");
       var topDrawer = $("#top-drawer");
 
-      topDrawer.on('mouseleave', function() {
+      topDrawer.on("mouseleave", function () {
         marshallTrailers.topNavigation.close();
       });
 
@@ -316,6 +341,9 @@
   marshallTrailers.init = function () {
     marshallTrailers.topNavigation.init();
     marshallTrailers.mobileNavigation.init();
+    marshallTrailers.carousel.init();
+
+    window.miniCarousel = marshallTrailers.miniCarousel;
   };
 
   /** Runs the global init */

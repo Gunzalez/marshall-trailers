@@ -26,6 +26,7 @@
     <!-- javaScript -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4" defer></script>
     <script src="js/vendor/imagesloaded.pkgd.min.js" defer></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js" ></script>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"
       integrity="sha512-WNLxfP/8cVYL9sj8Jnp6et0BkubLP31jhTG9vhL/F5uEZmg5wEzKoXp1kJslzPQWwPT1eyMiSxlKCgzHLOTOTQ=="
@@ -42,12 +43,12 @@
     <a id="back-to-top" class="back-to-top"></a>
     <div id="page">
       <div id="top-drawer" class="bg-white flex items-center justify-center absolute w-full z-50 top-0 shadow-md">
-    <div id="top-navigation" data-top-nav-height="700" class="w-full max-w-[var(--max-width)] mx-auto p-4 transition-all duration-300 ease-in-out relative">
-        <div class="absolute inset-0 p-4 w-full flex gap-4 items-start justify-end">
-            <div class="flex flex-col gap-8 w-full">
+    <div id="top-navigation" data-top-nav-height="160" class="w-full max-w-[var(--max-width)] mx-auto px-4 mt-4 transition-all duration-300 ease-in-out relative">
+        <div class="inset-0 pt-4 w-full flex gap-4 items-start justify-end">
+            <div class="flex flex-col gap-4 w-full">
                 <div class="flex w-full justify-between items-start">
                     <img src="images/logo-marshall-trailers-color.png" alt="Marshall Trailers Logo" class="h-12 sm:h-20">
-                    <div class="flex flex-col gap-2 items-end pt-12">
+                    <div class="flex flex-col gap-2 items-start">
                         <button type="button" aria-label="open menu" id="close-navigation" class="cursor-pointer">
                             <i class="fa-solid fa-xmark text-lg"></i>
                         </button>
@@ -391,23 +392,17 @@
                 </nav>
             </div>
         </div>
-
     </div>
 </div>
-<div class="mx-auto top-0 left-1/2 -translate-x-1/2 w-full max-w-[var(--max-width)] px-4 py-4 absolute">
-    <div class="flex items-center justify-between">
+<div class="mx-auto top-0 left-1/2 -translate-x-1/2 w-full max-w-[var(--max-width)] z-10 p-4 absolute">
+    <div class="flex items-center sm:items-start justify-between">
         <img src="images/logo-marshall-trailers.png" alt="Marshall Trailers Logo" class="h-12 sm:h-20">
         <div class="flex flex-col gap-2 items-end hidden sm:flex text-white">
-            <div class="flex gap-4 items-center text-white border-b border-white pb-1">
+            <div class="flex gap-4 items-center text-white">
                 <a href="contact.html" class="text-white mr-8">Register / Login</a>
                 <i class="fa-solid fa-phone"></i>
                 <i class="fa-solid fa-at"></i>
-            </div>
-            <div class="flex gap-4 items-center text-white">
-                <i class="fa-solid fa-sliders"></i>
-                <i class="fa-solid fa-gears"></i>
-                <i class="fa-solid fa-gear"></i>
-                <button type="button" aria-label="open menu" id="open-navigation" class="ml-6 cursor-pointer">
+                <button type="button" aria-label="open menu" id="open-navigation" class="cursor-pointer">
                     <i class="fa-solid fa-bars"></i>
                 </button>
             </div>
@@ -419,11 +414,110 @@
 </div>
       
 
-    <div class="hero"></div>
+    <div class="hero">
+        <div class="carousel-main">
+            <div class="slide" style="background-image: url('images/sample-hero.jpg');">your content</div>
+            <div class="slide" style="background-image: url('images/sample-hero-2.jpg');">your content</div>
+            <div class="slide" style="background-image: url('images/sample-hero-3.jpg');">your content</div>
+            <div class="slide" style="background-image: url('images/sample-hero-4.jpg');">your content</div>
+        </div>
+    </div>
+
+    <div class="section p-4 flex flex-col gap-2" id="carousel-mini">
+        <h2>Product Ranges</h2>
+        <div class="carousel-mini">
+            <div v-for="(range, i) in productRanges" :key="i" class="slide">
+                <h4 class="title">[[ range.title ]]</h4>
+                <div class="image-wrapper">
+                    <a :href="range.url"><img :src="range.image" :alt="range.title"></a>
+                </div>
+            </div>
+        </div>
+        <div class="flex justify-end items-center p-4 mt-2 gap-2">
+            <button type="button" class="btn" @click="prev">Previous</button>
+            <button type="button" class="btn" @click="next">Next</button>
+        </div>
+    </div>
 
     <div class="max-w-[var(--max-width)] mx-auto p-4 bg-gray-50 h-[900px]">
         Copy, lots and lots of copy, and carousels and such
     </div>
+
+    <script>
+        var productRangesData = [
+            {
+                title: 'Drop-side Trailers',
+                image: 'images/range-1.png',
+                url: '#'
+            }, {
+                title: 'New Low Loaders',
+                image: 'images/range-2.png',
+                url: '#'
+            }, {
+                title: 'Hi-spec grain and silage',
+                image: 'images/range-3.png',
+                url: '#'
+            }, {
+                title: 'Livestock Containers',
+                image: 'images/range-4.png',
+                url: '#'
+            }, {
+                title: 'Multi-purpose Dumpsters',
+                image: 'images/range-1.png',
+                url: '#'
+            }, {
+                title: 'Slurry Tankers',
+                image: 'images/range-2.png',
+                url: '#'
+            }, {
+                title: 'Muck Spreaders',
+                image: 'images/range-3.png',
+                url: '#'
+            }, {
+                title: 'Gotham Bat mobiles',
+                image: 'images/range-4.png',
+                url: '#'
+            }
+        ]
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const {createApp, onMounted, ref} = Vue;
+            createApp({
+                delimiters: [
+                    '[[', ']]'
+                ],
+                setup() {
+                    const productRanges = ref(productRangesData);
+
+                    onMounted(() => {
+                        if (window.miniCarousel) {
+                            window
+                                .miniCarousel
+                                .init();
+                        }
+                    });
+
+                    const prev = () => {
+                        if (window.miniCarousel) {
+                            window
+                                .miniCarousel
+                                .prev();
+                        }
+                    }
+
+                    const next = () => {
+                        if (window.miniCarousel) {
+                            window
+                                .miniCarousel
+                                .next();
+                        }
+                    }
+
+                    return {productRanges, prev, next}
+                }
+            }).mount('#carousel-mini');
+        });
+    </script>
 
 
       <div class="footer">
