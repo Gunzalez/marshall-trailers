@@ -193,10 +193,27 @@
         dots: false,
         slidesToShow: 3,
         slidesToScroll: 3,
+        centerPadding: "40px",
         autoplay: false,
         autoplaySpeed: 2000,
         infinite: true,
         arrows: false,
+        responsive: [
+          {
+            breakpoint: 960,
+            settings: {
+              slidesToShow: 2,
+              slidesToScroll: 2,
+            },
+          },
+          {
+            breakpoint: 640,
+            settings: {
+              slidesToShow: 1,
+              slidesToScroll: 1,
+            },
+          },
+        ],
       });
     },
 
