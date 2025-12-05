@@ -35,6 +35,12 @@
   display: block;
 }
 
+.section {
+  margin: 0 auto;
+  max-width: var(--max-width);
+  margin-bottom: 36px;
+}
+
 .column-two {
   padding-bottom: 2rem;
 
@@ -63,6 +69,30 @@
 
   @media (min-width: $breakpoint2) {
     padding-bottom: 2rem;
+  }
+}
+
+.bttn {
+  border: none;
+  padding: 8px 10px 6px 10px;
+  font-size: 0.9rem;
+  border-radius: 6px;
+  cursor: pointer;
+  line-height: 1;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  background-color: var(--brand-red);
+  color: var(--brand-yellow);
+
+  @media (hover: hover) {
+    &:hover {
+      color: white;
+    }
+  }
+
+  &.small {
+    font-size: 0.8rem;
   }
 }
 

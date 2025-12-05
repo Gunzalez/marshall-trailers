@@ -22,9 +22,9 @@
                 </div>
             </div>
         </div>
-        <div class="flex justify-end items-center p-4 mt-2 gap-2">
-            <button type="button" class="btn" @click="prev">Previous</button>
-            <button type="button" class="btn" @click="next">Next</button>
+        <div class="flex justify-end items-center mt-8 gap-2">
+            <button type="button" class="bttn small" @click="prev">Previous</button>
+            <button type="button" class="bttn small" @click="next">Next</button>
         </div>
     </div>
 
