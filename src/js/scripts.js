@@ -143,6 +143,7 @@
         infinite: true,
         autoplay: true,
         arrows: false,
+        fade: true,
         autoplaySpeed: 7000,
         cssEase: "linear",
       });
@@ -316,6 +317,7 @@
   marshallTrailers.init = function () {
     marshallTrailers.topNavigation.init();
     marshallTrailers.mobileNavigation.init();
+    marshallTrailers.carousel.init();
   };
 
   /** Runs the global init */
