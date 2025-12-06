@@ -39,6 +39,10 @@
   margin: 0 auto;
   max-width: var(--max-width);
   margin-bottom: 36px;
+
+  @media (max-width: 640px) {
+    margin-bottom: 18px;
+  }
 }
 
 .column-two {
