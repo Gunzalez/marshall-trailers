@@ -28,6 +28,39 @@
         </div>
     </div>
 
+    <div id="tabs-section" class="tabs-section">
+        <li class="tabs-list desktop-only px-4" role="presentation">
+            <button v-for="tab in tabs" :key="tab.id"
+                        type="button"
+                        :class="{ active: activeTab === tab.id }"
+                        role="tab"
+                        @click="setActiveTab(tab.id)"
+                        :aria-selected="[[ activeTab === tab.id ]]">
+                [[ tab.header ]]
+                </button>
+        </li>
+        <div class="tab-content">
+            <div v-for="tab in tabs" :key="tab.id">
+                <div class="accordion-header mobile-only" role="tab">
+                    <button type="button"
+                        role="tab"
+                        @click="setActiveTab(tab.id)"
+                        :class="{ active: activeTab === tab.id }"
+                        :aria-selected="[[ activeTab === tab.id ]]">
+                    [[ tab.header ]]
+                </button>
+                </div>
+                <div v-show="activeTab === tab.id" class="tab-hero-content">
+                    <div class="copy-wrapper">
+                        <h3 class="title">[[ tab.title ]]</h3>
+                        <p>[[ tab.content ]]</p>
+                        <a :href="tab.href">[[ tab.label ]]</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="max-w-[var(--max-width)] mx-auto p-4 bg-gray-50 h-[900px]">
         Copy, lots and lots of copy, and carousels and such
     </div>
@@ -69,6 +102,42 @@
             }
         ]
 
+        var tabsData = [
+            {
+                id: 1,
+                header: "Heritage",
+                title: "We've grown together",
+                content: "Growing from a small family business to one of the UK's leading trailer manufacturers, Marshalls Trailers has a rich heritage built on quality, innovation, and customer satisfaction.",
+                imageSrc: "images/sample-hero.jpg",
+                label: "Read more",
+                href: "#"
+            }, {
+                id: 2,
+                header: "Innovation",
+                title: "Winners of multiple awards",
+                content: "At Marshalls Trailers, innovation is at the heart of everything we do. Our commitment to research and development has led to numerous industry awards, recognizing our cutting-edge designs and advanced manufacturing techniques.",
+                imageSrc: "images/sample-hero-2.jpg",
+                label: "Learn More",
+                href: "#"
+            }, {
+                id: 3,
+                header: "Quality",
+                title: "Building a greener future",
+                content: "Marshalls Trailers is dedicated to sustainability, implementing eco-friendly practices in our manufacturing processes and designing trailers that help reduce environmental impact for our customers.",
+                imageSrc: "images/sample-hero-3.jpg",
+                label: "Discover how",
+                href: "#"
+            }, {
+                id: 4,
+                header: "Value",
+                title: "Supporting local initiatives",
+                content: "We believe in giving back to the community. Marshalls Trailers actively supports local initiatives and charities, fostering strong relationships and making a positive impact in the areas where we operate.",
+                imageSrc: "images/sample-hero-4.jpg",
+                label: "Get Involved",
+                href: "#"
+            }
+        ]
+
         document.addEventListener('DOMContentLoaded', () => {
             const {createApp, onMounted, ref} = Vue;
             createApp({
@@ -105,6 +174,21 @@
                     return {productRanges, prev, next}
                 }
             }).mount('#carousel-mini');
+
+            createApp({
+                delimiters: [
+                    '[[', ']]'
+                ],
+                setup() {
+                    const tabs = ref(tabsData);
+                    const activeTab = ref(1);
+
+                    const setActiveTab = (id) => {
+                        activeTab.value = id;
+                    }
+                    return {tabs, activeTab, setActiveTab}
+                }
+            }).mount('#tabs-section');
         });
     </script>
 
