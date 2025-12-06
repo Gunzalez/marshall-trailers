@@ -29,6 +29,7 @@
     </div>
 
     <div id="tabs-section" class="tabs-section">
+        <h2 class="section-title px-4">Our Values</h2>
         <li class="tabs-list desktop-only px-4" role="presentation">
             <button v-for="tab in tabs" :key="tab.id"
                         type="button"

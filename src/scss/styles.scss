@@ -110,6 +110,11 @@
     background-color: var(--brand-red);
   }
 
+  .section-title {
+    max-width: var(--max-width);
+    margin: 0 auto 1rem auto;
+  }
+
   .tabs-list {
     display: flex;
     justify-content: center;
@@ -125,7 +130,7 @@
     button {
       width: 25%;
       padding: 12px 16px;
-      font-size: 1.5rem;
+      font-size: 1.2rem;
       border-bottom: 6px solid transparent;
       cursor: pointer;
 
