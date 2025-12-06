@@ -147,6 +147,28 @@
       }
     }
   }
+
+  @media screen and (max-width: 768px) {
+    justify-content: space-between;
+    margin-top: -2rem;
+    margin-bottom: 2rem;
+
+    button {
+      border: 1px solid var(--brand-gray);
+      border-radius: 50%;
+      width: 44px;
+      height: 44px;
+      position: relative;
+
+      i {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        font-size: 1.5rem;
+        transform: translate(-50%, -50%);
+      }
+    }
+  }
 }
 
 .tabs-section {
