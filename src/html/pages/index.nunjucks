@@ -12,6 +12,10 @@
         </div>
     </div>
 
+    <div class="mt-6 pb-2 md:mt-8 md:pb-4 max-w-[var(--max-width)] mx-auto">
+        <div class="border-t border-[var(--brand-gray)] mx-4"></div>
+    </div>
+
     <div class="section p-4 flex flex-col gap-2" id="carousel-mini">
         <h2>Product Ranges</h2>
         <div class="carousel-mini">
@@ -24,10 +28,18 @@
                 </a>
             </div>
         </div>
-        <div class="flex justify-end items-center mt-8 gap-2">
-            <button type="button" class="bttn small" @click="prev">Previous</button>
-            <button type="button" class="bttn small" @click="next">Next</button>
+        <div class="carousel-controls">
+            <button type="button" @click="prev">
+                <i class="fa-solid fa-caret-left"></i>
+            </button>
+            <button type="button" @click="next">
+                <i class="fa-solid fa-caret-right"></i>
+            </button>
         </div>
+    </div>
+
+    <div class="mt-6 pb-2 md:mt-8 md:pb-4 max-w-[var(--max-width)] mx-auto">
+        <div class="border-t border-[var(--brand-gray)] mx-4"></div>
     </div>
 
     <div id="tabs-section" class="tabs-section">
@@ -40,7 +52,7 @@
                         @click="setActiveTab(tab.id)"
                         :aria-selected="[[ activeTab === tab.id ]]">
                 [[ tab.header ]]
-                </button>
+            </button>
         </li>
         <div class="tab-content">
             <div v-for="tab in tabs" :key="tab.id">
@@ -48,9 +60,13 @@
                     <button type="button"
                         role="tab"
                         @click="setActiveTab(tab.id)"
+                        class="flex gap-2 items-center justify-between px-4"
                         :aria-selected="[[ activeTab === tab.id ]]">
-                    [[ tab.header ]]
-                </button>
+                        <span>[[ tab.header ]]</span>
+                        <i class="fa-solid fa-caret-right text-xl text-[var(--brand-yellow)] hover:text-[var(--brand-red)] cursor-pointer"
+                        :class="{ 'rotate-90': activeTab === tab.id }"
+                        ></i>
+                    </button>
                 </div>
                 <div v-show="activeTab === tab.id" class="tab-hero-content">
                     <div class="copy-wrapper">
