@@ -193,7 +193,6 @@
         dots: false,
         slidesToShow: 3,
         slidesToScroll: 3,
-        centerPadding: "40px",
         autoplay: false,
         autoplaySpeed: 2000,
         infinite: true,
@@ -311,18 +310,18 @@
   };
 
   /**
-   * @backToTop
-   * Helps navigate up and down long pages
+   * @topNavigation
+   * Handles the desktop navigation drawer behaviour
    */
   marshallTrailers.topNavigation = {
     init: function () {
       var openBtn = $("#open-navigation");
       var closeBtn = $("#close-navigation");
-      var topDrawer = $("#top-drawer");
+      // var topDrawer = $("#top-drawer");
 
-      topDrawer.on("mouseleave", function () {
-        marshallTrailers.topNavigation.close();
-      });
+      // topDrawer.on("mouseleave", function () {
+      //   marshallTrailers.topNavigation.close();
+      // });
 
       openBtn.on("click", function (e) {
         e.preventDefault();
@@ -349,6 +348,20 @@
   // resize events */
   $(window).on("resize", function () {
     marshallTrailers.topNavigation.close();
+  });
+
+  // scroll events */
+  var lastScrollY = window.scrollY;
+  $(window).on("scroll", function () {
+    var currentScrollY = window.scrollY;
+    var scrolledDistance = Math.abs(currentScrollY - lastScrollY);
+
+    if (scrolledDistance >= 100) {
+      if (currentScrollY > lastScrollY) {
+        marshallTrailers.topNavigation.close();
+      }
+      lastScrollY = currentScrollY;
+    }
   });
 
   /**

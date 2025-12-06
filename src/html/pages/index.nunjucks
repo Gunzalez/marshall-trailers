@@ -16,10 +16,12 @@
         <h2>Product Ranges</h2>
         <div class="carousel-mini">
             <div v-for="(range, i) in productRanges" :key="i" class="slide">
-                <h4 class="title">[[ range.title ]]</h4>
-                <div class="image-wrapper">
-                    <a :href="range.url"><img :src="range.image" :alt="range.title"></a>
-                </div>
+                <a class="pod" :href="range.url">
+                    <h4 class="title">[[ range.title ]]</h4>
+                    <div class="image-wrapper">
+                        <img :src="range.image" :alt="range.title">
+                    </div>
+                </a>
             </div>
         </div>
         <div class="flex justify-end items-center mt-8 gap-2">
