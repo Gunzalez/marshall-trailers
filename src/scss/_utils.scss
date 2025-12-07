@@ -6,7 +6,7 @@
   display: block;
 }
 
-@media (max-width: 640px) {
+@media (max-width: 768px) {
   .mobile-only {
     display: block !important;
   }
@@ -40,8 +40,19 @@
   max-width: var(--max-width);
   margin-bottom: 36px;
 
-  @media (max-width: 640px) {
+  @media (max-width: 768px) {
     margin-bottom: 18px;
+  }
+
+  .subsection-title {
+    margin-bottom: 0.5rem;
+
+    font-size: var(--font-subtitle);
+    font-weight: 600;
+
+    @media (max-width: 768px) {
+      font-size: 20px;
+    }
   }
 }
 
@@ -95,14 +106,14 @@
 
   @media (hover: hover) {
     &:hover {
-      color: var(--brand-yellow);
+      background-color: var(--brand-red-dark);
     }
   }
 
-  &.dark {
-    background-color: var(--brand-red-dark);
-    border-color: white;
-  }
+  // &.dark {
+  //   background-color: var(--brand-red-dark);
+  //   border-color: white;
+  // }
 
   &.small {
     font-size: 0.8rem;
