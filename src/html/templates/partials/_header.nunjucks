@@ -353,7 +353,7 @@
 <div class="logo-wrapper mx-auto top-0 left-1/2 -translate-x-1/2 w-full max-w-[var(--max-width)] z-10 p-4 absolute">
     <div class="flex items-center sm:items-start justify-between">
         <img src="images/logo-marshall-trailers.png" alt="Marshall Trailers Logo" class="h-12 sm:h-20">
-        <div class="flex flex-col gap-2 items-end hidden sm:flex text-white">
+        <div class="flex flex-col gap-2 items-end flex text-white desktop-buttons">
             <div class="flex gap-4 items-center text-white">
                 <a href="contact.html" class="text-white mr-8">Register / Login</a>
                 <i class="fa-solid fa-phone"></i>
@@ -363,7 +363,7 @@
                 </button>
             </div>
         </div>
-        <button type="button" aria-label="open menu" id="toggle-mobile-navigation" class="sm:hidden">
+        <button type="button" aria-label="open menu" id="toggle-mobile-navigation" class="mobile-buttons">
             <i class="fa-solid fa-bars text-white text-2xl"></i>
         </button>
     </div>

@@ -110,7 +110,7 @@
             <div class="border border-[var(--brand-gray)] min-h-[300px] p-4 w-full rounded-md">
                 <div class="w-[40%]">
                     <p>Placeholder for a banner or additional content</p>
-                    <a href="" class="bttn">Configure</a>
+                    <a href="#" class="bttn">Configure</a>
                 </div>
             </div>
         </div>
@@ -119,7 +119,7 @@
             <div class="border border-[var(--brand-gray)] min-h-[300px] p-4 w-full rounded-md">
                 <div class="w-[40%]">
                     <p>Placeholder for a banner or additional content</p>
-                    <a href="" class="bttn">Locate</a>
+                    <a href="#" class="bttn">Spares</a>
                 </div>
             </div>
         </div>
