@@ -74,6 +74,7 @@
                         <p>[[ tab.content ]]</p>
                         <a :href="tab.href">[[ tab.label ]]</a>
                     </div>
+                    <div class="image-wrapper" :style="{ backgroundImage: 'url(' + tab.imageSrc + ')' }"></div>
                 </div>
             </div>
         </div>
@@ -124,9 +125,9 @@
             {
                 id: 1,
                 header: "Heritage",
-                title: "We've grown together",
+                title: "We have grown together",
                 content: "Growing from a small family business to one of the UK's leading trailer manufacturers, Marshalls Trailers has a rich heritage built on quality, innovation, and customer satisfaction.",
-                imageSrc: "images/sample-hero.jpg",
+                imageSrc: "images/tab-bg-1.png",
                 label: "Read more",
                 href: "#"
             }, {
@@ -134,7 +135,7 @@
                 header: "Innovation",
                 title: "Winners of multiple awards",
                 content: "At Marshalls Trailers, innovation is at the heart of everything we do. Our commitment to research and development has led to numerous industry awards, recognizing our cutting-edge designs and advanced manufacturing techniques.",
-                imageSrc: "images/sample-hero-2.jpg",
+                imageSrc: "images/tab-bg-2.png",
                 label: "Learn More",
                 href: "#"
             }, {
@@ -142,7 +143,7 @@
                 header: "Quality",
                 title: "Building a greener future",
                 content: "Marshalls Trailers is dedicated to sustainability, implementing eco-friendly practices in our manufacturing processes and designing trailers that help reduce environmental impact for our customers.",
-                imageSrc: "images/sample-hero-3.jpg",
+                imageSrc: "images/tab-bg-3.png",
                 label: "Discover how",
                 href: "#"
             }, {
@@ -150,7 +151,7 @@
                 header: "Value",
                 title: "Supporting local initiatives",
                 content: "We believe in giving back to the community. Marshalls Trailers actively supports local initiatives and charities, fostering strong relationships and making a positive impact in the areas where we operate.",
-                imageSrc: "images/sample-hero-4.jpg",
+                imageSrc: "images/tab-bg-4.png",
                 label: "Get Involved",
                 href: "#"
             }
