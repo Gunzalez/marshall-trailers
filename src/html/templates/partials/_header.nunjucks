@@ -350,7 +350,7 @@
         </div>
     </div>
 </div>
-<div class="mx-auto top-0 left-1/2 -translate-x-1/2 w-full max-w-[var(--max-width)] z-10 p-4 absolute">
+<div class="logo-wrapper mx-auto top-0 left-1/2 -translate-x-1/2 w-full max-w-[var(--max-width)] z-10 p-4 absolute">
     <div class="flex items-center sm:items-start justify-between">
         <img src="images/logo-marshall-trailers.png" alt="Marshall Trailers Logo" class="h-12 sm:h-20">
         <div class="flex flex-col gap-2 items-end hidden sm:flex text-white">
