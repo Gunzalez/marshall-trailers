@@ -5,10 +5,34 @@
 
     <div class="hero">
         <div class="carousel-main">
-            <div class="slide" style="background-image: url('images/sample-hero.jpg');">your content</div>
-            <div class="slide" style="background-image: url('images/sample-hero-2.jpg');">your content</div>
-            <div class="slide" style="background-image: url('images/sample-hero-3.jpg');">your content</div>
-            <div class="slide" style="background-image: url('images/sample-hero-4.jpg');">your content</div>
+            <div class="slide preload" style="background-image: url('images/sample-hero.jpg');">
+                <div class="copy-wrapper">
+                    <div class="copy-content">
+                        <h1 class="hero-title p-4">The Legendary Marshall Muckspreader</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="slide preload" style="background-image: url('images/sample-hero-2.jpg');">
+                <div class="copy-wrapper">
+                    <div class="copy-content">
+                        <h1 class="hero-title p-4">New Low Loader</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="slide preload" style="background-image: url('images/sample-hero-3.jpg');">
+                <div class="copy-wrapper">
+                    <div class="copy-content">
+                        <h1 class="hero-title p-4">The Marshall Livestock Container</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="slide preload" style="background-image: url('images/sample-hero-4.jpg');">
+                <div class="copy-wrapper">
+                    <div class="copy-content">
+                        <h1 class="hero-title p-4">Marshall Drop-side Trailer</h1>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -72,7 +96,7 @@
                     <div class="copy-wrapper">
                         <h3 class="title">[[ tab.title ]]</h3>
                         <p>[[ tab.content ]]</p>
-                        <a :href="tab.href" class="bttn dark">[[ tab.label ]]</a>
+                        <a :href="tab.href" class="bttn">[[ tab.label ]]</a>
                     </div>
                     <div class="image-wrapper" :style="{ backgroundImage: 'url(' + tab.imageSrc + ')' }"></div>
                 </div>
@@ -80,8 +104,25 @@
         </div>
     </div>
 
-    <div class="max-w-[var(--max-width)] mx-auto p-4 bg-gray-50 h-[900px]">
-        Copy, lots and lots of copy, and carousels and such
+    <div class="section p-4 flex lg:flex-row flex-col gap-8">
+        <div class="w-full">
+            <h3 class="subsection-title">Configure your new Marshall</h3>
+            <div class="border border-[var(--brand-gray)] min-h-[300px] p-4 w-full rounded-md">
+                <div class="w-[40%]">
+                    <p>Placeholder for a banner or additional content</p>
+                    <a href="" class="bttn">Configure</a>
+                </div>
+            </div>
+        </div>
+        <div class="w-full">
+            <h3 class="subsection-title">Official Marshall spares</h3>
+            <div class="border border-[var(--brand-gray)] min-h-[300px] p-4 w-full rounded-md">
+                <div class="w-[40%]">
+                    <p>Placeholder for a banner or additional content</p>
+                    <a href="" class="bttn">Locate</a>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script>
@@ -152,7 +193,7 @@
                 title: "Supporting local initiatives",
                 content: "We believe in giving back to the community. Marshalls Trailers actively supports local initiatives and charities, fostering strong relationships and making a positive impact in the areas where we operate.",
                 imageSrc: "images/tab-bg-4.png",
-                label: "Get Involved",
+                label: "Talk To Us",
                 href: "#"
             }
         ]
