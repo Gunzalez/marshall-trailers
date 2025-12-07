@@ -78,21 +78,30 @@
 
 .bttn {
   border: none;
-  padding: 8px 10px 6px 10px;
-  font-size: 0.9rem;
-  border-radius: 6px;
+  padding: 12px 16px 10px;
+  font-size: 1rem;
+  border-radius: 4px;
   cursor: pointer;
   line-height: 1;
   text-decoration: none;
   display: inline-block;
   text-align: center;
+  border-style: solid;
+  border-width: 1px;
+  transition: all 0.3s ease-in-out;
+
   background-color: var(--brand-red);
-  color: var(--brand-yellow);
+  color: white;
 
   @media (hover: hover) {
     &:hover {
-      color: white;
+      color: var(--brand-yellow);
     }
+  }
+
+  &.dark {
+    background-color: var(--brand-red-dark);
+    border-color: white;
   }
 
   &.small {

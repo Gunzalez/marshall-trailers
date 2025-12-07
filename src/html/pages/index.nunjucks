@@ -72,7 +72,7 @@
                     <div class="copy-wrapper">
                         <h3 class="title">[[ tab.title ]]</h3>
                         <p>[[ tab.content ]]</p>
-                        <a :href="tab.href">[[ tab.label ]]</a>
+                        <a :href="tab.href" class="bttn dark">[[ tab.label ]]</a>
                     </div>
                     <div class="image-wrapper" :style="{ backgroundImage: 'url(' + tab.imageSrc + ')' }"></div>
                 </div>
@@ -128,7 +128,7 @@
                 title: "We have grown together",
                 content: "Growing from a small family business to one of the UK's leading trailer manufacturers, Marshalls Trailers has a rich heritage built on quality, innovation, and customer satisfaction.",
                 imageSrc: "images/tab-bg-1.png",
-                label: "Read more",
+                label: "Read More",
                 href: "#"
             }, {
                 id: 2,
@@ -144,7 +144,7 @@
                 title: "Building a greener future",
                 content: "Marshalls Trailers is dedicated to sustainability, implementing eco-friendly practices in our manufacturing processes and designing trailers that help reduce environmental impact for our customers.",
                 imageSrc: "images/tab-bg-3.png",
-                label: "Discover how",
+                label: "Discover How",
                 href: "#"
             }, {
                 id: 4,

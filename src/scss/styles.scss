@@ -108,6 +108,7 @@
       width: 8px;
       height: 8px;
       border-radius: 50%;
+      transition: all 0.3s ease-in-out;
       background-color: var(--brand-gray);
     }
 
@@ -140,6 +141,7 @@
   color: var(--brand-yellow);
 
   button {
+    transition: all 0.3s ease-in-out;
     cursor: pointer;
     @media (hover: hover) {
       &:hover {
