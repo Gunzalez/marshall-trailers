@@ -62,10 +62,6 @@
         </div>
     </div>
 
-    <div class="mt-6 pb-2 md:mt-8 md:pb-4 max-w-[var(--max-width)] mx-auto">
-        <div class="border-t border-[var(--brand-gray)] mx-4"></div>
-    </div>
-
     <div id="tabs-section" class="tabs-section">
         <h2 class="section-title px-4">Our Values</h2>
         <li class="tabs-list desktop-only px-4" role="presentation">
@@ -130,6 +126,17 @@
                 </div>
             </div>
         </div>
+    </div>
+
+    <div class="section p-4 flex flex-col gap-0">
+        <h3 class="section-title">As hardworking as you are</h3>
+        <div class="video-container">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/IXVJs-1LzPQ?si=5u_n3SonjP-GkfN7&amp;start=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <div class="mt-6 pb-2 md:mt-8 md:pb-4 max-w-[var(--max-width)] mx-auto">
+        <div class="border-t border-[var(--brand-gray)] mx-4"></div>
     </div>
 
     <script>
