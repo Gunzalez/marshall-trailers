@@ -96,7 +96,7 @@
                     <div class="copy-wrapper">
                         <h3 class="title">[[ tab.title ]]</h3>
                         <p>[[ tab.content ]]</p>
-                        <a :href="tab.href" class="bttn">[[ tab.label ]]</a>
+                        <a :href="tab.href" class="bttn bordered-bttn">[[ tab.label ]]</a>
                     </div>
                     <div class="image-wrapper" :style="{ backgroundImage: 'url(' + tab.imageSrc + ')' }"></div>
                 </div>
@@ -104,22 +104,29 @@
         </div>
     </div>
 
-    <div class="section p-4 flex lg:flex-row flex-col gap-8">
+    <div class="section p-4 with-subsection">
         <div class="w-full">
             <h3 class="subsection-title">Configure your new Marshall</h3>
-            <div class="border border-[var(--brand-gray)] min-h-[300px] p-4 w-full rounded-md">
-                <div class="w-[40%]">
-                    <p>Placeholder for a banner or additional content</p>
-                    <a href="#" class="bttn">Configure</a>
+            <div class="subsection-content border border-[var(--brand-gray)] p-4 w-full rounded-md">
+                <img class="subsection-bg" src="images/sub-section-bg-1.png" alt="">
+                <div class="text-wrapper">
+                    <p>Configure your new Marshall trailer with our easy-to-use online tool, it is amazingly simple and efficient.</p>
+                    <a href="#" class="bttn">
+                        <i class="fa-solid fa-user-gear"></i>
+                        <span>Configure</span></a>
                 </div>
             </div>
         </div>
         <div class="w-full">
             <h3 class="subsection-title">Official Marshall spares</h3>
-            <div class="border border-[var(--brand-gray)] min-h-[300px] p-4 w-full rounded-md">
-                <div class="w-[40%]">
-                    <p>Placeholder for a banner or additional content</p>
-                    <a href="#" class="bttn">Spares</a>
+            <div class="subsection-content border border-[var(--brand-gray)] p-4 w-full rounded-md">
+                <img class="subsection-bg" src="images/sub-section-bg-2.png" alt="">
+                <div class="text-wrapper">
+                    <p>Here at Marshall Trailers, we pride ourselves on providing genuine spare parts to keep your equipment running smoothly.
+                    </p>
+                    <a href="#" class="bttn">
+                        <i class="fa-solid fa-gear"></i>
+                        <span>Spares</span></a>
                 </div>
             </div>
         </div>
@@ -177,7 +184,7 @@
                 title: "Winners of multiple awards",
                 content: "At Marshalls Trailers, innovation is at the heart of everything we do. Our commitment to research and development has led to numerous industry awards, recognizing our cutting-edge designs and advanced manufacturing techniques.",
                 imageSrc: "images/tab-bg-2.png",
-                label: "Learn More",
+                label: "See Full List",
                 href: "#"
             }, {
                 id: 3,

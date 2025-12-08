@@ -109,7 +109,6 @@
 }
 
 .bttn {
-  border: none;
   padding: 12px 16px 10px;
   font-size: 1rem;
   border-radius: 4px;
@@ -118,26 +117,32 @@
   text-decoration: none;
   display: inline-block;
   text-align: center;
-  border-style: solid;
-  border-width: 1px;
+  border: 1px solid transparent;
+  border: 1px solid var(--brand-red-dark);
   transition: all 0.3s ease-in-out;
+  display: inline-flex;
+  gap: 12px;
+  align-items: center;
 
-  background-color: var(--brand-red);
+  background-color: var(--brand-red-dark);
   color: white;
+
+  i {
+    color: var(--brand-yellow);
+  }
 
   @media (hover: hover) {
     &:hover {
-      background-color: var(--brand-red-dark);
+      background-color: var(--brand-red);
     }
   }
 
-  // &.dark {
-  //   background-color: var(--brand-red-dark);
-  //   border-color: white;
-  // }
-
   &.small {
     font-size: 0.8rem;
+  }
+
+  &.bordered-bttn {
+    border: 1px solid white;
   }
 }
 
