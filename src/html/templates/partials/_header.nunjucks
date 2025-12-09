@@ -3,7 +3,7 @@
         <div class="inset-0 pt-4 w-full flex gap-4 items-start justify-end">
             <div class="flex flex-col gap-4 w-full">
                 <div class="flex w-full justify-between items-start">
-                    <img src="images/logo-marshall-trailers-color.png" alt="Marshall Trailers Logo" class="h-12 sm:h-20">
+                    <a href="/"><img src="images/logo-marshall-trailers-color.png" alt="Marshall Trailers Logo" class="h-12 sm:h-20"></a>
                     <div class="flex flex-col gap-2 items-start">
                         <button type="button" aria-label="open menu" id="close-navigation" class="cursor-pointer">
                             <i class="fa-solid fa-xmark text-lg"></i>
@@ -12,6 +12,9 @@
                 </div>
                 <nav id="desktop-navigation">
                     <ul class="main-menu">
+                        <li class="mobile-only">
+                            <a href="/" title="Home">Home</a>
+                        </li>
                         <li class="has-submenu">
                             <a href="/products" title="Products">Products</a>
                             <ul class="submenu">
@@ -352,7 +355,7 @@
 </div>
 <div class="logo-wrapper mx-auto top-0 left-1/2 -translate-x-1/2 w-full max-w-[var(--max-width)] z-10 p-4 absolute">
     <div class="flex items-center sm:items-start justify-between">
-        <img src="images/logo-marshall-trailers.png" alt="Marshall Trailers Logo" class="h-12 sm:h-20">
+        <a href="/"><img src="images/logo-marshall-trailers.png" alt="Marshall Trailers Logo" class="h-16 sm:h-12 sm:h-20"></a>
         <div class="flex flex-col gap-2 items-end flex text-white desktop-buttons">
             <div class="flex gap-4 items-center text-white">
                 <a href="contact.html" class="text-white mr-8">Register / Login</a>

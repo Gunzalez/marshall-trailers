@@ -71,15 +71,6 @@
   }
 }
 
-.subsection-title {
-  font-size: var(--font-subtitle);
-  font-weight: 600;
-
-  @media (max-width: 768px) {
-    font-size: 20px;
-  }
-}
-
 .video-container {
   position: relative;
   padding-bottom: 56.25%; /* 16:9 */
