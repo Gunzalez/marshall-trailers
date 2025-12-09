@@ -1,4 +1,4 @@
-<div id="top-drawer" class="bg-white flex items-center justify-center absolute w-full z-50 top-0 shadow-md">
+<div id="top-drawer" class="bg-white flex items-center justify-center fixed w-full z-50 top-0 shadow-md">
     <div id="top-navigation" data-top-nav-height="160" class="w-full max-w-[var(--max-width)] mx-auto px-4 mt-4 transition-all duration-300 ease-in-out relative">
         <div class="inset-0 pt-4 w-full flex gap-4 items-start justify-end">
             <div class="flex flex-col gap-4 w-full">

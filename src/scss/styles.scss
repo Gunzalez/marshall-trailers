@@ -6,6 +6,14 @@
 
 #top-navigation {
   margin-top: -160px;
+
+  &.opened {
+    margin-top: 0;
+  }
+
+  &.scrolled {
+    margin-top: -105px;
+  }
 }
 
 .pod {
@@ -144,6 +152,7 @@
       color: white;
       text-shadow: 0 0 3px #000;
       padding: 1rem;
+      line-height: 1.2;
 
       @media (min-width: $breakpoint1) {
         font-size: 3.2rem;
@@ -181,7 +190,7 @@
       }
 
       .hero-title {
-        padding-right: 20%;
+        padding: 0 12% 0 1rem;
       }
     }
   }
@@ -247,16 +256,17 @@
 
     max-width: var(--max-width);
     margin: 0 auto;
-    padding-bottom: 2px;
+    padding-bottom: 5px;
     padding-left: 4rem;
     padding-right: 4rem;
 
     button {
       width: 25%;
-      padding: 12px 16px;
+      padding: 16px 0;
+      line-height: 1;
       font-size: var(--font-subtitle);
       font-weight: 600;
-      border-bottom: 6px solid transparent;
+      border-bottom: 8px solid transparent;
       cursor: pointer;
       transition: all 0.33s ease-in-out;
 
@@ -356,6 +366,7 @@
 
   @media screen and (min-width: 768px) {
     flex-direction: row;
+    gap: 2rem;
 
     .subsection-content {
       min-height: 300px;

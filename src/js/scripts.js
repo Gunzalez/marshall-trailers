@@ -334,15 +334,17 @@
         marshallTrailers.topNavigation.close();
       });
     },
+
     open: function () {
-      var topNav = $("#top-navigation");
-      topNav.css("margin-top", "0px");
+      $("#top-navigation").addClass("opened");
+    },
+
+    scrolled: function () {
+      $("#top-navigation").addClass("scrolled");
     },
 
     close: function () {
-      var topNav = $("#top-navigation");
-      var topNavHeight = topNav.data("top-nav-height");
-      topNav.css("margin-top", -topNavHeight + "px");
+      $("#top-navigation").removeClass("opened").removeClass("scrolled");
     },
   };
 
@@ -353,13 +355,19 @@
 
   // scroll events */
   var lastScrollY = window.scrollY;
+  var SCROLLED_DISTANCE = 200;
+  var DISTANCE_TO_HIDE = 400;
   $(window).on("scroll", function () {
     var currentScrollY = window.scrollY;
     var scrolledDistance = Math.abs(currentScrollY - lastScrollY);
 
-    if (scrolledDistance >= 100) {
+    if (scrolledDistance >= SCROLLED_DISTANCE) {
       if (currentScrollY > lastScrollY) {
-        marshallTrailers.topNavigation.close();
+        marshallTrailers.topNavigation.scrolled();
+      } else {
+        if (currentScrollY <= DISTANCE_TO_HIDE) {
+          marshallTrailers.topNavigation.close();
+        }
       }
       lastScrollY = currentScrollY;
     }
