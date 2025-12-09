@@ -4,32 +4,11 @@
 {% block content %}
 
     <div class="hero">
-        <div class="carousel-main">
-            <div class="slide preload" style="background-image: url('images/sample-hero.jpg');">
+        <div id="carousel-main" class="carousel-main">
+            <div v-for="(slide, i) in heroCarouselData" :key="i" class="slide preload" :style="{ backgroundImage: 'url(' + slide.image + ')' }">
                 <div class="copy-wrapper">
                     <div class="copy-content">
-                        <h1 class="hero-title">The Legendary Marshall Muckspreader</h1>
-                    </div>
-                </div>
-            </div>
-            <div class="slide preload" style="background-image: url('images/sample-hero-2.jpg');">
-                <div class="copy-wrapper">
-                    <div class="copy-content">
-                        <h1 class="hero-title">New Low Loader</h1>
-                    </div>
-                </div>
-            </div>
-            <div class="slide preload" style="background-image: url('images/sample-hero-3.jpg');">
-                <div class="copy-wrapper">
-                    <div class="copy-content">
-                        <h1 class="hero-title">The Marshall Livestock Container</h1>
-                    </div>
-                </div>
-            </div>
-            <div class="slide preload" style="background-image: url('images/sample-hero-4.jpg');">
-                <div class="copy-wrapper">
-                    <div class="copy-content">
-                        <h1 class="hero-title">Marshall Drop-side Trailer</h1>
+                        <h1 class="hero-title">[[ slide.title ]]</h1>
                     </div>
                 </div>
             </div>
@@ -140,6 +119,26 @@
     </div>
 
     <script>
+        var carouselData = [
+            {
+                title: 'The Legendary Marshall Muckspreader',
+                image: 'images/sample-hero.jpg',
+                url: '#'
+            }, {
+                title: 'New Low Loader',
+                image: 'images/sample-hero-2.jpg',
+                url: '#'
+            }, {
+                title: 'The Marshall Livestock Container',
+                image: 'images/sample-hero-3.jpg',
+                url: '#'
+            }, {
+                title: 'Marshall Drop-side Trailer',
+                image: 'images/sample-hero-4.jpg',
+                url: '#'
+            }
+        ]
+
         var productRangesData = [
             {
                 title: 'Drop-side Trailers',
@@ -263,6 +262,25 @@
                     return {tabs, activeTab, setActiveTab}
                 }
             }).mount('#tabs-section');
+
+            createApp({
+                delimiters: [
+                    '[[', ']]'
+                ],
+                setup() {
+                    const heroCarouselData = ref(carouselData);
+
+                    onMounted(() => {
+                        if (window.heroCarousel) {
+                            window
+                                .heroCarousel
+                                .init();
+                        }
+                    });
+                    return {heroCarouselData}
+                }
+            }).mount('#carousel-main');
+
         });
     </script>
 

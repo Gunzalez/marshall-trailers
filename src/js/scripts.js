@@ -147,6 +147,8 @@
         autoplaySpeed: 7000,
         cssEase: "linear",
       });
+
+      console.log("carousel again initiated");
     },
 
     /**
@@ -318,11 +320,6 @@
     init: function () {
       var openBtn = $("#open-navigation");
       var closeBtn = $("#close-navigation");
-      // var topDrawer = $("#top-drawer");
-
-      // topDrawer.on("mouseleave", function () {
-      //   marshallTrailers.topNavigation.close();
-      // });
 
       openBtn.on("click", function (e) {
         e.preventDefault();
@@ -380,8 +377,8 @@
   marshallTrailers.init = function () {
     marshallTrailers.topNavigation.init();
     marshallTrailers.mobileNavigation.init();
-    marshallTrailers.carousel.init();
 
+    window.heroCarousel = marshallTrailers.carousel;
     window.miniCarousel = marshallTrailers.miniCarousel;
   };
 
