@@ -194,9 +194,26 @@
         slidesToShow: 3,
         slidesToScroll: 3,
         autoplay: false,
+        centerPadding: "40px",
         autoplaySpeed: 2000,
         infinite: true,
         arrows: false,
+        responsive: [
+          {
+            breakpoint: 1200,
+            settings: {
+              slidesToShow: 2,
+              slidesToScroll: 2,
+            },
+          },
+          {
+            breakpoint: 768,
+            settings: {
+              slidesToShow: 1,
+              slidesToScroll: 1,
+            },
+          },
+        ],
       });
     },
 
@@ -294,18 +311,18 @@
   };
 
   /**
-   * @backToTop
-   * Helps navigate up and down long pages
+   * @topNavigation
+   * Handles the desktop navigation drawer behaviour
    */
   marshallTrailers.topNavigation = {
     init: function () {
       var openBtn = $("#open-navigation");
       var closeBtn = $("#close-navigation");
-      var topDrawer = $("#top-drawer");
+      // var topDrawer = $("#top-drawer");
 
-      topDrawer.on("mouseleave", function () {
-        marshallTrailers.topNavigation.close();
-      });
+      // topDrawer.on("mouseleave", function () {
+      //   marshallTrailers.topNavigation.close();
+      // });
 
       openBtn.on("click", function (e) {
         e.preventDefault();
@@ -317,21 +334,43 @@
         marshallTrailers.topNavigation.close();
       });
     },
+
     open: function () {
-      var topNav = $("#top-navigation");
-      topNav.css("margin-top", "0px");
+      $("#top-navigation").addClass("opened");
+    },
+
+    scrolled: function () {
+      $("#top-navigation").addClass("scrolled");
     },
 
     close: function () {
-      var topNav = $("#top-navigation");
-      var topNavHeight = topNav.data("top-nav-height");
-      topNav.css("margin-top", -topNavHeight + "px");
+      $("#top-navigation").removeClass("opened").removeClass("scrolled");
     },
   };
 
   // resize events */
   $(window).on("resize", function () {
     marshallTrailers.topNavigation.close();
+  });
+
+  // scroll events */
+  var lastScrollY = window.scrollY;
+  var SCROLLED_DISTANCE = 200;
+  var DISTANCE_TO_HIDE = 400;
+  $(window).on("scroll", function () {
+    var currentScrollY = window.scrollY;
+    var scrolledDistance = Math.abs(currentScrollY - lastScrollY);
+
+    if (scrolledDistance >= SCROLLED_DISTANCE) {
+      if (currentScrollY > lastScrollY) {
+        marshallTrailers.topNavigation.scrolled();
+      } else {
+        if (currentScrollY <= DISTANCE_TO_HIDE) {
+          marshallTrailers.topNavigation.close();
+        }
+      }
+      lastScrollY = currentScrollY;
+    }
   });
 
   /**

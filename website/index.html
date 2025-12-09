@@ -42,12 +42,12 @@
   <body>
     <a id="back-to-top" class="back-to-top"></a>
     <div id="page">
-      <div id="top-drawer" class="bg-white flex items-center justify-center absolute w-full z-50 top-0 shadow-md">
+      <div id="top-drawer" class="bg-white flex items-center justify-center fixed w-full z-50 top-0 shadow-md">
     <div id="top-navigation" data-top-nav-height="160" class="w-full max-w-[var(--max-width)] mx-auto px-4 mt-4 transition-all duration-300 ease-in-out relative">
         <div class="inset-0 pt-4 w-full flex gap-4 items-start justify-end">
             <div class="flex flex-col gap-4 w-full">
                 <div class="flex w-full justify-between items-start">
-                    <img src="images/logo-marshall-trailers-color.png" alt="Marshall Trailers Logo" class="h-12 sm:h-20">
+                    <a href="/"><img src="images/logo-marshall-trailers-color.png" alt="Marshall Trailers Logo" class="h-12 sm:h-20"></a>
                     <div class="flex flex-col gap-2 items-start">
                         <button type="button" aria-label="open menu" id="close-navigation" class="cursor-pointer">
                             <i class="fa-solid fa-xmark text-lg"></i>
@@ -56,6 +56,9 @@
                 </div>
                 <nav id="desktop-navigation">
                     <ul class="main-menu">
+                        <li class="mobile-only">
+                            <a href="/" title="Home">Home</a>
+                        </li>
                         <li class="has-submenu">
                             <a href="/products" title="Products">Products</a>
                             <ul class="submenu">
@@ -394,10 +397,10 @@
         </div>
     </div>
 </div>
-<div class="mx-auto top-0 left-1/2 -translate-x-1/2 w-full max-w-[var(--max-width)] z-10 p-4 absolute">
+<div class="logo-wrapper mx-auto top-0 left-1/2 -translate-x-1/2 w-full max-w-[var(--max-width)] z-10 p-4 absolute">
     <div class="flex items-center sm:items-start justify-between">
-        <img src="images/logo-marshall-trailers.png" alt="Marshall Trailers Logo" class="h-12 sm:h-20">
-        <div class="flex flex-col gap-2 items-end hidden sm:flex text-white">
+        <a href="/"><img src="images/logo-marshall-trailers.png" alt="Marshall Trailers Logo" class="h-16 sm:h-12 sm:h-20"></a>
+        <div class="flex flex-col gap-2 items-end flex text-white desktop-buttons">
             <div class="flex gap-4 items-center text-white">
                 <a href="contact.html" class="text-white mr-8">Register / Login</a>
                 <i class="fa-solid fa-phone"></i>
@@ -407,7 +410,7 @@
                 </button>
             </div>
         </div>
-        <button type="button" aria-label="open menu" id="toggle-mobile-navigation" class="sm:hidden">
+        <button type="button" aria-label="open menu" id="toggle-mobile-navigation" class="mobile-buttons">
             <i class="fa-solid fa-bars text-white text-2xl"></i>
         </button>
     </div>
@@ -416,31 +419,138 @@
 
     <div class="hero">
         <div class="carousel-main">
-            <div class="slide" style="background-image: url('images/sample-hero.jpg');">your content</div>
-            <div class="slide" style="background-image: url('images/sample-hero-2.jpg');">your content</div>
-            <div class="slide" style="background-image: url('images/sample-hero-3.jpg');">your content</div>
-            <div class="slide" style="background-image: url('images/sample-hero-4.jpg');">your content</div>
-        </div>
-    </div>
-
-    <div class="section p-4 flex flex-col gap-2" id="carousel-mini">
-        <h2>Product Ranges</h2>
-        <div class="carousel-mini">
-            <div v-for="(range, i) in productRanges" :key="i" class="slide">
-                <h4 class="title">[[ range.title ]]</h4>
-                <div class="image-wrapper">
-                    <a :href="range.url"><img :src="range.image" :alt="range.title"></a>
+            <div class="slide preload" style="background-image: url('images/sample-hero.jpg');">
+                <div class="copy-wrapper">
+                    <div class="copy-content">
+                        <h1 class="hero-title">The Legendary Marshall Muckspreader</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="slide preload" style="background-image: url('images/sample-hero-2.jpg');">
+                <div class="copy-wrapper">
+                    <div class="copy-content">
+                        <h1 class="hero-title">New Low Loader</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="slide preload" style="background-image: url('images/sample-hero-3.jpg');">
+                <div class="copy-wrapper">
+                    <div class="copy-content">
+                        <h1 class="hero-title">The Marshall Livestock Container</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="slide preload" style="background-image: url('images/sample-hero-4.jpg');">
+                <div class="copy-wrapper">
+                    <div class="copy-content">
+                        <h1 class="hero-title">Marshall Drop-side Trailer</h1>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="flex justify-end items-center p-4 mt-2 gap-2">
-            <button type="button" class="btn" @click="prev">Previous</button>
-            <button type="button" class="btn" @click="next">Next</button>
+    </div>
+
+    <div class="mt-4 pb-6 md:mt-8 md:pb-8 max-w-[var(--max-width)] mx-auto">
+        <div class="border-t border-[var(--brand-gray)] mx-4"></div>
+    </div>
+
+    <div class="section flex flex-col gap-2" id="carousel-mini">
+        <h2>Product Ranges</h2>
+        <div class="carousel-mini">
+            <div v-for="(range, i) in productRanges" :key="i" class="slide">
+                <a class="pod" :href="range.url">
+                    <h4 class="title">[[ range.title ]]</h4>
+                    <div class="image-wrapper">
+                        <img :src="range.image" :alt="range.title">
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="carousel-controls">
+            <button type="button" @click="prev">
+                <i class="fa-solid fa-caret-left"></i>
+            </button>
+            <button type="button" @click="next">
+                <i class="fa-solid fa-caret-right"></i>
+            </button>
         </div>
     </div>
 
-    <div class="max-w-[var(--max-width)] mx-auto p-4 bg-gray-50 h-[900px]">
-        Copy, lots and lots of copy, and carousels and such
+    <div id="tabs-section" class="tabs-section">
+        <h2 class="section-title">Our Values</h2>
+        <li class="tabs-list desktop-only px-4" role="presentation">
+            <button v-for="tab in tabs" :key="tab.id"
+                        type="button"
+                        :class="{ active: activeTab === tab.id }"
+                        role="tab"
+                        @click="setActiveTab(tab.id)"
+                        :aria-selected="[[ activeTab === tab.id ]]">
+                [[ tab.header ]]
+            </button>
+        </li>
+        <div class="tab-content">
+            <div v-for="tab in tabs" :key="tab.id">
+                <div class="accordion-header mobile-only" role="tab" :class="{ active: activeTab === tab.id }">
+                    <button type="button"
+                        role="tab"
+                        @click="setActiveTab(tab.id)"
+                        class="flex gap-2 items-center justify-between px-4"
+                        :aria-selected="[[ activeTab === tab.id ]]">
+                        <span>[[ tab.header ]]</span>
+                        <i class="fa-solid fa-caret-right text-xl text-[var(--brand-yellow)] hover:text-[var(--brand-red)] cursor-pointer"
+                        :class="{ 'rotate-90': activeTab === tab.id }"
+                        ></i>
+                    </button>
+                </div>
+                <div v-show="activeTab === tab.id" class="tab-hero-content">
+                    <div class="copy-wrapper">
+                        <h3 class="title">[[ tab.title ]]</h3>
+                        <p>[[ tab.content ]]</p>
+                        <a :href="tab.href" class="bttn bordered-bttn">[[ tab.label ]]</a>
+                    </div>
+                    <div class="image-wrapper" :style="{ backgroundImage: 'url(' + tab.imageSrc + ')' }"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section with-subsection has-overlap">
+        <div class="w-full">
+            <h3 class="subsection-title">Configure your new Marshall</h3>
+            <div class="subsection-content border border-[var(--brand-gray)] p-4 w-full rounded-md">
+                <img class="subsection-bg" src="images/sub-section-bg-1.png" alt="">
+                <div class="text-wrapper">
+                    <p>Configure your new Marshall trailer with our easy-to-use online tool, it is amazingly simple and efficient.</p>
+                    <a href="#" class="bttn">
+                        <i class="fa-solid fa-user-gear"></i>
+                        <span>Configure</span></a>
+                </div>
+            </div>
+        </div>
+        <div class="w-full">
+            <h3 class="subsection-title">Official Marshall spares</h3>
+            <div class="subsection-content border border-[var(--brand-gray)] p-4 w-full rounded-md">
+                <img class="subsection-bg" src="images/sub-section-bg-2.png" alt="">
+                <div class="text-wrapper">
+                    <p>Here at Marshall Trailers, we pride ourselves on providing genuine spare parts to keep your equipment running smoothly.
+                    </p>
+                    <a href="#" class="bttn">
+                        <i class="fa-solid fa-gear"></i>
+                        <span>Spares</span></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section flex flex-col gap-0">
+        <h3 class="section-title">As hardworking as you are</h3>
+        <div class="video-container">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/IXVJs-1LzPQ?si=5u_n3SonjP-GkfN7&amp;start=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <div class="mt-6 pb-2 md:mt-8 md:pb-4 max-w-[var(--max-width)] mx-auto">
+        <div class="border-t border-[var(--brand-gray)] mx-4"></div>
     </div>
 
     <script>
@@ -480,6 +590,42 @@
             }
         ]
 
+        var tabsData = [
+            {
+                id: 1,
+                header: "Heritage",
+                title: "We have grown together",
+                content: "Growing from a small family business to one of the UK's leading trailer manufacturers, Marshalls Trailers has a rich heritage built on quality, innovation, and customer satisfaction.",
+                imageSrc: "images/tab-bg-1.png",
+                label: "Read More",
+                href: "#"
+            }, {
+                id: 2,
+                header: "Innovation",
+                title: "Winners of multiple awards",
+                content: "At Marshalls Trailers, innovation is at the heart of everything we do. Our commitment to research and development has led to numerous industry awards, recognizing our cutting-edge designs and advanced manufacturing techniques.",
+                imageSrc: "images/tab-bg-2.png",
+                label: "See Full List",
+                href: "#"
+            }, {
+                id: 3,
+                header: "Quality",
+                title: "Building a greener future",
+                content: "Marshalls Trailers is dedicated to sustainability, implementing eco-friendly practices in our manufacturing processes and designing trailers that help reduce environmental impact for our customers.",
+                imageSrc: "images/tab-bg-3.png",
+                label: "Discover How",
+                href: "#"
+            }, {
+                id: 4,
+                header: "Value",
+                title: "Supporting local initiatives",
+                content: "We believe in giving back to the community. Marshalls Trailers actively supports local initiatives and charities, fostering strong relationships and making a positive impact in the areas where we operate.",
+                imageSrc: "images/tab-bg-4.png",
+                label: "Talk To Us",
+                href: "#"
+            }
+        ]
+
         document.addEventListener('DOMContentLoaded', () => {
             const {createApp, onMounted, ref} = Vue;
             createApp({
@@ -516,6 +662,21 @@
                     return {productRanges, prev, next}
                 }
             }).mount('#carousel-mini');
+
+            createApp({
+                delimiters: [
+                    '[[', ']]'
+                ],
+                setup() {
+                    const tabs = ref(tabsData);
+                    const activeTab = ref(1);
+
+                    const setActiveTab = (id) => {
+                        activeTab.value = id;
+                    }
+                    return {tabs, activeTab, setActiveTab}
+                }
+            }).mount('#tabs-section');
         });
     </script>
 
