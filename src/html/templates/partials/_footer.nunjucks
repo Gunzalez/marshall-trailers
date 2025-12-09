@@ -1,7 +1,26 @@
 <div class="footer">
-
-    <div class="max-w-[var(--max-width)] mx-auto p-4">
-        <p>© Marshall's Trailers 2024</p>
-        <p>All Rights Reserved</p>
+    <div class="section flex flex-col gap-8 md:flex-row-reverse md:justify-between">
+        <ul class="flex flex-col gap-3 text-sm font-semibold sm:flex-row sm:gap-8">
+            <li>
+                <a href="site-map.html">Site Map</a>
+            </li>
+            <li>
+                <a href="terms-and-conditions.html">Terms & Conditions</a>
+            </li>
+            <li>
+                <a href="privacy-cookies.html">Privacy & Cookies</a>
+            </li>
+        </ul>
+        <div class="text-sm">
+            <p>Charles J Marshall (Aberdeen) Limited,
+                    <br/>Chapel Works, Bucksburn, 
+                    <br/>Aberdeen, AB21 9TL</p>
+            <p>
+                T: <a href="tel:+441224707070">(01224) 722777</a>
+                <br/>E: <a href="mailto:charles@marshall-trailers.co.uk">charles@marshall-trailers.co.uk</a>
+            </p>
+            <p>Registration Number: <strong>SC064659</strong>
+            </p>
+        </div>
     </div>
 </div>

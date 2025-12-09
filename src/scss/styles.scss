@@ -377,3 +377,13 @@
     }
   }
 }
+
+.footer {
+  a {
+    &:hover {
+      @media (hover: hover) {
+        text-decoration: underline;
+      }
+    }
+  }
+}
