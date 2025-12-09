@@ -138,13 +138,14 @@
     .hero-title {
       margin: 0 auto;
       max-width: var(--max-width);
-      font-size: 1.5rem;
-      line-height: 1.1;
+      font-size: 2rem;
+      line-height: 1.2;
       color: white;
       text-shadow: 0 0 3px #000;
+      padding: 1rem;
 
       @media (min-width: $breakpoint1) {
-        font-size: 2.4rem;
+        font-size: 3.2rem;
       }
     }
   }
@@ -219,16 +220,17 @@
   .tab-content {
     color: white;
     background-color: var(--brand-red);
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
 
     @media screen and (min-width: 768px) {
-      margin-bottom: 2.5rem;
+      margin-bottom: 60px;
     }
   }
 
   .section-title {
     max-width: var(--max-width);
     margin: 1rem auto;
+    padding: 0 16px;
   }
 
   .tabs-list {

@@ -53,7 +53,10 @@ h2 {
 }
 
 h3 {
-  font-size: 30px;
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+
   @media (max-width: 768px) {
     font-size: 20px;
   }
