@@ -386,7 +386,7 @@
         <div class="carousel-mini">
             <div v-for="(range, i) in productRanges" :key="i" class="slide">
                 <a class="pod" :href="range.url">
-                    <h4 class="title">[[ range.title ]]</h4>
+                    <h4 class="title line-clamp-1">[[ range.title ]]</h4>
                     <div class="image-wrapper">
                         <img :src="range.image" :alt="range.title">
                     </div>
