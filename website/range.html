@@ -60,7 +60,7 @@
                             <a href="index.html" title="Home">Home</a>
                         </li>
                         <li class="has-submenu">
-                            <a href="products.html" title="Products">Products</a>
+                            <a href="range.html" title="Products">Products</a>
                             <ul class="submenu">
                                 <li>
                                     <a href="range.html?range=silage-grain-trailers">Silage / Grain Trailers</a>
@@ -366,96 +366,89 @@
     </div>
 
 
+    <nav aria-label="breadcrumbs" class="breadcrumbs">
+        <ol>
+            <li>
+                <a href="index.html">Home</a>
+            </li>
+            <li>Product Ranges</li>
+        </ol>
+    </nav>
+
+    <div class="title-wrapper">
+        <h1 class="page-title">Product Ranges</h1>
+    </div>
+
+    <div id="product-ranges" class="section grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 pb-16">
+        <div v-for="(range, i) in productRanges" :key="i" class="slide">
+            <div class="pod">
+                <h4 class="title line-clamp-1">[[ range.title ]]</h4>
+                <div class="image-wrapper">
+                    <img :src="range.image" :alt="range.title">
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
-        var carouselData = [
-            {
-                title: 'The Legendary Marshall Muckspreader',
-                image: 'images/sample-hero.jpg',
-                url: '#'
-            }, {
-                title: 'New Low Loader',
-                image: 'images/sample-hero-2.jpg',
-                url: '#'
-            }, {
-                title: 'The Marshall Livestock Container',
-                image: 'images/sample-hero-3.jpg',
-                url: '#'
-            }, {
-                title: 'Marshall Drop-side Trailer',
-                image: 'images/sample-hero-4.jpg',
-                url: '#'
-            }
-        ]
 
         var productRangesData = [
             {
                 title: 'Drop-side Trailers',
                 image: 'images/range-1.png',
-                url: '#'
+                url: 'range.html?range=dropside-trailers'
             }, {
                 title: 'New Low Loaders',
                 image: 'images/range-2.png',
-                url: '#'
+                url: 'range.html?range=new-low-loaders'
             }, {
-                title: 'Hi-spec grain and silage',
+                title: 'Grain & Silage',
                 image: 'images/range-3.png',
-                url: '#'
+                url: 'range.html?range=grain-and-silage'
             }, {
                 title: 'Livestock Containers',
                 image: 'images/range-4.png',
-                url: '#'
+                url: 'range.html?range=livestock-containers'
             }, {
                 title: 'Multi-purpose Dumpsters',
                 image: 'images/range-1.png',
-                url: '#'
+                url: 'range.html?range=multi-purpose-dumpsters'
             }, {
                 title: 'Slurry Tankers',
-                image: 'images/range-2.png',
-                url: '#'
+                image: 'images/range-3.png',
+                url: 'range.html?range=slurry-tankers'
             }, {
                 title: 'Muck Spreaders',
                 image: 'images/range-3.png',
-                url: '#'
+                url: 'range.html?range=muck-spreaders'
             }, {
-                title: 'Gotham Bat mobiles',
+                title: 'Feeder Trailers',
+                image: 'images/range-3.png',
+                url: 'range.html?range=feeder-trailers'
+            }, {
+                title: 'People Carrier Trailers',
+                image: 'images/range-1.png',
+                url: 'range.html?range=people-carrier-trailers'
+            }, {
+                title: 'Flat/Bale Trailers',
+                image: 'images/range-2.png',
+                url: 'range.html?range=flat-bale-trailers'
+            }, {
+                title: 'Rear Discharge Spreaders',
+                image: 'images/range-2.png',
+                url: 'range.html?range=rear-discharge-spreaders'
+            }, {
+                title: 'Tankers',
+                image: 'images/range-3.png',
+                url: 'range.html?range=tankers'
+            }, {
+                title: 'Front Exhaust Spreaders',
+                image: 'images/range-2.png',
+                url: 'range.html?range=front-exhaust-spreaders'
+            }, {
+                title: 'Even More Tankers',
                 image: 'images/range-4.png',
-                url: '#'
-            }
-        ]
-
-        var tabsData = [
-            {
-                id: 1,
-                header: "Heritage",
-                title: "We have grown together",
-                content: "Growing from a small family business to one of the UK's leading trailer manufacturers, Marshalls Trailers has a rich heritage built on quality, innovation, and customer satisfaction. Our journey reflects our commitment to excellence and our passion for delivering top-notch trailers to our valued customers.",
-                imageSrc: "images/tab-bg-heritage.png",
-                label: "Read More",
-                href: "#"
-            }, {
-                id: 2,
-                header: "Innovation",
-                title: "Winners of multiple awards",
-                content: "At Marshalls Trailers, innovation is at the heart of everything we do. Our commitment to research and development has led to numerous industry awards, recognizing our cutting-edge designs and advanced manufacturing techniques. We continuously strive to push the boundaries of trailer technology to meet the evolving needs of our customers.",
-                imageSrc: "images/tab-bg-innovation.png",
-                label: "See Full List",
-                href: "#"
-            }, {
-                id: 3,
-                header: "Quality",
-                title: "Building a greener future",
-                content: "Marshalls Trailers is dedicated to sustainability, implementing eco-friendly practices in our manufacturing processes and designing trailers that help reduce environmental impact for our customers. We are committed to building a greener future for generations to come.",
-                imageSrc: "images/tab-bg-quality.png",
-                label: "Discover How",
-                href: "#"
-            }, {
-                id: 4,
-                header: "Value",
-                title: "Supporting local initiatives",
-                content: "We believe in giving back to the community. Marshalls Trailers actively supports local initiatives and charities, fostering strong relationships and making a positive impact in the areas where we operate. Our commitment to social responsibility is a core value of our company.",
-                imageSrc: "images/tab-bg-value.png",
-                label: "Talk To Us",
-                href: "#"
+                url: 'range.html?range=tankers'
             }
         ]
 
@@ -469,71 +462,24 @@
                     const productRanges = ref(productRangesData);
 
                     onMounted(() => {
-                        if (window.miniCarousel) {
-                            window
-                                .miniCarousel
-                                .init();
-                        }
-                    });
-
-                    const prev = () => {
-                        if (window.miniCarousel) {
-                            window
-                                .miniCarousel
-                                .prev();
-                        }
-                    }
-
-                    const next = () => {
-                        if (window.miniCarousel) {
-                            window
-                                .miniCarousel
-                                .next();
-                        }
-                    }
-
-                    return {productRanges, prev, next}
-                }
-            }).mount('#carousel-mini');
-
-            createApp({
-                delimiters: [
-                    '[[', ']]'
-                ],
-                setup() {
-                    const tabs = ref(tabsData);
-                    const activeTab = ref(1);
-
-                    const setActiveTab = (id) => {
-                        activeTab.value = id;
-                    }
-                    return {tabs, activeTab, setActiveTab}
-                }
-            }).mount('#tabs-section');
-
-            createApp({
-                delimiters: [
-                    '[[', ']]'
-                ],
-                setup() {
-                    const heroCarouselData = ref(carouselData);
-
-                    onMounted(() => {
                         if (window.heroCarousel) {
                             window
                                 .heroCarousel
                                 .init();
                         }
                     });
-                    return {heroCarouselData}
+                    return {productRanges}
                 }
-            }).mount('#carousel-main');
+            }).mount('#product-ranges');
 
         });
     </script>
 
 
-      <div class="footer">
+      <div class="mt-6 pb-2 md:mt-8 md:pb-4 max-w-[var(--max-width)] mx-auto">
+    <div class="border-t border-[var(--brand-gray)] mx-4"></div>
+</div>
+<div class="footer">
     <div class="section flex flex-col gap-8 md:flex-row-reverse md:justify-between">
         <ul class="flex flex-col gap-3 text-sm font-semibold sm:flex-row sm:gap-8">
             <li>

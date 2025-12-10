@@ -16,7 +16,7 @@
                             <a href="index.html" title="Home">Home</a>
                         </li>
                         <li class="has-submenu">
-                            <a href="products.html" title="Products">Products</a>
+                            <a href="range.html" title="Products">Products</a>
                             <ul class="submenu">
                                 <li>
                                     <a href="range.html?range=silage-grain-trailers">Silage / Grain Trailers</a>

@@ -60,7 +60,7 @@
                             <a href="index.html" title="Home">Home</a>
                         </li>
                         <li class="has-submenu">
-                            <a href="products.html" title="Products">Products</a>
+                            <a href="range.html" title="Products">Products</a>
                             <ul class="submenu">
                                 <li>
                                     <a href="range.html?range=silage-grain-trailers">Silage / Grain Trailers</a>
@@ -385,10 +385,12 @@
     </div>
 
     <div class="section flex flex-col gap-2" id="carousel-mini">
-        <h2>Product Ranges</h2>
+        <h2>
+            <a href="range.html">Product Ranges</a>
+        </h2>
         <div class="carousel-mini">
             <div v-for="(range, i) in productRanges" :key="i" class="slide">
-                <a class="pod" :href="range.url">
+                <a class="pod link" :href="range.url">
                     <h4 class="title line-clamp-1">[[ range.title ]]</h4>
                     <div class="image-wrapper">
                         <img :src="range.image" :alt="range.title">
@@ -479,10 +481,6 @@
         </div>
     </div>
 
-    <div class="mt-6 pb-2 md:mt-8 md:pb-4 max-w-[var(--max-width)] mx-auto">
-        <div class="border-t border-[var(--brand-gray)] mx-4"></div>
-    </div>
-
     <script>
         var carouselData = [
             {
@@ -533,10 +531,6 @@
                 title: 'Muck Spreaders',
                 image: 'images/range-3.png',
                 url: 'range.html?range=muck-spreaders'
-            }, {
-                title: 'Feeder Trailers',
-                image: 'images/range-3.png',
-                url: 'range.html?range=feeder-trailers'
             }, {
                 title: 'People Carrier Trailers',
                 image: 'images/range-1.png',
@@ -666,7 +660,10 @@
     </script>
 
 
-      <div class="footer">
+      <div class="mt-6 pb-2 md:mt-8 md:pb-4 max-w-[var(--max-width)] mx-auto">
+    <div class="border-t border-[var(--brand-gray)] mx-4"></div>
+</div>
+<div class="footer">
     <div class="section flex flex-col gap-8 md:flex-row-reverse md:justify-between">
         <ul class="flex flex-col gap-3 text-sm font-semibold sm:flex-row sm:gap-8">
             <li>
