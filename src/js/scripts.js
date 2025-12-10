@@ -147,8 +147,6 @@
         autoplaySpeed: 7000,
         cssEase: "linear",
       });
-
-      console.log("carousel again initiated");
     },
 
     /**
