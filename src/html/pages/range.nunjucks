@@ -143,51 +143,35 @@
             {
                 title: 'Drop-side Trailers',
                 image: 'images/range-1.png',
-                url: 'range.html?range=dropside-trailers'
+                url: '#'
             }, {
                 title: 'New Low Loaders',
                 image: 'images/range-2.png',
-                url: 'range.html?range=new-low-loaders'
+                url: '#'
             }, {
-                title: 'Grain & Silage',
+                title: 'Hi-spec grain and silage',
                 image: 'images/range-3.png',
-                url: 'range.html?range=grain-and-silage'
+                url: '#'
             }, {
                 title: 'Livestock Containers',
                 image: 'images/range-4.png',
-                url: 'range.html?range=livestock-containers'
+                url: '#'
             }, {
                 title: 'Multi-purpose Dumpsters',
                 image: 'images/range-1.png',
-                url: 'range.html?range=multi-purpose-dumpsters'
+                url: '#'
             }, {
                 title: 'Slurry Tankers',
-                image: 'images/range-3.png',
-                url: 'range.html?range=slurry-tankers'
+                image: 'images/range-2.png',
+                url: '#'
             }, {
                 title: 'Muck Spreaders',
                 image: 'images/range-3.png',
-                url: 'range.html?range=muck-spreaders'
+                url: '#'
             }, {
-                title: 'Feeder Trailers',
-                image: 'images/range-3.png',
-                url: 'range.html?range=feeder-trailers'
-            }, {
-                title: 'People Carrier Trailers',
-                image: 'images/range-1.png',
-                url: 'range.html?range=people-carrier-trailers'
-            }, {
-                title: 'Flat/Bale Trailers',
-                image: 'images/range-2.png',
-                url: 'range.html?range=flat-bale-trailers'
-            }, {
-                title: 'Rear Discharge Spreaders',
-                image: 'images/range-2.png',
-                url: 'range.html?range=rear-discharge-spreaders'
-            }, {
-                title: 'Tankers',
-                image: 'images/range-3.png',
-                url: 'range.html?range=tankers'
+                title: 'Gotham Bat mobiles',
+                image: 'images/range-4.png',
+                url: '#'
             }
         ]
 
