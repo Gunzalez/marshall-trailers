@@ -335,7 +335,7 @@
         flex-grow: 1;
         height: auto;
         background-size: cover;
-        background-position: center;
+        background-position: top center;
       }
     }
   }
@@ -379,6 +379,22 @@
 }
 
 .footer {
+  background-image: url("../images/footer-bg.png");
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: 200%;
+  padding-bottom: 150px;
+
+  .section {
+    margin-bottom: 0;
+  }
+
+  @media screen and (min-width: 768px) {
+    background-position: right bottom;
+    background-size: contain;
+    padding-bottom: 240px;
+  }
+
   a {
     &:hover {
       @media (hover: hover) {
