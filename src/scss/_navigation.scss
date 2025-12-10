@@ -27,10 +27,13 @@
   }
 }
 
-.logo-wrapper {
-  a,
-  i {
-    text-shadow: 0 0 3px #000;
+.homepage {
+  .logo-wrapper {
+    a,
+    i {
+      color: #fff;
+      text-shadow: 0 0 3px #000;
+    }
   }
 }
 

@@ -1,7 +1,12 @@
 {% set main_page = "home" %}
 {% extends "layout.nunjucks" %}
+{% import "../templates/partials/_macros.nunjucks" as macros %}
 
 {% block content %}
+
+    <div class="homepage mx-auto top-0 left-1/2 -translate-x-1/2 w-full max-w-[var(--max-width)] z-10 absolute">
+        {{ macros.header("images/logo-marshall-trailers.png") }}
+    </div>
 
     <div class="hero">
         <div id="carousel-main" class="carousel-main">

@@ -1,0 +1,18 @@
+{% macro header(logoSrc) %}
+    <div class="section logo-wrapper flex items-center sm:items-start justify-between pt-4">
+        <a href="index.html"><img src="{{ logoSrc }}" alt="Marshall Trailers Logo" class="h-16 sm:h-12 sm:h-20"></a>
+        <div class="flex flex-col gap-2 items-end flex desktop-buttons">
+            <div class="flex gap-4 items-center ">
+                <a href="contact.html" class="mr-8">Register / Login</a>
+                <i class="fa-solid fa-phone"></i>
+                <i class="fa-solid fa-at"></i>
+                <button type="button" aria-label="open menu" id="open-navigation" class="cursor-pointer">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        <button type="button" aria-label="open menu" id="toggle-mobile-navigation" class="mobile-buttons">
+            <i class="fa-solid fa-bars text-2xl"></i>
+        </button>
+    </div>
+{% endmacro %}

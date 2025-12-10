@@ -301,21 +301,3 @@
         </div>
     </div>
 </div>
-<div class="logo-wrapper mx-auto top-0 left-1/2 -translate-x-1/2 w-full max-w-[var(--max-width)] z-10 p-4 absolute">
-    <div class="flex items-center sm:items-start justify-between">
-        <a href="index.html"><img src="images/logo-marshall-trailers.png" alt="Marshall Trailers Logo" class="h-16 sm:h-12 sm:h-20"></a>
-        <div class="flex flex-col gap-2 items-end flex text-white desktop-buttons">
-            <div class="flex gap-4 items-center text-white">
-                <a href="contact.html" class="text-white mr-8">Register / Login</a>
-                <i class="fa-solid fa-phone"></i>
-                <i class="fa-solid fa-at"></i>
-                <button type="button" aria-label="open menu" id="open-navigation" class="cursor-pointer">
-                    <i class="fa-solid fa-bars"></i>
-                </button>
-            </div>
-        </div>
-        <button type="button" aria-label="open menu" id="toggle-mobile-navigation" class="mobile-buttons">
-            <i class="fa-solid fa-bars text-white text-2xl"></i>
-        </button>
-    </div>
-</div>
