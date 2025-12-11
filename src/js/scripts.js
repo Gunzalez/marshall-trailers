@@ -3,6 +3,331 @@
 
   var marshallTrailers = {};
 
+  var dummyData = {
+    productRangesData: [
+      {
+        id: "dropside-trailers",
+        title: "Drop-side Trailers",
+        image: "images/range-1.png",
+        url: "range.html?range=dropside-trailers",
+        models: [
+          {
+            label: "QM-6 - 6.5 tons",
+            id: "qm-6",
+          },
+          {
+            label: "QM-8 - 8.5 tons",
+            id: "qm-8",
+          },
+          {
+            label: "QM-10 - 10 tons",
+            id: "qm-10",
+          },
+          {
+            label: "QM-12 - 12 tons",
+            id: "qm-12",
+          },
+          {
+            label: "QM-14 - 14 tons",
+            id: "qm-14",
+          },
+          {
+            label: "QM-16 - 16 tons",
+            id: "qm-16",
+          },
+          {
+            label: "QM-18 - 18 tons",
+            id: "qm-18",
+          },
+        ],
+      },
+      {
+        id: "new-low-loaders",
+        title: "New Low Loaders",
+        image: "images/range-2.png",
+        url: "range.html?range=new-low-loaders",
+        models: [
+          {
+            label: "LL-10T - 10 tons",
+            id: "ll-10t",
+          },
+          {
+            label: "LL-14T - 14 tons",
+            id: "ll-14t",
+          },
+          {
+            label: "LL-18T - 18 tons",
+            id: "ll-18t",
+          },
+          {
+            label: "LL-24T - 24 tons",
+            id: "ll-24t",
+          },
+        ],
+      },
+      {
+        id: "grain-and-silage",
+        title: "Grain & Silage",
+        image: "images/range-3.png",
+        url: "range.html?range=grain-and-silage",
+        models: [
+          {
+            label: "GS-10 - 10m³",
+            id: "gs-10",
+          },
+          {
+            label: "GS-15 - 15m³",
+            id: "gs-15",
+          },
+          {
+            label: "GS-20 - 20m³",
+            id: "gs-20",
+          },
+          {
+            label: "GS-25 - 25m³",
+            id: "gs-25",
+          },
+        ],
+      },
+      {
+        id: "livestock-containers",
+        title: "Livestock Containers",
+        image: "images/range-4.png",
+        url: "range.html?range=livestock-containers",
+        models: [
+          {
+            label: "LC-10 - 10ft",
+            id: "lc-10",
+          },
+          {
+            label: "LC-14 - 14ft",
+            id: "lc-14",
+          },
+          {
+            label: "LC-18 - 18ft",
+            id: "lc-18",
+          },
+        ],
+      },
+      {
+        id: "multi-purpose-dumpsters",
+        title: "Multi-purpose Dumpsters",
+        image: "images/range-1.png",
+        url: "range.html?range=multi-purpose-dumpsters",
+        models: [
+          {
+            label: "MD-8 - 8 tons",
+            id: "md-8",
+          },
+          {
+            label: "MD-12 - 12 tons",
+            id: "md-12",
+          },
+          {
+            label: "MD-16 - 16 tons",
+            id: "md-16",
+          },
+        ],
+      },
+      {
+        id: "slurry-tankers",
+        title: "Slurry Tankers",
+        image: "images/range-3.png",
+        url: "range.html?range=slurry-tankers",
+        models: [
+          {
+            label: "ST-2000 - 2000 gal",
+            id: "st-2000",
+          },
+          {
+            label: "ST-2500 - 2500 gal",
+            id: "st-2500",
+          },
+          {
+            label: "ST-3000 - 3000 gal",
+            id: "st-3000",
+          },
+        ],
+      },
+      {
+        id: "muck-spreaders",
+        title: "Muck Spreaders",
+        image: "images/range-3.png",
+        url: "range.html?range=muck-spreaders",
+        models: [
+          {
+            label: "MS-6 - 6m³",
+            id: "ms-6",
+          },
+          {
+            label: "MS-8 - 8m³",
+            id: "ms-8",
+          },
+          {
+            label: "MS-10 - 10m³",
+            id: "ms-10",
+          },
+        ],
+      },
+      {
+        id: "feeder-trailers",
+        title: "Feeder Trailers",
+        image: "images/range-3.png",
+        url: "range.html?range=feeder-trailers",
+        models: [
+          {
+            label: "FT-14 - 14ft",
+            id: "ft-14",
+          },
+          {
+            label: "FT-18 - 18ft",
+            id: "ft-18",
+          },
+          {
+            label: "FT-22 - 22ft",
+            id: "ft-22",
+          },
+        ],
+      },
+      {
+        id: "people-carrier-trailers",
+        title: "People Carrier Trailers",
+        image: "images/range-1.png",
+        url: "range.html?range=people-carrier-trailers",
+        models: [
+          {
+            label: "PC-16 - 16 Seats",
+            id: "pc-16",
+          },
+          {
+            label: "PC-24 - 24 Seats",
+            id: "pc-24",
+          },
+        ],
+      },
+      {
+        id: "flat-bale-trailers",
+        title: "Flat/Bale Trailers",
+        image: "images/range-2.png",
+        url: "range.html?range=flat-bale-trailers",
+        models: [
+          {
+            label: "FB-20 - 20ft",
+            id: "fb-20",
+          },
+          {
+            label: "FB-24 - 24ft",
+            id: "fb-24",
+          },
+          {
+            label: "FB-30 - 30ft",
+            id: "fb-30",
+          },
+        ],
+      },
+      {
+        id: "rear-discharge-spreaders",
+        title: "Rear Discharge Spreaders",
+        image: "images/range-2.png",
+        url: "range.html?range=rear-discharge-spreaders",
+        models: [
+          {
+            label: "RDS-10 - 10 tons",
+            id: "rds-10",
+          },
+          {
+            label: "RDS-14 - 14 tons",
+            id: "rds-14",
+          },
+        ],
+      },
+      {
+        id: "tankers",
+        title: "Tankers",
+        image: "images/range-3.png",
+        url: "range.html?range=tankers",
+        models: [
+          {
+            label: "T-1800 - 1800 gal",
+            id: "t-1800",
+          },
+          {
+            label: "T-2200 - 2200 gal",
+            id: "t-2200",
+          },
+          {
+            label: "T-3000 - 3000 gal",
+            id: "t-3000",
+          },
+          {
+            label: "T-4000 - 4000 gal",
+            id: "t-4000",
+          },
+          {
+            label: "T-5000 - 5000 gal",
+            id: "t-5000",
+          },
+          {
+            label: "T-6000 - 6000 gal",
+            id: "t-6000",
+          },
+          {
+            label: "T-8000 - 8000 gal",
+            id: "t-8000",
+          },
+          {
+            label: "T-10000 - 10000 gal",
+            id: "t-10000",
+          },
+        ],
+      },
+      {
+        id: "front-exhaust-spreaders",
+        title: "Front Exhaust Spreaders",
+        image: "images/range-2.png",
+        url: "range.html?range=front-exhaust-spreaders",
+        models: [
+          {
+            label: "FES-8 - 8m³",
+            id: "fes-8",
+          },
+          {
+            label: "FES-12 - 12m³",
+            id: "fes-12",
+          },
+        ],
+      },
+      {
+        id: "even-more-tankers",
+        title: "Even More Tankers",
+        image: "images/range-4.png",
+        url: "range.html?range=tankers",
+        models: [
+          {
+            label: "ET-2400 - 2400 gal",
+            id: "et-2400",
+          },
+          {
+            label: "ET-3200 - 3200 gal",
+            id: "et-3200",
+          },
+          {
+            label: "ET-4000 - 4000 gal",
+            id: "et-4000",
+          },
+          {
+            label: "ET-6000 - 6000 gal",
+            id: "et-6000",
+          },
+          {
+            label: "ET-8000 - 8000 gal",
+            id: "et-8000",
+          },
+        ],
+      },
+    ],
+  };
+
   /**
    * @menu
    * Implements the dropdown menu behaviour
@@ -445,6 +770,7 @@
     window.fancySelect = marshallTrailers.fancySelect;
     window.heroCarousel = marshallTrailers.carousel;
     window.miniCarousel = marshallTrailers.miniCarousel;
+    window.dummyData = dummyData;
   };
 
   /** Runs the global init */
