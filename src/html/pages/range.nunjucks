@@ -20,12 +20,18 @@
     </div>
 
     <div id="product-ranges" class="section grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 pb-16">
-        <div v-for="(range, i) in productRanges" :key="i" class="slide">
-            <div class="pod">
-                <h4 class="title line-clamp-1">[[ range.title ]]</h4>
+        <div v-for="(range, i) in productRanges" :key="i" class="slide flex flex-col gap-4">
+            <a class="pod link" :href="range.url">
+                <h4 class="title in-grid line-clamp-1">[[ range.title ]]</h4>
                 <div class="image-wrapper">
                     <img :src="range.image" :alt="range.title">
                 </div>
+            </a>
+            <div class="product-selector">
+                <select :id="range.id" :name="range.id" @change="goToProduct($event.target.value)">
+                    <option disabled selected>Select a model</option>
+                    <option v-for="(model, j) in range.models" :key="j" :value="model.id">[[ model.label ]]</option>
+                </select>
             </div>
         </div>
     </div>
@@ -36,61 +42,232 @@
             {
                 title: 'Drop-side Trailers',
                 image: 'images/range-1.png',
-                url: 'range.html?range=dropside-trailers'
+                url: 'range.html?range=dropside-trailers',
+                models: [
+                    {
+                        label: "QM-6 - 6.5 tons",
+                        id: "qm-6"
+                    }, {
+                        label: "QM-8 - 8.5 tons",
+                        id: "qm-8"
+                    }, {
+                        label: "QM-10 - 10 tons",
+                        id: "qm-10"
+                    }, {
+                        label: "QM-12 - 12 tons",
+                        id: "qm-12"
+                    }, {
+                        label: "QM-14 - 14 tons",
+                        id: "qm-14"
+                    }, {
+                        label: "QM-16 - 16 tons",
+                        id: "qm-16"
+                    }, {
+                        label: "QM-18 - 18 tons",
+                        id: "qm-18"
+                    }
+                ]
             }, {
                 title: 'New Low Loaders',
                 image: 'images/range-2.png',
-                url: 'range.html?range=new-low-loaders'
+                url: 'range.html?range=new-low-loaders',
+                models: [
+                    {
+                        label: "LL-10T - 10 tons",
+                        id: "ll-10t"
+                    }, {
+                        label: "LL-14T - 14 tons",
+                        id: "ll-14t"
+                    }, {
+                        label: "LL-18T - 18 tons",
+                        id: "ll-18t"
+                    }, {
+                        label: "LL-24T - 24 tons",
+                        id: "ll-24t"
+                    }
+                ]
             }, {
                 title: 'Grain & Silage',
                 image: 'images/range-3.png',
-                url: 'range.html?range=grain-and-silage'
+                url: 'range.html?range=grain-and-silage',
+                models: [
+                    {
+                        label: "GS-10 - 10m³",
+                        id: "gs-10"
+                    }, {
+                        label: "GS-15 - 15m³",
+                        id: "gs-15"
+                    }, {
+                        label: "GS-20 - 20m³",
+                        id: "gs-20"
+                    }, {
+                        label: "GS-25 - 25m³",
+                        id: "gs-25"
+                    }
+                ]
             }, {
                 title: 'Livestock Containers',
                 image: 'images/range-4.png',
-                url: 'range.html?range=livestock-containers'
+                url: 'range.html?range=livestock-containers',
+                models: [
+                    {
+                        label: "LC-10 - 10ft",
+                        id: "lc-10"
+                    }, {
+                        label: "LC-14 - 14ft",
+                        id: "lc-14"
+                    }, {
+                        label: "LC-18 - 18ft",
+                        id: "lc-18"
+                    }
+                ]
             }, {
                 title: 'Multi-purpose Dumpsters',
                 image: 'images/range-1.png',
-                url: 'range.html?range=multi-purpose-dumpsters'
+                url: 'range.html?range=multi-purpose-dumpsters',
+                models: [
+                    {
+                        label: "MD-8 - 8 tons",
+                        id: "md-8"
+                    }, {
+                        label: "MD-12 - 12 tons",
+                        id: "md-12"
+                    }, {
+                        label: "MD-16 - 16 tons",
+                        id: "md-16"
+                    }
+                ]
             }, {
                 title: 'Slurry Tankers',
                 image: 'images/range-3.png',
-                url: 'range.html?range=slurry-tankers'
+                url: 'range.html?range=slurry-tankers',
+                models: [
+                    {
+                        label: "ST-2000 - 2000 gal",
+                        id: "st-2000"
+                    }, {
+                        label: "ST-2500 - 2500 gal",
+                        id: "st-2500"
+                    }, {
+                        label: "ST-3000 - 3000 gal",
+                        id: "st-3000"
+                    }
+                ]
             }, {
                 title: 'Muck Spreaders',
                 image: 'images/range-3.png',
-                url: 'range.html?range=muck-spreaders'
+                url: 'range.html?range=muck-spreaders',
+                models: [
+                    {
+                        label: "MS-6 - 6m³",
+                        id: "ms-6"
+                    }, {
+                        label: "MS-8 - 8m³",
+                        id: "ms-8"
+                    }, {
+                        label: "MS-10 - 10m³",
+                        id: "ms-10"
+                    }
+                ]
             }, {
                 title: 'Feeder Trailers',
                 image: 'images/range-3.png',
-                url: 'range.html?range=feeder-trailers'
+                url: 'range.html?range=feeder-trailers',
+                models: [
+                    {
+                        label: "FT-14 - 14ft",
+                        id: "ft-14"
+                    }, {
+                        label: "FT-18 - 18ft",
+                        id: "ft-18"
+                    }, {
+                        label: "FT-22 - 22ft",
+                        id: "ft-22"
+                    }
+                ]
             }, {
                 title: 'People Carrier Trailers',
                 image: 'images/range-1.png',
-                url: 'range.html?range=people-carrier-trailers'
+                url: 'range.html?range=people-carrier-trailers',
+                models: [
+                    {
+                        label: "PC-16 - 16 Seats",
+                        id: "pc-16"
+                    }, {
+                        label: "PC-24 - 24 Seats",
+                        id: "pc-24"
+                    }
+                ]
             }, {
                 title: 'Flat/Bale Trailers',
                 image: 'images/range-2.png',
-                url: 'range.html?range=flat-bale-trailers'
+                url: 'range.html?range=flat-bale-trailers',
+                models: [
+                    {
+                        label: "FB-20 - 20ft",
+                        id: "fb-20"
+                    }, {
+                        label: "FB-24 - 24ft",
+                        id: "fb-24"
+                    }, {
+                        label: "FB-30 - 30ft",
+                        id: "fb-30"
+                    }
+                ]
             }, {
                 title: 'Rear Discharge Spreaders',
                 image: 'images/range-2.png',
-                url: 'range.html?range=rear-discharge-spreaders'
+                url: 'range.html?range=rear-discharge-spreaders',
+                models: [
+                    {
+                        label: "RDS-10 - 10 tons",
+                        id: "rds-10"
+                    }, {
+                        label: "RDS-14 - 14 tons",
+                        id: "rds-14"
+                    }
+                ]
             }, {
                 title: 'Tankers',
                 image: 'images/range-3.png',
-                url: 'range.html?range=tankers'
+                url: 'range.html?range=tankers',
+                models: [
+                    {
+                        label: "T-1800 - 1800 gal",
+                        id: "t-1800"
+                    }, {
+                        label: "T-2200 - 2200 gal",
+                        id: "t-2200"
+                    }
+                ]
             }, {
                 title: 'Front Exhaust Spreaders',
                 image: 'images/range-2.png',
-                url: 'range.html?range=front-exhaust-spreaders'
+                url: 'range.html?range=front-exhaust-spreaders',
+                models: [
+                    {
+                        label: "FES-8 - 8m³",
+                        id: "fes-8"
+                    }, {
+                        label: "FES-12 - 12m³",
+                        id: "fes-12"
+                    }
+                ]
             }, {
                 title: 'Even More Tankers',
                 image: 'images/range-4.png',
-                url: 'range.html?range=tankers'
+                url: 'range.html?range=tankers',
+                models: [
+                    {
+                        label: "ET-2400 - 2400 gal",
+                        id: "et-2400"
+                    }, {
+                        label: "ET-3200 - 3200 gal",
+                        id: "et-3200"
+                    }
+                ]
             }
-        ]
+        ];
 
         document.addEventListener('DOMContentLoaded', () => {
             const {createApp, onMounted, ref} = Vue;
@@ -108,7 +285,12 @@
                                 .init();
                         }
                     });
-                    return {productRanges}
+
+                    const goToProduct = (modelId) => {
+                        window.location.href = `product.html?model=${modelId}`;
+                    };
+
+                    return {productRanges, goToProduct}
                 }
             }).mount('#product-ranges');
 
