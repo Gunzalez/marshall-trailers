@@ -19,17 +19,17 @@
         <h1 class="page-title">Product Ranges</h1>
     </div>
 
-    <div id="product-ranges" class="section grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 pb-16">
+    <div id="product-ranges" class="section in-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 pb-16">
         <div v-for="(range, i) in productRanges" :key="i" class="slide flex flex-col gap-4">
             <a class="pod link" :href="range.url">
-                <h4 class="title in-grid line-clamp-1">[[ range.title ]]</h4>
+                <h4 class="title line-clamp-1">[[ range.title ]]</h4>
                 <div class="image-wrapper">
                     <img :src="range.image" :alt="range.title">
                 </div>
             </a>
-            <div class="product-selector">
-                <select :id="range.id" :name="range.id" @change="goToProduct($event.target.value)">
-                    <option disabled selected>Select a model</option>
+            <div :id="range.id" class="product-selector">
+                <select :id="range.id + '-selector'" :name="range.id" @change="goToProduct($event.target.value)" class="fancy-select">
+                    <option selected>Select a model</option>
                     <option v-for="(model, j) in range.models" :key="j" :value="model.id">[[ model.label ]]</option>
                 </select>
             </div>
@@ -40,6 +40,7 @@
 
         var productRangesData = [
             {
+                id: 'dropside-trailers',
                 title: 'Drop-side Trailers',
                 image: 'images/range-1.png',
                 url: 'range.html?range=dropside-trailers',
@@ -68,6 +69,7 @@
                     }
                 ]
             }, {
+                id: 'new-low-loaders',
                 title: 'New Low Loaders',
                 image: 'images/range-2.png',
                 url: 'range.html?range=new-low-loaders',
@@ -87,6 +89,7 @@
                     }
                 ]
             }, {
+                id: 'grain-and-silage',
                 title: 'Grain & Silage',
                 image: 'images/range-3.png',
                 url: 'range.html?range=grain-and-silage',
@@ -106,6 +109,7 @@
                     }
                 ]
             }, {
+                id: 'livestock-containers',
                 title: 'Livestock Containers',
                 image: 'images/range-4.png',
                 url: 'range.html?range=livestock-containers',
@@ -122,6 +126,7 @@
                     }
                 ]
             }, {
+                id: 'multi-purpose-dumpsters',
                 title: 'Multi-purpose Dumpsters',
                 image: 'images/range-1.png',
                 url: 'range.html?range=multi-purpose-dumpsters',
@@ -138,6 +143,7 @@
                     }
                 ]
             }, {
+                id: 'slurry-tankers',
                 title: 'Slurry Tankers',
                 image: 'images/range-3.png',
                 url: 'range.html?range=slurry-tankers',
@@ -154,6 +160,7 @@
                     }
                 ]
             }, {
+                id: 'muck-spreaders',
                 title: 'Muck Spreaders',
                 image: 'images/range-3.png',
                 url: 'range.html?range=muck-spreaders',
@@ -170,6 +177,7 @@
                     }
                 ]
             }, {
+                id: 'feeder-trailers',
                 title: 'Feeder Trailers',
                 image: 'images/range-3.png',
                 url: 'range.html?range=feeder-trailers',
@@ -186,6 +194,7 @@
                     }
                 ]
             }, {
+                id: 'people-carrier-trailers',
                 title: 'People Carrier Trailers',
                 image: 'images/range-1.png',
                 url: 'range.html?range=people-carrier-trailers',
@@ -199,6 +208,7 @@
                     }
                 ]
             }, {
+                id: 'flat-bale-trailers',
                 title: 'Flat/Bale Trailers',
                 image: 'images/range-2.png',
                 url: 'range.html?range=flat-bale-trailers',
@@ -215,6 +225,7 @@
                     }
                 ]
             }, {
+                id: 'rear-discharge-spreaders',
                 title: 'Rear Discharge Spreaders',
                 image: 'images/range-2.png',
                 url: 'range.html?range=rear-discharge-spreaders',
@@ -228,6 +239,7 @@
                     }
                 ]
             }, {
+                id: 'tankers',
                 title: 'Tankers',
                 image: 'images/range-3.png',
                 url: 'range.html?range=tankers',
@@ -241,6 +253,7 @@
                     }
                 ]
             }, {
+                id: 'front-exhaust-spreaders',
                 title: 'Front Exhaust Spreaders',
                 image: 'images/range-2.png',
                 url: 'range.html?range=front-exhaust-spreaders',
@@ -254,6 +267,7 @@
                     }
                 ]
             }, {
+                id: 'even-more-tankers',
                 title: 'Even More Tankers',
                 image: 'images/range-4.png',
                 url: 'range.html?range=tankers',
@@ -279,15 +293,15 @@
                     const productRanges = ref(productRangesData);
 
                     onMounted(() => {
-                        if (window.heroCarousel) {
+                        if (window.fancySelect) {
                             window
-                                .heroCarousel
-                                .init();
+                                .fancySelect
+                                .init(productRanges.value);
                         }
                     });
 
                     const goToProduct = (modelId) => {
-                        window.location.href = `product.html?model=${modelId}`;
+                        window.location.href = `product.html?id=${modelId}`;
                     };
 
                     return {productRanges, goToProduct}

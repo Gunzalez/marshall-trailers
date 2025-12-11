@@ -32,12 +32,6 @@
     margin: 0;
     text-align: center;
     z-index: 10;
-
-    &.in-grid {
-      text-align: left;
-      border-bottom: 1px solid var(--brand-gray);
-      padding-bottom: 0.5rem;
-    }
   }
 
   .image-wrapper {
@@ -79,6 +73,20 @@
         }
       }
     }
+  }
+}
+
+.in-grid {
+  .slide {
+    .pod {
+      width: 100%;
+    }
+  }
+
+  .title {
+    text-align: left;
+    border-bottom: 1px solid var(--brand-gray);
+    padding-bottom: 0.5rem;
   }
 }
 
@@ -415,6 +423,8 @@
 }
 
 .product-selector {
+  width: 100%;
+
   select {
     appearance: none;
     -webkit-appearance: none;
@@ -434,11 +444,106 @@
     padding: 12px 16px;
     border: 1px solid var(--brand-red);
 
-    &hover {
+    &:hover {
       @media (hover: hover) {
         background: white;
         color: var(--brand-red);
       }
     }
   }
+
+  &:has(.fancy-select-component) {
+    select {
+      display: none;
+    }
+  }
+}
+
+.input {
+  cursor: pointer;
+  border-radius: 4px;
+  background-color: var(--brand-red);
+  color: white;
+  width: 100%;
+  line-height: 1;
+  padding: 12px 16px;
+  border: 1px solid var(--brand-red);
+  transition: all 0.33s ease-in-out;
+
+  &:hover {
+    @media (hover: hover) {
+      background: white;
+      color: var(--brand-red);
+    }
+  }
+}
+
+.fancy-select-component {
+  position: relative;
+  width: 100%;
+  z-index: 50;
+}
+
+.input__active {
+  border-color: var(--colorAccent);
+  border-bottom-left-radius: 0px !important;
+  border-bottom-right-radius: 0px !important;
+}
+
+.input__placeholder {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.input:hover {
+  cursor: pointer;
+}
+
+.placeholder {
+  color: var(--colorPlaceholder);
+}
+
+.input__selected {
+  color: var(--colorPrimaryDark);
+}
+
+/* Dropdown styling */
+.structure {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 200px;
+  width: 100%;
+  overflow: scroll;
+  background-color: white;
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.1);
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 10;
+}
+
+.structure > div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 16px;
+  cursor: pointer;
+  background-color: var(--brand-gray);
+  border-bottom: 3px solid transparent;
+}
+
+.structure > div {
+  &:hover {
+    @media (hover: hover) {
+      background-color: white;
+      border-color: var(--brand-yellow);
+    }
+  }
+}
+
+.hide {
+  display: none;
 }

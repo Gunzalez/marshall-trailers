@@ -185,6 +185,10 @@
     },
   };
 
+  /**
+   * @miniCarousel
+   * Implements the Slick plugin for the mini carousel
+   */
   marshallTrailers.miniCarousel = {
     $carouselMini: null,
 
@@ -223,6 +227,91 @@
 
     prev: function () {
       this.$carouselMini.slick("slickPrev");
+    },
+  };
+
+  /* --------------------------------------------------------------- */
+
+  var toggleDropdown = function (id) {
+    var dropdown = document.querySelector(".structure");
+    dropdown.classList.toggle("hide");
+
+    var input = document.querySelector(".input");
+    input.classList.toggle("input__active");
+  };
+
+  var selectOption = function (name) {
+    var text = document.querySelector(".placeholder");
+    text.textContent = name;
+    text.classList.add("input__selected");
+    toggleDropdown("selectOption");
+  };
+
+  var createInput = function () {
+    // Creates the input outline
+    var input = document.createElement("div");
+    input.classList = "input";
+    input.addEventListener("click", function () {
+      var dropdown = this.parentNode.querySelector(".structure");
+      dropdown.classList.remove("hide");
+      this.classList.toggle("input__active");
+    });
+
+    var inputPlaceholder = document.createElement("div");
+    inputPlaceholder.classList = "input__placeholder";
+
+    var placeholder = document.createElement("span");
+    placeholder.textContent = "Select a model";
+    placeholder.classList.add("placeholder");
+
+    // Appends the placeholder and chevron (stored in assets.js)
+    inputPlaceholder.appendChild(placeholder);
+    // inputPlaceholder.appendChild(dropdownIcon());
+    input.appendChild(inputPlaceholder);
+
+    return input;
+  };
+
+  var showDropdown = function (models) {
+    var structure = document.createElement("div");
+    structure.classList.add("structure", "hide");
+
+    models.forEach(function (model) {
+      var option = document.createElement("div");
+      option.addEventListener("click", function () {
+        window.location.href = "product.html?id=" + model.id;
+      });
+      option.setAttribute("id", model.id);
+
+      var n = document.createElement("span");
+      n.textContent = model.label;
+
+      option.appendChild(n);
+      structure.appendChild(option);
+    });
+    return structure;
+  };
+
+  marshallTrailers.fancySelect = {
+    init: function (productRanges) {
+      productRanges.forEach(function (range) {
+        var component = document.createElement("div");
+        component.classList.add("fancy-select-component");
+
+        component.addEventListener("mouseleave", function () {
+          this.querySelector(".structure").classList.add("hide");
+        });
+
+        var input = createInput();
+        var dropdown = showDropdown(range.models);
+
+        component.appendChild(input);
+        component.appendChild(dropdown);
+        var printArea = document.getElementById(
+          range.id + "-selector"
+        ).parentElement;
+        printArea.appendChild(component);
+      });
     },
   };
 
@@ -376,6 +465,7 @@
     marshallTrailers.topNavigation.init();
     marshallTrailers.mobileNavigation.init();
 
+    window.fancySelect = marshallTrailers.fancySelect;
     window.heroCarousel = marshallTrailers.carousel;
     window.miniCarousel = marshallTrailers.miniCarousel;
   };
