@@ -232,66 +232,43 @@
 
   /* --------------------------------------------------------------- */
 
-  var toggleDropdown = function (id) {
-    var dropdown = document.querySelector(".structure");
-    dropdown.classList.toggle("hide");
-
-    var input = document.querySelector(".input");
-    input.classList.toggle("input__active");
-  };
-
-  var selectOption = function (name) {
-    var text = document.querySelector(".placeholder");
-    text.textContent = name;
-    text.classList.add("input__selected");
-    toggleDropdown("selectOption");
-  };
-
-  var createInput = function () {
-    // Creates the input outline
-    var input = document.createElement("div");
-    input.classList = "input";
-    input.addEventListener("click", function () {
+  var createTrigger = function (productsCount) {
+    var trigger = document.createElement("button");
+    trigger.classList = "trigger";
+    trigger.type = "button";
+    trigger.addEventListener("click", function () {
       var dropdown = this.parentNode.querySelector(".structure");
-      dropdown.classList.remove("hide");
-      this.classList.toggle("input__active");
+      dropdown.classList.toggle("hide");
     });
 
-    var inputPlaceholder = document.createElement("div");
-    inputPlaceholder.classList = "input__placeholder";
-
-    var placeholder = document.createElement("span");
-    placeholder.textContent = "Select a model";
-    placeholder.classList.add("placeholder");
-
-    // Appends the placeholder and chevron (stored in assets.js)
-    inputPlaceholder.appendChild(placeholder);
-    // inputPlaceholder.appendChild(dropdownIcon());
-    input.appendChild(inputPlaceholder);
-
-    return input;
+    trigger.textContent = "Select from " + productsCount + " models";
+    return trigger;
   };
 
-  var showDropdown = function (models) {
+  var showDropdown = function (products) {
     var structure = document.createElement("div");
     structure.classList.add("structure", "hide");
 
-    models.forEach(function (model) {
-      var option = document.createElement("div");
+    products.forEach(function (product) {
+      var option = document.createElement("button");
+      option.classList.add("option");
+      option.type = "button";
       option.addEventListener("click", function () {
-        window.location.href = "product.html?id=" + model.id;
+        var dropdown = this.parentNode;
+        dropdown.classList.add("hide");
+        window.location.href = "product.html?id=" + product.id;
       });
-      option.setAttribute("id", model.id);
 
-      var n = document.createElement("span");
-      n.textContent = model.label;
-
-      option.appendChild(n);
+      option.textContent = product.label;
       structure.appendChild(option);
     });
     return structure;
   };
 
+  /**
+   * @fancySelect
+   * Highjacks standard select elements to create custom dropdowns
+   */
   marshallTrailers.fancySelect = {
     init: function (productRanges) {
       productRanges.forEach(function (range) {
@@ -302,10 +279,10 @@
           this.querySelector(".structure").classList.add("hide");
         });
 
-        var input = createInput();
+        var trigger = createTrigger(range.models.length);
         var dropdown = showDropdown(range.models);
 
-        component.appendChild(input);
+        component.appendChild(trigger);
         component.appendChild(dropdown);
         var printArea = document.getElementById(
           range.id + "-selector"

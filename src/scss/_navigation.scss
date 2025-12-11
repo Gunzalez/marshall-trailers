@@ -63,6 +63,7 @@
   left: 0;
   min-width: 200px;
   display: none;
+  background-color: white;
 }
 
 #top-navigation .submenu li {
@@ -77,7 +78,9 @@
 }
 
 #top-navigation .main-menu li:hover > .submenu {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
 }
 
 /* For the 3rd level menu */
