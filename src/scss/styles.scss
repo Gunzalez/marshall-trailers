@@ -550,3 +550,18 @@
     }
   }
 }
+
+.product-hero {
+  height: 600px;
+  background-color: pink;
+  color: white;
+
+  .section {
+    display: flex;
+    justify-content: end;
+  }
+
+  .copy-wrapper {
+    width: 280px;
+  }
+}
