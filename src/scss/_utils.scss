@@ -182,6 +182,7 @@
   border-radius: 4px;
   cursor: pointer;
   line-height: 1;
+  white-space: nowrap;
   text-decoration: none;
   display: inline-block;
   text-align: center;
@@ -211,6 +212,21 @@
 
   &.bordered-bttn {
     border: 1px solid white;
+  }
+
+  &.transparent-bttn {
+    background-color: transparent;
+    color: white;
+    text-shadow: 0 0 3px #000;
+    border: 1px solid white;
+
+    @media (hover: hover) {
+      &:hover {
+        background-color: white;
+        color: var(--brand-red-dark);
+        text-shadow: none;
+      }
+    }
   }
 }
 

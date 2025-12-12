@@ -102,7 +102,7 @@
         ],
       },
       {
-        id: "livestock-containers",
+        id: "livestock-trailers-containers",
         title: "Livestock Containers",
         image: "images/range-4.png",
         models: [
@@ -190,7 +190,7 @@
         ],
       },
       {
-        id: "feeder-trailers",
+        id: "new-feeder-trailers",
         title: "Feeder Trailers",
         image: "images/range-8.png",
         models: [
@@ -251,18 +251,18 @@
         ],
       },
       {
-        id: "rear-discharge-spreaders",
-        title: "Rear Discharge Spreaders",
+        id: "new-dump-trailers",
+        title: "Dump Trailers",
         image: "images/range-11.png",
         models: [
           {
             title: "RDS-10 - 10 tons",
-            id: "rds-10",
+            id: "hd6",
             image: "images/range-11.png",
           },
           {
             title: "RDS-14 - 14 tons",
-            id: "rds-14",
+            id: "hd8",
             image: "images/range-11.png",
           },
         ],
@@ -315,10 +315,9 @@
         ],
       },
       {
-        id: "front-exhaust-spreaders",
-        title: "Front Exhaust Spreaders",
+        id: "rear-discharge-muck-spreaders",
+        title: "Rear Discharge Muck Spreaders",
         image: "images/range-2.png",
-        url: "products.html?model=front-exhaust-spreaders",
         models: [
           {
             title: "FES-8 - 8m³",
@@ -336,7 +335,6 @@
         id: "even-more-tankers",
         title: "Even More Tankers",
         image: "images/range-4.png",
-        url: "products.html?model=tankers",
         models: [
           {
             title: "ET-2400 - 2400 gal",
