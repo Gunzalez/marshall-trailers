@@ -13,7 +13,10 @@
             <div v-for="(slide, i) in heroCarouselData" :key="i" class="slide preload" :style="{ backgroundImage: 'url(' + slide.image + ')' }">
                 <div class="copy-wrapper">
                     <div class="copy-content">
-                        <h1 class="hero-title">[[ slide.title ]]</h1>
+                        <div class="content-box">
+                            <h2 class="title">[[ slide.title ]]</h2>
+                            <a :href="slide.url" class="bttn transparent-bttn">[[ slide.label ]]</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -241,19 +244,23 @@
                         {
                             title: 'The Legendary Marshall Muckspreader',
                             image: 'images/sample-hero.jpg',
-                            url: '#'
+                            url: 'products.html?model=rear-discharge-muck-spreaders',
+                            label: 'Explore Muckspreader'
                         }, {
                             title: 'New Low Loader',
                             image: 'images/sample-hero-2.jpg',
-                            url: '#'
+                            url: 'products.html?model=new-low-loaders',
+                            label: 'See Our Low Loaders'
                         }, {
                             title: 'The Marshall Livestock Container',
                             image: 'images/sample-hero-3.jpg',
-                            url: '#'
+                            url: 'product.html?id=mlc10',
+                            label: 'Come Talk To Us'
                         }, {
                             title: 'Marshall Drop-side Trailer',
                             image: 'images/sample-hero-4.jpg',
-                            url: '#'
+                            url: 'product.html?id=qm-18',
+                            label: 'Find Out More'
                         }
                     ]
                     const heroCarouselData = ref(carouselData);
