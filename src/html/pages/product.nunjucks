@@ -1,0 +1,80 @@
+{% set main_page = "home" %}
+{% extends "layout.nunjucks" %}
+{% import "../templates/partials/_macros.nunjucks" as macros %}
+
+{% block content %}
+
+    {{ macros.header("images/logo-marshall-trailers-color.png") }}
+
+    <div id="product-detail" class="app-loading">
+        <nav aria-label="breadcrumbs" class="breadcrumbs">
+            <ol>
+                <li>
+                    <a href="index.html">Home</a>
+                </li>
+                <li>
+                    <a href="range.html">Ranges</a>
+                </li>
+                <li>
+                    <a :href="`products.html?model=${product.parent_id}`">Products</a>
+                </li>
+                <li>[[ product.title ]]</li>
+            </ol>
+        </nav>
+
+        <div class="product-hero">
+            <div class="section">
+                <div class="copy-wrapper">
+                    <h1 class="page-title">[[ product.title ]]</h1>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const {createApp, onMounted, ref} = Vue;
+
+            createApp({
+                delimiters: [
+                    '[[', ']]'
+                ],
+                setup() {
+                    const fullProductRangesData = window.dummyData
+                        ? window.dummyData['productRangesData']
+                        : [];
+
+                    const queryString = window.location.search;
+                    const urlParams = new URLSearchParams(queryString);
+                    const model = urlParams.get('id');
+                    const product = ref(undefined);
+
+                    const models = fullProductRangesData.flatMap(range => range.models);
+                    const modelProduct = models.filter(function (product) {
+                        return product
+                            .id
+                            .toLowerCase() === model.toLowerCase();
+                    });
+
+                    if (modelProduct.length > 0) {
+                        product.value = modelProduct[0];
+                    }
+
+                    onMounted(() => {
+                        const productDetailElement = document.getElementById('product-detail');
+                        if (productDetailElement) {
+                            productDetailElement
+                                .classList
+                                .remove('app-loading');
+                        }
+                    });
+
+                    return {product}
+                }
+            }).mount('#product-detail');
+
+        });
+    </script>
+
+{% endblock %}
