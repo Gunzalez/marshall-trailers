@@ -108,7 +108,7 @@
       {
         id: "multi-purpose-dumpsters",
         title: "Multi-purpose Dumpsters",
-        image: "images/range-1.png",
+        image: "images/range-5.png",
         models: [
           {
             label: "MD-8 - 8 tons",
@@ -127,7 +127,7 @@
       {
         id: "slurry-tankers",
         title: "Slurry Tankers",
-        image: "images/range-3.png",
+        image: "images/range-7.png",
         models: [
           {
             label: "ST-2000 - 2000 gal",
@@ -146,7 +146,7 @@
       {
         id: "muck-spreaders",
         title: "Muck Spreaders",
-        image: "images/range-3.png",
+        image: "images/range-6.png",
         models: [
           {
             label: "MS-6 - 6m³",
@@ -165,7 +165,7 @@
       {
         id: "feeder-trailers",
         title: "Feeder Trailers",
-        image: "images/range-3.png",
+        image: "images/range-8.png",
         models: [
           {
             label: "FT-14 - 14ft",
@@ -184,7 +184,7 @@
       {
         id: "people-carrier-trailers",
         title: "People Carrier Trailers",
-        image: "images/range-1.png",
+        image: "images/range-9.png",
         models: [
           {
             label: "PC-16 - 16 Seats",
@@ -199,7 +199,7 @@
       {
         id: "flat-bale-trailers",
         title: "Flat/Bale Trailers",
-        image: "images/range-2.png",
+        image: "images/range-10.png",
         models: [
           {
             label: "FB-20 - 20ft",
@@ -218,7 +218,7 @@
       {
         id: "rear-discharge-spreaders",
         title: "Rear Discharge Spreaders",
-        image: "images/range-2.png",
+        image: "images/range-11.png",
         models: [
           {
             label: "RDS-10 - 10 tons",
@@ -233,7 +233,7 @@
       {
         id: "tankers",
         title: "Tankers",
-        image: "images/range-3.png",
+        image: "images/range-12.png",
         models: [
           {
             label: "T-1800 - 1800 gal",
