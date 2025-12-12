@@ -26,7 +26,6 @@
     <!-- javaScript -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4" defer></script>
     <script src="js/vendor/imagesloaded.pkgd.min.js" defer></script>
-    <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js" ></script>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"
       integrity="sha512-WNLxfP/8cVYL9sj8Jnp6et0BkubLP31jhTG9vhL/F5uEZmg5wEzKoXp1kJslzPQWwPT1eyMiSxlKCgzHLOTOTQ=="
@@ -36,6 +35,7 @@
     <script src="js/vendor/jquery.validate.min.js" defer></script>
     <script src="js/vendor/mmenu.js" defer></script>
     <script src="js/vendor/lozad.min.js" defer></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js" defer></script>
     <script src="js/scripts.js?cb=123" defer></script>
 
   </head>
