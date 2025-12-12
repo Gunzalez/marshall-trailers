@@ -390,10 +390,6 @@
                     <img :src="range.image" :alt="range.title">
                 </div>
             </a>
-            <div class="flex justify-between items-center border-t  border-[var(--brand-gray)] pt-2">
-                <span class="link-text">20Kg</span>
-                <span class="link-text">3 Tons</span>
-            </div>
         </div>
     </div>
 
@@ -420,12 +416,7 @@
                             .toLowerCase() === model.toLowerCase();
                     });
 
-                    const productRangesData = modelDetails[0]
-                        .models
-                        .map(function (item) {
-                            return {id: item.id, title: item.label, image: modelDetails[0].image, url: modelDetails[0].url};
-                        });
-
+                    const productRangesData = modelDetails[0].models
                     const productRanges = ref(productRangesData);
 
                     onMounted(() => {

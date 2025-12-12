@@ -13,30 +13,37 @@
           {
             title: "QM-6 - 6.5 tons",
             id: "qm-6",
+            image: "images/range-1.png", // Already had an image, but it matches the parent
           },
           {
             title: "QM-8 - 8.5 tons",
             id: "qm-8",
+            image: "images/range-1.png", // Already had an image, but it matches the parent
           },
           {
             title: "QM-10 - 10 tons",
             id: "qm-10",
+            image: "images/range-1.png",
           },
           {
             title: "QM-12 - 12 tons",
             id: "qm-12",
+            image: "images/range-1.png",
           },
           {
             title: "QM-14 - 14 tons",
             id: "qm-14",
+            image: "images/range-1.png",
           },
           {
             title: "QM-16 - 16 tons",
             id: "qm-16",
+            image: "images/range-1.png",
           },
           {
             title: "QM-18 - 18 tons",
             id: "qm-18",
+            image: "images/range-1.png",
           },
         ],
       },
@@ -48,18 +55,22 @@
           {
             title: "LL-10T - 10 tons",
             id: "ll-10t",
+            image: "images/range-2.png",
           },
           {
             title: "LL-14T - 14 tons",
             id: "ll-14t",
+            image: "images/range-2.png",
           },
           {
             title: "LL-18T - 18 tons",
             id: "ll-18t",
+            image: "images/range-2.png",
           },
           {
             title: "LL-24T - 24 tons",
             id: "ll-24t",
+            image: "images/range-2.png",
           },
         ],
       },
@@ -71,18 +82,22 @@
           {
             title: "GS-10 - 10m³",
             id: "gs-10",
+            image: "images/range-3.png",
           },
           {
             title: "GS-15 - 15m³",
             id: "gs-15",
+            image: "images/range-3.png",
           },
           {
             title: "GS-20 - 20m³",
             id: "gs-20",
+            image: "images/range-3.png",
           },
           {
             title: "GS-25 - 25m³",
             id: "gs-25",
+            image: "images/range-3.png",
           },
         ],
       },
@@ -94,14 +109,17 @@
           {
             title: "LC-10 - 10ft",
             id: "lc-10",
+            image: "images/range-4.png",
           },
           {
             title: "LC-14 - 14ft",
             id: "lc-14",
+            image: "images/range-4.png",
           },
           {
             title: "LC-18 - 18ft",
             id: "lc-18",
+            image: "images/range-4.png",
           },
         ],
       },
@@ -113,14 +131,17 @@
           {
             title: "MD-8 - 8 tons",
             id: "md-8",
+            image: "images/range-5.png",
           },
           {
             title: "MD-12 - 12 tons",
             id: "md-12",
+            image: "images/range-5.png",
           },
           {
             title: "MD-16 - 16 tons",
             id: "md-16",
+            image: "images/range-5.png",
           },
         ],
       },
@@ -132,14 +153,17 @@
           {
             title: "ST-2000 - 2000 gal",
             id: "st-2000",
+            image: "images/range-7.png",
           },
           {
             title: "ST-2500 - 2500 gal",
             id: "st-2500",
+            image: "images/range-7.png",
           },
           {
             title: "ST-3000 - 3000 gal",
             id: "st-3000",
+            image: "images/range-7.png",
           },
         ],
       },
@@ -151,14 +175,17 @@
           {
             title: "MS-6 - 6m³",
             id: "ms-6",
+            image: "images/range-6.png",
           },
           {
             title: "MS-8 - 8m³",
             id: "ms-8",
+            image: "images/range-6.png",
           },
           {
             title: "MS-10 - 10m³",
             id: "ms-10",
+            image: "images/range-6.png",
           },
         ],
       },
@@ -170,14 +197,17 @@
           {
             title: "FT-14 - 14ft",
             id: "ft-14",
+            image: "images/range-8.png",
           },
           {
             title: "FT-18 - 18ft",
             id: "ft-18",
+            image: "images/range-8.png",
           },
           {
             title: "FT-22 - 22ft",
             id: "ft-22",
+            image: "images/range-8.png",
           },
         ],
       },
@@ -189,10 +219,12 @@
           {
             title: "PC-16 - 16 Seats",
             id: "pc-16",
+            image: "images/range-9.png",
           },
           {
             title: "PC-24 - 24 Seats",
             id: "pc-24",
+            image: "images/range-9.png",
           },
         ],
       },
@@ -204,14 +236,17 @@
           {
             title: "FB-20 - 20ft",
             id: "fb-20",
+            image: "images/range-10.png",
           },
           {
             title: "FB-24 - 24ft",
             id: "fb-24",
+            image: "images/range-10.png",
           },
           {
             title: "FB-30 - 30ft",
             id: "fb-30",
+            image: "images/range-10.png",
           },
         ],
       },
@@ -223,10 +258,12 @@
           {
             title: "RDS-10 - 10 tons",
             id: "rds-10",
+            image: "images/range-11.png",
           },
           {
             title: "RDS-14 - 14 tons",
             id: "rds-14",
+            image: "images/range-11.png",
           },
         ],
       },
@@ -238,34 +275,42 @@
           {
             title: "T-1800 - 1800 gal",
             id: "t-1800",
+            image: "images/range-12.png",
           },
           {
             title: "T-2200 - 2200 gal",
             id: "t-2200",
+            image: "images/range-12.png",
           },
           {
             title: "T-3000 - 3000 gal",
             id: "t-3000",
+            image: "images/range-12.png",
           },
           {
             title: "T-4000 - 4000 gal",
             id: "t-4000",
+            image: "images/range-12.png",
           },
           {
             title: "T-5000 - 5000 gal",
             id: "t-5000",
+            image: "images/range-12.png",
           },
           {
             title: "T-6000 - 6000 gal",
             id: "t-6000",
+            image: "images/range-12.png",
           },
           {
             title: "T-8000 - 8000 gal",
             id: "t-8000",
+            image: "images/range-12.png",
           },
           {
             title: "T-10000 - 10000 gal",
             id: "t-10000",
+            image: "images/range-12.png",
           },
         ],
       },
@@ -278,10 +323,12 @@
           {
             title: "FES-8 - 8m³",
             id: "fes-8",
+            image: "images/range-2.png",
           },
           {
             title: "FES-12 - 12m³",
             id: "fes-12",
+            image: "images/range-2.png",
           },
         ],
       },
@@ -294,22 +341,27 @@
           {
             title: "ET-2400 - 2400 gal",
             id: "et-2400",
+            image: "images/range-4.png",
           },
           {
             title: "ET-3200 - 3200 gal",
             id: "et-3200",
+            image: "images/range-4.png",
           },
           {
             title: "ET-4000 - 4000 gal",
             id: "et-4000",
+            image: "images/range-4.png",
           },
           {
             title: "ET-6000 - 6000 gal",
             id: "et-6000",
+            image: "images/range-4.png",
           },
           {
             title: "ET-8000 - 8000 gal",
             id: "et-8000",
+            image: "images/range-4.png",
           },
         ],
       },
