@@ -11,7 +11,7 @@
             <li>
                 <a href="index.html">Home</a>
             </li>
-            <li>Product Ranges</li>
+            <li>Ranges</li>
         </ol>
     </nav>
 
@@ -21,7 +21,7 @@
 
     <div id="product-ranges" class="section in-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 pb-16">
         <div v-for="(range, i) in productRanges" :key="i" class="slide flex flex-col gap-4">
-            <a class="pod link" :href="range.url">
+            <a class="pod link" :href="`products.html?model=${range.id}`">
                 <h4 class="title line-clamp-1">[[ range.title ]]</h4>
                 <div class="image-wrapper">
                     <img :src="range.image" :alt="range.title">

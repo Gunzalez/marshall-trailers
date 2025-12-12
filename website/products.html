@@ -371,27 +371,28 @@
             <li>
                 <a href="index.html">Home</a>
             </li>
-            <li>Ranges</li>
+            <li>
+                <a href="range.html">Ranges</a>
+            </li>
+            <li>Product</li>
         </ol>
     </nav>
 
-    <div class="title-wrapper">
-        <h1 class="page-title">Product Ranges</h1>
+    <div class="title-wrapper" id="page-title-wrapper">
+        <h1 class="page-title">[[ productsRangeTitle ]]</h1>
     </div>
 
-    <div id="product-ranges" class="section in-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 pb-16">
+    <div id="product-models" class="section in-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 pb-16">
         <div v-for="(range, i) in productRanges" :key="i" class="slide flex flex-col gap-4">
-            <a class="pod link" :href="`products.html?model=${range.id}`">
+            <a class="pod link" :href="`product.html?id=${range.id}`">
                 <h4 class="title line-clamp-1">[[ range.title ]]</h4>
                 <div class="image-wrapper">
                     <img :src="range.image" :alt="range.title">
                 </div>
             </a>
-            <div :id="range.id" class="product-selector">
-                <select :id="range.id + '-selector'" :name="range.id" @change="goToProduct($event.target.value)" class="fancy-select">
-                    <option selected>Select a model</option>
-                    <option v-for="(model, j) in range.models" :key="j" :value="model.id">[[ model.label ]]</option>
-                </select>
+            <div class="flex justify-between items-center border-t  border-[var(--brand-gray)] pt-2">
+                <span class="link-text">20Kg</span>
+                <span class="link-text">3 Tons</span>
             </div>
         </div>
     </div>
@@ -400,32 +401,62 @@
 
         document.addEventListener('DOMContentLoaded', () => {
             const {createApp, onMounted, ref} = Vue;
+
             createApp({
                 delimiters: [
                     '[[', ']]'
                 ],
                 setup() {
-                    var productRangesData = window.dummyData
+                    const fullProductRangesData = window.dummyData
                         ? window.dummyData['productRangesData']
                         : [];
 
-                    const productRanges = ref(productRangesData);
+                    const queryString = window.location.search;
+                    const urlParams = new URLSearchParams(queryString);
+                    const model = urlParams.get('model');
 
-                    onMounted(() => {
-                        if (window.fancySelect) {
-                            window
-                                .fancySelect
-                                .init(productRanges.value);
-                        }
+                    const modelDetails = fullProductRangesData.filter(function (product) {
+                        return product
+                            .id
+                            .toLowerCase() === model.toLowerCase();
                     });
 
-                    const goToProduct = (modelId) => {
-                        window.location.href = `product.html?id=${modelId}`;
-                    };
+                    const productRangesData = modelDetails[0]
+                        .models
+                        .map(function (item) {
+                            return {id: item.id, title: item.label, image: modelDetails[0].image, url: modelDetails[0].url};
+                        });
 
-                    return {productRanges, goToProduct}
+                    const productRanges = ref(productRangesData);
+
+                    return {productRanges}
                 }
-            }).mount('#product-ranges');
+            }).mount('#product-models');
+
+            createApp({
+                delimiters: [
+                    '[[', ']]'
+                ],
+                setup() {
+                    const fullProductRangesData = window.dummyData
+                        ? window.dummyData['productRangesData']
+                        : [];
+
+                    const queryString = window.location.search;
+                    const urlParams = new URLSearchParams(queryString);
+                    const model = urlParams.get('model');
+
+                    const modelDetails = fullProductRangesData.filter(function (product) {
+                        return product
+                            .id
+                            .toLowerCase() === model.toLowerCase();
+                    });
+
+                    const productsRangeTitle = ref(modelDetails[0].title);
+
+                    return {productsRangeTitle}
+                }
+            }).mount('#page-title-wrapper');
 
         });
     </script>

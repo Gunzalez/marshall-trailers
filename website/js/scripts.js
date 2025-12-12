@@ -9,7 +9,6 @@
         id: "dropside-trailers",
         title: "Drop-side Trailers",
         image: "images/range-1.png",
-        url: "range.html?range=dropside-trailers",
         models: [
           {
             label: "QM-6 - 6.5 tons",
@@ -45,7 +44,6 @@
         id: "new-low-loaders",
         title: "New Low Loaders",
         image: "images/range-2.png",
-        url: "range.html?range=new-low-loaders",
         models: [
           {
             label: "LL-10T - 10 tons",
@@ -69,7 +67,6 @@
         id: "grain-and-silage",
         title: "Grain & Silage",
         image: "images/range-3.png",
-        url: "range.html?range=grain-and-silage",
         models: [
           {
             label: "GS-10 - 10m³",
@@ -93,7 +90,6 @@
         id: "livestock-containers",
         title: "Livestock Containers",
         image: "images/range-4.png",
-        url: "range.html?range=livestock-containers",
         models: [
           {
             label: "LC-10 - 10ft",
@@ -113,7 +109,6 @@
         id: "multi-purpose-dumpsters",
         title: "Multi-purpose Dumpsters",
         image: "images/range-1.png",
-        url: "range.html?range=multi-purpose-dumpsters",
         models: [
           {
             label: "MD-8 - 8 tons",
@@ -133,7 +128,6 @@
         id: "slurry-tankers",
         title: "Slurry Tankers",
         image: "images/range-3.png",
-        url: "range.html?range=slurry-tankers",
         models: [
           {
             label: "ST-2000 - 2000 gal",
@@ -153,7 +147,6 @@
         id: "muck-spreaders",
         title: "Muck Spreaders",
         image: "images/range-3.png",
-        url: "range.html?range=muck-spreaders",
         models: [
           {
             label: "MS-6 - 6m³",
@@ -173,7 +166,6 @@
         id: "feeder-trailers",
         title: "Feeder Trailers",
         image: "images/range-3.png",
-        url: "range.html?range=feeder-trailers",
         models: [
           {
             label: "FT-14 - 14ft",
@@ -193,7 +185,6 @@
         id: "people-carrier-trailers",
         title: "People Carrier Trailers",
         image: "images/range-1.png",
-        url: "range.html?range=people-carrier-trailers",
         models: [
           {
             label: "PC-16 - 16 Seats",
@@ -209,7 +200,6 @@
         id: "flat-bale-trailers",
         title: "Flat/Bale Trailers",
         image: "images/range-2.png",
-        url: "range.html?range=flat-bale-trailers",
         models: [
           {
             label: "FB-20 - 20ft",
@@ -229,7 +219,6 @@
         id: "rear-discharge-spreaders",
         title: "Rear Discharge Spreaders",
         image: "images/range-2.png",
-        url: "range.html?range=rear-discharge-spreaders",
         models: [
           {
             label: "RDS-10 - 10 tons",
@@ -245,7 +234,6 @@
         id: "tankers",
         title: "Tankers",
         image: "images/range-3.png",
-        url: "range.html?range=tankers",
         models: [
           {
             label: "T-1800 - 1800 gal",
@@ -285,7 +273,7 @@
         id: "front-exhaust-spreaders",
         title: "Front Exhaust Spreaders",
         image: "images/range-2.png",
-        url: "range.html?range=front-exhaust-spreaders",
+        url: "products.html?model=front-exhaust-spreaders",
         models: [
           {
             label: "FES-8 - 8m³",
@@ -301,7 +289,7 @@
         id: "even-more-tankers",
         title: "Even More Tankers",
         image: "images/range-4.png",
-        url: "range.html?range=tankers",
+        url: "products.html?model=tankers",
         models: [
           {
             label: "ET-2400 - 2400 gal",

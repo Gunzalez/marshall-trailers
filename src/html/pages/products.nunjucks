@@ -1,0 +1,104 @@
+{% set main_page = "home" %}
+{% extends "layout.nunjucks" %}
+{% import "../templates/partials/_macros.nunjucks" as macros %}
+
+{% block content %}
+
+    {{ macros.header("images/logo-marshall-trailers-color.png") }}
+
+    <nav aria-label="breadcrumbs" class="breadcrumbs">
+        <ol>
+            <li>
+                <a href="index.html">Home</a>
+            </li>
+            <li>
+                <a href="range.html">Ranges</a>
+            </li>
+            <li>Product</li>
+        </ol>
+    </nav>
+
+    <div class="title-wrapper" id="page-title-wrapper">
+        <h1 class="page-title">[[ productsRangeTitle ]]</h1>
+    </div>
+
+    <div id="product-models" class="section in-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 pb-16">
+        <div v-for="(range, i) in productRanges" :key="i" class="slide flex flex-col gap-4">
+            <a class="pod link" :href="`product.html?id=${range.id}`">
+                <h4 class="title line-clamp-1">[[ range.title ]]</h4>
+                <div class="image-wrapper">
+                    <img :src="range.image" :alt="range.title">
+                </div>
+            </a>
+            <div class="flex justify-between items-center border-t  border-[var(--brand-gray)] pt-2">
+                <span class="link-text">20Kg</span>
+                <span class="link-text">3 Tons</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const {createApp, onMounted, ref} = Vue;
+
+            createApp({
+                delimiters: [
+                    '[[', ']]'
+                ],
+                setup() {
+                    const fullProductRangesData = window.dummyData
+                        ? window.dummyData['productRangesData']
+                        : [];
+
+                    const queryString = window.location.search;
+                    const urlParams = new URLSearchParams(queryString);
+                    const model = urlParams.get('model');
+
+                    const modelDetails = fullProductRangesData.filter(function (product) {
+                        return product
+                            .id
+                            .toLowerCase() === model.toLowerCase();
+                    });
+
+                    const productRangesData = modelDetails[0]
+                        .models
+                        .map(function (item) {
+                            return {id: item.id, title: item.label, image: modelDetails[0].image, url: modelDetails[0].url};
+                        });
+
+                    const productRanges = ref(productRangesData);
+
+                    return {productRanges}
+                }
+            }).mount('#product-models');
+
+            createApp({
+                delimiters: [
+                    '[[', ']]'
+                ],
+                setup() {
+                    const fullProductRangesData = window.dummyData
+                        ? window.dummyData['productRangesData']
+                        : [];
+
+                    const queryString = window.location.search;
+                    const urlParams = new URLSearchParams(queryString);
+                    const model = urlParams.get('model');
+
+                    const modelDetails = fullProductRangesData.filter(function (product) {
+                        return product
+                            .id
+                            .toLowerCase() === model.toLowerCase();
+                    });
+
+                    const productsRangeTitle = ref(modelDetails[0].title);
+
+                    return {productsRangeTitle}
+                }
+            }).mount('#page-title-wrapper');
+
+        });
+    </script>
+
+{% endblock %}
