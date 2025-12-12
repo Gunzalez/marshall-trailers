@@ -49,15 +49,16 @@
                     const queryString = window.location.search;
                     const urlParams = new URLSearchParams(queryString);
                     const model = urlParams.get('model');
+                    const productRanges = ref([]);
 
                     const modelDetails = fullProductRangesData.filter(function (product) {
                         return product
                             .id
                             .toLowerCase() === model.toLowerCase();
                     });
-
-                    const productRangesData = modelDetails[0].models
-                    const productRanges = ref(productRangesData);
+                    if (modelDetails.length > 0) {
+                        productRanges.value = modelDetails[0].models;
+                    }
 
                     onMounted(() => {
                         const productModelsElement = document.getElementById('product-models');
@@ -84,14 +85,16 @@
                     const queryString = window.location.search;
                     const urlParams = new URLSearchParams(queryString);
                     const model = urlParams.get('model');
+                    const productsRangeTitle = ref('');
 
                     const modelDetails = fullProductRangesData.filter(function (product) {
                         return product
                             .id
                             .toLowerCase() === model.toLowerCase();
                     });
-
-                    const productsRangeTitle = ref(modelDetails[0].title);
+                    if (modelDetails.length > 0) {
+                        productsRangeTitle.value = modelDetails[0].title;
+                    }
 
                     onMounted(() => {
                         const pageTitleWrapperElement = document.getElementById('page-title-wrapper');
