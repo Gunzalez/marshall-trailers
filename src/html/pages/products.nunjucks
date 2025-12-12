@@ -18,11 +18,11 @@
         </ol>
     </nav>
 
-    <div class="title-wrapper" id="page-title-wrapper">
+    <div id="page-title-wrapper" class="title-wrapper app-loading">
         <h1 class="page-title">[[ productsRangeTitle ]]</h1>
     </div>
 
-    <div id="product-models" class="section in-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 pb-16">
+    <div id="product-models" class="section in-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 pb-16 app-loading">
         <div v-for="(range, i) in productRanges" :key="i" class="slide flex flex-col gap-4">
             <a class="pod link" :href="`product.html?id=${range.id}`">
                 <h4 class="title line-clamp-1">[[ range.title ]]</h4>
@@ -68,6 +68,15 @@
 
                     const productRanges = ref(productRangesData);
 
+                    onMounted(() => {
+                        const productModelsElement = document.getElementById('product-models');
+                        if (productModelsElement) {
+                            productModelsElement
+                                .classList
+                                .remove('app-loading');
+                        }
+                    });
+
                     return {productRanges}
                 }
             }).mount('#product-models');
@@ -92,6 +101,15 @@
                     });
 
                     const productsRangeTitle = ref(modelDetails[0].title);
+
+                    onMounted(() => {
+                        const pageTitleWrapperElement = document.getElementById('page-title-wrapper');
+                        if (pageTitleWrapperElement) {
+                            pageTitleWrapperElement
+                                .classList
+                                .remove('app-loading');
+                        }
+                    });
 
                     return {productsRangeTitle}
                 }

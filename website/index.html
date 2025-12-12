@@ -369,7 +369,7 @@
     </div>
 
     <div class="hero">
-        <div id="carousel-main" class="carousel-main">
+        <div id="carousel-main" class="carousel-main app-loading">
             <div v-for="(slide, i) in heroCarouselData" :key="i" class="slide preload" :style="{ backgroundImage: 'url(' + slide.image + ')' }">
                 <div class="copy-wrapper">
                     <div class="copy-content">
@@ -484,6 +484,7 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const {createApp, onMounted, ref} = Vue;
+
             createApp({
                 delimiters: [
                     '[[', ']]'
@@ -519,7 +520,12 @@
                     }
 
                     onMounted(() => {
-                        $("#carousel-mini").removeClass("app-loading");
+                        const miniCarouselElement = document.getElementById('carousel-mini');
+                        if (miniCarouselElement) {
+                            miniCarouselElement
+                                .classList
+                                .remove('app-loading');
+                        }
                     });
 
                     return {productRanges, prev, next}
@@ -572,9 +578,16 @@
                     const setActiveTab = (id) => {
                         activeTab.value = id;
                     }
+
                     onMounted(() => {
-                        $("#tabs-section").removeClass("app-loading");
+                        const tabsSectionElement = document.getElementById('tabs-section');
+                        if (tabsSectionElement) {
+                            tabsSectionElement
+                                .classList
+                                .remove('app-loading');
+                        }
                     });
+
                     return {tabs, activeTab, setActiveTab}
                 }
             }).mount('#tabs-section');
@@ -611,11 +624,16 @@
                                 .heroCarousel
                                 .init();
                         }
+                        const carouselMainElement = document.getElementById('carousel-main');
+                        if (carouselMainElement) {
+                            carouselMainElement
+                                .classList
+                                .remove('app-loading');
+                        }
                     });
                     return {heroCarouselData}
                 }
             }).mount('#carousel-main');
-
         });
     </script>
 
