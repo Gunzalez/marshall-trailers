@@ -60,6 +60,13 @@
   opacity: 0;
 }
 
+.tab-item-app {
+  display: none;
+  @media screen and (min-width: 1200px) {
+    display: block;
+  }
+}
+
 .section {
   padding-left: 1rem;
   padding-right: 1rem;
