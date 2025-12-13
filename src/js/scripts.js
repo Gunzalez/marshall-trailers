@@ -714,20 +714,18 @@
       var $tabsContainer = $("#feature-tabs");
       $tabsContainer.find(".tab-item").each(function (index, tabItem) {
         var $tabItem = $(tabItem);
-        var $tabTitle = $tabItem.find(".header");
+        var $$tabHeader = $tabItem.find(".header");
 
-        var clickFunction = function () {
-          console.log("clicked", index);
+        var setActiveTab = function () {
           $tabsContainer.find(".tab-item").removeClass("active");
           $tabItem.addClass("active");
-
           $tabsContainer.find(".tabs-list button").removeClass("active");
           $tabsContainer.find(".tabs-list button").eq(index).addClass("active");
         };
 
-        $tabTitle.on("click", clickFunction);
+        $$tabHeader.on("click", setActiveTab);
 
-        var tabTitle = $tabTitle.text().trim();
+        var tabTitle = $$tabHeader.text().trim();
         var activeClass = $tabItem.hasClass("active") ? "active" : "";
         var $tabButton = $(
           '<button type="button" role="tab" class="' +
@@ -736,7 +734,7 @@
             tabTitle +
             "</button>"
         );
-        $tabButton.on("click", clickFunction);
+        $tabButton.on("click", setActiveTab);
         var $li = $("<li></li>");
         $li.append($tabButton);
         $tabsContainer.find(".tabs-list").append($li);
