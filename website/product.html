@@ -503,11 +503,17 @@
 
                     </div>
                 </div>
-                <div class="tab-item">
+
+                <div id="tab-item-app" class="tab-item active tab-item-app app-loading">
                     <h3 class="header">Specifications</h3>
                     <div class="content-wrapper">
-                        <div class="spacer" style="--height: 900px;">
-                            <h1>Specifications app placeholder</h1>
+                        <div class="fixed-column w-[300px]">
+                            <ul class="specs-list flex flex-col gap-2 border-r border-gray-200 pr-4">
+                                <li v-for="(key, i) in productKeys" :key="key" class="text-sm font-semibold"
+                                :class="{ 'border-b border-gray-100 pb-2': i !== productKeys.length - 1 }">
+                                        [[ key ]]
+                                    </li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -544,7 +550,7 @@
                     </div>
                 </div>
 
-                <div class="tab-item active">
+                <div class="tab-item">
                     <h3 class="header">Gallery</h3>
                     <div class="content-wrapper">
                         
@@ -599,87 +605,112 @@
                         
     <div class="retro-fit-list">
         
-    <div class="item flex flex-col gap-1">
+    <div class="item flex flex-col">
         <h5 class="title line-clamp-2 h-15">750/60 x 30.5 (10 Stud) Wheels</h5>
-        <div class="flex gap-3">
-            <div>
-                <a href="/uploads/products/optionals/large/0032-2.jpg" class="fancybox" rel="gallery">
-                    <img src="https://www.marshall-trailers.co.uk/uploads/products/optionals/0000.jpg" alt="750/60 x 30.5 (10 Stud) Wheels" class="w-32 object-cover">
-                </a>
-                <p>Part No.<br>0032-2</p>
-                <p class="pricing">£200.00</p>
+        <div class="px-3 py-2 pb-3 border border-gray-200 flex flex-col gap-3">
+            <div class="flex gap-3">
+                <div class="flex flex-col gap-2">
+                    <a href="images/070420-1755-5154.jpg" class="none-gallery-fsLightbox">
+                        <img src="images/070420-1755-5154.jpg" alt="750/60 x 30.5 (10 Stud) Wheels" class="w-40 object-cover">
+                    </a>
+                    <p>Part No.<br>0032-2</p>
+                    <p class="pricing">£200.00</p>
+                </div>
+                <div class="flex-1">
+                    <p class="text-sm">These tyres massively reduce ground compactions and improve handling in wet conditions. Please note all prices are in place of standard tyres and includes axle upgrade to 10 Stud axle. When fitted, overall wheel track makes the machine too wide for road use.</p>
+                </div>
             </div>
-            <div class="flex-1">
-                <p class="text-sm">These tyres massively reduce ground compactions and improve handling in wet conditions. Please note all prices are in place of standard tyres and includes axle upgrade to 10 Stud axle. When fitted, overall wheel track makes the machine too wide for road use.</p>
-            </div>
+            <a href="#" class="bttn">
+                <span>Enquire</span>
+            </a>
         </div>
     </div>
 
         
-    <div class="item flex flex-col gap-1">
+    <div class="item flex flex-col">
         <h5 class="title line-clamp-2 h-15">Flexible Cables</h5>
-        <div class="flex gap-3">
-            <div>
-                <a href="/uploads/products/optionals/large/0032-2.jpg" class="fancybox" rel="gallery">
-                    <img src="https://www.marshall-trailers.co.uk/uploads/products/optionals/0000.jpg" alt="Flexible Cables" class="w-32 object-cover">
-                </a>
-                <p>Part No.<br>0032-2</p>
-                <p class="pricing">£1100.00</p>
+        <div class="px-3 py-2 pb-3 border border-gray-200 flex flex-col gap-3">
+            <div class="flex gap-3">
+                <div class="flex flex-col gap-2">
+                    <a href="images/070420-1755-7885.jpg" class="none-gallery-fsLightbox">
+                        <img src="images/070420-1755-7885.jpg" alt="Flexible Cables" class="w-40 object-cover">
+                    </a>
+                    <p>Part No.<br>0032-2</p>
+                    <p class="pricing">£1100.00</p>
+                </div>
+                <div class="flex-1">
+                    <p class="text-sm">These tyres massively reduce ground compactions and improve handling in wet conditions. Please note all prices are in place of standard tyres and includes axle upgrade to 10 Stud axle. When fitted, overall wheel track makes the machine too wide for road use.</p>
+                </div>
             </div>
-            <div class="flex-1">
-                <p class="text-sm">These tyres massively reduce ground compactions and improve handling in wet conditions. Please note all prices are in place of standard tyres and includes axle upgrade to 10 Stud axle. When fitted, overall wheel track makes the machine too wide for road use.</p>
-            </div>
+            <a href="#" class="bttn">
+                <span>Enquire</span>
+            </a>
         </div>
     </div>
 
         
-    <div class="item flex flex-col gap-1">
+    <div class="item flex flex-col">
         <h5 class="title line-clamp-2 h-15">Screw Nuts</h5>
-        <div class="flex gap-3">
-            <div>
-                <a href="/uploads/products/optionals/large/0032-2.jpg" class="fancybox" rel="gallery">
-                    <img src="https://www.marshall-trailers.co.uk/uploads/products/optionals/0000.jpg" alt="Screw Nuts" class="w-32 object-cover">
-                </a>
-                <p>Part No.<br>0032-2</p>
-                <p class="pricing">£50.00</p>
+        <div class="px-3 py-2 pb-3 border border-gray-200 flex flex-col gap-3">
+            <div class="flex gap-3">
+                <div class="flex flex-col gap-2">
+                    <a href="images/070420-1803-2655.jpg" class="none-gallery-fsLightbox">
+                        <img src="images/070420-1803-2655.jpg" alt="Screw Nuts" class="w-40 object-cover">
+                    </a>
+                    <p>Part No.<br>0032-2</p>
+                    <p class="pricing">£50.00</p>
+                </div>
+                <div class="flex-1">
+                    <p class="text-sm">These tyres massively reduce ground compactions and improve handling in wet conditions. Please note all prices are in place of standard tyres and includes axle upgrade to 10 Stud axle. When fitted, overall wheel track makes the machine too wide for road use.</p>
+                </div>
             </div>
-            <div class="flex-1">
-                <p class="text-sm">These tyres massively reduce ground compactions and improve handling in wet conditions. Please note all prices are in place of standard tyres and includes axle upgrade to 10 Stud axle. When fitted, overall wheel track makes the machine too wide for road use.</p>
-            </div>
+            <a href="#" class="bttn">
+                <span>Enquire</span>
+            </a>
         </div>
     </div>
 
         
-    <div class="item flex flex-col gap-1">
+    <div class="item flex flex-col">
         <h5 class="title line-clamp-2 h-15">Dragon Elastic Motor</h5>
-        <div class="flex gap-3">
-            <div>
-                <a href="/uploads/products/optionals/large/0032-2.jpg" class="fancybox" rel="gallery">
-                    <img src="https://www.marshall-trailers.co.uk/uploads/products/optionals/0000.jpg" alt="Dragon Elastic Motor" class="w-32 object-cover">
-                </a>
-                <p>Part No.<br>0032-2</p>
-                <p class="pricing">£26.50</p>
+        <div class="px-3 py-2 pb-3 border border-gray-200 flex flex-col gap-3">
+            <div class="flex gap-3">
+                <div class="flex flex-col gap-2">
+                    <a href="images/080118-1235-3843.jpg" class="none-gallery-fsLightbox">
+                        <img src="images/080118-1235-3843.jpg" alt="Dragon Elastic Motor" class="w-40 object-cover">
+                    </a>
+                    <p>Part No.<br>0032-2</p>
+                    <p class="pricing">£26.50</p>
+                </div>
+                <div class="flex-1">
+                    <p class="text-sm">These tyres massively reduce ground compactions and improve handling in wet conditions. Please note all prices are in place of standard tyres and includes axle upgrade to 10 Stud axle. When fitted, overall wheel track makes the machine too wide for road use.</p>
+                </div>
             </div>
-            <div class="flex-1">
-                <p class="text-sm">These tyres massively reduce ground compactions and improve handling in wet conditions. Please note all prices are in place of standard tyres and includes axle upgrade to 10 Stud axle. When fitted, overall wheel track makes the machine too wide for road use.</p>
-            </div>
+            <a href="#" class="bttn">
+                <span>Enquire</span>
+            </a>
         </div>
     </div>
 
         
-    <div class="item flex flex-col gap-1">
+    <div class="item flex flex-col">
         <h5 class="title line-clamp-2 h-15">Metal Reinforced Guards</h5>
-        <div class="flex gap-3">
-            <div>
-                <a href="/uploads/products/optionals/large/0032-2.jpg" class="fancybox" rel="gallery">
-                    <img src="https://www.marshall-trailers.co.uk/uploads/products/optionals/0000.jpg" alt="Metal Reinforced Guards" class="w-32 object-cover">
-                </a>
-                <p>Part No.<br>0032-2</p>
-                <p class="pricing">£400.00</p>
+        <div class="px-3 py-2 pb-3 border border-gray-200 flex flex-col gap-3">
+            <div class="flex gap-3">
+                <div class="flex flex-col gap-2">
+                    <a href="images/080118-1235-4824.jpg" class="none-gallery-fsLightbox">
+                        <img src="images/080118-1235-4824.jpg" alt="Metal Reinforced Guards" class="w-40 object-cover">
+                    </a>
+                    <p>Part No.<br>0032-2</p>
+                    <p class="pricing">£400.00</p>
+                </div>
+                <div class="flex-1">
+                    <p class="text-sm">These tyres massively reduce ground compactions and improve handling in wet conditions. Please note all prices are in place of standard tyres and includes axle upgrade to 10 Stud axle. When fitted, overall wheel track makes the machine too wide for road use.</p>
+                </div>
             </div>
-            <div class="flex-1">
-                <p class="text-sm">These tyres massively reduce ground compactions and improve handling in wet conditions. Please note all prices are in place of standard tyres and includes axle upgrade to 10 Stud axle. When fitted, overall wheel track makes the machine too wide for road use.</p>
-            </div>
+            <a href="#" class="bttn">
+                <span>Enquire</span>
+            </a>
         </div>
     </div>
 
@@ -691,6 +722,33 @@
             </div>
         </div>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const {createApp, onMounted, ref} = Vue;
+
+            createApp({
+                delimiters: [
+                    '[[', ']]'
+                ],
+                setup() {
+
+                    const fullProducts = ref(window.FULL_PRODUCT_DATA || []);
+                    const productKeys = Object.keys(fullProducts.value[0])
+
+                    onMounted(() => {
+                        const tabItemAppElement = document.getElementById('tab-item-app');
+                        if (tabItemAppElement) {
+                            tabItemAppElement
+                                .classList
+                                .remove('app-loading');
+                        }
+                    });
+                    return {fullProducts, productKeys};
+                }
+            }).mount('#tab-item-app');
+        });
+    </script>
 
 
       <div class="mt-6 pb-2 md:mt-8 md:pb-4 max-w-[var(--max-width)] mx-auto">
