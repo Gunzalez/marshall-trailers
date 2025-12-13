@@ -122,3 +122,75 @@
         </li>
     </ul>
 {% endmacro %}
+
+{% macro bagItem(title, price) %}
+    <div class="item flex flex-col gap-1">
+        <h5 class="title line-clamp-2 h-15">{{ title }}</h5>
+        <div class="flex gap-3">
+            <div>
+                <a href="/uploads/products/optionals/large/0032-2.jpg" class="fancybox" rel="gallery">
+                    <img src="https://www.marshall-trailers.co.uk/uploads/products/optionals/0000.jpg" alt="{{ title }}" class="w-32 object-cover">
+                </a>
+                <p>Part No.<br>0032-2</p>
+                <p class="pricing">£{{ price }}</p>
+            </div>
+            <div class="flex-1">
+                <p class="text-sm">These tyres massively reduce ground compactions and improve handling in wet conditions. Please note all prices are in place of standard tyres and includes axle upgrade to 10 Stud axle. When fitted, overall wheel track makes the machine too wide for road use.</p>
+            </div>
+        </div>
+    </div>
+{% endmacro %}
+
+{% macro retroFit() %}
+    <div class="retro-fit-list">
+        {{ bagItem("750/60 x 30.5 (10 Stud) Wheels", "200.00") }}
+        {{ bagItem("Flexible Cables", "1100.00") }}
+        {{ bagItem("Screw Nuts", "50.00") }}
+        {{ bagItem("Dragon Elastic Motor", "26.50") }}
+        {{ bagItem("Metal Reinforced Guards", "400.00") }}
+    </div>
+{% endmacro %}
+
+{% macro gallery() %}
+    <ul class="gallery-list">
+        <li>
+            <a href="https://www.marshall-trailers.co.uk/uploads/products/images/070420-1803-2655.jpg" title="QM1200" rel="gallery"><img src="https://www.marshall-trailers.co.uk/uploads/products/images/070420-1803-2655.jpg" alt="QM1200"></a>
+        </li>
+        <li>
+            <a href="https://www.marshall-trailers.co.uk/uploads/products/images/080118-1236-8198.jpg" title="QM/1200 - Front View" rel="gallery"><img src="https://www.marshall-trailers.co.uk/uploads/products/images/080118-1236-8198.jpg" alt="QM/1200 - Front View"></a>
+        </li>
+        <li>
+            <a href="https://www.marshall-trailers.co.uk/uploads/products/images/080118-1235-4824.jpg" title="QM/1200 Silage - Front View" rel="gallery"><img src="https://www.marshall-trailers.co.uk/uploads/products/images/080118-1235-4824.jpg" alt="QM/1200 Silage - Front View"></a>
+        </li>
+        <li>
+            <a href="https://www.marshall-trailers.co.uk/uploads/products/images/080118-1235-3843.jpg" title="QM/1200 Silage - Side View" rel="gallery"><img src="https://www.marshall-trailers.co.uk/uploads/products/images/080118-1235-3843.jpg" alt="QM/1200 Silage - Side View"></a>
+        </li>
+        <li>
+            <a href="https://www.marshall-trailers.co.uk/uploads/products/images/070420-1755-7885.jpg" title="QM1200 - Silage Sides, Black, 550-45x22.5 Wheels, Mudguards" rel="gallery"><img src="https://www.marshall-trailers.co.uk/uploads/products/images/070420-1755-7885.jpg" alt="QM1200 - Silage Sides, Black, 550-45x22.5 Wheels, Mudguards"></a>
+        </li>
+        <li>
+            <a href="https://www.marshall-trailers.co.uk/uploads/products/images/070420-1755-5154.jpg" title="QM1200 - Silage Sides, Black, 550-45x22.5 Wheels, Mudguards" rel="gallery"><img src="https://www.marshall-trailers.co.uk/uploads/products/images/070420-1755-5154.jpg" alt="QM1200 - Silage Sides, Black, 550-45x22.5 Wheels, Mudguards"></a>
+        </li>
+        <li>
+            <a href="https://www.marshall-trailers.co.uk/uploads/products/images/080118-1235-4824.jpg" title="QM/1200 Silage - Front View" rel="gallery"><img src="https://www.marshall-trailers.co.uk/uploads/products/images/080118-1235-4824.jpg" alt="QM/1200 Silage - Front View"></a>
+        </li>
+        <li>
+            <a href="https://www.marshall-trailers.co.uk/uploads/products/images/070420-1755-7885.jpg" title="QM1200 - Silage Sides, Black, 550-45x22.5 Wheels, Mudguards" rel="gallery"><img src="https://www.marshall-trailers.co.uk/uploads/products/images/070420-1755-7885.jpg" alt="QM1200 - Silage Sides, Black, 550-45x22.5 Wheels, Mudguards"></a>
+        </li>
+        <li>
+            <a href="https://www.marshall-trailers.co.uk/uploads/products/images/070420-1755-5154.jpg" title="QM1200 - Silage Sides, Black, 550-45x22.5 Wheels, Mudguards" rel="gallery"><img src="https://www.marshall-trailers.co.uk/uploads/products/images/070420-1755-5154.jpg" alt="QM1200 - Silage Sides, Black, 550-45x22.5 Wheels, Mudguards"></a>
+        </li>
+        <li>
+            <a href="https://www.marshall-trailers.co.uk/uploads/products/images/080118-1235-4824.jpg" title="QM/1200 Silage - Front View" rel="gallery"><img src="https://www.marshall-trailers.co.uk/uploads/products/images/080118-1235-4824.jpg" alt="QM/1200 Silage - Front View"></a>
+        </li>
+        <li>
+            <a href="https://www.marshall-trailers.co.uk/uploads/products/images/080118-1235-3843.jpg" title="QM/1200 Silage - Side View" rel="gallery"><img src="https://www.marshall-trailers.co.uk/uploads/products/images/080118-1235-3843.jpg" alt="QM/1200 Silage - Side View"></a>
+        </li>
+        <li>
+            <a href="https://www.marshall-trailers.co.uk/uploads/products/images/070420-1755-7885.jpg" title="QM1200 - Silage Sides, Black, 550-45x22.5 Wheels, Mudguards" rel="gallery"><img src="https://www.marshall-trailers.co.uk/uploads/products/images/070420-1755-7885.jpg" alt="QM1200 - Silage Sides, Black, 550-45x22.5 Wheels, Mudguards"></a>
+        </li>
+        <li>
+            <a href="https://www.marshall-trailers.co.uk/uploads/products/images/070420-1755-5154.jpg" title="QM1200 - Silage Sides, Black, 550-45x22.5 Wheels, Mudguards" rel="gallery"><img src="https://www.marshall-trailers.co.uk/uploads/products/images/070420-1755-5154.jpg" alt="QM1200 - Silage Sides, Black, 550-45x22.5 Wheels, Mudguards"></a>
+        </li>
+    </ul>
+{% endmacro %}

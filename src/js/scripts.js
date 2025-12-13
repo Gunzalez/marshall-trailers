@@ -914,10 +914,10 @@
   marshallTrailers.init = function () {
     marshallTrailers.topNavigation.init();
     marshallTrailers.mobileNavigation.init();
+    // marshallTrailers.products.init();
 
     marshallTrailers.featureTabs.init();
 
-    marshallTrailers.products.init();
     window.fancySelect = marshallTrailers.fancySelect;
     window.heroCarousel = marshallTrailers.carousel;
     window.miniCarousel = marshallTrailers.miniCarousel;

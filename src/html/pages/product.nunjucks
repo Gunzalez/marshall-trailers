@@ -71,21 +71,30 @@
                 <div class="tab-item">
                     <h3 class="header">Specifications</h3>
                     <div class="content-wrapper">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc ut laoreet venenatis, nunc nisl aliquam nunc, eget aliquam nisl nunc vel nisl. Sed euismod, nunc ut laoreet venenatis, nunc nisl aliquam nunc, eget aliquam nisl nunc vel nisl.</p>
+                        <div class="spacer" style="--height: 900px;">
+                            <h1>Specifications app placeholder</h1>
+                        </div>
                     </div>
                 </div>
 
-                <div class="tab-item active">
+                <div class="tab-item">
                     <h3 class="header">Owner's Info</h3>
                     <div class="content-wrapper">
                         {{ macros.ownersInfo() }}
                     </div>
                 </div>
 
-                <div class="tab-item">
-                    <h3 class="header">FAQs</h3>
+                <div class="tab-item active">
+                    <h3 class="header">Gallery</h3>
                     <div class="content-wrapper">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc ut laoreet venenatis, nunc nisl aliquam nunc, eget aliquam nisl nunc vel nisl. Sed euismod, nunc ut laoreet venenatis, nunc nisl aliquam nunc, eget aliquam nisl nunc vel nisl.</p>
+                        {{ macros.gallery() }}
+                    </div>
+                </div>
+
+                <div class="tab-item">
+                    <h3 class="header">Retro Fit</h3>
+                    <div class="content-wrapper">
+                        {{ macros.retroFit() }}
                     </div>
                 </div>
 

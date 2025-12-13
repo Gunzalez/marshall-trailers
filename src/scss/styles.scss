@@ -585,7 +585,7 @@
     gap: 1rem;
 
     button {
-      padding: 8px 0;
+      padding: 8px 10px 6px 10px;
       line-height: 1;
       border-bottom: 2px solid transparent;
       cursor: pointer;
@@ -594,6 +594,13 @@
       &.active {
         border-color: var(--brand-yellow);
         cursor: default;
+        font-weight: 600;
+      }
+
+      &:hover {
+        @media (hover: hover) {
+          font-weight: 600;
+        }
       }
     }
   }
@@ -698,5 +705,77 @@
   p {
     margin: 0;
     padding: 0;
+  }
+}
+
+.retro-fit-list {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 1rem;
+
+  .item {
+    .title {
+      margin: 0;
+      padding: 10px;
+      background-color: var(--brand-gray);
+      border-radius: 1px;
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+
+    .item {
+      padding: 1rem;
+      border: 1px solid var(--brand-gray);
+      border-radius: 1px;
+    }
+  }
+
+  @media screen and (min-width: 1024px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.gallery-list {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 0.5rem;
+
+  li {
+    overflow: hidden;
+    border-radius: 2px;
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
+      aspect-ratio: 220/148;
+      object-fit: cover;
+      transition: all 0.3s ease-in-out;
+    }
+
+    &:hover {
+      @media (hover: hover) {
+        img {
+          transform: scale(1.05);
+        }
+      }
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media screen and (min-width: 920px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media screen and (min-width: 1024px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  @media screen and (min-width: 1200px) {
+    grid-template-columns: repeat(5, 1fr);
   }
 }
