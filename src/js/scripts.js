@@ -745,21 +745,23 @@
       var urlParams = new URLSearchParams(queryString);
       var model = urlParams.get("id");
 
-      var models = dummyData.productRangesData.flatMap(function (range) {
-        return range.models;
-      });
-      var modelProduct = models.filter(function (product) {
-        return product.id.toLowerCase() === model.toLowerCase();
-      });
+      if (model) {
+        var models = dummyData.productRangesData.flatMap(function (range) {
+          return range.models;
+        });
+        var modelProduct = models.filter(function (product) {
+          return product.id.toLowerCase() === model.toLowerCase();
+        });
 
-      $(".parent-link").attr(
-        "href",
-        "products.html?model=" + modelProduct[0].parent_id
-      );
-      $(".product-title").text(modelProduct[0].title);
-      var randomPrice = Math.floor(Math.random() * 9000) + 5000;
+        $(".parent-link").attr(
+          "href",
+          "products.html?model=" + modelProduct[0].parent_id
+        );
+        $(".product-title").text(modelProduct[0].title);
+        var randomPrice = Math.floor(Math.random() * 9000) + 5000;
 
-      $(".product-price").text("£" + randomPrice.toLocaleString("en-US"));
+        $(".product-price").text("£" + randomPrice.toLocaleString("en-US"));
+      }
     },
   };
 
