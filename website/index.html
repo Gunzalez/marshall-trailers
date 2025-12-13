@@ -387,7 +387,7 @@
         <div class="border-t border-[var(--brand-gray)] mx-4"></div>
     </div>
 
-    <div class="section flex flex-col gap-2 app-loading" id="carousel-mini">
+    <div id="carousel-mini" class="section flex flex-col gap-2 app-loading">
         <h2>
             <a href="range.html">Product Ranges</a>
         </h2>
@@ -413,7 +413,7 @@
 
     <div id="tabs-section" class="tabs-section app-loading">
         <h2 class="section-title">Our Values</h2>
-        <li class="tabs-list desktop-only px-4" role="presentation">
+        <div class="tabs-list desktop-only px-4" role="presentation">
             <button v-for="tab in tabs" :key="tab.id"
                         type="button"
                         :class="{ active: activeTab === tab.id }"
@@ -422,7 +422,7 @@
                         :aria-selected="[[ activeTab === tab.id ]]">
                 [[ tab.header ]]
             </button>
-        </li>
+        </div>
         <div class="tab-content">
             <div v-for="tab in tabs" :key="tab.id">
                 <div class="accordion-header mobile-only" role="tab" :class="{ active: activeTab === tab.id }">

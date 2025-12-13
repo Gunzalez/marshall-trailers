@@ -709,6 +709,64 @@
 
   /*---------------------------------------------------------------- */
 
+  marshallTrailers.featureTabs = {
+    init: function () {
+      var $tabsContainer = $("#feature-tabs");
+      $tabsContainer.find(".tab-item").each(function (index, tabItem) {
+        var $tabItem = $(tabItem);
+        var $tabTitle = $tabItem.find(".header");
+
+        var clickFunction = function () {
+          console.log("clicked", index);
+          $tabsContainer.find(".tab-item").removeClass("active");
+          $tabItem.addClass("active");
+
+          $tabsContainer.find(".tabs-list button").removeClass("active");
+          $tabsContainer.find(".tabs-list button").eq(index).addClass("active");
+        };
+
+        $tabTitle.on("click", clickFunction);
+
+        var tabTitle = $tabTitle.text().trim();
+        var activeClass = $tabItem.hasClass("active") ? "active" : "";
+        var $tabButton = $(
+          '<button type="button" role="tab" class="' +
+            activeClass +
+            '">' +
+            tabTitle +
+            "</button>"
+        );
+        $tabButton.on("click", clickFunction);
+        var $li = $("<li></li>");
+        $li.append($tabButton);
+        $tabsContainer.find(".tabs-list").append($li);
+      });
+
+      // dummy data
+      var queryString = window.location.search;
+      var urlParams = new URLSearchParams(queryString);
+      var model = urlParams.get("id");
+
+      var models = dummyData.productRangesData.flatMap(function (range) {
+        return range.models;
+      });
+      var modelProduct = models.filter(function (product) {
+        return product.id.toLowerCase() === model.toLowerCase();
+      });
+
+      $(".parent-link").attr(
+        "href",
+        "products.html?model=" + modelProduct[0].parent_id
+      );
+      $(".product-title").text(modelProduct[0].title);
+      var randomPrice = Math.floor(Math.random() * 9000) + 5000;
+
+      $(".product-price").text("£" + randomPrice.toLocaleString("en-US"));
+    },
+  };
+
+  /*---------------------------------------------------------------- */
+
   /**
    * @products
    * Handles dropdown switching behaviour for mobile
@@ -857,6 +915,9 @@
     marshallTrailers.topNavigation.init();
     marshallTrailers.mobileNavigation.init();
 
+    marshallTrailers.featureTabs.init();
+
+    marshallTrailers.products.init();
     window.fancySelect = marshallTrailers.fancySelect;
     window.heroCarousel = marshallTrailers.carousel;
     window.miniCarousel = marshallTrailers.miniCarousel;
