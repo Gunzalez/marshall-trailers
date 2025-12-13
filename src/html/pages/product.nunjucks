@@ -6,7 +6,7 @@
 
     {{ macros.header("images/logo-marshall-trailers-color.png") }}
 
-    <div id="product-detail" class="app-loading">
+    <div id="product-detail">
         <nav aria-label="breadcrumbs" class="breadcrumbs">
             <ol>
                 <li>
@@ -16,65 +16,81 @@
                     <a href="range.html">Ranges</a>
                 </li>
                 <li>
-                    <a :href="`products.html?model=${product.parent_id}`">Products</a>
+                    <a href="#" class="parent-link">Products</a>
                 </li>
-                <li>[[ product.title ]]</li>
             </ol>
         </nav>
 
         <div class="product-hero">
             <div class="section">
                 <div class="copy-wrapper">
-                    <h1 class="page-title">[[ product.title ]]</h1>
+                    <h1 class="page-title">
+                        <span class="product-title"></span></h1>
                 </div>
             </div>
         </div>
+        <div class="section quick-specs-wrapper">
+            <h1 class="page-title">
+                <span class="product-title"></span></h1>
+            <ul class="quick-specs">
+                <li>
+                    <strong>Sides: </strong>4mm Steel</li>
+                <li>
+                    <strong>Front: </strong>5mm Steel</li>
+                <li>
+                    <strong>Floor: </strong>Timber Slatted Floor</li>
+                <li>
+                    <strong>Standard Equipment: </strong>6 Stud Half Axle / 12.5 x 15 (6 Stud) Wheels / No Brakes / Colour - Marshall Red</li>
+            </ul>
+            <div>
+                <p>Basic Price: <strong>
+                        <span class="product-price"></span> + VAT</strong>
+                </p>
+                <button class="bttn">
+                    <span>Configure</span>
+                    <span>& Order</span>
+                </button>
+            </div>
+        </div>
 
+        <div id="feature-tabs" class="features-tabs-section">
+            <ul class="tabs-list desktop-only px-4" role="presentation"></ul>
+            <div class="tab-content">
+                <div class="tab-item">
+                    <h3 class="header">Feature</h3>
+                    <div class="content-wrapper">
+                        <div></div>
+                    </div>
+                </div>
+                <div class="tab-item active">
+                    <h3 class="header">Overview</h3>
+                    <div class="content-wrapper">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc ut laoreet venenatis, nunc nisl aliquam nunc, eget aliquam nisl nunc vel nisl. Sed euismod, nunc ut laoreet venenatis, nunc nisl aliquam nunc, eget aliquam nisl nunc vel nisl.</p>
+                    </div>
+                </div>
+                <div class="tab-item">
+                    <h3 class="header">Specifications</h3>
+                    <div class="content-wrapper">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc ut laoreet venenatis, nunc nisl aliquam nunc, eget aliquam nisl nunc vel nisl. Sed euismod, nunc ut laoreet venenatis, nunc nisl aliquam nunc, eget aliquam nisl nunc vel nisl.</p>
+                    </div>
+                </div>
+
+                <div class="tab-item">
+                    <h3 class="header">Owner's Info</h3>
+                    <div class="content-wrapper">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc ut laoreet venenatis, nunc nisl aliquam nunc, eget aliquam nisl nunc vel nisl. Sed euismod, nunc ut laoreet venenatis, nunc nisl aliquam nunc, eget aliquam nisl nunc vel nisl.</p>
+                    </div>
+                </div>
+
+                <div class="tab-item">
+                    <h3 class="header">FAQs</h3>
+                    <div class="content-wrapper">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc ut laoreet venenatis, nunc nisl aliquam nunc, eget aliquam nisl nunc vel nisl. Sed euismod, nunc ut laoreet venenatis, nunc nisl aliquam nunc, eget aliquam nisl nunc vel nisl.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
     </div>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const {createApp, onMounted, ref} = Vue;
-
-            createApp({
-                delimiters: [
-                    '[[', ']]'
-                ],
-                setup() {
-                    const fullProductRangesData = window.dummyData
-                        ? window.dummyData['productRangesData']
-                        : [];
-
-                    const queryString = window.location.search;
-                    const urlParams = new URLSearchParams(queryString);
-                    const model = urlParams.get('id');
-                    const product = ref(undefined);
-
-                    const models = fullProductRangesData.flatMap(range => range.models);
-                    const modelProduct = models.filter(function (product) {
-                        return product
-                            .id
-                            .toLowerCase() === model.toLowerCase();
-                    });
-
-                    if (modelProduct.length > 0) {
-                        product.value = modelProduct[0];
-                    }
-
-                    onMounted(() => {
-                        const productDetailElement = document.getElementById('product-detail');
-                        if (productDetailElement) {
-                            productDetailElement
-                                .classList
-                                .remove('app-loading');
-                        }
-                    });
-
-                    return {product}
-                }
-            }).mount('#product-detail');
-
-        });
-    </script>
 
 {% endblock %}
