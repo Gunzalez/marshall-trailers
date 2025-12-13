@@ -68,11 +68,17 @@
                         {{ macros.overview() }}
                     </div>
                 </div>
-                <div class="tab-item">
+
+                <div id="tab-item-app" class="tab-item active tab-item-app app-loading">
                     <h3 class="header">Specifications</h3>
                     <div class="content-wrapper">
-                        <div class="spacer" style="--height: 900px;">
-                            <h1>Specifications app placeholder</h1>
+                        <div class="fixed-column w-[300px]">
+                            <ul class="specs-list flex flex-col gap-2 border-r border-gray-200 pr-4">
+                                <li v-for="(key, i) in productKeys" :key="key" class="text-sm font-semibold"
+                                :class="{ 'border-b border-gray-100 pb-2': i !== productKeys.length - 1 }">
+                                        [[ key ]]
+                                    </li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -84,7 +90,7 @@
                     </div>
                 </div>
 
-                <div class="tab-item active">
+                <div class="tab-item">
                     <h3 class="header">Gallery</h3>
                     <div class="content-wrapper">
                         {{ macros.gallery() }}
@@ -101,5 +107,32 @@
             </div>
         </div>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const {createApp, onMounted, ref} = Vue;
+
+            createApp({
+                delimiters: [
+                    '[[', ']]'
+                ],
+                setup() {
+
+                    const fullProducts = ref(window.FULL_PRODUCT_DATA || []);
+                    const productKeys = Object.keys(fullProducts.value[0])
+
+                    onMounted(() => {
+                        const tabItemAppElement = document.getElementById('tab-item-app');
+                        if (tabItemAppElement) {
+                            tabItemAppElement
+                                .classList
+                                .remove('app-loading');
+                        }
+                    });
+                    return {fullProducts, productKeys};
+                }
+            }).mount('#tab-item-app');
+        });
+    </script>
 
 {% endblock %}

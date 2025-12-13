@@ -727,9 +727,11 @@
 
         var tabTitle = $$tabHeader.text().trim();
         var activeClass = $tabItem.hasClass("active") ? "active" : "";
+        var appClass = $tabItem.hasClass("tab-item-app") ? " tab-item-app" : "";
         var $tabButton = $(
           '<button type="button" role="tab" class="' +
             activeClass +
+            appClass +
             '">' +
             tabTitle +
             "</button>"
@@ -768,60 +770,18 @@
   /*---------------------------------------------------------------- */
 
   /**
-   * @products
-   * Handles dropdown switching behaviour for mobile
-   * Handles tabs filtering for desktop
+   * @fsLightBoxLinks
+   * Attaches fsLightbox to links with the none-gallery-fsLightbox class
+   * Allows single image lightbox popups
    */
-  marshallTrailers.products = {
+  marshallTrailers.fsLightBoxLinks = {
     init: function () {
-      $("#mobile-switcher").on("submit", function (event) {
-        event.preventDefault();
-      });
-
-      var $productList = $("#product-items");
-      var $desktopSwitcher = $("#desktop-switcher");
-      var $mobileSwitcher = $("#mobile-switcher");
-
-      var narrowSelectedClass = "narrow-selected";
-      $mobileSwitcher.on("change", "select", function () {
-        $productList
-          .find("." + narrowSelectedClass)
-          .removeClass(narrowSelectedClass);
-        $productList.find("#" + this.value).addClass(narrowSelectedClass);
-      });
-
-      var buttonSelectedClass = "active";
-      var wideSelectedClass = "wide-selected";
-      var clearButtons = function () {
-        $desktopSwitcher
-          .find("." + buttonSelectedClass)
-          .removeClass(buttonSelectedClass);
-      };
-      var clearProductList = function () {
-        $productList
-          .find("." + wideSelectedClass)
-          .removeClass(wideSelectedClass);
-      };
-      var clearButtonsAndList = function () {
-        clearButtons();
-        clearProductList();
-      };
-
-      $desktopSwitcher.on("click", "button", function () {
-        if (!$(this).hasClass(buttonSelectedClass)) {
-          clearButtonsAndList();
-
-          var activeCategory = $(this).data("category");
-          $productList.find("." + activeCategory).addClass(wideSelectedClass);
-
-          $desktopSwitcher.find("button").each(function (_, button) {
-            if ($(button).data("category") === activeCategory) {
-              $(button).addClass(buttonSelectedClass);
-            }
-          });
-        } else {
-          clearButtonsAndList();
-        }
+      $(".none-gallery-fsLightbox").on("click", function (e) {
+        e.preventDefault();
+        var source = $(this).attr("href");
+        var lightbox = new FsLightbox();
+        lightbox.props.sources = [source];
+        lightbox.open();
       });
     },
   };
@@ -914,8 +874,7 @@
   marshallTrailers.init = function () {
     marshallTrailers.topNavigation.init();
     marshallTrailers.mobileNavigation.init();
-    // marshallTrailers.products.init();
-
+    marshallTrailers.fsLightBoxLinks.init();
     marshallTrailers.featureTabs.init();
 
     window.fancySelect = marshallTrailers.fancySelect;

@@ -123,31 +123,36 @@
     </ul>
 {% endmacro %}
 
-{% macro bagItem(title, price) %}
-    <div class="item flex flex-col gap-1">
+{% macro bagItem(title, price, image) %}
+    <div class="item flex flex-col">
         <h5 class="title line-clamp-2 h-15">{{ title }}</h5>
-        <div class="flex gap-3">
-            <div>
-                <a href="/uploads/products/optionals/large/0032-2.jpg" class="fancybox" rel="gallery">
-                    <img src="https://www.marshall-trailers.co.uk/uploads/products/optionals/0000.jpg" alt="{{ title }}" class="w-32 object-cover">
-                </a>
-                <p>Part No.<br>0032-2</p>
-                <p class="pricing">£{{ price }}</p>
+        <div class="px-3 py-2 pb-3 border border-gray-200 flex flex-col gap-3">
+            <div class="flex gap-3">
+                <div class="flex flex-col gap-2">
+                    <a href="{{ image }}" class="none-gallery-fsLightbox">
+                        <img src="{{ image }}" alt="{{ title }}" class="w-40 object-cover">
+                    </a>
+                    <p>Part No.<br>0032-2</p>
+                    <p class="pricing">£{{ price }}</p>
+                </div>
+                <div class="flex-1">
+                    <p class="text-sm">These tyres massively reduce ground compactions and improve handling in wet conditions. Please note all prices are in place of standard tyres and includes axle upgrade to 10 Stud axle. When fitted, overall wheel track makes the machine too wide for road use.</p>
+                </div>
             </div>
-            <div class="flex-1">
-                <p class="text-sm">These tyres massively reduce ground compactions and improve handling in wet conditions. Please note all prices are in place of standard tyres and includes axle upgrade to 10 Stud axle. When fitted, overall wheel track makes the machine too wide for road use.</p>
-            </div>
+            <a href="#" class="bttn">
+                <span>Enquire</span>
+            </a>
         </div>
     </div>
 {% endmacro %}
 
 {% macro retroFit() %}
     <div class="retro-fit-list">
-        {{ bagItem("750/60 x 30.5 (10 Stud) Wheels", "200.00") }}
-        {{ bagItem("Flexible Cables", "1100.00") }}
-        {{ bagItem("Screw Nuts", "50.00") }}
-        {{ bagItem("Dragon Elastic Motor", "26.50") }}
-        {{ bagItem("Metal Reinforced Guards", "400.00") }}
+        {{ bagItem("750/60 x 30.5 (10 Stud) Wheels", "200.00", "images/070420-1755-5154.jpg") }}
+        {{ bagItem("Flexible Cables", "1100.00", "images/070420-1755-7885.jpg") }}
+        {{ bagItem("Screw Nuts", "50.00", "images/070420-1803-2655.jpg") }}
+        {{ bagItem("Dragon Elastic Motor", "26.50", "images/080118-1235-3843.jpg") }}
+        {{ bagItem("Metal Reinforced Guards", "400.00", "images/080118-1235-4824.jpg") }}
     </div>
 {% endmacro %}
 
