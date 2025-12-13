@@ -95,3 +95,30 @@
     <p>The trailer chassis utilies our tried and tested design developed over 60 years of trailer manufacturing, and provides exceptional strength. The S/1 is also fully-equipped with a hydraulic tipping ram, improving its efficiency and practicality.</p>
     <p>The result of all these features and construction standards, is a heavy-duty drop-side trailer that is strong, practical and well finished.</p>
 {% endmacro %}
+
+{% macro ownersInfo() %}
+    <h3>Downloads and links</h3>
+    <ul class="dotted-list downloads-list">
+        <li>
+            <a href="#" class="btn_download">Tyre Pressure Chart</a>
+        </li>
+        <li>
+            <a href="#" class="btn_download">Trailers Instruction Manual</a>
+        </li>
+        <li>
+            <a href="#" class="btn_download">Drop-side Range - Specification Chart</a>
+        </li>
+        <li>
+            <a href="#" class="btn_download">Marshall Brochure 2025</a>
+        </li>
+        <li>
+            <a href="#" class="btn_download">Marshall Logo - JPEG Format</a>
+        </li>
+        <li>
+            <a href="spares.html">Order Drop-Side Agricultural Trailers spares online</a>
+        </li>
+        <li>
+            <a href="#">Additional Equipment for this machine</a>
+        </li>
+    </ul>
+{% endmacro %}

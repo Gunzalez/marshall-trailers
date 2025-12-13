@@ -230,6 +230,15 @@
   }
 }
 
+a {
+  text-decoration: none;
+  &:hover {
+    @media (hover: hover) {
+      text-decoration: underline;
+    }
+  }
+}
+
 /* ================================================================= */
 /* .back-to-top */
 .back-to-top {
@@ -302,6 +311,18 @@
       font-size: 1.5em;
       line-height: 1;
     }
+  }
+}
+
+.btn_download {
+  &::after {
+    content: "\f019";
+    font-family: FontAwesome;
+    font-weight: normal;
+    font-style: normal;
+    margin-left: 8px;
+    font-size: 0.8em;
+    color: var(--brand-yellow);
   }
 }
 

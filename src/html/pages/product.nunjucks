@@ -62,7 +62,7 @@
                         {{ macros.featureList() }}
                     </div>
                 </div>
-                <div class="tab-item active">
+                <div class="tab-item">
                     <h3 class="header">Overview</h3>
                     <div class="content-wrapper">
                         {{ macros.overview() }}
@@ -75,10 +75,10 @@
                     </div>
                 </div>
 
-                <div class="tab-item">
+                <div class="tab-item active">
                     <h3 class="header">Owner's Info</h3>
                     <div class="content-wrapper">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc ut laoreet venenatis, nunc nisl aliquam nunc, eget aliquam nisl nunc vel nisl. Sed euismod, nunc ut laoreet venenatis, nunc nisl aliquam nunc, eget aliquam nisl nunc vel nisl.</p>
+                        {{ macros.ownersInfo() }}
                     </div>
                 </div>
 
