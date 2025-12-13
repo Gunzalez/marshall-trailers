@@ -18,7 +18,7 @@ const babel = require("gulp-babel");
 /* variables ================================== */
 const files = {
   scssPath: "src/scss/*.scss",
-  jsPath: "src/js/*.js",
+  jsPath: ["src/js/data.js", "src/js/*.js"],
   nunjuck: "src/html/pages/*.+(html|nunjucks)",
   data: "./src/data/data.json",
   templates: "src/html/templates",
@@ -47,9 +47,10 @@ function jsTask() {
 
 // images
 function imagesTask() {
-  console.log("object")
-    return gulp.src('src/images/**/*.+(png|jpg|gif|svg)')
-        .pipe(gulp.dest('website/images'));
+  console.log("object");
+  return gulp
+    .src("src/images/**/*.+(png|jpg|gif|svg)")
+    .pipe(gulp.dest("website/images"));
 }
 
 // html
@@ -110,7 +111,10 @@ function cacheBusterTask() {
 
 // watch
 function watchTask() {
-  watch([files.scssPath, files.jsPath], parallel(scssTask, jsTask, htmlTask, imagesTask));
+  watch(
+    [files.scssPath, files.jsPath],
+    parallel(scssTask, jsTask, htmlTask, imagesTask)
+  );
   watch(["website/js/scripts.js"], jshintTask);
   watch(["src/images/*.+(png|jpg|gif|svg)"], imagesTask);
   watch(["website/*.html"], browserSyncReload);
