@@ -283,6 +283,28 @@
   }
 }
 
+.dotted-list {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 1rem;
+
+  li {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 8px;
+
+    &::before {
+      content: "\2022";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--brand-red-dark);
+      font-size: 1.5em;
+      line-height: 1;
+    }
+  }
+}
+
 /* ================================================================= */
 /* ================================================================= */
 .spacer {

@@ -56,16 +56,16 @@
         <div id="feature-tabs" class="features-tabs-section">
             <ul class="tabs-list desktop-only" role="presentation"></ul>
             <div class="tab-content">
-                <div class="tab-item active">
+                <div class="tab-item">
                     <h3 class="header">Features</h3>
                     <div class="content-wrapper">
                         {{ macros.featureList() }}
                     </div>
                 </div>
-                <div class="tab-item">
+                <div class="tab-item active">
                     <h3 class="header">Overview</h3>
                     <div class="content-wrapper">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc ut laoreet venenatis, nunc nisl aliquam nunc, eget aliquam nisl nunc vel nisl. Sed euismod, nunc ut laoreet venenatis, nunc nisl aliquam nunc, eget aliquam nisl nunc vel nisl.</p>
+                        {{ macros.overview() }}
                     </div>
                 </div>
                 <div class="tab-item">
