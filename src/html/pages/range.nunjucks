@@ -51,25 +51,83 @@
 
                     const productRanges = ref(productRangesData);
 
-                    onMounted(() => {
-                        if (window.fancySelect) {
-                            window
-                                .fancySelect
-                                .init(productRanges.value);
-                        }
-                    });
-
                     const goToProduct = (modelId) => {
                         window.location.href = `product.html?id=${modelId}`;
                     };
 
-                    onMounted(() => {
-                        const productRangesElement = document.getElementById('product-ranges');
-                        if (productRangesElement) {
-                            productRangesElement
+                    const createTrigger = function (productsCount) {
+                        const trigger = document.createElement("button");
+                        trigger.classList = "trigger";
+                        trigger.type = "button";
+                        trigger.addEventListener("click", function () {
+                            const dropdown = this
+                                .parentNode
+                                .querySelector(".structure");
+                            dropdown
                                 .classList
-                                .remove('app-loading');
-                        }
+                                .toggle("hide");
+                        });
+
+                        trigger.textContent = "Select from " + productsCount + " models";
+                        return trigger;
+                    };
+
+                    const showDropdown = function (products) {
+                        const structure = document.createElement("div");
+                        structure
+                            .classList
+                            .add("structure", "hide");
+
+                        products.forEach(function (product) {
+                            const option = document.createElement("button");
+                            option
+                                .classList
+                                .add("option");
+                            option.type = "button";
+                            option.addEventListener("click", function () {
+                                const dropdown = this.parentNode;
+                                dropdown
+                                    .classList
+                                    .add("hide");
+                                window.location.href = "product.html?id=" + product.id;
+                            });
+
+                            option.textContent = product.title;
+                            structure.appendChild(option);
+                        });
+                        return structure;
+                    };
+
+                    onMounted(() => {
+
+                        productRanges
+                            .value
+                            .forEach(function (range) {
+                                const component = document.createElement("div");
+                                component
+                                    .classList
+                                    .add("fancy-select-component");
+
+                                component.addEventListener("mouseleave", function () {
+                                    this
+                                        .querySelector(".structure")
+                                        .classList
+                                        .add("hide");
+                                });
+
+                                const trigger = createTrigger(range.models.length);
+                                const dropdown = showDropdown(range.models);
+
+                                component.appendChild(trigger);
+                                component.appendChild(dropdown);
+                                const printArea = document
+                                    .getElementById(range.id + "-selector")
+                                    .parentElement;
+                                printArea.appendChild(component);
+                            });
+
+                        $('#product-ranges').removeClass('app-loading');
+
                     });
 
                     return {productRanges, goToProduct}

@@ -1188,113 +1188,6 @@ window.FULL_PRODUCT_DATA = fullProductData;
     },
   };
 
-  /**
-   * @miniCarousel
-   * Implements the Slick plugin for the mini carousel
-   */
-  marshallTrailers.miniCarousel = {
-    $carouselMini: null,
-
-    init: function () {
-      this.$carouselMini = $(".carousel-mini").slick({
-        dots: false,
-        slidesToShow: 3,
-        slidesToScroll: 3,
-        autoplay: false,
-        centerPadding: "40px",
-        autoplaySpeed: 2000,
-        infinite: true,
-        arrows: false,
-        responsive: [
-          {
-            breakpoint: 1200,
-            settings: {
-              slidesToShow: 2,
-              slidesToScroll: 2,
-            },
-          },
-          {
-            breakpoint: 768,
-            settings: {
-              slidesToShow: 1,
-              slidesToScroll: 1,
-            },
-          },
-        ],
-      });
-    },
-
-    next: function () {
-      this.$carouselMini.slick("slickNext");
-    },
-
-    prev: function () {
-      this.$carouselMini.slick("slickPrev");
-    },
-  };
-
-  /* --------------------------------------------------------------- */
-
-  var createTrigger = function (productsCount) {
-    var trigger = document.createElement("button");
-    trigger.classList = "trigger";
-    trigger.type = "button";
-    trigger.addEventListener("click", function () {
-      var dropdown = this.parentNode.querySelector(".structure");
-      dropdown.classList.toggle("hide");
-    });
-
-    trigger.textContent = "Select from " + productsCount + " models";
-    return trigger;
-  };
-
-  var showDropdown = function (products) {
-    var structure = document.createElement("div");
-    structure.classList.add("structure", "hide");
-
-    products.forEach(function (product) {
-      var option = document.createElement("button");
-      option.classList.add("option");
-      option.type = "button";
-      option.addEventListener("click", function () {
-        var dropdown = this.parentNode;
-        dropdown.classList.add("hide");
-        window.location.href = "product.html?id=" + product.id;
-      });
-
-      option.textContent = product.title;
-      structure.appendChild(option);
-    });
-    return structure;
-  };
-
-  /**
-   * @fancySelect
-   * Highjacks standard select elements to create custom dropdowns
-   */
-  marshallTrailers.fancySelect = {
-    init: function (productRanges) {
-      productRanges.forEach(function (range) {
-        var component = document.createElement("div");
-        component.classList.add("fancy-select-component");
-
-        component.addEventListener("mouseleave", function () {
-          this.querySelector(".structure").classList.add("hide");
-        });
-
-        var trigger = createTrigger(range.models.length);
-        var dropdown = showDropdown(range.models);
-
-        component.appendChild(trigger);
-        component.appendChild(dropdown);
-        var printArea = document.getElementById(
-          range.id + "-selector"
-        ).parentElement;
-        printArea.appendChild(component);
-      });
-    },
-  };
-
   /*---------------------------------------------------------------- */
 
   marshallTrailers.featureTabs = {
@@ -1466,9 +1359,7 @@ window.FULL_PRODUCT_DATA = fullProductData;
     marshallTrailers.fsLightBoxLinks.init();
     marshallTrailers.featureTabs.init();
 
-    window.fancySelect = marshallTrailers.fancySelect;
     window.heroCarousel = marshallTrailers.carousel;
-    window.miniCarousel = marshallTrailers.miniCarousel;
     window.dummyData = dummyData;
   };
 

@@ -498,37 +498,46 @@
                         : [];
                     const productRanges = ref(productRangesData);
 
-                    onMounted(() => {
-                        if (window.miniCarousel) {
-                            window
-                                .miniCarousel
-                                .init();
-                        }
-                    });
-
+                    const miniCarousel = ref(null);
                     const prev = () => {
-                        if (window.miniCarousel) {
-                            window
-                                .miniCarousel
-                                .prev();
-                        }
+                        miniCarousel
+                            .value
+                            .slick('slickPrev');
                     }
-
                     const next = () => {
-                        if (window.miniCarousel) {
-                            window
-                                .miniCarousel
-                                .next();
-                        }
+                        miniCarousel
+                            .value
+                            .slick('slickNext');
                     }
 
                     onMounted(() => {
-                        const miniCarouselElement = document.getElementById('carousel-mini');
-                        if (miniCarouselElement) {
-                            miniCarouselElement
-                                .classList
-                                .remove('app-loading');
-                        }
+                        miniCarousel.value = $(".carousel-mini").slick({
+                            dots: false,
+                            slidesToShow: 3,
+                            slidesToScroll: 3,
+                            autoplay: false,
+                            centerPadding: "40px",
+                            autoplaySpeed: 2000,
+                            infinite: true,
+                            arrows: false,
+                            responsive: [
+                                {
+                                    breakpoint: 1200,
+                                    settings: {
+                                        slidesToShow: 2,
+                                        slidesToScroll: 2
+                                    }
+                                }, {
+                                    breakpoint: 768,
+                                    settings: {
+                                        slidesToShow: 1,
+                                        slidesToScroll: 1
+                                    }
+                                }
+                            ]
+                        });
+
+                        $('#carousel-mini').removeClass('app-loading');
                     });
 
                     return {productRanges, prev, next}
@@ -583,12 +592,7 @@
                     }
 
                     onMounted(() => {
-                        const tabsSectionElement = document.getElementById('tabs-section');
-                        if (tabsSectionElement) {
-                            tabsSectionElement
-                                .classList
-                                .remove('app-loading');
-                        }
+                        $('#tabs-section').removeClass('app-loading');
                     });
 
                     return {tabs, activeTab, setActiveTab}
