@@ -649,14 +649,14 @@
           return product.id.toLowerCase() === model.toLowerCase();
         });
 
-        $(".parent-link").attr(
+        $(".js-parent-link").attr(
           "href",
           "products.html?model=" + modelProduct[0].parent_id
         );
-        $(".product-title").text(modelProduct[0].title);
+        $(".js-product-title").text(modelProduct[0].title);
         var randomPrice = Math.floor(Math.random() * 9000) + 5000;
 
-        $(".product-price").text("£" + randomPrice.toLocaleString("en-US"));
+        $(".js-product-price").text("£" + randomPrice.toLocaleString("en-US"));
       }
     },
   };

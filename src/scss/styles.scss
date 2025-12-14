@@ -562,7 +562,9 @@
   }
 
   .copy-wrapper {
-    width: 280px;
+    width: 464px;
+    height: 450px;
+    background-image: url("/images/bg-rectangle.png");
   }
 
   @media (min-width: $breakpoint2) {
@@ -704,11 +706,23 @@
 .downloads-list {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.75rem;
+  margin-bottom: 1.75rem;
 
-  p {
-    margin: 0;
-    padding: 0;
+  li {
+    position: relative;
+    padding-left: 25px;
+
+    &::before {
+      position: absolute;
+      content: "\f1c1";
+      font-family: "Font Awesome 6 Free";
+      font-weight: 900;
+      margin-right: 10px;
+      color: var(--brand-yellow);
+      left: 0;
+      top: -2px;
+    }
   }
 }
 
