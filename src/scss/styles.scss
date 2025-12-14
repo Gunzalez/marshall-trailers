@@ -235,7 +235,7 @@
   button {
     transition: all 0.3s ease-in-out;
     cursor: pointer;
-    border: 1px solid var(--brand-gray);
+    border: 1px solid #e0e0e0;
     background-color: white;
     width: 40px;
     height: 40px;
@@ -573,7 +573,6 @@
 .features-tabs-section {
   max-width: var(--max-width);
   margin: 0 auto;
-  margin-bottom: 2rem;
   padding: 1rem;
 
   .tabs-list {
@@ -648,12 +647,9 @@
 
   .content-wrapper {
     padding: 1rem 0 0 0;
-    margin-bottom: 1rem;
   }
 
   @media screen and (min-width: 769px) {
-    margin-bottom: 3rem;
-
     .tab-item {
       .header {
         display: none;
@@ -808,5 +804,102 @@
 
   @media screen and (min-width: 1200px) {
     grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+.specifications-app {
+  .specs-carousel-wrapper {
+    border-bottom: 1px solid var(--brand-gray);
+  }
+
+  .image-row {
+    height: 200px;
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    border-bottom: 1px solid #e0e0e0;
+    flex-direction: column;
+    gap: 2rem;
+    position: relative;
+
+    .title {
+      font-weight: 700;
+      font-size: 1.3rem;
+      line-height: 1.2;
+      margin: 0;
+      padding: 0;
+    }
+
+    img {
+      max-width: 80%;
+      max-height: 109px;
+      width: auto;
+      height: auto;
+      align-self: center;
+    }
+
+    .carousel-controls {
+      position: absolute;
+      bottom: 1rem;
+      left: 1rem;
+    }
+  }
+
+  .carousel-controls {
+    &.app-footer {
+      margin: 1rem;
+      position: static;
+      justify-content: start;
+    }
+  }
+
+  .specs-list {
+    li {
+      min-height: 80px;
+      transition: all 0.3s ease-in-out;
+      padding: 1rem;
+      color: #333;
+    }
+
+    .highlight {
+      font-weight: bolder;
+    }
+
+    .divider {
+      min-height: 60px;
+      background-color: rgb(228, 228, 228);
+      color: rgb(0, 0, 0);
+      font-weight: bold;
+    }
+
+    .bordered-bottom {
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    &.even {
+      background-color: #f9f9f9;
+    }
+
+    &.selected {
+      background-color: var(--brand-yellow);
+
+      li {
+        font-weight: 600;
+        color: #000;
+
+        &.bordered-bottom,
+        &.image-row {
+          border-color: #989898;
+        }
+      }
+    }
+  }
+
+  .fixed-column {
+    background-color: #ececec;
+
+    .bordered-bottom {
+      border-color: #e0e0e0;
+    }
   }
 }

@@ -457,12 +457,7 @@
                     }
 
                     onMounted(() => {
-                        const pageTitleWrapperElement = document.getElementById('page-title-wrapper');
-                        if (pageTitleWrapperElement) {
-                            pageTitleWrapperElement
-                                .classList
-                                .remove('app-loading');
-                        }
+                        $('#page-title-wrapper').removeClass('app-loading');
                     });
 
                     return {productsRangeTitle}

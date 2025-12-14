@@ -12,43 +12,43 @@
         models: [
           {
             title: "QM-6 - 6.5 tons",
-            id: "qm-6",
+            id: "qm6",
             image: "images/range-1.png",
             parent_id: "dropside-trailers",
           },
           {
             title: "QM-8 - 8.5 tons",
-            id: "qm-8",
+            id: "qm8",
             image: "images/range-1.png",
             parent_id: "dropside-trailers",
           },
           {
             title: "QM-10 - 10 tons",
-            id: "qm-10",
+            id: "qm10",
             image: "images/range-1.png",
             parent_id: "dropside-trailers",
           },
           {
             title: "QM-12 - 12 tons",
-            id: "qm-12",
+            id: "qm12",
             image: "images/range-1.png",
             parent_id: "dropside-trailers",
           },
           {
             title: "QM-14 - 14 tons",
-            id: "qm-14",
+            id: "qm14",
             image: "images/range-1.png",
             parent_id: "dropside-trailers",
           },
           {
             title: "QM-16 - 16 tons",
-            id: "qm-16",
+            id: "qm16",
             image: "images/range-1.png",
             parent_id: "dropside-trailers",
           },
           {
             title: "QM-18 - 18 tons",
-            id: "qm-18",
+            id: "qm18",
             image: "images/range-1.png",
             parent_id: "dropside-trailers",
           },
@@ -714,7 +714,7 @@
       var $tabsContainer = $("#feature-tabs");
       $tabsContainer.find(".tab-item").each(function (index, tabItem) {
         var $tabItem = $(tabItem);
-        var $$tabHeader = $tabItem.find(".header");
+        var $$tabHeader = $tabItem.find(">.header");
 
         var setActiveTab = function () {
           $tabsContainer.find(".tab-item").removeClass("active");
@@ -727,10 +727,11 @@
 
         var tabTitle = $$tabHeader.text().trim();
         var activeClass = $tabItem.hasClass("active") ? "active" : "";
-        var appClass = $tabItem.hasClass("tab-item-app") ? " tab-item-app" : "";
+        var appClass = $tabItem.hasClass("tab-item-app") ? "tab-item-app" : "";
         var $tabButton = $(
           '<button type="button" role="tab" class="' +
             activeClass +
+            " " +
             appClass +
             '">' +
             tabTitle +

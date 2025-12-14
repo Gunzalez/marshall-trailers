@@ -504,16 +504,57 @@
                     </div>
                 </div>
 
-                <div id="tab-item-app" class="tab-item active tab-item-app app-loading">
+                <div id="specifications-app" class="tab-item active tab-item-app app-loading specifications-app">
                     <h3 class="header">Specifications</h3>
                     <div class="content-wrapper">
-                        <div class="fixed-column w-[300px]">
-                            <ul class="specs-list flex flex-col gap-2 border-r border-gray-200 pr-4">
-                                <li v-for="(key, i) in productKeys" :key="key" class="text-sm font-semibold"
-                                :class="{ 'border-b border-gray-100 pb-2': i !== productKeys.length - 1 }">
+                        <div class="flex specs-carousel-wrapper">
+                            <div class="fixed-column w-[290px] flex-shrink-0">
+                                <ul class="specs-list flex flex-col">
+                                    <li class="image-row">
+                                        <p class="title">Compare product specifications</p>
+                                        <div class="carousel-controls">
+                                            <button type="button" @click="prev">
+                                                <i class="fa-solid fa-caret-left"></i>
+                                            </button>
+                                            <button type="button" @click="next">
+                                                <i class="fa-solid fa-caret-right"></i>
+                                            </button>
+                                        </div>
+                                    </li>
+                                    <li v-for="(key, iIndex) in productKeys" :key="key" class="text-sm font-semibold" :class="{ 'bordered-bottom': iIndex !== productKeys.length - 1 }">
                                         [[ key ]]
                                     </li>
-                            </ul>
+                                    <li class="divider">Optional specifications</li>
+                                    <li v-for="(key, iIndex) in optionalKeys" :key="key" class="text-sm font-semibold optional" :class="{ 'bordered-bottom': iIndex !== optionalKeys.length - 1 }">
+                                        Optional [[ key ]]
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="w-full overflow-hidden">
+                                <div id="product-specs">
+                                    <ul v-for="(product, pIndex) in fullProducts" :key="pIndex" class="w-full specs-list flex flex-col" :class="{ 'selected': product.id === selectedProductId, 'odd': pIndex % 2 !== 0, 'even': pIndex % 2 === 0 }">
+                                        <li class="image-row">
+                                            <h3 class="line-clamp-1 title">[[ product.title ]]</h3>
+                                            <img :src="product.image" :alt="product.title"/>
+                                        </li>
+                                        <li v-for="(key, kIndex) in productKeys" :key="key" class="text-sm" :class="{ 'bordered-bottom': kIndex !== productKeys.length - 1 }">
+                                        [[ product[key] ]]                                    
+                                    </li>
+                                        <li class="divider"></li>
+                                        <li v-for="(key, kIndex) in optionalKeys" :key="key" class="text-sm optional" :class="{ 'bordered-bottom': kIndex !== optionalKeys.length - 1 }">
+                                        [[ product.optional[key] || 'N/A' ]]
+                                    </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-controls app-footer">
+                            <button type="button" @click="prev">
+                                <i class="fa-solid fa-caret-left"></i>
+                            </button>
+                            <button type="button" @click="next">
+                                <i class="fa-solid fa-caret-right"></i>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -733,20 +774,80 @@
                 ],
                 setup() {
 
+                    const queryString = window.location.search;
+                    const urlParams = new URLSearchParams(queryString);
+                    const selectedProductId = urlParams.get('id');
+
                     const fullProducts = ref(window.FULL_PRODUCT_DATA || []);
-                    const productKeys = Object.keys(fullProducts.value[0])
+                    const allKeys = Object.keys(fullProducts.value[0])
+                    const productKeys = allKeys.filter(key => !['id', 'title', 'image', 'optional'].includes(key));
+
+                    const optionalKeys = Object.keys(fullProducts.value[0].optional || {});
+
+                    const productCarousel = ref(null);
+                    const prev = () => {
+                        productCarousel
+                            .value
+                            .slick('slickPrev');
+                    }
+                    const next = () => {
+                        productCarousel
+                            .value
+                            .slick('slickNext');
+                    }
 
                     onMounted(() => {
-                        const tabItemAppElement = document.getElementById('tab-item-app');
-                        if (tabItemAppElement) {
-                            tabItemAppElement
-                                .classList
-                                .remove('app-loading');
-                        }
+                        $(".specs-list li").on("mouseenter", function (e) {
+                            var index = $(this).index();
+                            $(".specs-list").each(function () {
+                                $(this)
+                                    .find("li")
+                                    .eq(index)
+                                    .addClass("highlight");
+                            });
+
+                        });
+
+                        $(".specs-list li").on("mouseleave", function (e) {
+                            var index = $(this).index();
+                            $(".specs-list").each(function () {
+                                $(this)
+                                    .find("li")
+                                    .eq(index)
+                                    .removeClass("highlight");
+                            });
+                        });
+
+                        const initialSlideIndex = fullProducts
+                            .value
+                            .findIndex(product => product.id === selectedProductId);
+
+                        productCarousel.value = $("#product-specs").slick({
+                            dots: false,
+                            slidesToShow: 3,
+                            slidesToScroll: 1,
+                            autoplay: false,
+                            initialSlide: initialSlideIndex,
+                            centerPadding: "0",
+                            centerMode: true,
+                            infinite: true,
+                            arrows: false
+                        });
+
+                        $('#specifications-app').removeClass('app-loading')
+
                     });
-                    return {fullProducts, productKeys};
+
+                    return {
+                        fullProducts,
+                        productKeys,
+                        optionalKeys,
+                        selectedProductId,
+                        prev,
+                        next
+                    };
                 }
-            }).mount('#tab-item-app');
+            }).mount('#specifications-app');
         });
     </script>
 
