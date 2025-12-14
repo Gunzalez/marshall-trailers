@@ -98,29 +98,29 @@
 
 {% macro ownersInfo() %}
     <h3>Downloads and links</h3>
-    <ul class="dotted-list downloads-list">
+    <ul class="downloads-list">
         <li>
-            <a href="#" class="btn_download">Tyre Pressure Chart</a>
+            <a href="#">Tyre Pressure Chart</a>
         </li>
         <li>
-            <a href="#" class="btn_download">Trailers Instruction Manual</a>
+            <a href="#">Trailers Instruction Manual</a>
         </li>
         <li>
-            <a href="#" class="btn_download">Drop-side Range - Specification Chart</a>
+            <a href="#">Drop-side Range - Specification Chart Drop-side Range</a>
         </li>
         <li>
-            <a href="#" class="btn_download">Marshall Brochure 2025</a>
+            <a href="#">Marshall Brochure 2025</a>
         </li>
         <li>
-            <a href="#" class="btn_download">Marshall Logo - JPEG Format</a>
-        </li>
-        <li>
-            <a href="spares.html">Order Drop-Side Agricultural Trailers spares online</a>
-        </li>
-        <li>
-            <a href="#">Additional Equipment for this machine</a>
+            <a href="#">Marshall Logo - JPEG Format</a>
         </li>
     </ul>
+    <p>
+        <a href="spares.html">Order Drop-Side Agricultural Trailers spares online</a>
+    </p>
+    <p>
+        <a href="#">Additional Equipment for this machine</a>
+    </p>
 {% endmacro %}
 
 {% macro bagItem(title, price, image) %}
