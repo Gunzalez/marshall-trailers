@@ -893,31 +893,27 @@
                     }
 
                     const attachHighlightEvents = () => {
-                        $(".specs-list li").on("mouseenter", function (e) {
-                            var index = $(this).index();
-                            if (index === 0) {
-                                return;
-                            }
-                            $(".specs-list").each(function () {
-                                $(this)
-                                    .find("li")
-                                    .eq(index)
-                                    .addClass("highlight");
-                            });
-                        });
+                        const handleHighlight = (event) => {
+                            const $listItem = $(event.currentTarget);
+                            const index = $listItem.index();
 
-                        $(".specs-list li").on("mouseleave", function (e) {
-                            var index = $(this).index();
-                            if (index === 0) {
+                            if (index === 0) 
                                 return;
-                            }
+                            
+                            const action = event.type === 'mouseenter'
+                                ? 'addClass'
+                                : 'removeClass';
+
                             $(".specs-list").each(function () {
                                 $(this)
                                     .find("li")
-                                    .eq(index)
-                                    .removeClass("highlight");
+                                    .eq(index)[action]("highlight");
                             });
-                        });
+                        };
+
+                        $(".specs-list li")
+                            .on("mouseenter", handleHighlight)
+                            .on("mouseleave", handleHighlight);
 
                     }
 
