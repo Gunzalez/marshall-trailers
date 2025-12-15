@@ -18,7 +18,7 @@ const babel = require("gulp-babel");
 /* variables ================================== */
 const files = {
   scssPath: "src/scss/*.scss",
-  jsPath: ["src/js/data.js", "src/js/*.js"],
+  jsPath: "src/js/*.js",
   nunjuck: "src/html/pages/*.+(html|nunjucks)",
   data: "./src/data/data.json",
   templates: "src/html/templates",
