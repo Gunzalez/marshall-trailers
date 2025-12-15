@@ -377,13 +377,13 @@
             <li>
                 <span class="mobile-only">Products</span>
                 <span class="desktop-only">
-                    <span class="dummy-data-range-title"></span></span></li>
+                    <span class="dummy-data-range-title-replace-span"></span></span></li>
         </ol>
     </nav>
 
     <div class="title-wrapper">
         <h1 class="page-title">
-            <span class="dummy-data-range-title"></span></h1>
+            <span class="dummy-data-range-title-replace-span"></span></h1>
     </div>
 
     <div id="product-models" class="section in-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 pb-16 app-loading">
@@ -428,8 +428,8 @@
 
                     onMounted(() => {
                         $('#product-models').removeClass('app-loading');
-                        // dummy code
-                        $('.dummy-data-range-title').text(productsRangeTitle.value);
+                        // dummy data for demo purposes
+                        $('.dummy-data-range-title-replace-span').text(productsRangeTitle.value);
                     });
 
                     return {productRanges}

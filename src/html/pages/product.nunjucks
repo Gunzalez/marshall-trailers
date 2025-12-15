@@ -17,15 +17,19 @@
                 </li>
                 <li>
                     <span class="mobile-only">
-                        <a href="#" class="dummy-data-parent-link">Products</a>
+                        <a href="#" class="dummy-data-parent-link-replace-href">Products</a>
                     </span>
                     <span class="desktop-only">
-                        <a href="#" class="dummy-data-parent-link dummy-data-range-title"></a></span></li>
+                        <a href="#" class="dummy-data-parent-link-replace-href">
+                            <span class="dummy-data-range-title-replace-span"></span>
+                        </a>
+                    </span>
+                </li>
 
                 <li>
                     <span class="mobile-only">Product</span>
                     <span class="desktop-only">
-                        <span class="dummy-data-product-title"></span></span></li>
+                        <span class="dummy-data-product-title-replace-span"></span></span></li>
             </ol>
         </nav>
 
@@ -190,12 +194,10 @@
                                 ? foundProduct[0]
                                 : models[0];
 
-                            console.log("modelProduct", modelProduct);
-
-                            $(".dummy-data-parent-link").attr("href", "products.html?model=" + modelProduct.range_id);
-                            $(".dummy-data-range-title").text(modelProduct.range_title);
-                            $(".dummy-data-product-title").text(modelProduct.title);
-                            $(".dummy-data-product-price").text(modelProduct["Basic Price"]);
+                            $(".dummy-data-parent-link-replace-href").attr("href", "products.html?model=" + modelProduct.range_id);
+                            $(".dummy-data-range-title-replace-span").text(modelProduct.range_title);
+                            $(".dummy-data-product-title-replace-span").text(modelProduct.title);
+                            $(".dummy-data-product-price-replace-span").text(modelProduct["Basic Price"]);
                         }
                     }
 
@@ -245,7 +247,7 @@
                     onMounted(() => {
                         initiateCarousel();
                         attachHighlightEvents();
-                        // dummy code
+                        // dummy data for demo purposes
                         insertDummyData();
                         $('#specifications-app').removeClass('app-loading')
                     });
