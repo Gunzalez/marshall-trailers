@@ -1,7 +1,7 @@
 var fullProductData = [
   {
     id: "qm6",
-    parent_id: "dropside-trailers",
+    range_id: "dropside-trailers",
     title: "QM-6",
     image: "images/range-1.png",
     "Basic Price": "£9,900",
@@ -61,7 +61,7 @@ var fullProductData = [
   },
   {
     id: "qm8",
-    parent_id: "dropside-trailers",
+    range_id: "dropside-trailers",
     title: "QM-8",
     image: "images/range-1.png",
     "Basic Price": "£13,200",
@@ -121,7 +121,7 @@ var fullProductData = [
   },
   {
     id: "qm10",
-    parent_id: "dropside-trailers",
+    range_id: "dropside-trailers",
     title: "QM-10",
     image: "images/range-1.png",
     "Basic Price": "£18,000",
@@ -180,7 +180,7 @@ var fullProductData = [
   },
   {
     id: "qm12",
-    parent_id: "dropside-trailers",
+    range_id: "dropside-trailers",
     title: "QM-12",
     image: "images/range-1.png",
     "Basic Price": "£19,600",
@@ -239,7 +239,7 @@ var fullProductData = [
   },
   {
     id: "qm14",
-    parent_id: "dropside-trailers",
+    range_id: "dropside-trailers",
     title: "QM-14",
     image: "images/range-1.png",
     "Basic Price": "£19,600",
@@ -298,7 +298,7 @@ var fullProductData = [
   },
   {
     id: "qm16",
-    parent_id: "dropside-trailers",
+    range_id: "dropside-trailers",
     title: "QM-16",
     image: "images/range-1.png",
     "Basic Price": "£22,995",
@@ -357,7 +357,7 @@ var fullProductData = [
   },
   {
     id: "qm18",
-    parent_id: "dropside-trailers",
+    range_id: "dropside-trailers",
     title: "QM-18",
     image: "images/range-1.png",
     "Basic Price": "£22,995",
@@ -416,7 +416,7 @@ var fullProductData = [
   },
   {
     id: "gm1400",
-    parent_id: "dropside-trailers",
+    range_id: "dropside-trailers",
     title: "QM-1400",
     image: "images/range-1.png",
     "Basic Price": "£24,500",
@@ -476,7 +476,7 @@ var fullProductData = [
 
   {
     id: "qm1600",
-    parent_id: "dropside-trailers",
+    range_id: "dropside-trailers",
     title: "QM-1600 Deluxe",
     image: "images/range-1.png",
     "Basic Price": "£400,000",
@@ -535,7 +535,7 @@ var fullProductData = [
   },
   {
     id: "qm1800",
-    parent_id: "dropside-trailers",
+    range_id: "dropside-trailers",
     title: "QM-1800",
     image: "images/range-1.png",
     "Basic Price": "£24,500",
