@@ -609,43 +609,43 @@ window.FULL_PRODUCT_DATA = fullProductData;
         image: "images/range-1.png",
         models: [
           {
-            title: "QM-6 - 6.5 tons",
+            title: "QM-6",
             id: "qm6",
             image: "images/range-1.png",
             parent_id: "dropside-trailers",
           },
           {
-            title: "QM-8 - 8.5 tons",
+            title: "QM-8",
             id: "qm8",
             image: "images/range-1.png",
             parent_id: "dropside-trailers",
           },
           {
-            title: "QM-10 - 10 tons",
+            title: "QM-10",
             id: "qm10",
             image: "images/range-1.png",
             parent_id: "dropside-trailers",
           },
           {
-            title: "QM-12 - 12 tons",
+            title: "QM-12",
             id: "qm12",
             image: "images/range-1.png",
             parent_id: "dropside-trailers",
           },
           {
-            title: "QM-14 - 14 tons",
+            title: "QM-14",
             id: "qm14",
             image: "images/range-1.png",
             parent_id: "dropside-trailers",
           },
           {
-            title: "QM-16 - 16 tons",
+            title: "QM-16",
             id: "qm16",
             image: "images/range-1.png",
             parent_id: "dropside-trailers",
           },
           {
-            title: "QM-18 - 18 tons",
+            title: "QM-18",
             id: "qm18",
             image: "images/range-1.png",
             parent_id: "dropside-trailers",
@@ -658,25 +658,25 @@ window.FULL_PRODUCT_DATA = fullProductData;
         image: "images/range-2.png",
         models: [
           {
-            title: "LL-10T - 10 tons",
+            title: "LL-10T",
             id: "ll-10t",
             image: "images/range-2.png",
             parent_id: "new-low-loaders",
           },
           {
-            title: "LL-14T - 14 tons",
+            title: "LL-14T",
             id: "ll-14t",
             image: "images/range-2.png",
             parent_id: "new-low-loaders",
           },
           {
-            title: "LL-18T - 18 tons",
+            title: "LL-18T",
             id: "ll-18t",
             image: "images/range-2.png",
             parent_id: "new-low-loaders",
           },
           {
-            title: "LL-24T - 24 tons",
+            title: "LL-24T",
             id: "ll-24t",
             image: "images/range-2.png",
             parent_id: "new-low-loaders",
@@ -689,25 +689,25 @@ window.FULL_PRODUCT_DATA = fullProductData;
         image: "images/range-3.png",
         models: [
           {
-            title: "GS-10 - 10m³",
+            title: "GS-10",
             id: "gs-10",
             image: "images/range-3.png",
             parent_id: "grain-and-silage",
           },
           {
-            title: "GS-15 - 15m³",
+            title: "GS-15",
             id: "gs-15",
             image: "images/range-3.png",
             parent_id: "grain-and-silage",
           },
           {
-            title: "GS-20 - 20m³",
+            title: "GS-20",
             id: "gs-20",
             image: "images/range-3.png",
             parent_id: "grain-and-silage",
           },
           {
-            title: "GS-25 - 25m³",
+            title: "GS-25",
             id: "gs-25",
             image: "images/range-3.png",
             parent_id: "grain-and-silage",
@@ -720,19 +720,19 @@ window.FULL_PRODUCT_DATA = fullProductData;
         image: "images/range-4.png",
         models: [
           {
-            title: "LC-10 - 10ft",
+            title: "LC-10",
             id: "lc-10",
             image: "images/range-4.png",
             parent_id: "livestock-trailers-containers",
           },
           {
-            title: "LC-14 - 14ft",
+            title: "LC-14",
             id: "lc-14",
             image: "images/range-4.png",
             parent_id: "livestock-trailers-containers",
           },
           {
-            title: "LC-18 - 18ft",
+            title: "LC-18",
             id: "lc-18",
             image: "images/range-4.png",
             parent_id: "livestock-trailers-containers",
@@ -745,19 +745,19 @@ window.FULL_PRODUCT_DATA = fullProductData;
         image: "images/range-5.png",
         models: [
           {
-            title: "MD-8 - 8 tons",
+            title: "MD-8",
             id: "md-8",
             image: "images/range-5.png",
             parent_id: "multi-purpose-dumpsters",
           },
           {
-            title: "MD-12 - 12 tons",
+            title: "MD-12",
             id: "md-12",
             image: "images/range-5.png",
             parent_id: "multi-purpose-dumpsters",
           },
           {
-            title: "MD-16 - 16 tons",
+            title: "MD-16",
             id: "md-16",
             image: "images/range-5.png",
             parent_id: "multi-purpose-dumpsters",
@@ -770,19 +770,19 @@ window.FULL_PRODUCT_DATA = fullProductData;
         image: "images/range-7.png",
         models: [
           {
-            title: "ST-2000 - 2000 gal",
+            title: "ST-2000",
             id: "st-2000",
             image: "images/range-7.png",
             parent_id: "slurry-tankers",
           },
           {
-            title: "ST-2500 - 2500 gal",
+            title: "ST-2500",
             id: "st-2500",
             image: "images/range-7.png",
             parent_id: "slurry-tankers",
           },
           {
-            title: "ST-3000 - 3000 gal",
+            title: "ST-3000",
             id: "st-3000",
             image: "images/range-7.png",
             parent_id: "slurry-tankers",
@@ -795,19 +795,19 @@ window.FULL_PRODUCT_DATA = fullProductData;
         image: "images/range-6.png",
         models: [
           {
-            title: "MS-6 - 6m³",
+            title: "MS-6",
             id: "ms-6",
             image: "images/range-6.png",
             parent_id: "muck-spreaders",
           },
           {
-            title: "MS-8 - 8m³",
+            title: "MS-8",
             id: "ms-8",
             image: "images/range-6.png",
             parent_id: "muck-spreaders",
           },
           {
-            title: "MS-10 - 10m³",
+            title: "MS-10",
             id: "ms-10",
             image: "images/range-6.png",
             parent_id: "muck-spreaders",
@@ -820,19 +820,19 @@ window.FULL_PRODUCT_DATA = fullProductData;
         image: "images/range-8.png",
         models: [
           {
-            title: "FT-14 - 14ft",
+            title: "FT-14",
             id: "ft-14",
             image: "images/range-8.png",
             parent_id: "new-feeder-trailers",
           },
           {
-            title: "FT-18 - 18ft",
+            title: "FT-18",
             id: "ft-18",
             image: "images/range-8.png",
             parent_id: "new-feeder-trailers",
           },
           {
-            title: "FT-22 - 22ft",
+            title: "FT-22",
             id: "ft-22",
             image: "images/range-8.png",
             parent_id: "new-feeder-trailers",
@@ -845,13 +845,13 @@ window.FULL_PRODUCT_DATA = fullProductData;
         image: "images/range-9.png",
         models: [
           {
-            title: "PC-16 - 16 Seats",
+            title: "PC-16",
             id: "pc-16",
             image: "images/range-9.png",
             parent_id: "people-carrier-trailers",
           },
           {
-            title: "PC-24 - 24 Seats",
+            title: "PC-24",
             id: "pc-24",
             image: "images/range-9.png",
             parent_id: "people-carrier-trailers",
@@ -864,19 +864,19 @@ window.FULL_PRODUCT_DATA = fullProductData;
         image: "images/range-10.png",
         models: [
           {
-            title: "FB-20 - 20ft",
+            title: "FB-20",
             id: "fb-20",
             image: "images/range-10.png",
             parent_id: "flat-bale-trailers",
           },
           {
-            title: "FB-24 - 24ft",
+            title: "FB-24",
             id: "fb-24",
             image: "images/range-10.png",
             parent_id: "flat-bale-trailers",
           },
           {
-            title: "FB-30 - 30ft",
+            title: "FB-30",
             id: "fb-30",
             image: "images/range-10.png",
             parent_id: "flat-bale-trailers",
@@ -889,13 +889,13 @@ window.FULL_PRODUCT_DATA = fullProductData;
         image: "images/range-11.png",
         models: [
           {
-            title: "RDS-10 - 10 tons",
+            title: "RDS-10",
             id: "hd6",
             image: "images/range-11.png",
             parent_id: "new-dump-trailers",
           },
           {
-            title: "RDS-14 - 14 tons",
+            title: "RDS-14",
             id: "hd8",
             image: "images/range-11.png",
             parent_id: "new-dump-trailers",
@@ -908,49 +908,49 @@ window.FULL_PRODUCT_DATA = fullProductData;
         image: "images/range-12.png",
         models: [
           {
-            title: "T-1800 - 1800 gal",
+            title: "T-1800",
             id: "t-1800",
             image: "images/range-12.png",
             parent_id: "tankers",
           },
           {
-            title: "T-2200 - 2200 gal",
+            title: "T-2200",
             id: "t-2200",
             image: "images/range-12.png",
             parent_id: "tankers",
           },
           {
-            title: "T-3000 - 3000 gal",
+            title: "T-3000",
             id: "t-3000",
             image: "images/range-12.png",
             parent_id: "tankers",
           },
           {
-            title: "T-4000 - 4000 gal",
+            title: "T-4000",
             id: "t-4000",
             image: "images/range-12.png",
             parent_id: "tankers",
           },
           {
-            title: "T-5000 - 5000 gal",
+            title: "T-5000",
             id: "t-5000",
             image: "images/range-12.png",
             parent_id: "tankers",
           },
           {
-            title: "T-6000 - 6000 gal",
+            title: "T-6000",
             id: "t-6000",
             image: "images/range-12.png",
             parent_id: "tankers",
           },
           {
-            title: "T-8000 - 8000 gal",
+            title: "T-8000",
             id: "t-8000",
             image: "images/range-12.png",
             parent_id: "tankers",
           },
           {
-            title: "T-10000 - 10000 gal",
+            title: "T-10000",
             id: "t-10000",
             image: "images/range-12.png",
             parent_id: "tankers",
@@ -963,13 +963,13 @@ window.FULL_PRODUCT_DATA = fullProductData;
         image: "images/range-2.png",
         models: [
           {
-            title: "FES-8 - 8m³",
+            title: "FES-8",
             id: "fes-8",
             image: "images/range-2.png",
             parent_id: "rear-discharge-muck-spreaders",
           },
           {
-            title: "FES-12 - 12m³",
+            title: "FES-12",
             id: "fes-12",
             image: "images/range-2.png",
             parent_id: "rear-discharge-muck-spreaders",
@@ -982,31 +982,31 @@ window.FULL_PRODUCT_DATA = fullProductData;
         image: "images/range-4.png",
         models: [
           {
-            title: "ET-2400 - 2400 gal",
+            title: "ET-2400",
             id: "et-2400",
             image: "images/range-4.png",
             parent_id: "even-more-tankers",
           },
           {
-            title: "ET-3200 - 3200 gal",
+            title: "ET-3200",
             id: "et-3200",
             image: "images/range-4.png",
             parent_id: "even-more-tankers",
           },
           {
-            title: "ET-4000 - 4000 gal",
+            title: "ET-4000",
             id: "et-4000",
             image: "images/range-4.png",
             parent_id: "even-more-tankers",
           },
           {
-            title: "ET-6000 - 6000 gal",
+            title: "ET-6000",
             id: "et-6000",
             image: "images/range-4.png",
             parent_id: "even-more-tankers",
           },
           {
-            title: "ET-8000 - 8000 gal",
+            title: "ET-8000",
             id: "et-8000",
             image: "images/range-4.png",
             parent_id: "even-more-tankers",
@@ -1246,6 +1246,10 @@ window.FULL_PRODUCT_DATA = fullProductData;
         var modelProduct = models.filter(function (product) {
           return product.id.toLowerCase() === model.toLowerCase();
         });
+
+        if (modelProduct.length === 0) {
+          return;
+        }
 
         $(".js-parent-link").attr(
           "href",

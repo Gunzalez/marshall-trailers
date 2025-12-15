@@ -26,15 +26,18 @@
 
         <div class="product-hero">
             <div class="section">
-                <div class="copy-wrapper">
+                <div class="copy-wrapper desktop-only">
                     <div class="inner-wrapper">
                         {{ macros.quickSpecs() }}
                     </div>
                 </div>
             </div>
         </div>
-        <div class="section quick-specs-wrapper">
-            {{ macros.quickSpecs() }}
+
+        <div class="mobile-only quick-specs-mobile">
+            <div class="section">
+                {{ macros.quickSpecs() }}
+            </div>
         </div>
 
         <div id="feature-tabs" class="features-tabs-section">
@@ -149,7 +152,8 @@
 
                     const fullProducts = ref(window.FULL_PRODUCT_DATA || []);
                     const allKeys = Object.keys(fullProducts.value[0])
-                    const productKeys = allKeys.filter(key => !['id', 'title', 'image', 'optional'].includes(key));
+                    const keysToExclude = ['id', 'parent_id', 'title', 'image', 'optional'];
+                    const productKeys = allKeys.filter(key => !keysToExclude.includes(key));
 
                     const optionalKeys = Object.keys(fullProducts.value[0].optional || {});
 
