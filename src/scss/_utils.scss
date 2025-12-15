@@ -203,13 +203,12 @@
   line-height: 1;
   white-space: nowrap;
   text-decoration: none;
-  display: inline-block;
   text-align: center;
   border: 1px solid transparent;
   border: 1px solid var(--brand-red-dark);
   transition: all 0.3s ease-in-out;
   display: inline-flex;
-  gap: 12px;
+  gap: 6px;
   align-items: center;
 
   background-color: var(--brand-red-dark);
@@ -245,6 +244,12 @@
         color: var(--brand-red-dark);
         text-shadow: none;
       }
+    }
+  }
+
+  span {
+    &:first-child {
+      color: var(--brand-yellow);
     }
   }
 }
