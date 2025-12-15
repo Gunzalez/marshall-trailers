@@ -23,8 +23,8 @@
             range_id: "dropside-trailers",
           },
           {
-            title: "QM-10",
-            id: "qm10",
+            title: "QM-11",
+            id: "qm11",
             image: "images/range-1.png",
             range_id: "dropside-trailers",
           },
@@ -35,8 +35,20 @@
             range_id: "dropside-trailers",
           },
           {
+            title: "QM-1200",
+            id: "qm1200",
+            image: "images/range-1.png",
+            range_id: "dropside-trailers",
+          },
+          {
             title: "QM-14",
             id: "qm14",
+            image: "images/range-1.png",
+            range_id: "dropside-trailers",
+          },
+          {
+            title: "QM-1400",
+            id: "qm1400",
             image: "images/range-1.png",
             range_id: "dropside-trailers",
           },
@@ -47,8 +59,14 @@
             range_id: "dropside-trailers",
           },
           {
-            title: "QM-18",
-            id: "qm18",
+            title: "QM-1600",
+            id: "qm1600",
+            image: "images/range-1.png",
+            range_id: "dropside-trailers",
+          },
+          {
+            title: "QM-1800",
+            id: "qm1800",
             image: "images/range-1.png",
             range_id: "dropside-trailers",
           },
@@ -635,33 +653,6 @@
         $li.append($tabButton);
         $tabsContainer.find(".tabs-list").append($li);
       });
-
-      // dummy data
-      var queryString = window.location.search;
-      var urlParams = new URLSearchParams(queryString);
-      var model = urlParams.get("id");
-
-      if (model) {
-        var models = dummyData.productRangesData.flatMap(function (range) {
-          return range.models;
-        });
-        var modelProduct = models.filter(function (product) {
-          return product.id.toLowerCase() === model.toLowerCase();
-        });
-
-        if (modelProduct.length === 0) {
-          return;
-        }
-
-        $(".js-parent-link").attr(
-          "href",
-          "products.html?model=" + modelProduct[0].range_id
-        );
-        $(".js-product-title").text(modelProduct[0].title);
-        var randomPrice = Math.floor(Math.random() * 9000) + 5000;
-
-        $(".js-product-price").text("£" + randomPrice.toLocaleString("en-US"));
-      }
     },
   };
 
