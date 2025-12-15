@@ -14,12 +14,16 @@
             <li>
                 <a href="range.html">Ranges</a>
             </li>
-            <li>Products</li>
+            <li>
+                <span class="mobile-only">Products</span>
+                <span class="desktop-only">
+                    <span class="dummy-data-range-title"></span></span></li>
         </ol>
     </nav>
 
-    <div id="page-title-wrapper" class="title-wrapper app-loading">
-        <h1 class="page-title">[[ productsRangeTitle ]]</h1>
+    <div class="title-wrapper">
+        <h1 class="page-title">
+            <span class="dummy-data-range-title"></span></h1>
     </div>
 
     <div id="product-models" class="section in-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 pb-16 app-loading">
@@ -50,41 +54,6 @@
                     const urlParams = new URLSearchParams(queryString);
                     const model = urlParams.get('model');
                     const productRanges = ref([]);
-
-                    const modelDetails = fullProductRangesData.filter(function (product) {
-                        return product
-                            .id
-                            .toLowerCase() === model.toLowerCase();
-                    });
-                    if (modelDetails.length > 0) {
-                        productRanges.value = modelDetails[0].models;
-                    }
-
-                    onMounted(() => {
-                        const productModelsElement = document.getElementById('product-models');
-                        if (productModelsElement) {
-                            productModelsElement
-                                .classList
-                                .remove('app-loading');
-                        }
-                    });
-
-                    return {productRanges}
-                }
-            }).mount('#product-models');
-
-            createApp({
-                delimiters: [
-                    '[[', ']]'
-                ],
-                setup() {
-                    const fullProductRangesData = window.dummyData
-                        ? window.dummyData['productRangesData']
-                        : [];
-
-                    const queryString = window.location.search;
-                    const urlParams = new URLSearchParams(queryString);
-                    const model = urlParams.get('model');
                     const productsRangeTitle = ref('');
 
                     const modelDetails = fullProductRangesData.filter(function (product) {
@@ -93,16 +62,19 @@
                             .toLowerCase() === model.toLowerCase();
                     });
                     if (modelDetails.length > 0) {
+                        productRanges.value = modelDetails[0].models;
                         productsRangeTitle.value = modelDetails[0].title;
                     }
 
                     onMounted(() => {
-                        $('#page-title-wrapper').removeClass('app-loading');
+                        $('#product-models').removeClass('app-loading');
+                        // dummy code
+                        $('.dummy-data-range-title').text(productsRangeTitle.value);
                     });
 
-                    return {productsRangeTitle}
+                    return {productRanges}
                 }
-            }).mount('#page-title-wrapper');
+            }).mount('#product-models');
 
         });
     </script>

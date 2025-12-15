@@ -376,11 +376,16 @@
                     <a href="range.html">Ranges</a>
                 </li>
                 <li>
-                    <a href="#" class="js-parent-link">Products</a>
-                </li>
-                <li class="desktop-only">
-                    <span class="js-product-title"></span>
-                </li>
+                    <span class="mobile-only">
+                        <a href="#" class="dummy-data-parent-link">Products</a>
+                    </span>
+                    <span class="desktop-only">
+                        <a href="#" class="dummy-data-parent-link dummy-data-range-title"></a></span></li>
+
+                <li>
+                    <span class="mobile-only">Product</span>
+                    <span class="desktop-only">
+                        <span class="dummy-data-product-title"></span></span></li>
             </ol>
         </nav>
 
@@ -392,7 +397,7 @@
     <div class="quick-specs">
         <div class="specs-content">
             <h1 class="title">
-                <span class="js-product-title"></span></h1>
+                <span class="dummy-data-product-title"></span></h1>
             <ul>
                 <li>
                     <span class="label">Tapered Body</span>
@@ -410,7 +415,7 @@
             <p class="product-price">
                 <span class="label">Basic Price</span>
                 <span class="value">
-                    <span class="js-product-price"></span> + VAT</span>
+                    <span class="dummy-data-product-price"></span> + VAT</span>
             </p>
         </div>
         <button class="bttn">
@@ -430,7 +435,7 @@
     <div class="quick-specs">
         <div class="specs-content">
             <h1 class="title">
-                <span class="js-product-title"></span></h1>
+                <span class="dummy-data-product-title"></span></h1>
             <ul>
                 <li>
                     <span class="label">Tapered Body</span>
@@ -448,7 +453,7 @@
             <p class="product-price">
                 <span class="label">Basic Price</span>
                 <span class="value">
-                    <span class="js-product-price"></span> + VAT</span>
+                    <span class="dummy-data-product-price"></span> + VAT</span>
             </p>
         </div>
         <button class="bttn">
@@ -876,9 +881,12 @@
                                 ? foundProduct[0]
                                 : models[0];
 
-                            $(".js-parent-link").attr("href", "products.html?model=" + modelProduct.range_id);
-                            $(".js-product-title").text(modelProduct.title);
-                            $(".js-product-price").text(modelProduct["Basic Price"]);
+                            console.log("modelProduct", modelProduct);
+
+                            $(".dummy-data-parent-link").attr("href", "products.html?model=" + modelProduct.range_id);
+                            $(".dummy-data-range-title").text(modelProduct.range_title);
+                            $(".dummy-data-product-title").text(modelProduct.title);
+                            $(".dummy-data-product-price").text(modelProduct["Basic Price"]);
                         }
                     }
 
@@ -928,6 +936,7 @@
                     onMounted(() => {
                         initiateCarousel();
                         attachHighlightEvents();
+                        // dummy code
                         insertDummyData();
                         $('#specifications-app').removeClass('app-loading')
                     });

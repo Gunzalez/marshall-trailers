@@ -220,7 +220,7 @@
     <div class="quick-specs">
         <div class="specs-content">
             <h1 class="title">
-                <span class="js-product-title"></span></h1>
+                <span class="dummy-data-product-title"></span></h1>
             <ul>
                 <li>
                     <span class="label">Tapered Body</span>
@@ -238,7 +238,7 @@
             <p class="product-price">
                 <span class="label">Basic Price</span>
                 <span class="value">
-                    <span class="js-product-price"></span> + VAT</span>
+                    <span class="dummy-data-product-price"></span> + VAT</span>
             </p>
         </div>
         <button class="bttn">
