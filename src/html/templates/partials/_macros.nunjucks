@@ -147,12 +147,19 @@
 {% endmacro %}
 
 {% macro retroFit() %}
-    <div class="retro-fit-list">
-        {{ bagItem("750/60 x 30.5 (10 Stud) Wheels", "200.00", "images/070420-1755-5154.jpg") }}
-        {{ bagItem("Flexible Cables", "1100.00", "images/070420-1755-7885.jpg") }}
-        {{ bagItem("Screw Nuts", "50.00", "images/070420-1803-2655.jpg") }}
-        {{ bagItem("Dragon Elastic Motor", "26.50", "images/080118-1235-3843.jpg") }}
-        {{ bagItem("Metal Reinforced Guards", "400.00", "images/080118-1235-4824.jpg") }}
+    <div class="flex flex-col gap-2">
+        <div class="introduction body-copy">
+            <h3>Retro Fit Concept</h3>
+            <p>Retro fitting involves upgrading existing equipment with new features or components to enhance performance and functionality.</p>
+            <p>At Marshall Trailers, we offer a range of retro fit options to improve your trailer's capabilities. Whether you're looking to enhance safety, increase load capacity, or add modern conveniences, our retro fit solutions are designed to meet your specific needs.</p>
+        </div>
+        <div class="retro-fit-list">
+            {{ bagItem("750/60 x 30.5 (10 Stud) Wheels", "200.00", "images/070420-1755-5154.jpg") }}
+            {{ bagItem("Flexible Cables", "1100.00", "images/070420-1755-7885.jpg") }}
+            {{ bagItem("Screw Nuts", "50.00", "images/070420-1803-2655.jpg") }}
+            {{ bagItem("Dragon Elastic Motor", "26.50", "images/080118-1235-3843.jpg") }}
+            {{ bagItem("Metal Reinforced Guards", "400.00", "images/080118-1235-4824.jpg") }}
+        </div>
     </div>
 {% endmacro %}
 
