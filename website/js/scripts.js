@@ -4,7 +4,7 @@ var fullProductData = [
     range_id: "dropside-trailers",
     title: "QM-6",
     image: "images/range-1.png",
-    "Basic Price": "£9,900",
+    "Basic Price": "£9,911",
     "Silage Price - Hyd Door Attach Style": "£11,493",
     "Silage Price - Swinging Door Style": "£12,000",
     "Body Size - Imperial": "12' x 7' 3\" - 7'6\" x 4'",
@@ -120,9 +120,9 @@ var fullProductData = [
     },
   },
   {
-    id: "qm10",
+    id: "qm11",
     range_id: "dropside-trailers",
-    title: "QM-10",
+    title: "QM-11",
     image: "images/range-1.png",
     "Basic Price": "£18,000",
     "Silage Price - Hyd Door Attach Style": "£20,129",
@@ -238,9 +238,9 @@ var fullProductData = [
     },
   },
   {
-    id: "qm14",
+    id: "qm1200",
     range_id: "dropside-trailers",
-    title: "QM-14",
+    title: "QM-1200",
     image: "images/range-1.png",
     "Basic Price": "£19,600",
     "Silage Price - Hyd Door Attach Style": "£21,869",
@@ -297,9 +297,9 @@ var fullProductData = [
     },
   },
   {
-    id: "qm16",
+    id: "qm14",
     range_id: "dropside-trailers",
-    title: "QM-16",
+    title: "QM-14",
     image: "images/range-1.png",
     "Basic Price": "£22,995",
     "Silage Price - Hyd Door Attach Style": "£25,983",
@@ -356,9 +356,9 @@ var fullProductData = [
     },
   },
   {
-    id: "qm18",
+    id: "qm1400",
     range_id: "dropside-trailers",
-    title: "QM-18",
+    title: "QM-1400",
     image: "images/range-1.png",
     "Basic Price": "£22,995",
     "Silage Price - Hyd Door Attach Style": "£25,983",
@@ -415,9 +415,9 @@ var fullProductData = [
     },
   },
   {
-    id: "gm1400",
+    id: "qm16",
     range_id: "dropside-trailers",
-    title: "QM-1400",
+    title: "QM-16",
     image: "images/range-1.png",
     "Basic Price": "£24,500",
     "Silage Price - Hyd Door Attach Style": "£27,870",
@@ -473,11 +473,10 @@ var fullProductData = [
       "Rear Tow Hitch c/w Lights & Brakes": "£325 / (DF-2)",
     },
   },
-
   {
     id: "qm1600",
     range_id: "dropside-trailers",
-    title: "QM-1600 Deluxe",
+    title: "QM-1600",
     image: "images/range-1.png",
     "Basic Price": "£400,000",
     "Silage Price - Hyd Door Attach Style": "£79,600",
@@ -621,8 +620,8 @@ window.FULL_PRODUCT_DATA = fullProductData;
             range_id: "dropside-trailers",
           },
           {
-            title: "QM-10",
-            id: "qm10",
+            title: "QM-11",
+            id: "qm11",
             image: "images/range-1.png",
             range_id: "dropside-trailers",
           },
@@ -633,8 +632,20 @@ window.FULL_PRODUCT_DATA = fullProductData;
             range_id: "dropside-trailers",
           },
           {
+            title: "QM-1200",
+            id: "qm1200",
+            image: "images/range-1.png",
+            range_id: "dropside-trailers",
+          },
+          {
             title: "QM-14",
             id: "qm14",
+            image: "images/range-1.png",
+            range_id: "dropside-trailers",
+          },
+          {
+            title: "QM-1400",
+            id: "qm1400",
             image: "images/range-1.png",
             range_id: "dropside-trailers",
           },
@@ -645,8 +656,14 @@ window.FULL_PRODUCT_DATA = fullProductData;
             range_id: "dropside-trailers",
           },
           {
-            title: "QM-18",
-            id: "qm18",
+            title: "QM-1600",
+            id: "qm1600",
+            image: "images/range-1.png",
+            range_id: "dropside-trailers",
+          },
+          {
+            title: "QM-1800",
+            id: "qm1800",
             image: "images/range-1.png",
             range_id: "dropside-trailers",
           },
@@ -1233,33 +1250,6 @@ window.FULL_PRODUCT_DATA = fullProductData;
         $li.append($tabButton);
         $tabsContainer.find(".tabs-list").append($li);
       });
-
-      // dummy data
-      var queryString = window.location.search;
-      var urlParams = new URLSearchParams(queryString);
-      var model = urlParams.get("id");
-
-      if (model) {
-        var models = dummyData.productRangesData.flatMap(function (range) {
-          return range.models;
-        });
-        var modelProduct = models.filter(function (product) {
-          return product.id.toLowerCase() === model.toLowerCase();
-        });
-
-        if (modelProduct.length === 0) {
-          return;
-        }
-
-        $(".js-parent-link").attr(
-          "href",
-          "products.html?model=" + modelProduct[0].range_id
-        );
-        $(".js-product-title").text(modelProduct[0].title);
-        var randomPrice = Math.floor(Math.random() * 9000) + 5000;
-
-        $(".js-product-price").text("£" + randomPrice.toLocaleString("en-US"));
-      }
     },
   };
 

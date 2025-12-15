@@ -199,17 +199,22 @@
                     onMounted(() => {
                         $(".specs-list li").on("mouseenter", function (e) {
                             var index = $(this).index();
+                            if (index === 0) {
+                                return;
+                            }
                             $(".specs-list").each(function () {
                                 $(this)
                                     .find("li")
                                     .eq(index)
                                     .addClass("highlight");
                             });
-
                         });
 
                         $(".specs-list li").on("mouseleave", function (e) {
                             var index = $(this).index();
+                            if (index === 0) {
+                                return;
+                            }
                             $(".specs-list").each(function () {
                                 $(this)
                                     .find("li")

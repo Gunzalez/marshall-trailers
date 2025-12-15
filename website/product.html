@@ -347,7 +347,7 @@
 </div>
       
 
-  
+    
     <div class="section logo-wrapper flex items-center sm:items-start justify-between pt-4">
         <a href="index.html"><img src="images/logo-marshall-trailers-color.png" alt="Marshall Trailers Logo" class="h-16 sm:h-12 sm:h-20"></a>
         <div class="flex flex-col gap-2 items-end flex desktop-buttons">
@@ -366,29 +366,29 @@
     </div>
 
 
-  <div id="product-detail">
-    <nav aria-label="breadcrumbs" class="breadcrumbs">
-      <ol>
-        <li>
-          <a href="index.html">Home</a>
-        </li>
-        <li>
-          <a href="range.html">Ranges</a>
-        </li>
-        <li>
-          <a href="#" class="js-parent-link">Products</a>
-        </li>
-        <li class="desktop-only">
-          <span class="js-product-title"></span>
-        </li>
-      </ol>
-    </nav>
+    <div id="product-detail">
+        <nav aria-label="breadcrumbs" class="breadcrumbs">
+            <ol>
+                <li>
+                    <a href="index.html">Home</a>
+                </li>
+                <li>
+                    <a href="range.html">Ranges</a>
+                </li>
+                <li>
+                    <a href="#" class="js-parent-link">Products</a>
+                </li>
+                <li class="desktop-only">
+                    <span class="js-product-title"></span>
+                </li>
+            </ol>
+        </nav>
 
-    <div class="product-hero">
-      <div class="section">
-        <div class="copy-wrapper desktop-only">
-          <div class="inner-wrapper">
-            
+        <div class="product-hero">
+            <div class="section">
+                <div class="copy-wrapper desktop-only">
+                    <div class="inner-wrapper">
+                        
     <div class="quick-specs">
         <div class="specs-content">
             <h1 class="title">
@@ -419,14 +419,14 @@
         </button>
     </div>
 
-          </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
 
-    <div class="mobile-only quick-specs-mobile">
-      <div class="section">
-        
+        <div class="mobile-only quick-specs-mobile">
+            <div class="section">
+                
     <div class="quick-specs">
         <div class="specs-content">
             <h1 class="title">
@@ -457,16 +457,16 @@
         </button>
     </div>
 
-      </div>
-    </div>
+            </div>
+        </div>
 
-    <div id="feature-tabs" class="features-tabs-section">
-      <ul class="tabs-list desktop-only" role="presentation"></ul>
-      <div class="tab-content">
-        <div class="tab-item">
-          <h3 class="header">Features</h3>
-          <div class="content-wrapper">
-            
+        <div id="feature-tabs" class="features-tabs-section">
+            <ul class="tabs-list desktop-only" role="presentation"></ul>
+            <div class="tab-content">
+                <div class="tab-item">
+                    <h3 class="header">Features</h3>
+                    <div class="content-wrapper">
+                        
     <ul class="feature-list">
         <li>
             <div class="thumb"><img src="https://www.marshall-trailers.co.uk/uploads/products/features/080420-1438-9745.jpg" alt="Mesh Sides"></div>
@@ -528,12 +528,12 @@
         </li>
     </ul>
 
-          </div>
-        </div>
-        <div class="tab-item">
-          <h3 class="header">Overview</h3>
-          <div class="content-wrapper">
-            
+                    </div>
+                </div>
+                <div class="tab-item">
+                    <h3 class="header">Overview</h3>
+                    <div class="content-wrapper">
+                        
     <h3>Features at a Glance</h3>
     <ul class="dotted-list">
         <li>Large capacity</li>
@@ -548,68 +548,73 @@
     <p>The trailer chassis utilies our tried and tested design developed over 60 years of trailer manufacturing, and provides exceptional strength. The S/1 is also fully-equipped with a hydraulic tipping ram, improving its efficiency and practicality.</p>
     <p>The result of all these features and construction standards, is a heavy-duty drop-side trailer that is strong, practical and well finished.</p>
 
-          </div>
-        </div>
-
-        <div id="specifications-app" class="tab-item tab-item-app app-loading specifications-app active">
-          <h3 class="header">Specifications</h3>
-          <div class="content-wrapper">
-            <div class="flex specs-carousel-wrapper">
-              <div class="fixed-column w-[290px] flex-shrink-0">
-                <ul class="specs-list flex flex-col">
-                  <li class="image-row">
-                    <h3>Specifications & Prices</h3>
-                    <div class="carousel-controls">
-                      <button type="button" @click="prev">
-                        <i class="fa-solid fa-caret-left"></i>
-                      </button>
-                      <button type="button" @click="next">
-                        <i class="fa-solid fa-caret-right"></i>
-                      </button>
                     </div>
-                  </li>
-                  <li v-for="(key, iIndex) in productKeys" :key="key" class="text-sm font-semibold" :class="{ 'bordered-bottom': iIndex !== productKeys.length - 1 }">
+                </div>
+
+                <div id="specifications-app" class="tab-item tab-item-app app-loading specifications-app active">
+                    <h3 class="header">Specifications</h3>
+                    <div class="content-wrapper">
+                        <div class="flex specs-carousel-wrapper">
+                            <div class="fixed-column w-[290px] flex-shrink-0">
+                                <ul class="specs-list flex flex-col">
+                                    <li class="image-row">
+                                        <h3>Specifications & Prices</h3>
+                                        <div class="carousel-controls">
+                                            <button type="button" @click="prev">
+                                                <i class="fa-solid fa-caret-left"></i>
+                                            </button>
+                                            <button type="button" @click="next">
+                                                <i class="fa-solid fa-caret-right"></i>
+                                            </button>
+                                        </div>
+                                    </li>
+                                    <li v-for="(key, iIndex) in productKeys" :key="key" class="text-sm font-semibold" :class="{ 'bordered-bottom': iIndex !== productKeys.length - 1 }">
                                         [[ key ]]
                                     </li>
-                  <li class="divider">Optional specifications</li>
-                  <li v-for="(key, iIndex) in optionalKeys" :key="key" class="text-sm font-semibold optional" :class="{ 'bordered-bottom': iIndex !== optionalKeys.length - 1 }">
+                                    <li class="divider">Optional specifications</li>
+                                    <li v-for="(key, iIndex) in optionalKeys" :key="key" class="text-sm font-semibold optional bordered-bottom">
                                         Optional [[ key ]]
                                     </li>
-                </ul>
-              </div>
-              <div class="w-full overflow-hidden">
-                <div id="product-specs">
-                  <ul v-for="(product, pIndex) in fullProducts" :key="pIndex" class="w-full specs-list flex flex-col w-[300px]" :class="{ 'selected': product.id === selectedProductId, 'odd': pIndex % 2 !== 0, 'even': pIndex % 2 === 0 }">
-                    <li class="image-row">
-                      <h3 class="line-clamp-1 title">[[ product.title ]]</h3>
-                      <img :src="product.image" :alt="product.title"/>
-                    </li>
-                    <li v-for="(key, kIndex) in productKeys" :key="key" class="text-sm" :class="{ 'bordered-bottom': kIndex !== productKeys.length - 1 }">
+                                    <li></li>
+                                </ul>
+                            </div>
+                            <div class="w-full overflow-hidden">
+                                <div id="product-specs">
+                                    <ul v-for="(product, pIndex) in fullProducts" :key="pIndex" class="w-full specs-list flex flex-col w-[300px]" :class="{ 'selected': product.id === selectedProductId, 'odd': pIndex % 2 !== 0, 'even': pIndex % 2 === 0 }">
+                                        <li class="image-row">
+                                            <h3 class="line-clamp-1 title">[[ product.title ]]</h3>
+                                            <a :href="`product.html?id=${product.id}`">
+                                                <img :src="product.image" :alt="product.title"/></a>
+                                        </li>
+                                        <li v-for="(key, kIndex) in productKeys" :key="key" class="text-sm" :class="{ 'bordered-bottom': kIndex !== productKeys.length - 1 }">
                                         [[ product[key] ]]                                    
                                     </li>
-                    <li class="divider"></li>
-                    <li v-for="(key, kIndex) in optionalKeys" :key="key" class="text-sm optional" :class="{ 'bordered-bottom': kIndex !== optionalKeys.length - 1 }">
-                                        [[ product.optional[key] || 'N/A' ]]
+                                        <li class="divider"></li>
+                                        <li v-for="(key, kIndex) in optionalKeys" :key="key" class="text-sm optional bordered-bottom">
+                                        [[ product.optional[key]  ]]
                                     </li>
-                  </ul>
+                                        <li>
+                                            <h3 class="line-clamp-1 title">[[ product.title ]]</h3>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-controls app-footer">
+                            <button type="button" @click="prev">
+                                <i class="fa-solid fa-caret-left"></i>
+                            </button>
+                            <button type="button" @click="next">
+                                <i class="fa-solid fa-caret-right"></i>
+                            </button>
+                        </div>
+                    </div>
                 </div>
-              </div>
-            </div>
-            <div class="carousel-controls app-footer">
-              <button type="button" @click="prev">
-                <i class="fa-solid fa-caret-left"></i>
-              </button>
-              <button type="button" @click="next">
-                <i class="fa-solid fa-caret-right"></i>
-              </button>
-            </div>
-          </div>
-        </div>
 
-        <div class="tab-item">
-          <h3 class="header">Owner's Info</h3>
-          <div class="content-wrapper">
-            
+                <div class="tab-item">
+                    <h3 class="header">Owner's Info</h3>
+                    <div class="content-wrapper">
+                        
     <h3>Downloads and links</h3>
     <ul class="downloads-list">
         <li>
@@ -635,13 +640,13 @@
         <a href="#">Additional Equipment for this machine</a>
     </p>
 
-          </div>
-        </div>
+                    </div>
+                </div>
 
-        <div class="tab-item">
-          <h3 class="header">Gallery</h3>
-          <div class="content-wrapper">
-            
+                <div class="tab-item">
+                    <h3 class="header">Gallery</h3>
+                    <div class="content-wrapper">
+                        
     <ul class="gallery-list">
         <li>
             <a href="images/070420-1803-2655.jpg" title="QM1200" data-fslightbox="gallery"><img src="images/070420-1803-2655.jpg" alt="QM1200"></a>
@@ -684,15 +689,21 @@
         </li>
     </ul>
 
-          </div>
-        </div>
+                    </div>
+                </div>
 
-        <div class="tab-item">
-          <h3 class="header">Retro Fit</h3>
-          <div class="content-wrapper">
+                <div class="tab-item">
+                    <h3 class="header">Retro Fit</h3>
+                    <div class="content-wrapper">
+                        
+    <div class="flex flex-col gap-2">
+        <div class="introduction body-copy">
+            <h3>Retro Fit Concept</h3>
+            <p>Retro fitting involves upgrading existing equipment with new features or components to enhance performance and functionality.</p>
+            <p>At Marshall Trailers, we offer a range of retro fit options to improve your trailer's capabilities. Whether you're looking to enhance safety, increase load capacity, or add modern conveniences, our retro fit solutions are designed to meet your specific needs.</p>
+        </div>
+        <div class="retro-fit-list">
             
-    <div class="retro-fit-list">
-        
     <div class="item flex flex-col">
         <h5 class="title line-clamp-2 h-15">750/60 x 30.5 (10 Stud) Wheels</h5>
         <div class="px-3 py-2 pb-3 border border-gray-200 flex flex-col gap-3">
@@ -714,7 +725,7 @@
         </div>
     </div>
 
-        
+            
     <div class="item flex flex-col">
         <h5 class="title line-clamp-2 h-15">Flexible Cables</h5>
         <div class="px-3 py-2 pb-3 border border-gray-200 flex flex-col gap-3">
@@ -736,7 +747,7 @@
         </div>
     </div>
 
-        
+            
     <div class="item flex flex-col">
         <h5 class="title line-clamp-2 h-15">Screw Nuts</h5>
         <div class="px-3 py-2 pb-3 border border-gray-200 flex flex-col gap-3">
@@ -758,7 +769,7 @@
         </div>
     </div>
 
-        
+            
     <div class="item flex flex-col">
         <h5 class="title line-clamp-2 h-15">Dragon Elastic Motor</h5>
         <div class="px-3 py-2 pb-3 border border-gray-200 flex flex-col gap-3">
@@ -780,7 +791,7 @@
         </div>
     </div>
 
-        
+            
     <div class="item flex flex-col">
         <h5 class="title line-clamp-2 h-15">Metal Reinforced Guards</h5>
         <div class="px-3 py-2 pb-3 border border-gray-200 flex flex-col gap-3">
@@ -802,102 +813,132 @@
         </div>
     </div>
 
-    </div>
-
-          </div>
         </div>
-
-      </div>
     </div>
-  </div>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const {createApp, onMounted, ref} = Vue;
+                    </div>
+                </div>
 
-      createApp({
-        delimiters: [
-          '[[', ']]'
-        ],
-        setup() {
+            </div>
+        </div>
+    </div>
 
-          const queryString = window.location.search;
-          const urlParams = new URLSearchParams(queryString);
-          const selectedProductId = urlParams.get('id');
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const {createApp, onMounted, ref} = Vue;
 
-          const fullProducts = ref(window.FULL_PRODUCT_DATA || []);
-          const allKeys = Object.keys(fullProducts.value[0])
-          const keysToExclude = ['id', 'range_id', 'title', 'image', 'optional'];
-          const productKeys = allKeys.filter(key => !keysToExclude.includes(key));
+            createApp({
+                delimiters: [
+                    '[[', ']]'
+                ],
+                setup() {
+                    const queryString = window.location.search;
+                    const urlParams = new URLSearchParams(queryString);
+                    const selectedProductId = urlParams.get('id');
 
-          const optionalKeys = Object.keys(fullProducts.value[0].optional || {});
+                    const fullProducts = ref(window.FULL_PRODUCT_DATA || []);
+                    const allKeys = Object.keys(fullProducts.value[0])
+                    const keysToExclude = ['id', 'range_id', 'title', 'image', 'optional'];
+                    const productKeys = allKeys.filter(key => !keysToExclude.includes(key));
 
-          const productCarousel = ref(null);
-          const prev = () => {
-            productCarousel
-              .value
-              .slick('slickPrev');
-          }
-          const next = () => {
-            productCarousel
-              .value
-              .slick('slickNext');
-          }
+                    const optionalKeys = Object.keys(fullProducts.value[0].optional || {});
 
-          onMounted(() => {
-            $(".specs-list li").on("mouseenter", function (e) {
-              var index = $(this).index();
-              $(".specs-list").each(function () {
-                $(this)
-                  .find("li")
-                  .eq(index)
-                  .addClass("highlight");
-              });
+                    const productCarousel = ref(null);
+                    const prev = () => {
+                        productCarousel
+                            .value
+                            .slick('slickPrev');
+                    }
+                    const next = () => {
+                        productCarousel
+                            .value
+                            .slick('slickNext');
+                    }
 
-            });
+                    const insertDummyData = () => {
+                        // dummy data
+                        var queryString = window.location.search;
+                        var urlParams = new URLSearchParams(queryString);
+                        var model = urlParams.get("id");
 
-            $(".specs-list li").on("mouseleave", function (e) {
-              var index = $(this).index();
-              $(".specs-list").each(function () {
-                $(this)
-                  .find("li")
-                  .eq(index)
-                  .removeClass("highlight");
-              });
-            });
+                        if (model) {
+                            var models = window.FULL_PRODUCT_DATA || [];
+                            var modelProduct = models.filter(function (product) {
+                                return product
+                                    .id
+                                    .toLowerCase() === model.toLowerCase();
+                            });
 
-            const initialSlideIndex = fullProducts
-              .value
-              .findIndex(product => product.id === selectedProductId);
+                            if (modelProduct.length === 0) {
+                                return;
+                            }
+                            $(".js-parent-link").attr("href", "products.html?model=" + modelProduct[0].range_id);
+                            $(".js-product-title").text(modelProduct[0].title);
+                            $(".js-product-price").text(modelProduct[0]["Basic Price"]);
+                        }
+                    }
 
-            productCarousel.value = $("#product-specs").slick({
-              dots: false,
-              slidesToShow: 3,
-              slidesToScroll: 1,
-              autoplay: false,
-              initialSlide: initialSlideIndex,
-              centerPadding: "0",
-              centerMode: true,
-              infinite: true,
-              arrows: false
-            });
+                    onMounted(() => {
+                        $(".specs-list li").on("mouseenter", function (e) {
+                            var index = $(this).index();
+                            if (index === 0) {
+                                return;
+                            }
+                            $(".specs-list").each(function () {
+                                $(this)
+                                    .find("li")
+                                    .eq(index)
+                                    .addClass("highlight");
+                            });
+                        });
 
-            $('#specifications-app').removeClass('app-loading')
+                        $(".specs-list li").on("mouseleave", function (e) {
+                            var index = $(this).index();
+                            if (index === 0) {
+                                return;
+                            }
+                            $(".specs-list").each(function () {
+                                $(this)
+                                    .find("li")
+                                    .eq(index)
+                                    .removeClass("highlight");
+                            });
+                        });
 
-          });
+                        const initialSlideIndex = fullProducts
+                            .value
+                            .findIndex(product => product.id === selectedProductId);
 
-          return {
-            fullProducts,
-            productKeys,
-            optionalKeys,
-            selectedProductId,
-            prev,
-            next
-          };
-        }
-      }).mount('#specifications-app');
-    });
-  </script>
+                        productCarousel.value = $("#product-specs").slick({
+                            dots: false,
+                            slidesToShow: 3,
+                            slidesToScroll: 1,
+                            autoplay: false,
+                            initialSlide: initialSlideIndex,
+                            centerPadding: "0",
+                            centerMode: true,
+                            infinite: true,
+                            arrows: false
+                        });
+
+                        $('#specifications-app').removeClass('app-loading')
+
+                        insertDummyData();
+
+                    });
+
+                    return {
+                        fullProducts,
+                        productKeys,
+                        optionalKeys,
+                        selectedProductId,
+                        prev,
+                        next
+                    };
+                }
+            }).mount('#specifications-app');
+        });
+    </script>
 
 
       <div class="mt-6 pb-2 md:mt-8 md:pb-4 max-w-[var(--max-width)] mx-auto">

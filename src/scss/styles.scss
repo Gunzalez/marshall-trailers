@@ -902,12 +902,16 @@
       padding: 0;
     }
 
-    img {
+    a {
       max-width: 80%;
       max-height: 109px;
       width: auto;
       height: auto;
       align-self: center;
+    }
+
+    img {
+      width: 100%;
     }
 
     .carousel-controls {
@@ -935,6 +939,7 @@
 
     .highlight {
       font-weight: bolder;
+      border-color: #000 !important;
     }
 
     .divider {
@@ -963,6 +968,10 @@
         &.image-row {
           border-color: #989898;
         }
+      }
+
+      img {
+        cursor: default;
       }
     }
   }
