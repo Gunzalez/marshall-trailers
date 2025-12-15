@@ -129,19 +129,22 @@
       text-indent: 100%;
       white-space: nowrap;
       overflow: hidden;
-      width: 0.75rem;
-      height: 0.75rem;
+      width: 0.5rem;
+      height: 0.5rem;
       border-radius: 50%;
       transition: all 0.3s ease-in-out;
       background-color: var(--brand-gray);
+
+      &:hover {
+        @media (hover: hover) {
+          background-color: var(--brand-yellow);
+        }
+      }
     }
 
     .slick-active {
       button {
-        width: 1rem;
-        height: 1rem;
         background-color: var(--brand-yellow);
-        border-color: var(--brand-yellow);
       }
     }
   }
@@ -192,16 +195,17 @@
       padding: 0 16px;
 
       button {
-        width: 12px;
-        height: 12px;
-        border-radius: 2px;
+        width: 10px;
+        height: 8px;
+        border-radius: 1px;
         cursor: pointer;
+        transition: all 0.5s ease-in-out;
       }
 
       .slick-active {
         button {
           width: 60px;
-          height: 12px;
+          height: 8px;
           cursor: default;
         }
       }
