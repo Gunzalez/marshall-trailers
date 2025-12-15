@@ -405,15 +405,21 @@
             <ul>
                 <li>
                     <span class="label">Tapered Body</span>
-                    <span class="value">24' x 7' 6" - 8' x 4' 8"</span>
+                    <span class="value">
+                        <span class="dummy-data-product-body-size-replace-span"></span>
+                    </span>
                 </li>
                 <li>
                     <span class="label">Capacity</span>
-                    <span class="value">18.5 tons</span>
+                    <span class="value">
+                        <span class="dummy-data-product-capacity-replace-span"></span>
+                    </span>
                 </li>
                 <li>
                     <span class="label">Standard Equipment</span>
-                    <span class="value">Commercial Springs / 10 Stud Axle - 120mm(420x180) / NEW 385-65 x 22.5 (10 Stud) / Mudflaps / Mudguards / Hydraulic Brakes / Spring Drawbar / Hydraulic Up &amp; Over Grain Door / Hydraulic Door Seal / Front Body Prop / LED Lights / LED Beacon / Side Marker Lights / Colour - Marshall Red</span>
+                    <span class="value">
+                        <span class="dummy-data-product-standard-equipment-replace-span"></span>
+                    </span>
                 </li>
             </ul>
             <p class="product-price">
@@ -443,15 +449,21 @@
             <ul>
                 <li>
                     <span class="label">Tapered Body</span>
-                    <span class="value">24' x 7' 6" - 8' x 4' 8"</span>
+                    <span class="value">
+                        <span class="dummy-data-product-body-size-replace-span"></span>
+                    </span>
                 </li>
                 <li>
                     <span class="label">Capacity</span>
-                    <span class="value">18.5 tons</span>
+                    <span class="value">
+                        <span class="dummy-data-product-capacity-replace-span"></span>
+                    </span>
                 </li>
                 <li>
                     <span class="label">Standard Equipment</span>
-                    <span class="value">Commercial Springs / 10 Stud Axle - 120mm(420x180) / NEW 385-65 x 22.5 (10 Stud) / Mudflaps / Mudguards / Hydraulic Brakes / Spring Drawbar / Hydraulic Up &amp; Over Grain Door / Hydraulic Door Seal / Front Body Prop / LED Lights / LED Beacon / Side Marker Lights / Colour - Marshall Red</span>
+                    <span class="value">
+                        <span class="dummy-data-product-standard-equipment-replace-span"></span>
+                    </span>
                 </li>
             </ul>
             <p class="product-price">
@@ -856,7 +868,14 @@
 
                     const fullProducts = ref(window.FULL_PRODUCT_DATA || []);
                     const allKeys = Object.keys(fullProducts.value[0])
-                    const keysToExclude = ['id', 'range_id', 'title', 'image', 'optional'];
+                    const keysToExclude = [
+                        'id',
+                        'range_id',
+                        'title',
+                        'image',
+                        'optional',
+                        'range_title'
+                    ];
                     const productKeys = allKeys.filter(key => !keysToExclude.includes(key));
                     const optionalKeys = Object.keys(fullProducts.value[0].optional || {});
 
@@ -885,10 +904,20 @@
                                 ? foundProduct[0]
                                 : models[0];
 
+                            const quickSpecks = productKeys
+                                .map(key => modelProduct[key])
+                                .join(" / ");
+
+                            const strings = ['Commercial', 'Standard', 'Premium', 'Deluxe', 'Ultimate'];
+                            const randomString = strings[Math.floor(Math.random() * strings.length)];
+
                             $(".dummy-data-parent-link-replace-href").attr("href", "products.html?model=" + modelProduct.range_id);
                             $(".dummy-data-range-title-replace-span").text(modelProduct.range_title);
+                            $(".dummy-data-product-standard-equipment-replace-span").text(randomString + " - " + quickSpecks);
                             $(".dummy-data-product-title-replace-span").text(modelProduct.title);
+                            $(".dummy-data-product-capacity-replace-span").text(modelProduct["Carrying Capacity"]);
                             $(".dummy-data-product-price-replace-span").text(modelProduct["Basic Price"]);
+                            $(".dummy-data-product-body-size-replace-span").text(modelProduct["Body Size - Imperial"]);
                         }
                     }
 

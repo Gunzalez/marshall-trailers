@@ -165,7 +165,14 @@
 
                     const fullProducts = ref(window.FULL_PRODUCT_DATA || []);
                     const allKeys = Object.keys(fullProducts.value[0])
-                    const keysToExclude = ['id', 'range_id', 'title', 'image', 'optional'];
+                    const keysToExclude = [
+                        'id',
+                        'range_id',
+                        'title',
+                        'image',
+                        'optional',
+                        'range_title'
+                    ];
                     const productKeys = allKeys.filter(key => !keysToExclude.includes(key));
                     const optionalKeys = Object.keys(fullProducts.value[0].optional || {});
 
@@ -194,10 +201,20 @@
                                 ? foundProduct[0]
                                 : models[0];
 
+                            const quickSpecks = productKeys
+                                .map(key => modelProduct[key])
+                                .join(" / ");
+
+                            const strings = ['Commercial', 'Standard', 'Premium', 'Deluxe', 'Ultimate'];
+                            const randomString = strings[Math.floor(Math.random() * strings.length)];
+
                             $(".dummy-data-parent-link-replace-href").attr("href", "products.html?model=" + modelProduct.range_id);
                             $(".dummy-data-range-title-replace-span").text(modelProduct.range_title);
+                            $(".dummy-data-product-standard-equipment-replace-span").text(randomString + " - " + quickSpecks);
                             $(".dummy-data-product-title-replace-span").text(modelProduct.title);
+                            $(".dummy-data-product-capacity-replace-span").text(modelProduct["Carrying Capacity"]);
                             $(".dummy-data-product-price-replace-span").text(modelProduct["Basic Price"]);
+                            $(".dummy-data-product-body-size-replace-span").text(modelProduct["Body Size - Imperial"]);
                         }
                     }
 

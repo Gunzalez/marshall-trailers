@@ -224,15 +224,21 @@
             <ul>
                 <li>
                     <span class="label">Tapered Body</span>
-                    <span class="value">24' x 7' 6" - 8' x 4' 8"</span>
+                    <span class="value">
+                        <span class="dummy-data-product-body-size-replace-span"></span>
+                    </span>
                 </li>
                 <li>
                     <span class="label">Capacity</span>
-                    <span class="value">18.5 tons</span>
+                    <span class="value">
+                        <span class="dummy-data-product-capacity-replace-span"></span>
+                    </span>
                 </li>
                 <li>
                     <span class="label">Standard Equipment</span>
-                    <span class="value">Commercial Springs / 10 Stud Axle - 120mm(420x180) / NEW 385-65 x 22.5 (10 Stud) / Mudflaps / Mudguards / Hydraulic Brakes / Spring Drawbar / Hydraulic Up &amp; Over Grain Door / Hydraulic Door Seal / Front Body Prop / LED Lights / LED Beacon / Side Marker Lights / Colour - Marshall Red</span>
+                    <span class="value">
+                        <span class="dummy-data-product-standard-equipment-replace-span"></span>
+                    </span>
                 </li>
             </ul>
             <p class="product-price">
