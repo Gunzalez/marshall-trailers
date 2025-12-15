@@ -916,6 +916,13 @@
 
     img {
       width: 100%;
+      transition: all 0.3s ease-in-out;
+
+      &:hover {
+        @media (hover: hover) {
+          transform: scale(1.03);
+        }
+      }
     }
 
     .carousel-controls {
@@ -976,6 +983,12 @@
 
       img {
         cursor: default;
+
+        &:hover {
+          @media (hover: hover) {
+            transform: none;
+          }
+        }
       }
     }
   }
