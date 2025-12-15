@@ -841,7 +841,6 @@
                     const allKeys = Object.keys(fullProducts.value[0])
                     const keysToExclude = ['id', 'range_id', 'title', 'image', 'optional'];
                     const productKeys = allKeys.filter(key => !keysToExclude.includes(key));
-
                     const optionalKeys = Object.keys(fullProducts.value[0].optional || {});
 
                     const productCarousel = ref(null);
@@ -857,29 +856,43 @@
                     }
 
                     const insertDummyData = () => {
-                        // dummy data
-                        var queryString = window.location.search;
-                        var urlParams = new URLSearchParams(queryString);
-                        var model = urlParams.get("id");
-
-                        if (model) {
+                        if (selectedProductId) {
                             var models = window.FULL_PRODUCT_DATA || [];
-                            var modelProduct = models.filter(function (product) {
+                            var foundProduct = models.filter(function (product) {
                                 return product
                                     .id
-                                    .toLowerCase() === model.toLowerCase();
+                                    .toLowerCase() === selectedProductId.toLowerCase();
                             });
 
-                            if (modelProduct.length === 0) {
-                                return;
-                            }
-                            $(".js-parent-link").attr("href", "products.html?model=" + modelProduct[0].range_id);
-                            $(".js-product-title").text(modelProduct[0].title);
-                            $(".js-product-price").text(modelProduct[0]["Basic Price"]);
+                            var modelProduct = foundProduct.length > 0
+                                ? foundProduct[0]
+                                : models[0];
+
+                            $(".js-parent-link").attr("href", "products.html?model=" + modelProduct.range_id);
+                            $(".js-product-title").text(modelProduct.title);
+                            $(".js-product-price").text(modelProduct["Basic Price"]);
                         }
                     }
 
-                    onMounted(() => {
+                    const initiateCarousel = () => {
+                        const initialSlideIndex = fullProducts
+                            .value
+                            .findIndex(product => product.id === selectedProductId);
+
+                        productCarousel.value = $("#product-specs").slick({
+                            dots: false,
+                            slidesToShow: 3,
+                            slidesToScroll: 1,
+                            autoplay: false,
+                            initialSlide: initialSlideIndex,
+                            centerPadding: "0",
+                            centerMode: true,
+                            infinite: true,
+                            arrows: false
+                        });
+                    }
+
+                    const attachHighlightEvents = () => {
                         $(".specs-list li").on("mouseenter", function (e) {
                             var index = $(this).index();
                             if (index === 0) {
@@ -906,26 +919,13 @@
                             });
                         });
 
-                        const initialSlideIndex = fullProducts
-                            .value
-                            .findIndex(product => product.id === selectedProductId);
+                    }
 
-                        productCarousel.value = $("#product-specs").slick({
-                            dots: false,
-                            slidesToShow: 3,
-                            slidesToScroll: 1,
-                            autoplay: false,
-                            initialSlide: initialSlideIndex,
-                            centerPadding: "0",
-                            centerMode: true,
-                            infinite: true,
-                            arrows: false
-                        });
-
-                        $('#specifications-app').removeClass('app-loading')
-
+                    onMounted(() => {
+                        initiateCarousel();
+                        attachHighlightEvents();
                         insertDummyData();
-
+                        $('#specifications-app').removeClass('app-loading')
                     });
 
                     return {
