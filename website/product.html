@@ -908,6 +908,7 @@
 
                             const quickSpecks = productKeys
                                 .map(key => modelProduct[key])
+                                .filter(value => value !== undefined && value !== null && value !== "N/A" && value !== "")
                                 .join(" / ");
 
                             const strings = ['Commercial', 'Standard', 'Premium', 'Deluxe', 'Ultimate'];
