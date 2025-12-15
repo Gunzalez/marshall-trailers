@@ -322,6 +322,10 @@
       text-align: left;
       border-bottom: 1px solid var(--brand-gray);
       padding-bottom: 10px;
+
+      &.last-item {
+        border-color: transparent;
+      }
     }
 
     &.active {

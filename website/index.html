@@ -432,7 +432,7 @@
                         class="flex gap-2 items-center justify-between px-4"
                         :aria-selected="[[ activeTab === tab.id ]]">
                         <span>[[ tab.header ]]</span>
-                        <i class="fa-solid fa-caret-right text-xl text-[var(--brand-yellow)] hover:text-[var(--brand-red)] cursor-pointer"
+                        <i class="fa-solid fa-caret-right text-xl text-[var(--brand-yellow)] cursor-pointer"
                         :class="{ 'rotate-90': activeTab === tab.id }"
                         ></i>
                     </button>
@@ -552,6 +552,9 @@
                     }
                     onMounted(() => {
                         $('#tabs-section').removeClass('app-loading');
+                        $('.accordion-header button')
+                            .last()
+                            .addClass('last-item');
                     });
                     return {tabs, activeTab, setActiveTab}
                 }
