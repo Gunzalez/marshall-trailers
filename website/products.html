@@ -347,7 +347,7 @@
 </div>
       
 
-    
+  
     <div class="section logo-wrapper flex items-center sm:items-start justify-between pt-4">
         <a href="index.html"><img src="images/logo-marshall-trailers-color.png" alt="Marshall Trailers Logo" class="h-16 sm:h-12 sm:h-20"></a>
         <div class="flex flex-col gap-2 items-end flex desktop-buttons">
@@ -366,78 +366,78 @@
     </div>
 
 
-    <nav aria-label="breadcrumbs" class="breadcrumbs">
-        <ol>
-            <li>
-                <a href="index.html">Home</a>
-            </li>
-            <li>
-                <a href="range.html">Ranges</a>
-            </li>
-            <li>
-                <span class="mobile-only">Products</span>
-                <span class="desktop-only">
-                    <span class="dummy-data-range-title-replace-span"></span></span></li>
-        </ol>
-    </nav>
+  <nav aria-label="breadcrumbs" class="breadcrumbs">
+    <ol>
+      <li>
+        <a href="index.html">Home</a>
+      </li>
+      <li>
+        <a href="range.html">Ranges</a>
+      </li>
+      <li>
+        <span class="mobile-only">Products</span>
+        <span class="desktop-only">
+          <span class="dummy-data-range-title-replace-span"></span></span></li>
+    </ol>
+  </nav>
 
-    <div class="title-wrapper">
-        <h1 class="page-title">
-            <span class="dummy-data-range-title-replace-span"></span></h1>
-    </div>
+  <div class="title-wrapper">
+    <h1 class="page-title">
+      <span class="dummy-data-range-title-replace-span"></span></h1>
+  </div>
 
-    <div id="product-models" class="section in-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 pb-16 app-loading">
-        <div v-for="(range, i) in productRanges" :key="i" class="slide flex flex-col gap-4">
-            <a class="pod link" :href="`product.html?id=${range.id}`">
-                <h4 class="title line-clamp-1">[[ range.title ]]</h4>
-                <div class="image-wrapper">
-                    <img :src="range.image" :alt="range.title">
-                </div>
-            </a>
+  <div id="product-models" class="section in-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 pb-16 app-loading">
+    <div v-for="(range, i) in productRanges" :key="i" class="slide flex flex-col gap-4">
+      <a class="pod link" :href="`product.html?id=${range.id}`">
+        <h4 class="title line-clamp-1">[[ range.title ]]</h4>
+        <div class="image-wrapper">
+          <img :src="range.image" :alt="range.title">
         </div>
+      </a>
     </div>
+  </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const {createApp, onMounted, ref} = Vue;
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const {createApp, onMounted, ref} = Vue;
 
-            createApp({
-                delimiters: [
-                    '[[', ']]'
-                ],
-                setup() {
-                    const fullProductRangesData = window.dummyData
-                        ? window.dummyData['productRangesData']
-                        : [];
+      createApp({
+        delimiters: [
+          '[[', ']]'
+        ],
+        setup() {
 
-                    const queryString = window.location.search;
-                    const urlParams = new URLSearchParams(queryString);
-                    const model = urlParams.get('model');
-                    const productRanges = ref([]);
-                    const productsRangeTitle = ref('');
+          const queryString = window.location.search;
+          const urlParams = new URLSearchParams(queryString);
+          const model = urlParams.get('model');
+          const productRanges = ref([]);
+          const productsRangeTitle = ref('');
 
-                    const modelDetails = fullProductRangesData.filter(function (product) {
-                        return product
-                            .id
-                            .toLowerCase() === model.toLowerCase();
-                    });
-                    if (modelDetails.length > 0) {
-                        productRanges.value = modelDetails[0].models;
-                        productsRangeTitle.value = modelDetails[0].title;
-                    }
+          const modelDetails = window
+            .data
+            .rangesData
+            .filter(function (product) {
+              return product
+                .id
+                .toLowerCase() === model.toLowerCase();
+            });
+          if (modelDetails.length > 0) {
+            productRanges.value = modelDetails[0].models;
+            productsRangeTitle.value = modelDetails[0].title;
+          }
 
-                    onMounted(() => {
-                        $('#product-models').removeClass('app-loading');
-                        // dummy data for demo purposes
-                        $('.dummy-data-range-title-replace-span').text(productsRangeTitle.value);
-                    });
+          onMounted(() => {
+            $('#product-models').removeClass('app-loading');
+            // dummy data for demo purposes
+            $('.dummy-data-range-title-replace-span').text(productsRangeTitle.value);
+          });
 
-                    return {productRanges}
-                }
-            }).mount('#product-models');
+          return {productRanges}
+        }
+      }).mount('#product-models');
 
-        });
-    </script>
+    });
+  </script>
 
 
       <div class="mt-6 pb-2 md:mt-8 md:pb-4 max-w-[var(--max-width)] mx-auto">

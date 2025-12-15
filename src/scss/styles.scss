@@ -691,6 +691,12 @@
       }
     }
 
+    &.last-tab {
+      .header {
+        border-color: transparent;
+      }
+    }
+
     .content-wrapper {
       display: none;
     }

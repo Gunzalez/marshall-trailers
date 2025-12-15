@@ -19,6 +19,8 @@
 
 {% macro featureList() %}
     <div class="body-copy">
+        <h3>
+            <span class="dummy-data-product-title-replace-span"></span> key features</h3>
         <ul class="feature-list">
             <li>
                 <div class="thumb"><img src="https://www.marshall-trailers.co.uk/uploads/products/features/080420-1438-9745.jpg" alt="Mesh Sides"></div>
@@ -84,7 +86,7 @@
 
 {% macro overview() %}
     <div class="body-copy">
-        <h3>Features at a Glance</h3>
+        <h3>Overview of the <span class="dummy-data-product-title-replace-span"></span></h3>
         <ul class="dotted-list">
             <li>Large capacity</li>
             <li>Fully welded construction eliminates rust traps</li>
@@ -144,7 +146,7 @@
                     <p class="pricing">£{{ price }}</p>
                 </div>
                 <div class="flex-1">
-                    <p class="text-sm">These tyres massively reduce ground compactions and improve handling in wet conditions. Please note all prices are in place of standard tyres and includes axle upgrade to 10 Stud axle. When fitted, overall wheel track makes the machine too wide for road use.</p>
+                    <p class="text-sm">These tyres massively reduce ground compactions and improve <a href="#">handling</a> in wet conditions. Please note all prices are in place of standard tyres and includes axle upgrade to 10 Stud axle. When fitted, overall wheel track makes the machine too wide for road use.</p>
                 </div>
             </div>
             <a href="#" class="bttn">
@@ -155,9 +157,9 @@
 {% endmacro %}
 
 {% macro retroFit() %}
-    <div class="flex flex-col gap-2">
-        <div class="body-copy">
-            <h3>Retro Fit Concept</h3>
+    <div class="flex flex-col gap-2 body-copy">
+        <div>
+            <h3>Retro Fit concept</h3>
             <p>Retro fitting involves upgrading existing equipment with new features or components to enhance performance and functionality.</p>
             <p>At Marshall Trailers, we offer a range of <a href="retro-fit.html">retro fit solutions</a> to improve your trailer's capabilities. 
                 <br/>Whether you're looking to enhance safety, increase load capacity, or add modern conveniences, our retro fit solutions are designed to meet your specific needs.</p>
@@ -173,47 +175,51 @@
 {% endmacro %}
 
 {% macro gallery() %}
-    <ul class="gallery-list">
-        <li>
-            <a href="images/070420-1803-2655.jpg" title="QM1200" data-fslightbox="gallery"><img src="images/070420-1803-2655.jpg" alt="QM1200"></a>
-        </li>
-        <li>
-            <a href="images/080118-1236-8198.jpg" title="QM/1200 - Front View" data-fslightbox="gallery"><img src="images/080118-1236-8198.jpg" alt="QM/1200 - Front View"></a>
-        </li>
-        <li>
-            <a href="images/080118-1235-4824.jpg" title="QM/1200 Silage - Front View" data-fslightbox="gallery"><img src="images/080118-1235-4824.jpg" alt="QM/1200 Silage - Front View"></a>
-        </li>
-        <li>
-            <a href="images/080118-1235-3843.jpg" title="QM/1200 Silage - Side View" data-fslightbox="gallery"><img src="images/080118-1235-3843.jpg" alt="QM/1200 Silage - Side View"></a>
-        </li>
-        <li>
-            <a href="images/070420-1755-7885.jpg" title="QM1200 - Silage Sides, Black, 550-45x22.5 Wheels, Mudguards" data-fslightbox="gallery"><img src="images/070420-1755-7885.jpg" alt="QM1200 - Silage Sides, Black, 550-45x22.5 Wheels, Mudguards"></a>
-        </li>
-        <li>
-            <a href="images/070420-1755-5154.jpg" title="QM1200 - Silage Sides, Black, 550-45x22.5 Wheels, Mudguards" data-fslightbox="gallery"><img src="images/070420-1755-5154.jpg" alt="QM1200 - Silage Sides, Black, 550-45x22.5 Wheels, Mudguards"></a>
-        </li>
-        <li>
-            <a href="images/080118-1235-4824.jpg" title="QM/1200 Silage - Front View" data-fslightbox="gallery"><img src="images/080118-1235-4824.jpg" alt="QM/1200 Silage - Front View"></a>
-        </li>
-        <li>
-            <a href="images/070420-1755-7885.jpg" title="QM1200 - Silage Sides, Black, 550-45x22.5 Wheels, Mudguards" data-fslightbox="gallery"><img src="images/070420-1755-7885.jpg" alt="QM1200 - Silage Sides, Black, 550-45x22.5 Wheels, Mudguards"></a>
-        </li>
-        <li>
-            <a href="images/070420-1755-5154.jpg" title="QM1200 - Silage Sides, Black, 550-45x22.5 Wheels, Mudguards" data-fslightbox="gallery"><img src="images/070420-1755-5154.jpg" alt="QM1200 - Silage Sides, Black, 550-45x22.5 Wheels, Mudguards"></a>
-        </li>
-        <li>
-            <a href="images/080118-1235-4824.jpg" title="QM/1200 Silage - Front View" data-fslightbox="gallery"><img src="images/080118-1235-4824.jpg" alt="QM/1200 Silage - Front View"></a>
-        </li>
-        <li>
-            <a href="images/080118-1235-3843.jpg" title="QM/1200 Silage - Side View" data-fslightbox="gallery"><img src="images/080118-1235-3843.jpg" alt="QM/1200 Silage - Side View"></a>
-        </li>
-        <li>
-            <a href="images/070420-1755-7885.jpg" title="QM1200 - Silage Sides, Black, 550-45x22.5 Wheels, Mudguards" data-fslightbox="gallery"><img src="images/070420-1755-7885.jpg" alt="QM1200 - Silage Sides, Black, 550-45x22.5 Wheels, Mudguards"></a>
-        </li>
-        <li>
-            <a href="images/070420-1755-5154.jpg" title="QM1200 - Silage Sides, Black, 550-45x22.5 Wheels, Mudguards" data-fslightbox="gallery"><img src="https://www.marshall-trailers.co.uk/uploads/products/images/070420-1755-5154.jpg" alt="QM1200 - Silage Sides, Black, 550-45x22.5 Wheels, Mudguards"></a>
-        </li>
-    </ul>
+    <div class="flex flex-col gap-2 body-copy">
+        <h3>
+            Picture Showcase</h3>
+        <ul class="gallery-list">
+            <li>
+                <a href="images/070420-1803-2655.jpg" title="QM1200" data-fslightbox="gallery"><img src="images/070420-1803-2655.jpg" alt="QM1200"></a>
+            </li>
+            <li>
+                <a href="images/080118-1236-8198.jpg" title="QM/1200 - Front View" data-fslightbox="gallery"><img src="images/080118-1236-8198.jpg" alt="QM/1200 - Front View"></a>
+            </li>
+            <li>
+                <a href="images/080118-1235-4824.jpg" title="QM/1200 Silage - Front View" data-fslightbox="gallery"><img src="images/080118-1235-4824.jpg" alt="QM/1200 Silage - Front View"></a>
+            </li>
+            <li>
+                <a href="images/080118-1235-3843.jpg" title="QM/1200 Silage - Side View" data-fslightbox="gallery"><img src="images/080118-1235-3843.jpg" alt="QM/1200 Silage - Side View"></a>
+            </li>
+            <li>
+                <a href="images/070420-1755-7885.jpg" title="QM1200 - Silage Sides, Black, 550-45x22.5 Wheels, Mudguards" data-fslightbox="gallery"><img src="images/070420-1755-7885.jpg" alt="QM1200 - Silage Sides, Black, 550-45x22.5 Wheels, Mudguards"></a>
+            </li>
+            <li>
+                <a href="images/070420-1755-5154.jpg" title="QM1200 - Silage Sides, Black, 550-45x22.5 Wheels, Mudguards" data-fslightbox="gallery"><img src="images/070420-1755-5154.jpg" alt="QM1200 - Silage Sides, Black, 550-45x22.5 Wheels, Mudguards"></a>
+            </li>
+            <li>
+                <a href="images/080118-1235-4824.jpg" title="QM/1200 Silage - Front View" data-fslightbox="gallery"><img src="images/080118-1235-4824.jpg" alt="QM/1200 Silage - Front View"></a>
+            </li>
+            <li>
+                <a href="images/070420-1755-7885.jpg" title="QM1200 - Silage Sides, Black, 550-45x22.5 Wheels, Mudguards" data-fslightbox="gallery"><img src="images/070420-1755-7885.jpg" alt="QM1200 - Silage Sides, Black, 550-45x22.5 Wheels, Mudguards"></a>
+            </li>
+            <li>
+                <a href="images/070420-1755-5154.jpg" title="QM1200 - Silage Sides, Black, 550-45x22.5 Wheels, Mudguards" data-fslightbox="gallery"><img src="images/070420-1755-5154.jpg" alt="QM1200 - Silage Sides, Black, 550-45x22.5 Wheels, Mudguards"></a>
+            </li>
+            <li>
+                <a href="images/080118-1235-4824.jpg" title="QM/1200 Silage - Front View" data-fslightbox="gallery"><img src="images/080118-1235-4824.jpg" alt="QM/1200 Silage - Front View"></a>
+            </li>
+            <li>
+                <a href="images/080118-1235-3843.jpg" title="QM/1200 Silage - Side View" data-fslightbox="gallery"><img src="images/080118-1235-3843.jpg" alt="QM/1200 Silage - Side View"></a>
+            </li>
+            <li>
+                <a href="images/070420-1755-7885.jpg" title="QM1200 - Silage Sides, Black, 550-45x22.5 Wheels, Mudguards" data-fslightbox="gallery"><img src="images/070420-1755-7885.jpg" alt="QM1200 - Silage Sides, Black, 550-45x22.5 Wheels, Mudguards"></a>
+            </li>
+            <li>
+                <a href="images/070420-1755-5154.jpg" title="QM1200 - Silage Sides, Black, 550-45x22.5 Wheels, Mudguards" data-fslightbox="gallery"><img src="https://www.marshall-trailers.co.uk/uploads/products/images/070420-1755-5154.jpg" alt="QM1200 - Silage Sides, Black, 550-45x22.5 Wheels, Mudguards"></a>
+            </li>
+        </ul>
+    </div>
 {% endmacro %}
 
 {% macro quickSpecs() %}
