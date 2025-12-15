@@ -47,7 +47,6 @@ function jsTask() {
 
 // images
 function imagesTask() {
-  console.log("object");
   return gulp
     .src("src/images/**/*.+(png|jpg|gif|svg)")
     .pipe(gulp.dest("website/images"));
