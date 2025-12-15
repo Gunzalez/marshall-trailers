@@ -23,6 +23,32 @@
   display: none !important;
 }
 
+// TODO: SHEG re-enable link styles
+// a {
+//   text-decoration: none;
+//   &:hover {
+//     @media (hover: hover) {
+//       text-decoration: underline;
+//     }
+//   }
+// }
+
+.body-copy {
+  a {
+    text-decoration: underline;
+
+    @media (hover: hover) {
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+
+  @media (min-width: 1024px) {
+    padding-right: 30%;
+  }
+}
+
 .desktop-only {
   display: block;
 }
@@ -233,15 +259,6 @@
         color: var(--brand-red-dark);
         text-shadow: none;
       }
-    }
-  }
-}
-
-a {
-  text-decoration: none;
-  &:hover {
-    @media (hover: hover) {
-      text-decoration: underline;
     }
   }
 }
