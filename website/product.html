@@ -970,9 +970,9 @@
                     onMounted(() => {
                         initiateCarousel();
                         attachHighlightEvents();
+                        $('#specifications-app').removeClass('app-loading')
                         // dummy data for demo purposes
                         insertDummyData();
-                        $('#specifications-app').removeClass('app-loading')
                     });
 
                     return {
