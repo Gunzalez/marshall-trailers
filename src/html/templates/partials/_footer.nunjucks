@@ -18,10 +18,16 @@
             <p>Charles J Marshall (Aberdeen) Limited,
                     <br/>Chapel Works, Bucksburn, 
                     <br/>Aberdeen, AB21 9TL</p>
-            <p>
-                T: <a href="tel:+441224707070">(01224) 722777</a>
-                <br/>E: <a href="mailto:charles@marshall-trailers.co.uk">charles@marshall-trailers.co.uk</a>
-            </p>
+            <div class="flex flex-col gap-2 mb-2">
+                <span class="flex items-center gap-2">
+                    <i class="fa-solid fa-phone"></i>
+                    <a href="tel:+441224722777">(01224) 722777</a>
+                </span>
+                <span class="flex items-center gap-2">
+                    <i class="fa-solid fa-at"></i>
+                    <a href="mailto:charles@marshall-trailers.co.uk">charles@marshall-trailers.co.uk</a>
+                </span>
+            </div>
             <p>Registration Number: <strong>SC064659</strong>
             </p>
         </div>
