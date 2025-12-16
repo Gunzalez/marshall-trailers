@@ -52,4 +52,17 @@
         </ul>
     </div>
 
+    <div class="section body-copy">
+        <div class="shaded-copy padded-copy">
+            <h3>Enhance your trailer today</h3>
+            <p>Take advantage of our expert Retro Fit service to upgrade your trailer with the latest features and enhancements.</p>
+            <p>Contact our team today to learn more about how we can help you enhance your trailer.</p>
+            <p>You can order kits through our <a href="#">Spare ordering system</a>.</p>
+            <a href="contact.html" class="bttn">
+                <span>Order</span>
+                <span>kis</span>
+            </a>
+        </div>
+    </div>
+
 {% endblock %}

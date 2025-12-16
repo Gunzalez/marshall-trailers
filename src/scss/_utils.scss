@@ -93,6 +93,17 @@
   &.has-overlap {
     margin-bottom: 60px;
   }
+
+  .shaded-copy {
+    background-color: var(--brand-gray-light);
+    padding: 1rem 1.2rem;
+  }
+
+  .padded-copy {
+    @media screen and (min-width: 992px) {
+      padding-right: 20%;
+    }
+  }
 }
 
 .breadcrumbs {
@@ -143,7 +154,7 @@
 .title-wrapper {
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 2px 1rem 2rem 1rem;
+  padding: 2px 1rem 0 1rem;
 }
 
 .video-container {
@@ -315,7 +326,7 @@
   li {
     position: relative;
     padding-left: 20px;
-    margin-bottom: 8px;
+    // margin-bottom: 8px;
 
     &::before {
       content: "\2022";
