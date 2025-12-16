@@ -248,7 +248,7 @@
   }
 
   span {
-    &:first-child {
+    &:last-child {
       color: var(--brand-yellow);
     }
   }
