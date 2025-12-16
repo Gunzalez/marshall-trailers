@@ -371,127 +371,27 @@
             <li>
                 <a href="index.html">Home</a>
             </li>
-            <li>Ranges</li>
+            <li>Retro Fit</li>
         </ol>
     </nav>
 
     <div class="title-wrapper">
-        <h1 class="page-title">Product Ranges</h1>
+        <h1 class="page-title">Retro Fit</h1>
     </div>
 
-    <div id="product-ranges" class="section in-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 pb-16 app-loading">
-        <div v-for="(range, i) in productRanges" :key="i" class="slide flex flex-col gap-4">
-            <a class="pod link" :href="`products.html?model=${range.id}`">
-                <h4 class="title line-clamp-1">[[ range.title ]]</h4>
-                <div class="image-wrapper">
-                    <img :src="range.image" :alt="range.title">
-                </div>
-            </a>
-            <div :id="range.id" class="product-selector">
-                <select :id="range.id + '-selector'" :name="range.id" @change="goToProduct($event.target.value)" class="fancy-select">
-                    <option selected>Select a model</option>
-                    <option v-for="(model, j) in range.models" :key="j" :value="model.id">[[ model.label ]]</option>
-                </select>
-            </div>
-        </div>
+    <div class="section body-copy">
+        <p>Enhance your existing trailer with Marshall Trailers' Retro Fit service.</p>
     </div>
 
-    <script>
-
-        document.addEventListener('DOMContentLoaded', () => {
-            const {createApp, onMounted, ref} = Vue;
-            createApp({
-                delimiters: [
-                    '[[', ']]'
-                ],
-                setup() {
-
-                    const productRanges = ref(window.data.rangesData);
-                    const goToProduct = (modelId) => {
-                        window.location.href = `product.html?id=${modelId}`;
-                    };
-
-                    const createTrigger = function (productsCount) {
-                        const trigger = document.createElement("button");
-                        trigger.classList = "trigger";
-                        trigger.type = "button";
-                        trigger.addEventListener("click", function () {
-                            const dropdown = this
-                                .parentNode
-                                .querySelector(".structure");
-                            dropdown
-                                .classList
-                                .toggle("hide");
-                        });
-
-                        trigger.textContent = "Select from " + productsCount + " models";
-                        return trigger;
-                    };
-
-                    const showDropdown = function (products) {
-                        const structure = document.createElement("div");
-                        structure
-                            .classList
-                            .add("structure", "hide");
-
-                        products.forEach(function (product) {
-                            const option = document.createElement("button");
-                            option
-                                .classList
-                                .add("option");
-                            option.type = "button";
-                            option.addEventListener("click", function () {
-                                const dropdown = this.parentNode;
-                                dropdown
-                                    .classList
-                                    .add("hide");
-                                window.location.href = "product.html?id=" + product.id;
-                            });
-
-                            option.textContent = product.title;
-                            structure.appendChild(option);
-                        });
-                        return structure;
-                    };
-
-                    onMounted(() => {
-
-                        productRanges
-                            .value
-                            .forEach(function (range) {
-                                const component = document.createElement("div");
-                                component
-                                    .classList
-                                    .add("fancy-select-component");
-
-                                component.addEventListener("mouseleave", function () {
-                                    this
-                                        .querySelector(".structure")
-                                        .classList
-                                        .add("hide");
-                                });
-
-                                const trigger = createTrigger(range.models.length);
-                                const dropdown = showDropdown(range.models);
-
-                                component.appendChild(trigger);
-                                component.appendChild(dropdown);
-                                const printArea = document
-                                    .getElementById(range.id + "-selector")
-                                    .parentElement;
-                                printArea.appendChild(component);
-                            });
-
-                        $('#product-ranges').removeClass('app-loading');
-
-                    });
-
-                    return {productRanges, goToProduct}
-                }
-            }).mount('#product-ranges');
-
-        });
-    </script>
+    <div class="section">
+        <ul class="retrofit-steps">
+            <li>
+                <h4>Step 1:</h4>
+                <p>Check your Marshall model is after 2016</p>
+                <img src="images/retrofit-step-1.jpg" alt="Step 1: Check your Marshall model is after 2016">
+            </li>
+        </li>
+    </ul>
 
 
       <div class="mt-6 pb-2 md:mt-8 md:pb-4 max-w-[var(--max-width)] mx-auto">
