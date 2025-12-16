@@ -1,4 +1,3 @@
-{% set main_page = "home" %}
 {% extends "layout.nunjucks" %}
 {% import "../templates/partials/_macros.nunjucks" as macros %}
 

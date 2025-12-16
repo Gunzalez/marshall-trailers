@@ -1,136 +1,135 @@
-{% set main_page = "home" %}
 {% extends "layout.nunjucks" %}
 {% import "../templates/partials/_macros.nunjucks" as macros %}
 
 {% block content %}
 
-  {{ macros.header("images/logo-marshall-trailers-color.png") }}
+    {{ macros.header("images/logo-marshall-trailers-color.png") }}
 
-  <nav aria-label="breadcrumbs" class="breadcrumbs">
-    <ol>
-      <li>
-        <a href="index.html">Home</a>
-      </li>
-      <li>Ranges</li>
-    </ol>
-  </nav>
+    <nav aria-label="breadcrumbs" class="breadcrumbs">
+        <ol>
+            <li>
+                <a href="index.html">Home</a>
+            </li>
+            <li>Ranges</li>
+        </ol>
+    </nav>
 
-  <div class="title-wrapper">
-    <h1 class="page-title">Product Ranges</h1>
-  </div>
-
-  <div id="product-ranges" class="section in-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 pb-16 app-loading">
-    <div v-for="(range, i) in productRanges" :key="i" class="slide flex flex-col gap-4">
-      <a class="pod link" :href="`products.html?model=${range.id}`">
-        <h4 class="title line-clamp-1">[[ range.title ]]</h4>
-        <div class="image-wrapper">
-          <img :src="range.image" :alt="range.title">
-        </div>
-      </a>
-      <div :id="range.id" class="product-selector">
-        <select :id="range.id + '-selector'" :name="range.id" @change="goToProduct($event.target.value)" class="fancy-select">
-          <option selected>Select a model</option>
-          <option v-for="(model, j) in range.models" :key="j" :value="model.id">[[ model.label ]]</option>
-        </select>
-      </div>
+    <div class="title-wrapper">
+        <h1 class="page-title">Product Ranges</h1>
     </div>
-  </div>
 
-  <script>
+    <div id="product-ranges" class="section in-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 pb-16 app-loading">
+        <div v-for="(range, i) in productRanges" :key="i" class="slide flex flex-col gap-4">
+            <a class="pod link" :href="`products.html?model=${range.id}`">
+                <h4 class="title line-clamp-1">[[ range.title ]]</h4>
+                <div class="image-wrapper">
+                    <img :src="range.image" :alt="range.title">
+                </div>
+            </a>
+            <div :id="range.id" class="product-selector">
+                <select :id="range.id + '-selector'" :name="range.id" @change="goToProduct($event.target.value)" class="fancy-select">
+                    <option selected>Select a model</option>
+                    <option v-for="(model, j) in range.models" :key="j" :value="model.id">[[ model.label ]]</option>
+                </select>
+            </div>
+        </div>
+    </div>
 
-    document.addEventListener('DOMContentLoaded', () => {
-      const {createApp, onMounted, ref} = Vue;
-      createApp({
-        delimiters: [
-          '[[', ']]'
-        ],
-        setup() {
+    <script>
 
-          const productRanges = ref(window.data.rangesData);
-          const goToProduct = (modelId) => {
-            window.location.href = `product.html?id=${modelId}`;
-          };
+        document.addEventListener('DOMContentLoaded', () => {
+            const {createApp, onMounted, ref} = Vue;
+            createApp({
+                delimiters: [
+                    '[[', ']]'
+                ],
+                setup() {
 
-          const createTrigger = function (productsCount) {
-            const trigger = document.createElement("button");
-            trigger.classList = "trigger";
-            trigger.type = "button";
-            trigger.addEventListener("click", function () {
-              const dropdown = this
-                .parentNode
-                .querySelector(".structure");
-              dropdown
-                .classList
-                .toggle("hide");
-            });
+                    const productRanges = ref(window.data.rangesData);
+                    const goToProduct = (modelId) => {
+                        window.location.href = `product.html?id=${modelId}`;
+                    };
 
-            trigger.textContent = "Select from " + productsCount + " models";
-            return trigger;
-          };
+                    const createTrigger = function (productsCount) {
+                        const trigger = document.createElement("button");
+                        trigger.classList = "trigger";
+                        trigger.type = "button";
+                        trigger.addEventListener("click", function () {
+                            const dropdown = this
+                                .parentNode
+                                .querySelector(".structure");
+                            dropdown
+                                .classList
+                                .toggle("hide");
+                        });
 
-          const showDropdown = function (products) {
-            const structure = document.createElement("div");
-            structure
-              .classList
-              .add("structure", "hide");
+                        trigger.textContent = "Select from " + productsCount + " models";
+                        return trigger;
+                    };
 
-            products.forEach(function (product) {
-              const option = document.createElement("button");
-              option
-                .classList
-                .add("option");
-              option.type = "button";
-              option.addEventListener("click", function () {
-                const dropdown = this.parentNode;
-                dropdown
-                  .classList
-                  .add("hide");
-                window.location.href = "product.html?id=" + product.id;
-              });
+                    const showDropdown = function (products) {
+                        const structure = document.createElement("div");
+                        structure
+                            .classList
+                            .add("structure", "hide");
 
-              option.textContent = product.title;
-              structure.appendChild(option);
-            });
-            return structure;
-          };
+                        products.forEach(function (product) {
+                            const option = document.createElement("button");
+                            option
+                                .classList
+                                .add("option");
+                            option.type = "button";
+                            option.addEventListener("click", function () {
+                                const dropdown = this.parentNode;
+                                dropdown
+                                    .classList
+                                    .add("hide");
+                                window.location.href = "product.html?id=" + product.id;
+                            });
 
-          onMounted(() => {
+                            option.textContent = product.title;
+                            structure.appendChild(option);
+                        });
+                        return structure;
+                    };
 
-            productRanges
-              .value
-              .forEach(function (range) {
-                const component = document.createElement("div");
-                component
-                  .classList
-                  .add("fancy-select-component");
+                    onMounted(() => {
 
-                component.addEventListener("mouseleave", function () {
-                  this
-                    .querySelector(".structure")
-                    .classList
-                    .add("hide");
-                });
+                        productRanges
+                            .value
+                            .forEach(function (range) {
+                                const component = document.createElement("div");
+                                component
+                                    .classList
+                                    .add("fancy-select-component");
 
-                const trigger = createTrigger(range.models.length);
-                const dropdown = showDropdown(range.models);
+                                component.addEventListener("mouseleave", function () {
+                                    this
+                                        .querySelector(".structure")
+                                        .classList
+                                        .add("hide");
+                                });
 
-                component.appendChild(trigger);
-                component.appendChild(dropdown);
-                const printArea = document
-                  .getElementById(range.id + "-selector")
-                  .parentElement;
-                printArea.appendChild(component);
-              });
+                                const trigger = createTrigger(range.models.length);
+                                const dropdown = showDropdown(range.models);
 
-            $('#product-ranges').removeClass('app-loading');
+                                component.appendChild(trigger);
+                                component.appendChild(dropdown);
+                                const printArea = document
+                                    .getElementById(range.id + "-selector")
+                                    .parentElement;
+                                printArea.appendChild(component);
+                            });
 
-          });
+                        $('#product-ranges').removeClass('app-loading');
 
-          return {productRanges, goToProduct}
-        }
-      }).mount('#product-ranges');
+                    });
 
-    });
-  </script>
+                    return {productRanges, goToProduct}
+                }
+            }).mount('#product-ranges');
+
+        });
+    </script>
 
 {% endblock %}
