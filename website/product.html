@@ -625,7 +625,9 @@
                                         [[ product.optional[key]  ]]
                                     </li>
                                         <li>
-                                            <h3 class="line-clamp-1 title">[[ product.title ]]</h3>
+                                            <h3 class="line-clamp-1 title">
+                                                <a :href="`product.html?id=${product.id}`" :class="{ 'cursor-default': product.id === selectedProductId }">[[ product.title ]]</a>
+                                            </h3>
                                         </li>
                                     </ul>
                                 </div>
