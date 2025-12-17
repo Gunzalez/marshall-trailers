@@ -1,0 +1,1125 @@
+{
+  "productsData": [
+    {
+      "id": "qm6",
+      "range_id": "dropside-trailers",
+      "range_title": "Dropside Trailers",
+      "title": "QM-6",
+      "image": "images/range-1.png",
+      "Basic Price": "£9,911",
+      "Silage Price - Hyd Door Attach Style": "£11,493",
+      "Silage Price - Swinging Door Style": "£12,000",
+      "Body Size - Imperial": "12' x 7' 3\" - 7'6\" x 4'",
+      "Standard Tyre Size": "12.5 x 15",
+      "Axle": "6 stud 70mm Single Axle",
+      "Brake": "300 x 60",
+      "Carrying Capacity": "6.5 tons",
+      "Floor Thickness": "5mm",
+      "Side Thickness": "3.5mm",
+      "Lights & Hyd Brakes": "Standard",
+      "Side Loading Panels": "Standard",
+      "Volume Basic": "360 cu.ft / 10.2 cu.mtrs",
+      "Volume Silage - Swinging Door Style Sides": "720 cu.ft / 20.4 cu.mtrs",
+      "Volume Silage - Hyd Door Attach. Style Sides": "N/A",
+      "Basic Trailer Weight": "1680 kgs",
+      "Loading Height Basic": "83\"/2.11m",
+      "Tip Angle (Degrees)": "50",
+      "Tipping Height Basic": "N/A",
+      "optional": {
+        "400-60 x 15.5": "£420 / (DF-0.5)",
+        "340 x 65 x 18 Radial": "£998 / (DF-0.5)",
+        "550-45 x 22.5 c/w Mudguards": "N/A",
+        "560-45 x 22.5 c/w Mudguards": "N/A",
+        "560-60 x 22.5 c/w Mudguards": "N/A",
+        "Mudguards / Wings - Bolt On": "N/A",
+        "8 inch Hatch": "£185",
+        "12 inch Hatch": "£228",
+        "12 inch Hatch with Sock": "£310",
+        "Spring Drawbar (Adjustable)": "N/A",
+        "Swivel Hitch": "N/A",
+        "Hyd Door Safety Valve": "£215 / (DF-1.5)",
+        "Hyd Door Seal": "£245",
+        "Hyd Up & Over Grain Door": "£1,062",
+        "Hydraulic Door Attachment Style Silage Sides": "Standard - When Hyd Grain Door & Silage Sides Specified",
+        "Swinging Door Style Silage Sides": "Standard - When Hyd Grain Door Not Specified (DF-3)",
+        "Trailer Cover (640g PVC)": "£227 / (DF-0.25)",
+        "Roll Over Cover (1000g PVC)": "£1,588 / (DF-5)",
+        "Hydraulic Front to Back Cover": "N/A",
+        "LED Beacon": "£145 / (DF-0.25)",
+        "LED Tail Lights": "Standard",
+        "High Level LED Lights": "£292 / (DF-1.5)",
+        "LED Worklights": "N/A",
+        "10 Stud 406 x 120 Commercial Axle": "N/A",
+        "10 Stud Commercial Axle c/w ABS & Air Brakes": "N/A",
+        "Rear Steering Axle": "N/A",
+        "Air / Oil Brakes (Non ABS)c/w Load Sensing": "N/A",
+        "Oil Load Sensing": "N/A",
+        "Small Perpsex Front Window": "£165 / (DF-0.5)",
+        "Large Perspex Front Window": "N/A",
+        "Rear Tow Hitch c/w Lights & Brakes": "N/A"
+      }
+    },
+    {
+      "id": "qm8",
+      "range_id": "dropside-trailers",
+      "range_title": "Dropside Trailers",
+      "title": "QM-8",
+      "image": "images/range-1.png",
+      "Basic Price": "£13,200",
+      "Silage Price - Hyd Door Attach Style": "£14,870",
+      "Silage Price - Swinging Door Style": "£15,500",
+      "Body Size - Imperial": "14' x 7' 3\" - 7'6\" x 4'",
+      "Standard Tyre Size": "12.5 x 15",
+      "Axle": "6 stud 70mm",
+      "Brake": "300 x 60",
+      "Carrying Capacity": "8.5 tons",
+      "Floor Thickness": "5mm",
+      "Side Thickness": "3.5mm",
+      "Lights & Hyd Brakes": "Standard",
+      "Side Loading Panels": "Standard",
+      "Volume Basic": "420 cu.ft / 11.9 cu.mtrs",
+      "Volume Silage - Swinging Door Style Sides": "840 cu.ft / 23.8 cu.mtrs",
+      "Volume Silage - Hyd Door Attach. Style Sides": "710 cu.ft / 20.1 cu.mtrs",
+      "Basic Trailer Weight": "2660 kgs",
+      "Loading Height Basic": "89\"/2.26m",
+      "Tip Angle (Degrees)": "45",
+      "Tipping Height Basic": "N/A",
+      "optional": {
+        "400-60 x 15.5": "£840 / (DF-1)",
+        "340 x 65 x 18 Radial": "£1996 / (DF-1)",
+        "550-45 x 22.5 c/w Mudguards": "N/A",
+        "560-45 x 22.5 c/w Mudguards": "N/A",
+        "560-60 x 22.5 c/w Mudguards": "N/A",
+        "Mudguards / Wings - Bolt On": "£417",
+        "8 inch Hatch": "£185",
+        "12 inch Hatch": "£228",
+        "12 inch Hatch with Sock": "£310",
+        "Spring Drawbar (Adjustable)": "£845",
+        "Swivel Hitch": "N/A",
+        "Hyd Door Safety Valve": "£215 / (DF-1.5)",
+        "Hyd Door Seal": "£245",
+        "Hyd Up & Over Grain Door": "£1,062",
+        "Hydraulic Door Attachment Style Silage Sides": "Standard - When Hyd Grain Door & Silage Sides Specified",
+        "Swinging Door Style Silage Sides": "Standard - When Hyd Grain Door Not Specified (DF-3)",
+        "Trailer Cover (640g PVC)": "£227 / (DF-0.25)",
+        "Roll Over Cover (1000g PVC)": "£1,588 / (DF-5)",
+        "Hydraulic Front to Back Cover": "N/A",
+        "LED Beacon": "£145 / (DF-0.25)",
+        "LED Tail Lights": "Standard",
+        "High Level LED Lights": "£292 / (DF-1.5)",
+        "LED Worklights": "N/A",
+        "10 Stud 406 x 120 Commercial Axle": "N/A",
+        "10 Stud Commercial Axle c/w ABS & Air Brakes": "N/A",
+        "Rear Steering Axle": "N/A",
+        "Air / Oil Brakes (Non ABS)c/w Load Sensing": "£1,517 (DF-4)",
+        "Oil Load Sensing": "£850 (DF-2)",
+        "Small Perpsex Front Window": "£165 / (DF-0.5)",
+        "Large Perspex Front Window": "N/A",
+        "Rear Tow Hitch c/w Lights & Brakes": "£425 / (DF-2)"
+      }
+    },
+    {
+      "id": "qm11",
+      "range_id": "dropside-trailers",
+      "range_title": "Dropside Trailers",
+      "title": "QM-11",
+      "image": "images/range-1.png",
+      "Basic Price": "£18,000",
+      "Silage Price - Hyd Door Attach Style": "£20,129",
+      "Silage Price - Swinging Door Style": "£21,200",
+      "Body Size - Imperial": "16' x 7' 6\" - 8' x 4'",
+      "Standard Tyre Size": "385 - 65 x 22.5",
+      "Axle": "8 stud 80mm",
+      "Brake": "350 x 90",
+      "Carrying Capacity": "11 tons",
+      "Floor Thickness": "5mm",
+      "Side Thickness": "3.5mm",
+      "Lights & Hyd Brakes": "Standard",
+      "Side Loading Panels": "Standard",
+      "Volume Basic": "496 cu.ft / 14.4 cu.mtrs",
+      "Volume Silage - Swinging Door Style Sides": "992 cu.ft / 28.1 cu.mtrs",
+      "Volume Silage - Hyd Door Attach. Style Sides": "889 cu.ft / 24.9 cu.mtrs",
+      "Basic Trailer Weight": "4300 kgs",
+      "Loading Height Basic": "95\"/2.41m",
+      "Tip Angle (Degrees)": "46",
+      "Tipping Height Basic": "17' 8\"",
+      "optional": {
+        "400-60 x 15.5": "N/A",
+        "340 x 65 x 18 Radial": "N/A",
+        "550-45 x 22.5 c/w Mudguards": "£2,257",
+        "560-45 x 22.5 c/w Mudguards": "£2,947",
+        "560-60 x 22.5 c/w Mudguards": "N/A",
+        "Mudguards / Wings - Bolt On": "£417",
+        "8 inch Hatch": "£185",
+        "12 inch Hatch": "£228",
+        "12 inch Hatch with Sock": "£310",
+        "Spring Drawbar (Adjustable)": "Standard",
+        "Swivel Hitch": "£195",
+        "Hyd Door Safety Valve": "£215 / (DF-1.5)",
+        "Hyd Door Seal": "£245",
+        "Hyd Up & Over Grain Door": "Standard",
+        "Hydraulic Door Attachment Style Silage Sides": "Standard - When Silage Sides Specified (DF-2)",
+        "Swinging Door Style Silage Sides": "Optional (DF-3)",
+        "Trailer Cover (640g PVC)": "£278 / (DF-0.25)",
+        "Roll Over Cover (1000g PVC)": "£1,588 / (DF-5)",
+        "Hydraulic Front to Back Cover": "£3,680",
+        "LED Beacon": "£145 / (DF-0.25)",
+        "LED Tail Lights": "Standard",
+        "High Level LED Lights": "£292 / (DF-1.5)",
+        "LED Worklights": "£380 / (DF-2)",
+        "10 Stud 406 x 120 Commercial Axle": "£1,364",
+        "10 Stud Commercial Axle c/w ABS & Air Brakes": "£4,620",
+        "Rear Steering Axle": "N/A",
+        "Air / Oil Brakes (Non ABS)c/w Load Sensing": "£1,517 (DF-4)",
+        "Oil Load Sensing": "£850 (DF-2)",
+        "Small Perpsex Front Window": "£165 / (DF-0.5)",
+        "Large Perspex Front Window": "£740",
+        "Rear Tow Hitch c/w Lights & Brakes": "£325 / (DF-2)"
+      }
+    },
+    {
+      "id": "qm12",
+      "range_id": "dropside-trailers",
+      "range_title": "Dropside Trailers",
+      "title": "QM-12",
+      "image": "images/range-1.png",
+      "Basic Price": "£19,600",
+      "Silage Price - Hyd Door Attach Style": "£21,869",
+      "Silage Price - Swinging Door Style": "N/A",
+      "Body Size - Imperial": "18' x 7' 6\" - 8' x 4'",
+      "Standard Tyre Size": "385 - 65 x 22.5",
+      "Axle": "8 stud 80mm",
+      "Brake": "350 x 90",
+      "Carrying Capacity": "12 tons",
+      "Floor Thickness": "5mm",
+      "Side Thickness": "4mm",
+      "Lights & Hyd Brakes": "Standard",
+      "Side Loading Panels": "Standard",
+      "Volume Basic": "558 cu.ft / 15.8 cu.mtrs",
+      "Volume Silage - Swinging Door Style Sides": "1116 cu.ft / 31.6 cu.mtrs",
+      "Volume Silage - Hyd Door Attach. Style Sides": "999 cu.ft / 28.3 cu.mtrs",
+      "Basic Trailer Weight": "4860 kgs",
+      "Loading Height Basic": "96\"/2.44m",
+      "Tip Angle (Degrees)": "49",
+      "Tipping Height Basic": "19' 8\"",
+      "optional": {
+        "400-60 x 15.5": "N/A",
+        "340 x 65 x 18 Radial": "N/A",
+        "550-45 x 22.5 c/w Mudguards": "£2,257",
+        "560-45 x 22.5 c/w Mudguards": "£2,947",
+        "560-60 x 22.5 c/w Mudguards": "N/A",
+        "Mudguards / Wings - Bolt On": "£417",
+        "8 inch Hatch": "£185",
+        "12 inch Hatch": "£228",
+        "12 inch Hatch with Sock": "£310",
+        "Spring Drawbar (Adjustable)": "Standard",
+        "Swivel Hitch": "£195",
+        "Hyd Door Safety Valve": "£215 / (DF-1.5)",
+        "Hyd Door Seal": "£245",
+        "Hyd Up & Over Grain Door": "Standard",
+        "Hydraulic Door Attachment Style Silage Sides": "Standard - When Silage Sides Specified (DF-2)",
+        "Swinging Door Style Silage Sides": "N/A",
+        "Trailer Cover (640g PVC)": "£290 / (DF-0.25)",
+        "Roll Over Cover (1000g PVC)": "£1,588 / (DF-5)",
+        "Hydraulic Front to Back Cover": "£3,680",
+        "LED Beacon": "£145 / (DF-0.25)",
+        "LED Tail Lights": "Standard",
+        "High Level LED Lights": "£292 / (DF-1.5)",
+        "LED Worklights": "£380 / (DF-2)",
+        "10 Stud 406 x 120 Commercial Axle": "£1,364",
+        "10 Stud Commercial Axle c/w ABS & Air Brakes": "£4,620",
+        "Rear Steering Axle": "N/A",
+        "Air / Oil Brakes (Non ABS)c/w Load Sensing": "£1,517 (DF-4)",
+        "Oil Load Sensing": "£850 (DF-2)",
+        "Small Perpsex Front Window": "£165 / (DF-0.5)",
+        "Large Perspex Front Window": "£740",
+        "Rear Tow Hitch c/w Lights & Brakes": "£325 / (DF-2)"
+      }
+    },
+    {
+      "id": "qm1200",
+      "range_id": "dropside-trailers",
+      "range_title": "Dropside Trailers",
+      "title": "QM-1200",
+      "image": "images/range-1.png",
+      "Basic Price": "£19,600",
+      "Silage Price - Hyd Door Attach Style": "£21,869",
+      "Silage Price - Swinging Door Style": "N/A",
+      "Body Size - Imperial": "16' x 7' 6\" - 8' x 4' 8\"",
+      "Standard Tyre Size": "385 - 65 x 22.5",
+      "Axle": "8 stud 80mm",
+      "Brake": "350 x 90",
+      "Carrying Capacity": "12 tons",
+      "Floor Thickness": "5mm",
+      "Side Thickness": "4mm",
+      "Lights & Hyd Brakes": "Standard",
+      "Side Loading Panels": "Standard",
+      "Volume Basic": "578 cu.ft / 16.3 cu.mtrs",
+      "Volume Silage - Swinging Door Style Sides": "N/A",
+      "Volume Silage - Hyd Door Attach. Style Sides": "971 cu.ft / 27.5 cu.mtrs",
+      "Basic Trailer Weight": "4620 kgs",
+      "Loading Height Basic": "104\"/2.64m",
+      "Tip Angle (Degrees)": "46",
+      "Tipping Height Basic": "18' 2\"",
+      "optional": {
+        "400-60 x 15.5": "N/A",
+        "340 x 65 x 18 Radial": "N/A",
+        "550-45 x 22.5 c/w Mudguards": "£2,257",
+        "560-45 x 22.5 c/w Mudguards": "£2,947",
+        "560-60 x 22.5 c/w Mudguards": "N/A",
+        "Mudguards / Wings - Bolt On": "£417",
+        "8 inch Hatch": "£185",
+        "12 inch Hatch": "£228",
+        "12 inch Hatch with Sock": "£310",
+        "Spring Drawbar (Adjustable)": "Standard",
+        "Swivel Hitch": "£195",
+        "Hyd Door Safety Valve": "£215 / (DF-1.5)",
+        "Hyd Door Seal": "Standard",
+        "Hyd Up & Over Grain Door": "Standard",
+        "Hydraulic Door Attachment Style Silage Sides": "Standard - When Silage Sides Specified (DF-2)",
+        "Swinging Door Style Silage Sides": "N/A",
+        "Trailer Cover (640g PVC)": "£290 / (DF-0.25)",
+        "Roll Over Cover (1000g PVC)": "£1,588 / (DF-5)",
+        "Hydraulic Front to Back Cover": "£3,680",
+        "LED Beacon": "£145 / (DF-0.25)",
+        "LED Tail Lights": "Standard",
+        "High Level LED Lights": "£292 / (DF-1.5)",
+        "LED Worklights": "£380 / (DF-2)",
+        "10 Stud 406 x 120 Commercial Axle": "£1,364",
+        "10 Stud Commercial Axle c/w ABS & Air Brakes": "£4,620",
+        "Rear Steering Axle": "N/A",
+        "Air / Oil Brakes (Non ABS)c/w Load Sensing": "£1,517 (DF-4)",
+        "Oil Load Sensing": "£850 (DF-2)",
+        "Small Perpsex Front Window": "£165 / (DF-0.5)",
+        "Large Perspex Front Window": "£740",
+        "Rear Tow Hitch c/w Lights & Brakes": "£325 / (DF-2)"
+      }
+    },
+    {
+      "id": "qm14",
+      "range_id": "dropside-trailers",
+      "range_title": "Dropside Trailers",
+      "title": "QM-14",
+      "image": "images/range-1.png",
+      "Basic Price": "£22,995",
+      "Silage Price - Hyd Door Attach Style": "£25,983",
+      "Silage Price - Swinging Door Style": "N/A",
+      "Body Size - Imperial": "21' x 7' 6\" - 8' x 4'",
+      "Standard Tyre Size": "385 - 65 x 22.5",
+      "Axle": "10 stud 120mm High Speed Commercial",
+      "Brake": "420 x 180 S Cam",
+      "Carrying Capacity": "14.5 tons",
+      "Floor Thickness": "5mm",
+      "Side Thickness": "4mm",
+      "Lights & Hyd Brakes": "Standard",
+      "Side Loading Panels": "Standard",
+      "Volume Basic": "651 cu.ft / 18.4 cu.mtrs",
+      "Volume Silage - Swinging Door Style Sides": "1302 cu.ft / 36.8 cu.mtrs",
+      "Volume Silage - Hyd Door Attach. Style Sides": "1166 cu.ft / 33 cu.mtrs",
+      "Basic Trailer Weight": "5700 kgs",
+      "Loading Height Basic": "96\"/2.44m",
+      "Tip Angle (Degrees)": "50",
+      "Tipping Height Basic": "22' 7\"",
+      "optional": {
+        "400-60 x 15.5": "N/A",
+        "340 x 65 x 18 Radial": "N/A",
+        "550-45 x 22.5 c/w Mudguards": "£1840 / (DF-1)",
+        "560-45 x 22.5 c/w Mudguards": "£2530 / (DF-1)",
+        "560-60 x 22.5 c/w Mudguards": "£3,180 / (DF-1)",
+        "Mudguards / Wings - Bolt On": "Standard",
+        "8 inch Hatch": "£185",
+        "12 inch Hatch": "£228",
+        "12 inch Hatch with Sock": "£310",
+        "Spring Drawbar (Adjustable)": "Standard",
+        "Swivel Hitch": "£195",
+        "Hyd Door Safety Valve": "£215 / (DF-1.5)",
+        "Hyd Door Seal": "£245",
+        "Hyd Up & Over Grain Door": "Standard",
+        "Hydraulic Door Attachment Style Silage Sides": "Standard - When Silage Sides Specified (DF-2)",
+        "Swinging Door Style Silage Sides": "N/A",
+        "Trailer Cover (640g PVC)": "£314 / (DF-0.25)",
+        "Roll Over Cover (1000g PVC)": "£1,588 / (DF-5)",
+        "Hydraulic Front to Back Cover": "£3,680",
+        "LED Beacon": "Standard",
+        "LED Tail Lights": "Standard",
+        "High Level LED Lights": "£292 / (DF-1.5)",
+        "LED Worklights": "£380 / (DF-2)",
+        "10 Stud 406 x 120 Commercial Axle": "N/A",
+        "10 Stud Commercial Axle c/w ABS & Air Brakes": "£3108 / (DF-6)",
+        "Rear Steering Axle": "£4,350",
+        "Air / Oil Brakes (Non ABS)c/w Load Sensing": "£1,517 (DF-4)",
+        "Oil Load Sensing": "£850 (DF-2)",
+        "Small Perpsex Front Window": "£165 / (DF-0.5)",
+        "Large Perspex Front Window": "£740",
+        "Rear Tow Hitch c/w Lights & Brakes": "£325 / (DF-2)"
+      }
+    },
+    {
+      "id": "qm1400",
+      "range_id": "dropside-trailers",
+      "range_title": "Dropside Trailers",
+      "title": "QM-1400",
+      "image": "images/range-1.png",
+      "Basic Price": "£22,995",
+      "Silage Price - Hyd Door Attach Style": "£25,983",
+      "Silage Price - Swinging Door Style": "N/A",
+      "Body Size - Imperial": "18' x 7' 6\" - 8' x 4' 8\"",
+      "Standard Tyre Size": "385 - 65 x 22.5",
+      "Axle": "10 stud 120mm High Speed Commercial",
+      "Brake": "420 x 180 S Cam",
+      "Carrying Capacity": "14.5 tons",
+      "Floor Thickness": "5mm",
+      "Side Thickness": "4mm",
+      "Lights & Hyd Brakes": "Standard",
+      "Side Loading Panels": "Standard",
+      "Volume Basic": "651 cu.ft / 18.4 cu.mtrs",
+      "Volume Silage - Swinging Door Style Sides": "N/A",
+      "Volume Silage - Hyd Door Attach. Style Sides": "1092 cu.ft / 31 cu.mtrs",
+      "Basic Trailer Weight": "5700 kgs",
+      "Loading Height Basic": "104\"/2.64m",
+      "Tip Angle (Degrees)": "50",
+      "Tipping Height Basic": "20' 2\"",
+      "optional": {
+        "400-60 x 15.5": "N/A",
+        "340 x 65 x 18 Radial": "N/A",
+        "550-45 x 22.5 c/w Mudguards": "£1840 / (DF-1)",
+        "560-45 x 22.5 c/w Mudguards": "£2530 / (DF-1)",
+        "560-60 x 22.5 c/w Mudguards": "£3,180 / (DF-1)",
+        "Mudguards / Wings - Bolt On": "Standard",
+        "8 inch Hatch": "£185",
+        "12 inch Hatch": "£228",
+        "12 inch Hatch with Sock": "£310",
+        "Spring Drawbar (Adjustable)": "Standard",
+        "Swivel Hitch": "£195",
+        "Hyd Door Safety Valve": "£215 / (DF-1.5)",
+        "Hyd Door Seal": "Standard",
+        "Hyd Up & Over Grain Door": "Standard",
+        "Hydraulic Door Attachment Style Silage Sides": "Standard - When Silage Sides Specified (DF-2)",
+        "Swinging Door Style Silage Sides": "N/A",
+        "Trailer Cover (640g PVC)": "£290 / (DF-0.25)",
+        "Roll Over Cover (1000g PVC)": "£1,588 / (DF-5)",
+        "Hydraulic Front to Back Cover": "£3,680",
+        "LED Beacon": "Standard",
+        "LED Tail Lights": "Standard",
+        "High Level LED Lights": "£292 / (DF-1.5)",
+        "LED Worklights": "£380 / (DF-2)",
+        "10 Stud 406 x 120 Commercial Axle": "N/A",
+        "10 Stud Commercial Axle c/w ABS & Air Brakes": "£3108 / (DF-6)",
+        "Rear Steering Axle": "£4,350",
+        "Air / Oil Brakes (Non ABS)c/w Load Sensing": "£1,517 (DF-4)",
+        "Oil Load Sensing": "£850 (DF-2)",
+        "Small Perpsex Front Window": "£165 / (DF-0.5)",
+        "Large Perspex Front Window": "£740",
+        "Rear Tow Hitch c/w Lights & Brakes": "£325 / (DF-2)"
+      }
+    },
+    {
+      "id": "qm16",
+      "range_id": "dropside-trailers",
+      "range_title": "Dropside Trailers",
+      "title": "QM-16",
+      "image": "images/range-1.png",
+      "Basic Price": "£24,500",
+      "Silage Price - Hyd Door Attach Style": "£27,870",
+      "Silage Price - Swinging Door Style": "N/A",
+      "Body Size - Imperial": "24' x 7' 6\" - 8' x 4'",
+      "Standard Tyre Size": "385 - 65 x 22.5",
+      "Axle": "10 stud 120mm High Speed Commercial",
+      "Brake": "420 x 180 S Cam",
+      "Carrying Capacity": "16.5 tons",
+      "Floor Thickness": "5mm",
+      "Side Thickness": "4mm",
+      "Lights & Hyd Brakes": "Standard",
+      "Side Loading Panels": "Standard",
+      "Volume Basic": "744 cu.ft / 21.1 cu.mtrs",
+      "Volume Silage - Swinging Door Style Sides": "1488 cu.ft / 42.1 cu.mtrs",
+      "Volume Silage - Hyd Door Attach. Style Sides": "1335 cu.ft / 37.7 cu.mtrs",
+      "Basic Trailer Weight": "6380 kgs",
+      "Loading Height Basic": "98\"/2.49m",
+      "Tip Angle (Degrees)": "51",
+      "Tipping Height Basic": "23' 11\"",
+      "optional": {
+        "400-60 x 15.5": "N/A",
+        "340 x 65 x 18 Radial": "N/A",
+        "550-45 x 22.5 c/w Mudguards": "N/A",
+        "560-45 x 22.5 c/w Mudguards": "£2530 / (DF-1)",
+        "560-60 x 22.5 c/w Mudguards": "£3,180 / (DF-1)",
+        "Mudguards / Wings - Bolt On": "Standard",
+        "8 inch Hatch": "£185",
+        "12 inch Hatch": "£228",
+        "12 inch Hatch with Sock": "£310",
+        "Spring Drawbar (Adjustable)": "Standard",
+        "Swivel Hitch": "£195",
+        "Hyd Door Safety Valve": "£215 / (DF-1.5)",
+        "Hyd Door Seal": "£245",
+        "Hyd Up & Over Grain Door": "Standard",
+        "Hydraulic Door Attachment Style Silage Sides": "Standard - When Silage Sides Specified (DF-2)",
+        "Swinging Door Style Silage Sides": "N/A",
+        "Trailer Cover (640g PVC)": "£338 / (DF-0.25)",
+        "Roll Over Cover (1000g PVC)": "£1,588 / (DF-5)",
+        "Hydraulic Front to Back Cover": "£3,680",
+        "LED Beacon": "Standard",
+        "LED Tail Lights": "Standard",
+        "High Level LED Lights": "£292 / (DF-1.5)",
+        "LED Worklights": "£380 / (DF-2)",
+        "10 Stud 406 x 120 Commercial Axle": "N/A",
+        "10 Stud Commercial Axle c/w ABS & Air Brakes": "£3108 / (DF-6)",
+        "Rear Steering Axle": "£4,350",
+        "Air / Oil Brakes (Non ABS)c/w Load Sensing": "£1,517 (DF-4)",
+        "Oil Load Sensing": "£850 (DF-2)",
+        "Small Perpsex Front Window": "£165 / (DF-0.5)",
+        "Large Perspex Front Window": "£740",
+        "Rear Tow Hitch c/w Lights & Brakes": "£325 / (DF-2)"
+      }
+    },
+    {
+      "id": "qm1600",
+      "range_id": "dropside-trailers",
+      "range_title": "Dropside Trailers",
+      "title": "QM-1600",
+      "image": "images/range-1.png",
+      "Basic Price": "£400,000",
+      "Silage Price - Hyd Door Attach Style": "£79,600",
+      "Silage Price - Swinging Door Style": "Super Expensive",
+      "Body Size - Imperial": "24' x 7' 6\" - 8' x 4' 8\"",
+      "Standard Tyre Size": "Big, very big tyres.",
+      "Axle": "10 stud 120mm High Speed Commercial",
+      "Brake": "420 x 180 S Cam",
+      "Carrying Capacity": "18.5 tons",
+      "Floor Thickness": "Thickest ever",
+      "Side Thickness": "Also Thick",
+      "Lights & Hyd Brakes": "Exclusive",
+      "Side Loading Panels": "Premium",
+      "Volume Basic": "868 cu.ft / 24.5 cu.mtrs",
+      "Volume Silage - Swinging Door Style Sides": "All Bells & Whistles",
+      "Volume Silage - Hyd Door Attach. Style Sides": "1457 cu.ft / 41.2 cu.mtrs",
+      "Basic Trailer Weight": "6,980 kgs",
+      "Loading Height Basic": "106\"/2.69m",
+      "Tip Angle (Degrees)": "51",
+      "Tipping Height Basic": "24' 5\"",
+      "optional": {
+        "400-60 x 15.5": "N/A",
+        "340 x 65 x 18 Radial": "N/A",
+        "550-45 x 22.5 c/w Mudguards": "N/A",
+        "560-45 x 22.5 c/w Mudguards": "N/A",
+        "560-60 x 22.5 c/w Mudguards": "£3,180 / (DF-1)",
+        "Mudguards / Wings - Bolt On": "Standard",
+        "8 inch Hatch": "£185",
+        "12 inch Hatch": "£228",
+        "12 inch Hatch with Sock": "£310",
+        "Spring Drawbar (Adjustable)": "Standard",
+        "Swivel Hitch": "£195",
+        "Hyd Door Safety Valve": "£215 / (DF-1.5)",
+        "Hyd Door Seal": "Standard",
+        "Hyd Up & Over Grain Door": "Standard",
+        "Hydraulic Door Attachment Style Silage Sides": "Standard - When Silage Sides Specified (DF-2)",
+        "Swinging Door Style Silage Sides": "N/A",
+        "Trailer Cover (640g PVC)": "£338 / (DF-0.25)",
+        "Roll Over Cover (1000g PVC)": "£1,588 / (DF-5)",
+        "Hydraulic Front to Back Cover": "£3,680",
+        "LED Beacon": "Standard",
+        "LED Tail Lights": "Standard",
+        "High Level LED Lights": "£292 / (DF-1.5)",
+        "LED Worklights": "£380 / (DF-2)",
+        "10 Stud 406 x 120 Commercial Axle": "N/A",
+        "10 Stud Commercial Axle c/w ABS & Air Brakes": "£3108 / (DF-6)",
+        "Rear Steering Axle": "£4,350",
+        "Air / Oil Brakes (Non ABS)c/w Load Sensing": "£1,517 (DF-4)",
+        "Oil Load Sensing": "£850 (DF-2)",
+        "Small Perpsex Front Window": "£165 / (DF-0.5)",
+        "Large Perspex Front Window": "£740",
+        "Rear Tow Hitch c/w Lights & Brakes": "£325 / (DF-2)"
+      }
+    },
+    {
+      "id": "qm1800",
+      "range_id": "dropside-trailers",
+      "range_title": "Dropside Trailers",
+      "title": "QM-1800",
+      "image": "images/range-1.png",
+      "Basic Price": "£24,500",
+      "Silage Price - Hyd Door Attach Style": "£27,870",
+      "Silage Price - Swinging Door Style": "N/A",
+      "Body Size - Imperial": "21' x 7' 6\" - 8' x 4' 8\"",
+      "Standard Tyre Size": "385 - 65 x 22.5",
+      "Axle": "10 stud 120mm High Speed Commercial",
+      "Brake": "420 x 180 S Cam",
+      "Carrying Capacity": "16.5 tons",
+      "Floor Thickness": "5mm",
+      "Side Thickness": "4mm",
+      "Lights & Hyd Brakes": "Standard",
+      "Side Loading Panels": "Standard",
+      "Volume Basic": "759 cu.ft / 21.5 cu.mtrs",
+      "Volume Silage - Swinging Door Style Sides": "N/A",
+      "Volume Silage - Hyd Door Attach. Style Sides": "1274 cu.ft / 36.1 cu.mtrs",
+      "Basic Trailer Weight": "6380 kgs",
+      "Loading Height Basic": "106\"/2.69m",
+      "Tip Angle (Degrees)": "51",
+      "Tipping Height Basic": "23' 1\"",
+      "optional": {
+        "400-60 x 15.5": "N/A",
+        "340 x 65 x 18 Radial": "N/A",
+        "550-45 x 22.5 c/w Mudguards": "N/A",
+        "560-45 x 22.5 c/w Mudguards": "£2530 / (DF-1)",
+        "560-60 x 22.5 c/w Mudguards": "£3,180 / (DF-1)",
+        "Mudguards / Wings - Bolt On": "Standard",
+        "8 inch Hatch": "£185",
+        "12 inch Hatch": "£228",
+        "12 inch Hatch with Sock": "£310",
+        "Spring Drawbar (Adjustable)": "Standard",
+        "Swivel Hitch": "£195",
+        "Hyd Door Safety Valve": "£215 / (DF-1.5)",
+        "Hyd Door Seal": "Standard",
+        "Hyd Up & Over Grain Door": "Standard",
+        "Hydraulic Door Attachment Style Silage Sides": "Standard - When Silage Sides Specified (DF-2)",
+        "Swinging Door Style Silage Sides": "N/A",
+        "Trailer Cover (640g PVC)": "£314 / (DF-0.25)",
+        "Roll Over Cover (1000g PVC)": "£1,588 / (DF-5)",
+        "Hydraulic Front to Back Cover": "£3,680",
+        "LED Beacon": "Standard",
+        "LED Tail Lights": "Standard",
+        "High Level LED Lights": "£292 / (DF-1.5)",
+        "LED Worklights": "£380 / (DF-2)",
+        "10 Stud 406 x 120 Commercial Axle": "N/A",
+        "10 Stud Commercial Axle c/w ABS & Air Brakes": "£3108 / (DF-6)",
+        "Rear Steering Axle": "£4,350",
+        "Air / Oil Brakes (Non ABS)c/w Load Sensing": "£1,517 (DF-4)",
+        "Oil Load Sensing": "£850 (DF-2)",
+        "Small Perpsex Front Window": "£165 / (DF-0.5)",
+        "Large Perspex Front Window": "£740",
+        "Rear Tow Hitch c/w Lights & Brakes": "£325 / (DF-2)"
+      }
+    }
+  ],
+  "tabsData": [
+    {
+      "id": 1,
+      "header": "Heritage",
+      "title": "We have grown together",
+      "content": "Growing from a small family business to one of the UK's leading trailer manufacturers, Marshalls Trailers has a rich heritage built on quality, innovation, and customer satisfaction. Our journey reflects our commitment to excellence and our passion for delivering top-notch trailers to our valued customers.",
+      "imageSrc": "images/tab-bg-heritage.png",
+      "label": "Read More",
+      "href": "#"
+    },
+    {
+      "id": 2,
+      "header": "Innovation",
+      "title": "Winners of multiple awards",
+      "content": "At Marshalls Trailers, innovation is at the heart of everything we do. Our commitment to research and development has led to numerous industry awards, recognizing our cutting-edge designs and advanced manufacturing techniques. We continuously strive to push the boundaries of trailer technology to meet the evolving needs of our customers.",
+      "imageSrc": "images/tab-bg-innovation.png",
+      "label": "See Full List",
+      "href": "#"
+    },
+    {
+      "id": 3,
+      "header": "Quality",
+      "title": "Building a greener future",
+      "content": "Marshalls Trailers is dedicated to sustainability, implementing eco-friendly practices in our manufacturing processes and designing trailers that help reduce environmental impact for our customers. We are committed to building a greener future for generations to come.",
+      "imageSrc": "images/tab-bg-quality.png",
+      "label": "Discover How",
+      "href": "#"
+    },
+    {
+      "id": 4,
+      "header": "Value",
+      "title": "Supporting local initiatives",
+      "content": "We believe in giving back to the community. Marshalls Trailers actively supports local initiatives and charities, fostering strong relationships and making a positive impact in the areas where we operate. Our commitment to social responsibility is a core value of our company.",
+      "imageSrc": "images/tab-bg-value.png",
+      "label": "Talk To Us",
+      "href": "#"
+    }
+  ],
+  "carouselData": [
+    {
+      "title": "The Legendary Marshall Muckspreader",
+      "image": "images/sample-hero.jpg",
+      "url": "products.html?model=rear-discharge-muck-spreaders",
+      "label": "Explore"
+    },
+    {
+      "title": "New Low Loader",
+      "image": "images/sample-hero-2.jpg",
+      "url": "products.html?model=new-low-loaders",
+      "label": "Our Low Loaders"
+    },
+    {
+      "title": "The Marshall Livestock Container",
+      "image": "images/sample-hero-3.jpg",
+      "url": "product.html?id=mlc10",
+      "label": "Talk To Us"
+    },
+    {
+      "title": "Marshall Drop-side Trailer",
+      "image": "images/sample-hero-4.jpg",
+      "url": "product.html?id=qm-18",
+      "label": "Find Out More"
+    }
+  ],
+  "rangesData": [
+    {
+      "id": "dropside-trailers",
+      "title": "Drop-side Trailers",
+      "image": "images/range-1.png",
+      "models": [
+        {
+          "title": "QM-6",
+          "id": "qm6",
+          "image": "images/range-1.png",
+          "range_id": "dropside-trailers"
+        },
+        {
+          "title": "QM-8",
+          "id": "qm8",
+          "image": "images/range-1.png",
+          "range_id": "dropside-trailers"
+        },
+        {
+          "title": "QM-11",
+          "id": "qm11",
+          "image": "images/range-1.png",
+          "range_id": "dropside-trailers"
+        },
+        {
+          "title": "QM-12",
+          "id": "qm12",
+          "image": "images/range-1.png",
+          "range_id": "dropside-trailers"
+        },
+        {
+          "title": "QM-1200",
+          "id": "qm1200",
+          "image": "images/range-1.png",
+          "range_id": "dropside-trailers"
+        },
+        {
+          "title": "QM-14",
+          "id": "qm14",
+          "image": "images/range-1.png",
+          "range_id": "dropside-trailers"
+        },
+        {
+          "title": "QM-1400",
+          "id": "qm1400",
+          "image": "images/range-1.png",
+          "range_id": "dropside-trailers"
+        },
+        {
+          "title": "QM-16",
+          "id": "qm16",
+          "image": "images/range-1.png",
+          "range_id": "dropside-trailers"
+        },
+        {
+          "title": "QM-1600",
+          "id": "qm1600",
+          "image": "images/range-1.png",
+          "range_id": "dropside-trailers"
+        },
+        {
+          "title": "QM-1800",
+          "id": "qm1800",
+          "image": "images/range-1.png",
+          "range_id": "dropside-trailers"
+        }
+      ]
+    },
+    {
+      "id": "new-low-loaders",
+      "title": "New Low Loaders",
+      "image": "images/range-2.png",
+      "models": [
+        {
+          "title": "LL-10T",
+          "id": "ll-10t",
+          "image": "images/range-2.png",
+          "range_id": "new-low-loaders"
+        },
+        {
+          "title": "LL-14T",
+          "id": "ll-14t",
+          "image": "images/range-2.png",
+          "range_id": "new-low-loaders"
+        },
+        {
+          "title": "LL-18T",
+          "id": "ll-18t",
+          "image": "images/range-2.png",
+          "range_id": "new-low-loaders"
+        },
+        {
+          "title": "LL-24T",
+          "id": "ll-24t",
+          "image": "images/range-2.png",
+          "range_id": "new-low-loaders"
+        }
+      ]
+    },
+    {
+      "id": "grain-and-silage",
+      "title": "Grain & Silage",
+      "image": "images/range-3.png",
+      "models": [
+        {
+          "title": "GS-10",
+          "id": "gs-10",
+          "image": "images/range-3.png",
+          "range_id": "grain-and-silage"
+        },
+        {
+          "title": "GS-15",
+          "id": "gs-15",
+          "image": "images/range-3.png",
+          "range_id": "grain-and-silage"
+        },
+        {
+          "title": "GS-20",
+          "id": "gs-20",
+          "image": "images/range-3.png",
+          "range_id": "grain-and-silage"
+        },
+        {
+          "title": "GS-25",
+          "id": "gs-25",
+          "image": "images/range-3.png",
+          "range_id": "grain-and-silage"
+        }
+      ]
+    },
+    {
+      "id": "livestock-trailers-containers",
+      "title": "Livestock Containers",
+      "image": "images/range-4.png",
+      "models": [
+        {
+          "title": "LC-10",
+          "id": "lc-10",
+          "image": "images/range-4.png",
+          "range_id": "livestock-trailers-containers"
+        },
+        {
+          "title": "LC-14",
+          "id": "lc-14",
+          "image": "images/range-4.png",
+          "range_id": "livestock-trailers-containers"
+        },
+        {
+          "title": "LC-18",
+          "id": "lc-18",
+          "image": "images/range-4.png",
+          "range_id": "livestock-trailers-containers"
+        }
+      ]
+    },
+    {
+      "id": "multi-purpose-dumpsters",
+      "title": "Multi-purpose Dumpsters",
+      "image": "images/range-5.png",
+      "models": [
+        {
+          "title": "MD-8",
+          "id": "md-8",
+          "image": "images/range-5.png",
+          "range_id": "multi-purpose-dumpsters"
+        },
+        {
+          "title": "MD-12",
+          "id": "md-12",
+          "image": "images/range-5.png",
+          "range_id": "multi-purpose-dumpsters"
+        },
+        {
+          "title": "MD-16",
+          "id": "md-16",
+          "image": "images/range-5.png",
+          "range_id": "multi-purpose-dumpsters"
+        }
+      ]
+    },
+    {
+      "id": "slurry-tankers",
+      "title": "Slurry Tankers",
+      "image": "images/range-7.png",
+      "models": [
+        {
+          "title": "ST-2000",
+          "id": "st-2000",
+          "image": "images/range-7.png",
+          "range_id": "slurry-tankers"
+        },
+        {
+          "title": "ST-2500",
+          "id": "st-2500",
+          "image": "images/range-7.png",
+          "range_id": "slurry-tankers"
+        },
+        {
+          "title": "ST-3000",
+          "id": "st-3000",
+          "image": "images/range-7.png",
+          "range_id": "slurry-tankers"
+        }
+      ]
+    },
+    {
+      "id": "muck-spreaders",
+      "title": "Muck Spreaders",
+      "image": "images/range-6.png",
+      "models": [
+        {
+          "title": "MS-6",
+          "id": "ms-6",
+          "image": "images/range-6.png",
+          "range_id": "muck-spreaders"
+        },
+        {
+          "title": "MS-8",
+          "id": "ms-8",
+          "image": "images/range-6.png",
+          "range_id": "muck-spreaders"
+        },
+        {
+          "title": "MS-10",
+          "id": "ms-10",
+          "image": "images/range-6.png",
+          "range_id": "muck-spreaders"
+        }
+      ]
+    },
+    {
+      "id": "new-feeder-trailers",
+      "title": "Feeder Trailers",
+      "image": "images/range-8.png",
+      "models": [
+        {
+          "title": "FT-14",
+          "id": "ft-14",
+          "image": "images/range-8.png",
+          "range_id": "new-feeder-trailers"
+        },
+        {
+          "title": "FT-18",
+          "id": "ft-18",
+          "image": "images/range-8.png",
+          "range_id": "new-feeder-trailers"
+        },
+        {
+          "title": "FT-22",
+          "id": "ft-22",
+          "image": "images/range-8.png",
+          "range_id": "new-feeder-trailers"
+        }
+      ]
+    },
+    {
+      "id": "people-carrier-trailers",
+      "title": "People Carrier Trailers",
+      "image": "images/range-9.png",
+      "models": [
+        {
+          "title": "PC-16",
+          "id": "pc-16",
+          "image": "images/range-9.png",
+          "range_id": "people-carrier-trailers"
+        },
+        {
+          "title": "PC-24",
+          "id": "pc-24",
+          "image": "images/range-9.png",
+          "range_id": "people-carrier-trailers"
+        }
+      ]
+    },
+    {
+      "id": "flat-bale-trailers",
+      "title": "Flat/Bale Trailers",
+      "image": "images/range-10.png",
+      "models": [
+        {
+          "title": "FB-20",
+          "id": "fb-20",
+          "image": "images/range-10.png",
+          "range_id": "flat-bale-trailers"
+        },
+        {
+          "title": "FB-24",
+          "id": "fb-24",
+          "image": "images/range-10.png",
+          "range_id": "flat-bale-trailers"
+        },
+        {
+          "title": "FB-30",
+          "id": "fb-30",
+          "image": "images/range-10.png",
+          "range_id": "flat-bale-trailers"
+        }
+      ]
+    },
+    {
+      "id": "new-dump-trailers",
+      "title": "Dump Trailers",
+      "image": "images/range-11.png",
+      "models": [
+        {
+          "title": "RDS-10",
+          "id": "hd6",
+          "image": "images/range-11.png",
+          "range_id": "new-dump-trailers"
+        },
+        {
+          "title": "RDS-14",
+          "id": "hd8",
+          "image": "images/range-11.png",
+          "range_id": "new-dump-trailers"
+        }
+      ]
+    },
+    {
+      "id": "tankers",
+      "title": "Tankers",
+      "image": "images/range-12.png",
+      "models": [
+        {
+          "title": "T-1800",
+          "id": "t-1800",
+          "image": "images/range-12.png",
+          "range_id": "tankers"
+        },
+        {
+          "title": "T-2200",
+          "id": "t-2200",
+          "image": "images/range-12.png",
+          "range_id": "tankers"
+        },
+        {
+          "title": "T-3000",
+          "id": "t-3000",
+          "image": "images/range-12.png",
+          "range_id": "tankers"
+        },
+        {
+          "title": "T-4000",
+          "id": "t-4000",
+          "image": "images/range-12.png",
+          "range_id": "tankers"
+        },
+        {
+          "title": "T-5000",
+          "id": "t-5000",
+          "image": "images/range-12.png",
+          "range_id": "tankers"
+        },
+        {
+          "title": "T-6000",
+          "id": "t-6000",
+          "image": "images/range-12.png",
+          "range_id": "tankers"
+        },
+        {
+          "title": "T-8000",
+          "id": "t-8000",
+          "image": "images/range-12.png",
+          "range_id": "tankers"
+        },
+        {
+          "title": "T-10000",
+          "id": "t-10000",
+          "image": "images/range-12.png",
+          "range_id": "tankers"
+        }
+      ]
+    },
+    {
+      "id": "rear-discharge-muck-spreaders",
+      "title": "Rear Discharge Muck Spreaders",
+      "image": "images/range-2.png",
+      "models": [
+        {
+          "title": "FES-8",
+          "id": "fes-8",
+          "image": "images/range-2.png",
+          "range_id": "rear-discharge-muck-spreaders"
+        },
+        {
+          "title": "FES-12",
+          "id": "fes-12",
+          "image": "images/range-2.png",
+          "range_id": "rear-discharge-muck-spreaders"
+        }
+      ]
+    },
+    {
+      "id": "even-more-tankers",
+      "title": "Even More Tankers",
+      "image": "images/range-4.png",
+      "models": [
+        {
+          "title": "ET-2400",
+          "id": "et-2400",
+          "image": "images/range-4.png",
+          "range_id": "even-more-tankers"
+        },
+        {
+          "title": "ET-3200",
+          "id": "et-3200",
+          "image": "images/range-4.png",
+          "range_id": "even-more-tankers"
+        },
+        {
+          "title": "ET-4000",
+          "id": "et-4000",
+          "image": "images/range-4.png",
+          "range_id": "even-more-tankers"
+        },
+        {
+          "title": "ET-6000",
+          "id": "et-6000",
+          "image": "images/range-4.png",
+          "range_id": "even-more-tankers"
+        },
+        {
+          "title": "ET-8000",
+          "id": "et-8000",
+          "image": "images/range-4.png",
+          "range_id": "even-more-tankers"
+        }
+      ]
+    }
+  ],
+  "clearanceData": [
+    {
+      "part_no": "SC0033",
+      "description": "355-50Rx22.5 Radial (10 stud) Low Profile",
+      "cost": "£200.00",
+      "condition": "Shop-soiled condition",
+      "info": "These wheels are 6\" smaller in diameter than a standard super single. They are comparable in diameter to a 445-45x19.5 wheel. Excellent road performance and allows a lower centre of gravity for the trailer to improve stability."
+    },
+    {
+      "part_no": "SC0011",
+      "description": "16/70 x 20 (6 Stud) Complete Wheel - Grade 1",
+      "cost": "£225.00",
+      "condition": "Grade 1 Condition",
+      "info": "Tyre may have some minor use or minor perishing. Wheel centre may be slightly rusty or marked. However overall tyre is in very good condition and holding pressure; almost like new. Delivery or collection can be arranged; delivery charges will apply."
+    },
+    {
+      "part_no": "SC0010",
+      "description": "340/457/13.00-18 BN2 (6 Stud) Complete Wheel - Grade 1",
+      "cost": "£150.00",
+      "condition": "Grade 1 Condition",
+      "info": "Tyre may have some minor use or minor perishing. Wheel centre may be slightly rusty or marked. However overall tyre is in very good condition and holding pressure; almost like new. Delivery or collection can be arranged; delivery charges will apply."
+    },
+    {
+      "part_no": "SC0007",
+      "description": "18-19.5 Track Tread (6 Stud) Complete Wheel - Grade 1",
+      "cost": "£375.00",
+      "condition": "Grade 1 Condition",
+      "info": "Tyre may have some minor use or minor perishing. Wheel centre may be slightly rusty or marked. However overall tyre is in very good condition and holding pressure; almost like new. These wheels have a high load rating and are heavy built. Delivery or collection can be arranged; delivery charges will apply."
+    },
+    {
+      "part_no": "SC0032",
+      "description": "ESFA 10 Stud Axles",
+      "cost": "£450.00",
+      "condition": "Used condition",
+      "info": "10 Stud ESFA Axles 400x100. Five available. Can be collected or delivery can be arranged with one of our lorries for an additional cost."
+    }
+  ]
+}

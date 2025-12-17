@@ -54,20 +54,18 @@ function imagesTask() {
 
 // html
 function htmlTask() {
-  return (
-    src([files.nunjuck])
-      // .pipe(
-      //   data(function () {
-      //     return require(files.data);
-      //   })
-      // )
-      .pipe(
-        nunjucksRender({
-          path: [files.templates],
-        })
-      )
-      .pipe(gulp.dest("website"))
-  );
+  return src([files.nunjuck])
+    .pipe(
+      data(function () {
+        return require(files.data);
+      })
+    )
+    .pipe(
+      nunjucksRender({
+        path: [files.templates],
+      })
+    )
+    .pipe(gulp.dest("website"));
 }
 
 // jshint
