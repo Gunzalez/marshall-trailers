@@ -100,6 +100,7 @@
   max-width: var(--max-width);
   margin-bottom: 48px;
   position: relative;
+  width: 100%;
 
   @media (max-width: 768px) {
     margin-bottom: 30px;
@@ -134,6 +135,10 @@
       border: 1px solid var(--brand-gray);
       padding: 12px 1rem;
       border-radius: 4px;
+
+      &.highlighted {
+        // border-color: var(--brand-red);
+      }
 
       .text-wrapper {
         z-index: 11;
@@ -175,6 +180,7 @@
   padding-bottom: 1rem;
   margin: 0 auto;
   max-width: var(--max-width);
+  width: 100%;
 
   ol {
     border-top: 1px solid var(--brand-gray);
@@ -218,6 +224,7 @@
   max-width: var(--max-width);
   margin: 0 auto;
   padding: 2px 1rem 0 1rem;
+  width: 100%;
 }
 
 .video-container {
@@ -402,7 +409,7 @@
       position: absolute;
       left: 0;
       top: 0;
-      color: var(--brand-yellow);
+      color: #000;
       font-size: 1.5em;
       line-height: 1;
     }

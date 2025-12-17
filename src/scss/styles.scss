@@ -3,6 +3,28 @@
 @import "fonts";
 @import "navigation";
 @import "utils";
+@import "forms";
+
+#page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  flex: 1;
+}
+
+#top-drawer {
+  background-color: white;
+
+  &:has(.scrolled) {
+    background-color: var(--brand-gray-light);
+
+    #top-navigation {
+      .main-menu {
+        background-color: var(--brand-gray-light);
+      }
+    }
+  }
+}
 
 #top-navigation {
   margin-top: -160px;
@@ -381,20 +403,25 @@
 }
 
 .footer {
+  margin-top: auto;
+
   background-image: url("../images/footer-bg.png");
   background-repeat: no-repeat;
   background-position: bottom;
-  background-size: 200%;
-  padding-bottom: 150px;
-
-  .section {
-    margin-bottom: 0;
-  }
+  background-size: contain;
+  padding-bottom: 80px;
 
   @media screen and (min-width: 768px) {
     background-position: right bottom;
-    background-size: contain;
+    padding-bottom: 130px;
+  }
+
+  @media screen and (min-width: 922px) {
     padding-bottom: 240px;
+  }
+
+  .section {
+    margin-bottom: 0;
   }
 
   a {
@@ -926,7 +953,7 @@
   }
 
   .fixed-column {
-    background-color: #ececec;
+    background-color: var(--brand-gray);
 
     .bordered-bottom {
       border-color: #e0e0e0;
