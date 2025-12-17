@@ -5,18 +5,7 @@
 
     {{ macros.header("images/logo-marshall-trailers-color.png") }}
 
-    <nav aria-label="breadcrumbs" class="breadcrumbs">
-        <ol>
-            <li>
-                <a href="index.html">Home</a>
-            </li>
-            <li>Retro Fit</li>
-        </ol>
-    </nav>
-
-    <div class="title-wrapper">
-        <h1 class="page-title">Retro Fit</h1>
-    </div>
+    {{ macros.headingSection("Retro Fit") }}
 
     <div class="section body-copy">
         <p>Enhance your existing trailer with Marshall Trailers' Retro Fit service.</p>

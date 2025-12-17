@@ -5,18 +5,7 @@
 
     {{ macros.header("images/logo-marshall-trailers-color.png") }}
 
-    <nav aria-label="breadcrumbs" class="breadcrumbs">
-        <ol>
-            <li>
-                <a href="index.html">Home</a>
-            </li>
-            <li>Ranges</li>
-        </ol>
-    </nav>
-
-    <div class="title-wrapper">
-        <h1 class="page-title">Product Ranges</h1>
-    </div>
+    {{ macros.headingSection("Product Ranges") }}
 
     <div id="product-ranges" class="section in-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 pb-16 app-loading">
         <div v-for="(range, i) in productRanges" :key="i" class="slide flex flex-col gap-4">
