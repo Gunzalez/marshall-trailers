@@ -1,0 +1,28 @@
+{% extends "layout.nunjucks" %}
+{% import "../templates/partials/_macros.nunjucks" as macros %}
+
+{% block content %}
+
+    {{ macros.header("images/logo-marshall-trailers-color.png") }}
+
+    <nav aria-label="breadcrumbs" class="breadcrumbs">
+        <ol>
+            <li>
+                <a href="index.html">Home</a>
+            </li>
+            <li>
+                <a href="spares.html">Spares</a>
+            </li>
+            <li>Parts</li>
+        </ol>
+    </nav>
+
+    <div class="title-wrapper">
+        <h1 class="page-title">Parts Ordering</h1>
+    </div>
+
+    <div class="section body-copy">
+        <p>Ordering parts for machines built in or before 2019.</p>
+    </div>
+
+{% endblock %}
