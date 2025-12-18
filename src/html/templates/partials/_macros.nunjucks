@@ -85,18 +85,20 @@
 {% macro overview() %}
     <div class="body-copy">
         <h3>Overview of the <span class="dummy-data-product-title-replace-span"></span></h3>
-        <ul class="dotted-list">
-            <li>Large capacity</li>
-            <li>Fully welded construction eliminates rust traps</li>
-            <li>Fixed headboard (ensures a rigid body)</li>
-            <li>Fully braced hinge points (eliminates cracking of material)</li>
-            <li>Genuine Marshall Spares – a full collection of spares are available for all models in the range</li>
-        </ul>
-        <p>The smallest model of trailer we produce is the S/1 drop side trailer. It has been designed to match small, compact tractors for use in the groundcare and leisure sectors. Despite being the entry-level model the entire trailer is built using CNC controlled machines to guarantee strength and finish.</p>
-        <p>The drop side design provides excellent versatility, allowing the trailer to be used as a flat-bed or a proper trailer. This drastically increases the jobs this trailer can be used for, whether it is moving pallets, small machines, sand or grass; it really can handle all jobs. The S/1 also has the option of mesh sides, which further improves its versatility and makes it an ideal product for the leisure industry.</p>
-        <p>The body of the S/1 is built from 2.5mm steel, which is the perfect blend between strength and manageability; the sides still have to be easily removable. The hinge points for the sides are also reinforced to prevent cracking or twisting under heavy loads. To improve rigidity the trailer also has a fixed headboard, reducing flexing during loading and transport.</p>
-        <p>The trailer chassis utilies our tried and tested design developed over 60 years of trailer manufacturing, and provides exceptional strength. The S/1 is also fully-equipped with a hydraulic tipping ram, improving its efficiency and practicality.</p>
-        <p>The result of all these features and construction standards, is a heavy-duty drop-side trailer that is strong, practical and well finished.</p>
+        <div class="columned-content">
+            <ul class="dotted-list">
+                <li>Large capacity</li>
+                <li>Fully welded construction eliminates rust traps</li>
+                <li>Fixed headboard (ensures a rigid body)</li>
+                <li>Fully braced hinge points (eliminates cracking of material)</li>
+                <li>Genuine Marshall Spares – a full collection of spares are available for all models in the range</li>
+            </ul>
+            <p>The smallest model of trailer we produce is the S/1 drop side trailer. It has been designed to match small, compact tractors for use in the groundcare and leisure sectors. Despite being the entry-level model the entire trailer is built using CNC controlled machines to guarantee strength and finish.</p>
+            <p>The drop side design provides excellent versatility, allowing the trailer to be used as a flat-bed or a proper trailer. This drastically increases the jobs this trailer can be used for, whether it is moving pallets, small machines, sand or grass; it really can handle all jobs. The S/1 also has the option of mesh sides, which further improves its versatility and makes it an ideal product for the leisure industry.</p>
+            <p>The body of the S/1 is built from 2.5mm steel, which is the perfect blend between strength and manageability; the sides still have to be easily removable. The hinge points for the sides are also reinforced to prevent cracking or twisting under heavy loads. To improve rigidity the trailer also has a fixed headboard, reducing flexing during loading and transport.</p>
+            <p>The trailer chassis utilies our tried and tested design developed over 60 years of trailer manufacturing, and provides exceptional strength. The S/1 is also fully-equipped with a hydraulic tipping ram, improving its efficiency and practicality.</p>
+            <p>The result of all these features and construction standards, is a heavy-duty drop-side trailer that is strong, practical and well finished.</p>
+        </div>
     </div>
 {% endmacro %}
 
@@ -162,9 +164,9 @@
 {% endmacro %}
 
 {% macro retroFit() %}
-    <div class="flex flex-col gap-2 body-copy">
-        <div class="padded-copy">
-            <h3>Retro Fit concept</h3>
+    <div class="body-copy">
+        <h3>Retro Fit concept</h3>
+        <div class="columned-content">
             <p>Retro fitting involves upgrading existing equipment with new features or components to enhance performance and functionality.</p>
             <p>At Marshall Trailers, we offer a range of <a href="retro-fit.html">retro fit solutions</a> to improve your trailer's capabilities. 
                 <br/>Whether you're looking to enhance safety, increase load capacity, or add modern conveniences, our retro fit solutions are designed to meet your specific needs.</p>
@@ -180,7 +182,7 @@
 {% endmacro %}
 
 {% macro gallery() %}
-    <div class="flex flex-col gap-2 body-copy">
+    <div class="body-copy">
         <h3>
             Picture Showcase</h3>
         <ul class="gallery-list">

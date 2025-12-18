@@ -69,11 +69,11 @@
                 <div id="specifications-app" class="tab-item app-loading specifications-app">
                     <h3 class="tab-header">Specifications</h3>
                     <div class="tab-content">
+                        <h3>Compare specifications</h3>
                         <div class="flex specs-carousel-wrapper">
                             <div class="fixed-column w-[290px] flex-shrink-0">
                                 <ul class="specs-list flex flex-col">
                                     <li class="image-row">
-                                        <h3>Specifications & Prices</h3>
                                         <div class="carousel-controls">
                                             <button type="button" @click="prev">
                                                 <i class="fa-solid fa-caret-left"></i>

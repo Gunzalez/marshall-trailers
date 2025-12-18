@@ -100,6 +100,16 @@
   }
 }
 
+.columned-content {
+  margin-bottom: 1rem;
+
+  @media screen and (min-width: 768px) {
+    columns: 2;
+    column-gap: 4rem;
+    margin-bottom: 2rem;
+  }
+}
+
 .section {
   padding-left: 1rem;
   padding-right: 1rem;
