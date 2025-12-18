@@ -28,25 +28,27 @@
         <div class="border-t border-[var(--brand-gray)] mx-4"></div>
     </div>
 
-    <div id="carousel-mini" class="section flex flex-col gap-2 app-loading">
+    <div class="section flex flex-col gap-2">
         <h2>
             <a href="range.html">Product Ranges</a>
         </h2>
         <div class="carousel-mini">
-            <div v-for="(range, i) in productRanges" :key="i" class="slide">
-                <a class="pod link" :href="`products.html?model=${range.id}`">
-                    <h4 class="title line-clamp-1">[[ range.title ]]</h4>
-                    <div class="image-wrapper">
-                        <img :src="range.image" :alt="range.title">
-                    </div>
-                </a>
-            </div>
+            {% for item in rangesData %}
+                <div class="slide">
+                    <a class="pod link" href="products.html?model={{ item.id }}">
+                        <h4 class="title line-clamp-1">{{ item.title }}</h4>
+                        <div class="image-wrapper">
+                            <img src="{{ item.image }}" alt="{{ item.title }}">
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
         </div>
         <div class="carousel-controls">
-            <button type="button" @click="prev">
+            <button type="button" class="mini-carousel-prev">
                 <i class="fa-solid fa-caret-left"></i>
             </button>
-            <button type="button" @click="next">
+            <button type="button" class="mini-carousel-next">
                 <i class="fa-solid fa-caret-right"></i>
             </button>
         </div>
@@ -113,64 +115,5 @@
             <iframe width="560" height="315" src="https://www.youtube.com/embed/IXVJs-1LzPQ?si=5u_n3SonjP-GkfN7&amp;start=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
     </div>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const {createApp, onMounted, ref} = Vue;
-
-            createApp({
-                delimiters: [
-                    '[[', ']]'
-                ],
-                setup() {
-                    const productRanges = ref(window.data.rangesData);
-                    const miniCarousel = ref(null);
-                    const prev = () => {
-                        miniCarousel
-                            .value
-                            .slick('slickPrev');
-                    }
-                    const next = () => {
-                        miniCarousel
-                            .value
-                            .slick('slickNext');
-                    }
-
-                    onMounted(() => {
-                        miniCarousel.value = $(".carousel-mini").slick({
-                            dots: false,
-                            slidesToShow: 3,
-                            slidesToScroll: 3,
-                            autoplay: false,
-                            centerPadding: "40px",
-                            autoplaySpeed: 2000,
-                            infinite: true,
-                            arrows: false,
-                            responsive: [
-                                {
-                                    breakpoint: 1200,
-                                    settings: {
-                                        slidesToShow: 2,
-                                        slidesToScroll: 2
-                                    }
-                                }, {
-                                    breakpoint: 768,
-                                    settings: {
-                                        slidesToShow: 1,
-                                        slidesToScroll: 1
-                                    }
-                                }
-                            ]
-                        });
-
-                        $('#carousel-mini').removeClass('app-loading');
-                    });
-
-                    return {productRanges, prev, next}
-                }
-            }).mount('#carousel-mini');
-
-        });
-    </script>
 
 {% endblock %}
