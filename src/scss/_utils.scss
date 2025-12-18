@@ -100,12 +100,10 @@
   }
 }
 
-.columned-content {
+.page-intro {
   margin-bottom: 1rem;
 
   @media screen and (min-width: 768px) {
-    columns: 2;
-    column-gap: 4rem;
     margin-bottom: 2rem;
   }
 }
@@ -115,7 +113,7 @@
   padding-right: 1rem;
   margin: 0 auto;
   max-width: var(--max-width);
-  margin-bottom: 48px;
+  margin-bottom: 60px;
   position: relative;
   width: 100%;
 
@@ -169,7 +167,6 @@
 
     @media screen and (min-width: 768px) {
       flex-direction: row;
-      gap: 2rem;
 
       .content {
         padding: 1rem 1.2rem;
@@ -230,6 +227,16 @@
         }
       }
     }
+  }
+}
+
+.columned-content {
+  margin-bottom: 1rem;
+
+  @media screen and (min-width: 768px) {
+    columns: 2;
+    column-gap: 4rem;
+    margin-bottom: 2rem;
   }
 }
 
