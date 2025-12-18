@@ -213,7 +213,7 @@
                   </ul>
                 </li>
                 <li>
-                  <a href="products.html?model=livestock-trailers-containers">Livestock Trailers / Containers</a>
+                  <a href="products.html?model=livestock-trailers-containers">Livestock Containers</a>
                   <ul class="submenu">
                     <li>
                       <a href="product.html?id=lst21" title="LST-21">LST-21 - 21' Long</a>
@@ -375,7 +375,7 @@
             <li>
                 <a href="index.html">Home</a>
             </li>
-            <li>Ranges</li>
+            <li>Product Ranges</li>
         </ol>
     </nav>
 
@@ -383,125 +383,335 @@
         <h1 class="page-title">Product Ranges</h1>
     </div>
 
-    <div id="product-ranges" class="section in-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 pb-16 app-loading">
-        <div v-for="(range, i) in productRanges" :key="i" class="slide flex flex-col gap-4">
-            <a class="pod link" :href="`products.html?model=${range.id}`">
-                <h4 class="title line-clamp-1">[[ range.title ]]</h4>
-                <div class="image-wrapper">
-                    <img :src="range.image" :alt="range.title">
+    <div id="product-ranges" class="section in-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 pb-16">
+        
+            <div class="slide flex flex-col gap-4">
+                <a class="pod link" href="products.html?model=dropside-trailers">
+                    <h4 class="title line-clamp-1">Drop-side Trailers</h4>
+                    <div class="image-wrapper">
+                        <img src="images/range-1.png" alt="Drop-side Trailers">
+                    </div>
+                </a>
+                <div id="dropside-trailers" class="product-selector preload">
+                    <select  id="dropside-trailers-selector" name="dropside-trailers" onChange="window.location.href='products.html?model=' + this.value" class="fancy-select">
+                        <option selected>Select a model</option>
+                        
+                            <option value="qm6">QM-6</option>
+                        
+                            <option value="qm8">QM-8</option>
+                        
+                            <option value="qm11">QM-11</option>
+                        
+                            <option value="qm12">QM-12</option>
+                        
+                            <option value="qm1200">QM-1200</option>
+                        
+                            <option value="qm14">QM-14</option>
+                        
+                            <option value="qm1400">QM-1400</option>
+                        
+                            <option value="qm16">QM-16</option>
+                        
+                            <option value="qm1600">QM-1600</option>
+                        
+                            <option value="qm1800">QM-1800</option>
+                        
+                    </select>
                 </div>
-            </a>
-            <div :id="range.id" class="product-selector">
-                <select :id="range.id + '-selector'" :name="range.id" @change="goToProduct($event.target.value)" class="fancy-select">
-                    <option selected>Select a model</option>
-                    <option v-for="(model, j) in range.models" :key="j" :value="model.id">[[ model.label ]]</option>
-                </select>
             </div>
-        </div>
+        
+            <div class="slide flex flex-col gap-4">
+                <a class="pod link" href="products.html?model=new-low-loaders">
+                    <h4 class="title line-clamp-1">New Low Loaders</h4>
+                    <div class="image-wrapper">
+                        <img src="images/range-2.png" alt="New Low Loaders">
+                    </div>
+                </a>
+                <div id="new-low-loaders" class="product-selector preload">
+                    <select  id="new-low-loaders-selector" name="new-low-loaders" onChange="window.location.href='products.html?model=' + this.value" class="fancy-select">
+                        <option selected>Select a model</option>
+                        
+                            <option value="ll-10t">LL-10T</option>
+                        
+                            <option value="ll-14t">LL-14T</option>
+                        
+                            <option value="ll-18t">LL-18T</option>
+                        
+                            <option value="ll-24t">LL-24T</option>
+                        
+                    </select>
+                </div>
+            </div>
+        
+            <div class="slide flex flex-col gap-4">
+                <a class="pod link" href="products.html?model=grain-and-silage">
+                    <h4 class="title line-clamp-1">Grain &amp; Silage</h4>
+                    <div class="image-wrapper">
+                        <img src="images/range-3.png" alt="Grain &amp; Silage">
+                    </div>
+                </a>
+                <div id="grain-and-silage" class="product-selector preload">
+                    <select  id="grain-and-silage-selector" name="grain-and-silage" onChange="window.location.href='products.html?model=' + this.value" class="fancy-select">
+                        <option selected>Select a model</option>
+                        
+                            <option value="gs-10">GS-10</option>
+                        
+                            <option value="gs-15">GS-15</option>
+                        
+                            <option value="gs-20">GS-20</option>
+                        
+                            <option value="gs-25">GS-25</option>
+                        
+                    </select>
+                </div>
+            </div>
+        
+            <div class="slide flex flex-col gap-4">
+                <a class="pod link" href="products.html?model=livestock-trailers-containers">
+                    <h4 class="title line-clamp-1">Livestock Containers</h4>
+                    <div class="image-wrapper">
+                        <img src="images/range-4.png" alt="Livestock Containers">
+                    </div>
+                </a>
+                <div id="livestock-trailers-containers" class="product-selector preload">
+                    <select  id="livestock-trailers-containers-selector" name="livestock-trailers-containers" onChange="window.location.href='products.html?model=' + this.value" class="fancy-select">
+                        <option selected>Select a model</option>
+                        
+                            <option value="lc-10">LC-10</option>
+                        
+                            <option value="lc-14">LC-14</option>
+                        
+                            <option value="lc-18">LC-18</option>
+                        
+                    </select>
+                </div>
+            </div>
+        
+            <div class="slide flex flex-col gap-4">
+                <a class="pod link" href="products.html?model=multi-purpose-dumpsters">
+                    <h4 class="title line-clamp-1">Multi-purpose Dumpsters</h4>
+                    <div class="image-wrapper">
+                        <img src="images/range-5.png" alt="Multi-purpose Dumpsters">
+                    </div>
+                </a>
+                <div id="multi-purpose-dumpsters" class="product-selector preload">
+                    <select  id="multi-purpose-dumpsters-selector" name="multi-purpose-dumpsters" onChange="window.location.href='products.html?model=' + this.value" class="fancy-select">
+                        <option selected>Select a model</option>
+                        
+                            <option value="md-8">MD-8</option>
+                        
+                            <option value="md-12">MD-12</option>
+                        
+                            <option value="md-16">MD-16</option>
+                        
+                    </select>
+                </div>
+            </div>
+        
+            <div class="slide flex flex-col gap-4">
+                <a class="pod link" href="products.html?model=slurry-tankers">
+                    <h4 class="title line-clamp-1">Slurry Tankers</h4>
+                    <div class="image-wrapper">
+                        <img src="images/range-7.png" alt="Slurry Tankers">
+                    </div>
+                </a>
+                <div id="slurry-tankers" class="product-selector preload">
+                    <select  id="slurry-tankers-selector" name="slurry-tankers" onChange="window.location.href='products.html?model=' + this.value" class="fancy-select">
+                        <option selected>Select a model</option>
+                        
+                            <option value="st-2000">ST-2000</option>
+                        
+                            <option value="st-2500">ST-2500</option>
+                        
+                            <option value="st-3000">ST-3000</option>
+                        
+                    </select>
+                </div>
+            </div>
+        
+            <div class="slide flex flex-col gap-4">
+                <a class="pod link" href="products.html?model=muck-spreaders">
+                    <h4 class="title line-clamp-1">Muck Spreaders</h4>
+                    <div class="image-wrapper">
+                        <img src="images/range-6.png" alt="Muck Spreaders">
+                    </div>
+                </a>
+                <div id="muck-spreaders" class="product-selector preload">
+                    <select  id="muck-spreaders-selector" name="muck-spreaders" onChange="window.location.href='products.html?model=' + this.value" class="fancy-select">
+                        <option selected>Select a model</option>
+                        
+                            <option value="ms-6">MS-6</option>
+                        
+                            <option value="ms-8">MS-8</option>
+                        
+                            <option value="ms-10">MS-10</option>
+                        
+                    </select>
+                </div>
+            </div>
+        
+            <div class="slide flex flex-col gap-4">
+                <a class="pod link" href="products.html?model=new-feeder-trailers">
+                    <h4 class="title line-clamp-1">Feeder Trailers</h4>
+                    <div class="image-wrapper">
+                        <img src="images/range-8.png" alt="Feeder Trailers">
+                    </div>
+                </a>
+                <div id="new-feeder-trailers" class="product-selector preload">
+                    <select  id="new-feeder-trailers-selector" name="new-feeder-trailers" onChange="window.location.href='products.html?model=' + this.value" class="fancy-select">
+                        <option selected>Select a model</option>
+                        
+                            <option value="ft-14">FT-14</option>
+                        
+                            <option value="ft-18">FT-18</option>
+                        
+                            <option value="ft-22">FT-22</option>
+                        
+                    </select>
+                </div>
+            </div>
+        
+            <div class="slide flex flex-col gap-4">
+                <a class="pod link" href="products.html?model=people-carrier-trailers">
+                    <h4 class="title line-clamp-1">People Carrier Trailers</h4>
+                    <div class="image-wrapper">
+                        <img src="images/range-9.png" alt="People Carrier Trailers">
+                    </div>
+                </a>
+                <div id="people-carrier-trailers" class="product-selector preload">
+                    <select  id="people-carrier-trailers-selector" name="people-carrier-trailers" onChange="window.location.href='products.html?model=' + this.value" class="fancy-select">
+                        <option selected>Select a model</option>
+                        
+                            <option value="pc-16">PC-16</option>
+                        
+                            <option value="pc-24">PC-24</option>
+                        
+                    </select>
+                </div>
+            </div>
+        
+            <div class="slide flex flex-col gap-4">
+                <a class="pod link" href="products.html?model=flat-bale-trailers">
+                    <h4 class="title line-clamp-1">Flat/Bale Trailers</h4>
+                    <div class="image-wrapper">
+                        <img src="images/range-10.png" alt="Flat/Bale Trailers">
+                    </div>
+                </a>
+                <div id="flat-bale-trailers" class="product-selector preload">
+                    <select  id="flat-bale-trailers-selector" name="flat-bale-trailers" onChange="window.location.href='products.html?model=' + this.value" class="fancy-select">
+                        <option selected>Select a model</option>
+                        
+                            <option value="fb-20">FB-20</option>
+                        
+                            <option value="fb-24">FB-24</option>
+                        
+                            <option value="fb-30">FB-30</option>
+                        
+                    </select>
+                </div>
+            </div>
+        
+            <div class="slide flex flex-col gap-4">
+                <a class="pod link" href="products.html?model=new-dump-trailers">
+                    <h4 class="title line-clamp-1">Dump Trailers</h4>
+                    <div class="image-wrapper">
+                        <img src="images/range-11.png" alt="Dump Trailers">
+                    </div>
+                </a>
+                <div id="new-dump-trailers" class="product-selector preload">
+                    <select  id="new-dump-trailers-selector" name="new-dump-trailers" onChange="window.location.href='products.html?model=' + this.value" class="fancy-select">
+                        <option selected>Select a model</option>
+                        
+                            <option value="hd6">RDS-10</option>
+                        
+                            <option value="hd8">RDS-14</option>
+                        
+                    </select>
+                </div>
+            </div>
+        
+            <div class="slide flex flex-col gap-4">
+                <a class="pod link" href="products.html?model=tankers">
+                    <h4 class="title line-clamp-1">Tankers</h4>
+                    <div class="image-wrapper">
+                        <img src="images/range-12.png" alt="Tankers">
+                    </div>
+                </a>
+                <div id="tankers" class="product-selector preload">
+                    <select  id="tankers-selector" name="tankers" onChange="window.location.href='products.html?model=' + this.value" class="fancy-select">
+                        <option selected>Select a model</option>
+                        
+                            <option value="t-1800">T-1800</option>
+                        
+                            <option value="t-2200">T-2200</option>
+                        
+                            <option value="t-3000">T-3000</option>
+                        
+                            <option value="t-4000">T-4000</option>
+                        
+                            <option value="t-5000">T-5000</option>
+                        
+                            <option value="t-6000">T-6000</option>
+                        
+                            <option value="t-8000">T-8000</option>
+                        
+                            <option value="t-10000">T-10000</option>
+                        
+                    </select>
+                </div>
+            </div>
+        
+            <div class="slide flex flex-col gap-4">
+                <a class="pod link" href="products.html?model=rear-discharge-muck-spreaders">
+                    <h4 class="title line-clamp-1">Rear Discharge Muck Spreaders</h4>
+                    <div class="image-wrapper">
+                        <img src="images/range-2.png" alt="Rear Discharge Muck Spreaders">
+                    </div>
+                </a>
+                <div id="rear-discharge-muck-spreaders" class="product-selector preload">
+                    <select  id="rear-discharge-muck-spreaders-selector" name="rear-discharge-muck-spreaders" onChange="window.location.href='products.html?model=' + this.value" class="fancy-select">
+                        <option selected>Select a model</option>
+                        
+                            <option value="fes-8">FES-8</option>
+                        
+                            <option value="fes-12">FES-12</option>
+                        
+                    </select>
+                </div>
+            </div>
+        
+            <div class="slide flex flex-col gap-4">
+                <a class="pod link" href="products.html?model=even-more-tankers">
+                    <h4 class="title line-clamp-1">Even More Tankers</h4>
+                    <div class="image-wrapper">
+                        <img src="images/range-4.png" alt="Even More Tankers">
+                    </div>
+                </a>
+                <div id="even-more-tankers" class="product-selector preload">
+                    <select  id="even-more-tankers-selector" name="even-more-tankers" onChange="window.location.href='products.html?model=' + this.value" class="fancy-select">
+                        <option selected>Select a model</option>
+                        
+                            <option value="et-2400">ET-2400</option>
+                        
+                            <option value="et-3200">ET-3200</option>
+                        
+                            <option value="et-4000">ET-4000</option>
+                        
+                            <option value="et-6000">ET-6000</option>
+                        
+                            <option value="et-8000">ET-8000</option>
+                        
+                    </select>
+                </div>
+            </div>
+        
     </div>
 
-    <script>
 
-        document.addEventListener('DOMContentLoaded', () => {
-            const {createApp, onMounted, ref} = Vue;
-            createApp({
-                delimiters: [
-                    '[[', ']]'
-                ],
-                setup() {
-
-                    const productRanges = ref(window.data.rangesData);
-                    const goToProduct = (modelId) => {
-                        window.location.href = `product.html?id=${modelId}`;
-                    };
-
-                    const createTrigger = function (productsCount) {
-                        const trigger = document.createElement("button");
-                        trigger.classList = "trigger";
-                        trigger.type = "button";
-                        trigger.addEventListener("click", function () {
-                            const dropdown = this
-                                .parentNode
-                                .querySelector(".structure");
-                            dropdown
-                                .classList
-                                .toggle("hide");
-                        });
-
-                        trigger.textContent = "Select from " + productsCount + " models";
-                        return trigger;
-                    };
-
-                    const showDropdown = function (products) {
-                        const structure = document.createElement("div");
-                        structure
-                            .classList
-                            .add("structure", "hide");
-
-                        products.forEach(function (product) {
-                            const option = document.createElement("button");
-                            option
-                                .classList
-                                .add("option");
-                            option.type = "button";
-                            option.addEventListener("click", function () {
-                                const dropdown = this.parentNode;
-                                dropdown
-                                    .classList
-                                    .add("hide");
-                                window.location.href = "product.html?id=" + product.id;
-                            });
-
-                            option.textContent = product.title;
-                            structure.appendChild(option);
-                        });
-                        return structure;
-                    };
-
-                    onMounted(() => {
-
-                        productRanges
-                            .value
-                            .forEach(function (range) {
-                                const component = document.createElement("div");
-                                component
-                                    .classList
-                                    .add("fancy-select-component");
-
-                                component.addEventListener("mouseleave", function () {
-                                    this
-                                        .querySelector(".structure")
-                                        .classList
-                                        .add("hide");
-                                });
-
-                                const trigger = createTrigger(range.models.length);
-                                const dropdown = showDropdown(range.models);
-
-                                component.appendChild(trigger);
-                                component.appendChild(dropdown);
-                                const printArea = document
-                                    .getElementById(range.id + "-selector")
-                                    .parentElement;
-                                printArea.appendChild(component);
-                            });
-
-                        $('#product-ranges').removeClass('app-loading');
-
-                    });
-
-                    return {productRanges, goToProduct}
-                }
-            }).mount('#product-ranges');
-
-        });
-    </script>
-
-
-      <div class="mt-6 pb-2 md:mt-8 md:pb-4 max-w-[var(--max-width)] mx-auto">
-    <div class="border-t border-[var(--brand-gray)] mx-4"></div>
-</div>
-<div class="footer">
+      <div class="footer">
+    <div class="mt-6 pb-2 md:mt-8 md:pb-4 max-w-[var(--max-width)] mx-auto">
+        <div class="border-t border-[var(--brand-gray)] mx-4"></div>
+    </div>
     <div class="section flex flex-col gap-8 md:flex-row-reverse md:justify-between">
         <ul class="flex flex-col gap-3 text-sm font-semibold sm:flex-row sm:gap-8">
             <li>
