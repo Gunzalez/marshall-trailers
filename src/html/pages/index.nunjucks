@@ -8,17 +8,19 @@
     </div>
 
     <div class="hero">
-        <div id="carousel-main" class="carousel-main app-loading">
-            <div v-for="(slide, i) in heroCarouselData" :key="i" class="slide preload" :style="{ backgroundImage: 'url(' + slide.image + ')' }">
-                <div class="copy-wrapper">
-                    <div class="copy-content">
-                        <div class="content-box">
-                            <a :href="slide.url" class="bttn transparent-bttn">[[ slide.label ]]</a>
-                            <h2 class="title">[[ slide.title ]]</h2>
+        <div id="carousel-main" class="carousel-main">
+            {% for item in carouselData %}
+                <div class="slide preload" style="background-image: url('{{ item.image }}')">
+                    <div class="copy-wrapper">
+                        <div class="copy-content">
+                            <div class="content-box">
+                                <a href="{{ item.url }}" class="bttn transparent-bttn">{{ item.label }}</a>
+                                <h2 class="title">{{ item.title }}</h2>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            {% endfor %}
         </div>
     </div>
 
@@ -203,23 +205,6 @@
                 }
             }).mount('#tabs-section');
 
-            createApp({
-                delimiters: [
-                    '[[', ']]'
-                ],
-                setup() {
-                    const heroCarouselData = ref(window.data.carouselData);
-                    onMounted(() => {
-                        if (window.heroCarousel) {
-                            window
-                                .heroCarousel
-                                .init();
-                        }
-                        $('#carousel-main').removeClass('app-loading');
-                    });
-                    return {heroCarouselData}
-                }
-            }).mount('#carousel-main');
         });
     </script>
 
