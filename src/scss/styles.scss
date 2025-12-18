@@ -10,6 +10,10 @@
   flex-direction: column;
   min-height: 100vh;
   flex: 1;
+
+  @media screen and (min-width: 768px) {
+    gap: 1.5rem;
+  }
 }
 
 #top-drawer {

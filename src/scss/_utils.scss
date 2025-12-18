@@ -111,15 +111,11 @@
 .section {
   padding-left: 1rem;
   padding-right: 1rem;
-  margin: 0 auto;
+  margin: 0 auto 50px auto;
   max-width: var(--max-width);
   margin-bottom: 60px;
   position: relative;
   width: 100%;
-
-  @media (max-width: 768px) {
-    margin-bottom: 30px;
-  }
 
   &.shaded-copy {
     background-color: var(--brand-gray-light);
@@ -129,10 +125,6 @@
     @media screen and (min-width: 992px) {
       padding-right: 20%;
     }
-  }
-
-  &.home-sub-sections {
-    margin-bottom: 3rem;
   }
 
   &.has-sub-sections {
