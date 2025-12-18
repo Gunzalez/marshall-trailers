@@ -52,41 +52,26 @@
         </div>
     </div>
 
-    <div id="tabs-section" class="tabs-section app-loading">
-        <h2 class="section-title">Our Values</h2>
-        <div class="tabs-list desktop-only px-4" role="presentation">
-            <button v-for="tab in tabs" :key="tab.id"
-                        type="button"
-                        :class="{ active: activeTab === tab.id }"
-                        role="tab"
-                        @click="setActiveTab(tab.id)"
-                        :aria-selected="[[ activeTab === tab.id ]]">
-                [[ tab.header ]]
-            </button>
-        </div>
-        <div class="tab-content">
-            <div v-for="tab in tabs" :key="tab.id">
-                <div class="accordion-header mobile-only" role="tab" :class="{ active: activeTab === tab.id }">
-                    <button type="button"
-                        role="tab"
-                        @click="setActiveTab(tab.id)"
-                        class="flex gap-2 items-center justify-between px-4"
-                        :aria-selected="[[ activeTab === tab.id ]]">
-                        <span>[[ tab.header ]]</span>
-                        <i class="fa-solid fa-caret-right text-xl text-[var(--brand-yellow)] cursor-pointer"
-                        :class="{ 'rotate-90': activeTab === tab.id }"
-                        ></i>
-                    </button>
-                </div>
-                <div v-show="activeTab === tab.id" class="tab-hero-content">
-                    <div class="copy-wrapper">
-                        <h3 class="title">[[ tab.title ]]</h3>
-                        <p>[[ tab.content ]]</p>
-                        <a :href="tab.href" class="bttn bordered-bttn">[[ tab.label ]]</a>
+    <h2 class="section-title">Our Values</h2>
+    <div id="tabs-section" data-active-tab-index="0" class="homepage-tabs-section tabs-section">
+        <ul class="tabs-list desktop-only" role="presentation"></ul>
+        <div class="tabs-content">
+            {% for item in tabsData %}
+                <div class="tab-item">
+                    <h3 class="tab-header">{{ item.header }}</h3>
+                    <div class="tab-content">
+                        <div class="inner-content">
+                            <div class="text-wrapper">
+                                <h3 class="title">{{ item.title }}</h3>
+                                <div>{{ item.content }}</div>
+                                <a href="{{ item.url }}" class="bttn bordered-bttn">
+                                    <span>{{ item.label }}</span></a>
+                            </div>
+                            <div class="image-wrapper" style="background-image: url('{{ item.image }}')"></div>
+                        </div>
                     </div>
-                    <div class="image-wrapper" :style="{ backgroundImage: 'url(' + tab.imageSrc + ')' }"></div>
                 </div>
-            </div>
+            {% endfor %}
         </div>
     </div>
 
@@ -184,26 +169,6 @@
                     return {productRanges, prev, next}
                 }
             }).mount('#carousel-mini');
-
-            createApp({
-                delimiters: [
-                    '[[', ']]'
-                ],
-                setup() {
-                    const tabs = ref(window.data.tabsData);
-                    const activeTab = ref(1);
-                    const setActiveTab = (id) => {
-                        activeTab.value = id;
-                    }
-                    onMounted(() => {
-                        $('#tabs-section').removeClass('app-loading');
-                        $('.accordion-header button')
-                            .last()
-                            .addClass('last-item');
-                    });
-                    return {tabs, activeTab, setActiveTab}
-                }
-            }).mount('#tabs-section');
 
         });
     </script>
