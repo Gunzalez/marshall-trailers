@@ -246,6 +246,118 @@
 
   /*---------------------------------------------------------------- */
 
+  marshallTrailers.carouselMini = {
+    carouselMini: null,
+    next: function () {
+      this.carouselMini.slick("slickNext");
+    },
+    previous: function () {
+      this.carouselMini.slick("slickPrev");
+    },
+    init: function () {
+      this.carouselMini = $(".carousel-mini").slick({
+        dots: false,
+        slidesToShow: 3,
+        slidesToScroll: 3,
+        autoplay: false,
+        centerPadding: "40px",
+        autoplaySpeed: 2000,
+        infinite: true,
+        arrows: false,
+        responsive: [
+          {
+            breakpoint: 1200,
+            settings: {
+              slidesToShow: 2,
+              slidesToScroll: 2,
+            },
+          },
+          {
+            breakpoint: 768,
+            settings: {
+              slidesToShow: 1,
+              slidesToScroll: 1,
+            },
+          },
+        ],
+      });
+
+      $(".mini-carousel-next").on("click", function () {
+        marshallTrailers.carouselMini.next();
+      });
+
+      $(".mini-carousel-prev").on("click", function () {
+        marshallTrailers.carouselMini.previous();
+      });
+    },
+  };
+
+  /*---------------------------------------------------------------- */
+
+  marshallTrailers.rangeSelects = {
+    init: function () {
+      var createTrigger = function (productsCount) {
+        return $("<button>", {
+          class: "trigger",
+          type: "button",
+          text: "Select from " + productsCount + " models",
+        }).on("click", function () {
+          $(this).siblings(".structure").toggleClass("hide");
+        });
+      };
+
+      var showDropdown = function (products) {
+        var $structure = $("<div>").addClass("structure hide");
+
+        $.each(products, function (_idx, product) {
+          $("<button>", {
+            class: "option",
+            type: "button",
+            text: product.title,
+          })
+            .on("click", function () {
+              $(this).parent().addClass("hide");
+              window.location.href = "product.html?id=" + product.id;
+            })
+            .appendTo($structure);
+        });
+
+        return $structure;
+      };
+
+      $(".product-selector").each(function () {
+        var $range = $(this);
+
+        var $component = $("<div>")
+          .addClass("fancy-select-component")
+          .on("mouseleave", function () {
+            $(this).find(".structure").addClass("hide");
+          });
+
+        var $models = $range.find("option").slice(1);
+        var buttonsData = $models
+          .map(function () {
+            return {
+              id: $(this).val(),
+              title: $(this).text(),
+            };
+          })
+          .get();
+
+        var $trigger = createTrigger($models.length);
+        var $dropdown = showDropdown(buttonsData);
+        $component.append($trigger).append($dropdown);
+
+        $("#" + this.id + "-selector")
+          .parent()
+          .removeClass("preload")
+          .append($component);
+      });
+    },
+  };
+
+  /*---------------------------------------------------------------- */
+
   /**
    * @fsLightBoxLinks
    * Attaches fsLightbox to links with the none-gallery-fsLightbox class
@@ -354,6 +466,8 @@
     marshallTrailers.fsLightBoxLinks.init();
     marshallTrailers.responsiveTabs.init();
     marshallTrailers.carousel.init();
+    marshallTrailers.carouselMini.init();
+    marshallTrailers.rangeSelects.init();
   };
 
   /** Runs the global init */
