@@ -48,27 +48,27 @@
             </div>
         </div>
 
-        <div id="feature-tabs" class="features-tabs-section">
+        <div id="tabs-section" data-active-tab-index="2" class="features-tabs-section tabs-section">
             <ul class="tabs-list desktop-only" role="presentation"></ul>
-            <div class="tab-content">
+            <div class="tabs-content">
 
                 <div class="tab-item">
-                    <h3 class="header">Features</h3>
-                    <div class="content-wrapper">
+                    <h3 class="tab-header">Features</h3>
+                    <div class="tab-content">
                         {{ macros.featureList() }}
                     </div>
                 </div>
 
                 <div class="tab-item">
-                    <h3 class="header">Overview</h3>
-                    <div class="content-wrapper">
+                    <h3 class="tab-header">Overview</h3>
+                    <div class="tab-content">
                         {{ macros.overview() }}
                     </div>
                 </div>
 
-                <div id="specifications-app" class="tab-item tab-item-app app-loading specifications-app active">
-                    <h3 class="header">Specifications</h3>
-                    <div class="content-wrapper">
+                <div id="specifications-app" class="tab-item app-loading specifications-app">
+                    <h3 class="tab-header">Specifications</h3>
+                    <div class="tab-content">
                         <div class="flex specs-carousel-wrapper">
                             <div class="fixed-column w-[290px] flex-shrink-0">
                                 <ul class="specs-list flex flex-col">
@@ -129,22 +129,22 @@
                 </div>
 
                 <div class="tab-item">
-                    <h3 class="header">Owner's Info</h3>
-                    <div class="content-wrapper">
+                    <h3 class="tab-header">Owner's Info</h3>
+                    <div class="tab-content">
                         {{ macros.ownersInfo() }}
                     </div>
                 </div>
 
                 <div class="tab-item">
-                    <h3 class="header">Gallery</h3>
-                    <div class="content-wrapper">
+                    <h3 class="tab-header">Gallery</h3>
+                    <div class="tab-content">
                         {{ macros.gallery() }}
                     </div>
                 </div>
 
                 <div class="tab-item">
-                    <h3 class="header">Retro Fit</h3>
-                    <div class="content-wrapper">
+                    <h3 class="tab-header">Retro Fit</h3>
+                    <div class="tab-content">
                         {{ macros.retroFit() }}
                     </div>
                 </div>
