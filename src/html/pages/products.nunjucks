@@ -37,6 +37,7 @@
     </div>
 
     <script>
+        // replace all with PHP
         const rangesData = {{ rangesData | dump | safe }};
 
         document.addEventListener('DOMContentLoaded', () => {

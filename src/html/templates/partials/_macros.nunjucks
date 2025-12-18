@@ -23,60 +23,62 @@
 
 {% macro featureList() %}
     <div class="body-copy">
-        <h3>
-            <span class="dummy-data-product-title-replace-span"></span> key features</h3>
-        <ul class="feature-list">
-            <li>
-                <div class="thumb"><img src="https://www.marshall-trailers.co.uk/uploads/products/features/080420-1438-9745.jpg" alt="Mesh Sides"></div>
-                <div class="detail">
-                    <strong>Mesh Sides</strong> – Available on all <a href="products.html?model=rear-discharge-muck-spreaders">models</a>; these sides simply bolt on to the trailer. They provide an increased capacity for light loads such as leaves and grass.</div>
-            </li>
-            <li>
-                <div class="thumb"><img src="https://www.marshall-trailers.co.uk/uploads/products/features/301122-1519-6782.jpg" alt="Lighting Arrangement"></div>
-                <div class="detail">
-                    <strong>Lighting Arrangement</strong> – Lights are standard on our S/4 model upwards and optional on our S/2 model. The standard light units fitted are commercial grade, and sealed to prevent water damage. In addition it is also possible to upgrade to LED lights and LED beacons are available as an option for all models.</div>
-            </li>
-            <li>
-                <div class="thumb"><img src="https://www.marshall-trailers.co.uk/uploads/products/features/301122-1517-4287.jpg" alt="Pressed Panel Construction"></div>
-                <div class="detail">
-                    <strong>Pressed Panel Construction</strong> – This production technique increases strength and rigidity without adding significant weight, ensuring that the side panels can safely and easily be handled or removed.</div>
-            </li>
-            <li>
-                <div class="thumb"><img src="https://www.marshall-trailers.co.uk/uploads/products/features/230317-1023-7365.jpg" alt="Fully-braced Hinge Points"></div>
-                <div class="detail">
-                    <strong>Fully-braced Hinge Points</strong> – Our whole drop-side range uses the same hinge points, which are reinforced to stand up to the constant opening and closing action drop-side trailers have to endure.</div>
-            </li>
-            <li>
-                <div class="thumb"><img src="https://www.marshall-trailers.co.uk/uploads/products/features/301122-1524-6412.jpg" alt="Fully Welded Construction"></div>
-                <div class="detail">
-                    <strong>Fully Welded Construction</strong> – No compromises are made in the construction of our trailers, with every model utilizing a <a href="#">fully welded construction</a>. This provides two major benefits; the overall durability of the trailer is increased and there is less opportunity for water to sit and cause rust.</div>
-            </li>
-            <li>
-                <div class="thumb"><img src="https://www.marshall-trailers.co.uk/uploads/products/features/230317-1030-2804.jpg" alt="Marshall Chassis Design"></div>
-                <div class="detail">
-                    <strong>Marshall Chassis Design</strong> – Our smaller models use a fully-welded channel chassis that provides unmatched strength while keeping weight down. Our S/85 and S/10 models use a square chassis configuration to improve stability and reduce flexing when loading. In addition our S/10 model also benefits from a further strengthened chassis, which employs an 8mm thick reinforcing plate over the front of the chassis members to provide incredible rigidity.</div>
-            </li>
-            <li>
-                <div class="thumb"><img src="https://www.marshall-trailers.co.uk/uploads/products/features/271114-1035-1005.jpg" alt="Axles &amp; Braking"></div>
-                <div class="detail">
-                    <strong>Axles &amp; Braking</strong> – Our Whole drop-side range comes complete with hydraulically operated brakes as standard; the only exception is our S/2 model, which has the option to fit hydraulic brakes. The size of the brakes on our drop-side range are also more then acceptable; providing braking efficiency in excess of the current legal requirements.</div>
-            </li>
-            <li>
-                <div class="thumb"><img src="https://www.marshall-trailers.co.uk/uploads/products/features/011222-1340-6102.jpg" alt="Paint Finish"></div>
-                <div class="detail">
-                    <strong>Paint Finish</strong> – Since November 2011 we have shot-blasted, this is acknowledged in the paint industry as the best possible method for preparing steel for painting. The shot-blasting creates a profile for the paint to adhere to, improving adhesion and in turn the protection offered to the steel. Our five man team of trained sprayers then use the latest spraying equipment to finish our products with a dual layer paint finish. Every machine is finished with 80 microns of high-build primer and 50 microns of gloss polyurethane; this combination provides excellent protection and a high-quality finish.</div>
-            </li>
-            <li>
-                <div class="thumb"><img src="https://www.marshall-trailers.co.uk/uploads/products/features/011222-0932-9353.jpg" alt="Delivery"></div>
-                <div class="detail">
-                    <strong>Delivery</strong> – Marshall Trailers uses a computerized build system to plan production to ensure that machines are delivered on time. The final stage of delivery is undertake by our two artic lorries, a 7.5ton rigid lorry and a number of other haulage partners.</div>
-            </li>
-            <li>
-                <div class="thumb"><img src="https://www.marshall-trailers.co.uk/uploads/products/features/310715-1221-4056.jpg" alt="Spare Parts"></div>
-                <div class="detail">
-                    <strong>Spare Parts</strong> – Marshall Trailers has a full selection of spare parts for all our ranges, most of which can be dispatched immediately. In some cases we have spares for machines dating back forty years, which gives you peace of mind when buying a Marshall that you will be properly supported well into the future.</div>
-            </li>
-        </ul>
+        <div class="features-list">
+            <h3>
+                <span class="dummy-data-product-title-replace-span"></span> key features</h3>
+            <ul>
+                <li>
+                    <div class="thumb"><img src="https://www.marshall-trailers.co.uk/uploads/products/features/080420-1438-9745.jpg" alt="Mesh Sides"></div>
+                    <div class="detail">
+                        <strong>Mesh Sides</strong> – Available on all <a href="products.html?model=rear-discharge-muck-spreaders">models</a>; these sides simply bolt on to the trailer. They provide an increased capacity for light loads such as leaves and grass.</div>
+                </li>
+                <li>
+                    <div class="thumb"><img src="https://www.marshall-trailers.co.uk/uploads/products/features/301122-1519-6782.jpg" alt="Lighting Arrangement"></div>
+                    <div class="detail">
+                        <strong>Lighting Arrangement</strong> – Lights are standard on our S/4 model upwards and optional on our S/2 model. The standard light units fitted are commercial grade, and sealed to prevent water damage. In addition it is also possible to upgrade to LED lights and LED beacons are available as an option for all models.</div>
+                </li>
+                <li>
+                    <div class="thumb"><img src="https://www.marshall-trailers.co.uk/uploads/products/features/301122-1517-4287.jpg" alt="Pressed Panel Construction"></div>
+                    <div class="detail">
+                        <strong>Pressed Panel Construction</strong> – This production technique increases strength and rigidity without adding significant weight, ensuring that the side panels can safely and easily be handled or removed.</div>
+                </li>
+                <li>
+                    <div class="thumb"><img src="https://www.marshall-trailers.co.uk/uploads/products/features/230317-1023-7365.jpg" alt="Fully-braced Hinge Points"></div>
+                    <div class="detail">
+                        <strong>Fully-braced Hinge Points</strong> – Our whole drop-side range uses the same hinge points, which are reinforced to stand up to the constant opening and closing action drop-side trailers have to endure.</div>
+                </li>
+                <li>
+                    <div class="thumb"><img src="https://www.marshall-trailers.co.uk/uploads/products/features/301122-1524-6412.jpg" alt="Fully Welded Construction"></div>
+                    <div class="detail">
+                        <strong>Fully Welded Construction</strong> – No compromises are made in the construction of our trailers, with every model utilizing a <a href="#">fully welded construction</a>. This provides two major benefits; the overall durability of the trailer is increased and there is less opportunity for water to sit and cause rust.</div>
+                </li>
+                <li>
+                    <div class="thumb"><img src="https://www.marshall-trailers.co.uk/uploads/products/features/230317-1030-2804.jpg" alt="Marshall Chassis Design"></div>
+                    <div class="detail">
+                        <strong>Marshall Chassis Design</strong> – Our smaller models use a fully-welded channel chassis that provides unmatched strength while keeping weight down. Our S/85 and S/10 models use a square chassis configuration to improve stability and reduce flexing when loading. In addition our S/10 model also benefits from a further strengthened chassis, which employs an 8mm thick reinforcing plate over the front of the chassis members to provide incredible rigidity.</div>
+                </li>
+                <li>
+                    <div class="thumb"><img src="https://www.marshall-trailers.co.uk/uploads/products/features/271114-1035-1005.jpg" alt="Axles &amp; Braking"></div>
+                    <div class="detail">
+                        <strong>Axles &amp; Braking</strong> – Our Whole drop-side range comes complete with hydraulically operated brakes as standard; the only exception is our S/2 model, which has the option to fit hydraulic brakes. The size of the brakes on our drop-side range are also more then acceptable; providing braking efficiency in excess of the current legal requirements.</div>
+                </li>
+                <li>
+                    <div class="thumb"><img src="https://www.marshall-trailers.co.uk/uploads/products/features/011222-1340-6102.jpg" alt="Paint Finish"></div>
+                    <div class="detail">
+                        <strong>Paint Finish</strong> – Since November 2011 we have shot-blasted, this is acknowledged in the paint industry as the best possible method for preparing steel for painting. The shot-blasting creates a profile for the paint to adhere to, improving adhesion and in turn the protection offered to the steel. Our five man team of trained sprayers then use the latest spraying equipment to finish our products with a dual layer paint finish. Every machine is finished with 80 microns of high-build primer and 50 microns of gloss polyurethane; this combination provides excellent protection and a high-quality finish.</div>
+                </li>
+                <li>
+                    <div class="thumb"><img src="https://www.marshall-trailers.co.uk/uploads/products/features/011222-0932-9353.jpg" alt="Delivery"></div>
+                    <div class="detail">
+                        <strong>Delivery</strong> – Marshall Trailers uses a computerized build system to plan production to ensure that machines are delivered on time. The final stage of delivery is undertake by our two artic lorries, a 7.5ton rigid lorry and a number of other haulage partners.</div>
+                </li>
+                <li>
+                    <div class="thumb"><img src="https://www.marshall-trailers.co.uk/uploads/products/features/310715-1221-4056.jpg" alt="Spare Parts"></div>
+                    <div class="detail">
+                        <strong>Spare Parts</strong> – Marshall Trailers has a full selection of spare parts for all our ranges, most of which can be dispatched immediately. In some cases we have spares for machines dating back forty years, which gives you peace of mind when buying a Marshall that you will be properly supported well into the future.</div>
+                </li>
+            </ul>
+        </div>
     </div>
 {% endmacro %}
 
