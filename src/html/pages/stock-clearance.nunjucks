@@ -1,0 +1,51 @@
+{% extends "layout.nunjucks" %}
+{% import "../templates/partials/_macros.nunjucks" as macros %}
+
+{% block content %}
+
+    {{ macros.header("images/logo-marshall-trailers-color.png") }}
+
+    <nav aria-label="breadcrumbs" class="breadcrumbs">
+        <ol>
+            <li>
+                <a href="index.html">Home</a>
+            </li>
+            <li>Stock Clearance</li>
+        </ol>
+    </nav>
+
+    <div class="title-wrapper">
+        <h1 class="page-title">Stock Clearance</h1>
+    </div>
+
+    <div class="section has-sub-sections body-copy">
+        <div class="sub-section-wrapper">
+            <p>Occasionally we sell spares and parts that we no longer use; this can be due to the discontinuation of a model or a change to the specification of current models.</p>
+            <p>Take time to examine our listings and if you require further information please <a href="contact-us.html" title="Contact Marshall Trailers about stock clearance items...">contact us</a>.</p>
+        </div>
+        <div class="sub-section-wrapper">
+            <p>
+                <strong>Standard Terms & Conditions for items listed on this page:</strong>
+            </p>
+            <ul class="dotted-list">
+                <li>
+                    <strong>No returns accepted</strong> - selling to clear store and old stock.</li>
+                <li>Please call <a href="tel:01224722777">01224 722777</a> or email <a href="mailto:charlesp@marshall-trailers.co.uk">charlesp@marshall-trailers.co.uk</a> to arrange payment; delivery can be organised for an additional charge.</li>
+                <li>All prices are plus VAT.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="clearance">
+            <ol class="items-grid">
+                {% for item in clearanceData %}
+                    <li>
+                        {{ macros.bagItem(item.description, item.cost, item.image, item.info, item.part_no) }}
+                    </li>
+                {% endfor %}
+            </ol>
+        </div>
+    </div>
+
+{% endblock %}

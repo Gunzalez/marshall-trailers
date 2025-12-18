@@ -129,25 +129,32 @@
     </div>
 {% endmacro %}
 
-{% macro bagItem(title, price, image) %}
-    <div class="item flex flex-col">
-        <h5 class="title line-clamp-2 h-15">{{ title }}</h5>
-        <div class="px-3 py-2 pb-3 border border-gray-200 flex flex-col gap-3">
-            <div class="flex gap-3">
-                <div class="flex flex-col gap-2">
-                    <a href="{{ image }}" class="none-gallery-fsLightbox">
-                        <img src="{{ image }}" alt="{{ title }}" class="w-40 object-cover">
+{% macro bagItem(title, price, image, info, part_no) %}
+    <div class="item-pod">
+        <h5 class="line-clamp-2 title">
+            {{ title }}
+        </h5>
+        <div class="details">
+            <div class="image-copy-wrapper">
+                <div class="image-wrapper">
+                    <a href="{{ image }}" title="{{ title }}" class="none-gallery-fsLightbox image-link">
+                        <img src="{{ image }}" alt="{{ title }}">
                     </a>
-                    <p>Part No.<br>0032-2</p>
-                    <p class="pricing">£{{ price }}</p>
+                    <div class="flex flex-col gap-1 text-sm">
+                        <span>Part No:</span>
+                        <span>{{ part_no }}</span>
+                    </div>
+                    <span class="price">{{ price }}</span>
                 </div>
-                <div class="flex-1">
-                    <p class="text-sm">These tyres massively reduce ground compactions and improve <a href="#">handling</a> in wet conditions. Please note all prices are in place of standard tyres and includes axle upgrade to 10 Stud axle. When fitted, overall wheel track makes the machine too wide for road use.</p>
+                <div class="copy-wrapper">
+                    <div class="copy">
+                        {{ info }}
+                    </div>
                 </div>
             </div>
-            <a href="#" class="bttn">
-                <span>Enquire</span>
-            </a>
+            <div class="action">
+                <a href="mailto:charlesp@marshall-trailers.co.uk?Subject=Stock Clearance item: {{ part_no }}" class="bttn">Email to buy or enquire</a>
+            </div>
         </div>
     </div>
 {% endmacro %}
@@ -160,12 +167,12 @@
             <p>At Marshall Trailers, we offer a range of <a href="retro-fit.html">retro fit solutions</a> to improve your trailer's capabilities. 
                 <br/>Whether you're looking to enhance safety, increase load capacity, or add modern conveniences, our retro fit solutions are designed to meet your specific needs.</p>
         </div>
-        <div class="retro-fit-list">
-            {{ bagItem("750/60 x 30.5 (10 Stud) Wheels", "200.00", "images/070420-1755-5154.jpg") }}
-            {{ bagItem("Flexible Cables", "1100.00", "images/070420-1755-7885.jpg") }}
-            {{ bagItem("Screw Nuts", "50.00", "images/070420-1803-2655.jpg") }}
-            {{ bagItem("Dragon Elastic Motor", "26.50", "images/080118-1235-3843.jpg") }}
-            {{ bagItem("Metal Reinforced Guards", "400.00", "images/080118-1235-4824.jpg") }}
+        <div class="items-grid">
+            {{ bagItem("750/60 x 30.5 (10 Stud) Wheels", "£200.00", "images/070420-1755-7885.jpg", "These tyres massively reduce ground compactions and improve handling in wet conditions. Please note all prices are in place of standard tyres and includes axle upgrade to 10 Stud axle. When fitted, overall wheel track makes the machine too wide for road use.", "0032-2") }}
+            {{ bagItem("Flexible Cables", "£1100.00", "images/070420-1755-7885.jpg", "Tyre may have some minor use or minor perishing. Wheel centre may be slightly rusty or marked. However overall tyre is in very good condition and holding pressure; almost like new.", "0021-0") }}
+            {{ bagItem("Screw Nuts", "£50.00", "images/070420-1803-2655.jpg", "These wheels are 6 inches smaller in diameter than a standard super single. They are comparable in diameter to a 445-45x19.5 wheel. Excellent road performance and allows a lower centre of gravity for the trailer to improve stability.", "7732") }}
+            {{ bagItem("Dragon Elastic Motor", "£26.50", "images/080118-1235-3843.jpg", "Tyre may have some minor use or minor perishing. Wheel centre may be slightly rusty or marked. However overall tyre is in very good condition and holding pressure; almost like new.", "4004") }}
+            {{ bagItem("Metal Reinforced Guards", "£400.00", "images/080118-1235-4824.jpg", "10 Stud ESFA Axles 400x100. Used condition. Five available.", "127") }}
         </div>
     </div>
 {% endmacro %}
