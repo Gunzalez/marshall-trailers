@@ -187,12 +187,14 @@
 
   /*---------------------------------------------------------------- */
 
-  marshallTrailers.featureTabs = {
+  marshallTrailers.responsiveTabs = {
     init: function () {
-      var $tabsContainer = $("#feature-tabs");
+      var $tabsContainer = $(".tabs-section");
+      var startIndex = $tabsContainer.data("active-tab-index");
+
       $tabsContainer.find(".tab-item").each(function (index, tabItem) {
         var $tabItem = $(tabItem);
-        var $$tabHeader = $tabItem.find(">.header");
+        var $$tabHeader = $tabItem.find(".tab-header");
 
         var setActiveTab = function () {
           if ($tabItem.hasClass("active") && window.innerWidth < 768) {
@@ -208,25 +210,39 @@
         $$tabHeader.on("click", setActiveTab);
 
         var tabTitle = $$tabHeader.text().trim();
-        var activeClass = $tabItem.hasClass("active") ? "active" : "";
-        var appClass = $tabItem.hasClass("tab-item-app") ? "tab-item-app" : "";
         var $tabButton = $(
-          '<button type="button" role="tab" class="' +
-            activeClass +
-            " " +
-            appClass +
-            '">' +
-            tabTitle +
-            "</button>"
+          '<button type="button" role="tab">' + tabTitle + "</button>"
         );
         $tabButton.on("click", setActiveTab);
         var $li = $("<li></li>");
         $li.append($tabButton);
         $tabsContainer.find(".tabs-list").append($li);
       });
+
+      $tabsContainer
+        .find(".tabs-list button")
+        .eq(startIndex)
+        .addClass("active");
+      $tabsContainer.find(".tab-item").eq(startIndex).addClass("active");
       $tabsContainer.find(".tab-item").last().addClass("last-tab");
     },
   };
+
+  /**
+    <div data-active-tab-index="0" class="tabs-section">
+        <ul class="tabs-list desktop-only" role="presentation"></ul>
+        <div class="tab-content">
+            {% for item in items %}
+                <div class="tab-item">
+                    <h3 class="header">{{ item.header }}</h3>
+                    <div class="content-wrapper">
+                        {{ item.content }}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+  **/
 
   /*---------------------------------------------------------------- */
 
@@ -336,9 +352,8 @@
     marshallTrailers.topNavigation.init();
     marshallTrailers.mobileNavigation.init();
     marshallTrailers.fsLightBoxLinks.init();
-    marshallTrailers.featureTabs.init();
-
-    window.heroCarousel = marshallTrailers.carousel;
+    marshallTrailers.responsiveTabs.init();
+    marshallTrailers.carousel.init();
   };
 
   /** Runs the global init */
