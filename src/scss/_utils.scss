@@ -232,7 +232,8 @@
   }
 }
 
-.title-wrapper {
+.title-wrapper,
+.page-intro {
   max-width: var(--max-width);
   margin: 0 auto;
   padding: 2px 1rem 0 1rem;
@@ -407,10 +408,10 @@
     }
 
     img {
-      width: 150px;
+      width: 120px;
       height: auto;
       aspect-ratio: 5 / 4;
-      min-width: 150px;
+      min-width: 120px;
     }
 
     .copy-wrapper {
@@ -425,6 +426,14 @@
       margin-top: auto;
     }
   }
+
+  .action {
+    border-top: 1px solid var(--brand-gray);
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
 }
 
 .items-grid {
@@ -436,10 +445,10 @@
     grid-template-columns: repeat(2, 1fr);
 
     .item-pod {
-      min-height: 400px;
+      min-height: 440px;
 
       .copy-wrapper {
-        max-height: 260px;
+        max-height: 250px;
         overflow-y: scroll;
       }
     }

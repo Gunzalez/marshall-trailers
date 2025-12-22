@@ -144,11 +144,10 @@
                     <a href="{{ image }}" title="{{ title }}" class="none-gallery-fsLightbox image-link">
                         <img src="{{ image }}" alt="{{ title }}">
                     </a>
-                    <div class="flex flex-col gap-1 text-sm">
+                    <div class="flex flex-col gap-0 text-sm">
                         <span>Part No:</span>
-                        <span>{{ part_no }}</span>
+                        <strong>{{ part_no }}</strong>
                     </div>
-                    <span class="price">{{ price }}</span>
                 </div>
                 <div class="copy-wrapper">
                     <div class="copy">
@@ -157,7 +156,22 @@
                 </div>
             </div>
             <div class="action">
-                <a href="mailto:charlesp@marshall-trailers.co.uk?Subject=Stock Clearance item: {{ part_no }}" class="bttn">Email to buy or enquire</a>
+                <div class="price-wrapper">
+                    <p>Cost per unit: <strong>{{ price }}</strong>
+                    </p>
+                </div>
+                <form class="single-input-form form">
+                    <label for="quantity-{{ part_no }}" class="flex flex-col gap-1">
+                        <span class="text-sm">Quantity</span>
+                        <input type="text" inputmode="numeric" id="quantity-{{ part_no }}" name="quantity-{{ part_no }}" class="quantity-input" value="1" min="1" aria-label="Quantity">
+                    </label>
+                    <button type="button" class="bttn add-to-basket">
+                        <span class="icon">
+                            <i class="fa-solid fa-basket-shopping"></i>
+                        </span>
+                        <span>Add</span>
+                    </button>
+                </form>
             </div>
         </div>
     </div>
