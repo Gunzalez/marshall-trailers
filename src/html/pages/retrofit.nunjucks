@@ -16,9 +16,10 @@
 
     <div class="title-wrapper">
         <h1 class="page-title">Retro Fit</h1>
-        <div class="page-intro body-copy">
-            <p>Enhance your existing trailer with Marshall Trailers' Retro Fit service.</p>
-        </div>
+    </div>
+
+    <div class="page-intro body-copy">
+        <p>Enhance your existing trailer with Marshall Trailers' Retro Fit service.</p>
     </div>
 
     <div class="section body-copy">

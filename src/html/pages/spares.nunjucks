@@ -16,10 +16,11 @@
 
     <div class="title-wrapper">
         <h1 class="page-title">Spares</h1>
-        <div class="page-intro body-copy">
-            <p>Find the right parts for your Marshall trailer with our comprehensive spare parts catalog.
+    </div>
+
+    <div class="page-intro body-copy">
+        <p>Find the right parts for your Marshall trailer with our comprehensive spare parts catalog.
         <br>What year was your machine built?</p>
-        </div>
     </div>
 
     <div class="section has-sub-sections home-sub-sections body-copy">
