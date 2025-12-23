@@ -123,6 +123,7 @@
           if ($input.val().trim() === "") {
             $(form).find("button").prop("disabled", true);
           } else {
+            $input.val($input.val().replace(/[^0-9]/g, ""));
             $(form).find("button").prop("disabled", false);
           }
         });
