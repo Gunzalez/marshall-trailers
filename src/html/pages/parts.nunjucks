@@ -25,4 +25,6 @@
         <p>Ordering parts for machines built in or before 2019.</p>
     </div>
 
+    <div id="ordering-parts-app"></div>
+
 {% endblock %}
