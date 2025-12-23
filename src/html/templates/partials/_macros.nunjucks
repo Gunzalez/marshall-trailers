@@ -163,7 +163,14 @@
                 <form class="single-input-form form">
                     <label for="quantity-{{ part_no }}" class="flex flex-col gap-1">
                         <span class="text-sm">Quantity</span>
-                        <input type="text" inputmode="numeric" id="quantity-{{ part_no }}" name="quantity-{{ part_no }}" class="quantity-input" value="1" min="1" aria-label="Quantity">
+                        <input type="text" 
+                            inputmode="numeric"
+                            pattern="[0-9]*" 
+                            id="quantity-{{ part_no }}" 
+                            name="quantity-{{ part_no }}" 
+                            class="quantity-input" 
+                            value="1" min="1" 
+                            aria-label="Quantity">
                     </label>
                     <button type="button" class="bttn add-to-basket">
                         <span class="icon">
