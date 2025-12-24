@@ -48,14 +48,18 @@
   <div id="top-navigation" class="desktop-only w-full max-w-[var(--max-width)] mx-auto px-4 mt-4 transition-all duration-300 ease-in-out relative">
     <div class="inset-0 pt-4 w-full flex gap-4 items-start justify-end">
       <div class="flex flex-col w-full">
-        <div class="flex w-full justify-between items-start mb-4">
-          <a href="index.html"><img src="images/logo-marshall-trailers-color.png" alt="Marshall Trailers Logo" class="h-12 sm:h-20"></a>
-          <div class="flex flex-col gap-2 items-start">
-            <button type="button" aria-label="open menu" id="close-navigation" class="cursor-pointer">
-              <i class="fa-solid fa-xmark text-lg"></i>
-            </button>
+
+        <div class="logo-wrapper flex items-center sm:items-start justify-between pt-1 mb-4">
+          <a href="index.html"><img src="images/logo-marshall-trailers-color.png" alt="Marshall Trailers Logo" class="h-16 sm:h-12 sm:h-20"></a>
+          <div class="flex flex-col gap-2 items-end flex desktop-buttons">
+            <div class="flex gap-4 items-center">
+              <button type="button" aria-label="close menu" id="close-navigation" class="cursor-pointer">
+                <i class="fa-solid fa-xmark text-lg"></i>
+              </button>
+            </div>
           </div>
         </div>
+
         <nav id="desktop-navigation">
           <ul class="main-menu">
             <li class="mobile-only">
@@ -273,11 +277,11 @@
                     <ul>
                       
                         <li>
-                          <a href="product.html?id=hd6" data-image-src="images/range-11.png">RDS-10</a>
+                          <a href="product.html?id=rds10" data-image-src="images/range-11.png">RDS-10</a>
                         </li>
                       
                         <li>
-                          <a href="product.html?id=hd8" data-image-src="images/range-11.png">RDS-14</a>
+                          <a href="product.html?id=rds14" data-image-src="images/range-11.png">RDS-14</a>
                         </li>
                       
                     </ul>
@@ -325,11 +329,8 @@
         </nav>
         <div class="mega-nav">
           <div id="mega-nav-content" class="mega-nav-content">
-
             <div id="products-range" class="products-range"></div>
-
             <div id="product-models" class="product-models"></div>
-
             <div id="product-details" class="product-image">
               <div class="image-wrapper">
                 <a href="#" id="link-placeholder" class="placeholder">
@@ -338,7 +339,6 @@
               </div>
               <p id="product-specifications-details" class="product-specifications line-clamp-1 text-center placeholder"></p>
             </div>
-
           </div>
         </div>
       </div>
@@ -390,12 +390,12 @@
             <span class="dummy-data-range-title-replace-span"></span></h1>
     </div>
 
-    <div id="product-models" class="section in-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 pb-16 app-loading">
-        <div v-for="(range, i) in productRanges" :key="i" class="slide flex flex-col gap-4">
-            <a class="pod link" :href="`product.html?id=${range.id}`">
-                <h4 class="title line-clamp-1">[[ range.title ]]</h4>
+    <div id="models-app" class="section in-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 pb-16 app-loading">
+        <div v-for="(model, i) in models" :key="i" class="slide flex flex-col gap-4">
+            <a class="pod link" :href="`product.html?id=${model.id}`">
+                <h4 class="title line-clamp-1">[[ model.title ]]</h4>
                 <div class="image-wrapper">
-                    <img :src="range.image" :alt="range.title">
+                    <img :src="model.image" :alt="model.title">
                 </div>
             </a>
         </div>
@@ -403,7 +403,7 @@
 
     <script>
         // replace all with PHP
-        const rangesData = [{"id":"dropside-trailers","title":"Drop-side Trailers","image":"images/range-1.png","models":[{"title":"QM-6","id":"qm6","image":"images/range-1.png","range_id":"dropside-trailers"},{"title":"QM-8","id":"qm8","image":"images/range-1.png","range_id":"dropside-trailers"},{"title":"QM-11","id":"qm11","image":"images/range-1.png","range_id":"dropside-trailers"},{"title":"QM-12","id":"qm12","image":"images/range-1.png","range_id":"dropside-trailers"},{"title":"QM-1200","id":"qm1200","image":"images/range-1.png","range_id":"dropside-trailers"},{"title":"QM-14","id":"qm14","image":"images/range-1.png","range_id":"dropside-trailers"},{"title":"QM-1400","id":"qm1400","image":"images/range-1.png","range_id":"dropside-trailers"},{"title":"QM-16","id":"qm16","image":"images/range-1.png","range_id":"dropside-trailers"},{"title":"QM-1600","id":"qm1600","image":"images/range-1.png","range_id":"dropside-trailers"},{"title":"QM-1800","id":"qm1800","image":"images/range-1.png","range_id":"dropside-trailers"}]},{"id":"new-low-loaders","title":"New Low Loaders","image":"images/range-2.png","models":[{"title":"LL-10T","id":"ll-10t","image":"images/range-2.png","range_id":"new-low-loaders"},{"title":"LL-14T","id":"ll-14t","image":"images/range-2.png","range_id":"new-low-loaders"},{"title":"LL-18T","id":"ll-18t","image":"images/range-2.png","range_id":"new-low-loaders"},{"title":"LL-24T","id":"ll-24t","image":"images/range-2.png","range_id":"new-low-loaders"}]},{"id":"grain-and-silage","title":"Grain & Silage","image":"images/range-3.png","models":[{"title":"GS-10","id":"gs-10","image":"images/range-3.png","range_id":"grain-and-silage"},{"title":"GS-15","id":"gs-15","image":"images/range-3.png","range_id":"grain-and-silage"},{"title":"GS-20","id":"gs-20","image":"images/range-3.png","range_id":"grain-and-silage"},{"title":"GS-25","id":"gs-25","image":"images/range-3.png","range_id":"grain-and-silage"}]},{"id":"livestock-trailers-containers","title":"Livestock Containers","image":"images/range-4.png","models":[{"title":"LC-10","id":"lc-10","image":"images/range-4.png","range_id":"livestock-trailers-containers"},{"title":"LC-14","id":"lc-14","image":"images/range-4.png","range_id":"livestock-trailers-containers"},{"title":"LC-18","id":"lc-18","image":"images/range-4.png","range_id":"livestock-trailers-containers"}]},{"id":"slurry-tankers","title":"Slurry Tankers","image":"images/range-7.png","models":[{"title":"ST-2000","id":"st-2000","image":"images/range-7.png","range_id":"slurry-tankers"},{"title":"ST-2500","id":"st-2500","image":"images/range-7.png","range_id":"slurry-tankers"},{"title":"ST-3000","id":"st-3000","image":"images/range-7.png","range_id":"slurry-tankers"}]},{"id":"muck-spreaders","title":"Muck Spreaders","image":"images/range-6.png","models":[{"title":"MS-6","id":"ms-6","image":"images/range-6.png","range_id":"muck-spreaders"},{"title":"MS-8","id":"ms-8","image":"images/range-6.png","range_id":"muck-spreaders"},{"title":"MS-10","id":"ms-10","image":"images/range-6.png","range_id":"muck-spreaders"}]},{"id":"new-feeder-trailers","title":"Feeder Trailers","image":"images/range-8.png","models":[{"title":"FT-14","id":"ft-14","image":"images/range-8.png","range_id":"new-feeder-trailers"},{"title":"FT-18","id":"ft-18","image":"images/range-8.png","range_id":"new-feeder-trailers"},{"title":"FT-22","id":"ft-22","image":"images/range-8.png","range_id":"new-feeder-trailers"}]},{"id":"people-carrier-trailers","title":"People Carrier Trailers","image":"images/range-9.png","models":[{"title":"PC-16","id":"pc-16","image":"images/range-9.png","range_id":"people-carrier-trailers"},{"title":"PC-24","id":"pc-24","image":"images/range-9.png","range_id":"people-carrier-trailers"}]},{"id":"flat-bale-trailers","title":"Flat/Bale Trailers","image":"images/range-10.png","models":[{"title":"FB-20","id":"fb-20","image":"images/range-10.png","range_id":"flat-bale-trailers"},{"title":"FB-24","id":"fb-24","image":"images/range-10.png","range_id":"flat-bale-trailers"},{"title":"FB-30","id":"fb-30","image":"images/range-10.png","range_id":"flat-bale-trailers"}]},{"id":"new-dump-trailers","title":"Dump Trailers","image":"images/range-11.png","models":[{"title":"RDS-10","id":"hd6","image":"images/range-11.png","range_id":"new-dump-trailers"},{"title":"RDS-14","id":"hd8","image":"images/range-11.png","range_id":"new-dump-trailers"}]},{"id":"rear-discharge-muck-spreaders","title":"Rear Discharge Muck Spreaders","image":"images/range-2.png","models":[{"title":"FES-8","id":"fes-8","image":"images/range-2.png","range_id":"rear-discharge-muck-spreaders"},{"title":"FES-12","id":"fes-12","image":"images/range-2.png","range_id":"rear-discharge-muck-spreaders"}]}];
+        const rangesData = [{"id":"dropside-trailers","title":"Drop-side Trailers","image":"images/range-1.png","models":[{"title":"QM-6","id":"qm6","image":"images/range-1.png","range_id":"dropside-trailers"},{"title":"QM-8","id":"qm8","image":"images/range-1.png","range_id":"dropside-trailers"},{"title":"QM-11","id":"qm11","image":"images/range-1.png","range_id":"dropside-trailers"},{"title":"QM-12","id":"qm12","image":"images/range-1.png","range_id":"dropside-trailers"},{"title":"QM-1200","id":"qm1200","image":"images/range-1.png","range_id":"dropside-trailers"},{"title":"QM-14","id":"qm14","image":"images/range-1.png","range_id":"dropside-trailers"},{"title":"QM-1400","id":"qm1400","image":"images/range-1.png","range_id":"dropside-trailers"},{"title":"QM-16","id":"qm16","image":"images/range-1.png","range_id":"dropside-trailers"},{"title":"QM-1600","id":"qm1600","image":"images/range-1.png","range_id":"dropside-trailers"},{"title":"QM-1800","id":"qm1800","image":"images/range-1.png","range_id":"dropside-trailers"}]},{"id":"new-low-loaders","title":"New Low Loaders","image":"images/range-2.png","models":[{"title":"LL-10T","id":"ll-10t","image":"images/range-2.png","range_id":"new-low-loaders"},{"title":"LL-14T","id":"ll-14t","image":"images/range-2.png","range_id":"new-low-loaders"},{"title":"LL-18T","id":"ll-18t","image":"images/range-2.png","range_id":"new-low-loaders"},{"title":"LL-24T","id":"ll-24t","image":"images/range-2.png","range_id":"new-low-loaders"}]},{"id":"grain-and-silage","title":"Grain & Silage","image":"images/range-3.png","models":[{"title":"GS-10","id":"gs-10","image":"images/range-3.png","range_id":"grain-and-silage"},{"title":"GS-15","id":"gs-15","image":"images/range-3.png","range_id":"grain-and-silage"},{"title":"GS-20","id":"gs-20","image":"images/range-3.png","range_id":"grain-and-silage"},{"title":"GS-25","id":"gs-25","image":"images/range-3.png","range_id":"grain-and-silage"}]},{"id":"livestock-trailers-containers","title":"Livestock Containers","image":"images/range-4.png","models":[{"title":"LC-10","id":"lc-10","image":"images/range-4.png","range_id":"livestock-trailers-containers"},{"title":"LC-14","id":"lc-14","image":"images/range-4.png","range_id":"livestock-trailers-containers"},{"title":"LC-18","id":"lc-18","image":"images/range-4.png","range_id":"livestock-trailers-containers"}]},{"id":"slurry-tankers","title":"Slurry Tankers","image":"images/range-7.png","models":[{"title":"ST-2000","id":"st-2000","image":"images/range-7.png","range_id":"slurry-tankers"},{"title":"ST-2500","id":"st-2500","image":"images/range-7.png","range_id":"slurry-tankers"},{"title":"ST-3000","id":"st-3000","image":"images/range-7.png","range_id":"slurry-tankers"}]},{"id":"muck-spreaders","title":"Muck Spreaders","image":"images/range-6.png","models":[{"title":"MS-6","id":"ms-6","image":"images/range-6.png","range_id":"muck-spreaders"},{"title":"MS-8","id":"ms-8","image":"images/range-6.png","range_id":"muck-spreaders"},{"title":"MS-10","id":"ms-10","image":"images/range-6.png","range_id":"muck-spreaders"}]},{"id":"new-feeder-trailers","title":"Feeder Trailers","image":"images/range-8.png","models":[{"title":"FT-14","id":"ft-14","image":"images/range-8.png","range_id":"new-feeder-trailers"},{"title":"FT-18","id":"ft-18","image":"images/range-8.png","range_id":"new-feeder-trailers"},{"title":"FT-22","id":"ft-22","image":"images/range-8.png","range_id":"new-feeder-trailers"}]},{"id":"people-carrier-trailers","title":"People Carrier Trailers","image":"images/range-9.png","models":[{"title":"PC-16","id":"pc-16","image":"images/range-9.png","range_id":"people-carrier-trailers"},{"title":"PC-24","id":"pc-24","image":"images/range-9.png","range_id":"people-carrier-trailers"}]},{"id":"flat-bale-trailers","title":"Flat/Bale Trailers","image":"images/range-10.png","models":[{"title":"FB-20","id":"fb-20","image":"images/range-10.png","range_id":"flat-bale-trailers"},{"title":"FB-24","id":"fb-24","image":"images/range-10.png","range_id":"flat-bale-trailers"},{"title":"FB-30","id":"fb-30","image":"images/range-10.png","range_id":"flat-bale-trailers"}]},{"id":"new-dump-trailers","title":"Dump Trailers","image":"images/range-11.png","models":[{"title":"RDS-10","id":"rds10","image":"images/range-11.png","range_id":"new-dump-trailers"},{"title":"RDS-14","id":"rds14","image":"images/range-11.png","range_id":"new-dump-trailers"}]},{"id":"rear-discharge-muck-spreaders","title":"Rear Discharge Muck Spreaders","image":"images/range-2.png","models":[{"title":"FES-8","id":"fes-8","image":"images/range-2.png","range_id":"rear-discharge-muck-spreaders"},{"title":"FES-12","id":"fes-12","image":"images/range-2.png","range_id":"rear-discharge-muck-spreaders"}]}];
 
         document.addEventListener('DOMContentLoaded', () => {
             const {createApp, onMounted, ref} = Vue;
@@ -413,32 +413,33 @@
                     '[[', ']]'
                 ],
                 setup() {
-
-                    const queryString = window.location.search;
-                    const urlParams = new URLSearchParams(queryString);
-                    const model = urlParams.get('model');
-                    const productRanges = ref([]);
+                    const models = ref([]);
                     const productsRangeTitle = ref('');
 
-                    const modelDetails = rangesData.filter(function (product) {
-                        return product
-                            .id
-                            .toLowerCase() === model.toLowerCase();
-                    });
-                    if (modelDetails.length > 0) {
-                        productRanges.value = modelDetails[0].models;
-                        productsRangeTitle.value = modelDetails[0].title;
-                    }
-
                     onMounted(() => {
-                        $('#product-models').removeClass('app-loading');
+                        const queryString = window.location.search;
+                        const urlParams = new URLSearchParams(queryString);
+                        const model = urlParams.get('model');
+
+                        const modelDetails = rangesData.filter(function (product) {
+                            return product
+                                .id
+                                .toLowerCase() === model.toLowerCase();
+                        });
+
+                        if (modelDetails.length > 0) {
+                            models.value = modelDetails[0].models;
+                            productsRangeTitle.value = modelDetails[0].title;
+                        }
+
+                        $('#models-app').removeClass('app-loading');
                         // dummy data for demo purposes
                         $('.dummy-data-range-title-replace-span').text(productsRangeTitle.value);
                     });
 
-                    return {productRanges}
+                    return {models}
                 }
-            }).mount('#product-models');
+            }).mount('#models-app');
 
         });
     </script>

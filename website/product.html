@@ -48,14 +48,18 @@
   <div id="top-navigation" class="desktop-only w-full max-w-[var(--max-width)] mx-auto px-4 mt-4 transition-all duration-300 ease-in-out relative">
     <div class="inset-0 pt-4 w-full flex gap-4 items-start justify-end">
       <div class="flex flex-col w-full">
-        <div class="flex w-full justify-between items-start mb-4">
-          <a href="index.html"><img src="images/logo-marshall-trailers-color.png" alt="Marshall Trailers Logo" class="h-12 sm:h-20"></a>
-          <div class="flex flex-col gap-2 items-start">
-            <button type="button" aria-label="open menu" id="close-navigation" class="cursor-pointer">
-              <i class="fa-solid fa-xmark text-lg"></i>
-            </button>
+
+        <div class="logo-wrapper flex items-center sm:items-start justify-between pt-1 mb-4">
+          <a href="index.html"><img src="images/logo-marshall-trailers-color.png" alt="Marshall Trailers Logo" class="h-16 sm:h-12 sm:h-20"></a>
+          <div class="flex flex-col gap-2 items-end flex desktop-buttons">
+            <div class="flex gap-4 items-center">
+              <button type="button" aria-label="close menu" id="close-navigation" class="cursor-pointer">
+                <i class="fa-solid fa-xmark text-lg"></i>
+              </button>
+            </div>
           </div>
         </div>
+
         <nav id="desktop-navigation">
           <ul class="main-menu">
             <li class="mobile-only">
@@ -273,11 +277,11 @@
                     <ul>
                       
                         <li>
-                          <a href="product.html?id=hd6" data-image-src="images/range-11.png">RDS-10</a>
+                          <a href="product.html?id=rds10" data-image-src="images/range-11.png">RDS-10</a>
                         </li>
                       
                         <li>
-                          <a href="product.html?id=hd8" data-image-src="images/range-11.png">RDS-14</a>
+                          <a href="product.html?id=rds14" data-image-src="images/range-11.png">RDS-14</a>
                         </li>
                       
                     </ul>
@@ -325,11 +329,8 @@
         </nav>
         <div class="mega-nav">
           <div id="mega-nav-content" class="mega-nav-content">
-
             <div id="products-range" class="products-range"></div>
-
             <div id="product-models" class="product-models"></div>
-
             <div id="product-details" class="product-image">
               <div class="image-wrapper">
                 <a href="#" id="link-placeholder" class="placeholder">
@@ -338,7 +339,6 @@
               </div>
               <p id="product-specifications-details" class="product-specifications line-clamp-1 text-center placeholder"></p>
             </div>
-
           </div>
         </div>
       </div>
