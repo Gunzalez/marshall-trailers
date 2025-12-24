@@ -25,12 +25,12 @@
             <span class="dummy-data-range-title-replace-span"></span></h1>
     </div>
 
-    <div id="product-models" class="section in-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 pb-16 app-loading">
-        <div v-for="(range, i) in productRanges" :key="i" class="slide flex flex-col gap-4">
-            <a class="pod link" :href="`product.html?id=${range.id}`">
-                <h4 class="title line-clamp-1">[[ range.title ]]</h4>
+    <div id="models-app" class="section in-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 pb-16 app-loading">
+        <div v-for="(model, i) in models" :key="i" class="slide flex flex-col gap-4">
+            <a class="pod link" :href="`product.html?id=${model.id}`">
+                <h4 class="title line-clamp-1">[[ model.title ]]</h4>
                 <div class="image-wrapper">
-                    <img :src="range.image" :alt="range.title">
+                    <img :src="model.image" :alt="model.title">
                 </div>
             </a>
         </div>
@@ -48,32 +48,33 @@
                     '[[', ']]'
                 ],
                 setup() {
-
-                    const queryString = window.location.search;
-                    const urlParams = new URLSearchParams(queryString);
-                    const model = urlParams.get('model');
-                    const productRanges = ref([]);
+                    const models = ref([]);
                     const productsRangeTitle = ref('');
 
-                    const modelDetails = rangesData.filter(function (product) {
-                        return product
-                            .id
-                            .toLowerCase() === model.toLowerCase();
-                    });
-                    if (modelDetails.length > 0) {
-                        productRanges.value = modelDetails[0].models;
-                        productsRangeTitle.value = modelDetails[0].title;
-                    }
-
                     onMounted(() => {
-                        $('#product-models').removeClass('app-loading');
+                        const queryString = window.location.search;
+                        const urlParams = new URLSearchParams(queryString);
+                        const model = urlParams.get('model');
+
+                        const modelDetails = rangesData.filter(function (product) {
+                            return product
+                                .id
+                                .toLowerCase() === model.toLowerCase();
+                        });
+
+                        if (modelDetails.length > 0) {
+                            models.value = modelDetails[0].models;
+                            productsRangeTitle.value = modelDetails[0].title;
+                        }
+
+                        $('#models-app').removeClass('app-loading');
                         // dummy data for demo purposes
                         $('.dummy-data-range-title-replace-span').text(productsRangeTitle.value);
                     });
 
-                    return {productRanges}
+                    return {models}
                 }
-            }).mount('#product-models');
+            }).mount('#models-app');
 
         });
     </script>
