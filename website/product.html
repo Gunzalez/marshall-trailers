@@ -22,6 +22,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
       type="text/css">
     <link rel="stylesheet" href="css/styles.css" type="text/css">
+    <link rel="stylesheet" href="js/vendor/custom-select/jquery.select.css" type="text/css">
 
     <!-- javaScript -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4" defer></script>
@@ -33,6 +34,7 @@
     <script src="js/vendor/slick/slick.min.js" defer></script>
     <script src="js/vendor/fslightbox.js" defer></script>
     <script src="js/vendor/jquery.validate.min.js" defer></script>
+    <script src="js/vendor/custom-select/jquery.select.min.js" defer></script>
     <script src="js/vendor/mmenu.js" defer></script>
     <script src="js/vendor/lozad.min.js" defer></script>
     <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js" defer></script>
@@ -42,11 +44,11 @@
   <body>
     <a id="back-to-top" class="back-to-top"></a>
     <div id="page">
-      <div id="top-drawer" class="bg-white flex items-center justify-center fixed w-full z-50 top-0 shadow-md">
+      <div id="top-drawer" class="shadow-md">
   <div id="top-navigation" class="desktop-only w-full max-w-[var(--max-width)] mx-auto px-4 mt-4 transition-all duration-300 ease-in-out relative">
     <div class="inset-0 pt-4 w-full flex gap-4 items-start justify-end">
-      <div class="flex flex-col gap-4 w-full">
-        <div class="flex w-full justify-between items-start">
+      <div class="flex flex-col w-full">
+        <div class="flex w-full justify-between items-start mb-4">
           <a href="index.html"><img src="images/logo-marshall-trailers-color.png" alt="Marshall Trailers Logo" class="h-12 sm:h-20"></a>
           <div class="flex flex-col gap-2 items-start">
             <button type="button" aria-label="open menu" id="close-navigation" class="cursor-pointer">
@@ -59,262 +61,243 @@
             <li class="mobile-only">
               <a href="index.html" title="Home">Home</a>
             </li>
-            <li class="has-submenu">
+            <li class="has-mega-nav">
               <a href="range.html" title="Products">Products</a>
-              <ul class="submenu">
-                <li>
-                  <a href="products.html?model=grain-and-silage">Silage / Grain Trailers</a>
-                  <ul class="submenu">
-                    <li>
-                      <a href="product.html?id=qm6">QM-6 - 6.5 tons</a>
-                    </li>
-                    <li>
-                      <a href="product.html?id=qm8">QM-8 - 8.5 tons</a>
-                    </li>
-                    <li>
-                      <a href="product.html?id=qm11">QM-11 - 11 tons</a>
-                    </li>
-                    <li>
-                      <a href="product.html?id=qm12">QM-12 - 12 tons</a>
-                    </li>
-                    <li>
-                      <a href="product.html?id=qm1200">QM-1200 - 12 tons</a>
-                    </li>
-                    <li>
-                      <a href="product.html?id=qm14">QM-14 - 14.5 tons</a>
-                    </li>
-                    <li>
-                      <a href="product.html?id=qm1400">QM-1400 - 14.5 tons</a>
-                    </li>
-                    <li>
-                      <a href="product.html?id=qm16">QM-16 - 16.5 tons</a>
-                    </li>
-                    <li>
-                      <a href="product.html?id=qm1600">QM-1600 - 16.5 tons</a>
-                    </li>
-                    <li>
-                      <a href="product.html?id=qm1800">QM-1800 - 18.5 tons</a>
-                    </li>
-                    <li>
-                      <a href="product.html?id=additional-equipment">Additional Equipment</a>
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <a href="products.html?model=dropside-trailers">Drop-Side Trailers</a>
-                  <ul class="submenu">
-                    <li>
-                      <a href="product.html?id=s1" title="S-1">S-1 - 1.5 tons</a>
-                    </li>
-                    <li>
-                      <a href="product.html?id=s2" title="S-2">S-2 - 2 tons</a>
-                    </li>
-                    <li>
-                      <a href="product.html?id=s4" title="S-4">S-4 - 4 tons</a>
-                    </li>
-                    <li>
-                      <a href="product.html?id=s5" title="S-5">S-5 - 5 tons</a>
-                    </li>
-                    <li>
-                      <a href="product.html?id=s6" title="S-6">S-6 - 6.5 tons</a>
-                    </li>
-                    <li>
-                      <a href="product.html?id=s85" title="S-85">S-85 - 8.5 tons</a>
-                    </li>
-                    <li>
-                      <a href="product.html?id=s10" title="S-10">S-10 - 10.5 tons</a>
-                    </li>
-                    <li>
-                      <a href="product.html?id=additional-equipment" title="Additional Equipment">Additional Equipment</a>
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <a href="products.html?model=flat-bale-trailers">Flat / Bale Trailers</a>
-                  <ul class="submenu">
-                    <li>
-                      <a href="product.html?id=bc21" title="BC-21">BC-21 - 21' x 8' / 10 tons</a>
-                    </li>
-                    <li>
-                      <a href="product.html?id=bc2510t" title="BC-25-10T">BC-25-10T - 25' x 8'</a>
-                    </li>
-                    <li>
-                      <a href="product.html?id=bc2512t" title="BC-25-12T">BC-25-12T - 25' x 8' 4"</a>
-                    </li>
-                    <li>
-                      <a href="product.html?id=bc28" title="BC-28">BC-28 - 28' x 8' 4" / 14 tons</a>
-                    </li>
-                    <li>
-                      <a href="product.html?id=bc32tan" title="BC-32-TAN">BC-32-TAN - 32' x 8' 4" / 14 tons</a>
-                    </li>
-                    <li>
-                      <a href="product.html?id=bc32tri" title="BC-32-TRI">BC-32-TRI - 32' x 8' 4" / 16 tons</a>
-                    </li>
-                    <li>
-                      <a href="product.html?id=bc36tan" title="BC-36-TAN">BC-36-TAN - 36' x 8' 4" / 16 tons</a>
-                    </li>
-                    <li>
-                      <a href="product.html?id=bc36tri" title="BC-36-TRI">BC-36-TRI - 36' x 8' 4" / 16 tons</a>
-                    </li>
-                    <li>
-                      <a href="product.html?id=additional-equipment" title="Additional Equipment">Additional Equipment</a>
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <a href="products.html?model=new-low-loaders">Low Loader Trailers</a>
-                  <ul class="submenu">
-                    <li>
-                      <a href="product.html?id=ll26tan" title="LL-26-TAN">LL-26-TAN - 16 tons</a>
-                    </li>
-                    <li>
-                      <a href="product.html?id=ll33tri" title="LL-33-TRI">LL-33-TRI - 21 tons</a>
-                    </li>
-                    <li>
-                      <a href="product.html?id=additional-equipment" title="Additional Equipment">Additional Equipment</a>
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <a href="products.html?model=new-dumper-trailers">Dumper Trailers</a>
-                  <ul class="submenu">
-                    <li>
-                      <a href="product.html?id=hd6" title="HD-6">HD-6 - 6 tons / 3.7 cu.mtrs</a>
-                    </li>
-                    <li>
-                      <a href="product.html?id=hd8" title="HD-8">HD-8 - 8 tons / 5.4 cu.mtrs</a>
-                    </li>
-                    <li>
-                      <a href="product.html?id=hd12" title="HD-12">HD-12 - 12 tons / 7 cu.mtrs</a>
-                    </li>
-                    <li>
-                      <a href="product.html?id=hd14" title="HD-14">HD-14 - 14 tons / 8.7 cu.mtrs</a>
-                    </li>
-                    <li>
-                      <a href="product.html?id=hd16" title="HD-16">HD-16 - 16 tons / 10.5 cu.mtrs</a>
-                    </li>
-                    <li>
-                      <a href="product.html?id=additional-equipment" title="Additional Equipment">Additional Equipment</a>
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <a href="products.html?model=new-feed-trailers">Feed Trailers</a>
-                  <ul class="submenu">
-                    <li>
-                      <a href="product.html?id=ft15" title="FT-15">FT-15 - 15' Long</a>
-                    </li>
-                    <li>
-                      <a href="product.html?id=ft20" title="FT-20">FT-20 - 20' Long</a>
-                    </li>
-                    <li>
-                      <a href="/feed-trailers/additional-equipment" title="Additional Equipment">Additional Equipment</a>
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <a href="products.html?model=livestock-trailers-containers">Livestock Containers</a>
-                  <ul class="submenu">
-                    <li>
-                      <a href="product.html?id=lst21" title="LST-21">LST-21 - 21' Long</a>
-                    </li>
-                    <li>
-                      <a href="product.html?id=lst25" title="LST-25">LST-25 - 25' Long</a>
-                    </li>
-                    <li>
-                      <a href="product.html?id=lst28" title="LST-28">LST-28 - 28' Long</a>
-                    </li>
-                    <li>
-                      <a href="product.html?id=lst32" title="LST-32">LST-32 - 32' Long</a>
-                    </li>
-                    <li>
-                      <a href="products.html?model=livestock-trailers-containers/additional-equipment" title="Additional Equipment">Additional Equipment</a>
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <a href="products.html?model=muck-spreaders">Muck Spreaders</a>
-                  <ul class="submenu">
-                    <li>
-                      <a href="product.html?id=ms60" title="MS-60">MS-60 - 6 cu.yds</a>
-                    </li>
-                    <li>
-                      <a href="product.html?id=ms75" title="MS-75">MS-75 - 7.5 cu.yds</a>
-                    </li>
-                    <li>
-                      <a href="product.html?id=ms90" title="MS-90">MS-90 - 9 cu.yds</a>
-                    </li>
-                    <li>
-                      <a href="product.html?id=ms105" title="MS-105">MS-105 - 10.5 cu.yds</a>
-                    </li>
-                    <li>
-                      <a href="products.html?model=muck-spreaders/additional-equipment" title="Additional Equipment">Additional Equipment</a>
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <a href="products.html?model=rear-discharge-muck-spreaders">Rear Discharge Muck Spreaders</a>
-                  <ul class="submenu">
-                    <li>
-                      <a href="product.html?id=ves1500" title="VES-1500">VES-1500 - 9 tons</a>
-                    </li>
-                    <li>
-                      <a href="product.html?id=ves2000" title="VES-2000">VES-2000 - 12 tons</a>
-                    </li>
-                    <li>
-                      <a href="product.html?id=ves2500" title="VES-2500">VES-2500 - 14 tons</a>
-                    </li>
-                    <li>
-                      <a href="products.html?model=rear-discharge-muck-spreaders/additional-equipment" title="Additional Equipment">Additional Equipment</a>
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <a href="products.html?model=tankers">Tankers</a>
-                  <ul class="submenu">
-                    <li>
-                      <a href="product.html?id=st1200" title="ST-1200">ST-1200 - 1220 gallons</a>
-                    </li>
-                    <li>
-                      <a href="product.html?id=st1400" title="ST-1400">ST-1400 - 1400 gallons</a>
-                    </li>
-                    <li>
-                      <a href="product.html?id=st1600" title="ST-1600">ST-1600 - 1550 gallons</a>
-                    </li>
-                    <li>
-                      <a href="product.html?id=st1800" title="ST-1800">ST-1800 - 1800 gallons</a>
-                    </li>
-                    <li>
-                      <a href="product.html?id=st2000" title="ST-2000">ST-2000 - 2150 gallons</a>
-                    </li>
-                    <li>
-                      <a href="product.html?id=st2300" title="ST-2300">ST-2300 - 2340 gallons</a>
-                    </li>
-                    <li>
-                      <a href="product.html?id=st2550" title="ST-2550">ST-2550 - 2560 gallons</a>
-                    </li>
-                    <li>
-                      <a href="product.html?id=st3000" title="ST-3000">ST-3000 - 3000 gallons</a>
-                    </li>
-                    <li>
-                      <a href="product.html?id=st3500" title="ST-3500">ST-3500 - 3500 gallons</a>
-                    </li>
-                    <li>
-                      <a href="products.html?model=tankers/additional-equipment" title="Additional Equipment">Additional Equipment</a>
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <a href="products.html?model=people-carrier-trailers">People Carrier Trailers</a>
-                  <ul class="submenu">
-                    <li>
-                      <a href="product.html?id=pc21" title="PC-21">PC-21 - 21' x 8' / 27 People</a>
-                    </li>
-                    <li>
-                      <a href="products.html?model=people-carrier-trailers/additional-equipment" title="Additional Equipment">Additional Equipment</a>
-                    </li>
-                  </ul>
-                </li>
+              <ul id="mega-nav-list">
+                
+                  <li>
+                    <a href="products.html?model=dropside-trailers" data-image-src="images/range-1.png">Drop-side Trailers</a>
+                    <ul>
+                      
+                        <li>
+                          <a href="product.html?id=qm6" data-image-src="images/range-1.png">QM-6</a>
+                        </li>
+                      
+                        <li>
+                          <a href="product.html?id=qm8" data-image-src="images/range-1.png">QM-8</a>
+                        </li>
+                      
+                        <li>
+                          <a href="product.html?id=qm11" data-image-src="images/range-1.png">QM-11</a>
+                        </li>
+                      
+                        <li>
+                          <a href="product.html?id=qm12" data-image-src="images/range-1.png">QM-12</a>
+                        </li>
+                      
+                        <li>
+                          <a href="product.html?id=qm1200" data-image-src="images/range-1.png">QM-1200</a>
+                        </li>
+                      
+                        <li>
+                          <a href="product.html?id=qm14" data-image-src="images/range-1.png">QM-14</a>
+                        </li>
+                      
+                        <li>
+                          <a href="product.html?id=qm1400" data-image-src="images/range-1.png">QM-1400</a>
+                        </li>
+                      
+                        <li>
+                          <a href="product.html?id=qm16" data-image-src="images/range-1.png">QM-16</a>
+                        </li>
+                      
+                        <li>
+                          <a href="product.html?id=qm1600" data-image-src="images/range-1.png">QM-1600</a>
+                        </li>
+                      
+                        <li>
+                          <a href="product.html?id=qm1800" data-image-src="images/range-1.png">QM-1800</a>
+                        </li>
+                      
+                    </ul>
+                  </li>
+                
+                  <li>
+                    <a href="products.html?model=new-low-loaders" data-image-src="images/range-2.png">New Low Loaders</a>
+                    <ul>
+                      
+                        <li>
+                          <a href="product.html?id=ll-10t" data-image-src="images/range-2.png">LL-10T</a>
+                        </li>
+                      
+                        <li>
+                          <a href="product.html?id=ll-14t" data-image-src="images/range-2.png">LL-14T</a>
+                        </li>
+                      
+                        <li>
+                          <a href="product.html?id=ll-18t" data-image-src="images/range-2.png">LL-18T</a>
+                        </li>
+                      
+                        <li>
+                          <a href="product.html?id=ll-24t" data-image-src="images/range-2.png">LL-24T</a>
+                        </li>
+                      
+                    </ul>
+                  </li>
+                
+                  <li>
+                    <a href="products.html?model=grain-and-silage" data-image-src="images/range-3.png">Grain &amp; Silage</a>
+                    <ul>
+                      
+                        <li>
+                          <a href="product.html?id=gs-10" data-image-src="images/range-3.png">GS-10</a>
+                        </li>
+                      
+                        <li>
+                          <a href="product.html?id=gs-15" data-image-src="images/range-3.png">GS-15</a>
+                        </li>
+                      
+                        <li>
+                          <a href="product.html?id=gs-20" data-image-src="images/range-3.png">GS-20</a>
+                        </li>
+                      
+                        <li>
+                          <a href="product.html?id=gs-25" data-image-src="images/range-3.png">GS-25</a>
+                        </li>
+                      
+                    </ul>
+                  </li>
+                
+                  <li>
+                    <a href="products.html?model=livestock-trailers-containers" data-image-src="images/range-4.png">Livestock Containers</a>
+                    <ul>
+                      
+                        <li>
+                          <a href="product.html?id=lc-10" data-image-src="images/range-4.png">LC-10</a>
+                        </li>
+                      
+                        <li>
+                          <a href="product.html?id=lc-14" data-image-src="images/range-4.png">LC-14</a>
+                        </li>
+                      
+                        <li>
+                          <a href="product.html?id=lc-18" data-image-src="images/range-4.png">LC-18</a>
+                        </li>
+                      
+                    </ul>
+                  </li>
+                
+                  <li>
+                    <a href="products.html?model=slurry-tankers" data-image-src="images/range-7.png">Slurry Tankers</a>
+                    <ul>
+                      
+                        <li>
+                          <a href="product.html?id=st-2000" data-image-src="images/range-7.png">ST-2000</a>
+                        </li>
+                      
+                        <li>
+                          <a href="product.html?id=st-2500" data-image-src="images/range-7.png">ST-2500</a>
+                        </li>
+                      
+                        <li>
+                          <a href="product.html?id=st-3000" data-image-src="images/range-7.png">ST-3000</a>
+                        </li>
+                      
+                    </ul>
+                  </li>
+                
+                  <li>
+                    <a href="products.html?model=muck-spreaders" data-image-src="images/range-6.png">Muck Spreaders</a>
+                    <ul>
+                      
+                        <li>
+                          <a href="product.html?id=ms-6" data-image-src="images/range-6.png">MS-6</a>
+                        </li>
+                      
+                        <li>
+                          <a href="product.html?id=ms-8" data-image-src="images/range-6.png">MS-8</a>
+                        </li>
+                      
+                        <li>
+                          <a href="product.html?id=ms-10" data-image-src="images/range-6.png">MS-10</a>
+                        </li>
+                      
+                    </ul>
+                  </li>
+                
+                  <li>
+                    <a href="products.html?model=new-feeder-trailers" data-image-src="images/range-8.png">Feeder Trailers</a>
+                    <ul>
+                      
+                        <li>
+                          <a href="product.html?id=ft-14" data-image-src="images/range-8.png">FT-14</a>
+                        </li>
+                      
+                        <li>
+                          <a href="product.html?id=ft-18" data-image-src="images/range-8.png">FT-18</a>
+                        </li>
+                      
+                        <li>
+                          <a href="product.html?id=ft-22" data-image-src="images/range-8.png">FT-22</a>
+                        </li>
+                      
+                    </ul>
+                  </li>
+                
+                  <li>
+                    <a href="products.html?model=people-carrier-trailers" data-image-src="images/range-9.png">People Carrier Trailers</a>
+                    <ul>
+                      
+                        <li>
+                          <a href="product.html?id=pc-16" data-image-src="images/range-9.png">PC-16</a>
+                        </li>
+                      
+                        <li>
+                          <a href="product.html?id=pc-24" data-image-src="images/range-9.png">PC-24</a>
+                        </li>
+                      
+                    </ul>
+                  </li>
+                
+                  <li>
+                    <a href="products.html?model=flat-bale-trailers" data-image-src="images/range-10.png">Flat/Bale Trailers</a>
+                    <ul>
+                      
+                        <li>
+                          <a href="product.html?id=fb-20" data-image-src="images/range-10.png">FB-20</a>
+                        </li>
+                      
+                        <li>
+                          <a href="product.html?id=fb-24" data-image-src="images/range-10.png">FB-24</a>
+                        </li>
+                      
+                        <li>
+                          <a href="product.html?id=fb-30" data-image-src="images/range-10.png">FB-30</a>
+                        </li>
+                      
+                    </ul>
+                  </li>
+                
+                  <li>
+                    <a href="products.html?model=new-dump-trailers" data-image-src="images/range-11.png">Dump Trailers</a>
+                    <ul>
+                      
+                        <li>
+                          <a href="product.html?id=hd6" data-image-src="images/range-11.png">RDS-10</a>
+                        </li>
+                      
+                        <li>
+                          <a href="product.html?id=hd8" data-image-src="images/range-11.png">RDS-14</a>
+                        </li>
+                      
+                    </ul>
+                  </li>
+                
+                  <li>
+                    <a href="products.html?model=rear-discharge-muck-spreaders" data-image-src="images/range-2.png">Rear Discharge Muck Spreaders</a>
+                    <ul>
+                      
+                        <li>
+                          <a href="product.html?id=fes-8" data-image-src="images/range-2.png">FES-8</a>
+                        </li>
+                      
+                        <li>
+                          <a href="product.html?id=fes-12" data-image-src="images/range-2.png">FES-12</a>
+                        </li>
+                      
+                    </ul>
+                  </li>
+                
               </ul>
             </li>
             <li>
@@ -339,8 +322,25 @@
               <a href="search.html" title="Search the our site">Search</a>
             </li>
           </ul>
-
         </nav>
+        <div class="mega-nav">
+          <div id="mega-nav-content" class="mega-nav-content">
+
+            <div id="products-range" class="products-range"></div>
+
+            <div id="product-models" class="product-models"></div>
+
+            <div id="product-details" class="product-image">
+              <div class="image-wrapper">
+                <a href="#" id="link-placeholder" class="placeholder">
+                  <img id="image-placeholder" src="#" alt="#">
+                </a>
+              </div>
+              <p id="product-specifications-details" class="product-specifications line-clamp-1 text-center placeholder"></p>
+            </div>
+
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -563,18 +563,20 @@
                         
     <div class="body-copy">
         <h3>Overview of the <span class="dummy-data-product-title-replace-span"></span></h3>
-        <ul class="dotted-list">
-            <li>Large capacity</li>
-            <li>Fully welded construction eliminates rust traps</li>
-            <li>Fixed headboard (ensures a rigid body)</li>
-            <li>Fully braced hinge points (eliminates cracking of material)</li>
-            <li>Genuine Marshall Spares – a full collection of spares are available for all models in the range</li>
-        </ul>
-        <p>The smallest model of trailer we produce is the S/1 drop side trailer. It has been designed to match small, compact tractors for use in the groundcare and leisure sectors. Despite being the entry-level model the entire trailer is built using CNC controlled machines to guarantee strength and finish.</p>
-        <p>The drop side design provides excellent versatility, allowing the trailer to be used as a flat-bed or a proper trailer. This drastically increases the jobs this trailer can be used for, whether it is moving pallets, small machines, sand or grass; it really can handle all jobs. The S/1 also has the option of mesh sides, which further improves its versatility and makes it an ideal product for the leisure industry.</p>
-        <p>The body of the S/1 is built from 2.5mm steel, which is the perfect blend between strength and manageability; the sides still have to be easily removable. The hinge points for the sides are also reinforced to prevent cracking or twisting under heavy loads. To improve rigidity the trailer also has a fixed headboard, reducing flexing during loading and transport.</p>
-        <p>The trailer chassis utilies our tried and tested design developed over 60 years of trailer manufacturing, and provides exceptional strength. The S/1 is also fully-equipped with a hydraulic tipping ram, improving its efficiency and practicality.</p>
-        <p>The result of all these features and construction standards, is a heavy-duty drop-side trailer that is strong, practical and well finished.</p>
+        <div class="columned-content">
+            <ul class="dotted-list">
+                <li>Large capacity</li>
+                <li>Fully welded construction eliminates rust traps</li>
+                <li>Fixed headboard (ensures a rigid body)</li>
+                <li>Fully braced hinge points (eliminates cracking of material)</li>
+                <li>Genuine Marshall Spares – a full collection of spares are available for all models in the range</li>
+            </ul>
+            <p>The smallest model of trailer we produce is the S/1 drop side trailer. It has been designed to match small, compact tractors for use in the groundcare and leisure sectors. Despite being the entry-level model the entire trailer is built using CNC controlled machines to guarantee strength and finish.</p>
+            <p>The drop side design provides excellent versatility, allowing the trailer to be used as a flat-bed or a proper trailer. This drastically increases the jobs this trailer can be used for, whether it is moving pallets, small machines, sand or grass; it really can handle all jobs. The S/1 also has the option of mesh sides, which further improves its versatility and makes it an ideal product for the leisure industry.</p>
+            <p>The body of the S/1 is built from 2.5mm steel, which is the perfect blend between strength and manageability; the sides still have to be easily removable. The hinge points for the sides are also reinforced to prevent cracking or twisting under heavy loads. To improve rigidity the trailer also has a fixed headboard, reducing flexing during loading and transport.</p>
+            <p>The trailer chassis utilies our tried and tested design developed over 60 years of trailer manufacturing, and provides exceptional strength. The S/1 is also fully-equipped with a hydraulic tipping ram, improving its efficiency and practicality.</p>
+            <p>The result of all these features and construction standards, is a heavy-duty drop-side trailer that is strong, practical and well finished.</p>
+        </div>
     </div>
 
                     </div>
@@ -583,11 +585,11 @@
                 <div id="specifications-app" class="tab-item app-loading specifications-app">
                     <h3 class="tab-header">Specifications</h3>
                     <div class="tab-content">
+                        <h3>Compare specifications</h3>
                         <div class="flex specs-carousel-wrapper">
                             <div class="fixed-column w-[290px] flex-shrink-0">
                                 <ul class="specs-list flex flex-col">
                                     <li class="image-row">
-                                        <h3>Specifications & Prices</h3>
                                         <div class="carousel-controls">
                                             <button type="button" @click="prev">
                                                 <i class="fa-solid fa-caret-left"></i>
@@ -682,7 +684,7 @@
                     <h3 class="tab-header">Gallery</h3>
                     <div class="tab-content">
                         
-    <div class="flex flex-col gap-2 body-copy">
+    <div class="body-copy">
         <h3>
             Picture Showcase</h3>
         <ul class="gallery-list">
@@ -735,9 +737,9 @@
                     <h3 class="tab-header">Retro Fit</h3>
                     <div class="tab-content">
                         
-    <div class="flex flex-col gap-2 body-copy">
-        <div class="padded-copy">
-            <h3>Retro Fit concept</h3>
+    <div class="body-copy">
+        <h3>Retro Fit concept</h3>
+        <div class="columned-content">
             <p>Retro fitting involves upgrading existing equipment with new features or components to enhance performance and functionality.</p>
             <p>At Marshall Trailers, we offer a range of <a href="retro-fit.html">retro fit solutions</a> to improve your trailer's capabilities. 
                 <br/>Whether you're looking to enhance safety, increase load capacity, or add modern conveniences, our retro fit solutions are designed to meet your specific needs.</p>
@@ -754,11 +756,10 @@
                     <a href="images/070420-1755-7885.jpg" title="750/60 x 30.5 (10 Stud) Wheels" class="none-gallery-fsLightbox image-link">
                         <img src="images/070420-1755-7885.jpg" alt="750/60 x 30.5 (10 Stud) Wheels">
                     </a>
-                    <div class="flex flex-col gap-1 text-sm">
+                    <div class="flex flex-col gap-0 text-sm">
                         <span>Part No:</span>
-                        <span>0032-2</span>
+                        <strong>0032-2</strong>
                     </div>
-                    <span class="price">£200.00</span>
                 </div>
                 <div class="copy-wrapper">
                     <div class="copy">
@@ -767,7 +768,29 @@
                 </div>
             </div>
             <div class="action">
-                <a href="mailto:charlesp@marshall-trailers.co.uk?Subject=Stock Clearance item: 0032-2" class="bttn">Email to buy or enquire</a>
+                <div class="price-wrapper">
+                    <p>Cost per unit: <strong>£200.00</strong>
+                    </p>
+                </div>
+                <form class="single-input-form form">
+                    <label for="quantity-0032-2" class="flex flex-col gap-1">
+                        <span class="text-sm">Quantity</span>
+                        <input type="text" 
+                            inputmode="numeric"
+                            pattern="[0-9]*" 
+                            id="quantity-0032-2" 
+                            name="quantity-0032-2" 
+                            class="quantity-input" 
+                            value="1" min="1" 
+                            aria-label="Quantity">
+                    </label>
+                    <button type="button" class="bttn add-to-basket">
+                        <span class="icon">
+                            <i class="fa-solid fa-basket-shopping"></i>
+                        </span>
+                        <span>Add</span>
+                    </button>
+                </form>
             </div>
         </div>
     </div>
@@ -783,11 +806,10 @@
                     <a href="images/070420-1755-7885.jpg" title="Flexible Cables" class="none-gallery-fsLightbox image-link">
                         <img src="images/070420-1755-7885.jpg" alt="Flexible Cables">
                     </a>
-                    <div class="flex flex-col gap-1 text-sm">
+                    <div class="flex flex-col gap-0 text-sm">
                         <span>Part No:</span>
-                        <span>0021-0</span>
+                        <strong>0021-0</strong>
                     </div>
-                    <span class="price">£1100.00</span>
                 </div>
                 <div class="copy-wrapper">
                     <div class="copy">
@@ -796,7 +818,29 @@
                 </div>
             </div>
             <div class="action">
-                <a href="mailto:charlesp@marshall-trailers.co.uk?Subject=Stock Clearance item: 0021-0" class="bttn">Email to buy or enquire</a>
+                <div class="price-wrapper">
+                    <p>Cost per unit: <strong>£1100.00</strong>
+                    </p>
+                </div>
+                <form class="single-input-form form">
+                    <label for="quantity-0021-0" class="flex flex-col gap-1">
+                        <span class="text-sm">Quantity</span>
+                        <input type="text" 
+                            inputmode="numeric"
+                            pattern="[0-9]*" 
+                            id="quantity-0021-0" 
+                            name="quantity-0021-0" 
+                            class="quantity-input" 
+                            value="1" min="1" 
+                            aria-label="Quantity">
+                    </label>
+                    <button type="button" class="bttn add-to-basket">
+                        <span class="icon">
+                            <i class="fa-solid fa-basket-shopping"></i>
+                        </span>
+                        <span>Add</span>
+                    </button>
+                </form>
             </div>
         </div>
     </div>
@@ -812,11 +856,10 @@
                     <a href="images/070420-1803-2655.jpg" title="Screw Nuts" class="none-gallery-fsLightbox image-link">
                         <img src="images/070420-1803-2655.jpg" alt="Screw Nuts">
                     </a>
-                    <div class="flex flex-col gap-1 text-sm">
+                    <div class="flex flex-col gap-0 text-sm">
                         <span>Part No:</span>
-                        <span>7732</span>
+                        <strong>7732</strong>
                     </div>
-                    <span class="price">£50.00</span>
                 </div>
                 <div class="copy-wrapper">
                     <div class="copy">
@@ -825,7 +868,29 @@
                 </div>
             </div>
             <div class="action">
-                <a href="mailto:charlesp@marshall-trailers.co.uk?Subject=Stock Clearance item: 7732" class="bttn">Email to buy or enquire</a>
+                <div class="price-wrapper">
+                    <p>Cost per unit: <strong>£50.00</strong>
+                    </p>
+                </div>
+                <form class="single-input-form form">
+                    <label for="quantity-7732" class="flex flex-col gap-1">
+                        <span class="text-sm">Quantity</span>
+                        <input type="text" 
+                            inputmode="numeric"
+                            pattern="[0-9]*" 
+                            id="quantity-7732" 
+                            name="quantity-7732" 
+                            class="quantity-input" 
+                            value="1" min="1" 
+                            aria-label="Quantity">
+                    </label>
+                    <button type="button" class="bttn add-to-basket">
+                        <span class="icon">
+                            <i class="fa-solid fa-basket-shopping"></i>
+                        </span>
+                        <span>Add</span>
+                    </button>
+                </form>
             </div>
         </div>
     </div>
@@ -841,11 +906,10 @@
                     <a href="images/080118-1235-3843.jpg" title="Dragon Elastic Motor" class="none-gallery-fsLightbox image-link">
                         <img src="images/080118-1235-3843.jpg" alt="Dragon Elastic Motor">
                     </a>
-                    <div class="flex flex-col gap-1 text-sm">
+                    <div class="flex flex-col gap-0 text-sm">
                         <span>Part No:</span>
-                        <span>4004</span>
+                        <strong>4004</strong>
                     </div>
-                    <span class="price">£26.50</span>
                 </div>
                 <div class="copy-wrapper">
                     <div class="copy">
@@ -854,7 +918,29 @@
                 </div>
             </div>
             <div class="action">
-                <a href="mailto:charlesp@marshall-trailers.co.uk?Subject=Stock Clearance item: 4004" class="bttn">Email to buy or enquire</a>
+                <div class="price-wrapper">
+                    <p>Cost per unit: <strong>£26.50</strong>
+                    </p>
+                </div>
+                <form class="single-input-form form">
+                    <label for="quantity-4004" class="flex flex-col gap-1">
+                        <span class="text-sm">Quantity</span>
+                        <input type="text" 
+                            inputmode="numeric"
+                            pattern="[0-9]*" 
+                            id="quantity-4004" 
+                            name="quantity-4004" 
+                            class="quantity-input" 
+                            value="1" min="1" 
+                            aria-label="Quantity">
+                    </label>
+                    <button type="button" class="bttn add-to-basket">
+                        <span class="icon">
+                            <i class="fa-solid fa-basket-shopping"></i>
+                        </span>
+                        <span>Add</span>
+                    </button>
+                </form>
             </div>
         </div>
     </div>
@@ -870,11 +956,10 @@
                     <a href="images/080118-1235-4824.jpg" title="Metal Reinforced Guards" class="none-gallery-fsLightbox image-link">
                         <img src="images/080118-1235-4824.jpg" alt="Metal Reinforced Guards">
                     </a>
-                    <div class="flex flex-col gap-1 text-sm">
+                    <div class="flex flex-col gap-0 text-sm">
                         <span>Part No:</span>
-                        <span>127</span>
+                        <strong>127</strong>
                     </div>
-                    <span class="price">£400.00</span>
                 </div>
                 <div class="copy-wrapper">
                     <div class="copy">
@@ -883,7 +968,29 @@
                 </div>
             </div>
             <div class="action">
-                <a href="mailto:charlesp@marshall-trailers.co.uk?Subject=Stock Clearance item: 127" class="bttn">Email to buy or enquire</a>
+                <div class="price-wrapper">
+                    <p>Cost per unit: <strong>£400.00</strong>
+                    </p>
+                </div>
+                <form class="single-input-form form">
+                    <label for="quantity-127" class="flex flex-col gap-1">
+                        <span class="text-sm">Quantity</span>
+                        <input type="text" 
+                            inputmode="numeric"
+                            pattern="[0-9]*" 
+                            id="quantity-127" 
+                            name="quantity-127" 
+                            class="quantity-input" 
+                            value="1" min="1" 
+                            aria-label="Quantity">
+                    </label>
+                    <button type="button" class="bttn add-to-basket">
+                        <span class="icon">
+                            <i class="fa-solid fa-basket-shopping"></i>
+                        </span>
+                        <span>Add</span>
+                    </button>
+                </form>
             </div>
         </div>
     </div>

@@ -457,25 +457,75 @@
         marshallTrailers.topNavigation.close();
       });
 
+      $topDrawer.on("mouseleave", function () {
+        marshallTrailers.topNavigation.closeMegaNav();
+      });
+
       $topNavigation.find(".main-menu > li").hover(function () {
-        if ($(this).hasClass("has-submenu")) {
-          $megaNav.addClass("open");
+        if ($(this).hasClass("has-mega-nav")) {
+          marshallTrailers.topNavigation.openMegaNav();
         } else {
-          $megaNav.removeClass("open");
+          marshallTrailers.topNavigation.closeMegaNav();
         }
       });
 
-      // $topDrawer.on("mouseleave", function () {
-      //   marshallTrailers.topNavigation.closeMegaNav();
-      // });
+      this.megaNavInit();
+    },
+
+    megaNavInit: function () {
+      var $megaNavList = $("#mega-nav-list");
+      var $megaNavContainer = $("#mega-nav-content");
+      var $rangeContainer = $("#products-range");
+      var $modelsContainer = $("#product-models");
+      var $specificationDetails = $("#product-specifications-details");
+
+      var $rangeItems = $("<ul></ul>");
+      $megaNavList.find("> li").each(function () {
+        var $rangeLink = $(this).find("> a").clone();
+        var $li = $("<li></li>");
+        $rangeItems.append($li.append($rangeLink));
+
+        var $productModels = $(this).find("ul").clone();
+        $modelsContainer.append($productModels);
+      });
+      $rangeContainer.append($rangeItems);
+
+      $modelsContainer.find("li").each(function (index) {
+        $(this).on("mouseenter", function () {
+          $modelsContainer.find("li").removeClass("active");
+          $(this).addClass("active");
+        });
+      });
+
+      $rangeItems.find("li").each(function (index) {
+        $(this).on("mouseenter", function () {
+          $rangeContainer.find("li").removeClass("active");
+          $(this).addClass("active");
+          $modelsContainer.find("ul").removeClass("active");
+          $modelsContainer.find(".active").removeClass("active");
+          $modelsContainer.find("ul").eq(index).addClass("active");
+        });
+      });
+
+      $megaNavContainer.find("li").on("mouseenter", function () {
+        var imgSrc = $(this).find("a").data("image-src");
+        var linkHref = $(this).find("a").attr("href");
+        var title = $(this).find("a").text().trim();
+        var $imagePlaceholder = $("#image-placeholder");
+        var $linkPlaceholder = $("#link-placeholder");
+        $imagePlaceholder.attr("src", imgSrc);
+        $linkPlaceholder.attr("href", linkHref);
+        $specificationDetails.text(title);
+      });
     },
 
     openMegaNav: function () {
-      $(".mega-nav").addClass("open");
+      $(".mega-nav").addClass("active");
     },
 
     closeMegaNav: function () {
-      $(".mega-nav").removeClass("open");
+      $(".mega-nav").removeClass("active");
+      $(".mega-nav").find(".active").removeClass("active");
     },
 
     open: function () {
