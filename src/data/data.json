@@ -936,13 +936,13 @@
       "models": [
         {
           "title": "RDS-10",
-          "id": "hd6",
+          "id": "rds10",
           "image": "images/range-11.png",
           "range_id": "new-dump-trailers"
         },
         {
           "title": "RDS-14",
-          "id": "hd8",
+          "id": "rds14",
           "image": "images/range-11.png",
           "range_id": "new-dump-trailers"
         }
