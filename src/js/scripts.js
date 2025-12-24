@@ -441,18 +441,41 @@
    */
   marshallTrailers.topNavigation = {
     init: function () {
-      var openBtn = $("#open-navigation");
-      var closeBtn = $("#close-navigation");
+      var $openBtn = $("#open-navigation");
+      var $closeBtn = $("#close-navigation");
+      var $topNavigation = $("#top-navigation");
+      var $megaNav = $(".mega-nav");
+      var $topDrawer = $("#top-drawer");
 
-      openBtn.on("click", function (e) {
+      $openBtn.on("click", function (e) {
         e.preventDefault();
         marshallTrailers.topNavigation.open();
       });
 
-      closeBtn.on("click", function (e) {
+      $closeBtn.on("click", function (e) {
         e.preventDefault();
         marshallTrailers.topNavigation.close();
       });
+
+      $topNavigation.find(".main-menu > li").hover(function () {
+        if ($(this).hasClass("has-submenu")) {
+          $megaNav.addClass("open");
+        } else {
+          $megaNav.removeClass("open");
+        }
+      });
+
+      // $topDrawer.on("mouseleave", function () {
+      //   marshallTrailers.topNavigation.closeMegaNav();
+      // });
+    },
+
+    openMegaNav: function () {
+      $(".mega-nav").addClass("open");
+    },
+
+    closeMegaNav: function () {
+      $(".mega-nav").removeClass("open");
     },
 
     open: function () {
@@ -464,6 +487,7 @@
     },
 
     close: function () {
+      marshallTrailers.topNavigation.closeMegaNav();
       $("#top-navigation").removeClass("opened").removeClass("scrolled");
     },
   };

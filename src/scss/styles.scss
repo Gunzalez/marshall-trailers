@@ -16,29 +16,13 @@
   }
 }
 
-#top-drawer {
-  background-color: white;
-
-  &:has(.scrolled) {
-    background-color: var(--brand-gray-light);
-
-    #top-navigation {
-      .main-menu {
-        background-color: var(--brand-gray-light);
-      }
+.homepage {
+  .logo-wrapper {
+    a,
+    i {
+      color: #fff;
+      text-shadow: 0 0 3px #000;
     }
-  }
-}
-
-#top-navigation {
-  margin-top: -160px;
-
-  &.opened {
-    margin-top: 0;
-  }
-
-  &.scrolled {
-    margin-top: -105px;
   }
 }
 
