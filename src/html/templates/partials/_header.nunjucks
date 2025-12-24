@@ -15,16 +15,16 @@
             <li class="mobile-only">
               <a href="index.html" title="Home">Home</a>
             </li>
-            <li class="has-submenu">
+            <li class="has-mega-nav">
               <a href="range.html" title="Products">Products</a>
-              <ul>
+              <ul id="mega-nav-list">
                 {% for item in rangesData %}
                   <li>
-                    <a href="products.html?model={{ item.id }}" data-image="{{ item.image }}">{{ item.title }}</a>
+                    <a href="products.html?model={{ item.id }}" data-image-src="{{ item.image }}">{{ item.title }}</a>
                     <ul>
                       {% for model in item.models %}
                         <li>
-                          <a href="product.html?id={{ model.id }}" data-image="{{ model.image }}">{{ model.title }}</a>
+                          <a href="product.html?id={{ model.id }}" data-image-src="{{ model.image }}">{{ model.title }}</a>
                         </li>
                       {% endfor %}
                     </ul>
@@ -56,141 +56,19 @@
           </ul>
         </nav>
         <div class="mega-nav">
-          <div class="mega-nav-content">
+          <div id="mega-nav-content" class="mega-nav-content">
 
-            <div class="level-0">
-              <ul>
-                <li>
-                  <a href="products.html?model=grain-and-silage">Silage / Grain Trailers</a>
-                </li>
-                <li>
-                  <a href="products.html?model=dropside-trailers">Drop-Side Trailers</a>
-                </li>
-                <li>
-                  <a href="products.html?model=flat-bale-trailers">Flat / Bale Trailers</a>
-                </li>
-                <li>
-                  <a href="products.html?model=new-low-loaders">Low Loader Trailers</a>
-                </li>
-                <li>
-                  <a href="products.html?model=new-dumper-trailers">Dumper Trailers</a>
-                </li>
-                <li>
-                  <a href="products.html?model=new-feed-trailers">Feed Trailers</a>
-                </li>
-                <li>
-                  <a href="products.html?model=livestock-trailers-containers">Livestock Containers</a>
-                </li>
-                <li>
-                  <a href="products.html?model=muck-spreaders">Muck Spreaders</a>
-                </li>
-                <li>
-                  <a href="products.html?model=rear-discharge-muck-spreaders">Rear Discharge Muck Spreaders</a>
-                </li>
-                <li>
-                  <a href="products.html?model=tankers">Tankers</a>
-                </li>
-                <li>
-                  <a href="products.html?model=people-carrier-trailers">People Carrier Trailers</a>
-                </li>
-              </ul>
-            </div>
+            <div id="products-range" class="products-range"></div>
 
-            <div class="level-1">
-              <ul class="open">
-                <li>
-                  <a href="product.html?id=qm6">QM-6 - 6.5 tons</a>
-                </li>
-                <li>
-                  <a href="product.html?id=qm8">QM-8 - 8.5 tons</a>
-                </li>
-                <li>
-                  <a href="product.html?id=qm11">QM-11 - 11 tons</a>
-                </li>
-                <li>
-                  <a href="product.html?id=qm12">QM-12 - 12 tons</a>
-                </li>
-                <li>
-                  <a href="product.html?id=qm1200">QM-1200 - 12 tons</a>
-                </li>
-                <li>
-                  <a href="product.html?id=qm14">QM-14 - 14.5 tons</a>
-                </li>
-                <li>
-                  <a href="product.html?id=qm1400">QM-1400 - 14.5 tons</a>
-                </li>
-                <li>
-                  <a href="product.html?id=qm16">QM-16 - 16.5 tons</a>
-                </li>
-                <li>
-                  <a href="product.html?id=qm1600">QM-1600 - 16.5 tons</a>
-                </li>
-                <li>
-                  <a href="product.html?id=qm1800">QM-1800 - 18.5 tons</a>
-                </li>
-              </ul>
-              <ul>
-                <li>
-                  <a href="product.html?id=s1" title="S-1" data-image=''>S-1 - 1.5 tons</a>
-                </li>
-                <li>
-                  <a href="product.html?id=s2" title="S-2">S-2 - 2 tons</a>
-                </li>
-                <li>
-                  <a href="product.html?id=s4" title="S-4">S-4 - 4 tons</a>
-                </li>
-                <li>
-                  <a href="product.html?id=s5" title="S-5">S-5 - 5 tons</a>
-                </li>
-                <li>
-                  <a href="product.html?id=s6" title="S-6">S-6 - 6.5 tons</a>
-                </li>
-                <li>
-                  <a href="product.html?id=s85" title="S-85">S-85 - 8.5 tons</a>
-                </li>
-                <li>
-                  <a href="product.html?id=s10" title="S-10">S-10 - 10.5 tons</a>
-                </li>
-              </ul>
-              <ul>
-                <li>
-                  <a href="product.html?id=bc21" title="BC-21">BC-21 - 21' x 8' / 10 tons</a>
-                </li>
-                <li>
-                  <a href="product.html?id=bc2510t" title="BC-25-10T">BC-25-10T - 25' x 8'</a>
-                </li>
-                <li>
-                  <a href="product.html?id=bc2512t" title="BC-25-12T">BC-25-12T - 25' x 8' 4"</a>
-                </li>
-                <li>
-                  <a href="product.html?id=bc28" title="BC-28">BC-28 - 28' x 8' 4" / 14 tons</a>
-                </li>
-                <li>
-                  <a href="product.html?id=bc32tan" title="BC-32-TAN">BC-32-TAN - 32' x 8' 4" / 14 tons</a>
-                </li>
-                <li>
-                  <a href="product.html?id=bc32tri" title="BC-32-TRI">BC-32-TRI - 32' x 8' 4" / 16 tons</a>
-                </li>
-                <li>
-                  <a href="product.html?id=bc36tan" title="BC-36-TAN">BC-36-TAN - 36' x 8' 4" / 16 tons</a>
-                </li>
-                <li>
-                  <a href="product.html?id=bc36tri" title="BC-36-TRI">BC-36-TRI - 36' x 8' 4" / 16 tons</a>
-                </li>
-                <li>
-                  <a href="product.html?id=additional-equipment" title="Additional Equipment">Additional Equipment</a>
-                </li>
-              </ul>
-            </div>
+            <div id="product-models" class="product-models"></div>
 
-            <div class="level-2">
+            <div id="product-details" class="product-image">
               <div class="image-wrapper">
-                <img id="product-image" src="images/product-qm-3.png" alt="qm-3">
+                <a href="#" id="link-placeholder" class="placeholder">
+                  <img id="image-placeholder" src="#" alt="#">
+                </a>
               </div>
-              <div class="product-specifications line-clamp-1 text-center">
-                <span>Product specifications</span>
-                <span id="product-specifications-details">6 tons / 3.7 cu.mtrs</span>
-              </div>
+              <p id="product-specifications-details" class="product-specifications line-clamp-1 text-center placeholder"></p>
             </div>
 
           </div>
