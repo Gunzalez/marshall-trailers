@@ -475,11 +475,13 @@
     megaNavInit: function () {
       var $megaNavList = $("#mega-nav-list");
       var $megaNavContainer = $("#mega-nav-content");
-      var $rangeContainer = $megaNavContainer.find("#products-range");
-      var $modelsContainer = $megaNavContainer.find("#product-models");
-      var $specificationDetails = $megaNavContainer.find(
-        "#product-specifications-details"
-      );
+      var $rangeContainer = $("<div></div>");
+      $rangeContainer.addClass("products-range");
+
+      var $modelsContainer = $("<div></div>");
+      $modelsContainer.addClass("product-models");
+
+      var $specificationDetails = $megaNavContainer.find("#product-details");
 
       var $rangeItems = $("<ul></ul>");
       $megaNavList.find("> li").each(function () {
@@ -491,6 +493,9 @@
         $modelsContainer.append($productModels);
       });
       $rangeContainer.append($rangeItems);
+
+      $megaNavContainer.prepend($modelsContainer);
+      $megaNavContainer.prepend($rangeContainer);
 
       $modelsContainer.find("li").each(function (index) {
         $(this).on("mouseenter", function () {
