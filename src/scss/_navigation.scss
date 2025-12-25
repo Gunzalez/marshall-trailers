@@ -152,6 +152,10 @@
     padding-top: 0.5rem;
     font-size: 1rem;
     font-weight: bold;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   li {
