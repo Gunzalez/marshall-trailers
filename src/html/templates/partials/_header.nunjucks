@@ -59,18 +59,7 @@
             </li>
           </ul>
         </nav>
-        <div class="mega-nav">
-          <div id="mega-nav-content" class="mega-nav-content">
-            <div id="product-details" class="product-image">
-              <div class="image-wrapper">
-                <a href="#" id="link-placeholder" class="placeholder">
-                  <img id="image-placeholder" src="#" alt="#">
-                </a>
-              </div>
-              <p id="product-details" class="product-specifications line-clamp-1 text-center placeholder"></p>
-            </div>
-          </div>
-        </div>
+        <div id="mega-nav" class="mega-nav"></div>
       </div>
     </div>
   </div>
