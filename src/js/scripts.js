@@ -362,34 +362,34 @@
         return $structure;
       };
 
-      $(".product-selector").each(function () {
-        var $range = $(this);
+      // $(".product-selector").each(function () {
+      //   var $range = $(this);
 
-        var $component = $("<div>")
-          .addClass("fancy-select-component")
-          .on("mouseleave", function () {
-            $(this).find(".structure").addClass("hide");
-          });
+      //   var $component = $("<div>")
+      //     .addClass("fancy-select-component")
+      //     .on("mouseleave", function () {
+      //       $(this).find(".structure").addClass("hide");
+      //     });
 
-        var $models = $range.find("option").slice(1);
-        var buttonsData = $models
-          .map(function () {
-            return {
-              id: $(this).val(),
-              title: $(this).text(),
-            };
-          })
-          .get();
+      //   var $models = $range.find("option").slice(1);
+      //   var buttonsData = $models
+      //     .map(function () {
+      //       return {
+      //         id: $(this).val(),
+      //         title: $(this).text(),
+      //       };
+      //     })
+      //     .get();
 
-        var $trigger = createTrigger($models.length);
-        var $dropdown = showDropdown(buttonsData);
-        $component.append($trigger).append($dropdown);
+      //   var $trigger = createTrigger($models.length);
+      //   var $dropdown = showDropdown(buttonsData);
+      //   $component.append($trigger).append($dropdown);
 
-        $("#" + this.id + "-selector")
-          .parent()
-          .removeClass("preload")
-          .append($component);
-      });
+      //   $("#" + this.id + "-selector")
+      //     .parent()
+      //     .removeClass("preload")
+      //     .append($component);
+      // });
     },
   };
 
@@ -618,9 +618,18 @@
     marshallTrailers.rangeSelects.init();
     marshallTrailers.singleInputForms.init();
 
-    $(".custom-select").customSelect({
-      search: false,
+    $(".model-select").selectric({
+      maxHeight: 200,
+      disableOnMobile: true,
+      nativeOnMobile: true,
+      openOnHover: true,
     });
+    // $(".model-select").on("change", function () {
+    //   window.location.href = "product.html?id=" + this.value;
+    // });
+    // .customSelect({
+    //   search: false,
+    // });
   };
 
   /** Runs the global init */

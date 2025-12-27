@@ -27,8 +27,8 @@
                         <img src="{{ item.image }}" alt="{{ item.title }}">
                     </div>
                 </a>
-                <div id="{{ item.id }}" class="product-selector preload">
-                    <select  id="{{ item.id }}-selector" name="{{ item.id }}" onChange="window.location.href='products.html?model=' + this.value" class="fancy-select">
+                <div id="{{ item.id }}" class="product-selector">
+                    <select id="{{ item.id }}-selector" name="{{ item.id }}" onChange="window.location.href='product.html?id=' + this.value" class="model-select">
                         <option selected>Select a model</option>
                         {% for model in item.models %}
                             <option value="{{ model.id }}">{{ model.title }}</option>
