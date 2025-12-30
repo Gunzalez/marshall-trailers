@@ -622,7 +622,6 @@
       maxHeight: 200,
       disableOnMobile: true,
       nativeOnMobile: true,
-      openOnHover: true,
     });
     // $(".model-select").on("change", function () {
     //   window.location.href = "product.html?id=" + this.value;
