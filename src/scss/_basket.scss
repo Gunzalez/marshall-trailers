@@ -1,0 +1,84 @@
+/* Base Styles */
+#floating-basket {
+  position: fixed;
+  z-index: 1000;
+  background: #fff;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  font-family: sans-serif;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  padding: 10px;
+
+  .title {
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+  }
+
+  .basket-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5px 5px;
+  }
+
+  .basket-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.375rem;
+    line-height: 1;
+  }
+
+  .total-price {
+    font-weight: bold;
+  }
+
+  .basket-content {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    border: 1px solid var(--brand-gray);
+    padding: 10px;
+  }
+}
+
+/* Desktop: Top Right */
+@media (min-width: 769px) {
+  #floating-basket {
+    top: 65px;
+    right: 20px;
+    width: 400px;
+  }
+
+  .basket-inner {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .desktop-button {
+    background-color: var(--brand-red);
+    color: white;
+    padding: 8px;
+    writing-mode: vertical-rl;
+    font-size: 0.8rem;
+  }
+
+  .basket-wrapper {
+    flex-grow: 1;
+  }
+}
+
+/* Mobile: Full Width Bottom */
+@media (max-width: 768px) {
+  #floating-basket {
+    bottom: 0;
+    right: 0;
+    left: 0;
+    width: 100%;
+    border-top: 3px solid var(--brand-red);
+  }
+
+  .desktop-button {
+    display: none;
+  }
+}
