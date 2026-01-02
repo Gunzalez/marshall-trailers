@@ -28,8 +28,8 @@
                     </div>
                 </a>
                 <div id="{{ item.id }}" class="product-selector">
-                    <select id="{{ item.id }}-selector" name="{{ item.id }}" onChange="window.location.href='product.html?id=' + this.value" class="model-select">
-                        <option selected>Select a model</option>
+                    <select id="{{ item.id }}-selector" name="{{ item.id }}" data-destination="product.html">
+                        <option selected>Select from {{ item.models|length }} models</option>
                         {% for model in item.models %}
                             <option value="{{ model.id }}">{{ model.title }}</option>
                         {% endfor %}

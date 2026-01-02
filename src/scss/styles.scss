@@ -508,22 +508,14 @@
     background-position: right 12px center;
     background-size: 12px;
     padding-right: 36px;
+    opacity: 0;
 
     cursor: pointer;
-    border-radius: 4px;
+    border-radius: 2px;
     background-color: var(--brand-gray);
-    // color: white;
     width: 100%;
     line-height: 1;
     padding: 12px 16px 10px 16px;
-    // border: 1px solid var(--brand-red);
-
-    // &:hover {
-    //   @media (hover: hover) {
-    //     background: white;
-    //     color: var(--brand-red);
-    //   }
-    // }
   }
 }
 
