@@ -949,6 +949,56 @@ window.data = data;
 
   /*---------------------------------------------------------------- */
 
+  marshallTrailers.partsFilters = {
+    partsFilters: null,
+    next: function () {
+      this.partsFilters.slick("slickNext");
+    },
+    previous: function () {
+      this.partsFilters.slick("slickPrev");
+    },
+    reset: function () {
+      this.partsFilters.slick("slickGoTo", 0);
+    },
+    disable: function () {
+      $(".prev-filter").prop("disabled", true);
+      $(".next-filter").prop("disabled", true);
+      $(".carousel-controls").addClass("disabled");
+    },
+    enable: function () {
+      $(".prev-filter").prop("disabled", false);
+      $(".next-filter").prop("disabled", false);
+      $(".carousel-controls").removeClass("disabled");
+    },
+    init: function () {
+      this.partsFilters = $(".parts-filters").slick({
+        dots: false,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        autoplay: false,
+        draggable: false,
+        swipe: false,
+        touchMove: false,
+        infinite: false,
+        arrows: false,
+      });
+
+      $(".prev-filter").on("click", function () {
+        marshallTrailers.partsFilters.previous();
+      });
+
+      $(".next-filter").on("click", function () {
+        marshallTrailers.partsFilters.next();
+      });
+
+      $(".reset-filters").on("click", function () {
+        marshallTrailers.partsFilters.reset();
+      });
+    },
+  };
+
+  /*---------------------------------------------------------------- */
+
   marshallTrailers.rangeSelects = {
     init: function () {
       $(".product-selector select").selectric({
@@ -962,6 +1012,30 @@ window.data = data;
             destination + "?id=" + encodeURIComponent(selectedValue);
           $(element).val("").selectric("refresh");
         },
+      });
+    },
+  };
+
+  /*---------------------------------------------------------------- */
+
+  marshallTrailers.basket = {
+    $element: null,
+    open: function () {
+      this.$element.addClass("open");
+    },
+    close: function () {
+      this.$element.removeClass("open");
+    },
+    init: function () {
+      this.$element = $("#floating-basket");
+      this.$element.find(".desktop-button").on("click", function () {
+        marshallTrailers.basket.$element.toggleClass("open");
+      });
+      this.$element.find(".close-basket-button").on("click", function () {
+        marshallTrailers.basket.close();
+      });
+      this.$element.find(".checkout-bttn").on("click", function () {
+        // Add checkout button functionality here
       });
     },
   };
@@ -1190,6 +1264,8 @@ window.data = data;
     marshallTrailers.carouselMini.init();
     marshallTrailers.rangeSelects.init();
     marshallTrailers.singleInputForms.init();
+    marshallTrailers.basket.init();
+    marshallTrailers.partsFilters.init();
   };
 
   /** Runs the global init */
