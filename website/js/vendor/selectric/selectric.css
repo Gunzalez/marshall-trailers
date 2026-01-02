@@ -181,7 +181,8 @@
   border-left: 4px solid transparent;
   cursor: pointer;
   transition: all 0.2s ease;
-  margin-top: 1px;
+  margin-top: 2px;
+  height: 40px;
 }
 
 .selectric-items li[data-index="0"] {

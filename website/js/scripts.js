@@ -950,7 +950,7 @@ window.data = data;
   marshallTrailers.rangeSelects = {
     init: function () {
       $(".product-selector select").selectric({
-        maxHeight: 200,
+        maxHeight: 168,
         disableOnMobile: true,
         nativeOnMobile: true,
         onChange: function (element) {
