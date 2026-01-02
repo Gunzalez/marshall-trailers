@@ -326,6 +326,8 @@
       $(".mini-carousel-prev").on("click", function () {
         marshallTrailers.carouselMini.previous();
       });
+
+      $("#carousel-mini").removeClass("preload");
     },
   };
 
