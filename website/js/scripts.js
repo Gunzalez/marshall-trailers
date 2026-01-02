@@ -949,62 +949,17 @@ window.data = data;
 
   marshallTrailers.rangeSelects = {
     init: function () {
-      var createTrigger = function (productsCount) {
-        return $("<button>", {
-          class: "trigger",
-          type: "button",
-          text: "Select from " + productsCount + " models",
-        }).on("click", function () {
-          $(this).siblings(".structure").toggleClass("hide");
-        });
-      };
-
-      var showDropdown = function (products) {
-        var $structure = $("<div>").addClass("structure hide");
-
-        $.each(products, function (_idx, product) {
-          $("<button>", {
-            class: "option",
-            type: "button",
-            text: product.title,
-          })
-            .on("click", function () {
-              $(this).parent().addClass("hide");
-              window.location.href = "product.html?id=" + product.id;
-            })
-            .appendTo($structure);
-        });
-
-        return $structure;
-      };
-
-      $(".product-selector").each(function () {
-        var $range = $(this);
-
-        var $component = $("<div>")
-          .addClass("fancy-select-component")
-          .on("mouseleave", function () {
-            $(this).find(".structure").addClass("hide");
-          });
-
-        var $models = $range.find("option").slice(1);
-        var buttonsData = $models
-          .map(function () {
-            return {
-              id: $(this).val(),
-              title: $(this).text(),
-            };
-          })
-          .get();
-
-        var $trigger = createTrigger($models.length);
-        var $dropdown = showDropdown(buttonsData);
-        $component.append($trigger).append($dropdown);
-
-        $("#" + this.id + "-selector")
-          .parent()
-          .removeClass("preload")
-          .append($component);
+      $(".product-selector select").selectric({
+        maxHeight: 200,
+        disableOnMobile: true,
+        nativeOnMobile: true,
+        onChange: function (element) {
+          var selectedValue = $(element).val();
+          var destination = $(element).data("destination");
+          window.location.href =
+            destination + "?id=" + encodeURIComponent(selectedValue);
+          $(element).val("").selectric("refresh");
+        },
       });
     },
   };
@@ -1233,10 +1188,6 @@ window.data = data;
     marshallTrailers.carouselMini.init();
     marshallTrailers.rangeSelects.init();
     marshallTrailers.singleInputForms.init();
-
-    $(".custom-select").customSelect({
-      search: false,
-    });
   };
 
   /** Runs the global init */

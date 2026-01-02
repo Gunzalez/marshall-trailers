@@ -22,7 +22,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
       type="text/css">
     <link rel="stylesheet" href="css/styles.css" type="text/css">
-    <link rel="stylesheet" href="js/vendor/custom-select/jquery.select.css" type="text/css">
+    <link rel="stylesheet" href="js/vendor/selectric/selectric.css" type="text/css">
 
     <!-- javaScript -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4" defer></script>
@@ -34,7 +34,7 @@
     <script src="js/vendor/slick/slick.min.js" defer></script>
     <script src="js/vendor/fslightbox.js" defer></script>
     <script src="js/vendor/jquery.validate.min.js" defer></script>
-    <script src="js/vendor/custom-select/jquery.select.min.js" defer></script>
+    <script src="js/vendor/selectric/jquery.selectric.min.js" defer></script>
     <script src="js/vendor/mmenu.js" defer></script>
     <script src="js/vendor/lozad.min.js" defer></script>
     <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js" defer></script>
@@ -379,9 +379,9 @@
                         <img src="images/range-1.png" alt="Drop-side Trailers">
                     </div>
                 </a>
-                <div id="dropside-trailers" class="product-selector preload">
-                    <select  id="dropside-trailers-selector" name="dropside-trailers" onChange="window.location.href='products.html?model=' + this.value" class="fancy-select">
-                        <option selected>Select a model</option>
+                <div id="dropside-trailers" class="product-selector">
+                    <select id="dropside-trailers-selector" name="dropside-trailers" data-destination="product.html">
+                        <option selected>Select from 10 models</option>
                         
                             <option value="qm6">QM-6</option>
                         
@@ -414,9 +414,9 @@
                         <img src="images/range-2.png" alt="New Low Loaders">
                     </div>
                 </a>
-                <div id="new-low-loaders" class="product-selector preload">
-                    <select  id="new-low-loaders-selector" name="new-low-loaders" onChange="window.location.href='products.html?model=' + this.value" class="fancy-select">
-                        <option selected>Select a model</option>
+                <div id="new-low-loaders" class="product-selector">
+                    <select id="new-low-loaders-selector" name="new-low-loaders" data-destination="product.html">
+                        <option selected>Select from 4 models</option>
                         
                             <option value="ll-10t">LL-10T</option>
                         
@@ -437,9 +437,9 @@
                         <img src="images/range-3.png" alt="Grain &amp; Silage">
                     </div>
                 </a>
-                <div id="grain-and-silage" class="product-selector preload">
-                    <select  id="grain-and-silage-selector" name="grain-and-silage" onChange="window.location.href='products.html?model=' + this.value" class="fancy-select">
-                        <option selected>Select a model</option>
+                <div id="grain-and-silage" class="product-selector">
+                    <select id="grain-and-silage-selector" name="grain-and-silage" data-destination="product.html">
+                        <option selected>Select from 4 models</option>
                         
                             <option value="gs-10">GS-10</option>
                         
@@ -460,9 +460,9 @@
                         <img src="images/range-4.png" alt="Livestock Containers">
                     </div>
                 </a>
-                <div id="livestock-trailers-containers" class="product-selector preload">
-                    <select  id="livestock-trailers-containers-selector" name="livestock-trailers-containers" onChange="window.location.href='products.html?model=' + this.value" class="fancy-select">
-                        <option selected>Select a model</option>
+                <div id="livestock-trailers-containers" class="product-selector">
+                    <select id="livestock-trailers-containers-selector" name="livestock-trailers-containers" data-destination="product.html">
+                        <option selected>Select from 3 models</option>
                         
                             <option value="lc-10">LC-10</option>
                         
@@ -481,9 +481,9 @@
                         <img src="images/range-7.png" alt="Slurry Tankers">
                     </div>
                 </a>
-                <div id="slurry-tankers" class="product-selector preload">
-                    <select  id="slurry-tankers-selector" name="slurry-tankers" onChange="window.location.href='products.html?model=' + this.value" class="fancy-select">
-                        <option selected>Select a model</option>
+                <div id="slurry-tankers" class="product-selector">
+                    <select id="slurry-tankers-selector" name="slurry-tankers" data-destination="product.html">
+                        <option selected>Select from 3 models</option>
                         
                             <option value="st-2000">ST-2000</option>
                         
@@ -502,9 +502,9 @@
                         <img src="images/range-6.png" alt="Muck Spreaders">
                     </div>
                 </a>
-                <div id="muck-spreaders" class="product-selector preload">
-                    <select  id="muck-spreaders-selector" name="muck-spreaders" onChange="window.location.href='products.html?model=' + this.value" class="fancy-select">
-                        <option selected>Select a model</option>
+                <div id="muck-spreaders" class="product-selector">
+                    <select id="muck-spreaders-selector" name="muck-spreaders" data-destination="product.html">
+                        <option selected>Select from 3 models</option>
                         
                             <option value="ms-6">MS-6</option>
                         
@@ -523,9 +523,9 @@
                         <img src="images/range-8.png" alt="Feeder Trailers">
                     </div>
                 </a>
-                <div id="new-feeder-trailers" class="product-selector preload">
-                    <select  id="new-feeder-trailers-selector" name="new-feeder-trailers" onChange="window.location.href='products.html?model=' + this.value" class="fancy-select">
-                        <option selected>Select a model</option>
+                <div id="new-feeder-trailers" class="product-selector">
+                    <select id="new-feeder-trailers-selector" name="new-feeder-trailers" data-destination="product.html">
+                        <option selected>Select from 3 models</option>
                         
                             <option value="ft-14">FT-14</option>
                         
@@ -544,9 +544,9 @@
                         <img src="images/range-9.png" alt="People Carrier Trailers">
                     </div>
                 </a>
-                <div id="people-carrier-trailers" class="product-selector preload">
-                    <select  id="people-carrier-trailers-selector" name="people-carrier-trailers" onChange="window.location.href='products.html?model=' + this.value" class="fancy-select">
-                        <option selected>Select a model</option>
+                <div id="people-carrier-trailers" class="product-selector">
+                    <select id="people-carrier-trailers-selector" name="people-carrier-trailers" data-destination="product.html">
+                        <option selected>Select from 2 models</option>
                         
                             <option value="pc-16">PC-16</option>
                         
@@ -563,9 +563,9 @@
                         <img src="images/range-10.png" alt="Flat/Bale Trailers">
                     </div>
                 </a>
-                <div id="flat-bale-trailers" class="product-selector preload">
-                    <select  id="flat-bale-trailers-selector" name="flat-bale-trailers" onChange="window.location.href='products.html?model=' + this.value" class="fancy-select">
-                        <option selected>Select a model</option>
+                <div id="flat-bale-trailers" class="product-selector">
+                    <select id="flat-bale-trailers-selector" name="flat-bale-trailers" data-destination="product.html">
+                        <option selected>Select from 3 models</option>
                         
                             <option value="fb-20">FB-20</option>
                         
@@ -584,9 +584,9 @@
                         <img src="images/range-11.png" alt="Dump Trailers">
                     </div>
                 </a>
-                <div id="new-dump-trailers" class="product-selector preload">
-                    <select  id="new-dump-trailers-selector" name="new-dump-trailers" onChange="window.location.href='products.html?model=' + this.value" class="fancy-select">
-                        <option selected>Select a model</option>
+                <div id="new-dump-trailers" class="product-selector">
+                    <select id="new-dump-trailers-selector" name="new-dump-trailers" data-destination="product.html">
+                        <option selected>Select from 2 models</option>
                         
                             <option value="rds10">RDS-10</option>
                         
@@ -603,9 +603,9 @@
                         <img src="images/range-2.png" alt="Rear Discharge Muck Spreaders">
                     </div>
                 </a>
-                <div id="rear-discharge-muck-spreaders" class="product-selector preload">
-                    <select  id="rear-discharge-muck-spreaders-selector" name="rear-discharge-muck-spreaders" onChange="window.location.href='products.html?model=' + this.value" class="fancy-select">
-                        <option selected>Select a model</option>
+                <div id="rear-discharge-muck-spreaders" class="product-selector">
+                    <select id="rear-discharge-muck-spreaders-selector" name="rear-discharge-muck-spreaders" data-destination="product.html">
+                        <option selected>Select from 2 models</option>
                         
                             <option value="fes-8">FES-8</option>
                         
