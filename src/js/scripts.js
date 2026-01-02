@@ -352,6 +352,30 @@
 
   /*---------------------------------------------------------------- */
 
+  marshallTrailers.basket = {
+    $element: null,
+    open: function () {
+      this.$element.addClass("open");
+    },
+    close: function () {
+      this.$element.removeClass("open");
+    },
+    init: function () {
+      this.$element = $("#floating-basket");
+      this.$element.find(".desktop-button").on("click", function () {
+        marshallTrailers.basket.$element.toggleClass("open");
+      });
+      this.$element.find(".close-basket-button").on("click", function () {
+        marshallTrailers.basket.close();
+      });
+      this.$element.find(".checkout-bttn").on("click", function () {
+        // Add checkout button functionality here
+      });
+    },
+  };
+
+  /*---------------------------------------------------------------- */
+
   /**
    * @fsLightBoxLinks
    * Attaches fsLightbox to links with the none-gallery-fsLightbox class
@@ -574,6 +598,7 @@
     marshallTrailers.carouselMini.init();
     marshallTrailers.rangeSelects.init();
     marshallTrailers.singleInputForms.init();
+    marshallTrailers.basket.init();
   };
 
   /** Runs the global init */

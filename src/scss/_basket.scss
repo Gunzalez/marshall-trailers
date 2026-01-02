@@ -40,14 +40,23 @@
     border: 1px solid var(--brand-gray);
     padding: 10px;
   }
+
+  .close-basket-button {
+    cursor: pointer;
+  }
 }
 
 /* Desktop: Top Right */
 @media (min-width: 769px) {
   #floating-basket {
     top: 65px;
-    right: 20px;
+    right: -345px;
     width: 400px;
+    transition: all 0.3s ease-in-out;
+
+    &.open {
+      right: 20px;
+    }
   }
 
   .basket-inner {
@@ -61,6 +70,7 @@
     padding: 8px;
     writing-mode: vertical-rl;
     font-size: 0.8rem;
+    cursor: pointer;
   }
 
   .basket-wrapper {
@@ -71,11 +81,15 @@
 /* Mobile: Full Width Bottom */
 @media (max-width: 768px) {
   #floating-basket {
-    bottom: 0;
+    bottom: -120px;
     right: 0;
     left: 0;
     width: 100%;
     border-top: 3px solid var(--brand-red);
+
+    &.open {
+      bottom: 0;
+    }
   }
 
   .desktop-button {

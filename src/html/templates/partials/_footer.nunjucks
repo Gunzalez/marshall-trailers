@@ -34,7 +34,7 @@
     </div>
 </div>
 
-<div id="floating-basket" class="basket-closed">
+<div id="floating-basket">
     <div class="basket-inner">
         <div class="desktop-button">
             Your Marshall
@@ -42,7 +42,7 @@
         <div class="basket-wrapper">
             <div class="basket-header">
                 <h4 class="title">Your basket</h4>
-                <button type="button">
+                <button type="button" class="close-basket-button">
                     <i class="fa-solid fa-xmark text-lg"></i>
                 </button>
             </div>
@@ -51,7 +51,7 @@
                     <span class="items">58 items</span>
                     <span class="total-price">£1234.56</span>
                 </div>
-                <button type="button" class="bttn">
+                <button type="button" class="bttn checkout-bttn">
                     <span>
                         <i class="fa-solid fa-cart-shopping"></i>
                     </span>
