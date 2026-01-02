@@ -333,6 +333,56 @@
 
   /*---------------------------------------------------------------- */
 
+  marshallTrailers.partsFilters = {
+    partsFilters: null,
+    next: function () {
+      this.partsFilters.slick("slickNext");
+    },
+    previous: function () {
+      this.partsFilters.slick("slickPrev");
+    },
+    reset: function () {
+      this.partsFilters.slick("slickGoTo", 0);
+    },
+    disable: function () {
+      $(".prev-filter").prop("disabled", true);
+      $(".next-filter").prop("disabled", true);
+      $(".carousel-controls").addClass("disabled");
+    },
+    enable: function () {
+      $(".prev-filter").prop("disabled", false);
+      $(".next-filter").prop("disabled", false);
+      $(".carousel-controls").removeClass("disabled");
+    },
+    init: function () {
+      this.partsFilters = $(".parts-filters").slick({
+        dots: false,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        autoplay: false,
+        draggable: false,
+        swipe: false,
+        touchMove: false,
+        infinite: false,
+        arrows: false,
+      });
+
+      $(".prev-filter").on("click", function () {
+        marshallTrailers.partsFilters.previous();
+      });
+
+      $(".next-filter").on("click", function () {
+        marshallTrailers.partsFilters.next();
+      });
+
+      $(".reset-filters").on("click", function () {
+        marshallTrailers.partsFilters.reset();
+      });
+    },
+  };
+
+  /*---------------------------------------------------------------- */
+
   marshallTrailers.rangeSelects = {
     init: function () {
       $(".product-selector select").selectric({
@@ -599,6 +649,7 @@
     marshallTrailers.rangeSelects.init();
     marshallTrailers.singleInputForms.init();
     marshallTrailers.basket.init();
+    marshallTrailers.partsFilters.init();
   };
 
   /** Runs the global init */

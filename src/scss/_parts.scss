@@ -1,0 +1,38 @@
+.parts-on-desktop {
+  gap: 1rem;
+  display: flex;
+  flex-direction: column;
+
+  .parts-filters-wrapper {
+    gap: 1rem;
+    display: flex;
+  }
+
+  .parts-filters {
+    overflow: hidden;
+    flex: 1;
+  }
+
+  .slide {
+    width: 290px;
+    background-color: red;
+  }
+
+  .display-none {
+    display: none;
+  }
+
+  .initial-filter {
+    background-color: white;
+    border-right: 1px solid var(--brand-gray);
+    width: 300px;
+  }
+
+  label {
+    gap: 0.5rem;
+    display: flex;
+    align-items: start;
+    margin-bottom: 10px;
+    flex-direction: column;
+  }
+}
