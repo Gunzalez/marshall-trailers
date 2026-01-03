@@ -1,23 +1,31 @@
 var basket_total = 0; // running total for selected machine config
 var spares_total = 0; // running total for spares basket
 
-$(document).ready(function () {
+function clearList() {
   var num_filters = 7;
+  for (var i = 2; i < num_filters; i++) {
+    $("#filter" + i)
+      .empty()
+      .parent(".slide")
+      .removeClass("selected");
+  }
+}
 
+$(document).ready(function () {
   $("#filter1").change(function () {
     $("#processing").fadeIn("fast");
 
-    if ($("#range:hidden").length > 0) {
-      $("#range").show();
-      $("#model").hide().empty();
-    }
+    $("#range").val("").removeClass("display-none");
+    $("#model").addClass("display-none").empty();
 
     // set data, used by model, range selects //
     $("#fields").data("level", 1);
     $("#fields").data("cid", $(this).val());
 
+    clearList();
+
     // get child cats //
-    if ($(this).val() != "df") {
+    if ($(this).val() !== "df" && $(this).val() !== "") {
       $.ajax({
         type: "get",
         url: "/ajax/ajax_filter.php",
@@ -25,14 +33,7 @@ $(document).ready(function () {
         dataType: "json",
         success: function (dat) {
           if (dat.cats != null) {
-            for (var i = 2; i < num_filters; i++) {
-              $("#filter" + i)
-                .parent("li")
-                .removeClass("selected");
-              $("#filter" + i).empty();
-            }
-
-            $("#filter2").parent("li").addClass("selected");
+            $("#filter2").parent(".slide").addClass("selected");
 
             for (var i = 0; i < dat.cats.length; i++) {
               $("#filter2").append(
@@ -46,14 +47,6 @@ $(document).ready(function () {
           }
         },
       });
-    } else {
-      // remove any previously selected filter //
-      for (var i = 2; i < num_filters; i++) {
-        $("#filter" + i)
-          .parent("li")
-          .removeClass("selected");
-        $("#filter" + i).empty();
-      }
     }
 
     // get spares results //
@@ -70,6 +63,7 @@ $(document).ready(function () {
       dataType: "html",
       success: function (content) {
         $("#processing").fadeOut("fast");
+        console.log(content);
         $("#results").html(content).show();
       },
     });
@@ -109,7 +103,7 @@ $(document).ready(function () {
           if (i > 5 && $desktop) {
             $("#filter" + i)
               .parent("li")
-              .addClass("displayNone");
+              .addClass("display-none");
           }
         }
 
@@ -117,7 +111,7 @@ $(document).ready(function () {
           $("#filter" + nextFilter)
             .parent("li")
             .addClass("selected")
-            .removeClass("displayNone");
+            .removeClass("display-none");
 
           for (var i = 0; i < dat.cats.length; i++) {
             $("#filter" + nextFilter).append(
@@ -208,7 +202,7 @@ $(document).ready(function () {
         }
 
         if ($("#model:hidden").length > 0) {
-          $("#model").fadeIn();
+          $("#model").show();
         }
       },
     });
@@ -299,8 +293,8 @@ $(document).ready(function () {
     $("#processing").fadeIn("fast");
 
     $("#filter1").val("");
-    $("#range").hide().val("");
-    $("#model").hide().empty();
+    $("#range").addClass("display-none").val("");
+    $("#model").addClass("display-none").empty();
 
     for (var i = 2; i < num_filters; i++) {
       $("#filter" + i)
@@ -326,7 +320,7 @@ $(document).ready(function () {
   $("#results").on("click", ".btn_addBasket", function (event) {
     event.preventDefault();
 
-    marshall.stickyBaskest.pushOut();
+    marshallTrailers.basket.open();
     $("#basket #progress").show();
 
     var li = $(this).parent("li").prev("li");
@@ -358,7 +352,7 @@ $(document).ready(function () {
   $("#results").on("click", ".btn_addBasketRelated", function (event) {
     event.preventDefault();
 
-    marshall.stickyBaskest.pushOut();
+    marshallTrailers.basket.open();
     $("#basket #progress").show();
 
     var li = $(this).parent(".add").parent("li");
