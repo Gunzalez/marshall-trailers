@@ -347,12 +347,10 @@
     disable: function () {
       $(".prev-filter").prop("disabled", true);
       $(".next-filter").prop("disabled", true);
-      $(".carousel-controls").addClass("disabled");
     },
     enable: function () {
       $(".prev-filter").prop("disabled", false);
       $(".next-filter").prop("disabled", false);
-      $(".carousel-controls").removeClass("disabled");
     },
     init: function () {
       this.partsFilters = $(".parts-filters").slick({
