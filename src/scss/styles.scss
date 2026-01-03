@@ -273,21 +273,18 @@
         border-color: var(--brand-yellow);
       }
     }
-  }
 
-  &.disabled {
-    button {
+    &[disabled] {
       cursor: default;
-      border-color: #ccc;
-      opacity: 0.5;
+      opacity: 0.75;
 
       i {
-        color: #ccc;
+        color: var(--brand-gray);
       }
 
       @media (hover: hover) {
         &:hover {
-          border-color: #ccc;
+          border-color: #e0e0e0;
         }
       }
     }
@@ -410,7 +407,7 @@
 
   .tab-header {
     background-color: white;
-    color: var(--colour-text);
+    color: var(--colour-black);
   }
 
   .tabs-list {
