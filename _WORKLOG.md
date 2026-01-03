@@ -9,6 +9,12 @@
 - 17th December: 6hrs
 - 18th December: 2hrs
 - 22nd December: 2hrs
+- 23rd December: 4hrs
+- 24th December: 2hrs
+- 27th December: 2hrs
+- 28th December: 2hrs
+
+- 2nd January: 6hrs
 
 #### TODO
 
@@ -24,6 +30,5 @@
 
 # today
 
-retrofit steps: - 4 hrs
-retrofit page is completed, plus refactor homepage sections - 3 hrs
-refactors and starts new sections - 2 hrs
+- 3rd January
+  Continues parts sections
