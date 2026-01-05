@@ -2,6 +2,8 @@
 
 ## Time spent
 
+- TODO: Add missing weeks before 13th December
+
 - 13th December: 12hrs
 - 14th December: 12hrs
 - 15th December: 12hrs
@@ -15,6 +17,9 @@
 - 28th December: 2hrs
 
 - 2nd January: 6hrs
+- 3rd January: 2hrs
+- 4th January: 3hrs
+- 5th January: 3hrs
 
 #### TODO
 
