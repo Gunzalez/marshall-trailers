@@ -260,10 +260,10 @@
                             <h3 class="title">
                                 <div>
                                     <span class="label">Part no:</span>
-                                    <span class="value">051-01-9046</span></div>
+                                    <span class="value">051-01-9080</span></div>
                                 <div>
                                     <span class="label">Description:</span>
-                                    <span class="value">UCF210 Bearing - 50mm ID - Pst 09.2019</span></div>
+                                    <span class="value">UCF210 Bolts - 30mm ID - Pst 09.2019</span></div>
                             </h3>
 
                             <div class="machines-wrapper">
@@ -317,131 +317,7 @@
 
                             <li class="print-hide add-to-basket">
                                 <div>
-                                    <label>
-                                        <span class="sr-only">Quantity:</span>
-                                        <select class="quantity">
-                                            <option value="1">1 </option>
-                                            <option value="2">2 </option>
-                                            <option value="3">3 </option>
-                                            <option value="4">4 </option>
-                                            <option value="5">5 </option>
-                                            <option value="6">6 </option>
-                                            <option value="7">7 </option>
-                                            <option value="8">8 </option>
-                                            <option value="9">9 </option>
-                                            <option value="10">10 </option>
-                                            <option value="11">11 </option>
-                                            <option value="12">12 </option>
-                                            <option value="13">13 </option>
-                                            <option value="14">14 </option>
-                                            <option value="15">15 </option>
-                                            <option value="16">16 </option>
-                                            <option value="17">17 </option>
-                                            <option value="18">18 </option>
-                                            <option value="19">19 </option>
-                                            <option value="20">20 </option>
-                                            <option value="21">21 </option>
-                                            <option value="22">22 </option>
-                                            <option value="23">23 </option>
-                                            <option value="24">24 </option>
-                                            <option value="25">25 </option>
-                                            <option value="26">26 </option>
-                                            <option value="27">27 </option>
-                                            <option value="28">28 </option>
-                                            <option value="29">29 </option>
-                                            <option value="30">30 </option>
-                                            <option value="31">31 </option>
-                                            <option value="32">32 </option>
-                                            <option value="33">33 </option>
-                                            <option value="34">34 </option>
-                                            <option value="35">35 </option>
-                                            <option value="36">36 </option>
-                                            <option value="37">37 </option>
-                                            <option value="38">38 </option>
-                                            <option value="39">39 </option>
-                                            <option value="40">40 </option>
-                                            <option value="41">41 </option>
-                                            <option value="42">42 </option>
-                                            <option value="43">43 </option>
-                                            <option value="44">44 </option>
-                                            <option value="45">45 </option>
-                                            <option value="46">46 </option>
-                                            <option value="47">47 </option>
-                                            <option value="48">48 </option>
-                                            <option value="49">49 </option>
-                                            <option value="50">50 </option>
-                                            <option value="51">51 </option>
-                                            <option value="52">52 </option>
-                                            <option value="53">53 </option>
-                                            <option value="54">54 </option>
-                                            <option value="55">55 </option>
-                                            <option value="56">56 </option>
-                                            <option value="57">57 </option>
-                                            <option value="58">58 </option>
-                                            <option value="59">59 </option>
-                                            <option value="60">60 </option>
-                                            <option value="61">61 </option>
-                                            <option value="62">62 </option>
-                                            <option value="63">63 </option>
-                                            <option value="64">64 </option>
-                                            <option value="65">65 </option>
-                                            <option value="66">66 </option>
-                                            <option value="67">67 </option>
-                                            <option value="68">68 </option>
-                                            <option value="69">69 </option>
-                                            <option value="70">70 </option>
-                                            <option value="71">71 </option>
-                                            <option value="72">72 </option>
-                                            <option value="73">73 </option>
-                                            <option value="74">74 </option>
-                                            <option value="75">75 </option>
-                                            <option value="76">76 </option>
-                                            <option value="77">77 </option>
-                                            <option value="78">78 </option>
-                                            <option value="79">79 </option>
-                                            <option value="80">80 </option>
-                                            <option value="81">81 </option>
-                                            <option value="82">82 </option>
-                                            <option value="83">83 </option>
-                                            <option value="84">84 </option>
-                                            <option value="85">85 </option>
-                                            <option value="86">86 </option>
-                                            <option value="87">87 </option>
-                                            <option value="88">88 </option>
-                                            <option value="89">89 </option>
-                                            <option value="90">90 </option>
-                                            <option value="91">91 </option>
-                                            <option value="92">92 </option>
-                                            <option value="93">93 </option>
-                                            <option value="94">94 </option>
-                                            <option value="95">95 </option>
-                                            <option value="96">96 </option>
-                                            <option value="97">97 </option>
-                                            <option value="98">98 </option>
-                                            <option value="99">99 </option>
-                                            <option value="100">100 </option>
-                                            <option value="101">101 </option>
-                                            <option value="102">102 </option>
-                                            <option value="103">103 </option>
-                                            <option value="104">104 </option>
-                                            <option value="105">105 </option>
-                                            <option value="106">106 </option>
-                                            <option value="107">107 </option>
-                                            <option value="108">108 </option>
-                                            <option value="109">109 </option>
-                                            <option value="110">110 </option>
-                                            <option value="111">111 </option>
-                                            <option value="112">112 </option>
-                                            <option value="113">113 </option>
-                                            <option value="114">114 </option>
-                                            <option value="115">115 </option>
-                                            <option value="116">116 </option>
-                                            <option value="117">117 </option>
-                                            <option value="118">118 </option>
-                                            <option value="119">119 </option>
-                                            <option value="120">120 </option>
-                                        </select>
-                                    </label>
+                                    {{ macros.quantityField("quantity-051-01-9080") }}
                                     <input type="hidden" class="sid" value="3789">
                                     <input type="hidden" class="price" value="45.34">
                                 </div>
@@ -455,6 +331,172 @@
                                 </div>
                             </li>
                         </ul>
+                    </li>
+                    <li class="result">
+                        <a href="https://www.marshall-trailers.co.uk/uploads/spares/large/052-01-16x60.jpg" title="M16 x 60 Hex Bolt BZP" class="none-gallery-fsLightbox spare-thumbnail"><img src="https://www.marshall-trailers.co.uk/uploads/spares/052-01-16x60.jpg" alt="M16 x 60 Hex Bolt BZP"></a>
+
+                        <div class="details">
+                            <h3 class="title">
+                                <div>
+                                    <span class="label">Part no:</span>
+                                    <span class="value">051-01-9046</span></div>
+                                <div>
+                                    <span class="label">Description:</span>
+                                    <span class="value">Metal Bearing Cast Iron</span></div>
+                            </h3>
+                            <div class="machines-wrapper">
+                                <h4 class="header">Machines:</h4>
+                                <ul class="machines-list">
+                                    <li>
+                                        <a href="product.html?id=qm6" title="QM-6">QM-6</a>
+                                    </li>
+                                    <li>
+                                        <a href="product.html?id=qm8" title="QM-8">QM-8</a>
+                                    </li>
+                                    <li>
+                                        <a href="product.html?id=qm11" title="QM-11">QM-11</a>
+                                    </li>
+                                    <li>
+                                        <a href="product.html?id=qm12" title="QM-12">QM-12</a>
+                                    </li>
+                                    <li>
+                                        <a href="product.html?id=qm1200" title="QM-1200">QM-1200</a>
+                                    </li>
+                                    <li>
+                                        <a href="product.html?id=qm14" title="QM-14">QM-14</a>
+                                    </li>
+                                    <li>
+                                        <a href="product.html?id=qm1400" title="QM-1400">QM-1400</a>
+                                    </li>
+                                    <li>
+                                        <a href="product.html?id=qm16" title="QM-16">QM-16</a>
+                                    </li>
+                                    <li>
+                                        <a href="product.html?id=qm1600" title="QM-1600">QM-1600</a>
+                                    </li>
+                                    <li>
+                                        <a href="product.html?id=s2" title="S-2">S-2</a>
+                                    </li>
+                                    <li>
+                                        <a href="product.html?id=s4" title="S-4">S-4</a>
+                                    </li>
+                                    <li>
+                                        <a href="product.html?id=s5" title="S-5">S-5</a>
+                                    </li>
+                                    <li>
+                                        <a href="product.html?id=s6" title="S-6">S-6</a>
+                                    </li>
+                                    <li>
+                                        <a href="product.html?id=s85" title="S-85">S-85</a>
+                                    </li>
+                                    <li>
+                                        <a href="product.html?id=s10" title="S-10">S-10</a>
+                                    </li>
+                                    <li>
+                                        <a href="product.html?id=bc21" title="BC-21">BC-21</a>
+                                    </li>
+                                    <li>
+                                        <a href="product.html?id=bc2510t" title="BC-25-10T">BC-25-10T</a>
+                                    </li>
+                                    <li>
+                                        <a href="product.html?id=bc2512t" title="BC-25-12T">BC-25-12T</a>
+                                    </li>
+                                    <li>
+                                        <a href="product.html?id=bc32tan" title="BC-32-TAN">BC-32-TAN</a>
+                                    </li>
+                                    <li>
+                                        <span>BC/18</span></li>
+                                    <li>
+                                        <span>QMD/6</span></li>
+                                    <li>
+                                        <span>QMD/8</span></li>
+                                    <li>
+                                        <span>QMD/11</span></li>
+                                    <li>
+                                        <span>QMD/12H</span></li>
+                                    <li>
+                                        <span>QMD/14H</span></li>
+                                    <li>
+                                        <span>MS-45</span></li>
+                                    <li>
+                                        <a href="/muck-spreaders/ms60" title="MS-60">MS-60</a>
+                                    </li>
+                                    <li>
+                                        <a href="/muck-spreaders/ms75" title="MS-75">MS-75</a>
+                                    </li>
+                                    <li>
+                                        <a href="/muck-spreaders/ms90" title="MS-90">MS-90</a>
+                                    </li>
+                                    <li>
+                                        <a href="/muck-spreaders/ms105" title="MS-105">MS-105</a>
+                                    </li>
+                                    <li>
+                                        <a href="/rear-discharge-muck-spreaders/ves1500" title="VES-1500">VES-1500</a>
+                                    </li>
+                                    <li>
+                                        <a href="/rear-discharge-muck-spreaders/ves2000" title="VES-2000">VES-2000</a>
+                                    </li>
+                                    <li>
+                                        <a href="/rear-discharge-muck-spreaders/ves2500" title="VES-2500">VES-2500</a>
+                                    </li>
+                                    <li>
+                                        <a href="/tankers/st1200" title="ST-1200">ST-1200</a>
+                                    </li>
+                                    <li>
+                                        <a href="/tankers/st1400" title="ST-1400">ST-1400</a>
+                                    </li>
+                                    <li>
+                                        <a href="/tankers/st1600" title="ST-1600">ST-1600</a>
+                                    </li>
+                                    <li>
+                                        <a href="/tankers/st1800" title="ST-1800">ST-1800</a>
+                                    </li>
+                                    <li>
+                                        <a href="/tankers/st2000" title="ST-2000">ST-2000</a>
+                                    </li>
+                                    <li>
+                                        <a href="/tankers/st2300" title="ST-2300">ST-2300</a>
+                                    </li>
+                                    <li>
+                                        <a href="/tankers/st2550" title="ST-2550">ST-2550</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="categories-wrapper">
+                                <h4 class="header">Component categories:</h4>
+                                <ul class="categories-list">
+                                    <li>Bolts, nuts, fasteners &amp; washers</li>
+                                    <li>Bolts &amp; nuts</li>
+                                    <li>Plated</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <ul class="pricing">
+                            <li>
+                                <span class="label">Unit weight:</span>
+                                <span class="value">0.15kg</span></li>
+                            <li>
+                                <span class="label">Cost per item:</span>
+                                <span class="value price">£19,999.01</span></li>
+
+                            <li class="print-hide add-to-basket">
+                                <div>
+                                    {{ macros.quantityField("quantity-051-01-9046") }}
+                                    <input type="hidden" class="sid" value="2201">
+                                    <input type="hidden" class="price" value="1.01">
+                                </div>
+                                <div>
+                                    <a href="basket.html" title="Proceed to the checkout to send your order...." class="btn_addBasket bttn">
+                                        <span class="icon">
+                                            <i class="fa-solid fa-cart-shopping"></i>
+                                        </span>
+                                        <span>Add</span>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+
                     </li>
                 </ol>
             </form>

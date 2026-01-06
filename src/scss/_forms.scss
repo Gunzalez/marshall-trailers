@@ -178,38 +178,27 @@
     border-bottom: 1px solid var(--brand-gray);
   }
 
-  > ol {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-
-    li {
-      border-bottom: 1px solid var(--brand-gray);
-    }
-  }
-
   .spare-thumbnail {
     overflow: hidden;
     border-radius: 2px;
+    display: block;
+    max-width: 360px;
+    flex-shrink: 0;
 
     img {
-      width: 200px;
+      width: 100%;
       height: auto;
       aspect-ratio: 5 / 4;
-
-      @media (hover: hover) {
-        transition: all 0.3s ease-in-out;
-
-        &:hover {
-          transform: scale(1.03);
-        }
-      }
     }
   }
 
   .results-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
     > li {
-      padding-bottom: 1rem;
+      padding-bottom: 2rem;
       border-bottom: 1px solid var(--brand-gray);
 
       &:last-child {
@@ -221,8 +210,21 @@
 
   .result {
     display: flex;
-    align-items: flex-start;
-    gap: 1rem;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    .label,
+    .value {
+      display: block;
+    }
+
+    .value {
+      font-size: 1.2rem;
+    }
+
+    .header {
+      margin-bottom: 0.25rem;
+    }
 
     .details {
       flex-grow: 1;
@@ -241,25 +243,13 @@
       }
     }
 
-    .label,
-    .value {
-      display: block;
-    }
-
-    .value {
-      font-size: 1.2rem;
-    }
-
-    .header {
-      margin-bottom: 0.25rem;
-    }
-
     .machines-list {
       display: flex;
       flex-wrap: wrap;
       gap: 6px;
 
-      a {
+      a,
+      span {
         text-decoration: none;
         font-size: 0.9rem;
         background-color: var(--brand-gray);
@@ -267,6 +257,9 @@
         line-height: 1;
         display: inline-block;
         border-radius: 4px;
+      }
+
+      a {
         color: var(--brand-red);
         transition: all 0.3s ease-in-out;
 
@@ -276,6 +269,11 @@
             color: white;
           }
         }
+      }
+
+      span {
+        cursor: default;
+        color: var(--brand-text);
       }
     }
 
@@ -299,11 +297,12 @@
     }
 
     .pricing {
-      flex-grow: 1;
       display: flex;
       flex-direction: column;
       gap: 0.5rem;
       line-height: 1.2;
+      text-align: right;
+      min-width: 200px;
 
       .label {
         font-size: 0.9rem;
@@ -316,14 +315,41 @@
       .price {
         font-size: 2rem;
       }
-
-      border-left: 1px solid var(--brand-gray);
-      padding-left: 1rem;
     }
 
     .add-to-basket {
       display: flex;
       gap: 0.5rem;
+      margin-left: auto;
+      padding-bottom: 1rem;
+      margin-bottom: 1rem;
+    }
+  }
+
+  @media (min-width: $breakpoint3) {
+    .spare-thumbnail {
+      width: 240px;
+
+      img {
+        @media (hover: hover) {
+          transition: all 0.3s ease-in-out;
+
+          &:hover {
+            transform: scale(1.03);
+          }
+        }
+      }
+    }
+
+    .result {
+      align-items: flex-start;
+      flex-direction: row;
+      gap: 1rem;
+
+      .pricing {
+        border-left: 1px solid var(--brand-gray);
+        padding-left: 1rem;
+      }
     }
   }
 }
