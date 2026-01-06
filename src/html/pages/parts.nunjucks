@@ -265,7 +265,6 @@
                                     <span class="label">Description:</span>
                                     <span class="value">UCF210 Bolts - 30mm ID - Pst 09.2019</span></div>
                             </h3>
-
                             <div class="machines-wrapper">
                                 <h4 class="header">Machines:</h4>
                                 <ul class="machines-list">
@@ -295,7 +294,6 @@
                                     </li>
                                 </ul>
                             </div>
-
                             <div class="categories-wrapper">
                                 <h4 class="header">Component categories:</h4>
                                 <ul class="categories-list">
@@ -304,7 +302,10 @@
                                     <li>Flat flange style</li>
                                 </ul>
                             </div>
-
+                            <div class="notes">
+                                <h4 class="header">Notes:</h4>
+                                <p>SECURES HANDBRAKE CABLE.</p>
+                            </div>
                         </div>
 
                         <ul class="pricing">
@@ -468,6 +469,29 @@
                                     <li>Bolts, nuts, fasteners &amp; washers</li>
                                     <li>Bolts &amp; nuts</li>
                                     <li>Plated</li>
+                                </ul>
+                            </div>
+                            <div class="related-wrapper">
+                                <h4 class="header">Related Items:</h4>
+                                <ul class="related-list">
+                                    <li data-sid="4054" data-price="44.55" class="cf">
+                                        <a href="https://www.marshall-trailers.co.uk/uploads/spares/large/070-08-0001.jpg" title="Hyd Brake Ram 20mm Diameter (All Models)" class="none-gallery-fsLightbox light-box-link">070-08-0001</a>
+                                        <p>Hyd Brake Ram 20mm Diameter (All Models)</p>
+                                        <a href="/basket" title="Add this item to the basket...." class="btn_addBasketRelated print-hide bttn">
+                                            <span class="icon">
+                                                <i class="fa-solid fa-cart-shopping"></i>
+                                            </span>
+                                            <span>Add</span></a>
+                                    </li>
+                                    <li data-sid="4055" data-price="52.56" class="cf">
+                                        <a href="https://www.marshall-trailers.co.uk/uploads/spares/large/070-08-0005.jpg" title="Hyd Brake Ram 25mm Diameter (All Models)" class="none-gallery-fsLightbox light-box-link">070-08-0005</a>
+                                        <p>Hyd Brake Ram 25mm Diameter (All Models)</p>
+                                        <a href="/basket" title="Add this item to the basket...." class="btn_addBasketRelated print-hide bttn">
+                                            <span class="icon">
+                                                <i class="fa-solid fa-cart-shopping"></i>
+                                            </span>
+                                            <span>Add</span></a>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
