@@ -250,14 +250,10 @@
             </div>
         </div>
         <div id="results">
-
-            <h2>Your search results has returned 28 items.</h2>
-
+            <h2 class="results-title">Your search results has returned 28 items.</h2>
             <form class="form" method="post" autoComplete="off">
-                <ol>
-
+                <ol class="results-list">
                     <li class="result">
-
                         <a href="https://www.marshall-trailers.co.uk/uploads/spares/large/051-01-9046.jpg" title="UCF210 Bearing - 50mm ID - Pst 09.2019" class="none-gallery-fsLightbox spare-thumbnail"><img src="https://www.marshall-trailers.co.uk/uploads/spares/051-01-9046.jpg" alt="UCF210 Bearing - 50mm ID - Pst 09.2019"></a>
 
                         <div class="details">
@@ -271,7 +267,7 @@
                             </h3>
 
                             <div class="machines-wrapper">
-                                <h4 class="header">Machines</h4>
+                                <h4 class="header">Machines:</h4>
                                 <ul class="machines-list">
                                     <li>
                                         <a href="product.html?id=qm8" title="QM-8">QM-8</a>
@@ -301,7 +297,7 @@
                             </div>
 
                             <div class="categories-wrapper">
-                                <h4 class="header">Component categories</h4>
+                                <h4 class="header">Component categories:</h4>
                                 <ul class="categories-list">
                                     <li>Bearings</li>
                                     <li>Muckspreader bearings</li>
@@ -460,7 +456,6 @@
                             </li>
                         </ul>
                     </li>
-
                 </ol>
             </form>
         </div>
