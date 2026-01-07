@@ -111,43 +111,6 @@
 
   /*---------------------------------------------------------------- */
 
-  marshallTrailers.singleInputForms = {
-    init: function () {
-      var $forms = $(".single-input-form");
-      $forms.each(function (_idx, form) {
-        var $input = $(form).find("input");
-        if ($input.val().trim() === "") {
-          $(form).find("button").prop("disabled", true);
-        }
-        $input.on("input", function () {
-          if ($input.val().trim() === "") {
-            $(form).find("button").prop("disabled", true);
-          } else {
-            $input.val($input.val().replace(/[^0-9]/g, ""));
-            $(form).find("button").prop("disabled", false);
-          }
-        });
-        $(form)
-          .find("button")
-          .on("click", function (e) {
-            var val = $input.val().trim();
-            if (val === "") {
-              e.preventDefault();
-            } else {
-              var name = $input.attr("name");
-              console.log({ name: name, quantity: val });
-
-              // form.submit();
-              // TODO Replace with js to add to global basket
-              // TODO Probably a session variable to hold basket items
-            }
-          });
-      });
-    },
-  };
-
-  /*---------------------------------------------------------------- */
-
   /**
    * @carousel
    * Implements the Slick plugin
@@ -396,6 +359,7 @@
           $(element).val("").selectric("refresh");
         },
       });
+
       $(".quantity-select").selectric({
         maxHeight: 168,
         disableOnMobile: true,
@@ -651,7 +615,6 @@
     marshallTrailers.carousel.init();
     marshallTrailers.carouselMini.init();
     marshallTrailers.rangeSelects.init();
-    marshallTrailers.singleInputForms.init();
     marshallTrailers.basket.init();
     marshallTrailers.partsFilters.init();
 

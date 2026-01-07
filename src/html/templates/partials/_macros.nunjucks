@@ -1,3 +1,15 @@
+{% macro quantityField(name) %}
+    <label class="w-[80px] inline-block">
+        <span class="sr-only">Quantity:</span>
+        <select name="{{ name }}" id="{{ name }}" class="quantity quantity-select">
+            {% for i in range(1, 121) %}
+                <option value="{{ i }}">{{ i }}
+                </option>
+            {% endfor %}
+        </select>
+    </label>
+{% endmacro %}
+
 {% macro header(logoSrc) %}
     <div class="section logo-wrapper flex items-center sm:items-start justify-between pt-4">
         <a href="index.html"><img src="{{ logoSrc }}" alt="Marshall Trailers Logo" class="h-16 sm:h-12 sm:h-20"></a>
@@ -157,21 +169,11 @@
             </div>
             <div class="action">
                 <div class="price-wrapper">
-                    <p>Cost per unit: <strong>{{ price }}</strong>
-                    </p>
+                    <span class="lbl">Cost per unit:</span>
+                    <span class="val">{{ price }}</span>
                 </div>
                 <form class="single-input-form form">
-                    <label for="quantity-{{ part_no }}" class="flex flex-col gap-1">
-                        <span class="text-sm">Quantity</span>
-                        <input type="text" 
-                            inputmode="numeric"
-                            pattern="[0-9]*" 
-                            id="quantity-{{ part_no }}" 
-                            name="quantity-{{ part_no }}" 
-                            class="quantity-input" 
-                            value="1" min="1" 
-                            aria-label="Quantity">
-                    </label>
+                    {{ quantityField("quantity-" ~ part_no) }}
                     <button type="button" class="bttn add-to-basket">
                         <span class="icon">
                             <i class="fa-solid fa-cart-shopping"></i>
@@ -287,16 +289,4 @@
             <span>Configure</span>
         </button>
     </div>
-{% endmacro %}
-
-{% macro quantityField(name) %}
-    <label class="w-[70px] inline-block">
-        <span class="sr-only">Quantity:</span>
-        <select name="{{ name }}" id="{{ name }}" class="quantity quantity-select">
-            {% for i in range(1, 121) %}
-                <option value="{{ i }}">{{ i }}
-                </option>
-            {% endfor %}
-        </select>
-    </label>
 {% endmacro %}
