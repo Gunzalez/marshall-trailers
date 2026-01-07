@@ -385,6 +385,7 @@
     init: function () {
       $(".product-selector select").selectric({
         maxHeight: 168,
+        arrowButtonMarkup: '<b class="button"></b>',
         disableOnMobile: true,
         nativeOnMobile: true,
         onChange: function (element) {
@@ -394,6 +395,11 @@
             destination + "?id=" + encodeURIComponent(selectedValue);
           $(element).val("").selectric("refresh");
         },
+      });
+      $(".quantity-select").selectric({
+        maxHeight: 168,
+        disableOnMobile: true,
+        nativeOnMobile: true,
       });
     },
   };
@@ -648,6 +654,8 @@
     marshallTrailers.singleInputForms.init();
     marshallTrailers.basket.init();
     marshallTrailers.partsFilters.init();
+
+    window.marshallTrailers = marshallTrailers;
   };
 
   /** Runs the global init */
