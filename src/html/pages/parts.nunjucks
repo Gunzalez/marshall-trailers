@@ -259,11 +259,11 @@
                         <div class="details">
                             <h3 class="title">
                                 <div>
-                                    <span class="label">Part no:</span>
-                                    <span class="value">051-01-9080</span></div>
+                                    <span class="lbl">Part no:</span>
+                                    <span class="val">051-01-9080</span></div>
                                 <div>
-                                    <span class="label">Description:</span>
-                                    <span class="value">UCF210 Bolts - 30mm ID - Pst 09.2019</span></div>
+                                    <span class="lbl">Description:</span>
+                                    <span class="val">UCF210 Bolts - 30mm ID - Pst 09.2019</span></div>
                             </h3>
                             <div class="machines-wrapper">
                                 <h4 class="header">Machines:</h4>
@@ -310,10 +310,10 @@
 
                         <ul class="pricing">
                             <li>
-                                <span class="label">Unit weight:</span>
-                                <span class="value">2.20kg</span></li>
+                                <span class="lbl">Unit weight:</span>
+                                <span class="val">2.20kg</span></li>
                             <li>
-                                <span class="label">Cost per item:</span>
+                                <span class="lbl">Cost per item:</span>
                                 <span class="value price">£45.34</span></li>
 
                             <li class="print-hide add-to-basket">
@@ -339,11 +339,11 @@
                         <div class="details">
                             <h3 class="title">
                                 <div>
-                                    <span class="label">Part no:</span>
-                                    <span class="value">051-01-9046</span></div>
+                                    <span class="lbl">Part no:</span>
+                                    <span class="val">051-01-9046</span></div>
                                 <div>
-                                    <span class="label">Description:</span>
-                                    <span class="value">Metal Bearing Cast Iron</span></div>
+                                    <span class="lbl">Description:</span>
+                                    <span class="val">Metal Bearing Cast Iron</span></div>
                             </h3>
                             <div class="machines-wrapper">
                                 <h4 class="header">Machines:</h4>
@@ -498,10 +498,10 @@
 
                         <ul class="pricing">
                             <li>
-                                <span class="label">Unit weight:</span>
-                                <span class="value">0.15kg</span></li>
+                                <span class="lbl">Unit weight:</span>
+                                <span class="val">0.15kg</span></li>
                             <li>
-                                <span class="label">Cost per item:</span>
+                                <span class="lbl">Cost per item:</span>
                                 <span class="value price">£19,999.01</span></li>
 
                             <li class="print-hide add-to-basket">

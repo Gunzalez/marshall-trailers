@@ -213,12 +213,12 @@
     flex-direction: column;
     gap: 1rem;
 
-    .label,
-    .value {
+    .lbl,
+    .val {
       display: block;
     }
 
-    .value {
+    .val {
       font-size: 1.2rem;
     }
 
@@ -329,11 +329,11 @@
       text-align: right;
       min-width: 200px;
 
-      .label {
+      .lbl {
         font-size: 0.9rem;
       }
 
-      .value {
+      .val {
         font-size: 1.2rem;
       }
 
