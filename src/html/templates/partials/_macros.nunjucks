@@ -290,9 +290,9 @@
 {% endmacro %}
 
 {% macro quantityField(name) %}
-    <label>
+    <label class="w-[70px] inline-block">
         <span class="sr-only">Quantity:</span>
-        <select name="{{ name }}" id="{{ name }}" class="quantity">
+        <select name="{{ name }}" id="{{ name }}" class="quantity quantity-select">
             {% for i in range(1, 121) %}
                 <option value="{{ i }}">{{ i }}
                 </option>

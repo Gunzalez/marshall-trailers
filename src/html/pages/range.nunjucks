@@ -28,7 +28,7 @@
                     </div>
                 </a>
                 <div id="{{ item.id }}" class="product-selector">
-                    <select id="{{ item.id }}-selector" name="{{ item.id }}" data-destination="product.html">
+                    <select id="{{ item.id }}-selector" name="{{ item.id }}-selector" data-destination="product.html">
                         <option selected>Select from {{ item.models|length }} models</option>
                         {% for model in item.models %}
                             <option value="{{ model.id }}">{{ model.title }}</option>
