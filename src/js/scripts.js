@@ -346,24 +346,24 @@
 
   marshallTrailers.rangeSelects = {
     init: function () {
-      $(".product-selector select").selectric({
-        maxHeight: 168,
+      var $selects = $(".product-selector select").selectric({
+        maxHeight: 164,
         arrowButtonMarkup: '<b class="button"></b>',
-        disableOnMobile: true,
-        nativeOnMobile: true,
-        onChange: function (element) {
-          var selectedValue = $(element).val();
-          var destination = $(element).data("destination");
+      });
+
+      $selects.on("change", function () {
+        var $this = $(this);
+        var selectedValue = $this.val();
+        var destination = $this.data("destination");
+
+        if (selectedValue && destination) {
           window.location.href =
             destination + "?id=" + encodeURIComponent(selectedValue);
-          $(element).val("").selectric("refresh");
-        },
+        }
       });
 
       $(".quantity-select").selectric({
-        maxHeight: 168,
-        disableOnMobile: true,
-        nativeOnMobile: true,
+        maxHeight: 164,
       });
     },
   };
