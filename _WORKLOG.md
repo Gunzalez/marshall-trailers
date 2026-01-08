@@ -20,6 +20,8 @@
 - 3rd January: 2hrs
 - 4th January: 3hrs
 - 5th January: 3hrs
+- 6th January: 3hrs
+- 8th January: 3hrs
 
 #### TODO
 
