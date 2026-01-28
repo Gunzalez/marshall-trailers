@@ -378,11 +378,8 @@
     <div class="section body-copy">
         <div id="parts-on-desktop" class="parts-on-desktop">
             <div class="carousel-controls">
-                <button type="button" class="prev-filter">
+                <button type="button" class="prev-filter" disabled>
                     <i class="fa-solid fa-caret-left"></i>
-                </button>
-                <button type="button" class="next-filter" disabled>
-                    <i class="fa-solid fa-caret-right"></i>
                 </button>
             </div>
             <div class="parts-filters-wrapper">
@@ -394,7 +391,7 @@
                             <div class="filter-selects">
                                 <h4 class="title">Select part category:</h4>
 
-                                <select id="filter1">
+                                <select id="filter1" class="filter-select">
                                     <option value="">Select a component </option>
                                     <option value="94"> Axles </option>
                                     <option value="1233"> Bearings </option>
@@ -422,7 +419,7 @@
 
                                 </select>
 
-                                <select id="range" class="display-none">
+                                <select id="range" class="filter-select" disabled>
                                     <option value=""> Select a range </option>
                                     <option value="1"> Silage / Grain Trailers </option>
                                     <option value="2"> Drop-Side Trailers </option>
@@ -437,7 +434,7 @@
                                     <option value="15"> People Carrier Trailers </option>
                                 </select>
 
-                                <select id="model" class="display-none">
+                                <select id="model" class="filter-select" disabled>
                                     <option value=""> Select a model </option>
                                     <option value="132"> FT-18 </option>
                                     <option value="136"> PC-21 </option>
@@ -576,28 +573,28 @@
                 <div class="parts-filters">
                     <div class="slide">
                         <h3>Filter 2</h3>
-                        <ol id="filter2" class=""></ol>
+                        <ol id="filter2" data-level="2"></ol>
                     </div>
                     <div class="slide">
                         <h3>Filter 3</h3>
-                        <ol id="filter3"></ol>
+                        <ol id="filter3" data-level="3"></ol>
                     </div>
                     <div class="slide">
                         <h3>Filter 4</h3>
-                        <ol id="filter4"></ol>
+                        <ol id="filter4" data-level="4"></ol>
                     </div>
                     <div class="slide">
                         <h3>Filter 5</h3>
-                        <ol id="filter5"></ol>
+                        <ol id="filter5" data-level="5"></ol>
                     </div>
                     <div class="slide">
                         <h3>Filter 6</h3>
-                        <ol id="filter6"></ol>
+                        <ol id="filter6" data-level="6"></ol>
                         <button type="button" class="reset-filters bttn">Reset Filters</button>
                     </div>
                     <div class="slide">
                         <h3>Filter 7</h3>
-                        <ol id="filter7"></ol>
+                        <ol id="filter7" data-level="7"></ol>
                     </div>
                 </div>
             </div>
