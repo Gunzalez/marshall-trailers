@@ -407,7 +407,7 @@
 
   .tab-header {
     background-color: white;
-    color: var(--colour-black);
+    color: var(--brand-text);
   }
 
   .tabs-list {
@@ -536,6 +536,37 @@
     width: 100%;
     line-height: 1;
     padding: 12px 16px 10px 16px;
+  }
+
+  .selectric {
+    border: 1px solid var(--brand-gray);
+    background: var(--brand-gray);
+  }
+
+  .selectric .button {
+    background: var(--brand-gray);
+    color: var(--brand-text);
+
+    * {
+      display: none;
+    }
+  }
+
+  .selectric .button:after {
+    color: var(--brand-yellow);
+    content: "\f0d7";
+    font-family: FontAwesome;
+    font-size: 1rem;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    position: absolute;
+  }
+
+  .selectric-items li {
+    &:first-child {
+      display: none;
+    }
   }
 }
 

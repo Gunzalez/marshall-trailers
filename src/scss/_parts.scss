@@ -3,20 +3,65 @@
   display: flex;
   flex-direction: column;
   margin-bottom: 3rem;
+  overflow: hidden;
 
-  .parts-filters-wrapper {
-    gap: 1rem;
-    display: flex;
+  h3 {
+    background-color: var(--brand-gray);
+    color: white;
+    line-height: 1;
+    padding: 8px 10px 6px 10px;
   }
 
   .parts-filters {
+    margin: 0 -15px;
     overflow: hidden;
-    flex: 1;
+    box-sizing: border-box;
   }
 
   .slide {
-    width: 290px;
-    background-color: red;
+    padding: 0 15px;
+    padding-bottom: 15px;
+    border-right: 1px solid var(--brand-gray);
+    min-height: 500px;
+
+    ol {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+
+      a {
+        background-color: var(--brand-gray);
+        border-left: 6px solid transparent;
+        padding: 12px 10px 8px;
+        text-decoration: none;
+        width: 100%;
+        display: block;
+        transition: all 0.3s ease-in-out;
+        line-height: 1;
+
+        @media (hover: hover) {
+          &:hover {
+            background-color: white;
+            border-color: var(--brand-yellow);
+          }
+        }
+      }
+
+      li {
+        &.selected {
+          a {
+            background-color: white;
+            border-color: var(--brand-yellow);
+          }
+        }
+      }
+    }
+
+    &.selected {
+      h3 {
+        background-color: var(--brand-red-dark);
+      }
+    }
   }
 
   .display-none {
@@ -28,6 +73,10 @@
     border-right: 1px solid var(--brand-gray);
     width: 360px;
     padding-right: 40px;
+
+    h3 {
+      background-color: var(--brand-red-dark);
+    }
   }
 
   label {
