@@ -18,7 +18,7 @@
           offCanvas: {
             clone: true,
           },
-        }
+        },
       );
       var api = menu.API;
 
@@ -124,14 +124,14 @@
         imgUrls.push(
           $(item)
             .css("background-image")
-            .replace(/^url\(['"](.+)['"]\)/, "$1")
+            .replace(/^url\(['"](.+)['"]\)/, "$1"),
         );
       });
 
       /** initiate carousel after images are loaded */
       marshallTrailers.carousel.preloadImages(
         imgUrls,
-        marshallTrailers.carousel.initSlick
+        marshallTrailers.carousel.initSlick,
       );
     },
 
@@ -211,7 +211,7 @@
 
         var tabTitle = $$tabHeader.text().trim();
         var $tabButton = $(
-          '<button type="button" role="tab">' + tabTitle + "</button>"
+          '<button type="button" role="tab">' + tabTitle + "</button>",
         );
         $tabButton.on("click", setActiveTab);
         var $li = $("<li></li>");
@@ -298,6 +298,7 @@
 
   marshallTrailers.partsFilters = {
     partsFilters: null,
+    visibleSlides: 3,
     next: function () {
       this.partsFilters.slick("slickNext");
     },
@@ -315,10 +316,17 @@
       $(".prev-filter").prop("disabled", false);
       $(".next-filter").prop("disabled", false);
     },
+
+    setLiveLinks: function () {
+      $(".parts-filters").on("click", "ol a", function (e) {
+        console.log("clicked");
+      });
+    },
+
     init: function () {
       this.partsFilters = $(".parts-filters").slick({
         dots: false,
-        slidesToShow: 3,
+        slidesToShow: this.visibleSlides,
         slidesToScroll: 1,
         autoplay: false,
         draggable: false,
@@ -327,6 +335,17 @@
         infinite: false,
         arrows: false,
       });
+
+      this.partsFilters.on(
+        "afterChange",
+        function (event, slick, currentSlide) {
+          if (currentSlide > 0) {
+            marshallTrailers.partsFilters.enable();
+          } else {
+            marshallTrailers.partsFilters.disable();
+          }
+        },
+      );
 
       $(".prev-filter").on("click", function () {
         marshallTrailers.partsFilters.previous();
