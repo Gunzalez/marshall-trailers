@@ -297,16 +297,16 @@
   /*---------------------------------------------------------------- */
 
   marshallTrailers.partsFilters = {
-    partsFilters: null,
+    carousel: null,
     visibleSlides: 3,
     next: function () {
-      this.partsFilters.slick("slickNext");
+      this.carousel.slick("slickNext");
     },
     previous: function () {
-      this.partsFilters.slick("slickPrev");
+      this.carousel.slick("slickPrev");
     },
     reset: function () {
-      this.partsFilters.slick("slickGoTo", 0);
+      this.carousel.slick("slickGoTo", 0);
     },
     disable: function () {
       $(".prev-filter").prop("disabled", true);
@@ -317,14 +317,8 @@
       $(".next-filter").prop("disabled", false);
     },
 
-    setLiveLinks: function () {
-      $(".parts-filters").on("click", "ol a", function (e) {
-        console.log("clicked");
-      });
-    },
-
     init: function () {
-      this.partsFilters = $(".parts-filters").slick({
+      this.carousel = $("#parts-filters").slick({
         dots: false,
         slidesToShow: this.visibleSlides,
         slidesToScroll: 1,
@@ -336,16 +330,13 @@
         arrows: false,
       });
 
-      this.partsFilters.on(
-        "afterChange",
-        function (event, slick, currentSlide) {
-          if (currentSlide > 0) {
-            marshallTrailers.partsFilters.enable();
-          } else {
-            marshallTrailers.partsFilters.disable();
-          }
-        },
-      );
+      this.carousel.on("afterChange", function (event, slick, currentSlide) {
+        if (currentSlide > 0) {
+          marshallTrailers.partsFilters.enable();
+        } else {
+          marshallTrailers.partsFilters.disable();
+        }
+      });
 
       $(".prev-filter").on("click", function () {
         marshallTrailers.partsFilters.previous();
@@ -368,6 +359,8 @@
       var $selects = $(".product-selector select").selectric({
         maxHeight: 164,
         arrowButtonMarkup: '<b class="button"></b>',
+        disableOnMobile: true,
+        nativeOnMobile: true,
       });
 
       $selects.on("change", function () {
@@ -380,9 +373,17 @@
             destination + "?id=" + encodeURIComponent(selectedValue);
         }
       });
+    },
+  };
 
+  /*---------------------------------------------------------------- */
+
+  marshallTrailers.quantitySelects = {
+    init: function () {
       $(".quantity-select").selectric({
-        maxHeight: 164,
+        maxHeight: 168,
+        disableOnMobile: true,
+        nativeOnMobile: true,
       });
     },
   };
@@ -634,6 +635,7 @@
     marshallTrailers.carousel.init();
     marshallTrailers.carouselMini.init();
     marshallTrailers.rangeSelects.init();
+    marshallTrailers.quantitySelects.init();
     marshallTrailers.basket.init();
     marshallTrailers.partsFilters.init();
 
