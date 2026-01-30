@@ -1041,21 +1041,44 @@ window.data = data;
   /*---------------------------------------------------------------- */
 
   /**
-   * @fsLightBoxLinks
-   * Attaches fsLightbox to links with the none-gallery-fsLightbox class
-   * Allows single image lightbox popups
+   * @lc_lightbox
+   * Attaches lightbox functionality to links, gallery and single image
    */
-  marshallTrailers.fsLightBoxLinks = {
-    init: function () {
-      $(".none-gallery-fsLightbox").on("click", function (e) {
-        e.preventDefault();
-        var source = $(this).attr("href");
-        var lightbox = new FsLightbox();
-        lightbox.props.sources = [source];
-        lightbox.open();
+  marshallTrailers.lcLightBoxLinks = {
+    galleryInit: function () {
+      lc_lightbox(".lc_lightbox_gallery_link", {
+        wrap_class: "lcl_fade_oc",
+        gallery: true,
+        skin: "dark",
+        socials: false,
+        fullscreen: false,
+        // thumbs_nav: false,
+        touchswipe: false,
+        mousewheel: false,
+        txt_toggle_cmd: false,
+        max_width: "60%",
+        max_height: "63%",
       });
     },
+
+    soloInit: function () {
+      lc_lightbox(".lc_lightbox_link", {
+        wrap_class: "lcl_fade_oc",
+        gallery: false,
+        skin: "dark",
+        txt_toggle_cmd: false,
+        max_width: "60%",
+        max_height: "63%",
+      });
+    },
+
+    init: function () {
+      this.galleryInit();
+      this.soloInit();
+    },
   };
+
+  /*---------------------------------------------------------------- */
 
   /**
    * @backToTop
@@ -1256,7 +1279,7 @@ window.data = data;
   marshallTrailers.init = function () {
     marshallTrailers.topNavigation.init();
     marshallTrailers.mobileNavigation.init();
-    marshallTrailers.fsLightBoxLinks.init();
+    marshallTrailers.lcLightBoxLinks.init();
     marshallTrailers.responsiveTabs.init();
     marshallTrailers.carousel.init();
     marshallTrailers.carouselMini.init();
