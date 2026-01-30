@@ -972,35 +972,40 @@
     {
       "part_no": "SC0033",
       "description": "355-50Rx22.5 Radial (10 stud) Low Profile",
-      "cost": "£200.00",
+      "cost": "200.00",
+      "sid": "sid-1",
       "image": "images/clearance-2-large.jpg",
       "info": "Shop-soiled condition - These wheels are 6\" smaller in diameter than a standard super single. They are comparable in diameter to a 445-45x19.5 wheel. Excellent road performance and allows a lower centre of gravity for the trailer to improve stability."
     },
     {
       "part_no": "SC0011",
       "description": "16/70 x 20 (6 Stud) Complete Wheel - Grade 1",
-      "cost": "£225.00",
+      "cost": "225.00",
+      "sid": "sid-2",
       "image": "/images/clearance-1-large.jpg",
       "info": "Grade 1 Condition - Tyre may have some minor use or minor perishing. Wheel centre may be slightly rusty or marked. However overall tyre is in very good condition and holding pressure; almost like new. Delivery or collection can be arranged; delivery charges will apply."
     },
     {
       "part_no": "SC0010",
       "description": "340/457/13.00-18 BN2 (6 Stud) Complete Wheel - Grade 1",
-      "cost": "£150.00",
+      "cost": "150.00",
+      "sid": "sid-3",
       "image": "images/clearance-2.jpg",
       "info": "Shop-soiled condition - Tyre may have some minor use or minor perishing. Wheel centre may be slightly rusty or marked. However overall tyre is in very good condition and holding pressure; almost like new. Delivery or collection can be arranged; delivery charges will apply."
     },
     {
       "part_no": "SC0007",
       "description": "18-19.5 Track Tread (6 Stud) Complete Wheel - Grade 1",
-      "cost": "£375.00",
+      "cost": "375.00",
+      "sid": "sid-4",
       "image": "images/clearance-1-large.jpg",
       "info": "Used condition - Tyre may have some minor use or minor perishing. Wheel centre may be slightly rusty or marked. However overall tyre is in very good condition and holding pressure; almost like new. These wheels have a high load rating and are heavy built. Delivery or collection can be arranged; delivery charges will apply."
     },
     {
       "part_no": "SC0032",
       "description": "ESFA 10 Stud Axles",
-      "cost": "£450.00",
+      "cost": "450.00",
+      "sid": "sid-5",
       "image": "images/clearance-2.jpg",
       "info": "Used condition - 10 Stud ESFA Axles 400x100. Five available. Can be collected or delivery can be arranged with one of our lorries for an additional cost."
     }
