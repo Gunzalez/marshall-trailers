@@ -41,7 +41,7 @@
             <ol class="items-grid">
                 {% for item in clearanceData %}
                     <li>
-                        {{ macros.bagItem(item.description, item.cost, item.image, item.info, item.part_no) }}
+                        {{ macros.bagItem(item.description, item.cost, item.image, item.info, item.part_no, item.sid) }}
                     </li>
                 {% endfor %}
             </ol>

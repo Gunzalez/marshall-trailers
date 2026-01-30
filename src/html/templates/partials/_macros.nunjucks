@@ -145,7 +145,7 @@
     </div>
 {% endmacro %}
 
-{% macro bagItem(title, price, image, info, part_no) %}
+{% macro bagItem(title, price, image, info, part_no, sid) %}
     <div class="item-pod">
         <h5 class="line-clamp-2 title">
             {{ title }}
@@ -170,10 +170,12 @@
             <div class="action">
                 <div class="price-wrapper">
                     <span class="lbl">Cost per unit:</span>
-                    <span class="val">{{ price }}</span>
+                    <span class="val">£{{ price }}</span>
                 </div>
                 <form class="single-input-form form">
                     {{ quantityField("quantity-" ~ part_no) }}
+                    <input type="hidden" class="sid" name="sid" value="{{ sid }}">
+                    <input type="hidden" class="price" name="price" value="{{ price }}">
                     <button type="button" class="bttn add-to-basket">
                         <span class="icon">
                             <i class="fa-solid fa-cart-shopping"></i>
@@ -195,11 +197,11 @@
                 <br/>Whether you're looking to enhance safety, increase load capacity, or add modern conveniences, our retro fit solutions are designed to meet your specific needs.</p>
         </div>
         <div class="items-grid">
-            {{ bagItem("750/60 x 30.5 (10 Stud) Wheels", "£200.00", "images/070420-1755-7885.jpg", "These tyres massively reduce ground compactions and improve handling in wet conditions. Please note all prices are in place of standard tyres and includes axle upgrade to 10 Stud axle. When fitted, overall wheel track makes the machine too wide for road use.", "0032-2") }}
-            {{ bagItem("Flexible Cables", "£1100.00", "images/070420-1755-7885.jpg", "Tyre may have some minor use or minor perishing. Wheel centre may be slightly rusty or marked. However overall tyre is in very good condition and holding pressure; almost like new.", "0021-0") }}
-            {{ bagItem("Screw Nuts", "£50.00", "images/070420-1803-2655.jpg", "These wheels are 6 inches smaller in diameter than a standard super single. They are comparable in diameter to a 445-45x19.5 wheel. Excellent road performance and allows a lower centre of gravity for the trailer to improve stability.", "7732") }}
-            {{ bagItem("Dragon Elastic Motor", "£26.50", "images/080118-1235-3843.jpg", "Tyre may have some minor use or minor perishing. Wheel centre may be slightly rusty or marked. However overall tyre is in very good condition and holding pressure; almost like new.", "4004") }}
-            {{ bagItem("Metal Reinforced Guards", "£400.00", "images/080118-1235-4824.jpg", "10 Stud ESFA Axles 400x100. Used condition. Five available.", "127") }}
+            {{ bagItem("750/60 x 30.5 (10 Stud) Wheels", "300.00", "images/070420-1755-7885.jpg", "These tyres massively reduce ground compactions and improve handling in wet conditions. Please note all prices are in place of standard tyres and includes axle upgrade to 10 Stud axle. When fitted, overall wheel track makes the machine too wide for road use.", "0032-2", "sid1") }}
+            {{ bagItem("Flexible Cables", "1100.00", "images/070420-1755-7885.jpg", "Tyre may have some minor use or minor perishing. Wheel centre may be slightly rusty or marked. However overall tyre is in very good condition and holding pressure; almost like new.", "0021-0", "sid2") }}
+            {{ bagItem("Screw Nuts", "50.00", "images/070420-1803-2655.jpg", "These wheels are 6 inches smaller in diameter than a standard super single. They are comparable in diameter to a 445-45x19.5 wheel. Excellent road performance and allows a lower centre of gravity for the trailer to improve stability.", "7732", "sid3") }}
+            {{ bagItem("Dragon Elastic Motor", "26.50", "images/080118-1235-3843.jpg", "Tyre may have some minor use or minor perishing. Wheel centre may be slightly rusty or marked. However overall tyre is in very good condition and holding pressure; almost like new.", "4004", "sid4") }}
+            {{ bagItem("Metal Reinforced Guards", "400.00", "images/080118-1235-4824.jpg", "10 Stud ESFA Axles 400x100. Used condition. Five available.", "127", "sid5") }}
         </div>
     </div>
 {% endmacro %}
