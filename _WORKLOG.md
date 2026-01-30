@@ -29,7 +29,7 @@
 - 27th January: 8hrs
 - 29th January: 8hrs
 
-- 30th January: 5hrs
+- 30th January: 7hrs
 
 #### TODO
 
