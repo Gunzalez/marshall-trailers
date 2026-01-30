@@ -381,9 +381,10 @@
                 <button type="button" class="prev-filter" disabled>
                     <i class="fa-solid fa-caret-left"></i>
                 </button>
+                
             </div>
-            <div class="parts-filters-wrapper">
-                <div class="initial-filter">
+            <div id="parts-filters" class="parts-filters">
+                <div class="slide selected">
                     <h3>Filter 1</h3>
                     <form id="search-filter" class="filterList form" method="post" autoComplete="off">
                         <fieldset id="fields" class="fields">
@@ -570,39 +571,46 @@
                         </fieldset>
                     </form>
                 </div>
-                <div class="parts-filters">
-                    <div class="slide">
-                        <h3>Filter 2</h3>
-                        <ol id="filter2" data-level="2"></ol>
-                    </div>
-                    <div class="slide">
-                        <h3>Filter 3</h3>
-                        <ol id="filter3" data-level="3"></ol>
-                    </div>
-                    <div class="slide">
-                        <h3>Filter 4</h3>
-                        <ol id="filter4" data-level="4"></ol>
-                    </div>
-                    <div class="slide">
-                        <h3>Filter 5</h3>
-                        <ol id="filter5" data-level="5"></ol>
-                    </div>
-                    <div class="slide">
-                        <h3>Filter 6</h3>
-                        <ol id="filter6" data-level="6"></ol>
-                        <button type="button" class="reset-filters bttn">Reset Filters</button>
-                    </div>
-                    <div class="slide">
-                        <h3>Filter 7</h3>
-                        <ol id="filter7" data-level="7"></ol>
-                    </div>
+                <div class="slide">
+                    <h3>Filter 2</h3>
+
+                    <ol id="filter2" data-level="2">
+                        
+                    </ol>
+                </div>
+                <div class="slide">
+                    <h3>Filter 3</h3>
+                    <ol id="filter3" data-level="3">
+                        
+                    </ol>
+                </div>
+                <div class="slide">
+                    <h3>Filter 4</h3>
+                    <ol id="filter4" data-level="4"></ol>
+                </div>
+                <div class="slide">
+                    <h3>Filter 5</h3>
+                    <ol id="filter5" data-level="5"></ol>
+                </div>
+                <div class="slide">
+                    <h3>Filter 6</h3>
+                    <ol id="filter6" data-level="6"></ol>
+                </div>
+                <div class="slide">
+                    <h3>Filter 7</h3>
+                    <ol id="filter7" data-level="7"></ol>
                 </div>
             </div>
         </div>
         <div id="results"></div>
     </div>
 
-</div>
+    <div id="processing">
+        <div class="wrapper">
+            <p>Processing your request...</p>
+            <i class="fa-solid fa-spinner"></i>
+        </div>
+    </div>
 
 
       <div class="footer">

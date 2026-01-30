@@ -634,7 +634,7 @@ window.data = data;
           offCanvas: {
             clone: true,
           },
-        }
+        },
       );
       var api = menu.API;
 
@@ -727,43 +727,6 @@ window.data = data;
 
   /*---------------------------------------------------------------- */
 
-  marshallTrailers.singleInputForms = {
-    init: function () {
-      var $forms = $(".single-input-form");
-      $forms.each(function (_idx, form) {
-        var $input = $(form).find("input");
-        if ($input.val().trim() === "") {
-          $(form).find("button").prop("disabled", true);
-        }
-        $input.on("input", function () {
-          if ($input.val().trim() === "") {
-            $(form).find("button").prop("disabled", true);
-          } else {
-            $input.val($input.val().replace(/[^0-9]/g, ""));
-            $(form).find("button").prop("disabled", false);
-          }
-        });
-        $(form)
-          .find("button")
-          .on("click", function (e) {
-            var val = $input.val().trim();
-            if (val === "") {
-              e.preventDefault();
-            } else {
-              var name = $input.attr("name");
-              console.log({ name: name, quantity: val });
-
-              // form.submit();
-              // TODO Replace with js to add to global basket
-              // TODO Probably a session variable to hold basket items
-            }
-          });
-      });
-    },
-  };
-
-  /*---------------------------------------------------------------- */
-
   /**
    * @carousel
    * Implements the Slick plugin
@@ -777,14 +740,14 @@ window.data = data;
         imgUrls.push(
           $(item)
             .css("background-image")
-            .replace(/^url\(['"](.+)['"]\)/, "$1")
+            .replace(/^url\(['"](.+)['"]\)/, "$1"),
         );
       });
 
       /** initiate carousel after images are loaded */
       marshallTrailers.carousel.preloadImages(
         imgUrls,
-        marshallTrailers.carousel.initSlick
+        marshallTrailers.carousel.initSlick,
       );
     },
 
@@ -864,7 +827,7 @@ window.data = data;
 
         var tabTitle = $$tabHeader.text().trim();
         var $tabButton = $(
-          '<button type="button" role="tab">' + tabTitle + "</button>"
+          '<button type="button" role="tab">' + tabTitle + "</button>",
         );
         $tabButton.on("click", setActiveTab);
         var $li = $("<li></li>");
@@ -950,15 +913,16 @@ window.data = data;
   /*---------------------------------------------------------------- */
 
   marshallTrailers.partsFilters = {
-    partsFilters: null,
+    carousel: null,
+    visibleSlides: 3,
     next: function () {
-      this.partsFilters.slick("slickNext");
+      this.carousel.slick("slickNext");
     },
     previous: function () {
-      this.partsFilters.slick("slickPrev");
+      this.carousel.slick("slickPrev");
     },
     reset: function () {
-      this.partsFilters.slick("slickGoTo", 0);
+      this.carousel.slick("slickGoTo", 0);
     },
     disable: function () {
       $(".prev-filter").prop("disabled", true);
@@ -968,10 +932,11 @@ window.data = data;
       $(".prev-filter").prop("disabled", false);
       $(".next-filter").prop("disabled", false);
     },
+
     init: function () {
-      this.partsFilters = $(".parts-filters").slick({
+      this.carousel = $("#parts-filters").slick({
         dots: false,
-        slidesToShow: 3,
+        slidesToShow: this.visibleSlides,
         slidesToScroll: 1,
         autoplay: false,
         draggable: false,
@@ -979,6 +944,14 @@ window.data = data;
         touchMove: false,
         infinite: false,
         arrows: false,
+      });
+
+      this.carousel.on("afterChange", function (event, slick, currentSlide) {
+        if (currentSlide > 0) {
+          marshallTrailers.partsFilters.enable();
+        } else {
+          marshallTrailers.partsFilters.disable();
+        }
       });
 
       $(".prev-filter").on("click", function () {
@@ -999,17 +972,34 @@ window.data = data;
 
   marshallTrailers.rangeSelects = {
     init: function () {
-      $(".product-selector select").selectric({
+      var $selects = $(".product-selector select").selectric({
+        maxHeight: 164,
+        arrowButtonMarkup: '<b class="button"></b>',
+        disableOnMobile: true,
+        nativeOnMobile: true,
+      });
+
+      $selects.on("change", function () {
+        var $this = $(this);
+        var selectedValue = $this.val();
+        var destination = $this.data("destination");
+
+        if (selectedValue && destination) {
+          window.location.href =
+            destination + "?id=" + encodeURIComponent(selectedValue);
+        }
+      });
+    },
+  };
+
+  /*---------------------------------------------------------------- */
+
+  marshallTrailers.quantitySelects = {
+    init: function () {
+      $(".quantity-select").selectric({
         maxHeight: 168,
         disableOnMobile: true,
         nativeOnMobile: true,
-        onChange: function (element) {
-          var selectedValue = $(element).val();
-          var destination = $(element).data("destination");
-          window.location.href =
-            destination + "?id=" + encodeURIComponent(selectedValue);
-          $(element).val("").selectric("refresh");
-        },
       });
     },
   };
@@ -1261,9 +1251,11 @@ window.data = data;
     marshallTrailers.carousel.init();
     marshallTrailers.carouselMini.init();
     marshallTrailers.rangeSelects.init();
-    marshallTrailers.singleInputForms.init();
+    marshallTrailers.quantitySelects.init();
     marshallTrailers.basket.init();
     marshallTrailers.partsFilters.init();
+
+    window.marshallTrailers = marshallTrailers;
   };
 
   /** Runs the global init */
