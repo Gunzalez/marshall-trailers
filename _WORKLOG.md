@@ -29,17 +29,18 @@
 - 27th January: 8hrs
 - 29th January: 8hrs
 
-- 30th January: 3hrs
+- 30th January: 5hrs
 
 #### TODO
 
-- Replace lightBox
 - mobile version of parts
 - move to real repo
 - style filter headers
-- fast scroll to start on part filters
 
 ### DONE
+
+- Replace lightBox
+- fast scroll to start on part filters
 
 ### DON'T
 
