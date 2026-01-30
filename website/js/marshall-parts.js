@@ -1,9 +1,11 @@
 var basket_total = 0; // running total for selected machine config
 var spares_total = 0; // running total for spares basket
-var num_filters = 7;
+var totalNumFilters = 7;
+var numVisibleFilters = 3;
+var filters_sliding = false;
 
 function clearFilters() {
-  for (var i = 2; i < num_filters; i++) {
+  for (var i = 2; i < totalNumFilters; i++) {
     $("#filter" + i)
       .empty()
       .parent(".slide")
@@ -28,14 +30,12 @@ function updateFieldsMeta(level, cid) {
 
 function showResults(content) {
   $("#results").html(content).show();
-  refreshFsLightbox();
-  if ($.fn.selectric) {
-    $(".quantity-select").selectric({
-      maxHeight: 168,
-      disableOnMobile: true,
-      nativeOnMobile: true,
-    });
-  }
+
+  // re-init lightbox for new content //
+  window.marshallTrailers.fsLightBoxLinks.init();
+
+  // re-init selectric for new content //
+  window.marshallTrailers.quantitySelects.init();
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
         data: "level=2&pid=" + category_id,
         dataType: "json",
         success: function (dat) {
-          if (dat.cats != null) {
+          if (dat.cats !== null) {
             $("#filter2").parent(".slide").addClass("selected");
 
             for (var i = 0; i < dat.cats.length; i++) {
@@ -79,6 +79,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     refreshSelectric();
     clearResults();
+
     // get spares results //
     $.ajax({
       type: "get",
@@ -95,10 +96,14 @@ document.addEventListener("DOMContentLoaded", () => {
         $("#processing").fadeOut("fast");
         showResults(content);
       },
+      error: function (error) {
+        console.log(error["statusText"]);
+        $("#processing").fadeOut("fast");
+      },
     });
   });
 
-  $(".parts-filters").on("click", ".filter", function (event) {
+  $("#parts-filters").on("click", ".filter", function (event) {
     event.preventDefault();
 
     $("#processing").fadeIn("fast");
@@ -120,9 +125,9 @@ document.addEventListener("DOMContentLoaded", () => {
       data: "level=" + nextFilter + "&pid=" + cat_id,
       dataType: "json",
       success: function (dat) {
-        var $desktop = $("html").hasClass("desktop");
+        // var $desktop = $("html").hasClass("desktop");
 
-        for (var i = nextFilter; i <= num_filters; i++) {
+        for (var i = nextFilter; i <= totalNumFilters; i++) {
           $("#filter" + i)
             .parent(".slide")
             .removeClass("selected");
@@ -151,8 +156,11 @@ document.addEventListener("DOMContentLoaded", () => {
             );
           }
 
-          if (nextFilter > 3) {
-            window.marshallTrailers.partsFilters.next();
+          if (nextFilter > numVisibleFilters) {
+            window.marshallTrailers.partsFilters.carousel.slick(
+              "slickGoTo",
+              nextFilter - numVisibleFilters,
+            );
           }
 
           // if (nextFilter > 5 && $desktop) {
@@ -161,13 +169,15 @@ document.addEventListener("DOMContentLoaded", () => {
           // }
         }
 
-        if (level < 5 && $desktop) {
-          filters_sliding = true;
-          $(".filters").animate({ left: "0" }, "swing", function () {
-            filters_sliding = false;
-            $("#filter_nav").fadeOut();
-          });
-        }
+        $("#processing").fadeOut("fast");
+
+        // if (level < 5 && $desktop) {
+        //   filters_sliding = true;
+        //   $(".filters").animate({ left: "0" }, "swing", function () {
+        //     filters_sliding = false;
+        //     $("#filter_nav").fadeOut();
+        //   });
+        // }
 
         // if ($(window).width() < marshall.properties.deviceWidth.phone) {
         //   $("html, body").animate(
@@ -276,48 +286,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  refreshSelectric();
-
-  var filters_sliding = false;
-
-  $("#filter_nav #btn_left").on("click", function (event) {
-    event.preventDefault();
-
-    var pos = $(".spares-filters .filters").position();
-
-    if (pos == "undefined") {
-      var left = $(".spares-filters .filters").css("left");
-    } else {
-      var left = pos.left;
-    }
-
-    if (!filters_sliding && left < 0) {
-      filters_sliding = true;
-      $(".filters").animate({ left: "+=196" }, "swing", function () {
-        filters_sliding = false;
-      });
-    }
-  });
-
-  $("#filter_nav #btn_right").on("click", function (event) {
-    event.preventDefault();
-
-    var pos = $(".spares-filters .filters").position();
-
-    if (pos == "undefined") {
-      var left = $(".spares-filters .filters").css("left");
-    } else {
-      var left = pos.left;
-    }
-
-    if (!filters_sliding && left > -392) {
-      filters_sliding = true;
-      $(".filters").animate({ left: "-=196" }, "swing", function () {
-        filters_sliding = false;
-      });
-    }
-  });
-
   $("#search-filter").on("submit", function (event) {
     event.preventDefault();
 
@@ -328,7 +296,7 @@ document.addEventListener("DOMContentLoaded", () => {
     $("#model").empty().prop("disabled", true);
     refreshSelectric();
 
-    for (var i = 2; i < num_filters; i++) {
+    for (var i = 2; i < totalNumFilters; i++) {
       $("#filter" + i)
         .parent("li")
         .removeClass("selected");
@@ -545,5 +513,11 @@ document.addEventListener("DOMContentLoaded", () => {
         },
       });
     }
+  });
+
+  $(".filter-select").selectric({
+    maxHeight: 202,
+    disableOnMobile: true,
+    nativeOnMobile: true,
   });
 });
