@@ -762,7 +762,7 @@
             <div class="action">
                 <div class="price-wrapper">
                     <span class="lbl">Cost per unit:</span>
-                    <span class="val">£200.00</span>
+                    <span class="val">£300.00</span>
                 </div>
                 <form class="single-input-form form">
                     
@@ -1133,6 +1133,8 @@
         </select>
     </label>
 
+                    <input type="hidden" class="sid" name="sid" value="sid1">
+                    <input type="hidden" class="price" name="price" value="300.00">
                     <button type="button" class="bttn add-to-basket">
                         <span class="icon">
                             <i class="fa-solid fa-cart-shopping"></i>
@@ -1540,6 +1542,8 @@
         </select>
     </label>
 
+                    <input type="hidden" class="sid" name="sid" value="sid2">
+                    <input type="hidden" class="price" name="price" value="1100.00">
                     <button type="button" class="bttn add-to-basket">
                         <span class="icon">
                             <i class="fa-solid fa-cart-shopping"></i>
@@ -1947,6 +1951,8 @@
         </select>
     </label>
 
+                    <input type="hidden" class="sid" name="sid" value="sid3">
+                    <input type="hidden" class="price" name="price" value="50.00">
                     <button type="button" class="bttn add-to-basket">
                         <span class="icon">
                             <i class="fa-solid fa-cart-shopping"></i>
@@ -2354,6 +2360,8 @@
         </select>
     </label>
 
+                    <input type="hidden" class="sid" name="sid" value="sid4">
+                    <input type="hidden" class="price" name="price" value="26.50">
                     <button type="button" class="bttn add-to-basket">
                         <span class="icon">
                             <i class="fa-solid fa-cart-shopping"></i>
@@ -2761,6 +2769,8 @@
         </select>
     </label>
 
+                    <input type="hidden" class="sid" name="sid" value="sid5">
+                    <input type="hidden" class="price" name="price" value="400.00">
                     <button type="button" class="bttn add-to-basket">
                         <span class="icon">
                             <i class="fa-solid fa-cart-shopping"></i>
@@ -2961,10 +2971,11 @@
                     <i class="fa-solid fa-xmark text-lg"></i>
                 </button>
             </div>
+
             <div class="basket-content">
                 <div class="basket-details">
-                    <span class="items">58 items</span>
-                    <span class="total-price">£1234.56</span>
+                    <span id="num_items" class="items"></span>
+                    <span id="total_price" class="total-price"></span>
                 </div>
                 <button type="button" class="bttn checkout-bttn">
                     <span>
@@ -2973,6 +2984,14 @@
                     <span>Checkout</span>
                 </button>
             </div>
+
+            <div class="basket-progress">
+                <div class="flex items-center gap-2">
+                    <i class="fa-solid fa-spinner fa-spin-pulse"></i>
+                    <span>Updating basket...</span>
+                </div>
+            </div>
+
         </div>
     </div>
 </div>
