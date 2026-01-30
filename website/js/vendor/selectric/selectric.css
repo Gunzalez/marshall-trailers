@@ -13,8 +13,9 @@
 }
 
 .selectric {
-  border-radius: 0px;
-  background: var(--brand-gray);
+  border: 1px solid var(--system-gray);
+  border-radius: 1px;
+  background: #fff;
   position: relative;
   overflow: hidden;
 }
@@ -25,14 +26,15 @@
   overflow: hidden;
   text-overflow: ellipsis;
   margin: 0 38px 0 10px;
-  font-size: 0.9rem;
-  line-height: 42px;
-  color: #444;
+  font-size: 1rem;
+  line-height: 38px;
+  color: var(--brand-text);
   height: 38px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  text-align: left;
 }
 
 .selectric .button {
@@ -43,20 +45,9 @@
   width: 38px;
   height: 38px;
   line-height: 38px;
-  color: var(--brand-yellow);
+  background-color: #fff;
+  color: #bbb;
   text-align: center;
-}
-
-.selectric .button:after {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  color: var(--brand-yellow);
-  content: "\f0d7";
-  font-family: FontAwesome;
-  font-size: 0.9rem;
 }
 
 .selectric-focus .selectric {
@@ -73,6 +64,10 @@
 
 .selectric-open {
   z-index: 9999;
+}
+
+.selectric-open .selectric {
+  border-color: #c4c4c4;
 }
 
 .selectric-open .selectric-items {
@@ -133,7 +128,6 @@
   height: 1px !important;
   outline: none !important;
   border: none !important;
-  font: 0/0 a !important;
   background: none !important;
 }
 
@@ -149,9 +143,10 @@
   position: absolute;
   top: 100%;
   left: 0;
-  background: white;
-  border: 1px solid var(--brand-gray);
+  background: #fff;
+  border: 1px solid var(--system-gray);
   z-index: -1;
+  box-shadow: 0 0 10px -6px;
 }
 
 .selectric-items .selectric-scroll {
@@ -169,7 +164,7 @@
   list-style: none;
   padding: 0;
   margin: 0;
-  font-size: 0.9rem;
+  font-size: 1rem;
   line-height: 20px;
   min-height: 20px;
 }
@@ -178,24 +173,28 @@
   display: block;
   padding: 10px;
   color: #666;
-  background-color: var(--brand-gray-light);
-  border-left: 4px solid transparent;
   cursor: pointer;
-  transition: all 0.2s ease;
-  margin-top: 2px;
-  height: 40px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  text-align: left;
+  transition: all 0.3s ease-in-out;
+
+  border-bottom: 1px solid var(--brand-gray-light);
+
+  &:last-child {
+    border-bottom: none;
+  }
 }
 
-.selectric-items li[data-index="0"] {
-  display: none;
+.selectric-items li.selected {
+  background: #e0e0e0;
+}
+
+.selectric-items li.highlighted {
+  background: var(--brand-gray);
+  color: #000000;
 }
 
 .selectric-items li:hover {
-  background: white;
-  border-color: var(--brand-yellow);
+  background: var(--brand-gray);
 }
 
 .selectric-items .disabled {
