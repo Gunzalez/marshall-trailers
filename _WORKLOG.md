@@ -23,9 +23,21 @@
 - 6th January: 3hrs
 - 8th January: 3hrs
 
+- 14th January: 2hrs
+- 22th January: 4hrs
+- 26th January: 4hrs
+- 27th January: 8hrs
+- 29th January: 8hrs
+
+- 30th January: 3hrs
+
 #### TODO
 
-- Rest of the site really
+- Replace lightBox
+- mobile version of parts
+- move to real repo
+- style filter headers
+- fast scroll to start on part filters
 
 ### DONE
 
@@ -37,5 +49,4 @@
 
 # today
 
-- 3rd January
-  Continues parts sections
+-
