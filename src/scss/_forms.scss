@@ -338,6 +338,24 @@
           padding-bottom: 0;
         }
       }
+
+      .lc_lightbox_link {
+        position: relative;
+
+        &::after {
+          content: "\f077";
+          font-family: FontAwesome;
+          font-weight: normal;
+          font-style: normal;
+          margin-left: 8px;
+          font-size: 0.9rem;
+          color: var(--brand-red);
+          position: absolute;
+          right: -1.2rem;
+          top: 50%;
+          transform: translateY(-50%);
+        }
+      }
     }
 
     .pricing {

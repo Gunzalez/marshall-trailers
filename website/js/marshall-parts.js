@@ -32,7 +32,7 @@ function showResults(content) {
   $("#results").html(content).show();
 
   // re-init lightbox for new content //
-  window.marshallTrailers.fsLightBoxLinks.init();
+  window.marshallTrailers.lcLightBoxLinks.soloInit();
 
   // re-init selectric for new content //
   window.marshallTrailers.quantitySelects.init();
