@@ -914,45 +914,55 @@ window.data = data;
 
   marshallTrailers.partsFilters = {
     carousel: null,
+    totalSlides: 7,
     visibleSlides: 3,
     next: function () {
       this.carousel.slick("slickNext");
     },
+
     previous: function () {
       this.carousel.slick("slickPrev");
     },
+
     reset: function () {
       this.carousel.slick("slickGoTo", 0);
     },
-    disable: function () {
-      $(".prev-filter").prop("disabled", true);
-      $(".next-filter").prop("disabled", true);
-    },
-    enable: function () {
-      $(".prev-filter").prop("disabled", false);
-      $(".next-filter").prop("disabled", false);
-    },
 
     init: function () {
-      this.carousel = $("#parts-filters").slick({
-        dots: false,
-        slidesToShow: this.visibleSlides,
-        slidesToScroll: 1,
-        autoplay: false,
-        draggable: false,
-        swipe: false,
-        touchMove: false,
-        infinite: false,
-        arrows: false,
-      });
+      this.carousel = $("#parts-filters")
+        .slick({
+          dots: false,
+          slidesToShow: this.visibleSlides,
+          slidesToScroll: 1,
+          autoplay: false,
+          draggable: false,
+          swipe: false,
+          touchMove: false,
+          infinite: false,
+          arrows: false,
+        })
+        .removeClass("display-none");
 
-      this.carousel.on("afterChange", function (event, slick, currentSlide) {
-        if (currentSlide > 0) {
-          marshallTrailers.partsFilters.enable();
-        } else {
-          marshallTrailers.partsFilters.disable();
-        }
-      });
+      this.carousel.on(
+        "afterChange",
+        function (event, slick, currentSlideIndex) {
+          if (currentSlideIndex > 0) {
+            $(".prev-filter").prop("disabled", false);
+          } else {
+            $(".prev-filter").prop("disabled", true);
+          }
+
+          if (
+            currentSlideIndex >=
+            marshallTrailers.partsFilters.totalSlides -
+              marshallTrailers.partsFilters.visibleSlides
+          ) {
+            $(".reset-filters").prop("disabled", false);
+          } else {
+            $(".reset-filters").prop("disabled", true);
+          }
+        },
+      );
 
       $(".prev-filter").on("click", function () {
         marshallTrailers.partsFilters.previous();
