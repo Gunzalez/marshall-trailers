@@ -320,17 +320,13 @@ document.addEventListener("DOMContentLoaded", () => {
   $("#results").on("click", ".btn_addBasket", function (event) {
     event.preventDefault();
 
-    marshallTrailers.basket.open();
-    $("#basket #progress").show();
+    var pricing = $(this).parents(".pricing");
+    var sid = pricing.find("input.sid").val();
+    var price = pricing.find("input.price").val();
+    var qty = pricing.find(".quantity").val();
+    var data = "sid=" + sid + "&qty=" + qty + "&price=" + price;
 
-    var li = $(this).parent("li").prev("li");
-    var data =
-      "sid=" +
-      $(li).children(".sid").val() +
-      "&qty=" +
-      $(li).children(".quantity").val() +
-      "&price=" +
-      $(li).children(".price").val();
+    window.marshallTrailers.basket.setToBusy();
 
     $.ajax({
       type: "post",
@@ -339,11 +335,10 @@ document.addEventListener("DOMContentLoaded", () => {
       dataType: "json",
       success: function (dat) {
         if (dat.status == "success") {
-          $("#basket #progress").hide();
-
-          var strS = dat.basket_count > 1 ? "s" : "";
-          $("#num_items").text(dat.basket_count + " Item" + strS);
-          $("#basket_total").text(dat.basket_total);
+          window.marshallTrailers.basket.update(
+            dat.basket_count,
+            dat.basket_total,
+          );
         }
       },
     });
@@ -352,12 +347,13 @@ document.addEventListener("DOMContentLoaded", () => {
   $("#results").on("click", ".btn_addBasketRelated", function (event) {
     event.preventDefault();
 
-    marshallTrailers.basket.open();
-    $("#basket #progress").show();
+    var li = $(this).parent("li");
+    var sid = $(li).data("sid");
+    var price = $(li).data("price");
+    var qty = 1;
+    var data = "sid=" + sid + "&qty=" + qty + "&price=" + price;
 
-    var li = $(this).parent(".add").parent("li");
-    var data =
-      "sid=" + $(li).data("sid") + "&qty=1&price=" + $(li).data("price");
+    window.marshallTrailers.basket.setToBusy();
 
     $.ajax({
       type: "post",
@@ -366,11 +362,37 @@ document.addEventListener("DOMContentLoaded", () => {
       dataType: "json",
       success: function (dat) {
         if (dat.status == "success") {
-          $("#basket #progress").hide();
+          window.marshallTrailers.basket.update(
+            dat.basket_count,
+            dat.basket_total,
+          );
+        }
+      },
+    });
+  });
 
-          var strS = dat.basket_count > 1 ? "s" : "";
-          $("#num_items").text(dat.basket_count + " Item" + strS);
-          $("#basket_total").text(dat.basket_total);
+  $(".add-to-basket").on("click", function (event) {
+    event.preventDefault();
+
+    var form = $(this).parents(".form");
+    var sid = form.find("input.sid").val();
+    var price = form.find("input.price").val();
+    var qty = form.find(".quantity").val();
+    var data = "sid=" + sid + "&qty=" + qty + "&price=" + price;
+
+    window.marshallTrailers.basket.setToBusy();
+
+    $.ajax({
+      type: "post",
+      url: "/ajax/ajax_spares_basket.php",
+      data: data,
+      dataType: "json",
+      success: function (dat) {
+        if (dat.status == "success") {
+          window.marshallTrailers.basket.update(
+            dat.basket_count,
+            dat.basket_total,
+          );
         }
       },
     });

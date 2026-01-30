@@ -300,6 +300,7 @@
     carousel: null,
     totalSlides: 7,
     visibleSlides: 3,
+
     next: function () {
       this.carousel.slick("slickNext");
     },
@@ -402,12 +403,27 @@
 
   marshallTrailers.basket = {
     $element: null,
+
     open: function () {
       this.$element.addClass("open");
     },
+
     close: function () {
       this.$element.removeClass("open");
     },
+
+    setToBusy: function () {
+      this.$element.addClass("busy");
+    },
+
+    update: function (numItems, totalPrice) {
+      var strS = numItems > 1 ? "s" : "";
+      this.$element.find("#num_items").text(numItems + " item" + strS);
+      this.$element.find("#total_price").text(totalPrice);
+      this.$element.addClass("open");
+      this.$element.removeClass("busy");
+    },
+
     init: function () {
       this.$element = $("#floating-basket");
       this.$element.find(".desktop-button").on("click", function () {
@@ -440,8 +456,8 @@
         touchswipe: false,
         mousewheel: false,
         txt_toggle_cmd: false,
-        max_width: "60%",
-        max_height: "63%",
+        max_width: "65%",
+        max_height: "65%",
       });
     },
 
@@ -451,8 +467,8 @@
         gallery: false,
         skin: "dark",
         txt_toggle_cmd: false,
-        max_width: "60%",
-        max_height: "63%",
+        max_width: "65%",
+        max_height: "65%",
       });
     },
 

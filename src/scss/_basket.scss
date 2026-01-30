@@ -34,7 +34,6 @@
   }
 
   .basket-content {
-    display: flex;
     justify-content: space-between;
     gap: 1rem;
     border: 1px solid var(--brand-gray);
@@ -58,6 +57,22 @@
     &.open {
       right: -1px;
     }
+
+    .basket-content {
+      display: flex;
+    }
+    .basket-progress {
+      display: none;
+    }
+
+    &.busy {
+      .basket-content {
+        display: none;
+      }
+      .basket-progress {
+        display: flex;
+      }
+    }
   }
 
   .basket-inner {
@@ -76,6 +91,15 @@
 
   .basket-wrapper {
     flex-grow: 1;
+  }
+
+  .basket-progress {
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 8px;
+    font-size: 0.9rem;
+    color: var(--brand-red);
   }
 }
 
