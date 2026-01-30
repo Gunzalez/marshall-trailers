@@ -25,15 +25,15 @@
     <div class="section body-copy">
         <div id="parts-on-desktop" class="parts-on-desktop">
             <div class="carousel-controls">
-                <button type="button" class="prev-filter">
+                <button type="button" class="prev-filter" disabled>
                     <i class="fa-solid fa-caret-left"></i>
                 </button>
-                <button type="button" class="next-filter" disabled>
+                {# <button type="button" class="next-filter" disabled>
                     <i class="fa-solid fa-caret-right"></i>
-                </button>
+                </button> #}
             </div>
-            <div class="parts-filters-wrapper">
-                <div class="initial-filter">
+            <div id="parts-filters" class="parts-filters">
+                <div class="slide selected">
                     <h3>Filter 1</h3>
                     <form id="search-filter" class="filterList form" method="post" autoComplete="off">
                         <fieldset id="fields" class="fields">
@@ -41,7 +41,7 @@
                             <div class="filter-selects">
                                 <h4 class="title">Select part category:</h4>
 
-                                <select id="filter1">
+                                <select id="filter1" class="filter-select">
                                     <option value="">Select a component </option>
                                     <option value="94"> Axles </option>
                                     <option value="1233"> Bearings </option>
@@ -69,7 +69,7 @@
 
                                 </select>
 
-                                <select id="range" class="display-none">
+                                <select id="range" class="filter-select" disabled>
                                     <option value=""> Select a range </option>
                                     <option value="1"> Silage / Grain Trailers </option>
                                     <option value="2"> Drop-Side Trailers </option>
@@ -84,7 +84,7 @@
                                     <option value="15"> People Carrier Trailers </option>
                                 </select>
 
-                                <select id="model" class="display-none">
+                                <select id="model" class="filter-select" disabled>
                                     <option value=""> Select a model </option>
                                     <option value="132"> FT-18 </option>
                                     <option value="136"> PC-21 </option>
@@ -220,313 +220,79 @@
                         </fieldset>
                     </form>
                 </div>
-                <div class="parts-filters">
-                    <div class="slide">
-                        <h3>Filter 2</h3>
-                        <ol id="filter2" class=""></ol>
-                    </div>
-                    <div class="slide">
-                        <h3>Filter 3</h3>
-                        <ol id="filter3"></ol>
-                    </div>
-                    <div class="slide">
-                        <h3>Filter 4</h3>
-                        <ol id="filter4"></ol>
-                    </div>
-                    <div class="slide">
-                        <h3>Filter 5</h3>
-                        <ol id="filter5"></ol>
-                    </div>
-                    <div class="slide">
-                        <h3>Filter 6</h3>
-                        <ol id="filter6"></ol>
-                        <button type="button" class="reset-filters bttn">Reset Filters</button>
-                    </div>
-                    <div class="slide">
-                        <h3>Filter 7</h3>
-                        <ol id="filter7"></ol>
-                    </div>
+                <div class="slide">
+                    <h3>Filter 2</h3>
+
+                    <ol id="filter2" data-level="2">
+                        {# <li>
+                                <a href="#" data-cid="95" class="filter">Brake shoes &amp; accessories</a>
+                            </li>
+                            <li>
+                                <a href="#" data-cid="308" class="filter">Complete axles</a>
+                            </li>
+                            <li>
+                                <a href="#" data-cid="789" class="filter">Half axles</a>
+                            </li>
+                            <li>
+                                <a href="#" data-cid="813" class="filter">Hub caps</a>
+                            </li>
+                            <li>
+                                <a href="#" data-cid="838" class="filter">Hub seals</a>
+                            </li>
+                            <li>
+                                <a href="#" data-cid="871" class="filter">Hubs &amp; brake drums</a>
+                            </li>
+                            <li>
+                                <a href="#" data-cid="1546" class="filter">Steering axle parts</a>
+                            </li>
+                            <li>
+                                <a href="#" data-cid="1699" class="filter">Wheel studs &amp; nuts</a>
+                            </li> #}
+                    </ol>
+                </div>
+                <div class="slide">
+                    <h3>Filter 3</h3>
+                    <ol id="filter3" data-level="3">
+                        {# <li>
+                                <a href="#" data-cid="96" class="filter">10 stud</a>
+                            </li>
+                            <li>
+                                <a href="#" data-cid="166" class="filter">5 stud</a>
+                            </li>
+                            <li>
+                                <a href="#" data-cid="183" class="filter">6 stud</a>
+                            </li>
+                            <li>
+                                <a href="#" data-cid="245" class="filter">8 stud</a>
+                            </li> #}
+                    </ol>
+                </div>
+                <div class="slide">
+                    <h3>Filter 4</h3>
+                    <ol id="filter4" data-level="4"></ol>
+                </div>
+                <div class="slide">
+                    <h3>Filter 5</h3>
+                    <ol id="filter5" data-level="5"></ol>
+                </div>
+                <div class="slide">
+                    <h3>Filter 6</h3>
+                    <ol id="filter6" data-level="6"></ol>
+                </div>
+                <div class="slide">
+                    <h3>Filter 7</h3>
+                    <ol id="filter7" data-level="7"></ol>
                 </div>
             </div>
         </div>
-        <div id="results">
-            <h2 class="results-title">Your search results has returned 28 items.</h2>
-            <form class="form" method="post" autoComplete="off">
-                <ol class="results-list">
-                    <li class="result">
-                        <a href="https://www.marshall-trailers.co.uk/uploads/spares/large/051-01-9046.jpg" title="UCF210 Bearing - 50mm ID - Pst 09.2019" class="none-gallery-fsLightbox spare-thumbnail"><img src="https://www.marshall-trailers.co.uk/uploads/spares/051-01-9046.jpg" alt="UCF210 Bearing - 50mm ID - Pst 09.2019"></a>
-
-                        <div class="details">
-                            <h3 class="title">
-                                <div>
-                                    <span class="lbl">Part no:</span>
-                                    <span class="val">051-01-9080</span></div>
-                                <div>
-                                    <span class="lbl">Description:</span>
-                                    <span class="val">UCF210 Bolts - 30mm ID - Pst 09.2019</span></div>
-                            </h3>
-                            <div class="machines-wrapper">
-                                <h4 class="header">Machines:</h4>
-                                <ul class="machines-list">
-                                    <li>
-                                        <a href="product.html?id=qm8" title="QM-8">QM-8</a>
-                                    </li>
-                                    <li>
-                                        <a href="product.html?id=qm11" title="QM-11">QM-11</a>
-                                    </li>
-                                    <li>
-                                        <a href="product.html?id=qm12" title="QM-12">QM-12</a>
-                                    </li>
-                                    <li>
-                                        <a href="product.html?id=qm1200" title="QM-1200">QM-1200</a>
-                                    </li>
-                                    <li>
-                                        <a href="product.html?id=qm14" title="QM-14">QM-14</a>
-                                    </li>
-                                    <li>
-                                        <a href="product.html?id=qm1400" title="QM-1400">QM-1400</a>
-                                    </li>
-                                    <li>
-                                        <a href="product.html?id=qm16" title="QM-16">QM-16</a>
-                                    </li>
-                                    <li>
-                                        <a href="product.html?id=qm1600" title="QM-1600">QM-1600</a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="categories-wrapper">
-                                <h4 class="header">Component categories:</h4>
-                                <ul class="categories-list">
-                                    <li>Bearings</li>
-                                    <li>Muckspreader bearings</li>
-                                    <li>Flat flange style</li>
-                                </ul>
-                            </div>
-                            <div class="notes">
-                                <h4 class="header">Notes:</h4>
-                                <p>SECURES HANDBRAKE CABLE.</p>
-                            </div>
-                        </div>
-
-                        <ul class="pricing">
-                            <li>
-                                <span class="lbl">Unit weight:</span>
-                                <span class="val">2.20kg</span></li>
-                            <li>
-                                <span class="lbl">Cost per item:</span>
-                                <span class="value price">£45.34</span></li>
-
-                            <li class="print-hide add-to-basket">
-                                <div>
-                                    {{ macros.quantityField("quantity-051-01-9080") }}
-                                    <input type="hidden" class="sid" value="3789">
-                                    <input type="hidden" class="price" value="45.34">
-                                </div>
-                                <div>
-                                    <a href="basket.html" title="Proceed to the checkout to send your order...." class="btn_addBasket bttn">
-                                        <span class="icon">
-                                            <i class="fa-solid fa-cart-shopping"></i>
-                                        </span>
-                                        <span>Add</span>
-                                    </a>
-                                </div>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="result">
-                        <a href="https://www.marshall-trailers.co.uk/uploads/spares/large/052-01-16x60.jpg" title="M16 x 60 Hex Bolt BZP" class="none-gallery-fsLightbox spare-thumbnail"><img src="https://www.marshall-trailers.co.uk/uploads/spares/052-01-16x60.jpg" alt="M16 x 60 Hex Bolt BZP"></a>
-
-                        <div class="details">
-                            <h3 class="title">
-                                <div>
-                                    <span class="lbl">Part no:</span>
-                                    <span class="val">051-01-9046</span></div>
-                                <div>
-                                    <span class="lbl">Description:</span>
-                                    <span class="val">Metal Bearing Cast Iron</span></div>
-                            </h3>
-                            <div class="machines-wrapper">
-                                <h4 class="header">Machines:</h4>
-                                <ul class="machines-list">
-                                    <li>
-                                        <a href="product.html?id=qm6" title="QM-6">QM-6</a>
-                                    </li>
-                                    <li>
-                                        <a href="product.html?id=qm8" title="QM-8">QM-8</a>
-                                    </li>
-                                    <li>
-                                        <a href="product.html?id=qm11" title="QM-11">QM-11</a>
-                                    </li>
-                                    <li>
-                                        <a href="product.html?id=qm12" title="QM-12">QM-12</a>
-                                    </li>
-                                    <li>
-                                        <a href="product.html?id=qm1200" title="QM-1200">QM-1200</a>
-                                    </li>
-                                    <li>
-                                        <a href="product.html?id=qm14" title="QM-14">QM-14</a>
-                                    </li>
-                                    <li>
-                                        <a href="product.html?id=qm1400" title="QM-1400">QM-1400</a>
-                                    </li>
-                                    <li>
-                                        <a href="product.html?id=qm16" title="QM-16">QM-16</a>
-                                    </li>
-                                    <li>
-                                        <a href="product.html?id=qm1600" title="QM-1600">QM-1600</a>
-                                    </li>
-                                    <li>
-                                        <a href="product.html?id=s2" title="S-2">S-2</a>
-                                    </li>
-                                    <li>
-                                        <a href="product.html?id=s4" title="S-4">S-4</a>
-                                    </li>
-                                    <li>
-                                        <a href="product.html?id=s5" title="S-5">S-5</a>
-                                    </li>
-                                    <li>
-                                        <a href="product.html?id=s6" title="S-6">S-6</a>
-                                    </li>
-                                    <li>
-                                        <a href="product.html?id=s85" title="S-85">S-85</a>
-                                    </li>
-                                    <li>
-                                        <a href="product.html?id=s10" title="S-10">S-10</a>
-                                    </li>
-                                    <li>
-                                        <a href="product.html?id=bc21" title="BC-21">BC-21</a>
-                                    </li>
-                                    <li>
-                                        <a href="product.html?id=bc2510t" title="BC-25-10T">BC-25-10T</a>
-                                    </li>
-                                    <li>
-                                        <a href="product.html?id=bc2512t" title="BC-25-12T">BC-25-12T</a>
-                                    </li>
-                                    <li>
-                                        <a href="product.html?id=bc32tan" title="BC-32-TAN">BC-32-TAN</a>
-                                    </li>
-                                    <li>
-                                        <span>BC/18</span></li>
-                                    <li>
-                                        <span>QMD/6</span></li>
-                                    <li>
-                                        <span>QMD/8</span></li>
-                                    <li>
-                                        <span>QMD/11</span></li>
-                                    <li>
-                                        <span>QMD/12H</span></li>
-                                    <li>
-                                        <span>QMD/14H</span></li>
-                                    <li>
-                                        <span>MS-45</span></li>
-                                    <li>
-                                        <a href="/muck-spreaders/ms60" title="MS-60">MS-60</a>
-                                    </li>
-                                    <li>
-                                        <a href="/muck-spreaders/ms75" title="MS-75">MS-75</a>
-                                    </li>
-                                    <li>
-                                        <a href="/muck-spreaders/ms90" title="MS-90">MS-90</a>
-                                    </li>
-                                    <li>
-                                        <a href="/muck-spreaders/ms105" title="MS-105">MS-105</a>
-                                    </li>
-                                    <li>
-                                        <a href="/rear-discharge-muck-spreaders/ves1500" title="VES-1500">VES-1500</a>
-                                    </li>
-                                    <li>
-                                        <a href="/rear-discharge-muck-spreaders/ves2000" title="VES-2000">VES-2000</a>
-                                    </li>
-                                    <li>
-                                        <a href="/rear-discharge-muck-spreaders/ves2500" title="VES-2500">VES-2500</a>
-                                    </li>
-                                    <li>
-                                        <a href="/tankers/st1200" title="ST-1200">ST-1200</a>
-                                    </li>
-                                    <li>
-                                        <a href="/tankers/st1400" title="ST-1400">ST-1400</a>
-                                    </li>
-                                    <li>
-                                        <a href="/tankers/st1600" title="ST-1600">ST-1600</a>
-                                    </li>
-                                    <li>
-                                        <a href="/tankers/st1800" title="ST-1800">ST-1800</a>
-                                    </li>
-                                    <li>
-                                        <a href="/tankers/st2000" title="ST-2000">ST-2000</a>
-                                    </li>
-                                    <li>
-                                        <a href="/tankers/st2300" title="ST-2300">ST-2300</a>
-                                    </li>
-                                    <li>
-                                        <a href="/tankers/st2550" title="ST-2550">ST-2550</a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="categories-wrapper">
-                                <h4 class="header">Component categories:</h4>
-                                <ul class="categories-list">
-                                    <li>Bolts, nuts, fasteners &amp; washers</li>
-                                    <li>Bolts &amp; nuts</li>
-                                    <li>Plated</li>
-                                </ul>
-                            </div>
-                            <div class="related-wrapper">
-                                <h4 class="header">Related Items:</h4>
-                                <ul class="related-list">
-                                    <li data-sid="4054" data-price="44.55" class="cf">
-                                        <a href="https://www.marshall-trailers.co.uk/uploads/spares/large/070-08-0001.jpg" title="Hyd Brake Ram 20mm Diameter (All Models)" class="none-gallery-fsLightbox light-box-link">070-08-0001</a>
-                                        <p>Hyd Brake Ram 20mm Diameter (All Models)</p>
-                                        <a href="/basket" title="Add this item to the basket...." class="btn_addBasketRelated print-hide bttn">
-                                            <span class="icon">
-                                                <i class="fa-solid fa-cart-shopping"></i>
-                                            </span>
-                                            <span>Add</span></a>
-                                    </li>
-                                    <li data-sid="4055" data-price="52.56" class="cf">
-                                        <a href="https://www.marshall-trailers.co.uk/uploads/spares/large/070-08-0005.jpg" title="Hyd Brake Ram 25mm Diameter (All Models)" class="none-gallery-fsLightbox light-box-link">070-08-0005</a>
-                                        <p>Hyd Brake Ram 25mm Diameter (All Models)</p>
-                                        <a href="/basket" title="Add this item to the basket...." class="btn_addBasketRelated print-hide bttn">
-                                            <span class="icon">
-                                                <i class="fa-solid fa-cart-shopping"></i>
-                                            </span>
-                                            <span>Add</span></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <ul class="pricing">
-                            <li>
-                                <span class="lbl">Unit weight:</span>
-                                <span class="val">0.15kg</span></li>
-                            <li>
-                                <span class="lbl">Cost per item:</span>
-                                <span class="value price">£19,999.01</span></li>
-
-                            <li class="print-hide add-to-basket">
-                                <div>
-                                    {{ macros.quantityField("quantity-051-01-9046") }}
-                                    <input type="hidden" class="sid" value="2201">
-                                    <input type="hidden" class="price" value="1.01">
-                                </div>
-                                <div>
-                                    <a href="basket.html" title="Proceed to the checkout to send your order...." class="btn_addBasket bttn">
-                                        <span class="icon">
-                                            <i class="fa-solid fa-cart-shopping"></i>
-                                        </span>
-                                        <span>Add</span>
-                                    </a>
-                                </div>
-                            </li>
-                        </ul>
-
-                    </li>
-                </ol>
-            </form>
-        </div>
+        <div id="results"></div>
     </div>
 
-</div>
+    <div id="processing">
+        <div class="wrapper">
+            <p>Processing your request...</p>
+            <i class="fa-solid fa-spinner"></i>
+        </div>
+    </div>
 
 {% endblock %}
