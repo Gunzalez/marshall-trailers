@@ -3,6 +3,10 @@
 
   var marshallTrailers = {};
 
+  marshallTrailers.global = {
+    width: null,
+  };
+
   /**
    * @menu
    * Implements the dropdown menu behaviour
@@ -73,6 +77,17 @@
       });
     },
 
+    environmentInit: function () {
+      if (window.innerWidth < 768) {
+        marshallTrailers.global.width = "mobile";
+      } else {
+        marshallTrailers.global.width = "desktop";
+      }
+      $("body")
+        .removeClass("mobile desktop")
+        .addClass(marshallTrailers.global.width); // for css styling, eg. carousel slides
+    },
+
     /**
      * ### function getUrlVars
      * Extracts data from query strings in url
@@ -91,21 +106,6 @@
         vars[hash[0]] = hash[1];
       }
       return vars;
-    },
-
-    /**
-     * ### object attributes
-     * utils for adding and extracting data attributes from HTMl elements
-     *
-     * @returns object containing setter and getter functions
-     */
-    attributes: {
-      set: function (element, attr, value) {
-        element.setAttribute(attr, value);
-      },
-      get: function (element, attr) {
-        return element.getAttribute(attr);
-      },
     },
   };
 
@@ -314,6 +314,11 @@
     },
 
     init: function () {
+      if (marshallTrailers.global.width === "mobile") {
+        $("#parts-filters").removeClass("display-none");
+        return;
+      }
+
       this.carousel = $("#parts-filters")
         .slick({
           dots: false,
@@ -327,6 +332,7 @@
           arrows: false,
         })
         .removeClass("display-none");
+      $(".carousel-controls").removeClass("display-none");
 
       this.carousel.on(
         "afterChange",
@@ -370,8 +376,6 @@
       var $selects = $(".product-selector select").selectric({
         maxHeight: 164,
         arrowButtonMarkup: '<b class="button"></b>',
-        disableOnMobile: true,
-        nativeOnMobile: true,
       });
 
       $selects.on("change", function () {
@@ -393,8 +397,6 @@
     init: function () {
       $(".quantity-select").selectric({
         maxHeight: 168,
-        disableOnMobile: true,
-        nativeOnMobile: true,
       });
     },
   };
@@ -413,14 +415,13 @@
     },
 
     setToBusy: function () {
-      this.$element.addClass("busy");
+      this.$element.addClass("open busy");
     },
 
     update: function (numItems, totalPrice) {
       var strS = numItems > 1 ? "s" : "";
       this.$element.find("#num_items").text(numItems + " item" + strS);
       this.$element.find("#total_price").text(totalPrice);
-      this.$element.addClass("open");
       this.$element.removeClass("busy");
     },
 
@@ -456,8 +457,8 @@
         touchswipe: false,
         mousewheel: false,
         txt_toggle_cmd: false,
-        max_width: "65%",
-        max_height: "65%",
+        max_width: "80%",
+        max_height: "75%",
       });
     },
 
@@ -467,12 +468,21 @@
         gallery: false,
         skin: "dark",
         txt_toggle_cmd: false,
-        max_width: "65%",
-        max_height: "65%",
+        max_width: "80%",
+        max_height: "75%",
       });
     },
 
     init: function () {
+      if (marshallTrailers.global.width === "mobile") {
+        $(".lc_lightbox_gallery_link, .lc_lightbox_link").on(
+          "click",
+          function (e) {
+            e.preventDefault();
+          },
+        );
+        return;
+      }
       this.galleryInit();
       this.soloInit();
     },
@@ -649,6 +659,7 @@
 
   // resize events */
   $(window).on("resize", function () {
+    marshallTrailers.utils.environmentInit();
     marshallTrailers.topNavigation.close();
   });
 
@@ -677,6 +688,7 @@
    * one init to rule them all
    */
   marshallTrailers.init = function () {
+    marshallTrailers.utils.environmentInit();
     marshallTrailers.topNavigation.init();
     marshallTrailers.mobileNavigation.init();
     marshallTrailers.lcLightBoxLinks.init();
@@ -688,7 +700,7 @@
     marshallTrailers.basket.init();
     marshallTrailers.partsFilters.init();
 
-    window.marshallTrailers = marshallTrailers;
+    window.MT = marshallTrailers;
   };
 
   /** Runs the global init */
