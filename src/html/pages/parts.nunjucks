@@ -23,8 +23,8 @@
     </div>
 
     <div class="section body-copy">
-        <div id="parts-on-desktop" class="parts-on-desktop">
-            <div class="carousel-controls">
+        <div class="parts-filters-wrapper">
+            <div class="carousel-controls display-none">
                 <button type="button" class="prev-filter" disabled>
                     <i class="fa-solid fa-caret-left"></i>
                 </button>
@@ -33,7 +33,7 @@
                 </button>
             </div>
             <div id="parts-filters" class="parts-filters display-none">
-                <div class="slide selected">
+                <div class="slide selected form-slide">
                     <h3>Filter 1</h3>
                     <form id="search-filter" class="filterList form" method="post" autoComplete="off">
                         <fieldset id="fields" class="fields">
