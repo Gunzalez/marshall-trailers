@@ -359,6 +359,16 @@
       .price {
         font-size: 2rem;
       }
+
+      .add-to-basket {
+        display: flex;
+        gap: 0.5rem;
+        margin-left: auto;
+
+        > div {
+          margin: 0;
+        }
+      }
     }
   }
 
