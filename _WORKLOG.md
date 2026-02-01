@@ -35,13 +35,13 @@
 
 #### TODO
 
-- mobile version of parts
 - move to real repo
 - style filter headers
 
 ### DONE
 
 - Replace lightBox
+- mobile version of parts
 - fast scroll to start on part filters
 
 ### DON'T
