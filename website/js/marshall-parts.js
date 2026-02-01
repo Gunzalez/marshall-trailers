@@ -5,7 +5,7 @@ var numVisibleFilters = 3;
 var filters_sliding = false;
 
 function clearFilters() {
-  for (var i = 2; i < totalNumFilters; i++) {
+  for (var i = 2; i <= totalNumFilters; i++) {
     $("#filter" + i)
       .empty()
       .parent(".slide")
@@ -17,12 +17,6 @@ function clearResults() {
   $("#results").empty();
 }
 
-function refreshSelectric() {
-  if ($.fn.selectric) {
-    $(".filter-select").selectric("refresh");
-  }
-}
-
 function updateFieldsMeta(level, cid) {
   $("#fields").data("level", level);
   $("#fields").data("cid", cid);
@@ -32,17 +26,18 @@ function showResults(content) {
   $("#results").html(content).show();
 
   // re-init lightbox for new content //
-  window.marshallTrailers.lcLightBoxLinks.soloInit();
+  window.MT.lcLightBoxLinks.soloImageLinks();
+  window.MT.lcLightBoxLinks.soloTextLinks();
 
   // re-init selectric for new content //
-  window.marshallTrailers.quantitySelects.init();
+  window.MT.quantitySelects.init();
 }
 
 document.addEventListener("DOMContentLoaded", () => {
   $("#filter1").on("change", function () {
     $("#processing").fadeIn("fast");
 
-    $("#range").val("").prop("disabled", false);
+    $("#range").val("").prop("disabled", false).selectric("refresh");
     $("#model").empty().prop("disabled", true);
 
     // set data, used by model, range selects //
@@ -74,12 +69,10 @@ document.addEventListener("DOMContentLoaded", () => {
         },
       });
     } else {
-      $("#range").prop("disabled", true);
+      $("#range").prop("disabled", true).selectric("refresh");
     }
 
-    refreshSelectric();
     clearResults();
-
     // get spares results //
     $.ajax({
       type: "get",
@@ -125,26 +118,17 @@ document.addEventListener("DOMContentLoaded", () => {
       data: "level=" + nextFilter + "&pid=" + cat_id,
       dataType: "json",
       success: function (dat) {
-        // var $desktop = $("html").hasClass("desktop");
-
         for (var i = nextFilter; i <= totalNumFilters; i++) {
           $("#filter" + i)
             .parent(".slide")
             .removeClass("selected");
           $("#filter" + i).empty();
-
-          // if (i > 5 && $desktop) {
-          //   $("#filter" + i)
-          //     .parent("li")
-          //     .addClass("display-none");
-          // }
         }
 
         if (dat.cats !== null) {
           $("#filter" + nextFilter)
             .parent(".slide")
             .addClass("selected");
-          // .removeClass("display-none");
 
           for (var i = 0; i < dat.cats.length; i++) {
             $("#filter" + nextFilter).append(
@@ -156,42 +140,23 @@ document.addEventListener("DOMContentLoaded", () => {
             );
           }
 
-          if (nextFilter > numVisibleFilters) {
-            window.marshallTrailers.partsFilters.carousel.slick(
-              "slickGoTo",
-              nextFilter - numVisibleFilters,
-            );
+          // On mobile carousel is not initialised, and will be null
+          // carousel will scroll to show next filter
+          if (window.MT.partsFilters.carousel) {
+            if (nextFilter > numVisibleFilters) {
+              window.MT.partsFilters.carousel.slick(
+                "slickGoTo",
+                nextFilter - numVisibleFilters,
+              );
+            }
           }
-
-          // if (nextFilter > 5 && $desktop) {
-          //   $("#filter_nav #btn_right").click();
-          //   $("#filter_nav").fadeIn();
-          // }
         }
 
         $("#processing").fadeOut("fast");
-
-        // if (level < 5 && $desktop) {
-        //   filters_sliding = true;
-        //   $(".filters").animate({ left: "0" }, "swing", function () {
-        //     filters_sliding = false;
-        //     $("#filter_nav").fadeOut();
-        //   });
-        // }
-
-        // if ($(window).width() < marshall.properties.deviceWidth.phone) {
-        //   $("html, body").animate(
-        //     {
-        //       scrollTop: $(this).parents("li").offset().top - 30,
-        //     },
-        //     500,
-        //   );
-        // } else {
-        //   marshall.spares.adjustFilterHeights();
-        // }
       },
     });
 
+    clearResults();
     // get spares results //
     $.ajax({
       type: "get",
@@ -220,7 +185,6 @@ document.addEventListener("DOMContentLoaded", () => {
     var cat_id = $("#fields").data("cid");
 
     $("#model").empty().prop("disabled", false);
-    refreshSelectric();
 
     // get products //
     $.ajax({
@@ -240,12 +204,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 " </option>",
             );
           }
-          $("#model").prop("disabled", false);
-          refreshSelectric();
+          $("#model").prop("disabled", false).selectric("refresh");
         }
       },
     });
 
+    clearResults();
     // get spares results //
     $.ajax({
       type: "get",
@@ -265,6 +229,7 @@ document.addEventListener("DOMContentLoaded", () => {
     var level = $("#fields").data("level");
     var cat_id = $("#fields").data("cid");
 
+    clearResults();
     // get spares result //
     $.ajax({
       type: "get",
@@ -292,17 +257,10 @@ document.addEventListener("DOMContentLoaded", () => {
     $("#processing").fadeIn("fast");
 
     $("#filter1").val("");
-    $("#range").val("").prop("disabled", true);
+    $("#range").val("").prop("disabled", true).selectric("refresh");
     $("#model").empty().prop("disabled", true);
-    refreshSelectric();
 
-    for (var i = 2; i < totalNumFilters; i++) {
-      $("#filter" + i)
-        .parent("li")
-        .removeClass("selected");
-      $("#filter" + i).empty();
-    }
-
+    clearFilters();
     // get spares results //
     $.ajax({
       type: "post",
@@ -326,7 +284,7 @@ document.addEventListener("DOMContentLoaded", () => {
     var qty = pricing.find(".quantity").val();
     var data = "sid=" + sid + "&qty=" + qty + "&price=" + price;
 
-    window.marshallTrailers.basket.setToBusy();
+    window.MT.basket.setToBusy();
 
     $.ajax({
       type: "post",
@@ -335,10 +293,7 @@ document.addEventListener("DOMContentLoaded", () => {
       dataType: "json",
       success: function (dat) {
         if (dat.status == "success") {
-          window.marshallTrailers.basket.update(
-            dat.basket_count,
-            dat.basket_total,
-          );
+          window.MT.basket.update(dat.basket_count, dat.basket_total);
         }
       },
     });
@@ -353,7 +308,7 @@ document.addEventListener("DOMContentLoaded", () => {
     var qty = 1;
     var data = "sid=" + sid + "&qty=" + qty + "&price=" + price;
 
-    window.marshallTrailers.basket.setToBusy();
+    window.MT.basket.setToBusy();
 
     $.ajax({
       type: "post",
@@ -362,16 +317,13 @@ document.addEventListener("DOMContentLoaded", () => {
       dataType: "json",
       success: function (dat) {
         if (dat.status == "success") {
-          window.marshallTrailers.basket.update(
-            dat.basket_count,
-            dat.basket_total,
-          );
+          window.MT.basket.update(dat.basket_count, dat.basket_total);
         }
       },
     });
   });
 
-  $(".add-to-basket").on("click", function (event) {
+  $(".btn_addBasketAll").on("click", function (event) {
     event.preventDefault();
 
     var form = $(this).parents(".form");
@@ -380,7 +332,7 @@ document.addEventListener("DOMContentLoaded", () => {
     var qty = form.find(".quantity").val();
     var data = "sid=" + sid + "&qty=" + qty + "&price=" + price;
 
-    window.marshallTrailers.basket.setToBusy();
+    window.MT.basket.setToBusy();
 
     $.ajax({
       type: "post",
@@ -389,14 +341,13 @@ document.addEventListener("DOMContentLoaded", () => {
       dataType: "json",
       success: function (dat) {
         if (dat.status == "success") {
-          window.marshallTrailers.basket.update(
-            dat.basket_count,
-            dat.basket_total,
-          );
+          window.MT.basket.update(dat.basket_count, dat.basket_total);
         }
       },
     });
   });
+
+  // TODO: Implement basket functionality
 
   $(".btn_delBasket").click(function (event) {
     event.preventDefault();
@@ -539,7 +490,5 @@ document.addEventListener("DOMContentLoaded", () => {
 
   $(".filter-select").selectric({
     maxHeight: 202,
-    disableOnMobile: true,
-    nativeOnMobile: true,
   });
 });
