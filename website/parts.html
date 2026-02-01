@@ -380,8 +380,13 @@
     </div>
 
     <div class="section body-copy">
-        <div id="parts-on-desktop" class="parts-on-desktop">
-            <div class="carousel-controls">
+        <div class="parts-filters-wrapper">
+            <div class="reload-filter">
+                <button type="button" id="reload-filters-bttn" class="bttn" onClick="location.reload();">
+                    <i class="fa-solid fa-arrows-rotate"></i> Reload filters
+                </button>
+            </div>
+            <div class="carousel-controls display-none">
                 <button type="button" class="prev-filter" disabled>
                     <i class="fa-solid fa-caret-left"></i>
                 </button>
@@ -390,7 +395,7 @@
                 </button>
             </div>
             <div id="parts-filters" class="parts-filters display-none">
-                <div class="slide selected">
+                <div class="slide selected form-slide">
                     <h3>Filter 1</h3>
                     <form id="search-filter" class="filterList form" method="post" autoComplete="off">
                         <fieldset id="fields" class="fields">
@@ -571,8 +576,8 @@
                             </div>
 
                             <div class="form-buttons">
-                                <button type="submit" id="find" class="big-link blue-link find bttn">Search</button>
-                                <button type="button" id="reset" class="big-link blue-link reset bttn secondary-bttn">Reset</button>
+                                <button type="submit" id="btn-Search" class="bttn">Search</button>
+                                <button type="button" id="btn-Reset" class="bttn" onClick="location.reload();">Reset</button>
                             </div>
                         </fieldset>
                     </form>
@@ -607,8 +612,8 @@
                     <ol id="filter7" data-level="7"></ol>
                 </div>
             </div>
+            <div id="results" class="results"></div>
         </div>
-        <div id="results"></div>
     </div>
 
     <div id="processing">

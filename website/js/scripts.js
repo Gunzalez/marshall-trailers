@@ -708,21 +708,6 @@ window.data = data;
       }
       return vars;
     },
-
-    /**
-     * ### object attributes
-     * utils for adding and extracting data attributes from HTMl elements
-     *
-     * @returns object containing setter and getter functions
-     */
-    attributes: {
-      set: function (element, attr, value) {
-        element.setAttribute(attr, value);
-      },
-      get: function (element, attr) {
-        return element.getAttribute(attr);
-      },
-    },
   };
 
   /*---------------------------------------------------------------- */
@@ -916,6 +901,7 @@ window.data = data;
     carousel: null,
     totalSlides: 7,
     visibleSlides: 3,
+    desktopWidthThreshold: 1200,
 
     next: function () {
       this.carousel.slick("slickNext");
@@ -930,6 +916,11 @@ window.data = data;
     },
 
     init: function () {
+      if (window.innerWidth < this.desktopWidthThreshold) {
+        $("#parts-filters").removeClass("display-none");
+        return;
+      }
+
       this.carousel = $("#parts-filters")
         .slick({
           dots: false,
@@ -943,6 +934,22 @@ window.data = data;
           arrows: false,
         })
         .removeClass("display-none");
+      $(".parts-filters-wrapper").addClass("initialized");
+      $(".carousel-controls").removeClass("display-none");
+
+      this.carousel.on(
+        "beforeChange",
+        function (event, slick, currentSlideIndex, nextSlideIndex) {
+          if (currentSlideIndex > nextSlideIndex) {
+            $(
+              "#filter" +
+                (nextSlideIndex + marshallTrailers.partsFilters.visibleSlides),
+            )
+              .find("li")
+              .removeClass("selected");
+          }
+        },
+      );
 
       this.carousel.on(
         "afterChange",
@@ -986,8 +993,6 @@ window.data = data;
       var $selects = $(".product-selector select").selectric({
         maxHeight: 164,
         arrowButtonMarkup: '<b class="button"></b>',
-        disableOnMobile: true,
-        nativeOnMobile: true,
       });
 
       $selects.on("change", function () {
@@ -1009,8 +1014,6 @@ window.data = data;
     init: function () {
       $(".quantity-select").selectric({
         maxHeight: 168,
-        disableOnMobile: true,
-        nativeOnMobile: true,
       });
     },
   };
@@ -1029,14 +1032,13 @@ window.data = data;
     },
 
     setToBusy: function () {
-      this.$element.addClass("busy");
+      this.$element.addClass("open busy");
     },
 
     update: function (numItems, totalPrice) {
       var strS = numItems > 1 ? "s" : "";
       this.$element.find("#num_items").text(numItems + " item" + strS);
       this.$element.find("#total_price").text(totalPrice);
-      this.$element.addClass("open");
       this.$element.removeClass("busy");
     },
 
@@ -1061,7 +1063,16 @@ window.data = data;
    * Attaches lightbox functionality to links, gallery and single image
    */
   marshallTrailers.lcLightBoxLinks = {
-    galleryInit: function () {
+    mobileWidthThreshold: 768,
+
+    galleryImageLinks: function () {
+      if (window.innerWidth < this.mobileWidthThreshold) {
+        $(".lc_lightbox_gallery_link").on("click", function (e) {
+          e.preventDefault();
+        });
+        return;
+      }
+
       lc_lightbox(".lc_lightbox_gallery_link", {
         wrap_class: "lcl_fade_oc",
         gallery: true,
@@ -1072,25 +1083,44 @@ window.data = data;
         touchswipe: false,
         mousewheel: false,
         txt_toggle_cmd: false,
-        max_width: "65%",
-        max_height: "65%",
+        max_width: "80%",
+        max_height: "75%",
       });
     },
 
-    soloInit: function () {
+    soloImageLinks: function () {
+      if (window.innerWidth < this.mobileWidthThreshold) {
+        $(".lc_lightbox_link").on("click", function (e) {
+          e.preventDefault();
+        });
+        return;
+      }
+
       lc_lightbox(".lc_lightbox_link", {
         wrap_class: "lcl_fade_oc",
         gallery: false,
         skin: "dark",
         txt_toggle_cmd: false,
-        max_width: "65%",
-        max_height: "65%",
+        max_width: "80%",
+        max_height: "75%",
+      });
+    },
+
+    soloTextLinks: function () {
+      lc_lightbox(".lc_lightbox_link_text", {
+        wrap_class: "lcl_fade_oc",
+        gallery: false,
+        skin: "dark",
+        txt_toggle_cmd: false,
+        max_width: "80%",
+        max_height: "75%",
       });
     },
 
     init: function () {
-      this.galleryInit();
-      this.soloInit();
+      this.galleryImageLinks();
+      this.soloImageLinks();
+      this.soloTextLinks();
     },
   };
 
@@ -1266,6 +1296,7 @@ window.data = data;
   // resize events */
   $(window).on("resize", function () {
     marshallTrailers.topNavigation.close();
+    marshallTrailers.basket.close();
   });
 
   // scroll events */
@@ -1304,7 +1335,7 @@ window.data = data;
     marshallTrailers.basket.init();
     marshallTrailers.partsFilters.init();
 
-    window.marshallTrailers = marshallTrailers;
+    window.MT = marshallTrailers;
   };
 
   /** Runs the global init */
