@@ -176,7 +176,7 @@
                     {{ quantityField("quantity-" ~ part_no) }}
                     <input type="hidden" class="sid" name="sid" value="{{ sid }}">
                     <input type="hidden" class="price" name="price" value="{{ price }}">
-                    <button type="button" class="bttn add-to-basket">
+                    <button type="button" class="bttn btn_addBasketAll">
                         <span class="icon">
                             <i class="fa-solid fa-cart-shopping"></i>
                         </span>
