@@ -3,10 +3,6 @@
 
   var marshallTrailers = {};
 
-  marshallTrailers.global = {
-    width: null,
-  };
-
   /**
    * @menu
    * Implements the dropdown menu behaviour
@@ -75,17 +71,6 @@
           }
         });
       });
-    },
-
-    environmentInit: function () {
-      if (window.innerWidth < 768) {
-        marshallTrailers.global.width = "mobile";
-      } else {
-        marshallTrailers.global.width = "desktop";
-      }
-      $("body")
-        .removeClass("mobile desktop")
-        .addClass(marshallTrailers.global.width); // for css styling, eg. carousel slides
     },
 
     /**
@@ -300,6 +285,7 @@
     carousel: null,
     totalSlides: 7,
     visibleSlides: 3,
+    desktopWidthThreshold: 1200,
 
     next: function () {
       this.carousel.slick("slickNext");
@@ -314,7 +300,7 @@
     },
 
     init: function () {
-      if (marshallTrailers.global.width === "mobile") {
+      if (window.innerWidth < this.desktopWidthThreshold) {
         $("#parts-filters").removeClass("display-none");
         return;
       }
@@ -332,7 +318,22 @@
           arrows: false,
         })
         .removeClass("display-none");
+      $(".parts-filters-wrapper").addClass("initialized");
       $(".carousel-controls").removeClass("display-none");
+
+      this.carousel.on(
+        "beforeChange",
+        function (event, slick, currentSlideIndex, nextSlideIndex) {
+          if (currentSlideIndex > nextSlideIndex) {
+            $(
+              "#filter" +
+                (nextSlideIndex + marshallTrailers.partsFilters.visibleSlides),
+            )
+              .find("li")
+              .removeClass("selected");
+          }
+        },
+      );
 
       this.carousel.on(
         "afterChange",
@@ -446,7 +447,16 @@
    * Attaches lightbox functionality to links, gallery and single image
    */
   marshallTrailers.lcLightBoxLinks = {
-    galleryInit: function () {
+    mobileWidthThreshold: 768,
+
+    galleryImageLinks: function () {
+      if (window.innerWidth < this.mobileWidthThreshold) {
+        $(".lc_lightbox_gallery_link").on("click", function (e) {
+          e.preventDefault();
+        });
+        return;
+      }
+
       lc_lightbox(".lc_lightbox_gallery_link", {
         wrap_class: "lcl_fade_oc",
         gallery: true,
@@ -462,7 +472,14 @@
       });
     },
 
-    soloInit: function () {
+    soloImageLinks: function () {
+      if (window.innerWidth < this.mobileWidthThreshold) {
+        $(".lc_lightbox_link").on("click", function (e) {
+          e.preventDefault();
+        });
+        return;
+      }
+
       lc_lightbox(".lc_lightbox_link", {
         wrap_class: "lcl_fade_oc",
         gallery: false,
@@ -473,18 +490,21 @@
       });
     },
 
+    soloTextLinks: function () {
+      lc_lightbox(".lc_lightbox_link_text", {
+        wrap_class: "lcl_fade_oc",
+        gallery: false,
+        skin: "dark",
+        txt_toggle_cmd: false,
+        max_width: "80%",
+        max_height: "75%",
+      });
+    },
+
     init: function () {
-      if (marshallTrailers.global.width === "mobile") {
-        $(".lc_lightbox_gallery_link, .lc_lightbox_link").on(
-          "click",
-          function (e) {
-            e.preventDefault();
-          },
-        );
-        return;
-      }
-      this.galleryInit();
-      this.soloInit();
+      this.galleryImageLinks();
+      this.soloImageLinks();
+      this.soloTextLinks();
     },
   };
 
@@ -659,8 +679,8 @@
 
   // resize events */
   $(window).on("resize", function () {
-    marshallTrailers.utils.environmentInit();
     marshallTrailers.topNavigation.close();
+    marshallTrailers.basket.close();
   });
 
   // scroll events */
@@ -688,7 +708,6 @@
    * one init to rule them all
    */
   marshallTrailers.init = function () {
-    marshallTrailers.utils.environmentInit();
     marshallTrailers.topNavigation.init();
     marshallTrailers.mobileNavigation.init();
     marshallTrailers.lcLightBoxLinks.init();
