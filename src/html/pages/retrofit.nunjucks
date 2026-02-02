@@ -1,3 +1,4 @@
+{% set main_page = "retrofit" %}
 {% extends "layout.nunjucks" %}
 {% import "../templates/partials/_macros.nunjucks" as macros %}
 

@@ -19,11 +19,11 @@
             <li class="mobile-only">
               <a href="index.html" title="Home">Home</a>
             </li>
-            <li class="has-mega-nav">
+            <li class="has-mega-nav {{ 'active' if main_page === 'products' }}">
               <a href="range.html" title="Products">Products</a>
               <ul id="mega-nav-list">
                 {% for item in rangesData %}
-                  <li>
+                  <li  {% if main_page === "products" %} class="active" {% endif %}>
                     <a href="products.html?model={{ item.id }}" data-image-src="{{ item.image }}">{{ item.title }}</a>
                     <ul>
                       {% for model in item.models %}
@@ -36,26 +36,27 @@
                 {% endfor %}
               </ul>
             </li>
-            <li>
-              <a href="retrofit.html" title="Retro Fit">Retro Fit</a>
+            <li {% if main_page === "retrofit" %} class="active" {% endif %}>
+              <a href="retrofit.html">Retro Fit</a>
             </li>
-            <li class="desktop-only">
-              <a href="configure-machine.html" title="Configure a Marshall Machine">Price & Configure</a>
+
+            <li class="desktop-only {{ 'active' if main_page === 'configure' }}">
+              <a href="configure.html">Price & Configure</a>
             </li>
-            <li>
-              <a href="spares.html" title="Spares">Spares</a>
+            <li {% if main_page === "spares" %} class="active" {% endif %}>
+              <a href="spares.html">Spares</a>
             </li>
-            <li>
-              <a href="stock-clearance.html" title="Stock Clearance">Stock Clearance</a>
+            <li {% if main_page === "stock-clearance" %} class="active" {% endif %} >
+              <a href="stock-clearance.html">Stock Clearance</a>
             </li>
-            <li>
-              <a href="about-us.html" title="About Us">About us</a>
+            <li {% if main_page === "about" %} class="active" {% endif %}>
+              <a href="about.html">About us</a>
             </li>
-            <li>
-              <a href="contact-us.html" title="Contact">Contact</a>
+            <li {% if main_page === "contact" %} class="active" {% endif %}>
+              <a href="contact.html">Contact</a>
             </li>
-            <li>
-              <a href="search.html" title="Search the our site">Search</a>
+            <li {% if main_page === "search" %} class="active" {% endif %}>
+              <a href="search.html">Search</a>
             </li>
           </ul>
         </nav>

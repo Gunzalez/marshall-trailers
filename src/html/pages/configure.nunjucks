@@ -1,0 +1,38 @@
+{% set main_page = "configure" %}
+{% extends "layout.nunjucks" %}
+{% import "../templates/partials/_macros.nunjucks" as macros %}
+
+{% block content %}
+
+    {{ macros.header("images/logo-marshall-trailers-color.png") }}
+
+    <div id="product-detail">
+        <nav aria-label="breadcrumbs" class="breadcrumbs">
+            <ol>
+                <li>
+                    <a href="index.html">Home</a>
+                </li>
+                <li>Configure</li>
+            </ol>
+        </nav>
+
+        <div class="product-hero">
+            <div class="section">
+                <div class="copy-wrapper desktop-only">
+                    <div class="inner-wrapper">
+                        {{ macros.quickSpecs() }}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mobile-only quick-specs-mobile">
+            <div class="section">
+                {{ macros.quickSpecs() }}
+            </div>
+        </div>
+
+        <div class="spacer" style="--height: 400px;"></div>
+    </div>
+
+{% endblock %}

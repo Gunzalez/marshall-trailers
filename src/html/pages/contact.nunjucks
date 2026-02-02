@@ -1,4 +1,4 @@
-{% set main_page = "spares" %}
+{% set main_page = "contact" %}
 {% extends "layout.nunjucks" %}
 {% import "../templates/partials/_macros.nunjucks" as macros %}
 
@@ -11,19 +11,14 @@
             <li>
                 <a href="index.html">Home</a>
             </li>
-            <li>
-                <a href="spares.html">Spares</a>
-            </li>
-            <li>Serial Number</li>
+            <li>Contact us</li>
         </ol>
     </nav>
 
     <div class="title-wrapper">
-        <h1 class="page-title">Serial Number</h1>
+        <h1 class="page-title">Contact us</h1>
     </div>
 
-    <div class="section body-copy">
-        <p>Using your unique serial number to identify parts for your machine built after 2020.</p>
-    </div>
+    <div class="spacer" style="--height: 800px;"></div>
 
 {% endblock %}

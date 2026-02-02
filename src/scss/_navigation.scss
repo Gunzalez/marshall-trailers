@@ -189,7 +189,8 @@
   }
 }
 
-#top-navigation .main-menu li:hover > a {
+#top-navigation .main-menu li:hover > a,
+#top-navigation .main-menu li.active > a {
   border-bottom: 3px solid var(--brand-yellow);
 }
 

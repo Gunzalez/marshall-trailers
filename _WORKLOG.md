@@ -38,13 +38,13 @@
 
 - move to real repo
 - style filter headers
-- main menu active page state - yellow underline
 
 ### DONE
 
 - Replace lightBox
 - mobile version of parts
 - fast scroll to start on part filters
+- main menu active page state - yellow underline
 
 ### DON'T
 
