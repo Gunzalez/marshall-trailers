@@ -32,11 +32,13 @@
 - 30th January: 7hrs
 - 31th January: 4hrs
 - 1st February: 4hrs
+- 2nd February: 2hrs
 
 #### TODO
 
 - move to real repo
 - style filter headers
+- main menu active page state - yellow underline
 
 ### DONE
 
