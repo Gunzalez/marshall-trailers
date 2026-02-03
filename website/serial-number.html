@@ -376,12 +376,164 @@
     </nav>
 
     <div class="title-wrapper">
-        <h1 class="page-title">Serial Number</h1>
+        <h1 class="page-title">Serial Number: <span class="dummy-data-serial-number-replace-span"></span></h1>
+        <p>Ordering parts for machines built in or after 2020.</p>
     </div>
 
-    <div class="section body-copy">
-        <p>Using your unique serial number to identify parts for your machine built after 2020.</p>
+    <div class="introduction-wrapper body-copy">
+        <div class="introduction flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
+            <span>Your Marshall is built up of <strong>822</strong> parts.</span>
+            <span>
+                <a href="spares.html">Not your Marshall?</a>
+            </span>
+        </div>
     </div>
+
+    <div class="product-hero">
+        <div class="section">
+            <div class="copy-wrapper desktop-only">
+                <div class="inner-wrapper">
+                    
+    <div class="quick-specs block-level">
+        <div class="specs-content">
+            <h1 class="title">BC-25-10T</h1>
+            <ul>
+                <li>
+                    <span class="label">Material Description</span>
+                    <span class="value">BC/25-10ton Bale/Flat Trailer</span>
+                </li>
+                <li>
+                    <span class="label">Goods Issue Date</span>
+                    <span class="value">17.05.2022</span>
+                </li>
+                <li>
+                    <span class="label">Axles</span>
+                    <span class="value">6 Stud Axle (300x60)</span>
+                </li>
+                <li>
+                    <span class="label">Wheels</span>
+                    <span class="value">17.05.2022</span>
+                </li>
+                <li>
+                    <span class="label">Suspension</span>
+                    <span class="value">Rockers</span>
+                </li>
+                <li>
+                    <span class="label">Braking Systems</span>
+                    <span class="value">Hydraulic Brakes</span>
+                </li>
+            </ul>
+        </div>
+        <button class="bttn">
+            <span>More details</span>
+            <span>
+                <i class="fa-solid fa-chevron-right"></i>
+            </span>
+        </button>
+    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="mobile-only quick-specs-mobile">
+        <div class="section">
+            
+    <div class="quick-specs block-level">
+        <div class="specs-content">
+            <h1 class="title">BC-25-10T</h1>
+            <ul>
+                <li>
+                    <span class="label">Material Description</span>
+                    <span class="value">BC/25-10ton Bale/Flat Trailer</span>
+                </li>
+                <li>
+                    <span class="label">Goods Issue Date</span>
+                    <span class="value">17.05.2022</span>
+                </li>
+                <li>
+                    <span class="label">Axles</span>
+                    <span class="value">6 Stud Axle (300x60)</span>
+                </li>
+                <li>
+                    <span class="label">Wheels</span>
+                    <span class="value">17.05.2022</span>
+                </li>
+                <li>
+                    <span class="label">Suspension</span>
+                    <span class="value">Rockers</span>
+                </li>
+                <li>
+                    <span class="label">Braking Systems</span>
+                    <span class="value">Hydraulic Brakes</span>
+                </li>
+            </ul>
+        </div>
+        <button class="bttn">
+            <span>More details</span>
+            <span>
+                <i class="fa-solid fa-chevron-right"></i>
+            </span>
+        </button>
+    </div>
+
+        </div>
+    </div>
+
+    <div class="page-divider"></div>
+
+    <div id="categories-app" class="app-loading">
+        <div class="section body-copy">
+            <h3 class="underlined">Select primary part category</h3>
+            <ul class="parts-categories-list grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
+                <li v-for="(category, i) in categories" :key="i" class="category-item">
+                    <a :href="[category.key]" :class="{ 'selected': selectedCategory === category.key }" @click.prevent="selectedCategory = category.key">
+                        [[ category.name ]]
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="section body-copy">
+            <h3 class="underlined">Select secondary part category</h3>
+        </div>
+    </div>
+
+    <script>
+
+        // replace with PHP
+        document.addEventListener('DOMContentLoaded', () => {
+            const queryString = window.location.search;
+            const urlParams = new URLSearchParams(queryString);
+            const serial_number = urlParams.get('serial-number');
+            $('.dummy-data-serial-number-replace-span').text(serial_number);
+        });
+
+        // replace with JSON from PHP
+        const categoriesData = [{"name":"Axles","key":"axles"},{"name":"Bearings","key":"bearings"},{"name":"Bolts","key":"bolts"},{"name":"Cover Couplings","key":"cover-couplings"},{"name":"Handbrakes","key":"handbrakes"},{"name":"Hitches","key":"hitches"},{"name":"Hydraulic Hoses","key":"hydraulic-hoses"},{"name":"Lights","key":"lights"},{"name":"Mesh","key":"mesh"},{"name":"Miscellaneous","key":"miscellaneous"},{"name":"Other rams","key":"other-rams"},{"name":"Paint","key":"paint"},{"name":"Rocker Tandems","key":"rocker-tandems"},{"name":"Seals","key":"seals"},{"name":"Springs","key":"springs"},{"name":"Steel Sections","key":"steel-sections"},{"name":"Tip Rams","key":"tip-rams"},{"name":"Transfer","key":"transfer"},{"name":"Valves","key":"valves"}];
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const {createApp, onMounted, ref} = Vue;
+
+            createApp({
+                delimiters: [
+                    '[[', ']]'
+                ],
+                setup() {
+                    const categories = ref(categoriesData);
+                    const selectedCategory = ref('axles');
+
+                    onMounted(() => {
+                        $('#categories-app').removeClass('app-loading');
+                    });
+
+                    return {categories, selectedCategory}
+                }
+            }).mount('#categories-app');
+
+        });
+    </script>
 
 
       <div class="footer">
