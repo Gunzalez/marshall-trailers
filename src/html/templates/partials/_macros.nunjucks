@@ -293,6 +293,46 @@
     </div>
 {% endmacro %}
 
+{% macro serialNumberSpecs() %}
+    <div class="quick-specs block-level">
+        <div class="specs-content">
+            <h1 class="title">BC-25-10T</h1>
+            <ul>
+                <li>
+                    <span class="label">Material Description</span>
+                    <span class="value">BC/25-10ton Bale/Flat Trailer</span>
+                </li>
+                <li>
+                    <span class="label">Goods Issue Date</span>
+                    <span class="value">17.05.2022</span>
+                </li>
+                <li>
+                    <span class="label">Axles</span>
+                    <span class="value">6 Stud Axle (300x60)</span>
+                </li>
+                <li>
+                    <span class="label">Wheels</span>
+                    <span class="value">17.05.2022</span>
+                </li>
+                <li>
+                    <span class="label">Suspension</span>
+                    <span class="value">Rockers</span>
+                </li>
+                <li>
+                    <span class="label">Braking Systems</span>
+                    <span class="value">Hydraulic Brakes</span>
+                </li>
+            </ul>
+        </div>
+        <button class="bttn">
+            <span>More details</span>
+            <span>
+                <i class="fa-solid fa-chevron-right"></i>
+            </span>
+        </button>
+    </div>
+{% endmacro %}
+
 {% macro fakeResults() %}
     <h2 class="results-title">
         <strong>180</strong>

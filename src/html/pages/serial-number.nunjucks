@@ -19,11 +19,108 @@
     </nav>
 
     <div class="title-wrapper">
-        <h1 class="page-title">Serial Number</h1>
+        <h1 class="page-title">Serial Number: <span class="dummy-data-serial-number-replace-span"></span></h1>
+        <p>Ordering parts for machines built in or after 2020.</p>
     </div>
 
-    <div class="section body-copy">
-        <p>Using your unique serial number to identify parts for your machine built after 2020.</p>
+    <div class="introduction-wrapper body-copy">
+        <div class="introduction flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
+            <span>Your Marshall is built up of <strong>822</strong> parts.</span>
+            <span>
+                <a href="spares.html">Not your Marshall?</a>
+            </span>
+        </div>
     </div>
+
+    <div class="product-hero">
+        <div class="section">
+            <div class="copy-wrapper desktop-only">
+                <div class="inner-wrapper">
+                    {{ macros.serialNumberSpecs() }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="mobile-only quick-specs-mobile">
+        <div class="section">
+            {{ macros.serialNumberSpecs() }}
+        </div>
+    </div>
+
+    <div class="page-divider"></div>
+
+    <div class="section body-copy">
+        <h3 class="underlined">Select primary part category</h3>
+        <ul class="parts-categories-list grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
+            <li>
+                <a href="#">Axles</a>
+            </li>
+            <li>
+                <a href="#">Bearings</a>
+            </li>
+            <li>
+                <a href="#">Bolts</a>
+            </li>
+            <li>
+                <a href="#">Cover Couplings</a>
+            </li>
+            <li>
+                <a href="#">Handbrakes</a>
+            </li>
+            <li>
+                <a href="#">Hitches</a>
+            </li>
+            <li>
+                <a href="#">Hydraulic Hoses</a>
+            </li>
+            <li>
+                <a href="#">Lights</a>
+            </li>
+            <li>
+                <a href="#">Mesh</a>
+            </li>
+            <li>
+                <a href="#">Miscellaneous</a>
+            </li>
+            <li>
+                <a href="#">Other rams</a>
+            </li>
+            <li>
+                <a href="#">Paint</a>
+            </li>
+            <li>
+                <a href="#">Rocker Tandems</a>
+            </li>
+            <li>
+                <a href="#">Seals</a>
+            </li>
+            <li>
+                <a href="#">Springs</a>
+            </li>
+            <li>
+                <a href="#">Steel Sections</a>
+            </li>
+            <li>
+                <a href="#">Tip Rams</a>
+            </li>
+            <li>
+                <a href="#">Transfer</a>
+            </li>
+            <li>
+                <a href="#">Valves</a>
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        // replace all with PHP
+        document.addEventListener('DOMContentLoaded', () => {
+            const queryString = window.location.search;
+            const urlParams = new URLSearchParams(queryString);
+            const serial_number = urlParams.get('serial-number');
+            $('.dummy-data-serial-number-replace-span').text(serial_number);
+        });
+    </script>
 
 {% endblock %}
