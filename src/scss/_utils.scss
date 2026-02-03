@@ -593,8 +593,6 @@
 
 .parts-categories-list {
   padding-top: 1rem;
-  li {
-  }
 
   a {
     background-color: var(--brand-gray-light);
@@ -605,7 +603,7 @@
     border-left: 4px solid transparent;
     transition: all 0.3s ease-in-out;
 
-    &.active {
+    &.selected {
       border-color: var(--brand-yellow);
       background-color: white;
     }
