@@ -1009,5 +1009,26 @@
       "image": "images/clearance-2.jpg",
       "info": "Used condition - 10 Stud ESFA Axles 400x100. Five available. Can be collected or delivery can be arranged with one of our lorries for an additional cost."
     }
+  ],
+  "categoriesData": [
+    { "name": "Axles", "key": "axles" },
+    { "name": "Bearings", "key": "bearings" },
+    { "name": "Bolts", "key": "bolts" },
+    { "name": "Cover Couplings", "key": "cover-couplings" },
+    { "name": "Handbrakes", "key": "handbrakes" },
+    { "name": "Hitches", "key": "hitches" },
+    { "name": "Hydraulic Hoses", "key": "hydraulic-hoses" },
+    { "name": "Lights", "key": "lights" },
+    { "name": "Mesh", "key": "mesh" },
+    { "name": "Miscellaneous", "key": "miscellaneous" },
+    { "name": "Other rams", "key": "other-rams" },
+    { "name": "Paint", "key": "paint" },
+    { "name": "Rocker Tandems", "key": "rocker-tandems" },
+    { "name": "Seals", "key": "seals" },
+    { "name": "Springs", "key": "springs" },
+    { "name": "Steel Sections", "key": "steel-sections" },
+    { "name": "Tip Rams", "key": "tip-rams" },
+    { "name": "Transfer", "key": "transfer" },
+    { "name": "Valves", "key": "valves" }
   ]
 }
