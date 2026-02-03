@@ -46,7 +46,7 @@
   height: 38px;
   line-height: 38px;
   background-color: #fff;
-  color: #bbb;
+  color: var(--brand-red);
   text-align: center;
 }
 
@@ -56,6 +56,7 @@
 
 .selectric-hover .selectric .button {
   color: #a2a2a2;
+  color: var(--brand-red-dark);
 }
 
 .selectric-hover .selectric .button:after {
@@ -75,8 +76,8 @@
 }
 
 .selectric-disabled {
-  filter: alpha(opacity=50);
-  opacity: 0.5;
+  filter: alpha(opacity=30);
+  opacity: 0.3;
   cursor: default;
   -webkit-user-select: none;
   -moz-user-select: none;
