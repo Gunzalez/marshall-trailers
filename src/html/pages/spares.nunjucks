@@ -31,7 +31,7 @@
                 <img class="content-img" src="images/sub-section-bg-3.png" alt="">
                 <div class="text-wrapper">
                     <p>Quickly find parts specific to your machine using its unique <a href="#">serial number</a>.</p>
-                    <form action="serial-number.html" method="get" class="form">
+                    <form id="serial-number-form" action="serial-number.html" method="get" class="form">
                         <label for="serial-number" class="input-group">
                             <span class="sr-only">Serial Number</span>
                             <input type="text" id="serial-number" name="serial-number" placeholder="Enter serial number">

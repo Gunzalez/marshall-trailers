@@ -284,6 +284,19 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  $("#serial-number-form").on("submit", function (event) {
+    event.preventDefault();
+
+    var serialNumber = $("#serial-number").val().trim();
+    if (serialNumber === "") {
+      return;
+    }
+
+    var destination = $(this).attr("action");
+    window.location.href =
+      destination + "?serial-number=" + encodeURIComponent(serialNumber);
+  });
+
   $("#results").on("click", ".btn_addBasket", function (event) {
     event.preventDefault();
 
