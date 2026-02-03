@@ -3,13 +3,13 @@ var spares_total = 0; // running total for spares basket
 var totalNumFilters = 7;
 var numVisibleFilters = 3;
 var filters_sliding = false;
+var filter_title = "Additional filter";
 
 function clearFilters() {
   for (var i = 2; i <= totalNumFilters; i++) {
-    $("#filter" + i)
-      .empty()
-      .parent(".slide")
-      .removeClass("selected");
+    var $filter = $("#filter" + i);
+    $filter.empty().parent(".slide").removeClass("selected");
+    $filter.parent(".slide").find("h3").text(filter_title);
   }
 }
 
@@ -43,6 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // set data, used by model, range selects //
     var category_id = $(this).val();
     updateFieldsMeta(1, category_id);
+    var itemName = $("#filter1 option:selected").text();
 
     clearFilters();
     // get child cats //
@@ -55,6 +56,8 @@ document.addEventListener("DOMContentLoaded", () => {
         success: function (dat) {
           if (dat.cats !== null) {
             $("#filter2").parent(".slide").addClass("selected");
+
+            $("#filter2").parent(".slide").find("h3").text(itemName);
 
             for (var i = 0; i < dat.cats.length; i++) {
               $("#filter2").append(
@@ -105,6 +108,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     var level = parseInt($(this).parent("li").parent("ol").data("level"));
     var nextFilter = level + 1;
+    var itemName = $(this).text();
 
     var cat_id = $(this).data("cid");
 
@@ -129,6 +133,11 @@ document.addEventListener("DOMContentLoaded", () => {
           $("#filter" + nextFilter)
             .parent(".slide")
             .addClass("selected");
+
+          $("#filter" + nextFilter)
+            .parent(".slide")
+            .find("h3")
+            .text(itemName);
 
           for (var i = 0; i < dat.cats.length; i++) {
             $("#filter" + nextFilter).append(
@@ -251,12 +260,12 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  $("#search-filter").on("submit", function (event) {
+  $("#filter-form").on("submit", function (event) {
     event.preventDefault();
 
     $("#processing").fadeIn("fast");
 
-    $("#filter1").val("");
+    $("#filter1").val("").selectric("refresh");
     $("#range").val("").prop("disabled", true).selectric("refresh");
     $("#model").empty().prop("disabled", true);
 

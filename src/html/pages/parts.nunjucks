@@ -40,11 +40,11 @@
             </div>
             <div id="parts-filters" class="parts-filters display-none">
                 <div class="slide selected form-slide">
-                    <h3>Filter 1</h3>
-                    <form id="search-filter" class="filterList form" method="post" autoComplete="off">
+                    <h3>Select part</h3>
+                    <form id="filter-form" class="filter-inputs form" method="post" autoComplete="off">
                         <fieldset id="fields" class="fields">
 
-                            <div class="filter-selects">
+                            <div class="select-inputs">
                                 <h4 class="title">Select part category:</h4>
 
                                 <select id="filter1" class="filter-select">
@@ -211,8 +211,9 @@
                                 </select>
                             </div>
 
-                            <div class="part-search-inputs">
+                            <div class="text-inputs">
                                 <h4 class="title">Or search for a part:</h4>
+
                                 <label for="part_no">
                                     <span class="sr-only">Part no:</span><input id="part_no" type="text" placeholder="Part no." name="part_no"></label>
                                 <label for="keyword">
@@ -227,70 +228,33 @@
                     </form>
                 </div>
                 <div class="slide">
-                    <h3>Filter 2</h3>
-
-                    <ol id="filter2" data-level="2">
-                        {# <li>
-                                <a href="#" data-cid="95" class="filter">Brake shoes &amp; accessories</a>
-                            </li>
-                            <li>
-                                <a href="#" data-cid="308" class="filter">Complete axles</a>
-                            </li>
-                            <li>
-                                <a href="#" data-cid="789" class="filter">Half axles</a>
-                            </li>
-                            <li>
-                                <a href="#" data-cid="813" class="filter">Hub caps</a>
-                            </li>
-                            <li>
-                                <a href="#" data-cid="838" class="filter">Hub seals</a>
-                            </li>
-                            <li>
-                                <a href="#" data-cid="871" class="filter">Hubs &amp; brake drums</a>
-                            </li>
-                            <li>
-                                <a href="#" data-cid="1546" class="filter">Steering axle parts</a>
-                            </li>
-                            <li>
-                                <a href="#" data-cid="1699" class="filter">Wheel studs &amp; nuts</a>
-                            </li> #}
-                    </ol>
+                    <h3>Additional filter</h3>
+                    <ol id="filter2" data-level="2"></ol>
                 </div>
                 <div class="slide">
-                    <h3>Filter 3</h3>
-                    <ol id="filter3" data-level="3">
-                        {# <li>
-                                <a href="#" data-cid="96" class="filter">10 stud</a>
-                            </li>
-                            <li>
-                                <a href="#" data-cid="166" class="filter">5 stud</a>
-                            </li>
-                            <li>
-                                <a href="#" data-cid="183" class="filter">6 stud</a>
-                            </li>
-                            <li>
-                                <a href="#" data-cid="245" class="filter">8 stud</a>
-                            </li> #}
-                    </ol>
+                    <h3>Additional filter</h3>
+                    <ol id="filter3" data-level="3"></ol>
                 </div>
                 <div class="slide">
-                    <h3>Filter 4</h3>
+                    <h3>Additional filter</h3>
                     <ol id="filter4" data-level="4"></ol>
                 </div>
                 <div class="slide">
-                    <h3>Filter 5</h3>
+                    <h3>Additional filter</h3>
                     <ol id="filter5" data-level="5"></ol>
                 </div>
                 <div class="slide">
-                    <h3>Filter 6</h3>
+                    <h3>Additional filter</h3>
                     <ol id="filter6" data-level="6"></ol>
                 </div>
                 <div class="slide">
-                    <h3>Filter 7</h3>
+                    <h3>Additional filter</h3>
                     <ol id="filter7" data-level="7"></ol>
                 </div>
             </div>
-            <div id="results" class="results"></div>
+            <div id="results" class="results">
+                {{ macros.fakeResults() }}
+            </div>
         </div>
     </div>
 

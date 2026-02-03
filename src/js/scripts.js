@@ -376,7 +376,6 @@
     init: function () {
       var $selects = $(".product-selector select").selectric({
         maxHeight: 164,
-        arrowButtonMarkup: '<b class="button"></b>',
       });
 
       $selects.on("change", function () {
