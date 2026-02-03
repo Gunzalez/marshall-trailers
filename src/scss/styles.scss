@@ -621,6 +621,14 @@
   .value {
     font-weight: bold;
   }
+
+  &.block-level {
+    ul {
+      .value {
+        display: block;
+      }
+    }
+  }
 }
 
 .features-list {
