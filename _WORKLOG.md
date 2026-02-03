@@ -32,7 +32,8 @@
 - 30th January: 7hrs
 - 31th January: 4hrs
 - 1st February: 4hrs
-- 2nd February: 2hrs
+- 2nd February: 3hrs
+- 3rd February: 5hrs
 
 #### TODO
 
