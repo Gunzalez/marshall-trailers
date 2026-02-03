@@ -295,8 +295,8 @@
 
 {% macro fakeResults() %}
     <h2 class="results-title">
-        <strong>Your search has returned:</strong>
-        <span>180 results.</span>
+        <strong>180</strong>
+        <span>items found.</span>
     </h2>
     <form>
         <ol>
