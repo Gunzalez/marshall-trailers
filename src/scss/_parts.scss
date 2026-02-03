@@ -99,7 +99,6 @@
       flex-direction: column;
       gap: 2rem;
       max-width: 380px;
-      padding: 5px 60px 0 0;
     }
 
     .select-inputs,
@@ -127,6 +126,9 @@
       background-size: 100px;
       transition: background-position 0.3s ease-in-out;
     }
+    .fields {
+      padding: 5px 60px 0 0;
+    }
 
     @media (max-width: 1200px) {
       .reload-filter {
@@ -142,7 +144,7 @@
 
   @media screen and (min-width: 768px) {
     .results {
-      margin-top: 2rem;
+      margin-top: 3rem;
     }
   }
 }
