@@ -634,6 +634,7 @@
 .quick-nav-top {
   ul {
     display: inline-flex;
+    list-style: none;
   }
 
   a {
@@ -655,6 +656,7 @@
     flex-direction: column;
     text-align: right;
     gap: 1px;
+    list-style: none;
   }
 
   a {

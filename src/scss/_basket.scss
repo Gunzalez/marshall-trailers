@@ -7,7 +7,6 @@
   font-family: sans-serif;
   transition: all 0.3s ease;
   overflow: hidden;
-  padding: 10px;
 
   .title {
     margin: 0;
@@ -19,7 +18,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-bottom: 8px;
+    padding: 10px 0;
   }
 
   .basket-details {
@@ -87,11 +86,11 @@
   }
 
   .desktop-button {
-    background-color: var(--brand-red);
+    background-color: var(--brand-red-dark);
     color: white;
-    padding: 8px;
+    padding: 10px;
     writing-mode: vertical-rl;
-    font-size: 0.8rem;
+    font-size: 1rem;
     cursor: pointer;
   }
 
@@ -105,11 +104,12 @@
 /* Mobile: Full Width Bottom */
 @media (max-width: 768px) {
   #floating-basket {
-    bottom: -120px;
+    bottom: -130px;
     right: 0;
     left: 0;
     width: 100%;
     border-top: 3px solid var(--brand-red);
+    padding: 0 10px 10px 10px;
 
     &.open {
       bottom: 0;
