@@ -67,11 +67,14 @@
 /* Desktop: Top Right */
 @media (min-width: 769px) {
   #floating-basket {
-    top: 90px;
-    right: -345px;
+    top: 120px;
+    right: -357px;
     width: 400px;
     transition: all 0.3s ease-in-out;
     padding-right: 16px;
+
+    border-top-left-radius: 2px;
+    border-bottom-left-radius: 2px;
 
     &.open {
       right: -1px;
