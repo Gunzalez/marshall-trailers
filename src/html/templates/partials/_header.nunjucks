@@ -23,7 +23,7 @@
               <a href="range.html" title="Products">Products</a>
               <ul id="mega-nav-list">
                 {% for item in rangesData %}
-                  <li  {% if main_page === "products" %} class="active" {% endif %}>
+                  <li {% if main_page === "products" %} class="active" {% endif %}>
                     <a href="products.html?model={{ item.id }}" data-image-src="{{ item.image }}">{{ item.title }}</a>
                     <ul>
                       {% for model in item.models %}

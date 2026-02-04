@@ -1,5 +1,5 @@
 {% macro floatingBasket() %}
-    <div id="floating-basket">
+    <div id="floating-basket" class="floating-basket">
         <div class="basket-inner">
             <div class="desktop-button">
             Your Marshall
@@ -49,22 +49,10 @@
     </label>
 {% endmacro %}
 
-{% macro quantityField(name) %}
-    <label class="w-[80px] inline-block">
-        <span class="sr-only">Quantity:</span>
-        <select name="{{ name }}" id="{{ name }}" class="quantity quantity-select">
-            {% for i in range(1, 121) %}
-                <option value="{{ i }}">{{ i }}
-                </option>
-            {% endfor %}
-        </select>
-    </label>
-{% endmacro %}
-
 {% macro quickNav() %}
     <ul>
         <li>
-            <a href="range.html" aria-label="Products" class="expanding-link {% if page.url == '/range.html' %}selected{% endif %}">
+            <a href="range.html" aria-label="Products" class="expanding-link">
                 <i class="fa-solid fa-tractor"></i>
                 <span>Products</span>
             </a>
@@ -81,7 +69,7 @@
                 <span>Spares</span>
             </a>
         </li>
-        <li>
+        <li class="basket-link">
             <a href="basket.html" aria-label="Basket" class="expanding-link">
                 <i class="fa-solid fa-cart-shopping"></i>
                 <span>Basket</span>
