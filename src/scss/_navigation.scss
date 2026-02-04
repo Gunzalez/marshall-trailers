@@ -194,6 +194,17 @@
   border-bottom: 3px solid var(--brand-yellow);
 }
 
+#floating-nav {
+  position: fixed;
+  top: 250px;
+  right: 0;
+  z-index: 1000;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+
 /* mobile navigation */
 /* ================================================================= */
 .mm-panels {

@@ -39,7 +39,6 @@
             <li {% if main_page === "retrofit" %} class="active" {% endif %}>
               <a href="retrofit.html">Retro Fit</a>
             </li>
-
             <li class="desktop-only {{ 'active' if main_page === 'configure' }}">
               <a href="configure.html">Price & Configure</a>
             </li>
