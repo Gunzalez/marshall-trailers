@@ -1,4 +1,4 @@
-{% set main_page = "about" %}
+{% set main_page = "basket" %}
 {% extends "layout.nunjucks" %}
 {% import "../templates/partials/_macros.nunjucks" as macros %}
 
