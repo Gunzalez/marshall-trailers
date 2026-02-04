@@ -34,6 +34,7 @@
 - 1st February: 4hrs
 - 2nd February: 3hrs
 - 3rd February: 5hrs
+- 4th February: 3hrs
 
 #### TODO
 
