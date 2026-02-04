@@ -38,12 +38,12 @@ document.addEventListener("DOMContentLoaded", () => {
     $("#processing").fadeIn("fast");
 
     $("#range").val("").prop("disabled", false).selectric("refresh");
-    $("#model").empty().prop("disabled", true);
+    $("#model").empty().prop("disabled", true).selectric("refresh");
 
     // set data, used by model, range selects //
     var category_id = $(this).val();
     updateFieldsMeta(1, category_id);
-    var itemName = $("#filter1 option:selected").text();
+    var selectedItemName = $("#filter1 option:selected").text();
 
     clearFilters();
     // get child cats //
@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
           if (dat.cats !== null) {
             $("#filter2").parent(".slide").addClass("selected");
 
-            $("#filter2").parent(".slide").find("h3").text(itemName);
+            $("#filter2").parent(".slide").find("h3").text(selectedItemName);
 
             for (var i = 0; i < dat.cats.length; i++) {
               $("#filter2").append(
@@ -108,7 +108,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     var level = parseInt($(this).parent("li").parent("ol").data("level"));
     var nextFilter = level + 1;
-    var itemName = $(this).text();
+    var selectedItemName = $(this).text();
 
     var cat_id = $(this).data("cid");
 
@@ -137,7 +137,7 @@ document.addEventListener("DOMContentLoaded", () => {
           $("#filter" + nextFilter)
             .parent(".slide")
             .find("h3")
-            .text(itemName);
+            .text(selectedItemName);
 
           for (var i = 0; i < dat.cats.length; i++) {
             $("#filter" + nextFilter).append(
@@ -149,8 +149,7 @@ document.addEventListener("DOMContentLoaded", () => {
             );
           }
 
-          // On mobile carousel is not initialised, and will be null
-          // carousel will scroll to show next filter
+          // Scrolls only on desktop. This value is null on mobile, as the carousel is not initialised on mobile.
           if (window.MT.partsFilters.carousel) {
             if (nextFilter > numVisibleFilters) {
               window.MT.partsFilters.carousel.slick(
@@ -267,7 +266,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     $("#filter1").val("").selectric("refresh");
     $("#range").val("").prop("disabled", true).selectric("refresh");
-    $("#model").empty().prop("disabled", true);
+    $("#model").empty().prop("disabled", true).selectric("refresh");
 
     clearFilters();
     // get spares results //
