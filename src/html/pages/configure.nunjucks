@@ -12,7 +12,7 @@
                 <li>
                     <a href="index.html">Home</a>
                 </li>
-                <li>Configure</li>
+                <li>Configure Machine</li>
             </ol>
         </nav>
 
@@ -30,5 +30,7 @@
 
         <div class="spacer" style="--height: 400px;"></div>
     </div>
+
+    {{ macros.floatingBasket() }}
 
 {% endblock %}

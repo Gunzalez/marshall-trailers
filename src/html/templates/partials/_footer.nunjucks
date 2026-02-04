@@ -36,43 +36,6 @@
     </div>
 </div>
 
-<div id="floating-basket">
-    <div class="basket-inner">
-        <div class="desktop-button">
-            Your Marshall
-        </div>
-        <div class="basket-wrapper">
-            <div class="basket-header">
-                <h4 class="title">Your basket</h4>
-                <button type="button" class="close-basket-button">
-                    <i class="fa-solid fa-xmark text-lg"></i>
-                </button>
-            </div>
-
-            <div class="basket-content">
-                <div class="basket-details">
-                    <span id="num_items" class="items">0 items</span>
-                    <span id="total_price" class="total-price">£0.00</span>
-                </div>
-                <button type="button" class="bttn checkout-bttn">
-                    <span>
-                        <i class="fa-solid fa-cart-shopping"></i>
-                    </span>
-                    <span>Basket</span>
-                </button>
-            </div>
-
-            <div class="basket-progress">
-                <div class="flex items-center gap-2">
-                    <i class="fa-solid fa-spinner fa-spin-pulse"></i>
-                    <span>Updating basket...</span>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</div>
-
 <div id="floating-nav" class="quick-nav-float">
     {{ macros.quickNav() }}
 </div>

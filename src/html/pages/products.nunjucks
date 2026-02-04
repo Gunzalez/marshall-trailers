@@ -17,13 +17,13 @@
             <li>
                 <span class="mobile-only">Products</span>
                 <span class="desktop-only">
-                    <span class="dummy-data-range-title-replace-span"></span></span></li>
+                    <span class="dummy-data-range-title-TEXT"></span></span></li>
         </ol>
     </nav>
 
     <div class="title-wrapper">
         <h1 class="page-title">
-            <span class="dummy-data-range-title-replace-span"></span></h1>
+            <span class="dummy-data-range-title-TEXT"></span></h1>
     </div>
 
     <div id="models-app" class="section in-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 pb-16 app-loading">
@@ -70,7 +70,7 @@
 
                         $('#models-app').removeClass('app-loading');
                         // dummy data for demo purposes
-                        $('.dummy-data-range-title-replace-span').text(productsRangeTitle.value);
+                        $('.dummy-data-range-title-TEXT').text(productsRangeTitle.value);
                     });
 
                     return {models}

@@ -17,11 +17,11 @@
                 </li>
                 <li>
                     <span class="mobile-only">
-                        <a href="#" class="dummy-data-parent-link-replace-href">Products</a>
+                        <a href="#" class="dummy-data-parent-link-HREF">Products</a>
                     </span>
                     <span class="desktop-only">
-                        <a href="#" class="dummy-data-parent-link-replace-href">
-                            <span class="dummy-data-range-title-replace-span"></span>
+                        <a href="#" class="dummy-data-parent-link-HREF">
+                            <span class="dummy-data-range-title-TEXT"></span>
                         </a>
                     </span>
                 </li>
@@ -29,7 +29,7 @@
                 <li>
                     <span class="mobile-only">Product</span>
                     <span class="desktop-only">
-                        <span class="dummy-data-product-title-replace-span"></span></span></li>
+                        <span class="dummy-data-product-title-TEXT"></span></span></li>
             </ol>
         </nav>
 
@@ -210,13 +210,17 @@
                             const strings = ['Commercial', 'Standard', 'Premium', 'Deluxe', 'Ultimate'];
                             const randomString = strings[Math.floor(Math.random() * strings.length)];
 
-                            $(".dummy-data-parent-link-replace-href").attr("href", "products.html?model=" + modelProduct.range_id);
-                            $(".dummy-data-range-title-replace-span").text(modelProduct.range_title);
-                            $(".dummy-data-product-standard-equipment-replace-span").text(randomString + " - " + quickSpecks);
-                            $(".dummy-data-product-title-replace-span").text(modelProduct.title);
-                            $(".dummy-data-product-capacity-replace-span").text(modelProduct["Carrying Capacity"]);
-                            $(".dummy-data-product-price-replace-span").text(modelProduct["Basic Price"]);
-                            $(".dummy-data-product-body-size-replace-span").text(modelProduct["Body Size - Imperial"]);
+                            $(".dummy-data-parent-link-HREF").attr("href", "products.html?model=" + modelProduct.range_id);
+                            $(".dummy-data-range-title-TEXT").text(modelProduct.range_title);
+                            $(".dummy-data-product-standard-equipment-TEXT").text(randomString + " - " + quickSpecks);
+                            $(".dummy-data-product-title-TEXT").text(modelProduct.title);
+                            $(".dummy-data-product-capacity-TEXT").text(modelProduct["Carrying Capacity"]);
+                            $(".dummy-data-product-price-TEXT").text(modelProduct["Basic Price"]);
+                            $(".dummy-data-product-body-size-TEXT").text(modelProduct["Body Size - Imperial"]);
+
+                            $("#btn_Configure").on("click", () => {
+                                window.location.href = `configure.html?id=${selectedProductId}`;
+                            });
                         }
                     }
 

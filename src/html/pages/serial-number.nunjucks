@@ -19,7 +19,7 @@
     </nav>
 
     <div class="title-wrapper">
-        <h1 class="page-title">Serial Number: <span class="dummy-data-serial-number-replace-span"></span></h1>
+        <h1 class="page-title">Serial Number: <span class="dummy-data-serial-number-TEXT"></span></h1>
         <p>Ordering parts for machines built in or after 2020.</p>
     </div>
 
@@ -67,6 +67,8 @@
         </div>
     </div>
 
+    {{ macros.floatingBasket() }}
+
     <script>
 
         // replace with PHP
@@ -74,7 +76,7 @@
             const queryString = window.location.search;
             const urlParams = new URLSearchParams(queryString);
             const serial_number = urlParams.get('serial-number');
-            $('.dummy-data-serial-number-replace-span').text(serial_number);
+            $('.dummy-data-serial-number-TEXT').text(serial_number);
         });
 
         // replace with JSON from PHP
