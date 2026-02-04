@@ -405,11 +405,11 @@
                 </li>
                 <li>
                     <span class="mobile-only">
-                        <a href="#" class="dummy-data-parent-link-replace-href">Products</a>
+                        <a href="#" class="dummy-data-parent-link-HREF">Products</a>
                     </span>
                     <span class="desktop-only">
-                        <a href="#" class="dummy-data-parent-link-replace-href">
-                            <span class="dummy-data-range-title-replace-span"></span>
+                        <a href="#" class="dummy-data-parent-link-HREF">
+                            <span class="dummy-data-range-title-TEXT"></span>
                         </a>
                     </span>
                 </li>
@@ -417,7 +417,7 @@
                 <li>
                     <span class="mobile-only">Product</span>
                     <span class="desktop-only">
-                        <span class="dummy-data-product-title-replace-span"></span></span></li>
+                        <span class="dummy-data-product-title-TEXT"></span></span></li>
             </ol>
         </nav>
 
@@ -429,34 +429,34 @@
     <div class="quick-specs">
         <div class="specs-content">
             <h1 class="title">
-                <span class="dummy-data-product-title-replace-span"></span></h1>
+                <span class="dummy-data-product-title-TEXT"></span></h1>
             <ul>
                 <li>
                     <span class="label">Tapered Body</span>
                     <span class="value">
-                        <span class="dummy-data-product-body-size-replace-span"></span>
+                        <span class="dummy-data-product-body-size-TEXT"></span>
                     </span>
                 </li>
                 <li>
                     <span class="label">Capacity</span>
                     <span class="value">
-                        <span class="dummy-data-product-capacity-replace-span"></span>
+                        <span class="dummy-data-product-capacity-TEXT"></span>
                     </span>
                 </li>
                 <li>
                     <span class="label">Standard Equipment</span>
                     <span class="value">
-                        <span class="dummy-data-product-standard-equipment-replace-span"></span>
+                        <span class="dummy-data-product-standard-equipment-TEXT"></span>
                     </span>
                 </li>
             </ul>
             <p class="product-price">
                 <span class="label">Basic Price</span>
                 <span class="value">
-                    <span class="dummy-data-product-price-replace-span"></span> + VAT</span>
+                    <span class="dummy-data-product-price-TEXT"></span> + VAT</span>
             </p>
         </div>
-        <button class="bttn">
+        <button class="bttn" id="btn_Configure">
             <span>Price</span>
             <span>&</span>
             <span>Configure</span>
@@ -474,34 +474,34 @@
     <div class="quick-specs">
         <div class="specs-content">
             <h1 class="title">
-                <span class="dummy-data-product-title-replace-span"></span></h1>
+                <span class="dummy-data-product-title-TEXT"></span></h1>
             <ul>
                 <li>
                     <span class="label">Tapered Body</span>
                     <span class="value">
-                        <span class="dummy-data-product-body-size-replace-span"></span>
+                        <span class="dummy-data-product-body-size-TEXT"></span>
                     </span>
                 </li>
                 <li>
                     <span class="label">Capacity</span>
                     <span class="value">
-                        <span class="dummy-data-product-capacity-replace-span"></span>
+                        <span class="dummy-data-product-capacity-TEXT"></span>
                     </span>
                 </li>
                 <li>
                     <span class="label">Standard Equipment</span>
                     <span class="value">
-                        <span class="dummy-data-product-standard-equipment-replace-span"></span>
+                        <span class="dummy-data-product-standard-equipment-TEXT"></span>
                     </span>
                 </li>
             </ul>
             <p class="product-price">
                 <span class="label">Basic Price</span>
                 <span class="value">
-                    <span class="dummy-data-product-price-replace-span"></span> + VAT</span>
+                    <span class="dummy-data-product-price-TEXT"></span> + VAT</span>
             </p>
         </div>
-        <button class="bttn">
+        <button class="bttn" id="btn_Configure">
             <span>Price</span>
             <span>&</span>
             <span>Configure</span>
@@ -522,7 +522,7 @@
     <div class="body-copy">
         <div class="features-list">
             <h3>
-                <span class="dummy-data-product-title-replace-span"></span> key features</h3>
+                <span class="dummy-data-product-title-TEXT"></span> key features</h3>
             <ul>
                 <li>
                     <div class="thumb"><img src="https://www.marshall-trailers.co.uk/uploads/products/features/080420-1438-9745.jpg" alt="Mesh Sides"></div>
@@ -586,7 +586,7 @@
                     <div class="tab-content">
                         
     <div class="body-copy">
-        <h3>Overview of the <span class="dummy-data-product-title-replace-span"></span></h3>
+        <h3>Overview of the <span class="dummy-data-product-title-TEXT"></span></h3>
         <div class="columned-content">
             <ul class="dotted-list">
                 <li>Large capacity</li>
@@ -2880,13 +2880,17 @@
                             const strings = ['Commercial', 'Standard', 'Premium', 'Deluxe', 'Ultimate'];
                             const randomString = strings[Math.floor(Math.random() * strings.length)];
 
-                            $(".dummy-data-parent-link-replace-href").attr("href", "products.html?model=" + modelProduct.range_id);
-                            $(".dummy-data-range-title-replace-span").text(modelProduct.range_title);
-                            $(".dummy-data-product-standard-equipment-replace-span").text(randomString + " - " + quickSpecks);
-                            $(".dummy-data-product-title-replace-span").text(modelProduct.title);
-                            $(".dummy-data-product-capacity-replace-span").text(modelProduct["Carrying Capacity"]);
-                            $(".dummy-data-product-price-replace-span").text(modelProduct["Basic Price"]);
-                            $(".dummy-data-product-body-size-replace-span").text(modelProduct["Body Size - Imperial"]);
+                            $(".dummy-data-parent-link-HREF").attr("href", "products.html?model=" + modelProduct.range_id);
+                            $(".dummy-data-range-title-TEXT").text(modelProduct.range_title);
+                            $(".dummy-data-product-standard-equipment-TEXT").text(randomString + " - " + quickSpecks);
+                            $(".dummy-data-product-title-TEXT").text(modelProduct.title);
+                            $(".dummy-data-product-capacity-TEXT").text(modelProduct["Carrying Capacity"]);
+                            $(".dummy-data-product-price-TEXT").text(modelProduct["Basic Price"]);
+                            $(".dummy-data-product-body-size-TEXT").text(modelProduct["Body Size - Imperial"]);
+
+                            $("#btn_Configure").on("click", () => {
+                                window.location.href = `configure.html?id=${selectedProductId}`;
+                            });
                         }
                     }
 
@@ -2989,43 +2993,6 @@
             </div>
             <p>Registration Number: <strong>SC064659</strong>
             </p>
-        </div>
-    </div>
-</div>
-
-<div id="floating-basket">
-    <div class="basket-inner">
-        <div class="desktop-button">
-            Your Marshall
-        </div>
-        <div class="basket-wrapper">
-            <div class="basket-header">
-                <h4 class="title">Your basket</h4>
-                <button type="button" class="close-basket-button">
-                    <i class="fa-solid fa-xmark text-lg"></i>
-                </button>
-            </div>
-
-            <div class="basket-content">
-                <div class="basket-details">
-                    <span id="num_items" class="items">0 items</span>
-                    <span id="total_price" class="total-price">£0.00</span>
-                </div>
-                <button type="button" class="bttn checkout-bttn">
-                    <span>
-                        <i class="fa-solid fa-cart-shopping"></i>
-                    </span>
-                    <span>Basket</span>
-                </button>
-            </div>
-
-            <div class="basket-progress">
-                <div class="flex items-center gap-2">
-                    <i class="fa-solid fa-spinner fa-spin-pulse"></i>
-                    <span>Updating basket...</span>
-                </div>
-            </div>
-
         </div>
     </div>
 </div>

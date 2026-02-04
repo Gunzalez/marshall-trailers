@@ -405,13 +405,13 @@
             <li>
                 <span class="mobile-only">Products</span>
                 <span class="desktop-only">
-                    <span class="dummy-data-range-title-replace-span"></span></span></li>
+                    <span class="dummy-data-range-title-TEXT"></span></span></li>
         </ol>
     </nav>
 
     <div class="title-wrapper">
         <h1 class="page-title">
-            <span class="dummy-data-range-title-replace-span"></span></h1>
+            <span class="dummy-data-range-title-TEXT"></span></h1>
     </div>
 
     <div id="models-app" class="section in-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 pb-16 app-loading">
@@ -458,7 +458,7 @@
 
                         $('#models-app').removeClass('app-loading');
                         // dummy data for demo purposes
-                        $('.dummy-data-range-title-replace-span').text(productsRangeTitle.value);
+                        $('.dummy-data-range-title-TEXT').text(productsRangeTitle.value);
                     });
 
                     return {models}
@@ -503,43 +503,6 @@
             </div>
             <p>Registration Number: <strong>SC064659</strong>
             </p>
-        </div>
-    </div>
-</div>
-
-<div id="floating-basket">
-    <div class="basket-inner">
-        <div class="desktop-button">
-            Your Marshall
-        </div>
-        <div class="basket-wrapper">
-            <div class="basket-header">
-                <h4 class="title">Your basket</h4>
-                <button type="button" class="close-basket-button">
-                    <i class="fa-solid fa-xmark text-lg"></i>
-                </button>
-            </div>
-
-            <div class="basket-content">
-                <div class="basket-details">
-                    <span id="num_items" class="items">0 items</span>
-                    <span id="total_price" class="total-price">£0.00</span>
-                </div>
-                <button type="button" class="bttn checkout-bttn">
-                    <span>
-                        <i class="fa-solid fa-cart-shopping"></i>
-                    </span>
-                    <span>Basket</span>
-                </button>
-            </div>
-
-            <div class="basket-progress">
-                <div class="flex items-center gap-2">
-                    <i class="fa-solid fa-spinner fa-spin-pulse"></i>
-                    <span>Updating basket...</span>
-                </div>
-            </div>
-
         </div>
     </div>
 </div>
