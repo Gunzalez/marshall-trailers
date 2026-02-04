@@ -1,0 +1,24 @@
+{% set main_page = "about" %}
+{% extends "layout.nunjucks" %}
+{% import "../templates/partials/_macros.nunjucks" as macros %}
+
+{% block content %}
+
+    {{ macros.header("images/logo-marshall-trailers-color.png") }}
+
+    <nav aria-label="breadcrumbs" class="breadcrumbs">
+        <ol>
+            <li>
+                <a href="index.html">Home</a>
+            </li>
+            <li>Basket</li>
+        </ol>
+    </nav>
+
+    <div class="title-wrapper">
+        <h1 class="page-title">Basket</h1>
+    </div>
+
+    <div class="spacer" style="--height: 800px;"></div>
+
+{% endblock %}
