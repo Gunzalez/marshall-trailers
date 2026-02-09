@@ -433,11 +433,16 @@
         url: "/ajax/ajax_spares_basket.php",
         data: data,
         dataType: "json",
-        success: function (dat) {
-          var numItems = dat.basket_count || 0;
-          var totalPrice = dat.basket_total || "£0.00";
+        success: function (response) {
+          var numItems = response.basket_count || 0;
+          var totalPrice = response.basket_total || "£0.00";
           marshallTrailers.basket.write(numItems, totalPrice);
           marshallTrailers.basket.$element.removeClass("busy");
+          marshallTrailers.basket.busyState = false;
+        },
+        error: function (xhr, status, error) {
+          marshallTrailers.basket.$element.removeClass("busy");
+          console.log({ xhr, status, error });
           marshallTrailers.basket.busyState = false;
         },
       });
