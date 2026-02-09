@@ -72,7 +72,6 @@
                                     <option value="984"> Transfers </option>
                                     <option value="781"> Vantage parts </option>
                                     <option value="345"> Wheels </option>
-
                                 </select>
 
                                 <select id="range" class="filter-select" disabled>

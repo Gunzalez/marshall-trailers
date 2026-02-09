@@ -263,10 +263,27 @@
       .selectric();
   }
 
+  function initBeginConfiguration() {
+    $("#basic-machine #btn_AddOptions").on("click", function () {
+      console.log(
+        "Begin configuration for product ID:",
+        extractProductIdFromURL(),
+      );
+
+      window.MT.basket.update(
+        "sid=" + extractProductIdFromURL() + "&quantity=1&price=£4000.00",
+      );
+      // add stuff to basket
+      // performs ajax call for big list
+      // start or update existing vue app with big list
+    });
+  }
+
   // Initialize if on the configure page
   if ($("#configure-app").length) {
     initMachineSelect();
     initModelSelect();
+    initBeginConfiguration();
 
     var urlProductId = extractProductIdFromURL();
     if (urlProductId) {
