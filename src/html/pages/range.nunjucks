@@ -20,19 +20,19 @@
     </div>
 
     <div id="product-ranges" class="section in-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 pb-16">
-        {% for item in rangesData %}
+        {% for item in machinesData %}
             <div class="slide flex flex-col gap-4">
                 <a class="pod link" href="products.html?model={{ item.id }}">
-                    <h4 class="title line-clamp-1">{{ item.title }}</h4>
+                    <h4 class="title line-clamp-1">{{ item.category }}</h4>
                     <div class="image-wrapper">
-                        <img src="{{ item.image }}" alt="{{ item.title }}">
+                        <img src="{{ item.image }}" alt="{{ item.category }}">
                     </div>
                 </a>
                 <div id="{{ item.id }}" class="product-selector">
                     <select id="{{ item.id }}-selector" name="{{ item.id }}-selector" data-destination="product.html">
-                        <option selected>Select from {{ item.models|length }} models</option>
-                        {% for model in item.models %}
-                            <option value="{{ model.id }}">{{ model.title }}</option>
+                        <option selected>Select from {{ item.options|length }} models</option>
+                        {% for option in item.options %}
+                            <option value="{{ option.id }}">{{ option.model }} - {{ option.capacity or option.length or option.volume or option.spec }}</option>
                         {% endfor %}
                     </select>
                 </div>

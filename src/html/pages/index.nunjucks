@@ -33,12 +33,12 @@
             <a href="range.html">Product Ranges</a>
         </h2>
         <div class="carousel-mini">
-            {% for item in rangesData %}
+            {% for item in machinesData %}
                 <div class="slide">
                     <a class="pod link" href="products.html?model={{ item.id }}">
-                        <h4 class="title line-clamp-1">{{ item.title }}</h4>
+                        <h4 class="title line-clamp-1">{{ item.category }}</h4>
                         <div class="image-wrapper">
-                            <img src="{{ item.image }}" alt="{{ item.title }}">
+                            <img src="{{ item.image }}" alt="{{ item.category }}">
                         </div>
                     </a>
                 </div>
