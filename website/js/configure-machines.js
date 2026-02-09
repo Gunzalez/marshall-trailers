@@ -112,20 +112,161 @@
     },
   ];
 
-  if ($("#configure-app").length) {
-    $("#machine-select").append(
-      machinesData.map(function (machine) {
-        return $("<option>", {
-          value: machine.category,
-          text: machine.category,
-        });
-      }),
-    );
+  let vueApp = null;
+  let isBusy = false;
+  let productId = null;
 
-    $(".configure-form select").selectric({ maxHeight: 164 });
+  function showBasicInfo(data) {
+    console.log({ data });
+    $("#basic-machine").removeClass("display-none");
+  }
+
+  function hideBasicInfo() {
+    $("#basic-machine").addClass("display-none");
+  }
+
+  function showProcessing() {
+    $("#processing").show();
+  }
+
+  function hideProcessing() {
+    $("#processing").hide();
+  }
+
+  function fetchMachineDetails() {
+    if (!productId || isBusy) return;
+
+    isBusy = true;
+    showProcessing();
+    hideBasicInfo();
+
+    $.ajax({
+      type: "post",
+      url: "/ajax/ajax_configure_get_content.php",
+      data: "product_id=" + productId,
+      dataType: "json",
+      success: function (data) {
+        showBasicInfo(data);
+        isBusy = false;
+        hideProcessing();
+      },
+      error: function (xhr, status, error) {
+        isBusy = false;
+        hideProcessing();
+        // TODO: Show user-friendly error message on the page
+        console.log({ xhr, status, error });
+        console.error("Error fetching machine details:", error);
+      },
+    });
+  }
+
+  function extractProductIdFromURL() {
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    productId = urlParams.get("id");
+
+    if (productId) {
+      const selectedMachine = machinesData.find(function (machine) {
+        return machine.options.some(function (option) {
+          return option.id === productId;
+        });
+      });
+
+      if (selectedMachine) {
+        $("#machine-select").val(selectedMachine.category).selectric("refresh");
+        $("#machine-select").trigger("change");
+
+        const selectedOption = selectedMachine.options.find(function (option) {
+          return option.id === productId;
+        });
+
+        if (selectedOption) {
+          $("#model-select").val(selectedOption.id).selectric("refresh");
+        }
+      }
+    }
+  }
+
+  function updateUrlWithProductId() {
+    const newUrl =
+      window.location.protocol +
+      "//" +
+      window.location.host +
+      window.location.pathname +
+      "?id=" +
+      productId;
+    window.history.pushState({ path: newUrl }, "", newUrl);
+  }
+
+  function initMachineSelect() {
+    $("#machine-select")
+      .append(
+        machinesData.map(function (machine) {
+          return $("<option>", {
+            value: machine.category,
+            text: machine.category,
+          });
+        }),
+      )
+      .selectric();
 
     $("#machine-select").on("change", function () {
+      if (isBusy) return;
+
+      hideBasicInfo();
       var selectedCategory = $(this).val();
+      var selectedMachineOptions = machinesData.find(function (machine) {
+        return machine.category === selectedCategory;
+      }).options;
+
+      if (!selectedMachineOptions) {
+        $("#model-select").empty().prop("disabled", true).selectric("refresh");
+        return;
+      }
+
+      $("#model-select")
+        .empty()
+        .append(
+          $("<option>", { value: "", disabled: true, selected: true }).text(
+            "Select model",
+          ),
+        )
+        .append(
+          selectedMachineOptions.map(function (option) {
+            return $("<option>", {
+              value: option.id,
+              text:
+                option.model +
+                " - " +
+                (option.capacity ||
+                  option.length ||
+                  option.volume ||
+                  option.spec),
+            });
+          }),
+        )
+        .prop("disabled", false)
+        .selectric("refresh");
     });
+  }
+
+  function initModelSelect() {
+    $("#model-select")
+      .on("change", function (e) {
+        if (isBusy) return;
+
+        var selectedOptionId = $(this).val();
+        productId = selectedOptionId;
+        updateUrlWithProductId();
+        fetchMachineDetails();
+      })
+      .selectric();
+  }
+
+  if ($("#configure-app").length) {
+    initMachineSelect();
+    initModelSelect();
+    extractProductIdFromURL();
+    fetchMachineDetails();
   }
 })();

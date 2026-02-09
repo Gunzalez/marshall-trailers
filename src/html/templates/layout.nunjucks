@@ -43,6 +43,7 @@
     <script src="js/vendor/lozad.min.js" defer></script>
     <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js" defer></script>
     <script src="js/marshall-parts.js" defer></script>
+    <script src="js/configure-machines.js" defer></script>
     <script src="js/scripts.js?cb=123" defer></script>
 
   </head>
