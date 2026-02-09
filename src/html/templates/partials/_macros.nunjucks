@@ -327,7 +327,7 @@
     </div>
 {% endmacro %}
 
-{% macro quickSpecs() %}
+{% macro quickSpecs(button) %}
     <div class="quick-specs">
         <div class="specs-content">
             <h1 class="title">
@@ -358,11 +358,19 @@
                     <span class="dummy-data-product-price-TEXT"></span> + VAT</span>
             </p>
         </div>
-        <button class="bttn" id="btn_Configure">
-            <span>Price</span>
-            <span>&</span>
-            <span>Configure</span>
-        </button>
+        {% if button == "product" %}
+            <button class="bttn" id="btn_Configure">
+                <span>Price</span>
+                <span>&</span>
+                <span>Configure</span>
+            </button>
+        {% endif %}
+        {% if button == "configure" %}
+            <button class="bttn" id="btn_AddOptions">
+                <span>Add</span>
+                <span>options</span>
+            </button>
+        {% endif %}
     </div>
 {% endmacro %}
 

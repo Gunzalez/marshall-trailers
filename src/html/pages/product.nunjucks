@@ -37,7 +37,7 @@
             <div class="section">
                 <div class="copy-wrapper desktop-only">
                     <div class="inner-wrapper">
-                        {{ macros.quickSpecs() }}
+                        {{ macros.quickSpecs('product') }}
                     </div>
                 </div>
             </div>
@@ -45,7 +45,7 @@
 
         <div class="mobile-only quick-specs-mobile">
             <div class="section">
-                {{ macros.quickSpecs() }}
+                {{ macros.quickSpecs('product') }}
             </div>
         </div>
 
@@ -63,7 +63,7 @@
                 <div class="tab-item">
                     <h3 class="tab-header">Overview</h3>
                     <div class="tab-content">
-                        {{ macros.overview() }}
+                        {{ macros.overview('product') }}
                     </div>
                 </div>
 
