@@ -469,14 +469,12 @@
             </li>
             <li>
                 <span class="mobile-only">Products</span>
-                <span class="desktop-only">
-                    <span class="dummy-data-range-title-TEXT"></span></span></li>
+                <span class="desktop-only">Silage / Grain Trailers</span></li>
         </ol>
     </nav>
 
     <div class="title-wrapper">
-        <h1 class="page-title">
-            <span class="dummy-data-range-title-TEXT"></span></h1>
+        <h1 class="page-title">Silage / Grain Trailers</h1>
     </div>
 
     <div id="models-app" class="section in-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 pb-16 app-loading">
@@ -503,7 +501,6 @@
                 ],
                 setup() {
                     const options = ref([]);
-                    const productsRangeTitle = ref('');
 
                     onMounted(() => {
                         const queryString = window.location.search;
@@ -526,12 +523,9 @@
                                         option.capacity || option.length || option.volume || option.spec)
                                     }
                                 });
-                            productsRangeTitle.value = modelDetails[0].category;
                         }
 
                         $('#models-app').removeClass('app-loading');
-                        // dummy data for demo purposes
-                        $('.dummy-data-range-title-TEXT').text(productsRangeTitle.value);
                     });
 
                     return {options}
