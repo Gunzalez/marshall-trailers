@@ -285,9 +285,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   $("#serial-number-form").on("submit", function (event) {
     event.preventDefault();
+    $("#serial-number").removeClass("error");
 
     var serialNumber = $("#serial-number").val().trim();
     if (serialNumber === "") {
+      $("#serial-number").addClass("error");
       return;
     }
 
@@ -304,20 +306,7 @@ document.addEventListener("DOMContentLoaded", () => {
     var price = pricing.find("input.price").val();
     var qty = pricing.find(".quantity").val();
     var data = "sid=" + sid + "&qty=" + qty + "&price=" + price;
-
-    window.MT.basket.setToBusy();
-
-    $.ajax({
-      type: "post",
-      url: "/ajax/ajax_spares_basket.php",
-      data: data,
-      dataType: "json",
-      success: function (dat) {
-        if (dat.status == "success") {
-          window.MT.basket.update(dat.basket_count, dat.basket_total);
-        }
-      },
-    });
+    window.MT.basket.update(data);
   });
 
   $("#results").on("click", ".btn_addBasketRelated", function (event) {
@@ -328,20 +317,7 @@ document.addEventListener("DOMContentLoaded", () => {
     var price = $(li).data("price");
     var qty = 1;
     var data = "sid=" + sid + "&qty=" + qty + "&price=" + price;
-
-    window.MT.basket.setToBusy();
-
-    $.ajax({
-      type: "post",
-      url: "/ajax/ajax_spares_basket.php",
-      data: data,
-      dataType: "json",
-      success: function (dat) {
-        if (dat.status == "success") {
-          window.MT.basket.update(dat.basket_count, dat.basket_total);
-        }
-      },
-    });
+    window.MT.basket.update(data);
   });
 
   $(".btn_addBasketAll").on("click", function (event) {
@@ -352,20 +328,7 @@ document.addEventListener("DOMContentLoaded", () => {
     var price = form.find("input.price").val();
     var qty = form.find(".quantity").val();
     var data = "sid=" + sid + "&qty=" + qty + "&price=" + price;
-
-    window.MT.basket.setToBusy();
-
-    $.ajax({
-      type: "post",
-      url: "/ajax/ajax_spares_basket.php",
-      data: data,
-      dataType: "json",
-      success: function (dat) {
-        if (dat.status == "success") {
-          window.MT.basket.update(dat.basket_count, dat.basket_total);
-        }
-      },
-    });
+    window.MT.basket.update(data);
   });
 
   // TODO: Implement basket functionality

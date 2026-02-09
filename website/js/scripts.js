@@ -1030,15 +1030,32 @@ window.data = data;
       this.$element.removeClass("open");
     },
 
-    setToBusy: function () {
-      this.$element.addClass("open busy");
-    },
-
-    update: function (numItems, totalPrice) {
+    write: function (numItems, totalPrice) {
       var strS = numItems > 1 ? "s" : "";
       this.$element.find("#num_items").text(numItems + " item" + strS);
       this.$element.find("#total_price").text(totalPrice);
       this.$element.removeClass("busy");
+    },
+
+    update: function (data) {
+      console.log("Updating basket with data");
+      console.log({ data });
+      if (!data) return;
+
+      this.$element.addClass("open busy");
+
+      $.ajax({
+        type: "post",
+        url: "/ajax/ajax_spares_basket.php",
+        data: data,
+        dataType: "json",
+        success: function (dat) {
+          var numItems = dat.basket_count || 0;
+          var totalPrice = dat.basket_total || "£0.00";
+          marshallTrailers.basket.write(numItems, totalPrice);
+          marshallTrailers.basket.$element.removeClass("busy");
+        },
+      });
     },
 
     init: function () {
