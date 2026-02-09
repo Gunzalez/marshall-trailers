@@ -22,13 +22,13 @@
             <li class="has-mega-nav {{ 'active' if main_page === 'products' }}">
               <a href="range.html" title="Products">Products</a>
               <ul id="mega-nav-list">
-                {% for item in rangesData %}
-                  <li {% if main_page === "products" %} class="active" {% endif %}>
-                    <a href="products.html?model={{ item.id }}" data-image-src="{{ item.image }}">{{ item.title }}</a>
+                {% for item in machinesData %}
+                  <li>
+                    <a href="products.html?model={{ item.id }}" data-image-src="{{ item.image }}">{{ item.category }}</a>
                     <ul>
-                      {% for model in item.models %}
+                      {% for option in item.options %}
                         <li>
-                          <a href="product.html?id={{ model.id }}" data-image-src="{{ model.image }}">{{ model.title }}</a>
+                          <a href="product.html?id={{ option.id }}" data-image-src="{{ option.image }}">{{ option.model }} - {{ option.capacity or option.length or option.volume or option.spec }}</a>
                         </li>
                       {% endfor %}
                     </ul>

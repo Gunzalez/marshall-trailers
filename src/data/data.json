@@ -1030,5 +1030,469 @@
     { "name": "Tip Rams", "key": "tip-rams" },
     { "name": "Transfer", "key": "transfer" },
     { "name": "Valves", "key": "valves" }
+  ],
+  "machinesData": [
+    {
+      "category": "Silage / Grain Trailers",
+      "id": "silage-grain-trailers",
+      "image": "images/range-1.png",
+      "options": [
+        {
+          "id": "4",
+          "model": "QM-6",
+          "capacity": "6.5 tons",
+          "image": "images/range-1.png",
+          "range_id": "silage-grain-trailers"
+        },
+        {
+          "id": "6",
+          "model": "QM-8",
+          "capacity": "8.5 tons",
+          "image": "images/range-1.png",
+          "range_id": "silage-grain-trailers"
+        },
+        {
+          "id": "38",
+          "model": "QM-11",
+          "capacity": "11 tons",
+          "image": "images/range-1.png",
+          "range_id": "silage-grain-trailers"
+        },
+        {
+          "id": "39",
+          "model": "QM-12",
+          "capacity": "12 tons",
+          "image": "images/range-1.png",
+          "range_id": "silage-grain-trailers"
+        },
+        {
+          "id": "48",
+          "model": "QM-1200",
+          "capacity": "12 tons",
+          "image": "images/range-1.png",
+          "range_id": "silage-grain-trailers"
+        },
+        {
+          "id": "40",
+          "model": "QM-14",
+          "capacity": "14.5 tons",
+          "image": "images/range-1.png",
+          "range_id": "silage-grain-trailers"
+        },
+        {
+          "id": "49",
+          "model": "QM-1400",
+          "capacity": "14.5 tons",
+          "image": "images/range-1.png",
+          "range_id": "silage-grain-trailers"
+        },
+        {
+          "id": "41",
+          "model": "QM-16",
+          "capacity": "16.5 tons",
+          "image": "images/range-1.png",
+          "range_id": "silage-grain-trailers"
+        },
+        {
+          "id": "50",
+          "model": "QM-1600",
+          "capacity": "16.5 tons",
+          "image": "images/range-1.png",
+          "range_id": "silage-grain-trailers"
+        },
+        {
+          "id": "120",
+          "model": "QM-1800",
+          "capacity": "18.5 tons",
+          "image": "images/range-1.png",
+          "range_id": "silage-grain-trailers"
+        }
+      ]
+    },
+    {
+      "category": "Drop-Side Trailers",
+      "id": "drop-side-trailers",
+      "image": "images/range-2.png",
+      "options": [
+        {
+          "id": "59",
+          "model": "S-1",
+          "capacity": "1.5 tons",
+          "image": "images/range-2.png",
+          "range_id": "drop-side-trailers"
+        },
+        {
+          "id": "42",
+          "model": "S-2",
+          "capacity": "2 tons",
+          "image": "images/range-2.png",
+          "range_id": "drop-side-trailers"
+        },
+        {
+          "id": "43",
+          "model": "S-4",
+          "capacity": "4 tons",
+          "image": "images/range-2.png",
+          "range_id": "drop-side-trailers"
+        },
+        {
+          "id": "44",
+          "model": "S-5",
+          "capacity": "5 tons",
+          "image": "images/range-2.png",
+          "range_id": "drop-side-trailers"
+        },
+        {
+          "id": "45",
+          "model": "S-6",
+          "capacity": "6.5 tons",
+          "image": "images/range-2.png",
+          "range_id": "drop-side-trailers"
+        },
+        {
+          "id": "46",
+          "model": "S-85",
+          "capacity": "8.5 tons",
+          "image": "images/range-2.png",
+          "range_id": "drop-side-trailers"
+        },
+        {
+          "id": "47",
+          "model": "S-10",
+          "capacity": "10.5 tons",
+          "image": "images/range-2.png",
+          "range_id": "drop-side-trailers"
+        }
+      ]
+    },
+    {
+      "category": "Flat / Bale Trailers",
+      "id": "flat-bale-trailers",
+      "image": "images/range-3.png",
+      "options": [
+        {
+          "id": "33",
+          "model": "BC-21",
+          "spec": "21' x 8' / 10 tons",
+          "image": "images/range-3.png",
+          "range_id": "flat-bale-trailers"
+        },
+        {
+          "id": "34",
+          "model": "BC-25-10T",
+          "spec": "25' x 8'",
+          "image": "images/range-3.png",
+          "range_id": "flat-bale-trailers"
+        },
+        {
+          "id": "35",
+          "model": "BC-25-12T",
+          "spec": "25' x 8' 4\"",
+          "image": "images/range-3.png",
+          "range_id": "flat-bale-trailers"
+        },
+        {
+          "id": "36",
+          "model": "BC-28",
+          "spec": "28' x 8' 4\" / 14 tons",
+          "image": "images/range-3.png",
+          "range_id": "flat-bale-trailers"
+        },
+        {
+          "id": "37",
+          "model": "BC-32-TAN",
+          "spec": "32' x 8' 4\" / 14 tons",
+          "image": "images/range-3.png",
+          "range_id": "flat-bale-trailers"
+        },
+        {
+          "id": "127",
+          "model": "BC-32-TRI",
+          "spec": "32' x 8' 4\" / 16 tons",
+          "image": "images/range-3.png",
+          "range_id": "flat-bale-trailers"
+        },
+        {
+          "id": "133",
+          "model": "BC-36-TAN",
+          "spec": "36' x 8' 4\" / 16 tons",
+          "image": "images/range-3.png",
+          "range_id": "flat-bale-trailers"
+        },
+        {
+          "id": "134",
+          "model": "BC-36-TRI",
+          "spec": "36' x 8' 4\" / 16 tons",
+          "image": "images/range-3.png",
+          "range_id": "flat-bale-trailers"
+        }
+      ]
+    },
+    {
+      "category": "Low Loader Trailers",
+      "id": "low-loader-trailers",
+      "image": "images/range-4.png",
+      "options": [
+        {
+          "id": "141",
+          "model": "LL-26-TAN",
+          "capacity": "16 tons",
+          "image": "images/range-4.png",
+          "range_id": "low-loader-trailers"
+        },
+        {
+          "id": "142",
+          "model": "LL-33-TRI",
+          "capacity": "21 tons",
+          "image": "images/range-4.png",
+          "range_id": "low-loader-trailers"
+        }
+      ]
+    },
+    {
+      "category": "Dumper Trailers",
+      "id": "dumper-trailers",
+      "image": "images/range-5.png",
+      "options": [
+        {
+          "id": "121",
+          "model": "HD-6",
+          "capacity": "6 tons / 3.7 cu.mtrs",
+          "image": "images/range-5.png",
+          "range_id": "dumper-trailers"
+        },
+        {
+          "id": "122",
+          "model": "HD-8",
+          "capacity": "8 tons / 5.4 cu.mtrs",
+          "image": "images/range-5.png",
+          "range_id": "dumper-trailers"
+        },
+        {
+          "id": "123",
+          "model": "HD-12",
+          "capacity": "12 tons / 7 cu.mtrs",
+          "image": "images/range-5.png",
+          "range_id": "dumper-trailers"
+        },
+        {
+          "id": "124",
+          "model": "HD-14",
+          "capacity": "14 tons / 8.7 cu.mtrs",
+          "image": "images/range-5.png",
+          "range_id": "dumper-trailers"
+        },
+        {
+          "id": "125",
+          "model": "HD-16",
+          "capacity": "16 tons / 10.5 cu.mtrs",
+          "image": "images/range-5.png",
+          "range_id": "dumper-trailers"
+        }
+      ]
+    },
+    {
+      "category": "Feed Trailers",
+      "id": "feed-trailers",
+      "image": "images/range-6.png",
+      "options": [
+        {
+          "id": "7",
+          "model": "FT-15",
+          "length": "15' Long",
+          "image": "images/range-6.png",
+          "range_id": "feed-trailers"
+        },
+        {
+          "id": "8",
+          "model": "FT-20",
+          "length": "20' Long",
+          "image": "images/range-6.png",
+          "range_id": "feed-trailers"
+        }
+      ]
+    },
+    {
+      "category": "Livestock Trailers / Containers",
+      "id": "livestock-trailers-containers",
+      "image": "images/range-7.png",
+      "options": [
+        {
+          "id": "137",
+          "model": "LST-21",
+          "length": "21' Long",
+          "image": "images/range-7.png",
+          "range_id": "livestock-trailers-containers"
+        },
+        {
+          "id": "138",
+          "model": "LST-25",
+          "length": "25' Long",
+          "image": "images/range-7.png",
+          "range_id": "livestock-trailers-containers"
+        },
+        {
+          "id": "139",
+          "model": "LST-28",
+          "length": "28' Long",
+          "image": "images/range-7.png",
+          "range_id": "livestock-trailers-containers"
+        },
+        {
+          "id": "140",
+          "model": "LST-32",
+          "length": "32' Long",
+          "image": "images/range-7.png",
+          "range_id": "livestock-trailers-containers"
+        }
+      ]
+    },
+    {
+      "category": "Muck Spreaders",
+      "id": "muck-spreaders",
+      "image": "images/range-8.png",
+      "options": [
+        {
+          "id": "13",
+          "model": "MS-60",
+          "capacity": "6 cu.yds",
+          "image": "images/range-8.png",
+          "range_id": "muck-spreaders"
+        },
+        {
+          "id": "14",
+          "model": "MS-75",
+          "capacity": "7.5 cu.yds",
+          "image": "images/range-8.png",
+          "range_id": "muck-spreaders"
+        },
+        {
+          "id": "15",
+          "model": "MS-90",
+          "capacity": "9 cu.yds",
+          "image": "images/range-8.png",
+          "range_id": "muck-spreaders"
+        },
+        {
+          "id": "16",
+          "model": "MS-105",
+          "capacity": "10.5 cu.yds",
+          "image": "images/range-8.png",
+          "range_id": "muck-spreaders"
+        }
+      ]
+    },
+    {
+      "category": "Rear Discharge Muck Spreaders",
+      "id": "rear-discharge-muck-spreaders",
+      "image": "images/range-9.png",
+      "options": [
+        {
+          "id": "17",
+          "model": "VES-1500",
+          "capacity": "9 tons",
+          "image": "images/range-9.png",
+          "range_id": "rear-discharge-muck-spreaders"
+        },
+        {
+          "id": "18",
+          "model": "VES-2000",
+          "capacity": "12 tons",
+          "image": "images/range-9.png",
+          "range_id": "rear-discharge-muck-spreaders"
+        },
+        {
+          "id": "19",
+          "model": "VES-2500",
+          "capacity": "14 tons",
+          "image": "images/range-9.png",
+          "range_id": "rear-discharge-muck-spreaders"
+        }
+      ]
+    },
+    {
+      "category": "Tankers",
+      "id": "tankers",
+      "image": "images/range-10.png",
+      "options": [
+        {
+          "id": "20",
+          "model": "ST-1200",
+          "volume": "1220 gallons",
+          "image": "images/range-10.png",
+          "range_id": "tankers"
+        },
+        {
+          "id": "21",
+          "model": "ST-1400",
+          "volume": "1400 gallons",
+          "image": "images/range-10.png",
+          "range_id": "tankers"
+        },
+        {
+          "id": "22",
+          "model": "ST-1600",
+          "volume": "1550 gallons",
+          "image": "images/range-10.png",
+          "range_id": "tankers"
+        },
+        {
+          "id": "23",
+          "model": "ST-1800",
+          "volume": "1800 gallons",
+          "image": "images/range-10.png",
+          "range_id": "tankers"
+        },
+        {
+          "id": "24",
+          "model": "ST-2000",
+          "volume": "2150 gallons",
+          "image": "images/range-10.png",
+          "range_id": "tankers"
+        },
+        {
+          "id": "25",
+          "model": "ST-2300",
+          "volume": "2340 gallons",
+          "image": "images/range-10.png",
+          "range_id": "tankers"
+        },
+        {
+          "id": "26",
+          "model": "ST-2550",
+          "volume": "2560 gallons",
+          "image": "images/range-10.png",
+          "range_id": "tankers"
+        },
+        {
+          "id": "126",
+          "model": "ST-3000",
+          "volume": "3000 gallons",
+          "image": "images/range-10.png",
+          "range_id": "tankers"
+        },
+        {
+          "id": "135",
+          "model": "ST-3500",
+          "volume": "3500 gallons",
+          "image": "images/range-10.png",
+          "range_id": "tankers"
+        }
+      ]
+    },
+    {
+      "category": "People Carrier Trailers",
+      "id": "people-carrier-trailers",
+      "image": "images/range-11.png",
+      "options": [
+        {
+          "id": "136",
+          "model": "PC-21",
+          "spec": "21' x 8' / 27 People",
+          "image": "images/range-11.png",
+          "range_id": "people-carrier-trailers"
+        }
+      ]
+    }
   ]
 }
