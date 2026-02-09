@@ -1021,6 +1021,7 @@ window.data = data;
 
   marshallTrailers.basket = {
     $element: null,
+    busyState: false,
 
     open: function () {
       this.$element.addClass("open");
@@ -1038,11 +1039,10 @@ window.data = data;
     },
 
     update: function (data) {
-      console.log("Updating basket with data");
-      console.log({ data });
-      if (!data) return;
+      if (!data || this.busyState) return;
 
       this.$element.addClass("open busy");
+      this.busyState = true;
 
       $.ajax({
         type: "post",
@@ -1054,6 +1054,7 @@ window.data = data;
           var totalPrice = dat.basket_total || "£0.00";
           marshallTrailers.basket.write(numItems, totalPrice);
           marshallTrailers.basket.$element.removeClass("busy");
+          marshallTrailers.basket.busyState = false;
         },
       });
     },
