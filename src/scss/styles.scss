@@ -959,3 +959,27 @@
     }
   }
 }
+
+.configure-app {
+  .configure-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .selectric-wrapper {
+    width: 100%;
+  }
+
+  @media screen and (min-width: $breakpoint3) {
+    .configure-form {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+
+    .selectric-wrapper {
+      width: 320px;
+    }
+  }
+}

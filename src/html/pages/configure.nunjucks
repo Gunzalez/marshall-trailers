@@ -6,29 +6,62 @@
 
     {{ macros.header("images/logo-marshall-trailers-color.png") }}
 
-    <div id="product-detail">
-        <nav aria-label="breadcrumbs" class="breadcrumbs">
-            <ol>
-                <li>
-                    <a href="index.html">Home</a>
-                </li>
-                <li>Configure Machine</li>
-            </ol>
-        </nav>
+    <nav aria-label="breadcrumbs" class="breadcrumbs">
+        <ol>
+            <li>
+                <a href="index.html">Home</a>
+            </li>
+            <li>Configure Machine</li>
+        </ol>
+    </nav>
 
-        <div class="product-hero">
+    <div class="title-wrapper">
+        <h1 class="page-title">Price & Configure a Marshall Machine</h1>
+    </div>
+
+    <div id="product-detail">
+
+        <div id="configure-app" class="configure-app">
+
             <div class="section">
-                <div class="copy-wrapper desktop-only">
-                    <div class="inner-wrapper"></div>
+                <form class="configure-form body-copy">
+                    <select id="machine-select">
+                        <option value="" selected>Select machine</option>
+                    </select>
+                    <select id="model-select" class="model-select" disabled>
+                        <option value="" selected>Select model</option>
+                    </select>
+                </form>
+            </div>
+
+        </div>
+
+        <div id="basic-machine" class="display-none">
+            <div class="product-hero">
+                <div class="section">
+                    <div class="copy-wrapper desktop-only">
+                        <div class="inner-wrapper">
+                            {{ macros.quickSpecs('configure') }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mobile-only quick-specs-mobile">
+                <div class="section">
+                    {{ macros.quickSpecs('configure') }}
                 </div>
             </div>
         </div>
 
-        <div class="mobile-only quick-specs-mobile">
-            <div class="section"></div>
+        <div id="processing">
+            <div class="wrapper">
+                <p>Processing your request...</p>
+                <i class="fa-solid fa-spinner"></i>
+            </div>
         </div>
 
-        <div class="spacer" style="--height: 400px;"></div>
+        {# <div class="spacer" style="--height: 800px;"></div> #}
     </div>
 
     {{ macros.floatingBasket() }}
