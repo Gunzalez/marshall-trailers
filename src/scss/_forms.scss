@@ -77,6 +77,10 @@
       line-height: 1;
       width: 100%;
     }
+
+    &.error {
+      border-color: var(--brand-red);
+    }
   }
 
   // .form-group {
