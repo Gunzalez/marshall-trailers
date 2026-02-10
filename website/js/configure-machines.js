@@ -216,6 +216,12 @@
 
   function initMachineSelect() {
     $("#machine-select")
+      .empty()
+      .append(
+        $("<option>", { value: "", disabled: true, selected: true }).text(
+          "Select machine",
+        ),
+      )
       .append(
         machinesData.map(function (machine) {
           return $("<option>", {
@@ -276,6 +282,8 @@
         var product_Id = $(this).val();
         updateUrlWithProductId(product_Id);
         fetchMachineDetails(product_Id);
+
+        $(".btn_AddOptions").prop("disabled", false);
       })
       .selectric();
   }
