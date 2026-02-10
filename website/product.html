@@ -511,14 +511,11 @@
                 <span class="value">£11,493</span>
             </p>
         </div>
-        
-            <button class="bttn" id="btn_Configure">
-                <span>Price</span>
-                <span>&</span>
-                <span>Configure</span>
-            </button>
-        
-        
+        <button id="btn_Configure" class="bttn btn_Configure">
+            <span>Price</span>
+            <span>&</span>
+            <span>Configure</span>
+        </button>
     </div>
 
                     </div>
@@ -551,14 +548,11 @@
                 <span class="value">£11,493</span>
             </p>
         </div>
-        
-            <button class="bttn" id="btn_Configure">
-                <span>Price</span>
-                <span>&</span>
-                <span>Configure</span>
-            </button>
-        
-        
+        <button id="btn_Configure" class="bttn btn_Configure">
+            <span>Price</span>
+            <span>&</span>
+            <span>Configure</span>
+        </button>
     </div>
 
             </div>
@@ -2931,10 +2925,7 @@
                                 .filter(value => value !== undefined && value !== null && value !== "N/A" && value !== "")
                                 .join(" / ");
 
-                            const strings = ['Commercial', 'Standard', 'Premium', 'Deluxe', 'Ultimate'];
-                            const randomString = strings[Math.floor(Math.random() * strings.length)];
-
-                            $("#btn_Configure").on("click", () => {
+                            $(".btn_Configure").on("click", () => {
                                 window.location.href = `configure.html?id=${selectedProductId}`;
                             });
                         }

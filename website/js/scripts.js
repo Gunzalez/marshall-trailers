@@ -1057,8 +1057,8 @@ window.data = data;
           marshallTrailers.basket.busyState = false;
         },
         error: function (xhr, status, error) {
-          marshallTrailers.basket.$element.removeClass("busy");
           console.log({ xhr, status, error });
+          marshallTrailers.basket.$element.removeClass("busy");
           marshallTrailers.basket.busyState = false;
         },
       });
