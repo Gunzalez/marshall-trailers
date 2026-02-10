@@ -61,9 +61,97 @@
             </div>
         </div>
 
-        {# <div class="spacer" style="--height: 800px;"></div> #}
+    </div>
+
+    <div id="options-app" class="display-none">
+        <div class="section">
+            <h2 class="title">Available Options</h2>
+
+            <div class="spacer" style="--height: 1900px;">
+
+                <p>[[ remoteOptions.data ]]</p>
+                <p>[[ time ]]</p>
+            </div>
+        </div>
     </div>
 
     {{ macros.floatingBasket() }}
+
+    <script>
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const {createApp, onMounted, ref, computed, watch} = Vue;
+
+            let remoteOptions = null;
+            let myVueApp = null;
+
+            $("#product-detail").on("click", ".btn_AddOptions", function () {
+
+                const queryString = window.location.search;
+                const urlParams = new URLSearchParams(queryString);
+                var product_Id = urlParams.get("id");
+
+                if (!product_Id) {
+                    return;
+                }
+
+                window
+                    .MT
+                    .basket
+                    .update("sid=" + product_Id + "&qty=1&price=£4000.00");
+
+                $.ajax({
+                    type: "post",
+                    url: "/ajax/ajax_configure_get_options.php",
+                    data: "product_id=" + product_Id,
+                    dataType: "json",
+                    success: function (optionsData) {
+                        var timeNow = new Date().getTime();
+
+                        // hide
+                        $("#options-app").addClass("display-none")
+
+                        if (!myVueApp) {
+                            myVueApp = createApp({
+                                delimiters: [
+                                    '[[', ']]'
+                                ],
+                                setup() {
+                                    remoteOptions = ref(optionsData);
+                                    time = ref(timeNow);
+
+                                    onMounted(() => {
+                                        $('#options-app').removeClass('display-none');
+                                        document
+                                            .getElementById('options-app')
+                                            .scrollIntoView({behavior: 'smooth'});
+                                    });
+
+                                    watch(time, (newVal) => {
+                                        console.log("time updated:", newVal.toLocaleString());
+                                    });
+
+                                    return {remoteOptions, time};
+                                }
+                            }).mount("#options-app");
+                        } else {
+                            // update data in existing app
+                            remoteOptions.value = optionsData;
+                            time.value = timeNow;
+                            $('#options-app').removeClass('display-none');
+                            document
+                                .getElementById('options-app')
+                                .scrollIntoView({behavior: 'smooth'});
+                        }
+
+                    },
+                    error: function (xhr, status, error) {
+                        console.log({xhr, status, error});
+                    }
+                });
+            });
+
+        });
+    </script>
 
 {% endblock %}

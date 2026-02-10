@@ -112,13 +112,11 @@
     },
   ];
 
-  let vueApp = null;
-  let isBusy = false;
+  let isAjaxBusy = false;
 
   function showBasicInfo(data) {
     var $specsContent = $("#basic-machine .specs-content");
     $specsContent.find(".title").text(data.title);
-    $specsContent.find(".specs-list").empty();
     var $specsList = data.specs.map(function (spec) {
       return $("<li>").html(
         "<span class='label'>" +
@@ -128,10 +126,13 @@
           "</span>",
       );
     });
-    $specsContent.find(".specs-list").append($specsList);
+    $specsContent.find(".specs-list").empty().append($specsList);
     $specsContent.find(".product-price .value").text(data.price);
-
     $("#basic-machine").removeClass("display-none");
+  }
+
+  function hideOptionsApp() {
+    $("#options-app").addClass("display-none");
   }
 
   function hideBasicInfo() {
@@ -147,9 +148,9 @@
   }
 
   function fetchMachineDetails(product_Id) {
-    if (isBusy) return;
+    if (isAjaxBusy) return;
 
-    isBusy = true;
+    isAjaxBusy = true;
     showProcessing();
     hideBasicInfo();
 
@@ -160,11 +161,11 @@
       dataType: "json",
       success: function (data) {
         showBasicInfo(data);
-        isBusy = false;
+        isAjaxBusy = false;
         hideProcessing();
       },
       error: function (xhr, status, error) {
-        isBusy = false;
+        isAjaxBusy = false;
         hideProcessing();
         // TODO: Show user-friendly error message on the page
         console.log({ xhr, status, error });
@@ -202,14 +203,14 @@
     return product_Id;
   }
 
-  function updateUrlWithProductId(productId) {
+  function updateUrlWithProductId(product_Id) {
     const newUrl =
       window.location.protocol +
       "//" +
       window.location.host +
       window.location.pathname +
       "?id=" +
-      productId;
+      product_Id;
     window.history.pushState({ path: newUrl }, "", newUrl);
   }
 
@@ -226,9 +227,10 @@
       .selectric();
 
     $("#machine-select").on("change", function () {
-      if (isBusy) return;
+      if (isAjaxBusy) return;
 
       hideBasicInfo();
+      hideOptionsApp();
       var selectedCategory = $(this).val();
       var selectedMachineOptions = machinesData.find(function (machine) {
         return machine.category === selectedCategory;
@@ -268,8 +270,9 @@
   function initModelSelect() {
     $("#model-select")
       .on("change", function () {
-        if (isBusy) return;
+        if (isAjaxBusy) return;
 
+        hideOptionsApp();
         var product_Id = $(this).val();
         updateUrlWithProductId(product_Id);
         fetchMachineDetails(product_Id);
@@ -277,27 +280,10 @@
       .selectric();
   }
 
-  function initBeginConfiguration() {
-    $("#basic-machine .btn_AddOptions").on("click", function () {
-      console.log(
-        "Begin configuration for product ID:",
-        extractProductIdFromURL(),
-      );
-
-      window.MT.basket.update(
-        "sid=" + extractProductIdFromURL() + "&quantity=1&price=£4000.00",
-      );
-      // add stuff to basket
-      // performs ajax call for big list
-      // start or update existing vue app with big list
-    });
-  }
-
   // Initialize if on the configure page
   if ($("#configure-app").length) {
     initMachineSelect();
     initModelSelect();
-    initBeginConfiguration();
 
     var urlProductId = extractProductIdFromURL();
     if (urlProductId) {
