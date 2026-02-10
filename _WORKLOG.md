@@ -37,7 +37,8 @@
 - 4th February: 3hrs
 
 - 8th February: 4hrs
-- 9th February: 4hrs
+- 9th February: 6hrs
+- 10th February: 6hrs
 
 #### TODO
 
