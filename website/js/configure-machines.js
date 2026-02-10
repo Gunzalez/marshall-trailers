@@ -116,7 +116,21 @@
   let isBusy = false;
 
   function showBasicInfo(data) {
-    console.log({ data });
+    var $specsContent = $("#basic-machine .specs-content");
+    $specsContent.find(".title").text(data.title);
+    $specsContent.find(".specs-list").empty();
+    var $specsList = data.specs.map(function (spec) {
+      return $("<li>").html(
+        "<span class='label'>" +
+          spec.label +
+          "</span><span class='value'>" +
+          spec.value +
+          "</span>",
+      );
+    });
+    $specsContent.find(".specs-list").append($specsList);
+    $specsContent.find(".product-price .value").text(data.price);
+
     $("#basic-machine").removeClass("display-none");
   }
 
@@ -264,7 +278,7 @@
   }
 
   function initBeginConfiguration() {
-    $("#basic-machine #btn_AddOptions").on("click", function () {
+    $("#basic-machine .btn_AddOptions").on("click", function () {
       console.log(
         "Begin configuration for product ID:",
         extractProductIdFromURL(),

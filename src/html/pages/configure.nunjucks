@@ -41,7 +41,7 @@
                 <div class="section">
                     <div class="copy-wrapper desktop-only">
                         <div class="inner-wrapper">
-                            {{ macros.quickSpecs('configure') }}
+                            {{ macros.quickSpecsConfig() }}
                         </div>
                     </div>
                 </div>
@@ -49,7 +49,7 @@
 
             <div class="mobile-only quick-specs-mobile">
                 <div class="section">
-                    {{ macros.quickSpecs('configure') }}
+                    {{ macros.quickSpecsConfig() }}
                 </div>
             </div>
         </div>

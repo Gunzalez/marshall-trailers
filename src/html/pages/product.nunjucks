@@ -35,7 +35,7 @@
             <div class="section">
                 <div class="copy-wrapper desktop-only">
                     <div class="inner-wrapper">
-                        {{ macros.quickSpecs('product') }}
+                        {{ macros.quickSpecsProduct() }}
                     </div>
                 </div>
             </div>
@@ -43,7 +43,7 @@
 
         <div class="mobile-only quick-specs-mobile">
             <div class="section">
-                {{ macros.quickSpecs('product') }}
+                {{ macros.quickSpecsProduct() }}
             </div>
         </div>
 
@@ -207,10 +207,7 @@
                                 .filter(value => value !== undefined && value !== null && value !== "N/A" && value !== "")
                                 .join(" / ");
 
-                            const strings = ['Commercial', 'Standard', 'Premium', 'Deluxe', 'Ultimate'];
-                            const randomString = strings[Math.floor(Math.random() * strings.length)];
-
-                            $("#btn_Configure").on("click", () => {
+                            $(".btn_Configure").on("click", () => {
                                 window.location.href = `configure.html?id=${selectedProductId}`;
                             });
                         }
