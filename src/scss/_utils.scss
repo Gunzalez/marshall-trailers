@@ -631,6 +631,13 @@
   padding-bottom: 0.5rem;
 }
 
+.action-step {
+  color: var(--brand-gray-dark);
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
 .quick-nav-top {
   ul {
     display: inline-flex;
