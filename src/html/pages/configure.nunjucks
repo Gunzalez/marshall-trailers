@@ -22,8 +22,7 @@
     <div id="product-detail">
 
         <div id="configure-app" class="configure-app">
-
-            <div class="section">
+            <div class="form-wrapper">
                 <div class="action-step">Step 01.</div>
                 <form class="configure-form body-copy">
                     <select id="machine-select">
@@ -34,7 +33,6 @@
                     </select>
                 </form>
             </div>
-
         </div>
 
         <div id="basic-machine" class="display-none">
@@ -67,20 +65,35 @@
     <div id="options-app" class="options-app display-none">
         <div class="section">
             <div class="app-content">
-                <div class="options-list">
-                    <option-card 
-                    v-for="option in options" 
-                    :key="option.id"
-                    :option="option"
-                    :selected="selectedOptions"
-                    @add="handleAddBasket"
-                    @remove="handleRemoveBasket"
-                    class="option"></option-card>
+                <div class="heading-wrapper">
+                    <div class="heading">
+                        <div class="action-step">Step 02.</div>
+                        <h2 class="title">Select your options</h2>
+                    </div>
                 </div>
 
-                <options-basket
-                    :selection="selectedOptions"
-                    @remove="handleRemoveBasket"></options-basket>
+                <div class="options-list">
+                    <option-card 
+                        v-for="option in options" 
+                        :key="option.id"
+                        :option="option"
+                        :selected="selectedOptions"
+                        @add="handleAddBasket"
+                        @remove="handleRemoveBasket"
+                        class="option"></option-card>
+                </div>
+
+                <options-basket :selection="selectedOptions"></options-basket>
+
+                <form class="form options-notes">
+                    <label for="additional-notes">
+                        <span>Order notes or numbers</span>
+                        <textarea id="additional-notes"
+                            name="additional-notes" 
+                            rows="5" 
+                            cols="20"></textarea>
+                    </label>
+                </form>
 
             </div>
 
@@ -102,6 +115,7 @@
 
                     let options = null;
                     let myVueApp = null;
+                    let initialOption = null;
 
                     $("#product-detail").on("click", ".btn_AddOptions", function () {
 
@@ -117,6 +131,14 @@
                             .MT
                             .basket
                             .update("sid=" + product_Id + "&qty=1&price=£4000.00");
+
+                        initialOption = {
+                            id: product_Id,
+                            title: "QM-X",
+                            image_url: "https://www.marshall-trailers.co.uk/uploads/products/optionals/120318-1133-6648.jpg",
+                            description: "Silage Grain trailer basic price",
+                            price: "£13,200.00"
+                        }
 
                         $.ajax({
                             type: "post",
@@ -159,7 +181,11 @@
                                             };
 
                                             onMounted(() => {
+                                                selectedOptions
+                                                    .value
+                                                    .push(initialOption);
                                                 showOptionsApp();
+
                                             });
 
                                             return {options, selectedOptions, handleAddBasket, handleRemoveBasket};
