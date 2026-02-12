@@ -4,31 +4,26 @@ export default {
   props: {
     selection: Array,
   },
-  emits: ["remove"],
 
-  setup(props, { emit }) {
-    const handleRemove = (option) => {
-      emit("remove", option);
-    };
-
+  setup() {
     onMounted(() => {
       console.log("Basket mounted");
     });
-
-    return {
-      handleRemove,
-    };
   },
   template: `
     <div v-if="selection.length" class="options-basket">
-        <h2 class="title">Check your chosen specification / quote:</h2>
-        
+        <div class="heading-wrapper">
+          <div class="heading">
+              <div class="action-step">Step 03.</div>
+              <h2 class="title">Check your chosen specification / quote:</h2>
+          </div>
+        </div>
         <table>
             <thead>
                 <tr>
                     <th></th>
                     <th>Product name</th>
-                    <th>Cost</th>
+                    <th class="price">Cost</th>
                 </tr>
             </thead>
             <tbody>
@@ -36,7 +31,7 @@ export default {
                     <td class="imagery"><img :src="option.image_url" :alt="option.title" class="image"></td>
                     <td class="name">
                       <span>{{ option.title }}</span>
-                      <span class="desktop-only">{{ option.description }}</span>
+                      <span class="desktop-only description">{{ option.description }}</span>
                     </td>
                     <td class="price">{{ option.price }}</td>
                 </tr>
@@ -44,9 +39,9 @@ export default {
         </table>
 
         <div class="basket-total">
-          <span>Total:</span>
+          <span>Retail price total ex. VAT:</span>
           <span class="total-price">
-            {{ selection.reduce((total, option) => total + parseFloat(option.price.replace(/[^0-9.-]+/g, "")), 0).toLocaleString("en-US", { style: "currency", currency: "USD" }) }}
+            {{ selection.reduce((total, option) => total + parseFloat(option.price.replace(/[^0-9.-]+/g, "")), 0).toLocaleString("en-US", { style: "currency", currency: "GBP" }) }}
           </span>
         </div>
 
