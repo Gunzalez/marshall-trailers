@@ -469,7 +469,7 @@
     </nav>
 
     <div class="title-wrapper">
-        <h1 class="page-title">Price & Configure your Marshall Machine</h1>
+        <h1 class="page-title">Configure your Marshall</h1>
     </div>
 
     <div id="product-detail">
@@ -477,6 +477,7 @@
         <div id="configure-app" class="configure-app">
 
             <div class="section">
+                <div class="action-step">Step 01.</div>
                 <form class="configure-form body-copy">
                     <select id="machine-select">
                         <option value="" selected>Select machine</option>
@@ -549,12 +550,120 @@
     <div id="options-app" class="options-app display-none">
         <div class="section">
             <div class="app-content">
-                <div v-for="option in options" :key="option.id" class="option">
-                    <h3>[[ option.title ]]</h3>
-                    <p>[[ option.description ]]</p>
-                    <p>Option No. [[ option.option_number ]]</p>
+                <div class="options-list">
+                    <option-card 
+                    v-for="option in options" 
+                    :key="option.id"
+                    :option="option"
+                    :selected="selectedOptions"
+                    @add="handleAddBasket"
+                    @remove="handleRemoveBasket"
+                    class="option"></option-card>
                 </div>
+
+                <options-basket
+                    :selection="selectedOptions"
+                    @remove="handleRemoveBasket"></options-basket>
+
             </div>
+
+            <script type="module">
+
+                import OptionCard from "./js/components/pod.js";
+                import OptionsBasket from "./js/components/basket.js";
+
+                function showOptionsApp() {
+                    $('#options-app').removeClass('display-none');
+                    document
+                        .getElementById('options-app')
+                        .scrollIntoView({behavior: 'smooth'});
+                    $(".btn_AddOptions").prop("disabled", true);
+                }
+
+                document.addEventListener('DOMContentLoaded', () => {
+                    const {createApp, onMounted, ref, computed, watch} = Vue;
+
+                    let options = null;
+                    let myVueApp = null;
+
+                    $("#product-detail").on("click", ".btn_AddOptions", function () {
+
+                        const queryString = window.location.search;
+                        const urlParams = new URLSearchParams(queryString);
+                        var product_Id = urlParams.get("id");
+
+                        if (!product_Id) {
+                            return;
+                        }
+
+                        window
+                            .MT
+                            .basket
+                            .update("sid=" + product_Id + "&qty=1&price=£4000.00");
+
+                        $.ajax({
+                            type: "post",
+                            url: "/ajax/ajax_configure_get_options.php",
+                            data: "product_id=" + product_Id,
+                            dataType: "json",
+                            success: function (optionsData) {
+                                $("#options-app").addClass("display-none")
+
+                                if (!myVueApp) {
+                                    // create new app
+                                    myVueApp = createApp({
+                                        components: {
+                                            OptionCard,
+                                            OptionsBasket
+                                        },
+                                        setup() {
+                                            options = ref(optionsData.data);
+                                            const selectedOptions = ref([]);
+
+                                            const handleAddBasket = (option) => {
+                                                selectedOptions
+                                                    .value
+                                                    .push(option);
+
+                                                console.log('Updated selectedOptions:', selectedOptions.value);
+                                            };
+
+                                            const handleRemoveBasket = (option) => {
+                                                const index = selectedOptions
+                                                    .value
+                                                    .findIndex((item) => item.id === option.id);
+                                                if (index !== -1) {
+                                                    selectedOptions
+                                                        .value
+                                                        .splice(index, 1);
+                                                }
+
+                                                console.log('Updated selectedOptions:', selectedOptions.value);
+                                            };
+
+                                            onMounted(() => {
+                                                showOptionsApp();
+                                            });
+
+                                            return {options, selectedOptions, handleAddBasket, handleRemoveBasket};
+                                        }
+                                    }).mount("#options-app");
+                                } else {
+                                    // update data in existing app
+                                    options.value = optionsData.data;
+                                    selectedOptions.value = [];
+                                    showOptionsApp();
+                                }
+
+                            },
+                            error: function (xhr, status, error) {
+                                console.log({xhr, status, error});
+                            }
+                        });
+                    });
+                });
+            </script>
+
         </div>
     </div>
 
@@ -596,83 +705,6 @@
         </div>
     </div>
 
-
-    <script>
-
-        function showOptionsApp() {
-            $('#options-app').removeClass('display-none');
-            document
-                .getElementById('options-app')
-                .scrollIntoView({behavior: 'smooth'});
-            $(".btn_AddOptions").prop("disabled", true);
-        }
-
-        document.addEventListener('DOMContentLoaded', () => {
-            const {createApp, onMounted, ref, computed, watch} = Vue;
-
-            let options = null;
-            let myVueApp = null;
-
-            $("#product-detail").on("click", ".btn_AddOptions", function () {
-
-                const queryString = window.location.search;
-                const urlParams = new URLSearchParams(queryString);
-                var product_Id = urlParams.get("id");
-
-                if (!product_Id) {
-                    return;
-                }
-
-                window
-                    .MT
-                    .basket
-                    .update("sid=" + product_Id + "&qty=1&price=£4000.00");
-
-                $.ajax({
-                    type: "post",
-                    url: "/ajax/ajax_configure_get_options.php",
-                    data: "product_id=" + product_Id,
-                    dataType: "json",
-                    success: function (optionsData) {
-                        var timeNow = new Date().getTime();
-                        $("#options-app").addClass("display-none")
-
-                        if (!myVueApp) {
-                            // create new app
-                            myVueApp = createApp({
-                                delimiters: [
-                                    '[[', ']]'
-                                ],
-                                setup() {
-                                    options = ref(optionsData.data);
-                                    time = ref(timeNow);
-
-                                    onMounted(() => {
-                                        showOptionsApp();
-                                    });
-
-                                    watch(time, (newVal) => {
-                                        console.log("time updated:", newVal.toLocaleString());
-                                    });
-
-                                    return {options, time};
-                                }
-                            }).mount("#options-app");
-                        } else {
-                            // update data in existing app
-                            options.value = optionsData.data;
-                            time.value = timeNow;
-                            showOptionsApp();
-                        }
-
-                    },
-                    error: function (xhr, status, error) {
-                        console.log({xhr, status, error});
-                    }
-                });
-            });
-        });
-    </script>
 
 
       
