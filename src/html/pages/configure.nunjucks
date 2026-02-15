@@ -77,13 +77,13 @@
                         v-for="option in options" 
                         :key="option.id"
                         :option="option"
-                        :selected="selectedOptions"
-                        @add="handleAddBasket"
-                        @remove="handleRemoveBasket"
+                        :is-selected="option.isSelected"
+                        :messages="option.messages"
+                        @click="handleOptionClick"
                         class="option"></option-card>
                 </div>
 
-                <options-basket :selection="selectedOptions"></options-basket>
+                <options-basket :options="options" :initial-option="initialOption"></options-basket>
 
                 <form class="form options-notes">
                     <label for="additional-notes">
@@ -91,9 +91,33 @@
                         <textarea id="additional-notes"
                             name="additional-notes" 
                             rows="5" 
-                            cols="20"></textarea>
+                            cols="14"></textarea>
                     </label>
                 </form>
+
+                <div class="configuration-actions">
+                    <div class="heading-wrapper">
+                        <div class="heading">
+                            <div class="action-step">Step 04.</div>
+                            <h2 class="title">Save / Print / Order your machine</h2>
+                        </div>
+                    </div>
+                    <p>Choose one of the following options</p>
+                    <div class="actions-buttons">
+                        <button type="button" class="bttn">
+                            <span>Purchase</span>
+                            <span>your Marshall</span>
+                        </button>
+                        <button type="button" class="bttn">
+                            <span>Email</span>
+                            <span>Enquiry</span>
+                        </button>
+                        <button type="button" class="bttn">
+                            <span>Save</span>
+                            <span>as PDF</span>
+                        </button>
+                    </div>
+                </div>
 
             </div>
 
@@ -108,6 +132,16 @@
                         .getElementById('options-app')
                         .scrollIntoView({behavior: 'smooth'});
                     $(".btn_AddOptions").prop("disabled", true);
+                }
+
+                function wrapWithStateProps(options) {
+                    return options.map(option => {
+                        return {
+                            ...option,
+                            isSelected: false,
+                            messages: []
+                        }
+                    });
                 }
 
                 document.addEventListener('DOMContentLoaded', () => {
@@ -156,45 +190,61 @@
                                             OptionsBasket
                                         },
                                         setup() {
-                                            options = ref(optionsData.data);
-                                            const selectedOptions = ref([]);
+                                            options = ref([]);
 
-                                            const handleAddBasket = (option) => {
-                                                selectedOptions
-                                                    .value
-                                                    .push(option);
+                                            const handleOptionClick = (option) => {
 
-                                                console.log('Updated selectedOptions:', selectedOptions.value);
-                                            };
-
-                                            const handleRemoveBasket = (option) => {
-                                                const index = selectedOptions
-                                                    .value
-                                                    .findIndex((item) => item.id === option.id);
-                                                if (index !== -1) {
-                                                    selectedOptions
-                                                        .value
-                                                        .splice(index, 1);
+                                                // if selected before click
+                                                if (option.isSelected) {
+                                                    const havenot = option.havenot.list || [];
+                                                    havenot.forEach(haveNotId => {
+                                                        const index = options
+                                                            .value
+                                                            .findIndex(item => item.id === haveNotId);
+                                                        if (index !== -1) {
+                                                            const messages = options
+                                                                .value[index]
+                                                                .messages
+                                                                .filter(msg => msg.id !== option.id);
+                                                            options
+                                                                .value[index]
+                                                                .messages = messages;
+                                                        }
+                                                    });
+                                                    option.isSelected = false;
+                                                    return;
                                                 }
 
-                                                console.log('Updated selectedOptions:', selectedOptions.value);
+                                                // if not selected before click
+                                                const havenot = option.havenot.list || [];
+                                                havenot.forEach(haveNotId => {
+                                                    const index = options
+                                                        .value
+                                                        .findIndex(item => item.id === haveNotId);
+                                                    if (index !== -1) {
+                                                        options
+                                                            .value[index]
+                                                            .messages
+                                                            .push({id: option.id, text: option.havenot.message});
+                                                    }
+                                                });
+                                                option.isSelected = true;
                                             };
 
                                             onMounted(() => {
-                                                selectedOptions
-                                                    .value
-                                                    .push(initialOption);
+                                                const optionsWithState = wrapWithStateProps(optionsData.data);
+                                                options.value = optionsWithState;
                                                 showOptionsApp();
-
                                             });
 
-                                            return {options, selectedOptions, handleAddBasket, handleRemoveBasket};
+                                            return {options, handleOptionClick, initialOption};
                                         }
                                     }).mount("#options-app");
                                 } else {
                                     // update data in existing app
-                                    options.value = optionsData.data;
-                                    selectedOptions.value = [];
+                                    const optionsWithState = wrapWithStateProps(optionsData.data);
+                                    options.value = optionsWithState;
+
                                     showOptionsApp();
                                 }
 
