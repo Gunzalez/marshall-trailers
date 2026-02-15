@@ -548,34 +548,35 @@
     <div id="options-app" class="options-app display-none">
         <div class="section">
             <div class="app-content">
-                <div class="heading-wrapper">
-                    <div class="heading">
-                        <div class="action-step">Step 02.</div>
-                        <h2 class="title">Select your options</h2>
-                    </div>
-                </div>
+                <form class="form options-form">
 
-                <div class="options-list">
-                    <option-card 
+                    <div class="heading-wrapper">
+                        <div class="heading">
+                            <div class="action-step">Step 02.</div>
+                            <h2 class="title">Select your options</h2>
+                        </div>
+                    </div>
+
+                    <div class="options-list">
+                        <option-card 
                         v-for="option in options" 
                         :key="option.id"
                         :option="option"
-                        :selected="selectedOptions"
-                        @add="handleAddBasket"
-                        @remove="handleRemoveBasket"
+                        :is-selected="option.isSelected"
+                        :messages="option.messages"
+                        @click="handleOptionClick"
                         class="option"></option-card>
-                </div>
+                    </div>
 
-                <options-basket :selection="selectedOptions"></options-basket>
+                    <options-basket 
+                        :options="options"
+                        :initial-option="initialOption"></options-basket>
 
-                <form class="form options-notes">
-                    <label for="additional-notes">
-                        <span>Order notes or numbers</span>
-                        <textarea id="additional-notes"
-                            name="additional-notes" 
-                            rows="5" 
-                            cols="20"></textarea>
-                    </label>
+                    <options-form
+                        @download-pdf="handleDownloadPDF"
+                        @purchase-marshall="handlePurchase"
+                        @email-enquiry="handleEmailEnquiry"></options-form>
+
                 </form>
 
             </div>
@@ -584,6 +585,7 @@
 
                 import OptionCard from "./js/components/pod.js";
                 import OptionsBasket from "./js/components/basket.js";
+                import OptionsForm from "./js/components/form.js";
 
                 function showOptionsApp() {
                     $('#options-app').removeClass('display-none');
@@ -591,6 +593,16 @@
                         .getElementById('options-app')
                         .scrollIntoView({behavior: 'smooth'});
                     $(".btn_AddOptions").prop("disabled", true);
+                }
+
+                function wrapWithStateProps(options) {
+                    return options.map(option => {
+                        return {
+                            ...option,
+                            isSelected: false,
+                            messages: []
+                        }
+                    });
                 }
 
                 document.addEventListener('DOMContentLoaded', () => {
@@ -602,26 +614,16 @@
 
                     $("#product-detail").on("click", ".btn_AddOptions", function () {
 
-                        const queryString = window.location.search;
-                        const urlParams = new URLSearchParams(queryString);
-                        var product_Id = urlParams.get("id");
-
-                        if (!product_Id) {
+                        if (!window.basicMachine) {
                             return;
                         }
 
+                        var product_Id = window.basicMachine.id;
+                        var price = window.basicMachine.price;
                         window
                             .MT
                             .basket
-                            .update("sid=" + product_Id + "&qty=1&price=£4000.00");
-
-                        initialOption = {
-                            id: product_Id,
-                            title: "QM-X",
-                            image_url: "https://www.marshall-trailers.co.uk/uploads/products/optionals/120318-1133-6648.jpg",
-                            description: "Silage Grain trailer basic price",
-                            price: "£13,200.00"
-                        }
+                            .update("sid=" + product_Id + "&qty=1&price=" + price);
 
                         $.ajax({
                             type: "post",
@@ -636,48 +638,127 @@
                                     myVueApp = createApp({
                                         components: {
                                             OptionCard,
-                                            OptionsBasket
+                                            OptionsBasket,
+                                            OptionsForm
                                         },
                                         setup() {
-                                            options = ref(optionsData.data);
-                                            const selectedOptions = ref([]);
+                                            options = ref([]);
+                                            initialOption = ref(null);
 
-                                            const handleAddBasket = (option) => {
-                                                selectedOptions
-                                                    .value
-                                                    .push(option);
+                                            const handleOptionClick = (option) => {
 
-                                                console.log('Updated selectedOptions:', selectedOptions.value);
-                                            };
+                                                if (option.isSelected) {
+                                                    const havenotsList = option.havenot.list || [];
+                                                    havenotsList.forEach(haveNotId => {
+                                                        const index = options
+                                                            .value
+                                                            .findIndex(item => item.id === haveNotId);
+                                                        if (index !== -1) {
+                                                            const messages = options
+                                                                .value[index]
+                                                                .messages
+                                                                .filter(msg => msg.id !== option.id);
+                                                            options
+                                                                .value[index]
+                                                                .messages = messages;
+                                                        }
+                                                    });
 
-                                            const handleRemoveBasket = (option) => {
-                                                const index = selectedOptions
-                                                    .value
-                                                    .findIndex((item) => item.id === option.id);
-                                                if (index !== -1) {
-                                                    selectedOptions
-                                                        .value
-                                                        .splice(index, 1);
+                                                    const havesList = option.have.list || [];
+                                                    havesList.forEach(haveId => {
+                                                        const index = options
+                                                            .value
+                                                            .findIndex(item => item.id === haveId);
+                                                        if (index !== -1) {
+                                                            const messages = options
+                                                                .value[index]
+                                                                .messages
+                                                                .filter(msg => msg.id !== option.id);
+                                                            options
+                                                                .value[index]
+                                                                .messages = messages;
+                                                            if (messages.length === 0) {
+                                                                options
+                                                                    .value[index]
+                                                                    .isSelected = false;
+                                                            }
+                                                        }
+                                                    });
+
+                                                    option.isSelected = false;
+                                                } else {
+                                                    const havenotsList = option.havenot.list || [];
+                                                    havenotsList.forEach(haveNotId => {
+                                                        const index = options
+                                                            .value
+                                                            .findIndex(item => item.id === haveNotId);
+                                                        if (index !== -1) {
+                                                            options
+                                                                .value[index]
+                                                                .messages
+                                                                .push({id: option.id, text: option.havenot.message});
+                                                        }
+                                                    });
+
+                                                    const havesList = option.have.list || [];
+                                                    havesList.forEach(haveId => {
+                                                        const index = options
+                                                            .value
+                                                            .findIndex(item => item.id === haveId);
+                                                        if (index !== -1) {
+                                                            options
+                                                                .value[index]
+                                                                .isSelected = true;
+                                                            options
+                                                                .value[index]
+                                                                .messages
+                                                                .push({id: option.id, text: option.have.message});
+                                                        }
+                                                    });
+
+                                                    option.isSelected = true;
                                                 }
 
-                                                console.log('Updated selectedOptions:', selectedOptions.value);
+                                            };
+
+                                            const handleDownloadPDF = (notes) => {
+                                                // Implement PDF download logic here
+                                                console.log("Download PDF clicked");
+                                                console.log({options: options.value, initialOption: initialOption.value, notes});
+                                            };
+
+                                            const handlePurchase = (notes) => {
+                                                // Implement purchase logic here
+                                                console.log("Purchase clicked");
+                                                console.log({options: options.value, initialOption: initialOption.value, notes});
+                                            };
+
+                                            const handleEmailEnquiry = (data) => {
+                                                // Implement email enquiry logic here
+                                                console.log("Email Enquiry clicked");
+                                                console.log({options: options.value, initialOption: initialOption.value, data});
                                             };
 
                                             onMounted(() => {
-                                                selectedOptions
-                                                    .value
-                                                    .push(initialOption);
+                                                options.value = wrapWithStateProps(optionsData.data);
+                                                initialOption.value = window.basicMachine;
                                                 showOptionsApp();
-
                                             });
 
-                                            return {options, selectedOptions, handleAddBasket, handleRemoveBasket};
+                                            return {
+                                                options,
+                                                initialOption,
+                                                handlePurchase,
+                                                handleOptionClick,
+                                                handleDownloadPDF,
+                                                handleEmailEnquiry
+                                            };
                                         }
                                     }).mount("#options-app");
                                 } else {
                                     // update data in existing app
-                                    options.value = optionsData.data;
-                                    selectedOptions.value = [];
+                                    options.value = wrapWithStateProps(optionsData.data);
+                                    initialOption.value = window.basicMachine;
                                     showOptionsApp();
                                 }
 
