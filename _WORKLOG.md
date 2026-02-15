@@ -42,7 +42,7 @@
 
 - 11th February: 1hr
 - 12th February: 1hr
-- 15th February: 2hrs
+- 15th February: 5hrs
 
 #### TODO
 
