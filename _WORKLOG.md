@@ -40,6 +40,10 @@
 - 9th February: 6hrs
 - 10th February: 6hrs
 
+- 11th February: 1hr
+- 12th February: 1hr
+- 15th February: 2hrs
+
 #### TODO
 
 - move to real repo
