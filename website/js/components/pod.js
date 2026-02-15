@@ -64,7 +64,7 @@ export default {
 
       <div v-if="isDisabled" class="option-card-overlay">
         <div class="overlay-content">
-          <p v-for="msg in messages" :key="msg.id" class="message">{{ msg.text }}</p>
+          <span v-for="msg in messages" :key="msg.id">{{ msg.text }}</span>
         </div>
       </div>
 

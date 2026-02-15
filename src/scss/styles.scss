@@ -1044,14 +1044,16 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      font-weight: bold;
-      color: var(--brand-red);
-      border: 1px solid var(--brand-gray);
+      color: var(--brand-text);
     }
 
     .overlay-content {
-      padding: 2rem;
+      font-size: 0.9rem;
+      padding: 1rem 1.5rem;
       text-align: center;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
     }
 
     .title {
