@@ -1,4 +1,4 @@
-const { computed, onMounted } = Vue;
+const { computed, onMounted, watch } = Vue;
 
 export default {
   props: {
@@ -20,6 +20,15 @@ export default {
     onMounted(() => {
       console.log("Basket mounted");
     });
+
+    watch(
+      () => props.options,
+      (newOptions) => {
+        console.log("Options updated:", newOptions);
+      },
+      { deep: true },
+    );
+
     return {
       selection,
     };
@@ -35,8 +44,8 @@ export default {
         <table>
             <thead>
                 <tr>
-                    <th></th>
-                    <th>Product name</th>
+                    <th class="imagery"></th>
+                    <th class="name">Product name</th>
                     <th class="price">Cost</th>
                 </tr>
             </thead>

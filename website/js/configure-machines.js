@@ -113,6 +113,7 @@
   ];
 
   let isAjaxBusy = false;
+  window.basicMachine = null;
 
   function showBasicInfo(data) {
     var $specsContent = $("#basic-machine .specs-content");
@@ -129,6 +130,14 @@
     $specsContent.find(".specs-list").empty().append($specsList);
     $specsContent.find(".product-price .value").text(data.price);
     $("#basic-machine").removeClass("display-none");
+    console.log("time now: ", new Date().getTime());
+    var timeNow = new Date().getTime();
+    // console.log(timeNow);
+    var dataWithTime = Object.assign({}, data, {
+      title: data.title + " : " + timeNow,
+    });
+    window.basicMachine = dataWithTime;
+    console.log("basicMachine set to: ", window.basicMachine);
   }
 
   function hideOptionsApp() {
