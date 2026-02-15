@@ -1171,19 +1171,39 @@
       @media screen and (max-width: 767px) {
         display: block;
 
-        thead {
+        .basket-total {
+          flex-direction: column;
+
+          .total-price {
+            font-size: 1.2rem;
+          }
+        }
+
+        .imagery {
           display: none;
         }
       }
     }
+  }
 
-    .basket-total {
-      padding: 10px;
-      background-color: var(--brand-gray);
-      display: flex;
-      justify-content: flex-end;
-      gap: 1rem;
-      font-weight: 600;
+  .basket-total {
+    padding: 10px;
+    background-color: var(--brand-gray);
+    display: flex;
+    justify-content: flex-end;
+    gap: 2rem;
+    font-weight: 600;
+    margin-bottom: 3rem;
+
+    @media screen and (max-width: 767px) {
+      flex-direction: column;
+      gap: 0.25rem;
+      align-items: flex-end;
+      margin-bottom: 1rem;
+
+      .total-price {
+        font-size: 1.2rem;
+      }
     }
   }
 
@@ -1202,12 +1222,6 @@
   @media screen and (min-width: 768px) {
     .heading {
       margin-top: 3rem;
-    }
-
-    .configuration-actions {
-      .actions-buttons {
-        flex-direction: row;
-      }
     }
 
     .options-list {

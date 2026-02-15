@@ -23,6 +23,18 @@
     width: 100%;
   }
 
+  .field-set {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+
+    label {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
   select {
     border: 1px solid var(--system-gray);
     padding: 8px 8px 5px 5px;
@@ -54,6 +66,12 @@
     //   /* Interaction */
     //   pointer-events: none;
     // }
+  }
+
+  .error-message {
+    color: var(--brand-red);
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
   }
 
   input {
