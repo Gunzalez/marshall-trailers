@@ -65,15 +65,17 @@
     <div id="options-app" class="options-app display-none">
         <div class="section">
             <div class="app-content">
-                <div class="heading-wrapper">
-                    <div class="heading">
-                        <div class="action-step">Step 02.</div>
-                        <h2 class="title">Select your options</h2>
-                    </div>
-                </div>
+                <form class="form options-form">
 
-                <div class="options-list">
-                    <option-card 
+                    <div class="heading-wrapper">
+                        <div class="heading">
+                            <div class="action-step">Step 02.</div>
+                            <h2 class="title">Select your options</h2>
+                        </div>
+                    </div>
+
+                    <div class="options-list">
+                        <option-card 
                         v-for="option in options" 
                         :key="option.id"
                         :option="option"
@@ -81,13 +83,18 @@
                         :messages="option.messages"
                         @click="handleOptionClick"
                         class="option"></option-card>
-                </div>
+                    </div>
 
-                <options-basket 
-                    :options="options"
-                    :initial-option="initialOption"></options-basket>
+                    <options-basket 
+                        :options="options"
+                        :initial-option="initialOption"></options-basket>
 
-                <options-form></options-form>
+                    <options-form
+                        @download-pdf="handleDownloadPDF"
+                        @purchase-marshall="handlePurchase"
+                        @email-enquiry="handleEmailEnquiry"></options-form>
+
+                </form>
 
             </div>
 
@@ -157,7 +164,6 @@
 
                                             const handleOptionClick = (option) => {
 
-                                                // if selected before click
                                                 if (option.isSelected) {
                                                     const havenotsList = option.havenot.list || [];
                                                     havenotsList.forEach(haveNotId => {
@@ -181,9 +187,6 @@
                                                             .value
                                                             .findIndex(item => item.id === haveId);
                                                         if (index !== -1) {
-                                                            options
-                                                                .value[index]
-                                                                .isSelected = false;
                                                             const messages = options
                                                                 .value[index]
                                                                 .messages
@@ -191,44 +194,66 @@
                                                             options
                                                                 .value[index]
                                                                 .messages = messages;
+                                                            if (messages.length === 0) {
+                                                                options
+                                                                    .value[index]
+                                                                    .isSelected = false;
+                                                            }
                                                         }
                                                     });
 
                                                     option.isSelected = false;
-                                                    return;
+                                                } else {
+                                                    const havenotsList = option.havenot.list || [];
+                                                    havenotsList.forEach(haveNotId => {
+                                                        const index = options
+                                                            .value
+                                                            .findIndex(item => item.id === haveNotId);
+                                                        if (index !== -1) {
+                                                            options
+                                                                .value[index]
+                                                                .messages
+                                                                .push({id: option.id, text: option.havenot.message});
+                                                        }
+                                                    });
+
+                                                    const havesList = option.have.list || [];
+                                                    havesList.forEach(haveId => {
+                                                        const index = options
+                                                            .value
+                                                            .findIndex(item => item.id === haveId);
+                                                        if (index !== -1) {
+                                                            options
+                                                                .value[index]
+                                                                .isSelected = true;
+                                                            options
+                                                                .value[index]
+                                                                .messages
+                                                                .push({id: option.id, text: option.have.message});
+                                                        }
+                                                    });
+
+                                                    option.isSelected = true;
                                                 }
 
-                                                // if not selected before click
-                                                const havenotsList = option.havenot.list || [];
-                                                havenotsList.forEach(haveNotId => {
-                                                    const index = options
-                                                        .value
-                                                        .findIndex(item => item.id === haveNotId);
-                                                    if (index !== -1) {
-                                                        options
-                                                            .value[index]
-                                                            .messages
-                                                            .push({id: option.id, text: option.havenot.message});
-                                                    }
-                                                });
+                                            };
 
-                                                const havesList = option.have.list || [];
-                                                havesList.forEach(haveId => {
-                                                    const index = options
-                                                        .value
-                                                        .findIndex(item => item.id === haveId);
-                                                    if (index !== -1) {
-                                                        options
-                                                            .value[index]
-                                                            .isSelected = true;
-                                                        options
-                                                            .value[index]
-                                                            .messages
-                                                            .push({id: option.id, text: option.have.message});
-                                                    }
-                                                });
+                                            const handleDownloadPDF = (notes) => {
+                                                // Implement PDF download logic here
+                                                console.log("Download PDF clicked");
+                                                console.log({options: options.value, initialOption: initialOption.value, notes});
+                                            };
 
-                                                option.isSelected = true;
+                                            const handlePurchase = (notes) => {
+                                                // Implement purchase logic here
+                                                console.log("Purchase clicked");
+                                                console.log({options: options.value, initialOption: initialOption.value, notes});
+                                            };
+
+                                            const handleEmailEnquiry = (data) => {
+                                                // Implement email enquiry logic here
+                                                console.log("Email Enquiry clicked");
+                                                console.log({options: options.value, initialOption: initialOption.value, data});
                                             };
 
                                             onMounted(() => {
@@ -237,7 +262,14 @@
                                                 showOptionsApp();
                                             });
 
-                                            return {options, handleOptionClick, initialOption};
+                                            return {
+                                                options,
+                                                initialOption,
+                                                handlePurchase,
+                                                handleOptionClick,
+                                                handleDownloadPDF,
+                                                handleEmailEnquiry
+                                            };
                                         }
                                     }).mount("#options-app");
                                 } else {
