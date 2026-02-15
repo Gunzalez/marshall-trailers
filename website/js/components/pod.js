@@ -1,36 +1,40 @@
-const { computed, onMounted } = Vue;
+const { computed, ref, watch } = Vue;
 
 export default {
   props: {
     option: Object,
-    selected: Array,
+    isSelected: Boolean,
+    messages: Array, // { id: String, text: String }[]
   },
-  emits: ["add", "remove"],
+  emits: ["click"],
 
   setup(props, { emit }) {
-    onMounted(() => {
-      console.log("OptionCard mounted with option:", props.option);
-    });
-
-    const isSelected = computed(() => {
-      return props.selected.some((option) => option.id === props.option.id);
-    });
+    const option = ref(props.option);
 
     const handleClick = () => {
-      if (isSelected.value) {
-        emit("remove", props.option);
-      } else {
-        emit("add", props.option);
-      }
+      emit("click", props.option);
     };
 
+    const isDisabled = computed(() => {
+      return props.messages.length > 0;
+    });
+
+    watch(
+      () => props.option,
+      (newOption) => {
+        option.value = newOption;
+      },
+      { deep: true },
+    );
+
     return {
-      isSelected,
+      option,
+      isDisabled,
       handleClick,
     };
   },
   template: `
-    <div class="option-card disabled">
+    <div class="option-card" :class="{ 'selected': option.isSelected, 'disabled': isDisabled }">
       <h5 class="line-clamp-2 title">{{ option.title }}</h5>
 
       <div class="details">
@@ -47,14 +51,22 @@ export default {
         </div>
       </div>
 
-      <button v-if="isSelected" class="bttn btn_Remove" @click.prevent="handleClick">
-        <span>Remove</span>
-        <i class="fa-solid fa-minus"></i>
+      <button class="bttn" @click.prevent="handleClick" :disabled="isDisabled" :class="{ 'btn_Add': !option.isSelected, 'btn_Remove': option.isSelected }">
+        <template v-if="option.isSelected">
+          <span>Remove</span>
+          <i class="fa-solid fa-minus"></i>
+        </template>
+        <template v-else>
+          <span>Add to basket</span>
+          <i class="fa-solid fa-plus"></i>
+        </template>
       </button>
-      <button v-else class="bttn btn_Add" @click.prevent="handleClick">
-        <span>Add to basket</span>
-        <i class="fa-solid fa-plus"></i>
-      </button>
+
+      <div v-if="isDisabled" class="option-card-overlay">
+        <div class="overlay-content">
+          <p v-for="msg in messages" :key="msg.id" class="message">{{ msg.text }}</p>
+        </div>
+      </div>
 
     </div>
   `,
