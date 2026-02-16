@@ -1,4 +1,4 @@
-{% set main_page = "basket" %}
+{% set main_page = "accounts" %}
 {% extends "layout.nunjucks" %}
 {% import "../templates/partials/_macros.nunjucks" as macros %}
 
@@ -11,12 +11,13 @@
             <li>
                 <a href="index.html">Home</a>
             </li>
-            <li>Checkout</li>
+            <li>Accounts</li>
         </ol>
     </nav>
 
     <div class="title-wrapper">
-        <h1 class="page-title">Checkout</h1>
+        <h1 class="page-title">Accounts</h1>
+        <p>Register / Login</p>
     </div>
 
     <div class="spacer" style="--height: 800px;"></div>

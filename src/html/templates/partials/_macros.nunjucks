@@ -84,7 +84,7 @@
         <div class="desktop-buttons">
             <div class="gap-2 items-end flex flex-col">
                 <div class="flex gap-4 items-center border-b pb-2 border-[var(--brand-gray)]">
-                    <a href="contact.html" class="mr-8">Register / Login</a>
+                    <a href="accounts.html" class="mr-8">Register / Login</a>
                     <a href="tel:+441224722777">
                         <i class="fa-solid fa-phone"></i>
                     </a>
