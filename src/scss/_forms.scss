@@ -18,7 +18,7 @@
     border-radius: 1px;
     background-color: white;
     color: var(--brand-text);
-    padding: 0.75rem 1rem;
+    padding: 8px 8px 5px 8px;
     resize: none;
     width: 100%;
   }
@@ -32,6 +32,10 @@
     label {
       display: flex;
       flex-direction: column;
+    }
+
+    .short-label {
+      max-width: 150px;
     }
   }
 

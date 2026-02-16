@@ -44,19 +44,19 @@ export default {
         <table>
             <thead>
                 <tr>
-                    <th class="imagery"></th>
-                    <th class="name">Product name</th>
-                    <th class="price">Cost</th>
+                    <th class="image-cell"></th>
+                    <th class="name-cell">Product name</th>
+                    <th class="price-cell">Cost</th>
                 </tr>
             </thead>
             <tbody>
                 <tr v-for="option in selection" :key="option.id">
-                    <td class="imagery"><img :src="option.image_url" :alt="option.title" class="image"></td>
-                    <td class="name">
+                    <td class="image-cell"><img :src="option.image_url" :alt="option.title" class="image"></td>
+                    <td class="name-cell">
                       <span>{{ option.title }}</span>
                       <span class="desktop-only description">{{ option.description }}</span>
                     </td>
-                    <td class="price">{{ option.price }}</td>
+                    <td class="price-cell">{{ option.price }}</td>
                 </tr>
             </tbody>
         </table>

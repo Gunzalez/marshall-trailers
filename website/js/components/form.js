@@ -105,11 +105,11 @@ export default {
             </div>
 
             <div class="flex flex-col md:flex-row gap-4 w-full justify-between">
-                <div class="flex-1 max-w-[400px]">
+                <div class="flex-1 max-w-[600px]">
                     <div id="contact-section" class="contact-section">
-
+                        <h4>Email enquiry to Marshall & a copy to yourself.</h4>
                         <div class="field-set">
-                            <label for="title">
+                            <label for="title" class="short-label">
                                 <span>Title *</span>
                                 <select id="title" name="title" v-model="title">
                                     <option value="Mr">Mr</option>
