@@ -67,7 +67,9 @@
                                 <h3 class="title">{{ item.title }}</h3>
                                 <div>{{ item.content }}</div>
                                 <a href="{{ item.href }}" class="bttn bordered-bttn">
-                                    <span>{{ item.label }}</span></a>
+                                    <span>{{ item.label }}</span>
+                                    <span></span>
+                                </a>
                             </div>
                             <div class="image-wrapper" style="background-image: url('{{ item.image }}')"></div>
                         </div>
@@ -86,7 +88,7 @@
                     <p>Configure your new Marshall trailer with our easy-to-use online tool, it is amazingly simple and efficient.</p>
                     <a href="configure.html" class="bttn">
                         <span>
-                            <i class="fa-solid fa-user-gear"></i>
+                            <i class="fa-solid fa-gear"></i>
                         </span>
                         <span>Configure</span></a>
                 </div>
@@ -101,7 +103,7 @@
                     </p>
                     <a href="spares.html" class="bttn">
                         <span>
-                            <i class="fa-solid fa-gear"></i>
+                            <i class="fa-solid fa-wrench"></i>
                         </span>
                         <span>Spares</span></a>
                 </div>
