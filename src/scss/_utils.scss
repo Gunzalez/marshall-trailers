@@ -166,6 +166,16 @@
   @media screen and (min-width: 768px) {
     margin-bottom: 60px;
 
+    &.special-chevron {
+      background-image: url("../images/bg-about-chevrons.png");
+      background-repeat: no-repeat;
+      background-position: top 40px right 50px;
+      background-size: 270px 270px;
+      margin-bottom: 0;
+      padding-bottom: 2rem;
+      padding-right: 40%;
+    }
+
     &.has-sub-sections {
       flex-direction: row;
 

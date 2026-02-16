@@ -4,7 +4,17 @@
 
 {% block content %}
 
-  {{ macros.header("images/logo-marshall-trailers-color.png") }}
+  <div class="homepage mx-auto top-0 left-1/2 -translate-x-1/2 w-full max-w-[var(--max-width)] z-10 absolute">
+    {{ macros.header("images/logo-marshall-trailers.png") }}
+  </div>
+
+  <div class="hero">
+    <div id="carousel-main" class="carousel-main">
+      {% for item in carouselData %}
+        <div class="slide preload" style="background-image: url('{{ item.image }}')"></div>
+      {% endfor %}
+    </div>
+  </div>
 
   <nav aria-label="breadcrumbs" class="breadcrumbs">
     <ol>
@@ -16,9 +26,41 @@
   </nav>
 
   <div class="title-wrapper">
-    <h1 class="page-title">About</h1>
+    <h1 class="page-title">About Marshall</h1>
   </div>
 
-  <div class="spacer" style="--height: 800px;"></div>
+  <div class="section body-copy special-chevron">
+    <p>
+      <strong>Charles J Marshall (Aberdeen) Ltd celebrates its 70th Anniversary in 2021. Seventy years ago, the Marshall brand was conceived by Charles J Marshall; the year was 1952.</strong>
+    </p>
+    <p>This tenacious 18-year-old apprentice joiner decided that after his National Service, he would establish his own business producing something that he could sell en-masse. At this time in history the introduction of the new technically advanced tractor was just in its infancy and the young Charles decided this was his time to capitalize on this opportunity.</p>
+  </div>
+
+  <div class="section-background">
+    <div class="section body-copy">
+      <h2>Heritage</h2>
+      <p>To achieve this goal some land and a small croft were purchased, just 6 miles from Aberdeen. Charles managed to secure this at the cost of £2,450. Needless to say his current long suffering neighbours were delighted as they had endured years of noise and constant TV interference from power tools used by this enthusiastic young man.</p>
+      <p>By 1956 the first part of the present factory building was completed, named Chapel Works, it covered a 12,000 sq. ft. site. True to form, the young Charles supervised and even poured the concrete blocks by hand to ensure that the best value was achieved from his investment.</p>
+    </div>
+  </div>
+
+  <div class="section body-copy">
+    <h2>Innovation</h2>
+    <p>The greatest advantage to his new factory layout was the ability to create the relatively new concept of a production line that allowed for the most efficient use of labour; always an expensive commodity and not to be wasted! Although said tongue in cheek, Charles quickly realized that labour was an essential requirement but had to be used efficiently so the production line was integral to this.</p>
+    <p>Then as today, Charles invested heavily in his business and purchased vast stocks of steel and other components. This gave him the added advantage of being able to buy at very competitive prices and so produce a more cost effective trailer. The knock on result from this strategy was a rapid expansion of turnover allowing him to further develop the factory premises.</p>
+  </div>
+
+  <div class="section body-copy">
+    <h2>Quality</h2>
+    <p>Equipment was another area of investment that was expanded to keep up with rising demand. A new press brake and guillotine were purchased, the largest north of the Clyde at that time! Likewise, the shrewd move away from the “slow” arc welders to the latest concept of MIG welders also proved to be a winning formula for speeding up production. Nothing was going to hold him back from achieving his original ambition!</p>
+    <p>The 1970s were the years of strike action and horrendous labour relations and Charles was extremely proud of the fact that he never had a strike and his factory still produced throughout this period.</p>
+  </div>
+
+  <div class="section body-copy">
+    <h2>Value</h2>
+    <p>Now producing well over 2000 units per year and with an extremely efficient factory, his focus turned to rotary spreaders to continue to increase production.</p>
+    <p>Once again these spreaders were distributed throughout the country and in partnership with an extensive dealer network that he worked hard to supply. The success of the spreader was further augmented by the introduction of the Marshall slurry tanker in the 1980s.</p>
+    <p>In 1980 the bright new talent of Charles Richard was introduced and he started his apprenticeship within the firm.</p>
+  </div>
 
 {% endblock %}
