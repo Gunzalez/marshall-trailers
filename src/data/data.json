@@ -629,6 +629,32 @@
       "href": "#"
     }
   ],
+  "aboutCarouselData": [
+    {
+      "title": "Winners of Multiple Awards",
+      "image": "images/about-hero-1.jpg",
+      "url": "about.html#quality",
+      "label": "Quality"
+    },
+    {
+      "title": "Outstanding Value",
+      "image": "images/about-hero-2.jpg",
+      "url": "about.html#value",
+      "label": "Value"
+    },
+    {
+      "title": "The Marshall Family Heritage",
+      "image": "images/about-hero-3.jpg",
+      "url": "about.html#heritage",
+      "label": "Heritage"
+    },
+    {
+      "title": "Commitment to Innovation",
+      "image": "images/about-hero-4.jpg",
+      "url": "about.html#innovation",
+      "label": "Innovation"
+    }
+  ],
   "carouselData": [
     {
       "title": "The Legendary Marshall Muckspreader",
