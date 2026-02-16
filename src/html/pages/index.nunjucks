@@ -66,7 +66,7 @@
                             <div class="text-wrapper">
                                 <h3 class="title">{{ item.title }}</h3>
                                 <div>{{ item.content }}</div>
-                                <a href="{{ item.url }}" class="bttn bordered-bttn">
+                                <a href="{{ item.href }}" class="bttn bordered-bttn">
                                     <span>{{ item.label }}</span></a>
                             </div>
                             <div class="image-wrapper" style="background-image: url('{{ item.image }}')"></div>

@@ -599,7 +599,7 @@
       "content": "Growing from a small family business to one of the UK's leading trailer manufacturers, Marshalls Trailers has a rich heritage built on quality, innovation, and customer satisfaction. Our journey reflects our commitment to excellence and our passion for delivering top-notch trailers to our valued customers.",
       "image": "images/tab-bg-heritage.png",
       "label": "Read More",
-      "href": "#"
+      "href": "about.html#heritage"
     },
     {
       "id": 2,
@@ -608,7 +608,7 @@
       "content": "Our commitment to research and development has led to numerous industry awards, recognizing our cutting-edge designs and advanced manufacturing techniques. We continuously strive to push the boundaries of trailer technology to meet the evolving needs of our customers.",
       "image": "images/tab-bg-innovation.png",
       "label": "See Full List",
-      "href": "#"
+      "href": "about.html#innovation"
     },
     {
       "id": 3,
@@ -617,7 +617,7 @@
       "content": "Marshalls Trailers is dedicated to sustainability, implementing eco-friendly practices in our manufacturing processes and designing trailers that help reduce environmental impact for our customers. We are committed to building a greener future for generations to come.",
       "image": "images/tab-bg-quality.png",
       "label": "Discover How",
-      "href": "#"
+      "href": "about.html#quality"
     },
     {
       "id": 4,
@@ -626,7 +626,7 @@
       "content": "We believe in giving back to the community. Marshalls Trailers actively supports local initiatives and charities, fostering strong relationships and making a positive impact in the areas where we operate. Our commitment to social responsibility is a core value of our company.",
       "image": "images/tab-bg-value.png",
       "label": "Talk To Us",
-      "href": "#"
+      "href": "about.html#value"
     }
   ],
   "aboutCarouselData": [
