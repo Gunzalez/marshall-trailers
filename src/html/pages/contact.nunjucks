@@ -17,7 +17,7 @@
 
     <div class="title-wrapper">
         <h1 class="page-title">Contact us</h1>
-        <p>General enquiries</p>
+        <p>General Enquiries</p>
     </div>
 
     <div class="map-hero">
@@ -33,6 +33,43 @@
     <div class="mobile-only map-hero-mobile">
         <div class="section">
             {{ macros.marshallContact() }}
+        </div>
+    </div>
+
+    <div class="section body-copy">
+        <div class="section-padding">
+            <div class="departments-title">
+                <h2 class="title">Department Details</h2>
+            </div>
+            <div class="departments">
+                <div class="department-list">
+                    {% for item in departmentsHeads %}
+                        <div class="department-card has-image">
+                            <img src="{{ item.image }}" alt="{{ item.name }}" class="contact-image">
+                            <div class="details">
+                                <h3>{{ item.name }}</h3>
+                                <p class="department-name">{{ item.position }}</p>
+                                <p>
+                                    <a href="mailto:{{ item.email }}">{{ item.email }}</a>
+                                </p>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="department-list">
+                    {% for item in departmentsContacts %}
+                        <div class="department-card">
+                            <div class="details">
+                                <h3>{{ item.name }}</h3>
+                                <p class="department-name">{{ item.position }}</p>
+                                <p>
+                                    <a href="mailto:{{ item.email }}">{{ item.email }}</a>
+                                </p>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
         </div>
     </div>
 

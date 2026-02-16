@@ -1207,5 +1207,42 @@
         }
       ]
     }
+  ],
+  "departmentsHeads": [
+    {
+      "image": "images/contact-2.jpg",
+      "name": "Charles R Marshall (Snr)",
+      "position": "Sales",
+      "email": "charles@marshall-trailers.co.uk"
+    },
+    {
+      "image": "images/contact-1.jpg",
+      "name": "Charles P Marshall (Jnr)",
+      "position": "Sales",
+      "email": "charlesp@marshall-trailers.co.uk"
+    },
+    {
+      "image": "images/contact-3.jpg",
+      "name": "David Marshall",
+      "position": "Sales",
+      "email": "david@marshall-trailers.co.uk"
+    }
+  ],
+  "departmentsContacts": [
+    {
+      "name": "Diane Innes",
+      "position": "Sales Parts",
+      "email": "admin@marshall-trailers.co.uk"
+    },
+    {
+      "name": "Andrew Duncan",
+      "position": "Transport",
+      "email": "admin@marshall-trailers.co.uk"
+    },
+    {
+      "name": "Michelle Mcintosh",
+      "position": "Accounts/Administration",
+      "email": "admin@marshall-trailers.co.uk"
+    }
   ]
 }

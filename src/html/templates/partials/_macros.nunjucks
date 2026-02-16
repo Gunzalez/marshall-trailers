@@ -1414,11 +1414,10 @@
 {% macro marshallContact() %}
     <div class="quick-specs">
         <div class="specs-content">
-            <h2 class="title">Charles J Marshall</h2>
-            <p>(Aberdeen) Ltd<br/>
-                Chapel Works,<br/>
+            <h2 class="title">Charles J Marshall (Aberdeen) Ltd</h2>
+            <p>Chapel Works,<br/>
                 Burnside, Aberdeen,<br/>
-                AB12 3JG
+                AB12 3JG.
             </p>
             <div class="flex flex-col gap-2 mb-2">
                 <span class="flex items-center gap-2">
@@ -1428,6 +1427,10 @@
                 <span class="flex items-center gap-2">
                     <i class="fa-solid fa-at"></i>
                     <a href="mailto:charles@marshall-trailers.co.uk">charles@marshall-trailers.co.uk</a>
+                </span>
+                <span class="flex items-center gap-2">
+                    <i class="fa-solid fa-map-marker-alt"></i>
+                    <a href="https://maps.app.goo.gl/UrXiSZNBDS5ZkKux9" target="_blank" rel="noopener noreferrer">Google maps</a>
                 </span>
             </div>
         </div>
