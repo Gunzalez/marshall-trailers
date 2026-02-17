@@ -124,6 +124,7 @@
 
 .special-background {
   background-color: var(--brand-red);
+  background-image: url("../images/bg-about-busy.jpg");
   color: white;
   padding-top: 30px;
 
@@ -157,7 +158,6 @@
     }
 
     .image-wrapper {
-      gap: 0;
       justify-content: center;
       align-items: center;
 
