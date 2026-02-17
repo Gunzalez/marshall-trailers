@@ -213,7 +213,15 @@
 
   @media screen and (min-width: 768px) {
     padding-top: 3rem;
-    min-height: 600px;
+
+    .section {
+      background-image: url("../images/logo-slanted.png");
+      background-repeat: no-repeat;
+      background-position: bottom -50px right 5px;
+      background-size: 600px auto;
+      margin-bottom: 0;
+      min-height: 500px;
+    }
 
     .text-wrapper {
       width: 50%;
