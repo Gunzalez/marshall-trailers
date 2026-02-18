@@ -612,6 +612,8 @@
       if (window.scrollY > marshallTrailers.CONSTS.scrollThreshold) {
         $topDrawer.addClass("scrolled");
       }
+
+      $topDrawer.removeClass("pre-script");
     },
 
     scrollEvents: function () {
