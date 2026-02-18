@@ -617,7 +617,11 @@ window.data = data;
 (function () {
   "use strict";
 
-  var marshallTrailers = {};
+  var marshallTrailers = {
+    CONSTS: {
+      scrollThreshold: 80,
+    },
+  };
 
   /**
    * @menu
@@ -1057,7 +1061,7 @@ window.data = data;
           marshallTrailers.basket.busyState = false;
         },
         error: function (xhr, status, error) {
-          console.log({ xhr, status, error });
+          console.log(xhr, status, error);
           marshallTrailers.basket.$element.removeClass("busy");
           marshallTrailers.basket.busyState = false;
         },
@@ -1177,168 +1181,81 @@ window.data = data;
    * and mega menu population and interactivity
    */
   marshallTrailers.topNavigation = {
-    megaNavInit: function () {
-      var $megaNavList = $("#mega-nav-list");
-      var $megaNav = $("#mega-nav");
-
-      var $megaNavContent = $("<div></div>");
-      $megaNavContent.attr("id", "mega-nav-content");
-      $megaNavContent.addClass("mega-nav-content");
-      $megaNav.append($megaNavContent);
-
-      var $rangeContainer = $("<div></div>");
-      $rangeContainer.addClass("products-range");
-
-      var $modelsContainer = $("<div></div>");
-      $modelsContainer.addClass("product-models");
-
-      var $detailsContainer = $("<div></div>");
-      $detailsContainer.addClass("product-image");
-
-      var $imageWrapper = $("<div></div>");
-      $imageWrapper.addClass("image-wrapper");
-
-      var $imageLink = $("<a></a>");
-      $imageLink.attr("href", "#");
-      $imageLink.attr("id", "link-placeholder");
-      $imageLink.addClass("placeholder");
-
-      var $image = $("<img>");
-      $image.attr("src", "#");
-      $image.attr("id", "image-placeholder");
-      $imageLink.append($image);
-      $imageWrapper.append($imageLink);
-      $detailsContainer.append($imageWrapper);
-
-      var $specsContainer = $("<p></p>");
-      $specsContainer
-        .addClass("product-specifications")
-        .addClass("placeholder");
-      $specsContainer.attr("id", "product-details");
-      $detailsContainer.append($specsContainer);
-      $megaNavContent.append($detailsContainer);
-
-      var $rangeItems = $("<ul></ul>");
-      $megaNavList.find("> li").each(function () {
-        var $rangeLink = $(this).find("> a").clone();
-        var $li = $("<li></li>");
-        $rangeItems.append($li.append($rangeLink));
-
-        var $productModels = $(this).find("ul").clone();
-        $modelsContainer.append($productModels);
-      });
-      $rangeContainer.append($rangeItems);
-
-      $megaNavContent.prepend($modelsContainer);
-      $megaNavContent.prepend($rangeContainer);
-
-      $modelsContainer.find("li").each(function (index) {
-        $(this).on("mouseenter", function () {
-          $modelsContainer.find("li").removeClass("active");
-          $(this).addClass("active");
-        });
-      });
-
-      $rangeItems.find("li").each(function (index) {
-        $(this).on("mouseenter", function () {
-          $rangeContainer.find("li").removeClass("active");
-          $(this).addClass("active");
-          $modelsContainer.find("ul").removeClass("active");
-          $modelsContainer.find(".active").removeClass("active");
-          $modelsContainer.find("ul").eq(index).addClass("active");
-        });
-      });
-
-      $megaNavContent.find("li").on("mouseenter", function () {
-        var imgSrc = $(this).find("a").data("image-src");
-        var linkHref = $(this).find("a").attr("href");
-        var title = $(this).find("a").text().trim();
-        var $imagePlaceholder = $("#image-placeholder");
-        var $linkPlaceholder = $("#link-placeholder");
-        $imagePlaceholder.attr("src", imgSrc);
-        $linkPlaceholder.attr("href", linkHref);
-        $specsContainer.text(title);
-      });
-    },
-
-    openMegaNav: function () {
-      $(".mega-nav").addClass("active");
-    },
-
-    closeMegaNav: function () {
-      $(".mega-nav").removeClass("active");
-      $(".mega-nav").find(".active").removeClass("active");
-    },
-
-    open: function () {
-      $("#top-navigation").addClass("opened");
-    },
-
-    scrolled: function () {
-      $("#top-navigation").addClass("scrolled");
-    },
-
-    close: function () {
-      marshallTrailers.topNavigation.closeMegaNav();
-      $("#top-navigation").removeClass("opened").removeClass("scrolled");
-    },
-
     init: function () {
-      var $openBtn = $("#open-navigation");
-      var $closeBtn = $("#close-navigation");
-      var $topNavigation = $("#top-navigation");
       var $topDrawer = $("#top-drawer");
+      var $topNavigation = $("#top-navigation");
+      var topNavHeight = $topNavigation.outerHeight();
 
-      $openBtn.on("click", function (e) {
-        e.preventDefault();
-        marshallTrailers.topNavigation.open();
+      $("#desktop-navigation .main-menu > li")
+        .on("mouseenter", function () {
+          if ($(this).find("> ul").length > 0) {
+            var submenuHeight = $(this).find("> ul").outerHeight();
+            $topNavigation.css("height", topNavHeight + submenuHeight + "px");
+            $topDrawer.addClass("open");
+          }
+        })
+        .on("mouseleave", function () {
+          $topNavigation.css("height", topNavHeight + "px");
+          $topDrawer.removeClass("open");
+        });
+
+      $("#mega-nav-list").on("mouseenter", "li", function () {
+        var imageSrc = $(this).find("> a").data("image-src");
+        var textDesc = $(this).find("> a").text().trim();
+        $("#product-image-placeholder").attr("src", imageSrc);
+        $("#product-title-placeholder").text(textDesc);
+        $("#product-spotlight").stop(true, true).fadeIn();
+
+        $("#mega-nav-list").find("li").removeClass("active");
+        $(this).addClass("active");
       });
 
-      $closeBtn.on("click", function (e) {
-        e.preventDefault();
-        marshallTrailers.topNavigation.close();
+      $("#mega-nav-list").on("mouseleave", function () {
+        $("#product-image-placeholder").attr("src", "");
+        $("#product-title-placeholder").text("");
+        $("#product-spotlight").stop(true, true).fadeOut("fast");
+        $("#mega-nav-list").find("li").removeClass("active");
       });
 
-      $topDrawer.on("mouseleave", function () {
-        marshallTrailers.topNavigation.closeMegaNav();
+      $("#open-navigation").on("click", function () {
+        $topDrawer.addClass("peek");
       });
 
-      $topNavigation.find(".main-menu > li").hover(function () {
-        if ($(this).hasClass("has-mega-nav")) {
-          marshallTrailers.topNavigation.openMegaNav();
-        } else {
-          marshallTrailers.topNavigation.closeMegaNav();
-        }
+      $("#close-navigation").on("click", function () {
+        $topDrawer.removeClass("peek");
       });
 
-      this.megaNavInit();
+      if (window.scrollY > marshallTrailers.CONSTS.scrollThreshold) {
+        $topDrawer.addClass("scrolled");
+      }
+    },
+
+    scrollEvents: function () {
+      var currentScrollY = window.scrollY;
+      var scrolledDistance = Math.abs(
+        currentScrollY - marshallTrailers.CONSTS.scrollThreshold,
+      );
+
+      if ($("#top-drawer").hasClass("open")) {
+        return;
+      }
+
+      $("#top-drawer")
+        .toggleClass(
+          "scrolled",
+          scrolledDistance > marshallTrailers.CONSTS.scrollThreshold,
+        )
+        .removeClass("peek");
     },
   };
 
   // resize events */
   $(window).on("resize", function () {
-    marshallTrailers.topNavigation.close();
     marshallTrailers.basket.close();
   });
 
-  // scroll events */
-  var lastScrollY = window.scrollY;
-  var SCROLLED_DISTANCE = 200;
-  var DISTANCE_TO_HIDE = 400;
   $(window).on("scroll", function () {
-    var currentScrollY = window.scrollY;
-    var scrolledDistance = Math.abs(currentScrollY - lastScrollY);
-
-    if (scrolledDistance >= SCROLLED_DISTANCE) {
-      if (currentScrollY > lastScrollY) {
-        marshallTrailers.topNavigation.scrolled();
-      } else {
-        if (currentScrollY <= DISTANCE_TO_HIDE) {
-          marshallTrailers.topNavigation.close();
-        }
-      }
-      lastScrollY = currentScrollY;
-    }
+    marshallTrailers.topNavigation.scrollEvents();
   });
 
   /**
