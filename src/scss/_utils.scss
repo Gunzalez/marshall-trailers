@@ -64,7 +64,7 @@
 }
 
 .pre-script {
-  display: none !important;
+  opacity: 0;
 }
 
 .imagery {
@@ -345,7 +345,7 @@
 
         .content-img {
           bottom: -1rem;
-          max-width: 70%;
+          max-width: 60%;
         }
       }
     }
@@ -423,7 +423,7 @@
 .page-intro {
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 2px 1rem 0 1rem;
+  padding: 2px 1rem 1rem 1rem;
   width: 100%;
 }
 

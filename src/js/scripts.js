@@ -3,7 +3,7 @@
 
   var marshallTrailers = {
     CONSTS: {
-      scrollThreshold: 80,
+      scrollThreshold: 200,
     },
   };
 
@@ -618,20 +618,20 @@
 
     scrollEvents: function () {
       var currentScrollY = window.scrollY;
-      var scrolledDistance = Math.abs(
-        currentScrollY - marshallTrailers.CONSTS.scrollThreshold,
-      );
+      var difference = currentScrollY - marshallTrailers.CONSTS.scrollThreshold;
 
       if ($("#top-drawer").hasClass("open")) {
         return;
       }
 
-      $("#top-drawer")
-        .toggleClass(
-          "scrolled",
-          scrolledDistance > marshallTrailers.CONSTS.scrollThreshold,
-        )
-        .removeClass("peek");
+      if (difference < marshallTrailers.CONSTS.scrollThreshold) {
+        $("#top-drawer").removeClass("peek");
+      }
+
+      $("#top-drawer").toggleClass(
+        "scrolled",
+        window.scrollY > marshallTrailers.CONSTS.scrollThreshold,
+      );
     },
   };
 
