@@ -1,13 +1,13 @@
 <div id="top-drawer" class="shadow-md">
-  <div id="top-navigation" class="desktop-only w-full max-w-[var(--max-width)] mx-auto px-4 mt-4 transition-all duration-300 ease-in-out relative">
-    <div class="inset-0 pt-4 w-full flex gap-4 items-start justify-end">
+  <div id="top-navigation" class="w-full max-w-[var(--max-width)] mx-auto px-4 mt-4 transition-all duration-300 ease-in-out relative">
+    <div class="inset-0 w-full flex gap-4 items-start justify-end">
       <div class="flex flex-col w-full">
 
-        <div class="logo-wrapper flex items-center sm:items-start justify-between pt-1 mb-4">
+        <div class="logo-wrapper flex items-center sm:items-start justify-between mb-4">
           <a href="index.html"><img src="images/logo-marshall-trailers-color.png" alt="Marshall Trailers Logo" class="h-16 sm:h-12 sm:h-20"></a>
           <div class="flex flex-col gap-2 items-end flex desktop-buttons">
             <div class="flex gap-4 items-center">
-              <button type="button" aria-label="close menu" id="close-navigation" class="cursor-pointer">
+              <button type="button" aria-label="close menu" id="close-navigation" class="close-navigation">
                 <i class="fa-solid fa-xmark text-lg"></i>
               </button>
             </div>
@@ -16,10 +16,10 @@
 
         <nav id="desktop-navigation">
           <ul class="main-menu">
-            <li class="mobile-only">
+            <li class="home-link">
               <a href="index.html" title="Home">Home</a>
             </li>
-            <li class="has-mega-nav {{ 'active' if main_page === 'products' }}">
+            <li class="{{ 'active' if main_page === 'products' }}">
               <a href="range.html" title="Products">Products</a>
               <ul id="mega-nav-list">
                 {% for item in machinesData %}
@@ -44,12 +44,34 @@
             </li>
             <li {% if main_page === "spares" %} class="active" {% endif %}>
               <a href="spares.html">Spares</a>
+              <ul>
+                <li>
+                  <a href="serial-number.html">Serial Number</a>
+                </li>
+                <li>
+                  <a href="parts.html">By Parts</a>
+                </li>
+              </ul>
             </li>
             <li {% if main_page === "stock-clearance" %} class="active" {% endif %} >
               <a href="stock-clearance.html">Stock Clearance</a>
             </li>
             <li {% if main_page === "about" %} class="active" {% endif %}>
               <a href="about.html">About us</a>
+              <ul>
+                <li>
+                  <a href="about.html#heritage">Heritage</a>
+                </li>
+                <li>
+                  <a href="about.html#innovation">Innovation</a>
+                </li>
+                <li>
+                  <a href="about.html#quality">Quality</a>
+                </li>
+                <li>
+                  <a href="about.html#value">Value</a>
+                </li>
+              </ul>
             </li>
             <li {% if main_page === "contact" %} class="active" {% endif %}>
               <a href="contact.html">Contact</a>
@@ -59,7 +81,14 @@
             </li>
           </ul>
         </nav>
-        <div id="mega-nav" class="mega-nav"></div>
+      </div>
+    </div>
+    <div id="product-spotlight" class="product-spotlight">
+      <div class="image-wrapper">
+        <img id="product-image-placeholder" src="" alt="" class="product-image">
+      </div>
+      <div class="text-wrapper">
+        <span id="product-title-placeholder" class="product-title"></span>
       </div>
     </div>
   </div>
