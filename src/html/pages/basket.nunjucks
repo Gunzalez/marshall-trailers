@@ -19,6 +19,151 @@
         <h1 class="page-title">Checkout</h1>
     </div>
 
-    <div class="spacer" style="--height: 800px;"></div>
+    <form class="form">
+        <div class="section body-copy">
+            <h2 class="title">Your Basket</h2>
+
+            <ul id="basket-items" class="basket-items">
+                <li class="basket-item">
+                    <div class="image">
+                        <a href="images/range-1.png" title="Example Product Description" class="lc_lightbox_link">
+                            <img src="images/range-1.png" alt="Product Image">
+                        </a>
+                    </div>
+                    <div class="details">
+                        <span class="description">
+                            <h3>QM-X</h3>
+                            Example Product Description
+                            </span>
+                    </div>
+                    <div class="item-values">
+                        <div class="price-wrapper">
+                            <span class="lbl">Total:</span>
+                            <span class="val">£100.00</span>
+                        </div>
+                        <div class="actions">
+                            <button type="button" class="bttn remove-item">
+                                <span>
+                                    <i class="fa-solid fa-trash"></i>
+                                </span>
+                                <span>Remove</span>
+                            </button>
+                        </div>
+                    </div>
+                </li>
+                <li class="basket-item">
+                    <div class="image">
+                        <a href="https://www.marshall-trailers.co.uk/uploads/spares/065-05-3101.jpg" title="Example Product Description" class="lc_lightbox_link">
+                            <img src="https://www.marshall-trailers.co.uk/uploads/spares/065-05-3101.jpg" alt="Product Image">
+                        </a>
+                    </div>
+                    <div class="details">
+                        <span class="part_no">Part No: 065-05-3101</span>
+                        <span class="description">Example Product Description</span>
+                        <span class="unit-weight">Unit weight: 10kg</span>
+                        <span class="unit-price" data-unit-price="1.70">Unit price: £1.70</span>
+                    </div>
+                    <div class="item-values">
+                        <div class="price-wrapper">
+                            <span class="lbl">Total:</span>
+                            <span class="val">£1.70</span>
+                        </div>
+                        <div class="actions">
+                            {{ macros.quantityField("quantity-065-05-3101") }}
+                            <button type="button" class="bttn remove-item">
+                                <span>
+                                    <i class="fa-solid fa-trash"></i>
+                                </span>
+                                <span>Remove</span>
+                            </button>
+                        </div>
+                    </div>
+                </li>
+                <li class="basket-item">
+                    <div class="image">
+                        <a href="https://www.marshall-trailers.co.uk/uploads/spares/052-03-2800.jpg" title="Example Product Description" class="lc_lightbox_link">
+                            <img src="https://www.marshall-trailers.co.uk/uploads/spares/052-03-2800.jpg" alt="Product Image">
+                        </a>
+                    </div>
+                    <div class="details">
+                        <span class="part_no">Part No: 052-03-2800</span>
+                        <span class="description">Example Product Description</span>
+                        <span class="unit-weight">Unit weight: 10kg</span>
+                        <span class="unit-price" data-unit-price="0.90">Unit price: £0.90</span>
+                    </div>
+                    <div class="item-values">
+                        <div class="price-wrapper">
+                            <span class="lbl">Total:</span>
+                            <span class="val">£0.90</span>
+                        </div>
+                        <div class="actions">
+                            {{ macros.quantityField("quantity-065-05-3101") }}
+                            <button type="button" class="bttn remove-item">
+                                <span>
+                                    <i class="fa-solid fa-trash"></i>
+                                </span>
+                                <span>Remove</span>
+                            </button>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+
+            <div class="basket-total">
+                <table>
+                    <tr>
+                        <td>Subtotal:</td>
+                        <td class="val">£101.90</td>
+                    </tr>
+                    <tr>
+                        <td>Shipping:</td>
+                        <td class="val">£30.00</td>
+                    </tr>
+                    <tr>
+                        <td>VAT:</td>
+                        <td class="val">£24.90</td>
+                    </tr>
+                    <tr class="total-row">
+                        <td>Total:</td>
+                        <td class="val">£156.80</td>
+                    </tr>
+                </table>
+            </div>
+            {# <div class="sub-section-wrapper">
+                <h2 class="title">Address details</h2>
+                <div class="address-details">
+                    <div class="flex gap-1 flex-col sm:flex-row sm:gap-4">
+                        <div class="input-group flex-1">
+                            <label for="name">First name</label>
+                            <input type="text" id="name" name="name">
+                        </div>
+                        <div class="input-group flex-1">
+                            <label for="last-name">Last name</label>
+                            <input type="text" id="last-name" name="last-name">
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email">
+                    </div>
+                    <div class="input-group">
+                        <label for="phone">Phone</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+                    <div class="input-group">
+                        <label for="company">Company name</label>
+                        <input type="text" id="company" name="company">
+                    </div>
+                    <div class="input-group">
+                        <label for="address">Address</label>
+                        <textarea id="address" name="address" ></textarea>
+                    </div>
+                </div>
+            </div> #}
+        </div>
+
+        <div class="spacer" style="--height: 800px;"></div>
+    </form>
 
 {% endblock %}

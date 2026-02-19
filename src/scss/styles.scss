@@ -1364,3 +1364,161 @@
     }
   }
 }
+
+.basket-items {
+  padding: 0;
+  margin: 0 0 1rem 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  .basket-item {
+    display: flex;
+    flex-direction: column;
+  }
+
+  > li {
+    border-bottom: 1px solid var(--brand-gray);
+    padding-bottom: 1rem;
+
+    &:last-child {
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+  }
+
+  .image {
+    img {
+      width: 100%;
+      max-width: 360px;
+      height: auto;
+    }
+  }
+
+  .details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    flex: 1;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--brand-gray);
+    margin-bottom: 1rem;
+  }
+
+  .actions {
+    align-items: flex-end;
+    display: flex;
+    gap: 0.5rem;
+    justify-content: flex-end;
+  }
+
+  .part {
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
+
+  @media screen and (min-width: 768px) {
+    .basket-item {
+      flex-direction: row;
+      gap: 1rem;
+    }
+
+    .image {
+      flex-shrink: 0;
+      width: 240px;
+    }
+
+    .details {
+      border-bottom: none;
+      padding: 0 10px 1rem 20px;
+      min-height: 140px;
+    }
+  }
+
+  // .basket-item-description {
+  //   font-size: 0.9rem;
+  //   width: auto;
+  // }
+
+  // .basket-item-price {
+  //   text-align: right;
+  //   font-weight: 600;
+  // }
+
+  // .basket-item-remove {
+  //   padding-right: 0;
+  // }
+}
+
+.basket-total {
+  // display: flex;
+  // flex-direction: column;
+  // justify-content: flex-end;
+  // align-items: flex-end;
+  // gap: 0.25rem;
+  // padding: 1rem;
+  // background-color: var(--brand-gray);
+  // margin-top: 1rem;
+  // border-top: 1px solid var(--brand-gray-dark);
+
+  table {
+    margin-left: auto;
+    font-size: 1.1rem;
+    width: 100%;
+    border-top: 1px solid var(--brand-gray-dark);
+    border-bottom: 1px solid var(--brand-gray-dark);
+
+    td {
+      padding: 2px 1rem;
+      background-color: var(--brand-gray);
+      text-align: right;
+    }
+
+    tr {
+      &:first-child {
+        td {
+          padding-top: 10px;
+        }
+      }
+
+      &:nth-last-child(2) {
+        td {
+          padding-bottom: 10px;
+        }
+      }
+
+      td {
+        &:first-child {
+          width: 100%;
+        }
+      }
+
+      &.total-row {
+        td {
+          padding-top: 10px;
+          padding-bottom: 10px;
+          font-size: 1.5rem;
+          background-color: white;
+        }
+      }
+    }
+
+    .val {
+      text-align: right;
+    }
+  }
+
+  // .lbl,
+  // .val {
+  //   margin: 0;
+  //   padding: 0;
+  //   font-size: 1.2rem;
+  //   font-weight: 600;
+  // }
+
+  // .inner-wrapper {
+  //   display: flex;
+  //   gap: 2rem;
+  // }
+}
