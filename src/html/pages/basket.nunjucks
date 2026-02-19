@@ -33,18 +33,18 @@
                     <div class="details">
                         <span class="description">
                             <h3>QM-X</h3>
-                            Example Product Description
-                            </span>
+                            Commercial Springs / 10 Stud Axle - 120mm(420x180) / 445-45 x 19.5 (10 Stud) Low</span>
+                        <span class="unit-price" data-unit-price="17650.00">Basic price: £17,650.00</span>
                     </div>
                     <div class="item-values">
                         <div class="price-wrapper">
                             <span class="lbl">Total:</span>
-                            <span class="val">£100.00</span>
+                            <span class="val">£17,650.00</span>
                         </div>
                         <div class="actions">
                             <button type="button" class="bttn remove-item">
                                 <span>
-                                    <i class="fa-solid fa-trash"></i>
+                                    <i class="fa-solid fa-trash-can"></i>
                                 </span>
                                 <span>Remove</span>
                             </button>
@@ -72,7 +72,7 @@
                             {{ macros.quantityField("quantity-065-05-3101") }}
                             <button type="button" class="bttn remove-item">
                                 <span>
-                                    <i class="fa-solid fa-trash"></i>
+                                    <i class="fa-solid fa-trash-can"></i>
                                 </span>
                                 <span>Remove</span>
                             </button>
@@ -100,7 +100,7 @@
                             {{ macros.quantityField("quantity-065-05-3101") }}
                             <button type="button" class="bttn remove-item">
                                 <span>
-                                    <i class="fa-solid fa-trash"></i>
+                                    <i class="fa-solid fa-trash-can"></i>
                                 </span>
                                 <span>Remove</span>
                             </button>

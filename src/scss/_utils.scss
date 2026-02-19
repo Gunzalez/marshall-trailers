@@ -910,6 +910,12 @@
       }
     }
   }
+
+  &.basket {
+    .quick-nav-float {
+      display: none;
+    }
+  }
 }
 
 #processing {

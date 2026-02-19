@@ -1404,6 +1404,11 @@
     padding: 10px 0;
     border-bottom: 1px solid var(--brand-gray);
     margin-bottom: 1rem;
+    max-width: 500px;
+  }
+
+  .item-values {
+    margin-left: auto;
   }
 
   .actions {
