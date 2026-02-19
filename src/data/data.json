@@ -1243,6 +1243,26 @@
       "name": "Michelle Mcintosh",
       "position": "Accounts/Administration",
       "email": "admin@marshall-trailers.co.uk"
+    },
+    {
+      "name": "David Marshall",
+      "position": "Technical",
+      "email": "david@marshall-trailers.co.uk"
+    },
+    {
+      "name": "Charles R Marshall (Snr)",
+      "position": "Technical",
+      "email": "charles@marshall-trailers.co.uk"
+    },
+    {
+      "name": "Charles R Marshall (Snr)",
+      "position": "Human Resources",
+      "email": "charles@marshall-trailers.co.uk"
+    },
+    {
+      "name": "Charles R Marshall (Snr)",
+      "position": "Purchasing",
+      "email": "charles@marshall-trailers.co.uk"
     }
   ]
 }
