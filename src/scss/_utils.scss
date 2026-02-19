@@ -826,10 +826,44 @@
       color: var(--brand-yellow);
     }
   }
+}
 
-  .selected {
-    i {
-      color: var(--brand-red);
+.products {
+  .quick-nav-top {
+    .products {
+      i {
+        color: var(--brand-red);
+      }
+    }
+  }
+}
+
+.configure {
+  .quick-nav-top {
+    .configure {
+      i {
+        color: var(--brand-red);
+      }
+    }
+  }
+}
+
+.spares {
+  .quick-nav-top {
+    .spares {
+      i {
+        color: var(--brand-red);
+      }
+    }
+  }
+}
+
+.basket {
+  .quick-nav-top {
+    .basket {
+      i {
+        color: var(--brand-red);
+      }
     }
   }
 }
