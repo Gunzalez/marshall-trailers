@@ -461,7 +461,7 @@
         marshallTrailers.basket.close();
       });
       this.$element.find(".checkout-bttn").on("click", function () {
-        // Add checkout button functionality here
+        window.location.href = "basket.html";
       });
     },
   };
