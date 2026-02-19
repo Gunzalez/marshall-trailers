@@ -21,8 +21,7 @@
 
     <form class="form">
         <div class="section body-copy">
-            <h2 class="title">Your Basket</h2>
-
+            <h2 class="title underlined">Your Basket</h2>
             <ul id="basket-items" class="basket-items">
                 <li class="basket-item">
                     <div class="image">
@@ -108,7 +107,6 @@
                     </div>
                 </li>
             </ul>
-
             <div class="basket-total">
                 <table>
                     <tr>
@@ -129,41 +127,39 @@
                     </tr>
                 </table>
             </div>
-            {# <div class="sub-section-wrapper">
-                <h2 class="title">Address details</h2>
-                <div class="address-details">
-                    <div class="flex gap-1 flex-col sm:flex-row sm:gap-4">
-                        <div class="input-group flex-1">
-                            <label for="name">First name</label>
-                            <input type="text" id="name" name="name">
-                        </div>
-                        <div class="input-group flex-1">
-                            <label for="last-name">Last name</label>
-                            <input type="text" id="last-name" name="last-name">
-                        </div>
-                    </div>
 
-                    <div class="input-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email">
+            <div class="address-details">
+                <h2 class="title underlined">Address details</h2>
+                <div class="flex gap-1 flex-col sm:flex-row sm:gap-4">
+                    <div class="input-group flex-1">
+                        <label for="name">First name</label>
+                        <input type="text" id="name" name="name">
                     </div>
-                    <div class="input-group">
-                        <label for="phone">Phone</label>
-                        <input type="tel" id="phone" name="phone">
-                    </div>
-                    <div class="input-group">
-                        <label for="company">Company name</label>
-                        <input type="text" id="company" name="company">
-                    </div>
-                    <div class="input-group">
-                        <label for="address">Address</label>
-                        <textarea id="address" name="address" ></textarea>
+                    <div class="input-group flex-1">
+                        <label for="last-name">Last name</label>
+                        <input type="text" id="last-name" name="last-name">
                     </div>
                 </div>
-            </div> #}
+
+                <div class="input-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email">
+                </div>
+                <div class="input-group">
+                    <label for="phone">Phone</label>
+                    <input type="tel" id="phone" name="phone">
+                </div>
+                <div class="input-group">
+                    <label for="company">Company name</label>
+                    <input type="text" id="company" name="company">
+                </div>
+                <div class="input-group">
+                    <label for="address">Address</label>
+                    <textarea id="address" name="address" ></textarea>
+                </div>
+            </div>
         </div>
 
-        <div class="spacer" style="--height: 800px;"></div>
     </form>
 
 {% endblock %}

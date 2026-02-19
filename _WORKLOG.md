@@ -45,7 +45,7 @@
 - 15th February: 5hrs
 - 16th February: 7hrs
 - 18th February: 4hrs
-- 19th February: 2hrs
+- 19th February: 4hrs
 
 #### TODO
 

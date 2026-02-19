@@ -1440,32 +1440,10 @@
       min-height: 140px;
     }
   }
-
-  // .basket-item-description {
-  //   font-size: 0.9rem;
-  //   width: auto;
-  // }
-
-  // .basket-item-price {
-  //   text-align: right;
-  //   font-weight: 600;
-  // }
-
-  // .basket-item-remove {
-  //   padding-right: 0;
-  // }
 }
 
 .basket-total {
-  // display: flex;
-  // flex-direction: column;
-  // justify-content: flex-end;
-  // align-items: flex-end;
-  // gap: 0.25rem;
-  // padding: 1rem;
-  // background-color: var(--brand-gray);
-  // margin-top: 1rem;
-  // border-top: 1px solid var(--brand-gray-dark);
+  margin-bottom: 3rem;
 
   table {
     margin-left: auto;
@@ -1526,4 +1504,9 @@
   //   display: flex;
   //   gap: 2rem;
   // }
+}
+
+.address-details {
+  max-width: 700px;
+  margin-left: auto;
 }
