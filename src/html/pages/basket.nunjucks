@@ -19,114 +19,98 @@
         <h1 class="page-title">Checkout</h1>
     </div>
 
-    <form class="form">
+    <form id="checkout-form" class="form" method="post" action="/submit-payment">
         <div class="section body-copy">
             <h2 class="title underlined">Your Basket</h2>
-            <ul id="basket-items" class="basket-items">
-                <li class="basket-item">
-                    <div class="image">
-                        <a href="images/range-1.png" title="Example Product Description" class="lc_lightbox_link image-link">
-                            <img src="images/range-1.png" alt="Product Image">
-                        </a>
-                    </div>
-                    <div class="details">
-                        <span class="description">
-                            <h3>QM-X</h3>
-                            Commercial Springs / 10 Stud Axle - 120mm(420x180) / 445-45 x 19.5 (10 Stud) Low</span>
-                        <span class="unit-price" data-unit-price="17650.00">Basic price: £17,650.00</span>
-                    </div>
-                    <div class="item-values">
-                        <div class="price-wrapper">
-                            <span class="lbl">Total:</span>
-                            <span class="val">£17,650.00</span>
+            <ul id="checkout-items" class="checkout-items">
+                {% for item in checkoutData %}
+                    <li class="checkout-item">
+                        <div class="image">
+                            <a href="{{ item.img_url_large }}" title="{{ item.description }}" class="lc_lightbox_link image-link">
+                                <img src="{{ item.img_url_small }}" alt="{{ item.description }}">
+                            </a>
                         </div>
-                        <div class="actions">
-                            <button type="button" class="bttn remove-item">
-                                <span>
-                                    <i class="fa-solid fa-trash-can"></i>
-                                </span>
-                                <span>Remove</span>
-                            </button>
+                        <div class="details">
+                            {% if item.product_title %}
+                                <h3 class="product-title">{{ item.product_title }}</h3>
+                            {% endif %}
+                            {% if item.part_no %}
+                                <h3 class="part_no">Part No: {{ item.part_no }}</h3>
+                            {% endif %}
+                            {% if item.description %}
+                                <span class="description">{{ item.description }}</span>
+                            {% endif %}
+                            {% if item.unit_weight %}
+                                <span class="unit-weight">Unit weight: {{ item.unit_weight }}</span>
+                            {% endif %}
+                            {% if item.unit_price %}
+                                <span class="unit-price" data-unit-price="{{ item.unit_price }}">Unit price: £{{ item.unit_price }}</span>
+                            {% endif %}
                         </div>
-                    </div>
-                </li>
-                <li class="basket-item">
-                    <div class="image">
-                        <a href="https://www.marshall-trailers.co.uk/uploads/spares/065-05-3101.jpg" title="Sample description here" class="lc_lightbox_link image-link">
-                            <img src="https://www.marshall-trailers.co.uk/uploads/spares/065-05-3101.jpg" alt="Product Image">
-                        </a>
-                    </div>
-                    <div class="details">
-                        <span class="part_no">Part No: 065-05-3101</span>
-                        <span class="description">Example Product Description</span>
-                        <span class="unit-weight">Unit weight: 10kg</span>
-                        <span class="unit-price" data-unit-price="1.70">Unit price: £1.70</span>
-                    </div>
-                    <div class="item-values">
-                        <div class="price-wrapper">
-                            <span class="lbl">Total:</span>
-                            <span class="val">£1.70</span>
+                        <div class="item-values">
+                            <div class="price-wrapper">
+                                <span class="lbl">Total cost:</span>
+                                {% if item.unit_price %}
+                                    <span class="val total-price">£{{ item.unit_price }}</span>
+                                {% endif %}
+                                {% if item.basic_price %}
+                                    <span class="val basic-price">£{{ item.basic_price }}</span>
+                                {% endif %}
+                            </div>
+
+                            {% if item.basic_price %}
+                                <input type="hidden" id="basic-price" name="basic-price" value="{{ item.basic_price }}">
+                            {% endif %}
+
+                            {% if item.unit_price %}
+                                <div class="actions">
+                                    {{ macros.quantityField("id-" ~ item.part_no) }}
+                                    <button type="button" class="bttn">
+                                        <span>
+                                            <i class="fa-solid fa-trash-can"></i>
+                                        </span>
+                                        <span>Remove</span>
+                                    </button>
+                                </div>
+                            {% endif %}
                         </div>
-                        <div class="actions">
-                            {{ macros.quantityField("quantity-065-05-3101") }}
-                            <button type="button" class="bttn remove-item">
-                                <span>
-                                    <i class="fa-solid fa-trash-can"></i>
-                                </span>
-                                <span>Remove</span>
-                            </button>
-                        </div>
-                    </div>
-                </li>
-                <li class="basket-item">
-                    <div class="image">
-                        <a href="https://www.marshall-trailers.co.uk/uploads/spares/052-03-2800.jpg" title="Example Product Description" class="lc_lightbox_link image-link">
-                            <img src="https://www.marshall-trailers.co.uk/uploads/spares/052-03-2800.jpg" alt="Product Image">
-                        </a>
-                    </div>
-                    <div class="details">
-                        <span class="part_no">Part No: 052-03-2800</span>
-                        <span class="description">Example Product Description</span>
-                        <span class="unit-weight">Unit weight: 10kg</span>
-                        <span class="unit-price" data-unit-price="0.90">Unit price: £0.90</span>
-                    </div>
-                    <div class="item-values">
-                        <div class="price-wrapper">
-                            <span class="lbl">Total:</span>
-                            <span class="val">£0.90</span>
-                        </div>
-                        <div class="actions">
-                            {{ macros.quantityField("quantity-065-05-3101") }}
-                            <button type="button" class="bttn remove-item">
-                                <span>
-                                    <i class="fa-solid fa-trash-can"></i>
-                                </span>
-                                <span>Remove</span>
-                            </button>
-                        </div>
-                    </div>
-                </li>
+                    </li>
+                {% endfor %}
             </ul>
-            <div class="basket-total">
+            <div class="checkout-total">
                 <table>
                     <tr>
                         <td>Subtotal:</td>
-                        <td class="val">£101.90</td>
+                        <td class="val" id="subtotal"></td>
                     </tr>
                     <tr>
                         <td>Shipping:</td>
-                        <td class="val">£30.00</td>
+                        <td class="val" id="shipping">£30.00</td>
                     </tr>
                     <tr>
                         <td>VAT:</td>
-                        <td class="val">£24.90</td>
+                        <td class="val" id="vat">£24.90</td>
                     </tr>
                     <tr class="total-row">
                         <td>Total:</td>
-                        <td class="val">£156.80</td>
+                        <td class="val" id="total"></td>
                     </tr>
                 </table>
+                <input type="hidden" id="shipping" name="shipping" value="30.00">
+                <input type="hidden" id="vat" name="vat" value="24.90">
             </div>
+            <div class="empty-basket-message">
+                <p>Your basket is currently empty.</p>
+                <button id="continue-shopping" type="button" class="bttn">
+                    <span>
+                        <i class="fa-solid fa-arrow-left"></i>
+                    </span>
+                    <span>
+                        <span>Continue shopping</span>
+                    </span>
+                </button>
+            </div>
+
             <div class="address-details fieldset-width">
                 <h2 class="title underlined">Address details</h2>
                 <div class="input-group-pair">
@@ -197,7 +181,12 @@
                             <input type="text" id="expiry-date" name="expiry-date" placeholder="MM/YY">
                         </div>
                         <div class="input-group">
-                            <label for="cvv">CVV</label>
+                            <label for="cvv">CVV
+                                <span class="relative w-fit">
+                                    <i class="fa-solid fa-circle-question text-stone-500 peer"></i>
+                                    <span class="bottom-full left-1/2 -translate-x-1/2 absolute text-stone-50 text-xs bg-stone-800 opacity-0 px-2 py-1 rounded-md w-max -translate-y-0.5 peer-hover:-translate-y-1 peer-hover:opacity-100 transition-all max-w-xs">Card Verification Value, the 3-digit code on the back of your card (or 4 digits on the front for Amex).</span>
+                                </span>
+                            </label>
                             <input type="text" id="cvv" name="cvv" placeholder="123">
                         </div>
                     </div>

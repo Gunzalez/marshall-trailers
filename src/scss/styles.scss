@@ -1300,7 +1300,7 @@
       @media screen and (max-width: 767px) {
         display: block;
 
-        .basket-total {
+        .checkout-total {
           flex-direction: column;
 
           .total-price {
@@ -1315,7 +1315,7 @@
     }
   }
 
-  .basket-total {
+  .checkout-total {
     padding: 10px;
     background-color: var(--brand-gray);
     display: flex;
@@ -1378,7 +1378,7 @@
   }
 }
 
-.basket-items {
+.checkout-items {
   padding: 0;
   margin: 0 0 1rem 0;
   list-style: none;
@@ -1386,7 +1386,7 @@
   flex-direction: column;
   gap: 1rem;
 
-  .basket-item {
+  .checkout-item {
     display: flex;
     flex-direction: column;
   }
@@ -1436,7 +1436,7 @@
   }
 
   @media screen and (min-width: 768px) {
-    .basket-item {
+    .checkout-item {
       flex-direction: row;
       gap: 1rem;
     }
@@ -1455,7 +1455,7 @@
   }
 }
 
-.basket-total {
+.checkout-total {
   margin-bottom: 3rem;
 
   table {
@@ -1510,4 +1510,14 @@
 .address-details {
   margin-bottom: 3rem;
   margin-left: auto;
+}
+
+.empty-basket-message {
+  text-align: center;
+  padding: 3rem 3rem 5rem;
+  display: flex;
+  margin-bottom: 3rem;
+  align-items: center;
+  flex-direction: column;
+  border-bottom: 1px solid var(--brand-gray-dark);
 }

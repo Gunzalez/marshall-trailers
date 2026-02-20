@@ -1264,5 +1264,30 @@
       "position": "Purchasing",
       "email": "charles@marshall-trailers.co.uk"
     }
+  ],
+  "checkoutData": [
+    {
+      "img_url_large": "images/range-1.png",
+      "img_url_small": "images/range-1.png",
+      "product_title": "QM-X",
+      "description": "Commercial Springs / 10 Stud Axle - 120mm(420x180) / 445-45 x 19.5 (10 Stud) Low Profile Radial",
+      "basic_price": "17650.00"
+    },
+    {
+      "img_url_large": "https://www.marshall-trailers.co.uk/uploads/spares/065-05-3101.jpg",
+      "img_url_small": "https://www.marshall-trailers.co.uk/uploads/spares/065-05-3101.jpg",
+      "part_no": "065-05-3101",
+      "description": "ESFA 10 Stud Axles",
+      "unit_weight": "3kg",
+      "unit_price": "1.70"
+    },
+    {
+      "img_url_large": "https://www.marshall-trailers.co.uk/uploads/spares/052-03-2800.jpg",
+      "img_url_small": "https://www.marshall-trailers.co.uk/uploads/spares/052-03-2800.jpg",
+      "part_no": "052-03-2800",
+      "description": "355-50Rx22.5 Radial (10 stud) Low Profile",
+      "unit_weight": "10kg",
+      "unit_price": "0.90"
+    }
   ]
 }
