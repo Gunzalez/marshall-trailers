@@ -25,7 +25,7 @@
             <ul id="basket-items" class="basket-items">
                 <li class="basket-item">
                     <div class="image">
-                        <a href="images/range-1.png" title="Example Product Description" class="lc_lightbox_link">
+                        <a href="images/range-1.png" title="Example Product Description" class="lc_lightbox_link image-link">
                             <img src="images/range-1.png" alt="Product Image">
                         </a>
                     </div>
@@ -52,7 +52,7 @@
                 </li>
                 <li class="basket-item">
                     <div class="image">
-                        <a href="https://www.marshall-trailers.co.uk/uploads/spares/065-05-3101.jpg" title="Example Product Description" class="lc_lightbox_link">
+                        <a href="https://www.marshall-trailers.co.uk/uploads/spares/065-05-3101.jpg" title="Sample description here" class="lc_lightbox_link image-link">
                             <img src="https://www.marshall-trailers.co.uk/uploads/spares/065-05-3101.jpg" alt="Product Image">
                         </a>
                     </div>
@@ -80,7 +80,7 @@
                 </li>
                 <li class="basket-item">
                     <div class="image">
-                        <a href="https://www.marshall-trailers.co.uk/uploads/spares/052-03-2800.jpg" title="Example Product Description" class="lc_lightbox_link">
+                        <a href="https://www.marshall-trailers.co.uk/uploads/spares/052-03-2800.jpg" title="Example Product Description" class="lc_lightbox_link image-link">
                             <img src="https://www.marshall-trailers.co.uk/uploads/spares/052-03-2800.jpg" alt="Product Image">
                         </a>
                     </div>
