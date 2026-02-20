@@ -48,7 +48,6 @@
 
   </head>
   <body>
-    <a id="back-to-top" class="back-to-top"></a>
     <div id="page" class="{{ main_page }}">
       {% include "partials/_header.nunjucks" %}
       {% block content %}{% endblock %}
