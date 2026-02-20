@@ -936,6 +936,11 @@
   }
 }
 
+.fieldset-width {
+  max-width: 600px;
+  width: 100%;
+}
+
 #page {
   &:has(.floating-basket) {
     .quick-nav-float {
