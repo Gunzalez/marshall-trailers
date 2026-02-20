@@ -49,8 +49,11 @@
 
 #### TODO
 
+- Zoom on lightbox images in basket
+- Hook up select boxes, to calculate respective totals
+- Radio, Checkbox and Textarea
+
 - move to real repo
-- style filter headers
 
 ### DONE
 
@@ -58,6 +61,7 @@
 - mobile version of parts
 - fast scroll to start on part filters
 - main menu active page state - yellow underline
+- style filter headers
 
 ### DON'T
 
