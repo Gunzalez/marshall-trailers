@@ -47,11 +47,10 @@
 - 18th February: 4hrs
 - 19th February: 4hrs
 
-- 20th February: 2hrs
+- 20th February: 3hrs
 
 #### NEXT
 
-- Zoom on lightbox images in basket
 - Hook up select boxes, to calculate respective totals, plus data in JSON
 
 - move to real repo
@@ -59,6 +58,7 @@
 ### DONE
 
 - Replace lightBox
+- Zoom on lightbox images in basket
 - Radio, Checkbox and Textarea
 - mobile version of parts
 - fast scroll to start on part filters
