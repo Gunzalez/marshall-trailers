@@ -47,17 +47,19 @@
 - 18th February: 4hrs
 - 19th February: 4hrs
 
-#### TODO
+- 20th February: 2hrs
+
+#### NEXT
 
 - Zoom on lightbox images in basket
-- Hook up select boxes, to calculate respective totals
-- Radio, Checkbox and Textarea
+- Hook up select boxes, to calculate respective totals, plus data in JSON
 
 - move to real repo
 
 ### DONE
 
 - Replace lightBox
+- Radio, Checkbox and Textarea
 - mobile version of parts
 - fast scroll to start on part filters
 - main menu active page state - yellow underline
@@ -69,6 +71,9 @@
 
 --
 
-# today
+# TODO
+
+- Clean up mega carousel with Rpb
+- Fix carousel arrows in Spares section
 
 -
