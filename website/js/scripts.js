@@ -694,6 +694,22 @@ window.data = data;
     },
 
     /**
+     * Formats a float as a localized currency string.
+     * @param {number} value - The float/number to format.
+     * @returns {string} The formatted currency string.
+     */
+    formatCurrency: function (value) {
+      var currency = "GBP"; // - The ISO 4217 currency code (e.g., 'USD', 'EUR').
+      var locale = "en-GB"; // - The BCP 47 language tag (e.g., 'en-US', 'de-DE').
+      return new Intl.NumberFormat(locale, {
+        style: "currency",
+        currency: currency,
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2,
+      }).format(value);
+    },
+
+    /**
      * ### function getUrlVars
      * Extracts data from query strings in url
      *
@@ -1023,6 +1039,10 @@ window.data = data;
 
   /*---------------------------------------------------------------- */
 
+  /**
+   * @basket
+   * Handles the basket behaviour and ajax updating of its contents
+   */
   marshallTrailers.basket = {
     $element: null,
     busyState: false,
@@ -1085,7 +1105,72 @@ window.data = data;
   /*---------------------------------------------------------------- */
 
   /**
-   * @lc_lightbox
+   * @checkout
+   * Handles the checkout basket behaviour and ajax updating of its contents
+   */
+  marshallTrailers.checkout = {
+    updateTotals: function () {
+      var formatter = marshallTrailers.utils.formatCurrency;
+      let subtotal = 0;
+      $("#checkout-form .checkout-item").each(function () {
+        if ($(this).find("#basic-price").length > 0) {
+          subtotal += parseFloat($(this).find("#basic-price").val() || "0");
+        }
+
+        if ($(this).find(".unit-price").length > 0) {
+          var qty = $(this).find(".quantity-select").val() || "0";
+          subtotal +=
+            parseFloat($(this).find(".unit-price").data("unit-price") || "0") *
+            parseInt(qty, 10);
+        }
+      });
+      $("#checkout-form #subtotal").text(formatter(subtotal));
+      var shipping = parseFloat(
+        $("#checkout-form input[name='shipping']").val() || "0",
+      );
+      var vat = parseFloat($("#checkout-form input[name='vat']").val() || "0");
+      var total = subtotal + shipping + vat;
+      $("#checkout-form #total").text(formatter(total));
+    },
+
+    init: function () {
+      var formatter = marshallTrailers.utils.formatCurrency;
+      $("#checkout-form").on("change", ".quantity-select", function () {
+        var $this = $(this);
+        var qty = $this.val();
+        var uintPrice = $this
+          .parents(".checkout-item")
+          .find(".unit-price")
+          .data("unit-price");
+        var totalPrice = qty * uintPrice;
+        $this
+          .parents(".checkout-item")
+          .find(".total-price")
+          .text(formatter(totalPrice));
+
+        marshallTrailers.checkout.updateTotals();
+      });
+
+      $(".basic-price").each(function () {
+        var $this = $(this);
+        var price = parseFloat($this.text().replace("£", "") || "0");
+        $this.text(formatter(price));
+      });
+
+      this.updateTotals();
+
+      $("#checkout-form").on("submit", function (e) {
+        e.preventDefault();
+        var formData = $(this).serialize();
+        console.log("Form submitted with data: ", formData);
+      });
+    },
+  };
+
+  /*---------------------------------------------------------------- */
+
+  /**
+   * @lcLightBoxLinks
    * Attaches lightbox functionality to links, gallery and single image
    */
   marshallTrailers.lcLightBoxLinks = {
@@ -1275,6 +1360,7 @@ window.data = data;
     marshallTrailers.quantitySelects.init();
     marshallTrailers.basket.init();
     marshallTrailers.partsFilters.init();
+    marshallTrailers.checkout.init();
 
     window.MT = marshallTrailers;
   };
