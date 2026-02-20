@@ -104,8 +104,25 @@ export default {
                 </div>
             </div>
 
-            <div class="flex flex-col md:flex-row gap-4 w-full justify-between">
-                <div class="flex-1 max-w-[600px]">
+            <div class="configuration-actions-options">
+                <div>
+                    <h4>Choose one of the following options.</h4>
+                    <div class="actions-buttons">
+                        <button type="button" class="bttn" @click.prevent="handleDownloadPDF">
+                            <span>
+                                <i class="fa-solid fa-download"></i>
+                            </span>
+                            <span>Download as PDF</span>
+                        </button>
+                        <button type="button" class="bttn" @click.prevent="handlePurchase">
+                            <span>
+                                <i class="fa-solid fa-cart-shopping"></i>
+                            </span>
+                            <span>Purchase your Marshall</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="fieldset-width">
                     <div id="contact-section" class="contact-section">
                         <h4>Email enquiry to Marshall & a copy to yourself.</h4>
                         <div class="field-set">
@@ -158,24 +175,6 @@ export default {
                                 <i class="fa-solid fa-paper-plane"></i>
                             </span>
                             <span>Email to Marshall</span>
-                        </button>
-                    </div>
-                </div>
-                <div>
-
-                    <p>Or choose one of the following options</p>
-                    <div class="actions-buttons">
-                        <button type="button" class="bttn" @click.prevent="handleDownloadPDF">
-                            <span>
-                                <i class="fa-solid fa-download"></i>
-                            </span>
-                            <span>Download as PDF</span>
-                        </button>
-                        <button type="button" class="bttn" @click.prevent="handlePurchase">
-                            <span>
-                                <i class="fa-solid fa-cart-shopping"></i>
-                            </span>
-                            <span>Purchase your Marshall</span>
                         </button>
                     </div>
                 </div>
