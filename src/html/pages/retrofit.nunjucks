@@ -61,8 +61,10 @@
                 <p>Contact our team today to learn more about how we can help you enhance your trailer.</p>
                 <p>You can order kits through our <a href="#">Spare ordering system</a>.</p>
                 <a href="contact.html" class="bttn">
-                    <span>Order</span>
-                    <span>kits</span>
+                    <span>
+                        <i class="fa-brands fa-uikit"></i>
+                    </span>
+                    <span>Order kits</span>
                 </a>
             </div>
         </div>
