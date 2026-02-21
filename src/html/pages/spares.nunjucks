@@ -30,7 +30,12 @@
             <div class="content highlighted">
                 <img class="content-img" src="images/sub-section-bg-3.png" alt="">
                 <div class="text-wrapper">
-                    <p>Quickly find parts specific to your machine using its unique <a href="#">serial number</a>.</p>
+                    <p>Quickly find parts specific to your machine using its unique serial number.
+                    <span class="relative w-fit">
+                            <i class="fa-solid fa-circle-question text-stone-500 peer"></i>
+                            <span class="bottom-full left-1/2 -translate-x-1/2 absolute text-stone-50 text-xs bg-stone-800 opacity-0 px-2 py-1 rounded-md w-max -translate-y-0.5 peer-hover:-translate-y-1 peer-hover:opacity-100 transition-all max-w-xs">Not sure where to find it? It's usually located on a plate on the front of the trailer, near the hitch.</span>
+                        </span>
+                    </p>
                     <form id="serial-number-form" action="serial-number.html" method="get" class="form">
                         <label for="serial-number" class="input-group">
                             <span class="sr-only">Serial Number</span>
