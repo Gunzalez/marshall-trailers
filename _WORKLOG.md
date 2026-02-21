@@ -48,16 +48,16 @@
 - 19th February: 4hrs
 
 - 20th February: 3hrs
+- 21st February: 2hrs
 
 #### NEXT
-
-- Hook up select boxes, to calculate respective totals, plus data in JSON
 
 - move to real repo
 
 ### DONE
 
 - Replace lightBox
+- Hook up select boxes, to calculate respective totals, plus data in JSON
 - Zoom on lightbox images in basket
 - Radio, Checkbox and Textarea
 - mobile version of parts
