@@ -1270,7 +1270,7 @@
       "img_url_large": "images/range-1.png",
       "img_url_small": "images/range-1.png",
       "product_title": "QM-X",
-      "description": "Commercial Springs / 10 Stud Axle - 120mm(420x180) / 445-45 x 19.5 (10 Stud) Low Profile Radial",
+      "description": "Commercial Springs / 10 Stud Axle - 120mm(420x180) / 445-45 x 19.5 (10 Stud) Low Wh / Mudflaps / Hydraulic Brakes / Timber Flooring / Spring Drawbar / No Harvest Ladders / Hydraulic Beaver Tail Ramp / Side Toolbox - NS / Side Toolbox - OS / Access Step / Lashing Eyes / LED Lights / Number Plate Bracket & Light / LED Beacon / Side Marker Lights / Colour - Marshall Red",
       "basic_price": "17650.00"
     },
     {
@@ -1279,15 +1279,26 @@
       "part_no": "065-05-3101",
       "description": "ESFA 10 Stud Axles",
       "unit_weight": "3kg",
-      "unit_price": "1.70"
+      "unit_price": "1.70",
+      "qty": 2
     },
     {
-      "img_url_large": "https://www.marshall-trailers.co.uk/uploads/spares/052-03-2800.jpg",
+      "img_url_large": "https://www.marshall-trailers.co.uk/uploads/spares/large/052-03-2800.jpg",
       "img_url_small": "https://www.marshall-trailers.co.uk/uploads/spares/052-03-2800.jpg",
       "part_no": "052-03-2800",
-      "description": "355-50Rx22.5 Radial (10 stud) Low Profile",
-      "unit_weight": "10kg",
-      "unit_price": "0.90"
+      "description": "Bolts, nuts, fasteners & washers > Washers > Plated",
+      "unit_weight": "2kg",
+      "unit_price": "0.07",
+      "qty": 10
+    },
+    {
+      "img_url_large": "https://www.marshall-trailers.co.uk/uploads/spares/large/073-01-6000.jpg",
+      "img_url_small": "https://www.marshall-trailers.co.uk/uploads/spares/073-01-6000.jpg",
+      "part_no": "052-11-9010",
+      "description": "Super Extreme 1 Radial 17 XKL-4 Rear Wheel Model",
+      "unit_weight": "12kg",
+      "unit_price": "1.20",
+      "qty": 1
     }
   ]
 }
