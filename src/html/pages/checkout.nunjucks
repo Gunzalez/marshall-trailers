@@ -25,11 +25,19 @@
             <ul id="checkout-items" class="checkout-items">
                 {% for item in checkoutData %}
                     <li class="checkout-item">
-                        <div class="image">
-                            <a href="{{ item.img_url_large }}" title="{{ item.description }}" class="lc_lightbox_link image-link">
-                                <img src="{{ item.img_url_small }}" alt="{{ item.description }}">
-                            </a>
-                        </div>
+                        {% if item.product_title %}
+                            <div class="image">
+                                <a href="{{ item.img_url_large }}" title="{{ item.product_title }}" class="lc_lightbox_link image-link">
+                                    <img src="{{ item.img_url_small }}" alt="{{ item.product_title }}">
+                                </a>
+                            </div>
+                        {% else %}
+                            <div class="image">
+                                <a href="{{ item.img_url_large }}" title="{{ item.description }}" class="lc_lightbox_link image-link">
+                                    <img src="{{ item.img_url_small }}" alt="{{ item.description }}">
+                                </a>
+                            </div>
+                        {% endif %}
                         <div class="details">
                             {% if item.product_title %}
                                 <h3 class="product-title">{{ item.product_title }}</h3>
@@ -44,17 +52,17 @@
                                 <span class="unit-weight">Unit weight: {{ item.unit_weight }}</span>
                             {% endif %}
                             {% if item.unit_price %}
-                                <span class="unit-price" data-unit-price="{{ item.unit_price }}">Unit price: £{{ item.unit_price }}</span>
+                                <span class="unit-price" data-unit-price="{{ item.unit_price }}">Unit price ex. VAT: £{{ item.unit_price }}</span>
                             {% endif %}
                         </div>
                         <div class="item-values">
                             <div class="price-wrapper">
                                 <span class="lbl">Total cost:</span>
                                 {% if item.unit_price %}
-                                    <span class="val total-price">£{{ item.unit_price }}</span>
+                                    <span class="val total-price">{{ item.unit_price }}</span>
                                 {% endif %}
                                 {% if item.basic_price %}
-                                    <span class="val basic-price">£{{ item.basic_price }}</span>
+                                    <span class="val basic-price">{{ item.basic_price }}</span>
                                 {% endif %}
                             </div>
 
@@ -64,8 +72,8 @@
 
                             {% if item.unit_price %}
                                 <div class="actions">
-                                    {{ macros.quantityField("id-" ~ item.part_no) }}
-                                    <button type="button" class="bttn">
+                                    {{ macros.quantityField("id-" ~ item.part_no, item.qty) }}
+                                    <button type="button" class="bttn btn_removeItem">
                                         <span>
                                             <i class="fa-solid fa-trash-can"></i>
                                         </span>
@@ -88,8 +96,8 @@
                         <td class="val" id="shipping">£30.00</td>
                     </tr>
                     <tr>
-                        <td>VAT:</td>
-                        <td class="val" id="vat">£24.90</td>
+                        <td>VAT (19%):</td>
+                        <td class="val" id="vat"></td>
                     </tr>
                     <tr class="total-row">
                         <td>Total:</td>
@@ -97,18 +105,7 @@
                     </tr>
                 </table>
                 <input type="hidden" id="shipping" name="shipping" value="30.00">
-                <input type="hidden" id="vat" name="vat" value="24.90">
-            </div>
-            <div class="empty-basket-message">
-                <p>Your basket is currently empty.</p>
-                <button id="continue-shopping" type="button" class="bttn">
-                    <span>
-                        <i class="fa-solid fa-arrow-left"></i>
-                    </span>
-                    <span>
-                        <span>Continue shopping</span>
-                    </span>
-                </button>
+                <input type="hidden" id="vat" name="vat" value="19">
             </div>
 
             <div class="address-details fieldset-width">
@@ -116,11 +113,11 @@
                 <div class="input-group-pair">
                     <div class="input-group">
                         <label for="name">First name</label>
-                        <input type="text" id="name" name="name">
+                        <input type="text" id="name" name="name" value="Mr. O.">
                     </div>
                     <div class="input-group">
                         <label for="last-name">Last name</label>
-                        <input type="text" id="last-name" name="last-name">
+                        <input type="text" id="last-name" name="last-name" value="Tester">
                     </div>
                 </div>
                 <div class="input-group">
@@ -168,17 +165,17 @@
                 <h2 class="title underlined">Payment details</h2>
                 <div class="input-group">
                     <label for="card-number">Card number</label>
-                    <input type="tel" id="card-number" name="card-number">
+                    <input type="tel" id="card-number" name="card-number" value="4111 1111 1111 1111">
                 </div>
                 <div class="input-group">
                     <label for="card-holder">Card holder</label>
-                    <input type="text" id="card-holder" name="card-holder">
+                    <input type="text" id="card-holder" name="card-holder" value="Mr. O. Tester">
                 </div>
                 <div class="input-group">
                     <div class="input-group-pair">
                         <div class="input-group">
                             <label for="expiry-date">Expiry date</label>
-                            <input type="text" id="expiry-date" name="expiry-date" placeholder="MM/YY">
+                            <input type="text" id="expiry-date" name="expiry-date" placeholder="MM/YY" value="12/30">
                         </div>
                         <div class="input-group">
                             <label for="cvv">CVV
@@ -187,7 +184,7 @@
                                     <span class="bottom-full left-1/2 -translate-x-1/2 absolute text-stone-50 text-xs bg-stone-800 opacity-0 px-2 py-1 rounded-md w-max -translate-y-0.5 peer-hover:-translate-y-1 peer-hover:opacity-100 transition-all max-w-xs">Card Verification Value, the 3-digit code on the back of your card (or 4 digits on the front for Amex).</span>
                                 </span>
                             </label>
-                            <input type="text" id="cvv" name="cvv" placeholder="123">
+                            <input type="text" id="cvv" name="cvv" placeholder="123" value="450">
                         </div>
                     </div>
                 </div>

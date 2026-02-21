@@ -1,0 +1,130 @@
+{% set main_page = "basket" %}
+{% extends "layout.nunjucks" %}
+{% import "../templates/partials/_macros.nunjucks" as macros %}
+
+{% block content %}
+
+    {{ macros.header("images/logo-marshall-trailers-color.png") }}
+
+    <nav aria-label="breadcrumbs" class="breadcrumbs">
+        <ol>
+            <li>
+                <a href="index.html">Home</a>
+            </li>
+            <li>Checkout</li>
+        </ol>
+    </nav>
+
+    <div class="title-wrapper">
+        <h1 class="page-title">Checkout</h1>
+    </div>
+
+    <form id="checkout-form" class="form" method="post" action="/submit-payment">
+        <div class="section body-copy">
+            <h2 class="title underlined">Your Basket</h2>
+
+            <div class="empty-basket-message">
+                <p>Your basket is currently empty.</p>
+                <button id="continue-shopping" type="button" class="bttn">
+                    <span>
+                        <i class="fa-solid fa-arrow-left"></i>
+                    </span>
+                    <span>
+                        <span>Continue shopping</span>
+                    </span>
+                </button>
+            </div>
+
+            <div class="address-details fieldset-width">
+                <h2 class="title underlined">Address details</h2>
+                <div class="input-group-pair">
+                    <div class="input-group">
+                        <label for="name">First name</label>
+                        <input type="text" id="name" name="name" value="Mr. O.">
+                    </div>
+                    <div class="input-group">
+                        <label for="last-name">Last name</label>
+                        <input type="text" id="last-name" name="last-name" value="Tester">
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email">
+                </div>
+                <div class="input-group">
+                    <label for="phone">Phone</label>
+                    <input type="tel" id="phone" name="phone">
+                </div>
+                <div class="input-group">
+                    <label for="company">Company name</label>
+                    <input type="text" id="company" name="company">
+                </div>
+                <div class="input-group">
+                    <label for="address">Address</label>
+                    <textarea id="address" name="address" ></textarea>
+                </div>
+                <div class="input-group-pair">
+                    <div class="input-group">
+                        <label for="postcode">Postcode</label>
+                        <input type="text" id="postcode" name="postcode">
+                    </div>
+                    <div class="input-group">
+                        <label for="country">Country</label>
+                        <input type="text" id="country" name="country">
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="GDPR-policy" value="yes">
+                        <span>I agree to the <a href="privacy-policy.html#GDPR" target="_blank">GDPR policy</a>
+                        </span>
+                    </label>
+                </div>
+                <div class="input-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="terms-and-conditions" value="yes">
+                        <span>Agree with <a href="terms-and-conditions.html#terms" target="_blank">terms and conditions.</a>
+                        </span>
+                    </label>
+                </div>
+            </div>
+            <div class="payment-details fieldset-width">
+                <h2 class="title underlined">Payment details</h2>
+                <div class="input-group">
+                    <label for="card-number">Card number</label>
+                    <input type="tel" id="card-number" name="card-number" value="4111 1111 1111 1111">
+                </div>
+                <div class="input-group">
+                    <label for="card-holder">Card holder</label>
+                    <input type="text" id="card-holder" name="card-holder" value="Mr. O. Tester">
+                </div>
+                <div class="input-group">
+                    <div class="input-group-pair">
+                        <div class="input-group">
+                            <label for="expiry-date">Expiry date</label>
+                            <input type="text" id="expiry-date" name="expiry-date" placeholder="MM/YY" value="12/30">
+                        </div>
+                        <div class="input-group">
+                            <label for="cvv">CVV
+                                <span class="relative w-fit">
+                                    <i class="fa-solid fa-circle-question text-stone-500 peer"></i>
+                                    <span class="bottom-full left-1/2 -translate-x-1/2 absolute text-stone-50 text-xs bg-stone-800 opacity-0 px-2 py-1 rounded-md w-max -translate-y-0.5 peer-hover:-translate-y-1 peer-hover:opacity-100 transition-all max-w-xs">Card Verification Value, the 3-digit code on the back of your card (or 4 digits on the front for Amex).</span>
+                                </span>
+                            </label>
+                            <input type="text" id="cvv" name="cvv" placeholder="123" value="450">
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" class="bttn submit-bttn">
+                    <span>
+                        <i class="fa-regular fa-credit-card"></i>
+                    </span>
+                    <span>Submit payment</span>
+                </button>
+            </div>
+        </div>
+
+    </form>
+
+{% endblock %}

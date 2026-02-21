@@ -37,12 +37,12 @@
     </div>
 {% endmacro %}
 
-{% macro quantityField(name) %}
+{% macro quantityField(name, initialValue) %}
     <label class="w-[80px] inline-block">
         <span class="sr-only">Quantity:</span>
         <select name="{{ name }}" id="{{ name }}" class="quantity quantity-select">
             {% for i in range(1, 121) %}
-                <option value="{{ i }}">{{ i }}
+                <option value="{{ i }}" {% if i == initialValue %}selected="selected"{% endif %}>{{ i }}
                 </option>
             {% endfor %}
         </select>
@@ -70,7 +70,7 @@
             </a>
         </li>
         <li class="basket-link">
-            <a href="basket.html" aria-label="Basket" class="expanding-link basket">
+            <a href="checkout-empty.html" aria-label="Basket" class="expanding-link basket">
                 <i class="fa-solid fa-cart-shopping"></i>
                 <span>Basket</span>
             </a>
@@ -245,7 +245,7 @@
                     <span class="val">£{{ price }}</span>
                 </div>
                 <form class="single-input-form form">
-                    {{ quantityField("quantity-" ~ part_no) }}
+                    {{ quantityField("quantity-" ~ part_no, 1) }}
                     <input type="hidden" class="sid" name="sid" value="{{ sid }}">
                     <input type="hidden" class="price" name="price" value="{{ price }}">
                     <button type="button" class="bttn btn_addBasketAll">
