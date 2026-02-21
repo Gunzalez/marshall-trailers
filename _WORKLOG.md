@@ -48,11 +48,18 @@
 - 19th February: 4hrs
 
 - 20th February: 3hrs
-- 21st February: 2hrs
+- 21st February: 3hrs
 
 #### NEXT
 
-- move to real repo
+- Move to real repo
+- Fix spares parts for mobile
+- Discuss spares serial number with Al/Rob
+- Discuss configuration completion - with Rob
+- Site wide tweaks - numbers on header, colors on header, of buttons and icons
+- See what we can do about images - Robin
+- Final icons - Robin
+- Search page, generic template for other pages - terms, site map etc
 
 ### DONE
 
