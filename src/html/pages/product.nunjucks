@@ -152,6 +152,8 @@
         </div>
     </div>
 
+    {{ macros.floatingBasket() }}
+
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const {createApp, onMounted, ref} = Vue;
