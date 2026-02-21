@@ -505,7 +505,7 @@
       this.$element.find(".close-basket-button").on("click", function () {
         marshallTrailers.basket.close();
       });
-      this.$element.find(".checkout-bttn").on("click", function () {
+      this.$element.find(".btn_Checkout").on("click", function () {
         window.location.href = "checkout.html";
       });
     },
@@ -585,8 +585,16 @@
         $this.text(marshallTrailers.checkout.format(price * qty));
       });
 
-      $("#continue-shopping").on("click", function () {
+      $(".btn_ContinueShopping").on("click", function () {
         window.location.href = "range.html";
+      });
+
+      $(".btn_CreateAccount").on("click", function () {
+        window.location.href = "account.html";
+      });
+
+      $(".btn_Login").on("click", function () {
+        window.location.href = "account.html";
       });
 
       $("#checkout-form").on("click", ".btn_removeItem", function () {

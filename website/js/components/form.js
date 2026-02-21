@@ -104,7 +104,7 @@ export default {
                 </div>
             </div>
 
-            <div class="configuration-actions-options">
+            <div class="buttons-and-form-fields">
                 <div>
                     <h4>Choose one of the following options.</h4>
                     <div class="actions-buttons">
@@ -128,17 +128,19 @@ export default {
                         <div class="field-set">
                             <label for="title" class="short-label">
                                 <span>Title *</span>
-                                <select id="title" name="title" v-model="title">
-                                    <option value="Mr">Mr</option>
-                                    <option value="Mrs">Mrs</option>
-                                    <option value="Ms">Ms</option>
-                                    <option value="Miss">Miss</option>
-                                    <option value="Dr">Dr</option>
-                                    <option value="Prof">Prof</option>
-                                    <option value="Rev">Rev</option>
-                                    <option value="Sir">Sir</option>
-                                    <option value="Other">Other</option>
-                                </select>
+                                <div class="styled-select">
+                                    <select id="title" name="title" v-model="title" :class="{ 'error': titleError }">
+                                        <option value="Mr">Mr</option>
+                                        <option value="Mrs">Mrs</option>
+                                        <option value="Ms">Ms</option>
+                                        <option value="Miss">Miss</option>
+                                        <option value="Dr">Dr</option>
+                                        <option value="Prof">Prof</option>
+                                        <option value="Rev">Rev</option>
+                                        <option value="Sir">Sir</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                </div>
                                 <span v-if="titleError" class="error-message">Title is required</span>
                             </label>
                             <label for="first-name">
@@ -147,17 +149,17 @@ export default {
                             </label>
                             <label for="last-name">
                                 <span>Last name *</span>
-                                <input type="text" name="last-name" id="last-name" v-model="lastName">
+                                <input type="text" name="last-name" id="last-name" v-model="lastName" :class="{ 'error': lastNameError }">
                                 <span v-if="lastNameError" class="error-message">Last name is required</span>
                             </label>
                             <label for="email">
                                 <span>Email *</span>
-                                <input type="email" name="email" id="email" v-model="email">
+                                <input type="email" name="email" id="email" v-model="email" :class="{ 'error': emailError }">
                                 <span v-if="emailError" class="error-message">Email is required</span>
                             </label>
                             <label for="phone">
                                 <span>Phone *</span>
-                                <input type="tel" name="phone" id="phone" v-model="phone">
+                                <input type="tel" name="phone" id="phone" v-model="phone" :class="{ 'error': phoneError }">
                                 <span v-if="phoneError" class="error-message">Phone is required</span>
                             </label>
                             <label for="address">
