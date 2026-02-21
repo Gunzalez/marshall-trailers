@@ -48,7 +48,7 @@
 
   </head>
   <body>
-    <div id="page" class="contact">
+    <div id="page" class="basket">
       <div id="top-drawer" class="shadow-md pre-script">
   <div id="top-navigation" class="w-full max-w-[var(--max-width)] mx-auto px-4 mt-4 transition-all duration-300 ease-in-out relative">
     <div class="inset-0 w-full flex gap-4 items-start justify-end">
@@ -410,7 +410,7 @@
                 </li>
               </ul>
             </li>
-            <li  class="active" >
+            <li >
               <a href="contact.html">Contact</a>
             </li>
             <li >
@@ -492,196 +492,240 @@
             <li>
                 <a href="index.html">Home</a>
             </li>
-            <li>Contact us</li>
+            <li>Checkout</li>
         </ol>
     </nav>
 
     <div class="title-wrapper">
-        <h1 class="page-title">Contact us</h1>
-        <p>General Enquiries</p>
+        <h1 class="page-title">Checkout</h1>
     </div>
 
-    <div class="map-hero">
-        <div class="section">
-            <div class="copy-wrapper desktop-only">
-                <div class="inner-wrapper">
-                    
-    <div class="quick-specs">
-        <div class="specs-content">
-            <h2 class="title">Charles J Marshall (Aberdeen) Limited</h2>
-            <p>Chapel Works,<br/>
-                Burnside, Aberdeen,<br/>
-                AB12 3JG.
-            </p>
-            <div class="flex flex-col gap-2 mb-2">
-                <span class="flex items-center gap-2">
-                    <i class="fa-solid fa-phone"></i>
-                    <a href="tel:+441224722777">(01224) 722777</a>
-                </span>
-                <span class="flex items-center gap-2">
-                    <i class="fa-solid fa-at"></i>
-                    <a href="mailto:charles@marshall-trailers.co.uk">charles@marshall-trailers.co.uk</a>
-                </span>
-                <span class="flex items-center gap-2">
-                    <i class="fa-solid fa-map-marker-alt"></i>
-                    <a href="https://maps.app.goo.gl/UrXiSZNBDS5ZkKux9" target="_blank" rel="noopener noreferrer">Google maps</a>
-                </span>
+    <form id="checkout-form" class="form" method="post" action="/submit-payment">
+        <div class="section body-copy">
+            <h2 class="title underlined">Your Basket</h2>
+            <ul id="checkout-items" class="checkout-items">
+                
+                    <li class="checkout-item">
+                        
+                            <div class="image">
+                                <a href="images/range-1.png" title="QM-X" class="lc_lightbox_link image-link">
+                                    <img src="images/range-1.png" alt="QM-X">
+                                </a>
+                            </div>
+                        
+                        <div class="details">
+                            
+                                <h3 class="product-title">QM-X</h3>
+                            
+                            
+                            
+                                <span class="description">Commercial Springs / 10 Stud Axle - 120mm(420x180) / 445-45 x 19.5 (10 Stud) Low Wh / Mudflaps / Hydraulic Brakes / Timber Flooring / Spring Drawbar / No Harvest Ladders / Hydraulic Beaver Tail Ramp / Side Toolbox - NS / Side Toolbox - OS / Access Step / Lashing Eyes / LED Lights / Number Plate Bracket &amp; Light / LED Beacon / Side Marker Lights / Colour - Marshall Red</span>
+                            
+                            
+                            
+                        </div>
+                        <div class="item-values">
+                            <div class="price-wrapper">
+                                <span class="lbl">Total cost:</span>
+                                
+                                
+                                    <span class="val basic-price">17650.00</span>
+                                
+                            </div>
+
+                            
+                                <input type="hidden" id="basic-price" name="basic-price" value="17650.00">
+                            
+
+                            
+                        </div>
+                    </li>
+                
+                    <li class="checkout-item">
+                        
+                            <div class="image">
+                                <a href="https://www.marshall-trailers.co.uk/uploads/spares/065-05-3101.jpg" title="ESFA 10 Stud Axles" class="lc_lightbox_link image-link">
+                                    <img src="https://www.marshall-trailers.co.uk/uploads/spares/065-05-3101.jpg" alt="ESFA 10 Stud Axles">
+                                </a>
+                            </div>
+                        
+                        <div class="details">
+                            
+                            
+                                <h3 class="part_no">Part No: 065-05-3101</h3>
+                            
+                            
+                                <span class="description">ESFA 10 Stud Axles</span>
+                            
+                            
+                                <span class="unit-weight">Unit weight: 3kg</span>
+                            
+                            
+                                <span class="unit-price" data-unit-price="1.70">Unit price ex. VAT: £1.70</span>
+                            
+                        </div>
+                        <div class="item-values">
+                            <div class="price-wrapper">
+                                <span class="lbl">Total cost:</span>
+                                
+                                    <span class="val total-price">1.70</span>
+                                
+                                
+                            </div>
+
+                            
+
+                            
+                                <input type="hidden" name="qty" value="2">
+                            
+                        </div>
+                    </li>
+                
+                    <li class="checkout-item">
+                        
+                            <div class="image">
+                                <a href="https://www.marshall-trailers.co.uk/uploads/spares/large/052-03-2800.jpg" title="Bolts, nuts, fasteners &amp; washers &gt; Washers &gt; Plated" class="lc_lightbox_link image-link">
+                                    <img src="https://www.marshall-trailers.co.uk/uploads/spares/052-03-2800.jpg" alt="Bolts, nuts, fasteners &amp; washers &gt; Washers &gt; Plated">
+                                </a>
+                            </div>
+                        
+                        <div class="details">
+                            
+                            
+                                <h3 class="part_no">Part No: 052-03-2800</h3>
+                            
+                            
+                                <span class="description">Bolts, nuts, fasteners &amp; washers &gt; Washers &gt; Plated</span>
+                            
+                            
+                                <span class="unit-weight">Unit weight: 2kg</span>
+                            
+                            
+                                <span class="unit-price" data-unit-price="0.07">Unit price ex. VAT: £0.07</span>
+                            
+                        </div>
+                        <div class="item-values">
+                            <div class="price-wrapper">
+                                <span class="lbl">Total cost:</span>
+                                
+                                    <span class="val total-price">0.07</span>
+                                
+                                
+                            </div>
+
+                            
+
+                            
+                                <input type="hidden" name="qty" value="10">
+                            
+                        </div>
+                    </li>
+                
+                    <li class="checkout-item">
+                        
+                            <div class="image">
+                                <a href="https://www.marshall-trailers.co.uk/uploads/spares/large/073-01-6000.jpg" title="Super Extreme 1 Radial 17 XKL-4 Rear Wheel Model" class="lc_lightbox_link image-link">
+                                    <img src="https://www.marshall-trailers.co.uk/uploads/spares/073-01-6000.jpg" alt="Super Extreme 1 Radial 17 XKL-4 Rear Wheel Model">
+                                </a>
+                            </div>
+                        
+                        <div class="details">
+                            
+                            
+                                <h3 class="part_no">Part No: 052-11-9010</h3>
+                            
+                            
+                                <span class="description">Super Extreme 1 Radial 17 XKL-4 Rear Wheel Model</span>
+                            
+                            
+                                <span class="unit-weight">Unit weight: 12kg</span>
+                            
+                            
+                                <span class="unit-price" data-unit-price="1.20">Unit price ex. VAT: £1.20</span>
+                            
+                        </div>
+                        <div class="item-values">
+                            <div class="price-wrapper">
+                                <span class="lbl">Total cost:</span>
+                                
+                                    <span class="val total-price">1.20</span>
+                                
+                                
+                            </div>
+
+                            
+
+                            
+                                <input type="hidden" name="qty" value="1">
+                            
+                        </div>
+                    </li>
+                
+            </ul>
+            <div class="checkout-total">
+                <table>
+                    <tr>
+                        <td>Subtotal:</td>
+                        <td class="val" id="subtotal"></td>
+                    </tr>
+                    <tr>
+                        <td>Shipping:</td>
+                        <td class="val" id="shipping">£30.00</td>
+                    </tr>
+                    <tr>
+                        <td>VAT (19%):</td>
+                        <td class="val" id="vat"></td>
+                    </tr>
+                    <tr class="total-row">
+                        <td>Total inc VAT:</td>
+                        <td class="val" id="total"></td>
+                    </tr>
+                </table>
+                <input type="hidden" id="shipping" name="shipping" value="30.00">
+                <input type="hidden" id="vat" name="vat" value="19">
             </div>
         </div>
-    </div>
+    </form>
 
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="mobile-only map-hero-mobile">
-        <div class="section">
-            
-    <div class="quick-specs">
-        <div class="specs-content">
-            <h2 class="title">Charles J Marshall (Aberdeen) Limited</h2>
-            <p>Chapel Works,<br/>
-                Burnside, Aberdeen,<br/>
-                AB12 3JG.
-            </p>
-            <div class="flex flex-col gap-2 mb-2">
-                <span class="flex items-center gap-2">
-                    <i class="fa-solid fa-phone"></i>
-                    <a href="tel:+441224722777">(01224) 722777</a>
+    <div class="section body-copy">
+        <h2 class="title underlined">Thank you</h2>
+        <div class="confirmation-message">
+            <h3>Your order has been successfully placed.</h3>
+            <h4>Order reference: 801-026</h4>
+            <button id="download-invoice" type="button" class="bttn btn_DownloadInvoice">
+                <span>
+                    <i class="fa-solid fa-download"></i>
                 </span>
-                <span class="flex items-center gap-2">
-                    <i class="fa-solid fa-at"></i>
-                    <a href="mailto:charles@marshall-trailers.co.uk">charles@marshall-trailers.co.uk</a>
+                <span>
+                    <span>Download Invoice</span>
                 </span>
-                <span class="flex items-center gap-2">
-                    <i class="fa-solid fa-map-marker-alt"></i>
-                    <a href="https://maps.app.goo.gl/UrXiSZNBDS5ZkKux9" target="_blank" rel="noopener noreferrer">Google maps</a>
-                </span>
-            </div>
+            </button>
         </div>
-    </div>
-
-        </div>
+        <p>Mr. O. Tester</p>
+        <p>123 Test Street</p>
+        <p>Flat 14, 123 Main Street, AnyTown, Forest Rd. SW1 1AA.</p>
+        <p>Email: mister-ohtester@example.com</p>
+        <p>Phone: 01234 567890</p>
     </div>
 
     <div class="section body-copy">
-        <div class="section-padding">
-            <div class="departments-title">
-                <h2 class="title">Department Details</h2>
-            </div>
-            <div class="departments">
-                <div class="department-list">
-                    
-                        <div class="department-card has-image">
-                            <img src="images/contact-2.jpg" alt="Charles R Marshall (Snr)" class="contact-image">
-                            <div class="details">
-                                <h3>Charles R Marshall (Snr)</h3>
-                                <p class="department-name">Sales</p>
-                                <p>
-                                    <a href="mailto:charles@marshall-trailers.co.uk">charles@marshall-trailers.co.uk</a>
-                                </p>
-                            </div>
-                        </div>
-                    
-                        <div class="department-card has-image">
-                            <img src="images/contact-1.jpg" alt="Charles P Marshall (Jnr)" class="contact-image">
-                            <div class="details">
-                                <h3>Charles P Marshall (Jnr)</h3>
-                                <p class="department-name">Sales</p>
-                                <p>
-                                    <a href="mailto:charlesp@marshall-trailers.co.uk">charlesp@marshall-trailers.co.uk</a>
-                                </p>
-                            </div>
-                        </div>
-                    
-                        <div class="department-card has-image">
-                            <img src="images/contact-3.jpg" alt="David Marshall" class="contact-image">
-                            <div class="details">
-                                <h3>David Marshall</h3>
-                                <p class="department-name">Sales</p>
-                                <p>
-                                    <a href="mailto:david@marshall-trailers.co.uk">david@marshall-trailers.co.uk</a>
-                                </p>
-                            </div>
-                        </div>
-                    
-                </div>
-                <div class="department-list">
-                    
-                        <div class="department-card">
-                            <div class="details">
-                                <h3>Diane Innes</h3>
-                                <p class="department-name">Sales Parts</p>
-                                <p>
-                                    <a href="mailto:admin@marshall-trailers.co.uk">admin@marshall-trailers.co.uk</a>
-                                </p>
-                            </div>
-                        </div>
-                    
-                        <div class="department-card">
-                            <div class="details">
-                                <h3>Andrew Duncan</h3>
-                                <p class="department-name">Transport</p>
-                                <p>
-                                    <a href="mailto:admin@marshall-trailers.co.uk">admin@marshall-trailers.co.uk</a>
-                                </p>
-                            </div>
-                        </div>
-                    
-                        <div class="department-card">
-                            <div class="details">
-                                <h3>Michelle Mcintosh</h3>
-                                <p class="department-name">Accounts/Administration</p>
-                                <p>
-                                    <a href="mailto:admin@marshall-trailers.co.uk">admin@marshall-trailers.co.uk</a>
-                                </p>
-                            </div>
-                        </div>
-                    
-                        <div class="department-card">
-                            <div class="details">
-                                <h3>David Marshall</h3>
-                                <p class="department-name">Technical</p>
-                                <p>
-                                    <a href="mailto:david@marshall-trailers.co.uk">david@marshall-trailers.co.uk</a>
-                                </p>
-                            </div>
-                        </div>
-                    
-                        <div class="department-card">
-                            <div class="details">
-                                <h3>Charles R Marshall (Snr)</h3>
-                                <p class="department-name">Technical</p>
-                                <p>
-                                    <a href="mailto:charles@marshall-trailers.co.uk">charles@marshall-trailers.co.uk</a>
-                                </p>
-                            </div>
-                        </div>
-                    
-                        <div class="department-card">
-                            <div class="details">
-                                <h3>Charles R Marshall (Snr)</h3>
-                                <p class="department-name">Human Resources</p>
-                                <p>
-                                    <a href="mailto:charles@marshall-trailers.co.uk">charles@marshall-trailers.co.uk</a>
-                                </p>
-                            </div>
-                        </div>
-                    
-                        <div class="department-card">
-                            <div class="details">
-                                <h3>Charles R Marshall (Snr)</h3>
-                                <p class="department-name">Purchasing</p>
-                                <p>
-                                    <a href="mailto:charles@marshall-trailers.co.uk">charles@marshall-trailers.co.uk</a>
-                                </p>
-                            </div>
-                        </div>
-                    
-                </div>
-            </div>
-        </div>
+        <h2 class="title underlined">Next steps</h2>
+        <ul class="dotted-list">
+            <li>We will process your order and send you a confirmation email with the invoice attached.</li>
+            <li>Once your order has been processed, we will send you a dispatch notification email with tracking information.</li>
+            <li>If you have any questions about your order, please contact our customer service team at <a href="mailto:customer.service@example.com">customer.service@example.com</a>.</li>
+        </ul>
+    </div>
+
+    <div class="section body-copy">
+        <button id="continue-shopping" type="button" class="bttn btn_ContinueShopping">
+            <span>
+                <i class="fa-solid fa-arrow-left"></i>
+            </span>
+            <span>
+                <span>Continue shopping</span>
+            </span>
+        </button>
     </div>
 
 

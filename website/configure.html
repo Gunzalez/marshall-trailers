@@ -438,7 +438,7 @@
         <div class="desktop-buttons">
             <div class="gap-2 items-end flex flex-col">
                 <div class="flex gap-4 items-center border-b pb-2 border-[var(--brand-gray)]">
-                    <a href="accounts.html" class="mr-8">Register / Login</a>
+                    <a href="account.html" class="mr-8">Register / Login</a>
                     <a href="tel:+441224722777">
                         <i class="fa-solid fa-phone"></i>
                     </a>
@@ -755,16 +755,15 @@
                                                 console.log({options: options.value, initialOption: initialOption.value, notes});
                                             };
 
-                                            const handlePurchase = (notes) => {
-                                                // Implement purchase logic here
-                                                console.log("Purchase clicked");
-                                                console.log({options: options.value, initialOption: initialOption.value, notes});
-                                            };
-
                                             const handleEmailEnquiry = (data) => {
                                                 // Implement email enquiry logic here
                                                 console.log("Email Enquiry clicked");
                                                 console.log({options: options.value, initialOption: initialOption.value, data});
+                                            };
+
+                                            const handlePurchase = (notes) => {
+                                                console.log({options: options.value, initialOption: initialOption.value, notes});
+                                                window.location.href = "checkout.html";
                                             };
 
                                             onMounted(() => {

@@ -1196,7 +1196,7 @@ window.data = data;
         var $this = $(this);
         var price = parseFloat($this.text());
         var qty =
-          $(this).closest(".checkout-item").find(".quantity-select").val() ||
+          $(this).closest(".checkout-item").find("input[name='qty']").val() ||
           "0";
         $this.text(marshallTrailers.checkout.format(price * qty));
       });
@@ -1211,6 +1211,11 @@ window.data = data;
 
       $(".btn_Login").on("click", function () {
         window.location.href = "account.html";
+      });
+
+      // TODO: Removes this, simulates successful checkout for now
+      $(".btn_Submit").on("click", function () {
+        window.location.href = "checkout-done.html";
       });
 
       $("#checkout-form").on("click", ".btn_removeItem", function () {

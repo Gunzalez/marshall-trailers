@@ -438,7 +438,7 @@
         <div class="desktop-buttons">
             <div class="gap-2 items-end flex flex-col">
                 <div class="flex gap-4 items-center border-b pb-2 border-[var(--brand-gray)]">
-                    <a href="accounts.html" class="mr-8">Register / Login</a>
+                    <a href="account.html" class="mr-8">Register / Login</a>
                     <a href="tel:+441224722777">
                         <i class="fa-solid fa-phone"></i>
                     </a>
@@ -576,6 +576,7 @@
                             
 
                             
+                                <input type="hidden" name="qty" value="2">
                                 <div class="actions">
                                     
     <label class="w-[80px] inline-block">
@@ -991,6 +992,7 @@
                             
 
                             
+                                <input type="hidden" name="qty" value="10">
                                 <div class="actions">
                                     
     <label class="w-[80px] inline-block">
@@ -1406,6 +1408,7 @@
                             
 
                             
+                                <input type="hidden" name="qty" value="1">
                                 <div class="actions">
                                     
     <label class="w-[80px] inline-block">
@@ -1802,7 +1805,7 @@
                         <td class="val" id="vat"></td>
                     </tr>
                     <tr class="total-row">
-                        <td>Total:</td>
+                        <td>Total inc VAT:</td>
                         <td class="val" id="total"></td>
                     </tr>
                 </table>
@@ -1812,20 +1815,22 @@
 
             <div class="buttons-and-form-fields">
                 <div>
-                    <div class="actions-buttons">
-                        <button type="button" class="bttn btn_Login">
-                            <span>
-                                <i class="fa-solid fa-sign-in-alt"></i>
-                            </span>
-                            <span>Log In</span>
-                        </button>
-                        <button type="button" class="bttn btn_CreateAccount">
-                            <span>
-                                <i class="fa-solid fa-user-plus"></i>
-                            </span>
-                            <span>Create Account</span>
-                        </button>
-                    </div>
+                    
+    <div class="actions-buttons">
+        <button type="button" class="bttn btn_Login">
+            <span>
+                <i class="fa-solid fa-sign-in-alt"></i>
+            </span>
+            <span>Log In</span>
+        </button>
+        <button type="button" class="bttn btn_CreateAccount">
+            <span>
+                <i class="fa-solid fa-user-plus"></i>
+            </span>
+            <span>Create Account</span>
+        </button>
+    </div>
+
                 </div>
                 <div class="fieldset-width">
                     <div class="address-details">
@@ -1883,6 +1888,10 @@
                     </div>
                     <div class="payment-details">
                         <h2 class="title underlined">Payment details</h2>
+                        <div class="input-group">
+                            <label for="bank-name">Bank name</label>
+                            <input type="text" id="bank-name" name="bank-name" value="Bank of Example">
+                        </div>
                         <div class="input-group">
                             <label for="card-number">Card number</label>
                             <input type="tel" id="card-number" name="card-number" value="4111 1111 1111 1111">
