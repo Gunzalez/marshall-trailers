@@ -37,20 +37,7 @@
 
             <div class="buttons-and-form-fields">
                 <div>
-                    <div class="actions-buttons">
-                        <button type="button" class="bttn btn_Login">
-                            <span>
-                                <i class="fa-solid fa-sign-in-alt"></i>
-                            </span>
-                            <span>Log In</span>
-                        </button>
-                        <button type="button" class="bttn btn_CreateAccount">
-                            <span>
-                                <i class="fa-solid fa-user-plus"></i>
-                            </span>
-                            <span>Create Account</span>
-                        </button>
-                    </div>
+                    {{ macros.checkoutNav() }}
                 </div>
                 <div class="fieldset-width">
                     <div class="address-details">
@@ -109,6 +96,10 @@
                     <div class="payment-details">
                         <h2 class="title underlined">Payment details</h2>
                         <div class="input-group">
+                            <label for="bank-name">Bank name</label>
+                            <input type="text" id="bank-name" name="bank-name" value="">
+                        </div>
+                        <div class="input-group">
                             <label for="card-number">Card number</label>
                             <input type="tel" id="card-number" name="card-number" value="">
                         </div>
@@ -134,7 +125,7 @@
                             </div>
                         </div>
 
-                        <button type="submit" class="bttn submit-bttn">
+                        <button type="submit" class="bttn btn_Submit">
                             <span>
                                 <i class="fa-regular fa-credit-card"></i>
                             </span>

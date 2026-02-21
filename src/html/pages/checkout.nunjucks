@@ -71,6 +71,7 @@
                             {% endif %}
 
                             {% if item.unit_price %}
+                                <input type="hidden" name="qty" value="{{ item.qty }}">
                                 <div class="actions">
                                     {{ macros.quantityField("id-" ~ item.part_no, item.qty) }}
                                     <button type="button" class="bttn btn_removeItem">
@@ -100,7 +101,7 @@
                         <td class="val" id="vat"></td>
                     </tr>
                     <tr class="total-row">
-                        <td>Total:</td>
+                        <td>Total inc VAT:</td>
                         <td class="val" id="total"></td>
                     </tr>
                 </table>
@@ -110,20 +111,7 @@
 
             <div class="buttons-and-form-fields">
                 <div>
-                    <div class="actions-buttons">
-                        <button type="button" class="bttn btn_Login">
-                            <span>
-                                <i class="fa-solid fa-sign-in-alt"></i>
-                            </span>
-                            <span>Log In</span>
-                        </button>
-                        <button type="button" class="bttn btn_CreateAccount">
-                            <span>
-                                <i class="fa-solid fa-user-plus"></i>
-                            </span>
-                            <span>Create Account</span>
-                        </button>
-                    </div>
+                    {{ macros.checkoutNav() }}
                 </div>
                 <div class="fieldset-width">
                     <div class="address-details">
@@ -181,6 +169,10 @@
                     </div>
                     <div class="payment-details">
                         <h2 class="title underlined">Payment details</h2>
+                        <div class="input-group">
+                            <label for="bank-name">Bank name</label>
+                            <input type="text" id="bank-name" name="bank-name" value="Bank of Example">
+                        </div>
                         <div class="input-group">
                             <label for="card-number">Card number</label>
                             <input type="tel" id="card-number" name="card-number" value="4111 1111 1111 1111">
