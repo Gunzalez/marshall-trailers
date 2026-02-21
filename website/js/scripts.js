@@ -624,8 +624,8 @@ window.data = data;
   };
 
   /**
-   * @menu
-   * Implements the dropdown menu behaviour
+   * @mobileNavigation
+   * Implements the Mmenu plugin for mobile navigation and handles its behaviour
    */
   marshallTrailers.mobileNavigation = {
     init: function () {
@@ -808,6 +808,12 @@ window.data = data;
 
   /*---------------------------------------------------------------- */
 
+  /**
+   * @responsiveTabs
+   * Simple responsive tabs implementation, - Homepage and Product details.
+   * Respective styling handled in CSS.
+   */
+
   marshallTrailers.responsiveTabs = {
     init: function () {
       var $tabsContainer = $(".tabs-section");
@@ -867,6 +873,10 @@ window.data = data;
 
   /*---------------------------------------------------------------- */
 
+  /**
+   * @carouselMini
+   * Mini carousel implementation for the Range slider on Homepage.
+   */
   marshallTrailers.carouselMini = {
     carouselMini: null,
     next: function () {
@@ -917,6 +927,11 @@ window.data = data;
 
   /*---------------------------------------------------------------- */
 
+  /**
+   * @partsFilters
+   * Specific to Parts Filters page configuration and behaviour
+   * Handling carousel and selection behaviour
+   */
   marshallTrailers.partsFilters = {
     carousel: null,
     totalSlides: 7,
@@ -1008,6 +1023,10 @@ window.data = data;
 
   /*---------------------------------------------------------------- */
 
+  /**
+   * @rangeSelects
+   * Specific to range page select elements configuration and behaviour
+   */
   marshallTrailers.rangeSelects = {
     init: function () {
       var $selects = $(".product-selector select").selectric({
@@ -1029,6 +1048,10 @@ window.data = data;
 
   /*---------------------------------------------------------------- */
 
+  /**
+   * @quantitySelects
+   * Global quantity selects height and behaviour configuration
+   */
   marshallTrailers.quantitySelects = {
     init: function () {
       $(".quantity-select").selectric({
@@ -1074,6 +1097,7 @@ window.data = data;
         data: data,
         dataType: "json",
         success: function (response) {
+          // TODO: faking behaviour for now
           var numItems = response.basket_count || 0;
           var totalPrice = response.basket_total || "£0.00";
           marshallTrailers.basket.write(numItems, totalPrice);
@@ -1081,6 +1105,7 @@ window.data = data;
           marshallTrailers.basket.busyState = false;
         },
         error: function (xhr, status, error) {
+          // TODO: Show user-friendly error message on the page
           console.log(xhr, status, error);
           marshallTrailers.basket.$element.removeClass("busy");
           marshallTrailers.basket.busyState = false;
@@ -1097,7 +1122,7 @@ window.data = data;
         marshallTrailers.basket.close();
       });
       this.$element.find(".checkout-bttn").on("click", function () {
-        window.location.href = "basket.html";
+        window.location.href = "checkout.html";
       });
     },
   };
@@ -1109,9 +1134,10 @@ window.data = data;
    * Handles the checkout basket behaviour and ajax updating of its contents
    */
   marshallTrailers.checkout = {
+    format: marshallTrailers.utils.formatCurrency,
+
     updateTotals: function () {
-      var formatter = marshallTrailers.utils.formatCurrency;
-      let subtotal = 0;
+      var subtotal = 0;
       $("#checkout-form .checkout-item").each(function () {
         if ($(this).find("#basic-price").length > 0) {
           subtotal += parseFloat($(this).find("#basic-price").val() || "0");
@@ -1124,46 +1150,73 @@ window.data = data;
             parseInt(qty, 10);
         }
       });
-      $("#checkout-form #subtotal").text(formatter(subtotal));
+      $("#checkout-form #subtotal").text(
+        marshallTrailers.checkout.format(subtotal),
+      );
       var shipping = parseFloat(
         $("#checkout-form input[name='shipping']").val() || "0",
       );
-      var vat = parseFloat($("#checkout-form input[name='vat']").val() || "0");
-      var total = subtotal + shipping + vat;
-      $("#checkout-form #total").text(formatter(total));
+      var vatPercent = parseFloat(
+        $("#checkout-form input[name='vat']").val() || "0",
+      );
+      var vat = vatPercent / 100;
+      var vatAmount = vat * subtotal;
+
+      $("#checkout-form #vat").text(
+        marshallTrailers.checkout.format(vatAmount),
+      );
+      var total = subtotal + shipping + vatAmount;
+      $("#checkout-form #total").text(marshallTrailers.checkout.format(total));
     },
 
     init: function () {
-      var formatter = marshallTrailers.utils.formatCurrency;
       $("#checkout-form").on("change", ".quantity-select", function () {
         var $this = $(this);
         var qty = $this.val();
         var uintPrice = $this
-          .parents(".checkout-item")
+          .closest(".checkout-item")
           .find(".unit-price")
           .data("unit-price");
         var totalPrice = qty * uintPrice;
         $this
-          .parents(".checkout-item")
+          .closest(".checkout-item")
           .find(".total-price")
-          .text(formatter(totalPrice));
+          .text(marshallTrailers.checkout.format(totalPrice));
 
         marshallTrailers.checkout.updateTotals();
       });
 
       $(".basic-price").each(function () {
         var $this = $(this);
-        var price = parseFloat($this.text().replace("£", "") || "0");
-        $this.text(formatter(price));
+        var price = parseFloat($this.text());
+        $this.text(marshallTrailers.checkout.format(price));
       });
 
-      this.updateTotals();
+      $(".total-price").each(function () {
+        var $this = $(this);
+        var price = parseFloat($this.text());
+        var qty =
+          $(this).closest(".checkout-item").find(".quantity-select").val() ||
+          "0";
+        $this.text(marshallTrailers.checkout.format(price * qty));
+      });
+
+      $("#continue-shopping").on("click", function () {
+        window.location.href = "range.html";
+      });
+
+      $("#checkout-form").on("click", ".btn_removeItem", function () {
+        $(this).closest(".checkout-item").remove();
+        marshallTrailers.checkout.updateTotals();
+      });
 
       $("#checkout-form").on("submit", function (e) {
         e.preventDefault();
         var formData = $(this).serialize();
         console.log("Form submitted with data: ", formData);
       });
+
+      this.updateTotals();
     },
   };
 
@@ -1190,7 +1243,6 @@ window.data = data;
         skin: "dark",
         socials: false,
         fullscreen: false,
-        // thumbs_nav: false,
         touchswipe: false,
         mousewheel: false,
         txt_toggle_cmd: false,
@@ -1240,6 +1292,7 @@ window.data = data;
   /**
    * @backToTop
    * Helps navigate up and down long pages
+   * PS: Not being used ATM.
    */
   marshallTrailers.backToTop = {
     init: function () {
