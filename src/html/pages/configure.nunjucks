@@ -244,16 +244,15 @@
                                                 console.log({options: options.value, initialOption: initialOption.value, notes});
                                             };
 
-                                            const handlePurchase = (notes) => {
-                                                // Implement purchase logic here
-                                                console.log("Purchase clicked");
-                                                console.log({options: options.value, initialOption: initialOption.value, notes});
-                                            };
-
                                             const handleEmailEnquiry = (data) => {
                                                 // Implement email enquiry logic here
                                                 console.log("Email Enquiry clicked");
                                                 console.log({options: options.value, initialOption: initialOption.value, data});
+                                            };
+
+                                            const handlePurchase = (notes) => {
+                                                console.log({options: options.value, initialOption: initialOption.value, notes});
+                                                window.location.href = "checkout.html";
                                             };
 
                                             onMounted(() => {
