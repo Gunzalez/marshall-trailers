@@ -12,7 +12,9 @@ export default {
     const option = ref(props.option);
 
     const handleClick = () => {
-      emit("click", props.option);
+      if (props.messages.length === 0) {
+        emit("click", props.option);
+      }
     };
 
     const isDisabled = computed(() => {
@@ -34,7 +36,7 @@ export default {
     };
   },
   template: `
-    <div class="option-card" :class="{ 'selected': option.isSelected, 'disabled': isDisabled }">
+    <div class="option-card" @click.prevent="handleClick" :class="{ 'selected': option.isSelected, 'disabled': isDisabled }" role="button" :aria-disabled="isDisabled">
       <h5 class="line-clamp-2 title">{{ option.title }}</h5>
 
       <div class="details">
@@ -51,7 +53,7 @@ export default {
         </div>
       </div>
 
-      <button class="bttn" @click.prevent="handleClick" :disabled="isDisabled" :class="{ 'btn_Add': !option.isSelected, 'btn_Remove': option.isSelected }">
+      <span class="bttn" :class="{ 'btn_Add': !option.isSelected, 'btn_Remove': option.isSelected }">
         <template v-if="option.isSelected">
           <span>Remove</span>
           <i class="fa-solid fa-minus"></i>
@@ -60,7 +62,7 @@ export default {
           <span>Add to basket</span>
           <i class="fa-solid fa-plus"></i>
         </template>
-      </button>
+      </span>
 
       <div v-if="isDisabled" class="option-card-overlay">
         <div class="overlay-content">
