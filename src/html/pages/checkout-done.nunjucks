@@ -11,101 +11,18 @@
             <li>
                 <a href="index.html">Home</a>
             </li>
-            <li>Checkout</li>
+            <li>Thank you</li>
         </ol>
     </nav>
 
     <div class="title-wrapper">
-        <h1 class="page-title">Checkout</h1>
+        <h1 class="page-title">Thank you</h1>
     </div>
 
-    <form id="checkout-form" class="form" method="post" action="/submit-payment">
-        <div class="section body-copy">
-            <h2 class="title underlined">Your Basket</h2>
-            <ul id="checkout-items" class="checkout-items">
-                {% for item in checkoutData %}
-                    <li class="checkout-item">
-                        {% if item.product_title %}
-                            <div class="image">
-                                <a href="{{ item.img_url_large }}" title="{{ item.product_title }}" class="lc_lightbox_link image-link">
-                                    <img src="{{ item.img_url_small }}" alt="{{ item.product_title }}">
-                                </a>
-                            </div>
-                        {% else %}
-                            <div class="image">
-                                <a href="{{ item.img_url_large }}" title="{{ item.description }}" class="lc_lightbox_link image-link">
-                                    <img src="{{ item.img_url_small }}" alt="{{ item.description }}">
-                                </a>
-                            </div>
-                        {% endif %}
-                        <div class="details">
-                            {% if item.product_title %}
-                                <h3 class="product-title">{{ item.product_title }}</h3>
-                            {% endif %}
-                            {% if item.part_no %}
-                                <h3 class="part_no">Part No: {{ item.part_no }}</h3>
-                            {% endif %}
-                            {% if item.description %}
-                                <span class="description">{{ item.description }}</span>
-                            {% endif %}
-                            {% if item.unit_weight %}
-                                <span class="unit-weight">Unit weight: {{ item.unit_weight }}</span>
-                            {% endif %}
-                            {% if item.unit_price %}
-                                <span class="unit-price" data-unit-price="{{ item.unit_price }}">Unit price ex. VAT: £{{ item.unit_price }}</span>
-                            {% endif %}
-                        </div>
-                        <div class="item-values">
-                            <div class="price-wrapper">
-                                <span class="lbl">Total cost:</span>
-                                {% if item.unit_price %}
-                                    <span class="val total-price">{{ item.unit_price }}</span>
-                                {% endif %}
-                                {% if item.basic_price %}
-                                    <span class="val basic-price">{{ item.basic_price }}</span>
-                                {% endif %}
-                            </div>
-
-                            {% if item.basic_price %}
-                                <input type="hidden" id="basic-price" name="basic-price" value="{{ item.basic_price }}">
-                            {% endif %}
-
-                            {% if item.unit_price %}
-                                <input type="hidden" name="qty" value="{{ item.qty }}">
-                            {% endif %}
-                        </div>
-                    </li>
-                {% endfor %}
-            </ul>
-            <div class="checkout-total">
-                <table>
-                    <tr>
-                        <td>Subtotal:</td>
-                        <td class="val" id="subtotal"></td>
-                    </tr>
-                    <tr>
-                        <td>Shipping:</td>
-                        <td class="val" id="shipping">£30.00</td>
-                    </tr>
-                    <tr>
-                        <td>VAT (19%):</td>
-                        <td class="val" id="vat"></td>
-                    </tr>
-                    <tr class="total-row">
-                        <td>Total inc VAT:</td>
-                        <td class="val" id="total"></td>
-                    </tr>
-                </table>
-                <input type="hidden" id="shipping" name="shipping" value="30.00">
-                <input type="hidden" id="vat" name="vat" value="19">
-            </div>
-        </div>
-    </form>
-
     <div class="section body-copy">
-        <h2 class="title underlined">Thank you</h2>
+        <h2 class="title underlined">Order Confirmation</h2>
         <div class="confirmation-message">
-            <h3>Your order has been successfully placed.</h3>
+            <h3>Payment received and your order has been successfully placed.</h3>
             <h4>Order reference: 801-026</h4>
             <button id="download-invoice" type="button" class="bttn btn_DownloadInvoice">
                 <span>
