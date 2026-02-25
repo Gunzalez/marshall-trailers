@@ -563,7 +563,7 @@
 
   img {
     display: block;
-    max-width: 100%;
+    width: 100%;
     height: auto;
     transition: all 0.3s ease-in-out;
   }
@@ -772,6 +772,24 @@
     right: -1.2rem;
     top: 50%;
     transform: translateY(-50%);
+  }
+}
+
+.lc_lightbox_link {
+  @media (hover: hover) {
+    position: relative;
+    &:after {
+      content: "\f002";
+      font-family: FontAwesome;
+      font-weight: normal;
+      font-style: normal;
+      position: absolute;
+      bottom: -5px;
+      right: 0;
+      color: var(--brand-red);
+      font-size: 1.2rem;
+      text-shadow: 0 0 3px #fff;
+    }
   }
 }
 

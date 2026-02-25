@@ -1478,6 +1478,7 @@
   .checkout-item {
     display: flex;
     flex-direction: column;
+    gap: 0.75rem;
   }
 
   > li {
@@ -1490,22 +1491,18 @@
     }
   }
 
-  .image {
-    img {
-      width: 100%;
-      max-width: 360px;
-      height: auto;
-    }
-  }
-
   .details {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
     flex: 1;
-    padding: 10px 0;
+    padding-bottom: 1rem;
     border-bottom: 1px solid var(--brand-gray);
-    margin-bottom: 1rem;
+
+    > * {
+      margin: 0;
+      padding: 0;
+    }
   }
 
   .item-values {
@@ -1532,12 +1529,19 @@
 
     .image {
       flex-shrink: 0;
-      width: 240px;
+      width: 140px;
+
+      &.machine-image {
+        width: 420px;
+      }
+    }
+
+    .product-title {
+      font-size: 1.8rem;
     }
 
     .details {
       border-bottom: none;
-      padding: 0 10px 1rem 20px;
       min-height: 140px;
       max-width: 480px;
     }
