@@ -115,7 +115,7 @@
                                 </div>
                                 <div class="input-group">
                                     <label for="cvv">CVV
-                                <span class="relative w-fit">
+                                <span class="relative w-fit pre-script">
                                             <i class="fa-solid fa-circle-question text-stone-500 peer"></i>
                                             <span class="bottom-full left-1/2 -translate-x-1/2 absolute text-stone-50 text-xs bg-stone-800 opacity-0 px-2 py-1 rounded-md w-max -translate-y-0.5 peer-hover:-translate-y-1 peer-hover:opacity-100 transition-all max-w-xs">Card Verification Value, the 3-digit code on the back of your card (or 4 digits on the front for Amex).</span>
                                         </span>
