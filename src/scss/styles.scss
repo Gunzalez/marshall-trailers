@@ -1138,7 +1138,7 @@
   }
 
   .heading-wrapper {
-    border-bottom: 1px solid var(--brand-gray);
+    border-bottom: 1px solid var(--brand-gray-dark);
     margin-bottom: 1rem;
   }
 
@@ -1158,6 +1158,35 @@
     aspect-ratio: 1 / 1;
     background-color: pink;
     border-radius: 1px;
+  }
+
+  .options-groups {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .group-title {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    font-family: sans-serif;
+    gap: 20px;
+    margin-bottom: 0.75rem;
+
+    > * {
+      margin: 0;
+      padding: 0;
+    }
+
+    &:before,
+    &:after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: var(--brand-gray);
+    }
   }
 
   .option-card {
