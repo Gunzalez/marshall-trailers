@@ -585,19 +585,24 @@
                         </div>
                     </div>
 
-                    <div class="options-list">
-                        <option-card 
-                        v-for="option in options" 
-                        :key="option.id"
-                        :option="option"
-                        :is-selected="option.isSelected"
-                        :messages="option.messages"
-                        @click="handleOptionClick"
-                        class="option"></option-card>
+                    <div class="options-groups">
+                        <div class="options-group" v-for="(group, index) in groupedOptions" :key="index">
+                            <group-header :header="group[0]"></group-header>
+                            <div class="options-list">
+                                <option-card 
+                                    v-for="option in group[1]" 
+                                    :key="option.id"
+                                    :option="option"
+                                    :is-selected="option.isSelected"
+                                    :messages="option.messages"
+                                    @click="handleOptionClick"
+                                    class="option"></option-card>
+                            </div>
+                        </div>
                     </div>
 
                     <options-basket 
-                        :options="options"
+                        :options="selectedOptions"
                         :initial-option="initialOption"></options-basket>
 
                     <options-form
@@ -611,7 +616,8 @@
 
             <script type="module">
 
-                import OptionCard from "./js/components/pod.js";
+                import OptionCard from "./js/components/card.js";
+                import GroupHeader from "./js/components/header.js";
                 import OptionsBasket from "./js/components/basket.js";
                 import OptionsForm from "./js/components/form.js";
 
@@ -633,12 +639,17 @@
                     });
                 }
 
+                function groupOptionsByType(options) {
+                    return Object.groupBy(options, (item) => item.type.name)
+                }
+
                 document.addEventListener('DOMContentLoaded', () => {
                     const {createApp, onMounted, ref, computed, watch} = Vue;
 
-                    let options = null;
                     let myVueApp = null;
                     let initialOption = null;
+                    let groupedOptions = null;
+                    let selectedOptions = null;
 
                     $("#product-detail").on("click", ".btn_AddOptions", function () {
 
@@ -667,49 +678,73 @@
                                         components: {
                                             OptionCard,
                                             OptionsBasket,
-                                            OptionsForm
+                                            OptionsForm,
+                                            GroupHeader
                                         },
                                         setup() {
-                                            options = ref([]);
+                                            groupedOptions = ref([]);
                                             initialOption = ref(null);
+                                            selectedOptions = ref([]);
 
                                             const handleOptionClick = (option) => {
 
                                                 if (option.isSelected) {
                                                     const havenotsList = option.havenot.list || [];
                                                     havenotsList.forEach(haveNotId => {
-                                                        const index = options
+                                                        const index = groupedOptions
                                                             .value
+                                                            .flatMap(group => group[1])
                                                             .findIndex(item => item.id === haveNotId);
+
                                                         if (index !== -1) {
-                                                            const messages = options
-                                                                .value[index]
+                                                            const messages = groupedOptions
+                                                                .value
+                                                                .flatMap(group => group[1])
+                                                                .find(item => item.id === haveNotId)
                                                                 .messages
                                                                 .filter(msg => msg.id !== option.id);
-                                                            options
-                                                                .value[index]
-                                                                .messages = messages;
+
+                                                            groupedOptions
+                                                                .value
+                                                                .forEach(group => {
+                                                                    group[1].forEach(item => {
+                                                                        if (item.id === haveNotId) {
+                                                                            item.messages = messages;
+                                                                            if (messages.length === 0) {
+                                                                                item.isSelected = false;
+                                                                            }
+                                                                        }
+                                                                    });
+                                                                });
+
                                                         }
                                                     });
 
                                                     const havesList = option.have.list || [];
                                                     havesList.forEach(haveId => {
-                                                        const index = options
+                                                        const index = groupedOptions
                                                             .value
+                                                            .flatMap(group => group[1])
                                                             .findIndex(item => item.id === haveId);
                                                         if (index !== -1) {
-                                                            const messages = options
-                                                                .value[index]
+                                                            const messages = groupedOptions
+                                                                .value
+                                                                .flatMap(group => group[1])
+                                                                .find(item => item.id === haveId)
                                                                 .messages
                                                                 .filter(msg => msg.id !== option.id);
-                                                            options
-                                                                .value[index]
-                                                                .messages = messages;
-                                                            if (messages.length === 0) {
-                                                                options
-                                                                    .value[index]
-                                                                    .isSelected = false;
-                                                            }
+                                                            groupedOptions
+                                                                .value
+                                                                .forEach(group => {
+                                                                    group[1].forEach(item => {
+                                                                        if (item.id === haveId) {
+                                                                            item.messages = messages;
+                                                                            if (messages.length === 0) {
+                                                                                item.isSelected = false;
+                                                                            }
+                                                                        }
+                                                                    });
+                                                                });
                                                         }
                                                     });
 
@@ -717,12 +752,15 @@
                                                 } else {
                                                     const havenotsList = option.havenot.list || [];
                                                     havenotsList.forEach(haveNotId => {
-                                                        const index = options
+                                                        const index = groupedOptions
                                                             .value
+                                                            .flatMap(group => group[1])
                                                             .findIndex(item => item.id === haveNotId);
                                                         if (index !== -1) {
-                                                            options
-                                                                .value[index]
+                                                            groupedOptions
+                                                                .value
+                                                                .flatMap(group => group[1])
+                                                                .find(item => item.id === haveNotId)
                                                                 .messages
                                                                 .push({id: option.id, text: option.havenot.message});
                                                         }
@@ -730,15 +768,20 @@
 
                                                     const havesList = option.have.list || [];
                                                     havesList.forEach(haveId => {
-                                                        const index = options
+                                                        const index = groupedOptions
                                                             .value
+                                                            .flatMap(group => group[1])
                                                             .findIndex(item => item.id === haveId);
                                                         if (index !== -1) {
-                                                            options
-                                                                .value[index]
+                                                            groupedOptions
+                                                                .value
+                                                                .flatMap(group => group[1])
+                                                                .find(item => item.id === haveId)
                                                                 .isSelected = true;
-                                                            options
-                                                                .value[index]
+                                                            groupedOptions
+                                                                .value
+                                                                .flatMap(group => group[1])
+                                                                .find(item => item.id === haveId)
                                                                 .messages
                                                                 .push({id: option.id, text: option.have.message});
                                                         }
@@ -752,29 +795,34 @@
                                             const handleDownloadPDF = (notes) => {
                                                 // Implement PDF download logic here
                                                 console.log("Download PDF clicked");
-                                                console.log({options: options.value, initialOption: initialOption.value, notes});
+                                                console.log({groupedOptions: groupedOptions.value, initialOption: initialOption.value, notes});
                                             };
 
                                             const handleEmailEnquiry = (data) => {
                                                 // Implement email enquiry logic here
                                                 console.log("Email Enquiry clicked");
-                                                console.log({options: options.value, initialOption: initialOption.value, data});
+                                                console.log({groupedOptions: groupedOptions.value, initialOption: initialOption.value, data});
                                             };
 
                                             const handlePurchase = (notes) => {
-                                                console.log({options: options.value, initialOption: initialOption.value, notes});
+                                                console.log({groupedOptions: groupedOptions.value, initialOption: initialOption.value, notes});
                                                 window.location.href = "checkout.html";
                                             };
 
+                                            watch(groupedOptions, (newVal) => {
+                                                selectedOptions.value = newVal.flatMap(group => group[1].filter(option => option.isSelected));
+                                            }, {deep: true});
+
                                             onMounted(() => {
-                                                options.value = wrapWithStateProps(optionsData.data);
+                                                groupedOptions.value = Object.entries(groupOptionsByType(wrapWithStateProps(optionsData.data)));
                                                 initialOption.value = window.basicMachine;
                                                 showOptionsApp();
                                             });
 
                                             return {
-                                                options,
+                                                groupedOptions,
                                                 initialOption,
+                                                selectedOptions,
                                                 handlePurchase,
                                                 handleOptionClick,
                                                 handleDownloadPDF,
@@ -784,7 +832,7 @@
                                     }).mount("#options-app");
                                 } else {
                                     // update data in existing app
-                                    options.value = wrapWithStateProps(optionsData.data);
+                                    groupedOptions.value = Object.entries(groupOptionsByType(wrapWithStateProps(optionsData.data)));
                                     initialOption.value = window.basicMachine;
                                     showOptionsApp();
                                 }
