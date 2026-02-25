@@ -34,6 +34,20 @@
   };
 
   /*---------------------------------------------------------------- */
+  /**
+   * @global
+   * Handles miscellaneous global functionality for the website
+   */
+  marshallTrailers.global = {
+    init: function () {
+      $(".pre-script").removeClass("pre-script");
+
+      $(".quantity-select").selectric({
+        maxHeight: 168,
+      });
+    },
+  };
+  /*---------------------------------------------------------------- */
 
   /**
    * @utils
@@ -807,10 +821,10 @@
     marshallTrailers.carousel.init();
     marshallTrailers.carouselMini.init();
     marshallTrailers.rangeSelects.init();
-    marshallTrailers.quantitySelects.init();
     marshallTrailers.basket.init();
     marshallTrailers.partsFilters.init();
     marshallTrailers.checkout.init();
+    marshallTrailers.global.init();
 
     window.MT = marshallTrailers;
   };

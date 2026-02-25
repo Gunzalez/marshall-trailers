@@ -17,6 +17,13 @@ export default {
       }
     };
 
+    const convertedPrice = computed(() => {
+      if (option.value && option.value.price) {
+        return window.MT.utils.formatCurrency(option.value.price);
+      }
+      return option.value.price;
+    });
+
     const isDisabled = computed(() => {
       return props.messages.length > 0;
     });
@@ -33,6 +40,7 @@ export default {
       option,
       isDisabled,
       handleClick,
+      convertedPrice,
     };
   },
   template: `
@@ -42,11 +50,13 @@ export default {
       <div class="details">
         <div class="image-copy-wrapper">
           <img :src="option.image_url" :alt="option.title" class="image" />
-          <div class="option_no">
-              <span class="label">Option No:</span>
-              <span class="value">{{ option.option_no }}</span>
+          <div class="meta">
+            <div class="option_no">
+                <span class="label">Option No:</span>
+                <span class="value">{{ option.option_no }}</span>
+            </div>
+            <p class="price">{{ convertedPrice }}</p>
           </div>
-          <p class="price">{{ option.price }}</p>
         </div>
         <div class="copy-wrapper">
           <p class="text">{{ option.description }}</p>
@@ -59,14 +69,14 @@ export default {
           <i class="fa-solid fa-minus"></i>
         </template>
         <template v-else>
-          <span>Add to basket</span>
+          <span>Click to add</span>
           <i class="fa-solid fa-plus"></i>
         </template>
       </span>
 
       <div v-if="isDisabled" class="option-card-overlay">
         <div class="overlay-content">
-          <span v-for="msg in messages" :key="msg.id">{{ msg.text }}</span>
+          <p v-for="msg in messages" :key="msg.id" class="message">{{ msg.text }}</p>
         </div>
       </div>
 
