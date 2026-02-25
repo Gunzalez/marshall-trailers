@@ -17,6 +17,7 @@ export default {
     const phoneError = ref(false);
     const titleError = ref(false);
     const lastNameError = ref(false);
+    const formDisplayState = ref(false);
 
     const updateAdditionalNotes = (event) => {
       additionalNotes.value = event.target.value;
@@ -28,6 +29,10 @@ export default {
 
     const handlePurchase = () => {
       emit("purchase-marshall", { additionalNotes: additionalNotes.value });
+    };
+
+    const toggleFormDisplay = () => {
+      formDisplayState.value = !formDisplayState.value;
     };
 
     const handleEmailEnquiry = () => {
@@ -83,7 +88,9 @@ export default {
       titleError,
       lastNameError,
       additionalNotes,
+      formDisplayState,
       handlePurchase,
+      toggleFormDisplay,
       handleDownloadPDF,
       handleEmailEnquiry,
       updateAdditionalNotes,
@@ -92,7 +99,7 @@ export default {
   template: `
     <div>
         <label for="additional-notes">
-            <span>Order notes or numbers</span>
+            <span>Provide additional notes or numbers to this specification</span>
             <textarea id="additional-notes" name="additional-notes" rows="5" cols="14" v-model="additionalNotes" @input="updateAdditionalNotes"></textarea>
         </label>
 
@@ -108,21 +115,27 @@ export default {
                 <div>
                     <h4>Choose one of the following options.</h4>
                     <div class="actions-buttons">
-                        <button type="button" class="bttn" @click.prevent="handleDownloadPDF">
-                            <span>
-                                <i class="fa-solid fa-download"></i>
-                            </span>
-                            <span>Download as PDF</span>
-                        </button>
                         <button type="button" class="bttn" @click.prevent="handlePurchase">
                             <span>
                                 <i class="fa-solid fa-cart-shopping"></i>
                             </span>
                             <span>Purchase your Marshall</span>
                         </button>
+                        <button type="button" class="bttn" @click.prevent="handleDownloadPDF">
+                            <span>
+                                <i class="fa-solid fa-download"></i>
+                            </span>
+                            <span>Download quote as PDF</span>
+                        </button>
+                        <button type="button" class="bttn" @click.prevent="toggleFormDisplay">
+                            <span>
+                                <i class="fa-solid fa-paper-plane"></i>
+                            </span>
+                            <span>Email enquiry to Marshall</span>
+                        </button>
                     </div>
                 </div>
-                <div class="fieldset-width">
+                <div v-if="formDisplayState" class="fieldset-width">
                     <div id="contact-section" class="contact-section">
                         <h4>Email enquiry to Marshall & a copy to yourself.</h4>
                         <div class="field-set">
@@ -176,7 +189,7 @@ export default {
                             <span>
                                 <i class="fa-solid fa-paper-plane"></i>
                             </span>
-                            <span>Email to Marshall</span>
+                            <span>Send email</span>
                         </button>
                     </div>
                 </div>
