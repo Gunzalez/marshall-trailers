@@ -1227,11 +1227,6 @@ window.data = data;
         window.location.href = "account.html";
       });
 
-      // TODO: Removes this, simulates successful checkout for now
-      $(".btn_Submit").on("click", function () {
-        window.location.href = "checkout-done.html";
-      });
-
       $("#checkout-form").on("click", ".btn_removeItem", function () {
         $(this).closest(".checkout-item").remove();
         marshallTrailers.checkout.updateTotals();
@@ -1241,6 +1236,8 @@ window.data = data;
         e.preventDefault();
         var formData = $(this).serialize();
         console.log("Form submitted with data: ", formData);
+        // display in alert for now, replace with actual submission logic later
+        alert("Form submitted! Check console for data. " + formData);
       });
 
       this.updateTotals();

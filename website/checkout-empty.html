@@ -589,48 +589,18 @@
                             </label>
                         </div>
                     </div>
-                    <div class="payment-details">
-                        <h2 class="title underlined">Payment details</h2>
-                        <div class="input-group">
-                            <label for="bank-name">Bank name</label>
-                            <input type="text" id="bank-name" name="bank-name" value="">
-                        </div>
-                        <div class="input-group">
-                            <label for="card-number">Card number</label>
-                            <input type="tel" id="card-number" name="card-number" value="">
-                        </div>
-                        <div class="input-group">
-                            <label for="card-holder">Card holder</label>
-                            <input type="text" id="card-holder" name="card-holder" value="">
-                        </div>
-                        <div class="input-group">
-                            <div class="input-group-pair">
-                                <div class="input-group">
-                                    <label for="expiry-date">Expiry date</label>
-                                    <input type="text" id="expiry-date" name="expiry-date" placeholder="MM/YY" value="">
-                                </div>
-                                <div class="input-group">
-                                    <label for="cvv">CVV
-                                <span class="relative w-fit pre-script">
-                                            <i class="fa-solid fa-circle-question text-stone-500 peer"></i>
-                                            <span class="bottom-full left-1/2 -translate-x-1/2 absolute text-stone-50 text-xs bg-stone-800 opacity-0 px-2 py-1 rounded-md w-max -translate-y-0.5 peer-hover:-translate-y-1 peer-hover:opacity-100 transition-all max-w-xs">Card Verification Value, the 3-digit code on the back of your card (or 4 digits on the front for Amex).</span>
-                                        </span>
-                                    </label>
-                                    <input type="text" id="cvv" name="cvv" placeholder="123" value="">
-                                </div>
-                            </div>
-                        </div>
-
-                        <button type="submit" class="bttn btn_Submit">
-                            <span>
-                                <i class="fa-regular fa-credit-card"></i>
-                            </span>
-                            <span>Submit payment</span>
-                        </button>
-
-                    </div>
+                    <i class="fa-brands fa-stripe text-4xl"></i>
+                    <p>Pay with Stripe.</p>
+                    <button type="submit" class="bttn btn_Submit">
+                        <span>
+                            <i class="fa-regular fa-credit-card"></i>
+                        </span>
+                        <span>Make payment now</span>
+                    </button>
+                    <p class="mt-4">
+                        <a href="checkout-done.html">Thank You page (for testing purposes)</a>
+                    </p>
                 </div>
-
             </div>
         </div>
 
