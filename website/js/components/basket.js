@@ -30,18 +30,6 @@ export default {
       return isNaN(value) ? price : window.MT.utils.formatCurrency(value);
     };
 
-    onMounted(() => {
-      console.log("Basket mounted");
-    });
-
-    watch(
-      () => props.options,
-      (newOptions) => {
-        console.log("basket options updated:", newOptions);
-      },
-      { deep: true },
-    );
-
     return {
       selection,
       totalPrice,

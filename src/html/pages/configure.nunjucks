@@ -128,13 +128,17 @@
                     });
                 }
 
+                function groupOptionsByType(options) {
+                    return Object.groupBy(options, (item) => item.type.name)
+                }
+
                 document.addEventListener('DOMContentLoaded', () => {
                     const {createApp, onMounted, ref, computed, watch} = Vue;
 
-                    let groupedOptions = null;
-                    let selectedOptions = null;
                     let myVueApp = null;
                     let initialOption = null;
+                    let groupedOptions = null;
+                    let selectedOptions = null;
 
                     $("#product-detail").on("click", ".btn_AddOptions", function () {
 
@@ -280,28 +284,23 @@
                                             const handleDownloadPDF = (notes) => {
                                                 // Implement PDF download logic here
                                                 console.log("Download PDF clicked");
-                                                console.log({options: options.value, initialOption: initialOption.value, notes});
+                                                console.log({groupedOptions: groupedOptions.value, initialOption: initialOption.value, notes});
                                             };
 
                                             const handleEmailEnquiry = (data) => {
                                                 // Implement email enquiry logic here
                                                 console.log("Email Enquiry clicked");
-                                                console.log({options: options.value, initialOption: initialOption.value, data});
+                                                console.log({groupedOptions: groupedOptions.value, initialOption: initialOption.value, data});
                                             };
 
                                             const handlePurchase = (notes) => {
-                                                console.log({options: options.value, initialOption: initialOption.value, notes});
+                                                console.log({groupedOptions: groupedOptions.value, initialOption: initialOption.value, notes});
                                                 window.location.href = "checkout.html";
                                             };
 
-                                            const groupOptionsByType = (options) => {
-                                                return Object.groupBy(options, (item) => item.type.name)
-                                            };
-
                                             watch(groupedOptions, (newVal) => {
-                                                console.log("Grouped options updated:", newVal);
                                                 selectedOptions.value = newVal.flatMap(group => group[1].filter(option => option.isSelected));
-                                            });
+                                            }, {deep: true});
 
                                             onMounted(() => {
                                                 groupedOptions.value = Object.entries(groupOptionsByType(wrapWithStateProps(optionsData.data)));
@@ -312,11 +311,11 @@
                                             return {
                                                 groupedOptions,
                                                 initialOption,
+                                                selectedOptions,
                                                 handlePurchase,
                                                 handleOptionClick,
                                                 handleDownloadPDF,
-                                                handleEmailEnquiry,
-                                                selectedOptions
+                                                handleEmailEnquiry
                                             };
                                         }
                                     }).mount("#options-app");

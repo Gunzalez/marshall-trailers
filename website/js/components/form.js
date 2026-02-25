@@ -97,7 +97,7 @@ export default {
     };
   },
   template: `
-    <div>
+    <div class="options-actions">
         <label for="additional-notes">
             <span>Provide additional notes or numbers to this specification</span>
             <textarea id="additional-notes" name="additional-notes" rows="5" cols="14" v-model="additionalNotes" @input="updateAdditionalNotes"></textarea>
