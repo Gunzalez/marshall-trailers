@@ -3,7 +3,7 @@ const { computed, onMounted, watch } = Vue;
 export default {
   props: {
     options: Array,
-    initialOption: Object, // The initial machine
+    initialOption: Object,
   },
 
   setup(props) {
@@ -17,6 +17,19 @@ export default {
       return props.options.filter((option) => option.isSelected);
     });
 
+    const totalPrice = computed(() => {
+      const value = selection.value.reduce((total, option) => {
+        const price = parseFloat(option.price.replace(/[^0-9.-]+/g, ""));
+        return total + (isNaN(price) ? 0 : price);
+      }, 0);
+      return window.MT.utils.formatCurrency(value);
+    });
+
+    const convertedPrice = (price) => {
+      const value = parseFloat(price.replace(/[^0-9.-]+/g, ""));
+      return isNaN(value) ? price : window.MT.utils.formatCurrency(value);
+    };
+
     onMounted(() => {
       console.log("Basket mounted");
     });
@@ -24,13 +37,15 @@ export default {
     watch(
       () => props.options,
       (newOptions) => {
-        console.log("Options updated:", newOptions);
+        console.log("basket options updated:", newOptions);
       },
       { deep: true },
     );
 
     return {
       selection,
+      totalPrice,
+      convertedPrice,
     };
   },
   template: `
@@ -51,23 +66,23 @@ export default {
             </thead>
             <tbody>
                 <tr v-for="option in selection" :key="option.id">
-                    <td class="image-cell"><img :src="option.image_url" :alt="option.title" class="image"></td>
+                    <td class="image-cell">
+                      <img :src="option.image_url" :alt="option.title" class="image">
+                    </td>
                     <td class="name-cell">
                       <span>{{ option.title }}</span>
                       <span class="desktop-only description">{{ option.description }}</span>
                     </td>
-                    <td class="price-cell">{{ option.price }}</td>
+                    <td class="price-cell">{{ convertedPrice(option.price) }}</td>
                 </tr>
             </tbody>
         </table>
-
         <div class="basket-total">
           <span>Retail price total ex. VAT:</span>
           <span class="total-price">
-            {{ selection.reduce((total, option) => total + parseFloat(option.price.replace(/[^0-9.-]+/g, "")), 0).toLocaleString("en-US", { style: "currency", currency: "GBP" }) }}
+            {{ totalPrice }}
           </span>
         </div>
-
     </div>
   `,
 };

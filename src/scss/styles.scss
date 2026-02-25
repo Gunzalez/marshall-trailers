@@ -1280,6 +1280,8 @@
   }
 
   .options-basket {
+    margin-bottom: 2rem;
+
     .image-cell {
       img {
         width: 80px;
@@ -1345,6 +1347,29 @@
 
         .image-cell {
           display: none;
+        }
+      }
+    }
+
+    .basket-total {
+      background-color: var(--brand-gray);
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+
+      .total-price {
+        font-size: 1.2rem;
+        font-weight: bold;
+      }
+
+      @media screen and (min-width: $breakpoint2) {
+        flex-direction: row;
+        justify-content: flex-end;
+        gap: 1rem;
+
+        .total-price {
+          font-size: 1rem;
         }
       }
     }
