@@ -383,9 +383,6 @@
               <a href="spares.html">Spares</a>
               <ul>
                 <li>
-                  <a href="serial-number.html">Serial Number</a>
-                </li>
-                <li>
                   <a href="parts.html">By Parts</a>
                 </li>
               </ul>
@@ -498,10 +495,186 @@
 
     <div class="title-wrapper">
         <h1 class="page-title">Account</h1>
-        <p>Register / Login</p>
     </div>
 
-    <div class="spacer" style="--height: 800px;"></div>
+    <div class="page-intro body-copy">
+        <p>Manage your account details and preferences. <br/>
+        See your order history and update your information as needed.</p>
+    </div>
+
+    <form id="accounts-form" class="form" method="post" action="/account-save">
+        <div class="section body-copy">
+            <div class="buttons-and-form-fields">
+                <div>
+                    <div class="actions-buttons">
+                        <button type="button" class="bttn btn_MyAccount">
+                            <span>
+                                <i class="fa-solid fa-user"></i>
+                            </span>
+                            <span>My Account</span>
+                        </button>
+                        <button type="button" class="bttn btn_Addresses">
+                            <span>
+                                <i class="fa-solid fa-map-marker-alt"></i>
+                            </span>
+                            <span>My Addresses</span>
+                        </button>
+                        <button type="button" class="bttn btn_Addresses" disabled>
+                            <span>
+                                <i class="fa-solid fa-map-marker-alt"></i>
+                            </span>
+                            <span>My Addresses</span>
+                        </button>
+                        <button type="button" class="bttn btn_OrderHistory">
+                            <span>
+                                <i class="fa-solid fa-history"></i>
+                            </span>
+                            <span>Order History</span>
+                        </button>
+                        <button type="button" class="bttn btn_LogOut">
+                            <span>
+                                <i class="fa-solid fa-sign-out-alt"></i>
+                            </span>
+                            <span>Log out</span>
+                        </button>
+                    </div>
+                </div>
+                <div id="section_MyAccount" class="fieldset-width">
+                    <div id="mode-edit" class="display-none">
+                        <div class="form-fields">
+                            <h2 class="title underlined">My Account</h2>
+                            <div class="input-group-pair">
+                                <div class="input-group">
+                                    <label for="name">First name</label>
+                                    <input type="text" id="name" name="name" value="Mr. O.">
+                                </div>
+                                <div class="input-group">
+                                    <label for="last-name">Last name</label>
+                                    <input type="text" id="last-name" name="last-name" value="Tester">
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <label for="email">Email address</label>
+                                <input type="email" id="email" name="email" value="mister.ohtester@example.com">
+                            </div>
+                            <div class="input-group">
+                                <label for="phone">Phone number</label>
+                                <input type="tel" id="phone" name="phone" value="01234567890">
+                            </div>
+                            <div class="input-group">
+                                <label for="password">Password</label>
+                                <input type="password" id="password" name="password">
+                            </div>
+                            <div class="input-group">
+                                <label for="confirm-password">Confirm Password</label>
+                                <input type="password" id="confirm-password" name="confirm-password">
+                            </div>
+                        </div>
+                        <button type="button" class="bttn btn_AccountSave">
+                            <span>
+                                <i class="fa-regular fa-floppy-disk"></i>
+                            </span>
+                            <span>Save / Update</span>
+                        </button>
+                    </div>
+                    <div id="mode-view">
+                        <h2 class="title underlined">My Account</h2>
+                        <div>
+                            <span>Full name</span>
+                            <h3>Mr. O. Tester</h3>
+                        </div>
+                        <div>
+                            <span>Email address</span>
+                            <h3>mister.ohtester@example.com</h3>
+                        </div>
+                        <div>
+                            <span>Phone number</span>
+                            <h3>01234567890</h3>
+                        </div>
+                        <div>
+                            <span>Password</span>
+                            <h3>********</h3>
+                        </div>
+                        <button type="button" class="bttn btn_AccountEdit">
+                            <span>
+                                <i class="fa-regular fa-pen-to-square"></i>
+                            </span>
+                            <span>Edit</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div id="section_Addresses" class="fieldset-width display-none">
+                    <h2 class="title underlined">My Addresses</h2>
+                    <p>You have no saved addresses.</p>
+
+                    <div class="input-group">
+                        <label for="company">Company name</label>
+                        <input type="text" id="company" name="company" value="ACME Corp.">
+                    </div>
+                    <div class="input-group">
+                        <label for="address">Address</label>
+                        <textarea id="address" name="address">Flat 11, 123 Main Street, AnyTown Forest Rd.</textarea>
+                    </div>
+                    <div class="input-group-pair">
+                        <div class="input-group">
+                            <label for="postcode">Postcode</label>
+                            <input type="text" id="postcode" name="postcode" value="SW1A 1AA">
+                        </div>
+                        <div class="input-group">
+                            <label for="country">Country</label>
+                            <input type="text" id="country" name="country" value="United Kingdom">
+                        </div>
+                    </div>
+                </div>
+
+                <div id="section_OrderHistory" class="fieldset-width display-none">
+                    <h2 class="title underlined">Order History</h2>
+                    <p>You have no past orders.</p>
+                </div>
+
+            </div>
+        </div>
+    </form>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            function endEditMode() {
+                $('#mode-view').removeClass('display-none');
+                $('#mode-edit').addClass('display-none');
+            }
+
+            $('.btn_AccountEdit').click(function (e) {
+                e.preventDefault();
+                $('#mode-view').addClass('display-none');
+                $('#mode-edit').removeClass('display-none');
+            });
+            $('.btn_AccountSave').click(function (e) {
+                e.preventDefault();
+                endEditMode();
+            });
+
+            $('.btn_MyAccount').click(function (e) {
+                e.preventDefault();
+                endEditMode();
+                $('#section_MyAccount').removeClass('display-none');
+                $('#section_Addresses').addClass('display-none');
+                $('#section_OrderHistory').addClass('display-none');
+            });
+            $('.btn_Addresses').click(function (e) {
+                e.preventDefault();
+                $('#section_MyAccount').addClass('display-none');
+                $('#section_Addresses').removeClass('display-none');
+                $('#section_OrderHistory').addClass('display-none');
+            });
+            $('.btn_OrderHistory').click(function (e) {
+                e.preventDefault();
+                $('#section_MyAccount').addClass('display-none');
+                $('#section_Addresses').addClass('display-none');
+                $('#section_OrderHistory').removeClass('display-none');
+            });
+        });
+    </script>
 
 
       
