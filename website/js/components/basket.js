@@ -40,7 +40,6 @@ export default {
     <div v-if="options.length" class="options-basket">
         <div class="heading-wrapper">
           <div class="heading">
-              <div class="action-step">Step 03.</div>
               <h2 class="title">Check your chosen specification / quote:</h2>
           </div>
         </div>
