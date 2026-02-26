@@ -3,6 +3,7 @@
 }
 
 .desktop-buttons {
+  font-family: "Geometr415", sans-serif;
   display: block;
 }
 
@@ -369,6 +370,7 @@
   margin: 0 auto;
   max-width: var(--max-width);
   width: 100%;
+  font-family: "Geometr415", sans-serif;
 
   ol {
     border-top: 1px solid var(--brand-gray);
@@ -481,7 +483,9 @@
 }
 
 .bttn {
-  padding: 12px 16px 8px;
+  font-family: "Geometr415", sans-serif;
+  font-weight: 100;
+  padding: 10px 16px 8px;
   font-size: 1rem;
   border-radius: 2px;
   cursor: pointer;
@@ -531,6 +535,7 @@
   span {
     &:last-child {
       color: var(--brand-yellow);
+      font-size: 1.1rem;
     }
   }
 
@@ -761,7 +766,7 @@
   position: relative;
 
   &::after {
-    content: "\f077";
+    content: "\f002";
     font-family: FontAwesome;
     font-weight: normal;
     font-style: normal;
@@ -778,17 +783,23 @@
 .lc_lightbox_link {
   @media (hover: hover) {
     position: relative;
+
     &:after {
       content: "\f002";
       font-family: FontAwesome;
+      line-height: 1;
       font-weight: normal;
       font-style: normal;
       position: absolute;
-      bottom: -5px;
-      right: 0;
-      color: var(--brand-red);
-      font-size: 1.2rem;
-      text-shadow: 0 0 3px #fff;
+      background-color: var(--brand-red);
+      border-radius: 50%;
+      bottom: 1px;
+      right: 1px;
+      padding: 6px;
+
+      color: white;
+      font-size: 1rem;
+      // text-shadow: 0 0 3px #fff;
     }
   }
 }

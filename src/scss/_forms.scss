@@ -72,34 +72,6 @@
     &.error {
       border-color: var(--brand-red);
     }
-
-    // -webkit-appearance: none;
-    // -moz-appearance: none;
-    // appearance: none;
-    // height: inherit;
-    // outline: none;
-    // width: 100%;
-    // line-height: 1;
-
-    // &::after {
-    //   /* FontAwesome Setup */
-    //   content: "\f078"; /* Unicode for chevron-down */
-    //   font-family: "Font Awesome 6 Free";
-    //   font-weight: 900;
-
-    //   /* Positioning */
-    //   position: absolute;
-    //   right: 15px;
-    //   top: 50%;
-    //   transform: translateY(-50%);
-
-    //   /* Styling */
-    //   color: #666;
-    //   font-size: 14px;
-
-    //   /* Interaction */
-    //   pointer-events: none;
-    // }
   }
 
   .error-message {
@@ -124,7 +96,7 @@
       outline: none;
       background-color: white;
       color: var(--brand-text);
-      padding: 8px 8px 5px 8px;
+      padding: 6px 8px;
       line-height: 1;
       width: 100%;
     }

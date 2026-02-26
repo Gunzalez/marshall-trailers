@@ -19,6 +19,7 @@
     padding-bottom: 15px;
     border-right: 1px solid var(--brand-gray);
     display: none;
+    font-family: "Geometr415", sans-serif;
 
     h3 {
       background-color: var(--brand-gray);
@@ -344,10 +345,14 @@
 
       .val {
         font-size: 1.2rem;
+        font-family: "Geometr415", sans-serif;
+        font-weight: bold;
       }
 
       .price {
         font-size: 2rem;
+        font-family: "Geometr415", sans-serif;
+        font-weight: bold;
       }
 
       .add-to-basket {
