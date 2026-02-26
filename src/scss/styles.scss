@@ -696,14 +696,14 @@
     }
 
     .details {
+      display: flex;
+      flex-direction: column;
+      gap: 0.175rem;
+
       * {
         margin: 0;
         padding: 0;
       }
-
-      display: flex;
-      flex-direction: column;
-      gap: 0.175rem;
     }
 
     .department-name {
@@ -1499,7 +1499,7 @@
   .details {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 0.25rem;
     flex: 1;
     padding-bottom: 1rem;
     border-bottom: 1px solid var(--brand-gray);
@@ -1617,4 +1617,17 @@
   align-items: center;
   flex-direction: column;
   border-bottom: 1px solid var(--brand-gray-dark);
+}
+
+.addresses-actions {
+  border-top: 1px solid var(--brand-gray);
+  padding-top: 1rem;
+  text-align: right;
+}
+
+.addresses-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-bottom: 2rem;
 }
