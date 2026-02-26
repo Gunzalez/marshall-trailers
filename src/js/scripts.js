@@ -42,7 +42,7 @@
     init: function () {
       $(".pre-script").removeClass("pre-script");
 
-      $(".quantity-select").selectric({
+      $(".select-input").selectric({
         maxHeight: 168,
       });
     },
@@ -447,20 +447,6 @@
   /*---------------------------------------------------------------- */
 
   /**
-   * @quantitySelects
-   * Global quantity selects height and behaviour configuration
-   */
-  marshallTrailers.quantitySelects = {
-    init: function () {
-      $(".quantity-select").selectric({
-        maxHeight: 168,
-      });
-    },
-  };
-
-  /*---------------------------------------------------------------- */
-
-  /**
    * @basket
    * Handles the basket behaviour and ajax updating of its contents
    */
@@ -542,7 +528,7 @@
         }
 
         if ($(this).find(".unit-price").length > 0) {
-          var qty = $(this).find(".quantity-select").val() || "0";
+          var qty = $(this).find(".select-input").val() || "0";
           subtotal +=
             parseFloat($(this).find(".unit-price").data("unit-price") || "0") *
             parseInt(qty, 10);
@@ -568,7 +554,7 @@
     },
 
     init: function () {
-      $("#checkout-form").on("change", ".quantity-select", function () {
+      $("#checkout-form").on("change", ".select-input", function () {
         var $this = $(this);
         var qty = $this.val();
         var uintPrice = $this
