@@ -502,11 +502,86 @@
         <div id="configure-app" class="configure-app">
             <div class="form-wrapper">
                 <form class="configure-form body-copy">
-                    <select id="machine-select">
-                        <option value="" selected>Select machine</option>
-                    </select>
-                    <select id="model-select" class="model-select" disabled>
-                        <option value="" selected>Select model</option>
+                    <h2>Select your machine</h2>
+                    <select id="machine-select" name="machine" data-select-height="300" class="select-input">
+                        <option value="">Please select...</option>
+                        <optgroup label="Silage / Grain Trailers">
+                            <option value="4">QM-6 - 6.5 tons</option>
+                            <option value="6">QM-8 - 8.5 tons</option>
+                            <option value="38">QM-11 - 11 tons</option>
+                            <option value="39">QM-12 - 12 tons</option>
+                            <option value="48">QM-1200 - 12 tons</option>
+                            <option value="40">QM-14 - 14.5 tons</option>
+                            <option value="49">QM-1400 - 14.5 tons</option>
+                            <option value="41">QM-16 - 16.5 tons</option>
+                            <option value="50">QM-1600 - 16.5 tons</option>
+                            <option value="120">QM-1800 - 18.5 tons</option>
+                        </optgroup>
+                        <optgroup label="Drop-Side Trailers">
+                            <option value="59">S-1 - 1.5 tons</option>
+                            <option value="42">S-2 - 2 tons</option>
+                            <option value="43">S-4 - 4 tons</option>
+                            <option value="44">S-5 - 5 tons</option>
+                            <option value="45">S-6 - 6.5 tons</option>
+                            <option value="46">S-85 - 8.5 tons</option>
+                            <option value="47">S-10 - 10.5 tons</option>
+                        </optgroup>
+                        <optgroup label="Flat / Bale Trailers">
+                            <option value="33">BC-21 - 21' x 8' / 10 tons</option>
+                            <option value="34">BC-25-10T - 25' x 8'</option>
+                            <option value="35">BC-25-12T - 25' x 8' 4"</option>
+                            <option value="36">BC-28 - 28' x 8' 4" / 14 tons</option>
+                            <option value="37">BC-32-TAN - 32' x 8' 4" / 14 tons</option>
+                            <option value="127">BC-32-TRI - 32' x 8' 4" / 16 tons</option>
+                            <option value="133">BC-36-TAN - 36' x 8' 4" / 16 tons</option>
+                            <option value="134">BC-36-TRI - 36' x 8' 4" / 16 tons</option>
+                        </optgroup>
+                        <optgroup label="Low Loader Trailers">
+                            <option value="141">LL-26-TAN - 16 tons</option>
+                            <option value="142">LL-33-TRI - 21 tons</option>
+                        </optgroup>
+                        <optgroup label="Dumper Trailers">
+                            <option value="121">HD-6 - 6 tons / 3.7 cu.mtrs</option>
+                            <option value="122">HD-8 - 8 tons / 5.4 cu.mtrs</option>
+                            <option value="123">HD-12 - 12 tons / 7 cu.mtrs</option>
+                            <option value="124">HD-14 - 14 tons / 8.7 cu.mtrs</option>
+                            <option value="125">HD-16 - 16 tons / 10.5 cu.mtrs</option>
+                        </optgroup>
+                        <optgroup label="Feed Trailers">
+                            <option value="7">FT-15 - 15' Long</option>
+                            <option value="8">FT-20 - 20' Long</option>
+                        </optgroup>
+                        <optgroup label="Livestock Trailers / Containers">
+                            <option value="137">LST-21 - 21' Long</option>
+                            <option value="138">LST-25 - 25' Long</option>
+                            <option value="139">LST-28 - 28' Long</option>
+                            <option value="140">LST-32 - 32' Long</option>
+                        </optgroup>
+                        <optgroup label="Muck Spreaders">
+                            <option value="13">MS-60 - 6 cu.yds</option>
+                            <option value="14">MS-75 - 7.5 cu.yds</option>
+                            <option value="15">MS-90 - 9 cu.yds</option>
+                            <option value="16">MS-105 - 10.5 cu.yds</option>
+                        </optgroup>
+                        <optgroup label="Rear Discharge Muck Spreaders">
+                            <option value="17">VES-1500 - 9 tons</option>
+                            <option value="18">VES-2000 - 12 tons</option>
+                            <option value="19">VES-2500 - 14 tons</option>
+                        </optgroup>
+                        <optgroup label="Tankers">
+                            <option value="20">ST-1200 - 1220 gallons</option>
+                            <option value="21">ST-1400 - 1400 gallons</option>
+                            <option value="22">ST-1600 - 1550 gallons</option>
+                            <option value="23">ST-1800 - 1800 gallons</option>
+                            <option value="24">ST-2000 - 2150 gallons</option>
+                            <option value="25">ST-2300 - 2340 gallons</option>
+                            <option value="26">ST-2550 - 2560 gallons</option>
+                            <option value="126">ST-3000 - 3000 gallons</option>
+                            <option value="135">ST-3500 - 3500 gallons</option>
+                        </optgroup>
+                        <optgroup label="People Carrier Trailers">
+                            <option value="136">PC-21 - 21' x 8' / 27 People</option>
+                        </optgroup>
                     </select>
                 </form>
             </div>
