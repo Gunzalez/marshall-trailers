@@ -102,8 +102,10 @@
     $("#machine-select").on("change", function () {
       if (isAjaxBusy) return;
 
-      hideOptionsApp();
       var product_Id = $(this).val();
+      if (product_Id.trim() === "") return;
+
+      hideOptionsApp();
       updateUrlWithProductId(product_Id);
       fetchMachineDetails(product_Id);
 
