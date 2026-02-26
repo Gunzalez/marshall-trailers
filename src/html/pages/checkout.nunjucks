@@ -4,176 +4,177 @@
 
 {% block content %}
 
-  {{ macros.header("images/logo-marshall-trailers-color.png") }}
+    {{ macros.header("images/logo-marshall-trailers-color.png") }}
 
-  <nav aria-label="breadcrumbs" class="breadcrumbs">
-    <ol>
-      <li>
-        <a href="index.html">Home</a>
-      </li>
-      <li>Checkout</li>
-    </ol>
-  </nav>
+    <nav aria-label="breadcrumbs" class="breadcrumbs">
+        <ol>
+            <li>
+                <a href="index.html">Home</a>
+            </li>
+            <li>Checkout</li>
+        </ol>
+    </nav>
 
-  <div class="title-wrapper">
-    <h1 class="page-title">Checkout</h1>
-  </div>
-
-  <form id="checkout-form" class="form" method="post" action="/submit-payment">
-    <div class="section body-copy">
-      <h2 class="title underlined">Your Basket</h2>
-      <ul id="checkout-items" class="checkout-items">
-        {% for item in checkoutData %}
-          <li class="checkout-item">
-            {% if item.product_type == "machine" %}
-              <div class="image machine-image">
-                <a href="{{ item.img_url_large }}" title="{{ item.product_title }} - {{ item.description }}" class="lc_lightbox_link image-link">
-                  <img src="{{ item.img_url_small }}" alt="{{ item.product_title }}">
-                </a>
-              </div>
-            {% else %}
-              <div class="image part-image">
-                <a href="{{ item.img_url_large }}" title="{{ item.part_no }}" class="lc_lightbox_link image-link">
-                  <img src="{{ item.img_url_small }}" alt="{{ item.part_no }}">
-                </a>
-              </div>
-            {% endif %}
-
-            <div class="details">
-              {% if item.product_title %}
-                <h3 class="product-title">{{ item.product_title }}</h3>
-              {% endif %}
-              {% if item.part_no %}
-                <h3 class="part_no">Part No: {{ item.part_no }}</h3>
-              {% endif %}
-              {% if item.description %}
-                <span class="description">{{ item.description }}</span>
-              {% endif %}
-              {% if item.unit_weight %}
-                <span class="unit-weight">Unit weight: {{ item.unit_weight }}</span>
-              {% endif %}
-              {% if item.unit_price %}
-                <span class="unit-price" data-unit-price="{{ item.unit_price }}">Unit price ex. VAT: £{{ item.unit_price }}</span>
-              {% endif %}
-            </div>
-            <div class="item-values">
-              <div class="price-wrapper">
-                <span class="lbl">Total cost:</span>
-                {% if item.unit_price %}
-                  <span class="val total-price">{{ item.unit_price }}</span>
-                {% endif %}
-                {% if item.basic_price %}
-                  <span class="val basic-price">{{ item.basic_price }}</span>
-                {% endif %}
-              </div>
-
-              {% if item.basic_price %}
-                <input type="hidden" id="basic-price" name="basic-price" value="{{ item.basic_price }}">
-              {% endif %}
-
-              {% if item.unit_price %}
-                <input type="hidden" name="qty" value="{{ item.qty }}">
-                <div class="actions">
-                  {{ macros.quantityField("id-" ~ item.part_no, item.qty) }}
-                  <button type="button" class="bttn btn_removeItem">
-                    <span>
-                      <i class="fa-solid fa-trash-can"></i>
-                    </span>
-                    <span>Remove</span>
-                  </button>
-                </div>
-              {% endif %}
-            </div>
-          </li>
-        {% endfor %}
-      </ul>
-      <div class="checkout-total">
-        <table>
-          <tr>
-            <td>Subtotal:</td>
-            <td class="val" id="subtotal"></td>
-          </tr>
-          <tr>
-            <td>Shipping:</td>
-            <td class="val" id="shipping">£30.00</td>
-          </tr>
-          <tr>
-            <td>VAT (19%):</td>
-            <td class="val" id="vat"></td>
-          </tr>
-          <tr class="total-row">
-            <td>Total inc VAT:</td>
-            <td class="val" id="total"></td>
-          </tr>
-        </table>
-        <input type="hidden" id="shipping" name="shipping" value="30.00">
-        <input type="hidden" id="vat" name="vat" value="19">
-      </div>
-
-      <div class="buttons-and-form-fields">
-        <div>
-          {{ macros.checkoutNav() }}
-        </div>
-        <div class="fieldset-width">
-          <div class="address-details">
-            <h2 class="title underlined">Address details</h2>
-            <div class="input-group-pair">
-              <div class="input-group">
-                <label for="name">First name</label>
-                <input type="text" id="name" name="name" value="Mr. O.">
-              </div>
-              <div class="input-group">
-                <label for="last-name">Last name</label>
-                <input type="text" id="last-name" name="last-name" value="Tester">
-              </div>
-            </div>
-            <div class="input-group">
-              <label for="email">Email</label>
-              <input type="email" id="email" name="email" value="mister.ohtester@example.com">
-            </div>
-            <div class="input-group">
-              <label for="phone">Phone</label>
-              <input type="tel" id="phone" name="phone" value="01234567890">
-            </div>
-            <div class="input-group">
-              <label for="address">Address</label>
-              <select id="address" name="address" class="select-input">
-                <option value="123 Main St, AnyTown, AT 12345">123 Main St, AnyTown, AT 12345</option>
-                <option value="456 Oak Ave, SomeTown, ST 67890">456 Oak Ave, SomeTown, ST 67890</option>
-                <option value="789 Pine Rd, YourTown, YT 54321">789 Pine Rd, YourTown, YT 54321</option>
-              </select>
-            </div>
-
-            <div class="input-group">
-              <label class="checkbox-label">
-                <input type="checkbox" name="GDPR-policy" value="yes" checked>
-                <span>I agree to the <a href="privacy-policy.html#GDPR" target="_blank">GDPR policy</a>
-                </span>
-              </label>
-            </div>
-            <div class="input-group">
-              <label class="checkbox-label">
-                <input type="checkbox" name="terms-and-conditions" value="yes">
-                <span>Agree with <a href="terms-and-conditions.html#terms" target="_blank">terms and conditions.</a>
-                </span>
-              </label>
-            </div>
-          </div>
-          <i class="fa-brands fa-stripe text-4xl"></i>
-          <p>Pay with Stripe.</p>
-          <button type="submit" class="bttn btn_Submit">
-            <span>
-              <i class="fa-regular fa-credit-card"></i>
-            </span>
-            <span>Make payment now</span>
-          </button>
-          <p class="mt-4">
-            <a href="checkout-done.html">Thank You page (for testing purposes)</a>
-          </p>
-        </div>
-      </div>
+    <div class="title-wrapper">
+        <h1 class="page-title">Checkout</h1>
     </div>
 
-  </form>
+    <form id="checkout-form" class="form" method="post" action="/submit-payment">
+        <div class="section body-copy">
+            <h2 class="title underlined">Your Basket</h2>
+            <ul id="checkout-items" class="checkout-items">
+                {% for item in checkoutData %}
+                    <li class="checkout-item">
+                        {% if item.product_type == "machine" %}
+                            <div class="image machine-image">
+                                <a href="{{ item.img_url_large }}" title="{{ item.product_title }} - {{ item.description }}" class="lc_lightbox_link image-link">
+                                    <img src="{{ item.img_url_small }}" alt="{{ item.product_title }}">
+                                </a>
+                            </div>
+                        {% else %}
+                            <div class="image part-image">
+                                <a href="{{ item.img_url_large }}" title="{{ item.part_no }}" class="lc_lightbox_link image-link">
+                                    <img src="{{ item.img_url_small }}" alt="{{ item.part_no }}">
+                                </a>
+                            </div>
+                        {% endif %}
+
+                        <div class="details">
+                            {% if item.product_title %}
+                                <h3 class="product-title">{{ item.product_title }}</h3>
+                            {% endif %}
+                            {% if item.part_no %}
+                                <h3 class="part_no">Part No: {{ item.part_no }}</h3>
+                            {% endif %}
+                            {% if item.description %}
+                                <span class="description">{{ item.description }}</span>
+                            {% endif %}
+                            {% if item.unit_weight %}
+                                <span class="unit-weight">Unit weight: {{ item.unit_weight }}</span>
+                            {% endif %}
+                            {% if item.unit_price %}
+                                <span class="unit-price" data-unit-price="{{ item.unit_price }}">Unit price ex. VAT: £{{ item.unit_price }}</span>
+                            {% endif %}
+                        </div>
+                        <div class="item-values">
+                            <div class="price-wrapper">
+                                <span class="lbl">Total cost:</span>
+                                {% if item.unit_price %}
+                                    <span class="val total-price">{{ item.unit_price }}</span>
+                                {% endif %}
+                                {% if item.basic_price %}
+                                    <span class="val basic-price">{{ item.basic_price }}</span>
+                                {% endif %}
+                            </div>
+
+                            {% if item.basic_price %}
+                                <input type="hidden" id="basic-price" name="basic-price" value="{{ item.basic_price }}">
+                            {% endif %}
+
+                            {% if item.unit_price %}
+                                <input type="hidden" name="qty" value="{{ item.qty }}">
+                                <div class="actions">
+                                    {{ macros.quantityField("id-" ~ item.part_no, item.qty) }}
+                                    <button type="button" class="bttn btn_removeItem">
+                                        <span>
+                                            <i class="fa-solid fa-trash-can"></i>
+                                        </span>
+                                        <span>Remove</span>
+                                    </button>
+                                </div>
+                            {% endif %}
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+            <div class="checkout-total">
+                <table>
+                    <tr>
+                        <td>Subtotal:</td>
+                        <td class="val" id="subtotal"></td>
+                    </tr>
+                    <tr>
+                        <td>Shipping:</td>
+                        <td class="val" id="shipping">£30.00</td>
+                    </tr>
+                    <tr>
+                        <td>VAT (19%):</td>
+                        <td class="val" id="vat"></td>
+                    </tr>
+                    <tr class="total-row">
+                        <td>Total inc VAT:</td>
+                        <td class="val" id="total"></td>
+                    </tr>
+                </table>
+                <input type="hidden" id="shipping" name="shipping" value="30.00">
+                <input type="hidden" id="vat" name="vat" value="19">
+            </div>
+
+            <div class="buttons-and-form-fields">
+                <div>
+                    {{ macros.checkoutNav() }}
+                </div>
+                <div class="fieldset-width">
+                    <div class="address-details">
+                        <h2 class="title underlined">Address details</h2>
+                        <div class="input-group-pair">
+                            <div class="input-group">
+                                <label for="name">First name</label>
+                                <input type="text" id="name" name="name" value="Mr. O.">
+                            </div>
+                            <div class="input-group">
+                                <label for="last-name">Last name</label>
+                                <input type="text" id="last-name" name="last-name" value="Tester">
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" value="mister.ohtester@example.com">
+                        </div>
+                        <div class="input-group">
+                            <label for="phone">Phone</label>
+                            <input type="tel" id="phone" name="phone" value="01234567890">
+                        </div>
+                        <div class="input-group">
+                            <label for="address">Address</label>
+                            <select id="address" name="address" class="select-input">
+                                <option value="">Select an address</option>
+                                <option value="123 Main St, AnyTown, AT 12345">123 Main St, AnyTown, AT 12345</option>
+                                <option value="456 Oak Ave, SomeTown, ST 67890">456 Oak Ave, SomeTown, ST 67890</option>
+                                <option value="789 Pine Rd, YourTown, YT 54321">789 Pine Rd, YourTown, YT 54321</option>
+                            </select>
+                        </div>
+
+                        <div class="input-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="GDPR-policy" value="yes" checked>
+                                <span>I agree to the <a href="privacy-policy.html#GDPR" target="_blank">GDPR policy</a>
+                                </span>
+                            </label>
+                        </div>
+                        <div class="input-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="terms-and-conditions" value="yes">
+                                <span>Agree with <a href="terms-and-conditions.html#terms" target="_blank">terms and conditions.</a>
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+                    <i class="fa-brands fa-stripe text-4xl"></i>
+                    <p>Pay with Stripe.</p>
+                    <button type="submit" class="bttn btn_Submit">
+                        <span>
+                            <i class="fa-regular fa-credit-card"></i>
+                        </span>
+                        <span>Make payment now</span>
+                    </button>
+                    <p class="mt-4">
+                        <a href="checkout-done.html">Thank You page (for testing purposes)</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </form>
 
 {% endblock %}

@@ -61,23 +61,15 @@
                             <input type="tel" id="phone" name="phone">
                         </div>
                         <div class="input-group">
-                            <label for="company">Company name</label>
-                            <input type="text" id="company" name="company">
-                        </div>
-                        <div class="input-group">
                             <label for="address">Address</label>
-                            <textarea id="address" name="address" ></textarea>
+                            <select id="address" name="address" class="select-input">
+                                <option value="">Select an address</option>
+                                <option value="123 Main St, AnyTown, AT 12345">123 Main St, AnyTown, AT 12345</option>
+                                <option value="456 Oak Ave, SomeTown, ST 67890">456 Oak Ave, SomeTown, ST 67890</option>
+                                <option value="789 Pine Rd, YourTown, YT 54321">789 Pine Rd, YourTown, YT 54321</option>
+                            </select>
                         </div>
-                        <div class="input-group-pair">
-                            <div class="input-group">
-                                <label for="postcode">Postcode</label>
-                                <input type="text" id="postcode" name="postcode">
-                            </div>
-                            <div class="input-group">
-                                <label for="country">Country</label>
-                                <input type="text" id="country" name="country">
-                            </div>
-                        </div>
+
                         <div class="input-group">
                             <label class="checkbox-label">
                                 <input type="checkbox" name="GDPR-policy" value="yes">
