@@ -42,8 +42,12 @@
     init: function () {
       $(".pre-script").removeClass("pre-script");
 
-      $(".select-input").selectric({
-        maxHeight: 168,
+      var defaultSelectHeight = 168;
+      $(".select-input").each(function () {
+        var selectHeight = $(this).data("select-height");
+        $(this).selectric({
+          maxHeight: selectHeight || defaultSelectHeight,
+        });
       });
     },
   };

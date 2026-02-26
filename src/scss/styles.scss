@@ -1100,8 +1100,14 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
-    padding-bottom: 1rem;
+    padding-bottom: 12px;
     border-bottom: 1px solid var(--brand-gray);
+
+    > * {
+      margin: 0;
+      padding: 0;
+      line-height: 1;
+    }
   }
 
   .form-wrapper {
@@ -1120,10 +1126,11 @@
       display: flex;
       flex-direction: row;
       align-items: center;
+      gap: 1rem;
     }
 
     .selectric-wrapper {
-      width: 320px;
+      width: 340px;
     }
   }
 }
