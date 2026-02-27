@@ -53,6 +53,7 @@
 - 24th February: 2hrs
 - 25th February: 5hrs
 - 26th February: 3hrs
+- 27th February: 3hrs
 
 #### NEXT
 
