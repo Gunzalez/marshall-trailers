@@ -111,7 +111,7 @@
                 </div>
                 <div class="flex gap-4 items-center quick-nav-top">
                     {{ quickNav() }}
-                    <button type="button" aria-label="open menu" id="open-navigation" class="cursor-pointer">
+                    <button type="button" aria-label="open menu" id="open-navigation" class="open-navigation-button">
                         <i class="fa-solid fa-bars"></i>
                     </button>
                 </div>
@@ -391,8 +391,9 @@
     <form>
         <ol>
             <li class="result">
-                <a href="https://www.marshall-trailers.co.uk/uploads/spares/large/051-01-9046.jpg" title="UCF210 Bearing - 50mm ID - Pst 09.2019" class="lc_lightbox_link spare-thumbnail"><img src="https://www.marshall-trailers.co.uk/uploads/spares/051-01-9046.jpg" alt="UCF210 Bearing - 50mm ID - Pst 09.2019"></a>
-
+                <a href="https://www.marshall-trailers.co.uk/uploads/spares/large/051-01-9046.jpg" title="UCF210 Bearing - 50mm ID - Pst 09.2019" class="lc_lightbox_link spare-thumbnail">
+                    <img src="https://www.marshall-trailers.co.uk/uploads/spares/051-01-9046.jpg" alt="UCF210 Bearing - 50mm ID - Pst 09.2019">
+                </a>
                 <div class="details">
                     <h3 class="title">
                         <div>

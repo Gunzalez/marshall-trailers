@@ -205,8 +205,8 @@
 
       button {
         width: 10px;
-        height: 8px;
-        border-radius: 1px;
+        height: 10px;
+        border-radius: 4px;
         cursor: pointer;
         transition: all 0.5s ease-in-out;
       }
@@ -214,7 +214,7 @@
       .slick-active {
         button {
           width: 60px;
-          height: 8px;
+          border-radius: 6px;
           cursor: default;
         }
       }
@@ -1402,6 +1402,7 @@
       .total-price {
         font-size: 1.2rem;
         font-weight: bold;
+        font-family: "Geometr415", sans-serif;
       }
 
       @media screen and (min-width: $breakpoint2) {
@@ -1413,6 +1414,18 @@
           font-size: 1rem;
         }
       }
+    }
+  }
+
+  .options-actions {
+    label {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    textarea {
+      height: 120px;
     }
   }
 
