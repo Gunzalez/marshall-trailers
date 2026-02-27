@@ -663,22 +663,22 @@
       "label": "Explore"
     },
     {
-      "title": "New Low Loader",
+      "title": "Our Drop-Side trailers",
       "image": "images/sample-hero-2.jpg",
-      "url": "products.html?model=new-low-loaders",
-      "label": "Our Low Loaders"
+      "url": "products.html?model=drop-side-trailers",
+      "label": "Wide Range"
     },
     {
       "title": "The Marshall Livestock Container",
       "image": "images/sample-hero-3.jpg",
-      "url": "product.html?id=mlc10",
+      "url": "contact.html",
       "label": "Talk To Us"
     },
     {
       "title": "Marshall Drop-side Trailer",
       "image": "images/sample-hero-4.jpg",
-      "url": "product.html?id=qm-18",
-      "label": "Find Out More"
+      "url": "about.html",
+      "label": "About Marshalls"
     }
   ],
   "clearanceData": [
