@@ -103,7 +103,7 @@
       if (isAjaxBusy) return;
 
       var product_Id = $(this).val();
-      if (product_Id.trim() === "") return;
+      if (!product_Id?.trim()) return;
 
       hideOptionsApp();
       updateUrlWithProductId(product_Id);

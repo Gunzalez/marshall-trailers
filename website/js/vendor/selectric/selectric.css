@@ -212,14 +212,14 @@
 
 .selectric-items .selectric-group .selectric-group-label {
   font-weight: bold;
-  padding-left: 10px;
+  padding-left: 12px;
   cursor: default;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
   background: none;
-  color: #444;
+  color: var(--brand-red);
 }
 
 .selectric-items .selectric-group.disabled li {

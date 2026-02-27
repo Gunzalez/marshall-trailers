@@ -1,3 +1,4 @@
+// Joint decision to leave a jQuery App and not a Vue app.
 var basket_total = 0; // running total for selected machine config
 var spares_total = 0; // running total for spares basket
 var totalNumFilters = 7;
@@ -22,6 +23,11 @@ function updateFieldsMeta(level, cid) {
   $("#fields").data("cid", cid);
 }
 
+function clearInputFields() {
+  $("#part_no").val("");
+  $("#keyword").val("");
+}
+
 function showResults(content) {
   $("#results").html(content).show();
 
@@ -30,52 +36,58 @@ function showResults(content) {
   window.MT.lcLightBoxLinks.soloTextLinks();
 
   // re-init selectric for new content //
-  window.MT.quantitySelects.init();
+  window.MT.global.init();
 }
 
 document.addEventListener("DOMContentLoaded", () => {
   $("#filter1").on("change", function () {
+    $("#range").val("").prop("disabled", true).selectric("refresh");
+    $("#model").empty().prop("disabled", true).selectric("refresh");
+    clearFilters();
+    clearResults();
+    clearInputFields();
+
+    var category_id = $(this).val();
+    if (category_id === "df" || category_id === "") {
+      return;
+    }
+
+    $("#range").prop("disabled", false).selectric("refresh");
+
     $("#processing").fadeIn("fast");
 
-    $("#range").val("").prop("disabled", false).selectric("refresh");
-    $("#model").empty().prop("disabled", true).selectric("refresh");
-
-    // set data, used by model, range selects //
+    // set data, used by model, range selects
     var category_id = $(this).val();
     updateFieldsMeta(1, category_id);
     var selectedItemName = $("#filter1 option:selected").text();
 
-    clearFilters();
     // get child cats //
-    if (category_id !== "df" && category_id !== "") {
-      $.ajax({
-        type: "get",
-        url: "/ajax/ajax_filter.php",
-        data: "level=2&pid=" + category_id,
-        dataType: "json",
-        success: function (dat) {
-          if (dat.cats !== null) {
-            $("#filter2").parent(".slide").addClass("selected");
+    $.ajax({
+      type: "get",
+      url: "/ajax/ajax_filter.php",
+      data: "level=2&pid=" + category_id,
+      dataType: "json",
+      success: function (dat) {
+        if (dat.cats !== null) {
+          $("#filter2")
+            .parent(".slide")
+            .addClass("selected")
+            .find("h3")
+            .text(selectedItemName);
 
-            $("#filter2").parent(".slide").find("h3").text(selectedItemName);
-
-            for (var i = 0; i < dat.cats.length; i++) {
-              $("#filter2").append(
-                '<li><a href="#" data-cid="' +
-                  dat.cats[i].id +
-                  '" class="filter">' +
-                  dat.cats[i].category_name +
-                  "</a></li>",
-              );
-            }
+          for (var i = 0; i < dat.cats.length; i++) {
+            $("#filter2").append(
+              '<li><a href="#" data-cid="' +
+                dat.cats[i].id +
+                '" class="filter">' +
+                dat.cats[i].category_name +
+                "</a></li>",
+            );
           }
-        },
-      });
-    } else {
-      $("#range").prop("disabled", true).selectric("refresh");
-    }
+        }
+      },
+    });
 
-    clearResults();
     // get spares results //
     $.ajax({
       type: "get",
@@ -187,18 +199,24 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   $("#range").on("change", function () {
+    $("#model").empty().prop("disabled", true).selectric("refresh");
+    var rid = $(this).val();
+    if (rid.trim() === "") {
+      return;
+    }
+
     $("#processing").fadeIn("fast");
 
     var level = $("#fields").data("level");
     var cat_id = $("#fields").data("cid");
 
-    $("#model").empty().prop("disabled", false).selectric("refresh");
+    // $("#model").empty().prop("disabled", false).selectric("refresh");
 
     // get products //
     $.ajax({
       type: "get",
       url: "/ajax/ajax_get_products.php",
-      data: "rid=" + $(this).val(),
+      data: "rid=" + rid,
       dataType: "json",
       success: function (dat) {
         if (dat.products != null) {
@@ -222,7 +240,7 @@ document.addEventListener("DOMContentLoaded", () => {
     $.ajax({
       type: "get",
       url: "/ajax/ajax_filter_results.php",
-      data: "level=" + level + "&cid=" + cat_id + "&range=" + $(this).val(),
+      data: "level=" + level + "&cid=" + cat_id + "&range=" + rid,
       dataType: "html",
       success: function (content) {
         $("#processing").fadeOut("fast");
@@ -232,6 +250,11 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   $("#model").on("change", function () {
+    var model_id = $(this).val();
+    if (model_id.trim() === "") {
+      return;
+    }
+
     $("#processing").fadeIn("fast");
 
     var level = $("#fields").data("level");
@@ -250,7 +273,7 @@ document.addEventListener("DOMContentLoaded", () => {
         "&range=" +
         $("#range").val() +
         "&model=" +
-        $(this).val(),
+        model_id,
       dataType: "html",
       success: function (content) {
         $("#processing").fadeOut("fast");
@@ -261,6 +284,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   $("#filter-form").on("submit", function (event) {
     event.preventDefault();
+
+    var part_no = $("#part_no").val().trim();
+    var keyword = $("#keyword").val().trim();
+
+    if (part_no === "" && keyword === "") {
+      return;
+    }
 
     $("#processing").fadeIn("fast");
 
@@ -414,7 +444,7 @@ document.addEventListener("DOMContentLoaded", () => {
     $("#order_form_pdf:visible").slideUp();
   });
 
-  $("#btn_continueShop").click(function (event) {
+  $("#btn_ContinueShop").click(function (event) {
     event.preventDefault();
     document.location.href = "/spares";
   });
@@ -475,4 +505,6 @@ document.addEventListener("DOMContentLoaded", () => {
   $(".filter-select").selectric({
     maxHeight: 202,
   });
+
+  $("#reload-filters").removeClass("display-none");
 });
