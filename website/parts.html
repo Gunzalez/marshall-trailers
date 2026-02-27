@@ -472,7 +472,7 @@
         </li>
     </ul>
 
-                    <button type="button" aria-label="open menu" id="open-navigation" class="cursor-pointer">
+                    <button type="button" aria-label="open menu" id="open-navigation" class="open-navigation-button">
                         <i class="fa-solid fa-bars"></i>
                     </button>
                 </div>
@@ -503,12 +503,17 @@
 
     <div class="section body-copy">
         <div class="parts-filters-wrapper">
-            <div class="reload-filter">
-                <button type="button" id="reload-filters-bttn" class="bttn" onClick="location.reload();">
-                    <i class="fa-solid fa-arrows-rotate"></i> Reload filters
+
+            <div id="reload-filters" class="reload-filter display-none">
+                <button type="button" class="bttn" onClick="location.reload();">
+                    <span>
+                        <i class="fa-solid fa-arrows-rotate"></i>
+                    </span>
+                    <span>Reload filters</span>
                 </button>
             </div>
-            <div class="carousel-controls display-none">
+
+            <div class="carousel-controls controllers">
                 <button type="button" class="prev-filter" disabled>
                     <i class="fa-solid fa-caret-left"></i>
                 </button>
@@ -516,7 +521,8 @@
                     <i class="fa-solid fa-rotate-right"></i>
                 </button>
             </div>
-            <div id="parts-filters" class="parts-filters display-none">
+
+            <div id="parts-filters" class="parts-filters controllers">
                 <div class="slide selected form-slide">
                     <h3>Select part</h3>
                     <form id="filter-form" class="filter-inputs form" method="post" autoComplete="off">
@@ -698,8 +704,18 @@
                             </div>
 
                             <div class="form-buttons">
-                                <button type="submit" id="btn-Search" class="bttn">Search</button>
-                                <button type="button" id="btn-Reset" class="bttn" onClick="location.reload();">Reset</button>
+                                <button type="submit" class="bttn btn_SearchParts">
+                                    <span>
+                                        <i class="fa-solid fa-magnifying-glass"></i>
+                                    </span>
+                                    <span>Search</span>
+                                </button>
+                                <button type="button" class="bttn btn_ResetParts" onClick="location.reload();">
+                                    <span>
+                                        <i class="fa-solid fa-rotate-right"></i>
+                                    </span>
+                                    <span>Reset</span>
+                                </button>
                             </div>
                         </fieldset>
                     </form>
@@ -729,7 +745,8 @@
                     <ol id="filter7" data-level="7"></ol>
                 </div>
             </div>
-            <div id="results" class="results">
+
+            <div id="results" class="results controllers">
                 
     <h2 class="results-title">
         <strong>180</strong>
@@ -738,8 +755,9 @@
     <form>
         <ol>
             <li class="result">
-                <a href="https://www.marshall-trailers.co.uk/uploads/spares/large/051-01-9046.jpg" title="UCF210 Bearing - 50mm ID - Pst 09.2019" class="lc_lightbox_link spare-thumbnail"><img src="https://www.marshall-trailers.co.uk/uploads/spares/051-01-9046.jpg" alt="UCF210 Bearing - 50mm ID - Pst 09.2019"></a>
-
+                <a href="https://www.marshall-trailers.co.uk/uploads/spares/large/051-01-9046.jpg" title="UCF210 Bearing - 50mm ID - Pst 09.2019" class="lc_lightbox_link spare-thumbnail">
+                    <img src="https://www.marshall-trailers.co.uk/uploads/spares/051-01-9046.jpg" alt="UCF210 Bearing - 50mm ID - Pst 09.2019">
+                </a>
                 <div class="details">
                     <h3 class="title">
                         <div>

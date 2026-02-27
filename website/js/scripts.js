@@ -969,26 +969,21 @@ window.data = data;
     },
 
     init: function () {
-      if (window.innerWidth < this.desktopWidthThreshold) {
-        $("#parts-filters").removeClass("display-none");
-        return;
-      }
+      if (window.innerWidth < this.desktopWidthThreshold) return;
 
-      this.carousel = $("#parts-filters")
-        .slick({
-          dots: false,
-          slidesToShow: this.visibleSlides,
-          slidesToScroll: 1,
-          autoplay: false,
-          draggable: false,
-          swipe: false,
-          touchMove: false,
-          infinite: false,
-          arrows: false,
-        })
-        .removeClass("display-none");
+      this.carousel = $("#parts-filters").slick({
+        dots: false,
+        slidesToShow: this.visibleSlides,
+        slidesToScroll: 1,
+        autoplay: false,
+        draggable: false,
+        swipe: false,
+        touchMove: false,
+        infinite: false,
+        arrows: false,
+      });
+
       $(".parts-filters-wrapper").addClass("initialized");
-      $(".carousel-controls").removeClass("display-none");
 
       this.carousel.on(
         "beforeChange",
@@ -1085,7 +1080,9 @@ window.data = data;
     write: function (numItems, totalPrice) {
       var strS = numItems > 1 ? "s" : "";
       this.$element.find("#num_items").text(numItems + " item" + strS);
-      this.$element.find("#total_price").text(totalPrice);
+      this.$element
+        .find("#total_price")
+        .text(marshallTrailers.checkout.format(totalPrice));
       this.$element.removeClass("busy");
     },
 
@@ -1103,7 +1100,7 @@ window.data = data;
         success: function (response) {
           // TODO: faking behaviour for now
           var numItems = response.basket_count || 0;
-          var totalPrice = response.basket_total || "£0.00";
+          var totalPrice = response.basket_total || "0.00";
           marshallTrailers.basket.write(numItems, totalPrice);
           marshallTrailers.basket.$element.removeClass("busy");
           marshallTrailers.basket.busyState = false;
