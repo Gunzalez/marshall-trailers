@@ -41,7 +41,7 @@
 }
 
 .display-none {
-  display: none;
+  display: none !important;
 }
 
 @media (max-width: 768px) {
@@ -866,6 +866,12 @@
     i {
       color: var(--brand-yellow);
     }
+  }
+
+  .open-navigation-button {
+    line-height: 1;
+    cursor: pointer;
+    transform: scale(1.2);
   }
 }
 

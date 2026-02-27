@@ -12,6 +12,7 @@
 
   .carousel-controls {
     margin-top: 0;
+    display: none;
   }
 
   .slide {
@@ -19,13 +20,12 @@
     padding-bottom: 15px;
     border-right: 1px solid var(--brand-gray);
     display: none;
-    font-family: "Geometr415", sans-serif;
 
     h3 {
       background-color: var(--brand-gray);
       color: white;
       line-height: 1;
-      padding: 8px 10px 4px 10px;
+      padding: 6px 0;
       border-bottom: 1px solid var(--brand-gray);
       white-space: nowrap;
       overflow: hidden;
@@ -40,7 +40,7 @@
       a {
         background-color: var(--brand-gray);
         border-left: 6px solid transparent;
-        padding: 12px 10px 8px;
+        padding: 12px 10px;
         text-decoration: none;
         width: 100%;
         display: block;
@@ -92,7 +92,7 @@
 
   .filter-inputs {
     .title {
-      margin-bottom: 0.375rem;
+      margin-bottom: 0;
     }
 
     .fields {
@@ -114,10 +114,32 @@
     }
   }
 
+  @media screen and (min-width: 768px) {
+    .results {
+      margin-top: 3rem;
+    }
+  }
+
+  @media (min-width: 1200px) {
+    .controllers {
+      display: none;
+    }
+    .reload-filter {
+      display: block;
+    }
+  }
+
   &.initialized {
     .slide {
       display: block;
       min-height: 448px;
+    }
+
+    .reload-filter {
+      display: none;
+    }
+    .controllers {
+      display: block;
     }
 
     .filter-inputs {
@@ -127,25 +149,26 @@
       background-size: 100px;
       transition: background-position 0.3s ease-in-out;
     }
+
     .fields {
-      padding: 5px 60px 0 0;
+      padding: 12px 0 0 0;
+    }
+
+    .text-inputs {
+      max-width: 250px;
+    }
+
+    .carousel-controls {
+      display: flex;
     }
 
     @media (max-width: 1200px) {
+      .controllers {
+        display: none;
+      }
       .reload-filter {
         display: block;
       }
-      .results,
-      .carousel-controls,
-      .parts-filters {
-        display: none;
-      }
-    }
-  }
-
-  @media screen and (min-width: 768px) {
-    .results {
-      margin-top: 3rem;
     }
   }
 }
@@ -346,13 +369,11 @@
       .val {
         font-size: 1.2rem;
         font-family: "Geometr415", sans-serif;
-        font-weight: bold;
       }
 
       .price {
         font-size: 2rem;
         font-family: "Geometr415", sans-serif;
-        font-weight: bold;
       }
 
       .add-to-basket {

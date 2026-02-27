@@ -25,12 +25,17 @@
 
     <div class="section body-copy">
         <div class="parts-filters-wrapper">
-            <div class="reload-filter">
-                <button type="button" id="reload-filters-bttn" class="bttn" onClick="location.reload();">
-                    <i class="fa-solid fa-arrows-rotate"></i> Reload filters
+
+            <div id="reload-filters" class="reload-filter display-none">
+                <button type="button" class="bttn" onClick="location.reload();">
+                    <span>
+                        <i class="fa-solid fa-arrows-rotate"></i>
+                    </span>
+                    <span>Reload filters</span>
                 </button>
             </div>
-            <div class="carousel-controls display-none">
+
+            <div class="carousel-controls controllers">
                 <button type="button" class="prev-filter" disabled>
                     <i class="fa-solid fa-caret-left"></i>
                 </button>
@@ -38,7 +43,8 @@
                     <i class="fa-solid fa-rotate-right"></i>
                 </button>
             </div>
-            <div id="parts-filters" class="parts-filters display-none">
+
+            <div id="parts-filters" class="parts-filters controllers">
                 <div class="slide selected form-slide">
                     <h3>Select part</h3>
                     <form id="filter-form" class="filter-inputs form" method="post" autoComplete="off">
@@ -220,8 +226,18 @@
                             </div>
 
                             <div class="form-buttons">
-                                <button type="submit" id="btn-Search" class="bttn">Search</button>
-                                <button type="button" id="btn-Reset" class="bttn" onClick="location.reload();">Reset</button>
+                                <button type="submit" class="bttn btn_SearchParts">
+                                    <span>
+                                        <i class="fa-solid fa-magnifying-glass"></i>
+                                    </span>
+                                    <span>Search</span>
+                                </button>
+                                <button type="button" class="bttn btn_ResetParts" onClick="location.reload();">
+                                    <span>
+                                        <i class="fa-solid fa-rotate-right"></i>
+                                    </span>
+                                    <span>Reset</span>
+                                </button>
                             </div>
                         </fieldset>
                     </form>
@@ -251,7 +267,8 @@
                     <ol id="filter7" data-level="7"></ol>
                 </div>
             </div>
-            <div id="results" class="results">
+
+            <div id="results" class="results controllers">
                 {{ macros.fakeResults() }}
             </div>
         </div>
