@@ -4,102 +4,102 @@
 
 {% block content %}
 
-    {{ macros.header("images/logo-marshall-trailers-color.png") }}
+  {{ macros.header("images/logo-marshall-trailers-color.png") }}
 
-    <nav aria-label="breadcrumbs" class="breadcrumbs">
-        <ol>
-            <li>
-                <a href="index.html">Home</a>
-            </li>
-            <li>Checkout</li>
-        </ol>
-    </nav>
+  <nav aria-label="breadcrumbs" class="breadcrumbs">
+    <ol>
+      <li>
+        <a href="index.html">Home</a>
+      </li>
+      <li>Checkout</li>
+    </ol>
+  </nav>
 
-    <div class="title-wrapper">
-        <h1 class="page-title">Checkout</h1>
+  <div class="title-wrapper">
+    <h1 class="page-title">Checkout</h1>
+  </div>
+
+  <form id="checkout-form" class="form" method="post" action="/submit-payment">
+    <div class="section body-copy">
+      <h2 class="title underlined">Your Basket</h2>
+
+      <div class="empty-basket-message">
+        <p>Your basket is currently empty.</p>
+        <button id="continue-shopping" type="button" class="bttn btn_ContinueShopping">
+          <span>
+            <i class="fa-solid fa-arrow-left"></i>
+          </span>
+          <span>
+            <span>Continue shopping</span>
+          </span>
+        </button>
+      </div>
+
+      <div class="buttons-and-form-fields">
+        <div>
+          {{ macros.checkoutNav() }}
+        </div>
+        <div class="fieldset-width">
+          <div class="address-details">
+            <h2 class="title underlined">Address details</h2>
+            <div class="input-group-pair">
+              <div class="input-group">
+                <label for="name">First name</label>
+                <input type="text" id="name" name="name" value="">
+              </div>
+              <div class="input-group">
+                <label for="last-name">Last name</label>
+                <input type="text" id="last-name" name="last-name" value="">
+              </div>
+            </div>
+            <div class="input-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email">
+            </div>
+            <div class="input-group">
+              <label for="phone">Phone</label>
+              <input type="tel" id="phone" name="phone">
+            </div>
+            <div class="input-group">
+              <label for="address">Address</label>
+              <select id="address" name="address" class="select-input">
+                <option value="">Select an address</option>
+                <option value="123 Main St, AnyTown, AT 12345">123 Main St, AnyTown, AT 12345</option>
+                <option value="456 Oak Ave, SomeTown, ST 67890">456 Oak Ave, SomeTown, ST 67890</option>
+                <option value="789 Pine Rd, YourTown, YT 54321">789 Pine Rd, YourTown, YT 54321</option>
+              </select>
+            </div>
+
+            <div class="input-group">
+              <label class="checkbox-label">
+                <input type="checkbox" name="GDPR-policy" value="yes">
+                <span>I agree to the <a href="privacy-policy.html#GDPR" target="_blank">GDPR policy</a>
+                </span>
+              </label>
+            </div>
+            <div class="input-group">
+              <label class="checkbox-label">
+                <input type="checkbox" name="terms-and-conditions" value="yes">
+                <span>Agree with <a href="terms-and-conditions.html#terms" target="_blank">terms and conditions.</a>
+                </span>
+              </label>
+            </div>
+          </div>
+          <i class="fa-brands fa-stripe text-4xl"></i>
+          <p>Pay with Stripe.</p>
+          <button type="submit" class="bttn btn_Submit">
+            <span>
+              <i class="fa-regular fa-credit-card"></i>
+            </span>
+            <span>Make payment now</span>
+          </button>
+          <p class="mt-4">
+            <a href="checkout-done.html">Thank You page (for testing purposes)</a>
+          </p>
+        </div>
+      </div>
     </div>
 
-    <form id="checkout-form" class="form" method="post" action="/submit-payment">
-        <div class="section body-copy">
-            <h2 class="title underlined">Your Basket</h2>
-
-            <div class="empty-basket-message">
-                <p>Your basket is currently empty.</p>
-                <button id="continue-shopping" type="button" class="bttn btn_ContinueShopping">
-                    <span>
-                        <i class="fa-solid fa-arrow-left"></i>
-                    </span>
-                    <span>
-                        <span>Continue shopping</span>
-                    </span>
-                </button>
-            </div>
-
-            <div class="buttons-and-form-fields">
-                <div>
-                    {{ macros.checkoutNav() }}
-                </div>
-                <div class="fieldset-width">
-                    <div class="address-details">
-                        <h2 class="title underlined">Address details</h2>
-                        <div class="input-group-pair">
-                            <div class="input-group">
-                                <label for="name">First name</label>
-                                <input type="text" id="name" name="name" value="">
-                            </div>
-                            <div class="input-group">
-                                <label for="last-name">Last name</label>
-                                <input type="text" id="last-name" name="last-name" value="">
-                            </div>
-                        </div>
-                        <div class="input-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email">
-                        </div>
-                        <div class="input-group">
-                            <label for="phone">Phone</label>
-                            <input type="tel" id="phone" name="phone">
-                        </div>
-                        <div class="input-group">
-                            <label for="address">Address</label>
-                            <select id="address" name="address" class="select-input">
-                                <option value="">Select an address</option>
-                                <option value="123 Main St, AnyTown, AT 12345">123 Main St, AnyTown, AT 12345</option>
-                                <option value="456 Oak Ave, SomeTown, ST 67890">456 Oak Ave, SomeTown, ST 67890</option>
-                                <option value="789 Pine Rd, YourTown, YT 54321">789 Pine Rd, YourTown, YT 54321</option>
-                            </select>
-                        </div>
-
-                        <div class="input-group">
-                            <label class="checkbox-label">
-                                <input type="checkbox" name="GDPR-policy" value="yes">
-                                <span>I agree to the <a href="privacy-policy.html#GDPR" target="_blank">GDPR policy</a>
-                                </span>
-                            </label>
-                        </div>
-                        <div class="input-group">
-                            <label class="checkbox-label">
-                                <input type="checkbox" name="terms-and-conditions" value="yes">
-                                <span>Agree with <a href="terms-and-conditions.html#terms" target="_blank">terms and conditions.</a>
-                                </span>
-                            </label>
-                        </div>
-                    </div>
-                    <i class="fa-brands fa-stripe text-4xl"></i>
-                    <p>Pay with Stripe.</p>
-                    <button type="submit" class="bttn btn_Submit">
-                        <span>
-                            <i class="fa-regular fa-credit-card"></i>
-                        </span>
-                        <span>Make payment now</span>
-                    </button>
-                    <p class="mt-4">
-                        <a href="checkout-done.html">Thank You page (for testing purposes)</a>
-                    </p>
-                </div>
-            </div>
-        </div>
-
-    </form>
+  </form>
 
 {% endblock %}

@@ -4,60 +4,60 @@
 
 {% block content %}
 
-    {{ macros.header("images/logo-marshall-trailers-color.png") }}
+  {{ macros.header("images/logo-marshall-trailers-color.png") }}
 
-    <nav aria-label="breadcrumbs" class="breadcrumbs">
-        <ol>
-            <li>
-                <a href="index.html">Home</a>
-            </li>
-            <li>Thank you</li>
-        </ol>
-    </nav>
+  <nav aria-label="breadcrumbs" class="breadcrumbs">
+    <ol>
+      <li>
+        <a href="index.html">Home</a>
+      </li>
+      <li>Thank you</li>
+    </ol>
+  </nav>
 
-    <div class="title-wrapper">
-        <h1 class="page-title">Thank you</h1>
+  <div class="title-wrapper">
+    <h1 class="page-title">Thank you</h1>
+  </div>
+
+  <div class="section body-copy">
+    <h2 class="title underlined">Order Confirmation</h2>
+    <div class="confirmation-message">
+      <h3>Payment received and your order has been successfully placed.</h3>
+      <h4>Order reference: 801-026</h4>
+      <button id="download-invoice" type="button" class="bttn btn_DownloadInvoice">
+        <span>
+          <i class="fa-solid fa-download"></i>
+        </span>
+        <span>
+          <span>Download Invoice</span>
+        </span>
+      </button>
     </div>
+    <p>Mr. O. Tester</p>
+    <p>123 Test Street</p>
+    <p>Flat 14, 123 Main Street, AnyTown, Forest Rd. SW1 1AA.</p>
+    <p>Email: mister-ohtester@example.com</p>
+    <p>Phone: 01234 567890</p>
+  </div>
 
-    <div class="section body-copy">
-        <h2 class="title underlined">Order Confirmation</h2>
-        <div class="confirmation-message">
-            <h3>Payment received and your order has been successfully placed.</h3>
-            <h4>Order reference: 801-026</h4>
-            <button id="download-invoice" type="button" class="bttn btn_DownloadInvoice">
-                <span>
-                    <i class="fa-solid fa-download"></i>
-                </span>
-                <span>
-                    <span>Download Invoice</span>
-                </span>
-            </button>
-        </div>
-        <p>Mr. O. Tester</p>
-        <p>123 Test Street</p>
-        <p>Flat 14, 123 Main Street, AnyTown, Forest Rd. SW1 1AA.</p>
-        <p>Email: mister-ohtester@example.com</p>
-        <p>Phone: 01234 567890</p>
-    </div>
+  <div class="section body-copy">
+    <h2 class="title underlined">Next steps</h2>
+    <ul class="dotted-list">
+      <li>We will process your order and send you a confirmation email with the invoice attached.</li>
+      <li>Once your order has been processed, we will send you a dispatch notification email with tracking information.</li>
+      <li>If you have any questions about your order, please contact our customer service team at <a href="mailto:customer.service@example.com">customer.service@example.com</a>.</li>
+    </ul>
+  </div>
 
-    <div class="section body-copy">
-        <h2 class="title underlined">Next steps</h2>
-        <ul class="dotted-list">
-            <li>We will process your order and send you a confirmation email with the invoice attached.</li>
-            <li>Once your order has been processed, we will send you a dispatch notification email with tracking information.</li>
-            <li>If you have any questions about your order, please contact our customer service team at <a href="mailto:customer.service@example.com">customer.service@example.com</a>.</li>
-        </ul>
-    </div>
-
-    <div class="section body-copy">
-        <button id="continue-shopping" type="button" class="bttn btn_ContinueShopping">
-            <span>
-                <i class="fa-solid fa-arrow-left"></i>
-            </span>
-            <span>
-                <span>Continue shopping</span>
-            </span>
-        </button>
-    </div>
+  <div class="section body-copy">
+    <button id="continue-shopping" type="button" class="bttn btn_ContinueShopping">
+      <span>
+        <i class="fa-solid fa-arrow-left"></i>
+      </span>
+      <span>
+        <span>Continue shopping</span>
+      </span>
+    </button>
+  </div>
 
 {% endblock %}
