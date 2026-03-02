@@ -32,44 +32,25 @@
         </div>
     </div>
 
-    <div class="product-hero">
-        <div class="section">
-            <div class="copy-wrapper desktop-only">
-                <div class="inner-wrapper">
-                    {{ macros.serialNumberSpecs() }}
-                </div>
-            </div>
-        </div>
-    </div>
+    <div id="serial-number-app" class="app-loading">
 
-    <div class="mobile-only quick-specs-mobile">
-        <div class="section">
-            {{ macros.serialNumberSpecs() }}
-        </div>
-    </div>
+        <serial-hero 
+            :data="data"
+            :selected-category="selectedCategory" 
+            @category-click="handleCategoryClicked"></serial-hero>
 
-    <div class="page-divider"></div>
+        <serial-parts 
+            :parts="partsData" 
+            @part-click="handlePartClicked"></serial-parts>
 
-    <div id="categories-app" class="app-loading">
-        <div class="section body-copy">
-            <h3 class="underlined">Select primary part category</h3>
-            <ul class="parts-categories-list grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
-                <li v-for="(category, i) in categories" :key="i" class="category-item">
-                    <a :href="[category.key]" :class="{ 'selected': selectedCategory === category.key }" @click.prevent="selectedCategory = category.key">
-                        [[ category.name ]]
-                    </a>
-                </li>
-            </ul>
-        </div>
-
-        <div class="section body-copy">
-            <h3 class="underlined">Select secondary part category</h3>
-        </div>
     </div>
 
     {{ macros.floatingBasket() }}
 
-    <script>
+    <script type="module">
+
+        import SerialHero from "./js/components/serial-hero.js";
+        import SerialParts from "./js/components/serial-parts.js";
 
         // replace with PHP
         document.addEventListener('DOMContentLoaded', () => {
@@ -79,27 +60,107 @@
             $('.dummy-data-serial-number-TEXT').text(serial_number);
         });
 
-        // replace with JSON from PHP
-        const categoriesData = {{ categoriesData | dump | safe }};
+        const serialNumberData = {{ serialNumberData | dump | safe }};
 
         document.addEventListener('DOMContentLoaded', () => {
             const {createApp, onMounted, ref} = Vue;
 
             createApp({
-                delimiters: [
-                    '[[', ']]'
-                ],
+                components: {
+                    SerialHero,
+                    SerialParts
+                },
                 setup() {
-                    const categories = ref(categoriesData);
-                    const selectedCategory = ref('');
+                    const selectedCategory = ref(null);
 
-                    onMounted(() => {
-                        $('#categories-app').removeClass('app-loading');
+                    const handleCategoryClicked = (categoryKey) => {
+                        console.log("Selected category:", categoryKey);
+                        selectedCategory.value = categoryKey;
+                    };
+
+                    const partsData = ref({
+                        title: "Global Distribution Center",
+                        product: {
+                            price: 0,
+                            details: "Facility Insurance Policy",
+                            image: "inst.jpg"
+                        },
+                        containers: [
+                            {
+                                title: "Electronics Wing",
+                                containers: [
+                                    {
+                                        title: "Computing",
+                                        product: {
+                                            price: 1200,
+                                            details: "Server Rack Alpha",
+                                            image: "sr.jpg"
+                                        },
+                                        containers: [
+                                            {
+                                                title: "Laptops",
+                                                containers: [
+                                                    {
+                                                        title: "Gaming Laptops",
+                                                        product: {
+                                                            price: 2000,
+                                                            details: "Razer Blade",
+                                                            image: "rz.jpg"
+                                                        }
+                                                    }, {
+                                                        title: "Office Laptops",
+                                                        product: {
+                                                            price: 800,
+                                                            details: "Dell XPS",
+                                                            image: "dx.jpg"
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }, {
+                                title: "Furniture Wing",
+                                containers: [
+                                    {
+                                        title: "Office Chairs",
+                                        product: {
+                                            price: 350,
+                                            details: "Ergonomic Chair",
+                                            image: "ch.jpg"
+                                        }
+                                    }, {
+                                        title: "Desks",
+                                        product: {
+                                            price: 150,
+                                            details: "Standing Desk",
+                                            image: "dk.jpg"
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
                     });
 
-                    return {categories, selectedCategory}
+                    const handlePartClicked = (partKey) => {
+                        console.log("Selected part:", partKey);
+                        // Logic to update selectedCategoryParts based on partKey
+                    };
+
+                    const data = {
+                        title: serialNumberData.title,
+                        specifications: serialNumberData.specifications,
+                        categories: serialNumberData.categories
+                    }
+
+                    onMounted(() => {
+                        $('#serial-number-app').removeClass('app-loading');
+                    });
+
+                    return {data, selectedCategory, handleCategoryClicked, partsData, handlePartClicked}
                 }
-            }).mount('#categories-app');
+            }).mount('#serial-number-app');
 
         });
     </script>

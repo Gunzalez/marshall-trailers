@@ -510,115 +510,17 @@
         </div>
     </div>
 
-    <div class="product-hero">
-        <div class="section">
-            <div class="copy-wrapper desktop-only">
-                <div class="inner-wrapper">
-                    
-    <div class="quick-specs block-level">
-        <div class="specs-content">
-            <h1 class="title">BC-25-10T</h1>
-            <ul>
-                <li>
-                    <span class="label">Material Description</span>
-                    <span class="value">BC/25-10ton Bale/Flat Trailer</span>
-                </li>
-                <li>
-                    <span class="label">Goods Issue Date</span>
-                    <span class="value">17.05.2022</span>
-                </li>
-                <li>
-                    <span class="label">Axles</span>
-                    <span class="value">6 Stud Axle (300x60)</span>
-                </li>
-                <li>
-                    <span class="label">Wheels</span>
-                    <span class="value">17.05.2022</span>
-                </li>
-                <li>
-                    <span class="label">Suspension</span>
-                    <span class="value">Rockers</span>
-                </li>
-                <li>
-                    <span class="label">Braking Systems</span>
-                    <span class="value">Hydraulic Brakes</span>
-                </li>
-            </ul>
-        </div>
-        <button class="bttn">
-            <span>More details</span>
-            <span>
-                <i class="fa-solid fa-chevron-right"></i>
-            </span>
-        </button>
-    </div>
+    <div id="serial-number-app" class="app-loading">
 
-                </div>
-            </div>
-        </div>
-    </div>
+        <serial-hero 
+            :data="data"
+            :selected-category="selectedCategory" 
+            @category-click="handleCategoryClicked"></serial-hero>
 
-    <div class="mobile-only quick-specs-mobile">
-        <div class="section">
-            
-    <div class="quick-specs block-level">
-        <div class="specs-content">
-            <h1 class="title">BC-25-10T</h1>
-            <ul>
-                <li>
-                    <span class="label">Material Description</span>
-                    <span class="value">BC/25-10ton Bale/Flat Trailer</span>
-                </li>
-                <li>
-                    <span class="label">Goods Issue Date</span>
-                    <span class="value">17.05.2022</span>
-                </li>
-                <li>
-                    <span class="label">Axles</span>
-                    <span class="value">6 Stud Axle (300x60)</span>
-                </li>
-                <li>
-                    <span class="label">Wheels</span>
-                    <span class="value">17.05.2022</span>
-                </li>
-                <li>
-                    <span class="label">Suspension</span>
-                    <span class="value">Rockers</span>
-                </li>
-                <li>
-                    <span class="label">Braking Systems</span>
-                    <span class="value">Hydraulic Brakes</span>
-                </li>
-            </ul>
-        </div>
-        <button class="bttn">
-            <span>More details</span>
-            <span>
-                <i class="fa-solid fa-chevron-right"></i>
-            </span>
-        </button>
-    </div>
+        <serial-parts 
+            :parts="partsData" 
+            @part-click="handlePartClicked"></serial-parts>
 
-        </div>
-    </div>
-
-    <div class="page-divider"></div>
-
-    <div id="categories-app" class="app-loading">
-        <div class="section body-copy">
-            <h3 class="underlined">Select primary part category</h3>
-            <ul class="parts-categories-list grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
-                <li v-for="(category, i) in categories" :key="i" class="category-item">
-                    <a :href="[category.key]" :class="{ 'selected': selectedCategory === category.key }" @click.prevent="selectedCategory = category.key">
-                        [[ category.name ]]
-                    </a>
-                </li>
-            </ul>
-        </div>
-
-        <div class="section body-copy">
-            <h3 class="underlined">Select secondary part category</h3>
-        </div>
     </div>
 
     
@@ -660,7 +562,10 @@
     </div>
 
 
-    <script>
+    <script type="module">
+
+        import SerialHero from "./js/components/serial-hero.js";
+        import SerialParts from "./js/components/serial-parts.js";
 
         // replace with PHP
         document.addEventListener('DOMContentLoaded', () => {
@@ -670,27 +575,107 @@
             $('.dummy-data-serial-number-TEXT').text(serial_number);
         });
 
-        // replace with JSON from PHP
-        const categoriesData = [{"name":"Axles","key":"axles"},{"name":"Bearings","key":"bearings"},{"name":"Bolts","key":"bolts"},{"name":"Cover Couplings","key":"cover-couplings"},{"name":"Handbrakes","key":"handbrakes"},{"name":"Hitches","key":"hitches"},{"name":"Hydraulic Hoses","key":"hydraulic-hoses"},{"name":"Lights","key":"lights"},{"name":"Mesh","key":"mesh"},{"name":"Miscellaneous","key":"miscellaneous"},{"name":"Other rams","key":"other-rams"},{"name":"Paint","key":"paint"},{"name":"Rocker Tandems","key":"rocker-tandems"},{"name":"Seals","key":"seals"},{"name":"Springs","key":"springs"},{"name":"Steel Sections","key":"steel-sections"},{"name":"Tip Rams","key":"tip-rams"},{"name":"Transfer","key":"transfer"},{"name":"Valves","key":"valves"}];
+        const serialNumberData = {"title":"QM-1600","specifications":[{"name":"Material Description","value":"BC/25-10ton Bale/Flat Trailer"},{"name":"Goods Issue Date","value":"17.05.2023"},{"name":"Axles","value":"6 Stud Axle (300 x 100mm)"},{"name":"Braking System","value":"Hydraulic Brakes"},{"name":"Suspension","value":"Rockers"}],"categories":[{"name":"Axles","key":"axles"},{"name":"Bearings","key":"bearings"},{"name":"Bolts","key":"bolts"},{"name":"Cover Couplings","key":"cover-couplings"},{"name":"Handbrakes","key":"handbrakes"},{"name":"Hitches","key":"hitches"},{"name":"Hydraulic Hoses","key":"hydraulic-hoses"},{"name":"Lights","key":"lights"},{"name":"Mesh","key":"mesh"},{"name":"Miscellaneous","key":"miscellaneous"},{"name":"Other rams","key":"other-rams"},{"name":"Paint","key":"paint"},{"name":"Rocker Tandems","key":"rocker-tandems"},{"name":"Seals","key":"seals"},{"name":"Springs","key":"springs"},{"name":"Steel Sections","key":"steel-sections"},{"name":"Tip Rams","key":"tip-rams"},{"name":"Transfer","key":"transfer"},{"name":"Valves","key":"valves"}]};
 
         document.addEventListener('DOMContentLoaded', () => {
             const {createApp, onMounted, ref} = Vue;
 
             createApp({
-                delimiters: [
-                    '[[', ']]'
-                ],
+                components: {
+                    SerialHero,
+                    SerialParts
+                },
                 setup() {
-                    const categories = ref(categoriesData);
-                    const selectedCategory = ref('');
+                    const selectedCategory = ref(null);
 
-                    onMounted(() => {
-                        $('#categories-app').removeClass('app-loading');
+                    const handleCategoryClicked = (categoryKey) => {
+                        console.log("Selected category:", categoryKey);
+                        selectedCategory.value = categoryKey;
+                    };
+
+                    const partsData = ref({
+                        title: "Global Distribution Center",
+                        product: {
+                            price: 0,
+                            details: "Facility Insurance Policy",
+                            image: "inst.jpg"
+                        },
+                        containers: [
+                            {
+                                title: "Electronics Wing",
+                                containers: [
+                                    {
+                                        title: "Computing",
+                                        product: {
+                                            price: 1200,
+                                            details: "Server Rack Alpha",
+                                            image: "sr.jpg"
+                                        },
+                                        containers: [
+                                            {
+                                                title: "Laptops",
+                                                containers: [
+                                                    {
+                                                        title: "Gaming Laptops",
+                                                        product: {
+                                                            price: 2000,
+                                                            details: "Razer Blade",
+                                                            image: "rz.jpg"
+                                                        }
+                                                    }, {
+                                                        title: "Office Laptops",
+                                                        product: {
+                                                            price: 800,
+                                                            details: "Dell XPS",
+                                                            image: "dx.jpg"
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }, {
+                                title: "Furniture Wing",
+                                containers: [
+                                    {
+                                        title: "Office Chairs",
+                                        product: {
+                                            price: 350,
+                                            details: "Ergonomic Chair",
+                                            image: "ch.jpg"
+                                        }
+                                    }, {
+                                        title: "Desks",
+                                        product: {
+                                            price: 150,
+                                            details: "Standing Desk",
+                                            image: "dk.jpg"
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
                     });
 
-                    return {categories, selectedCategory}
+                    const handlePartClicked = (partKey) => {
+                        console.log("Selected part:", partKey);
+                        // Logic to update selectedCategoryParts based on partKey
+                    };
+
+                    const data = {
+                        title: serialNumberData.title,
+                        specifications: serialNumberData.specifications,
+                        categories: serialNumberData.categories
+                    }
+
+                    onMounted(() => {
+                        $('#serial-number-app').removeClass('app-loading');
+                    });
+
+                    return {data, selectedCategory, handleCategoryClicked, partsData, handlePartClicked}
                 }
-            }).mount('#categories-app');
+            }).mount('#serial-number-app');
 
         });
     </script>
