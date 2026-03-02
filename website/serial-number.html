@@ -514,12 +514,15 @@
 
         <serial-hero 
             :data="data"
-            :selected-category="selectedCategory" 
-            @category-click="handleCategoryClicked"></serial-hero>
+            :selected-category-key="selectedCategoryKey"
+            @category-click="handleCategoryClick"
+            @more-details-click="handleMoreDetailsClick"></serial-hero>
 
         <serial-parts 
             :parts="partsData" 
-            @part-click="handlePartClicked"></serial-parts>
+            @part-click="handlePartClick"
+            @buy-now-click="handleBuyNowClick"
+            @add-to-basket-click="handleAddToBasketClick"></serial-parts>
 
     </div>
 
@@ -586,11 +589,15 @@
                     SerialParts
                 },
                 setup() {
-                    const selectedCategory = ref('hydraulic-hoses');
+                    const selectedCategoryKey = ref(null);
 
-                    const handleCategoryClicked = (categoryKey) => {
-                        console.log("Selected category:", categoryKey);
-                        selectedCategory.value = categoryKey;
+                    const handleCategoryClick = (category) => {
+                        console.log("Selected category:", category);
+                        selectedCategoryKey.value = category;
+                        const secondaryPartCategory = document.getElementById('secondary-part-category');
+                        if (secondaryPartCategory) {
+                            secondaryPartCategory.scrollIntoView({behavior: 'smooth'});
+                        }
                     };
 
                     const partsData = ref({
@@ -600,72 +607,184 @@
                                 title: "Chassis Assembly",
                                 containers: [
                                     {
-                                        title: "Part: 050-09-9080/9mm Wiring Loom",
-                                        containers: [
-                                            {
-                                                title: "Laptops",
-                                                containers: [
-                                                    {
-                                                        title: "Gaming Laptops",
-                                                        product: {
-                                                            price: 2000,
-                                                            details: "Razer Blade",
-                                                            image: "rz.jpg"
-                                                        }
-                                                    }, {
-                                                        title: "Office Laptops",
-                                                        product: {
-                                                            price: 800,
-                                                            details: "Dell XPS",
-                                                            image: "dx.jpg"
-                                                        }
-                                                    }
-                                                ]
-                                            }
-                                        ]
-                                    }, {
-                                        title: "Part: 050-09-9011/Suzi Coil - 7 Core",
-                                        containers: [
-                                            {
-                                                title: "Laptops",
-                                                containers: [
-                                                    {
-                                                        title: "Gaming Laptops",
-                                                        product: {
-                                                            price: 2000,
-                                                            details: "Razer Blade",
-                                                            imgUrlLarge: "https://www.marshall-trailers.co.uk/uploads/spares/large/rz.jpg",
-                                                            imgUrlSmall: "https://www.marshall-trailers.co.uk/uploads/spares/rz.jpg"
-                                                        }
-                                                    }, {
-                                                        title: "Office Laptops",
-                                                        product: {
-                                                            price: 800,
-                                                            details: "Dell XPS",
-                                                            imgUrlLarge: "https://www.marshall-trailers.co.uk/uploads/spares/large/dx.jpg",
-                                                            imgUrlSmall: "https://www.marshall-trailers.co.uk/uploads/spares/dx.jpg"
-                                                        }
-                                                    }
-                                                ]
-                                            }
-                                        ]
-                                    }, {
                                         title: "Part: 065-04-2000 / Spring Drawbar Pin",
                                         product: {
-                                            price: 90.00,
+                                            unit_price: 90.00,
                                             id: "065-04-2000",
-                                            details: "Spring Drawbar Pin",
+                                            part_no: "065-04-2000",
+                                            description: "Spring Drawbar Pin",
                                             imgUrlLarge: "https://www.marshall-trailers.co.uk/uploads/spares/large/065-04-2000.jpg",
                                             imgUrlSmall: "https://www.marshall-trailers.co.uk/uploads/spares/065-04-2000.jpg"
                                         }
+                                    }, {
+                                        title: "Chassis Assembly level 2",
+                                        containers: [
+                                            {
+                                                title: "Gaming Laptops",
+                                                product: {
+                                                    id: "050-09-9080",
+                                                    part_no: "050-09-9080",
+                                                    unit_price: 20.00,
+                                                    description: "Razer Blade",
+                                                    imgUrlLarge: "https://www.marshall-trailers.co.uk/uploads/spares/large/065-04-2000.jpg",
+                                                    imgUrlSmall: "https://www.marshall-trailers.co.uk/uploads/spares/065-04-2000.jpg"
+                                                }
+                                            }, {
+                                                title: "Office Laptops",
+                                                product: {
+                                                    id: "050-09-9081",
+                                                    part_no: "050-09-9081",
+                                                    unit_price: 11.00,
+                                                    description: "Dell XPS",
+                                                    imgUrlLarge: "https://www.marshall-trailers.co.uk/uploads/spares/large/065-04-2000.jpg",
+                                                    imgUrlSmall: "https://www.marshall-trailers.co.uk/uploads/spares/065-04-2000.jpg"
+                                                }
+                                            }
+                                        ]
+                                    }, {
+                                        title: "Chassis Assembly level 2",
+                                        containers: [
+                                            {
+                                                title: "Chassis Assembly level 3",
+                                                containers: [
+                                                    {
+                                                        title: "Gaming Laptops",
+                                                        product: {
+                                                            id: "050-09-9080",
+                                                            part_no: "050-09-9080",
+                                                            unit_price: 20.00,
+                                                            description: "Razer Blade",
+                                                            imgUrlLarge: "https://www.marshall-trailers.co.uk/uploads/spares/large/065-04-2000.jpg",
+                                                            imgUrlSmall: "https://www.marshall-trailers.co.uk/uploads/spares/065-04-2000.jpg"
+                                                        }
+                                                    }, {
+                                                        title: "Chassis Assembly level 4",
+                                                        containers: [
+                                                            {
+                                                                title: "Dell XPS",
+                                                                product: {
+                                                                    id: "050-09-9081",
+                                                                    part_no: "050-09-9081",
+                                                                    unit_price: 11.00,
+                                                                    description: "Dell XPS",
+                                                                    imgUrlLarge: "https://www.marshall-trailers.co.uk/uploads/spares/large/065-04-2000.jpg",
+                                                                    imgUrlSmall: "https://www.marshall-trailers.co.uk/uploads/spares/065-04-2000.jpg"
+                                                                }
+                                                            }, {
+                                                                title: "Dell XPS",
+                                                                product: {
+                                                                    id: "050-09-9081",
+                                                                    part_no: "050-09-9081",
+                                                                    unit_price: 11.00,
+                                                                    description: "Dell XPS",
+                                                                    imgUrlLarge: "https://www.marshall-trailers.co.uk/uploads/spares/large/065-04-2000.jpg",
+                                                                    imgUrlSmall: "https://www.marshall-trailers.co.uk/uploads/spares/065-04-2000.jpg"
+                                                                }
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            }, {
+                                                title: "Chassis Assembly level 3",
+                                                containers: [
+                                                    {
+                                                        title: "Gaming Laptops",
+                                                        product: {
+                                                            id: "050-09-9080",
+                                                            part_no: "050-09-9080",
+                                                            unit_price: 20.00,
+                                                            description: "Razer Blade",
+                                                            imgUrlLarge: "https://www.marshall-trailers.co.uk/uploads/spares/large/065-04-2000.jpg",
+                                                            imgUrlSmall: "https://www.marshall-trailers.co.uk/uploads/spares/065-04-2000.jpg"
+                                                        }
+                                                    }, {
+                                                        title: "Chassis Assembly level 4",
+                                                        containers: [
+                                                            {
+                                                                title: "Chassis Assembly level 5",
+                                                                containers: [
+                                                                    {
+                                                                        title: "Dell XPS",
+                                                                        product: {
+                                                                            id: "050-09-9081",
+                                                                            part_no: "050-09-9081",
+                                                                            unit_price: 11.00,
+                                                                            description: "Dell XPS",
+                                                                            imgUrlLarge: "https://www.marshall-trailers.co.uk/uploads/spares/large/065-04-2000.jpg",
+                                                                            imgUrlSmall: "https://www.marshall-trailers.co.uk/uploads/spares/065-04-2000.jpg"
+                                                                        }
+                                                                    }, {
+                                                                        title: "Dell XPS",
+                                                                        product: {
+                                                                            id: "050-09-9081",
+                                                                            part_no: "050-09-9081",
+                                                                            unit_price: 11.00,
+                                                                            description: "Dell XPS",
+                                                                            imgUrlLarge: "https://www.marshall-trailers.co.uk/uploads/spares/large/065-04-2000.jpg",
+                                                                            imgUrlSmall: "https://www.marshall-trailers.co.uk/uploads/spares/065-04-2000.jpg"
+                                                                        }
+                                                                    }
+                                                                ]
+                                                            }, {
+                                                                title: "Chassis Assembly level 5",
+                                                                containers: [
+                                                                    {
+                                                                        title: "Dell XPS",
+                                                                        product: {
+                                                                            id: "050-09-9081",
+                                                                            part_no: "050-09-9081",
+                                                                            unit_price: 11.00,
+                                                                            description: "Dell XPS",
+                                                                            imgUrlLarge: "https://www.marshall-trailers.co.uk/uploads/spares/large/065-04-2000.jpg",
+                                                                            imgUrlSmall: "https://www.marshall-trailers.co.uk/uploads/spares/065-04-2000.jpg"
+                                                                        }
+                                                                    }, {
+                                                                        title: "Dell XPS",
+                                                                        product: {
+                                                                            id: "050-09-9081",
+                                                                            part_no: "050-09-9081",
+                                                                            unit_price: 11.00,
+                                                                            description: "Dell XPS",
+                                                                            imgUrlLarge: "https://www.marshall-trailers.co.uk/uploads/spares/large/065-04-2000.jpg",
+                                                                            imgUrlSmall: "https://www.marshall-trailers.co.uk/uploads/spares/065-04-2000.jpg"
+                                                                        }
+                                                                    }, {
+                                                                        title: "Dell XPS",
+                                                                        product: {
+                                                                            id: "050-09-9081",
+                                                                            part_no: "050-09-9081",
+                                                                            unit_price: 11.00,
+                                                                            description: "Dell XPS",
+                                                                            imgUrlLarge: "https://www.marshall-trailers.co.uk/uploads/spares/large/065-04-2000.jpg",
+                                                                            imgUrlSmall: "https://www.marshall-trailers.co.uk/uploads/spares/065-04-2000.jpg"
+                                                                        }
+                                                                    }, {
+                                                                        title: "Dell XPS",
+                                                                        product: {
+                                                                            id: "050-09-9081",
+                                                                            part_no: "050-09-9081",
+                                                                            unit_price: 11.00,
+                                                                            description: "Dell XPS",
+                                                                            imgUrlLarge: "https://www.marshall-trailers.co.uk/uploads/spares/large/065-04-2000.jpg",
+                                                                            imgUrlSmall: "https://www.marshall-trailers.co.uk/uploads/spares/065-04-2000.jpg"
+                                                                        }
+                                                                    }
+                                                                ]
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        ]
                                     }
                                 ]
                             }, {
                                 title: "Part: 050-09-9030/LED Light Unit-300x50mm",
                                 product: {
-                                    price: 120.00,
+                                    unit_price: 120.00,
                                     id: "050-09-9030",
-                                    details: "LED Light Unit-300x50mm",
+                                    part_no: "050-09-9030",
+                                    description: "LED Light Unit-300x50mm",
                                     imgUrlLarge: "https://www.marshall-trailers.co.uk/uploads/spares/large/050-09-9030.jpg",
                                     imgUrlSmall: "https://www.marshall-trailers.co.uk/uploads/spares/050-09-9030.jpg"
                                 }
@@ -673,9 +792,31 @@
                         ]
                     });
 
-                    const handlePartClicked = (partKey) => {
+                    const handlePartClick = (partKey) => {
                         console.log("Selected part:", partKey);
                         // Logic to update selectedCategoryParts based on partKey
+                    };
+
+                    const handleMoreDetailsClick = () => {
+                        console.log("More details clicked");
+                        // Logic to navigate to the product details page or show a modal
+                    };
+
+                    const handleBuyNowClick = (product) => {
+                        console.log("Buy Now clicked for product:", product);
+                        // Logic to navigate to the checkout page with the selected product
+                        window.location.href = "checkout.html?product_id=" + product.id + "&quantity=" + product.quantity;
+                    };
+
+                    const handleAddToBasketClick = (product) => {
+                        // Logic to add the selected product to the shopping basket
+                        console.log("Add to Basket clicked for product:", product);
+                        const data = "sid=" + product.id + "&qty=" + product.quantity + "&price=" + product.unit_price;
+                        window
+                            .MT
+                            .basket
+                            .update(data);
+
                     };
 
                     const data = {
@@ -688,7 +829,16 @@
                         $('#serial-number-app').removeClass('app-loading');
                     });
 
-                    return {data, selectedCategory, handleCategoryClicked, partsData, handlePartClicked}
+                    return {
+                        data,
+                        partsData,
+                        selectedCategoryKey,
+                        handlePartClick,
+                        handleBuyNowClick,
+                        handleCategoryClick,
+                        handleAddToBasketClick,
+                        handleMoreDetailsClick
+                    }
                 }
             }).mount('#serial-number-app');
 
