@@ -5,7 +5,7 @@ export default {
     title: String,
     specifications: Array,
   },
-  emits: ["click"],
+  emits: ["more-details-click"],
   setup(props) {
     return {
       title: props.title,
@@ -22,10 +22,10 @@ export default {
                     <span class="value">{{ spec.value }}</span>
                 </li>
             </ul>
+            <div class="more-details">
+                <a href="#" @click.prevent="$emit('more-details-click')">More Details</a>
+            </div>
         </div>
-        <button type="button" @click="$emit('click')">
-            <span>More details</span>
-        </button>
     </div>
   `,
 };

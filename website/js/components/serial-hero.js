@@ -8,7 +8,7 @@ export default {
   },
   props: {
     data: Object,
-    selectedCategory: String,
+    selectedCategoryKey: String,
   },
   emits: ["more-details-click", "category-click"],
   setup(props) {
@@ -39,10 +39,13 @@ export default {
         <div class="page-divider"></div>
 
         <div class="section body-copy">
-            <h3 class="underlined">Select primary part category</h3>
+            <h3 class="underlined stepped-title">
+                <span>Step 01:</span>
+                <span>Select primary part category</span>
+            </h3>
             <ul class="parts-categories-list grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
                 <li v-for="(category, i) in categories" :key="i" class="category-item">
-                    <a :href="category.key" :class="{ 'selected': selectedCategory === category.key }" @click.prevent="$emit('category-click', category.key)">
+                    <a :href="category.key" :class="{ 'selected': selectedCategoryKey === category.key }" @click.prevent="$emit('category-click', category.key)">
                         {{ category.name }}
                     </a>
                 </li>

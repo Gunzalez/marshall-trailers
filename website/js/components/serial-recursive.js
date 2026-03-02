@@ -1,7 +1,12 @@
 const { ref, onMounted } = Vue;
 
+import ProductCard from "./serial-product.js";
+
 export default {
   name: "RecursiveContainer",
+  components: {
+    ProductCard,
+  },
   props: {
     node: Object,
     depth: {
@@ -9,6 +14,7 @@ export default {
       default: 1,
     },
   },
+  emits: ["buy-now-click", "add-to-basket-click"],
   setup(props) {
     const isOpen = ref(false);
     const isTopLevel = ref(props.depth === 1);
@@ -35,29 +41,35 @@ export default {
             </template>
             <template v-else>
                 <div class="container-header" @click="toggle" :class="{ open: isOpen }">
-                    <span>
-                        <strong :style="{ color: depth > 3 ? '#e67e22' : '#2c3e50' }">
-                            {{ node.title }}
-                        </strong>
-                    </span>
+                    <div>
+                        <div v-if="node.product">
+                            <div class="product-title">
+                                <span class="part_no">Part No: {{ node.product.part_no }}</span>
+                                <strong>{{ node.product.description }}</strong>
+                            </div>
+                        </div>
+                        <div v-else>
+                            <span class="container-title">{{ node.title }}</span>
+                        </div>
+                    </div>
                     <i class="fa-solid fa-chevron-right"></i>
                 </div>
                 <span class="underline"></span>
             </template>
             <div v-if="isOpen" class="container-content">
-                <div v-if="node.product" class="product-card">
-                    <div class="product-info">
-                        <strong>{{ node.product.details }}</strong>
-                        <span class="price">{{ node.product.price }}</span>
-                    </div>
-                </div>
+                
+                <ProductCard v-if="node.product" :product="node.product"
+                    @buy-now-click="$emit('buy-now-click', $event)"
+                    @add-to-basket-click="$emit('add-to-basket-click', $event)" />
 
                 <div v-if="node.containers && node.containers.length">
                     <recursive-container 
                         v-for="(sub, idx) in node.containers" 
                         :key="idx" 
                         :node="sub" 
-                        :depth="depth + 1">
+                        :depth="depth + 1"
+                        @buy-now-click="$emit('buy-now-click', $event)"
+                        @add-to-basket-click="$emit('add-to-basket-click', $event)">
                     </recursive-container>
                 </div>
             </div>
