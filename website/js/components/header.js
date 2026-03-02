@@ -10,7 +10,7 @@ export default {
     };
   },
   template: `
-    <div class="group-title">
+    <div class="strikethrough-title">
       <h3>{{ header }}</h3>
     </div>
   `,
