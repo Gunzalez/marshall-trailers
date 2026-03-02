@@ -54,11 +54,14 @@
 - 25th February: 5hrs
 - 26th February: 3hrs
 - 27th February: 3hrs
+- 28th February: 1hrs
+
+- 1st March: 3hrs
+- 2nd March: 2hrs
 
 #### NEXT
 
 - Move to real repo
-- Fix spares parts for mobile
 - Site wide tweaks - numbers on header, colors on header, of buttons and icons
 - See what we can do about images - Robin
 - Final icons - Robin
@@ -66,6 +69,7 @@
 
 ### DONE
 
+- Fix spares parts for mobile
 - Discuss spares serial number with Al/Rob
 - Discuss configuration completion - with Rob
 - Replace lightBox
