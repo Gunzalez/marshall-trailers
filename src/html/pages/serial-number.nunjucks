@@ -25,14 +25,14 @@
 
     <div class="introduction-wrapper body-copy">
         <div class="introduction flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
-            <span>Your Marshall is built up of <strong>822</strong> parts.</span>
+            <span>Your Marshall is built up of <strong>900</strong> parts.</span>
             <span>
                 <a href="spares.html">Not your Marshall?</a>
             </span>
         </div>
     </div>
 
-    <div id="serial-number-app" class="app-loading">
+    <div id="serial-number-app" class="serial-number-app app-loading">
 
         <serial-hero 
             :data="data"
@@ -71,7 +71,7 @@
                     SerialParts
                 },
                 setup() {
-                    const selectedCategory = ref(null);
+                    const selectedCategory = ref('hydraulic-hoses');
 
                     const handleCategoryClicked = (categoryKey) => {
                         console.log("Selected category:", categoryKey);
@@ -79,23 +79,13 @@
                     };
 
                     const partsData = ref({
-                        title: "Global Distribution Center",
-                        product: {
-                            price: 0,
-                            details: "Facility Insurance Policy",
-                            image: "inst.jpg"
-                        },
+                        title: "Hydraulic Hoses",
                         containers: [
                             {
-                                title: "Electronics Wing",
+                                title: "Chassis Assembly",
                                 containers: [
                                     {
-                                        title: "Computing",
-                                        product: {
-                                            price: 1200,
-                                            details: "Server Rack Alpha",
-                                            image: "sr.jpg"
-                                        },
+                                        title: "Part: 050-09-9080/9mm Wiring Loom",
                                         containers: [
                                             {
                                                 title: "Laptops",
@@ -118,27 +108,52 @@
                                                 ]
                                             }
                                         ]
+                                    }, {
+                                        title: "Part: 050-09-9011/Suzi Coil - 7 Core",
+                                        containers: [
+                                            {
+                                                title: "Laptops",
+                                                containers: [
+                                                    {
+                                                        title: "Gaming Laptops",
+                                                        product: {
+                                                            price: 2000,
+                                                            details: "Razer Blade",
+                                                            imgUrlLarge: "https://www.marshall-trailers.co.uk/uploads/spares/large/rz.jpg",
+                                                            imgUrlSmall: "https://www.marshall-trailers.co.uk/uploads/spares/rz.jpg"
+                                                        }
+                                                    }, {
+                                                        title: "Office Laptops",
+                                                        product: {
+                                                            price: 800,
+                                                            details: "Dell XPS",
+                                                            imgUrlLarge: "https://www.marshall-trailers.co.uk/uploads/spares/large/dx.jpg",
+                                                            imgUrlSmall: "https://www.marshall-trailers.co.uk/uploads/spares/dx.jpg"
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }, {
+                                        title: "Part: 065-04-2000 / Spring Drawbar Pin",
+                                        product: {
+                                            price: 90.00,
+                                            id: "065-04-2000",
+                                            details: "Spring Drawbar Pin",
+                                            imgUrlLarge: "https://www.marshall-trailers.co.uk/uploads/spares/large/065-04-2000.jpg",
+                                            imgUrlSmall: "https://www.marshall-trailers.co.uk/uploads/spares/065-04-2000.jpg"
+                                        }
                                     }
                                 ]
                             }, {
-                                title: "Furniture Wing",
-                                containers: [
-                                    {
-                                        title: "Office Chairs",
-                                        product: {
-                                            price: 350,
-                                            details: "Ergonomic Chair",
-                                            image: "ch.jpg"
-                                        }
-                                    }, {
-                                        title: "Desks",
-                                        product: {
-                                            price: 150,
-                                            details: "Standing Desk",
-                                            image: "dk.jpg"
-                                        }
-                                    }
-                                ]
+                                title: "Part: 050-09-9030/LED Light Unit-300x50mm",
+                                product: {
+                                    price: 120.00,
+                                    id: "050-09-9030",
+                                    details: "LED Light Unit-300x50mm",
+                                    imgUrlLarge: "https://www.marshall-trailers.co.uk/uploads/spares/large/050-09-9030.jpg",
+                                    imgUrlSmall: "https://www.marshall-trailers.co.uk/uploads/spares/050-09-9030.jpg"
+                                }
                             }
                         ]
                     });
