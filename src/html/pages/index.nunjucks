@@ -82,7 +82,7 @@
 
     <div class="section has-sub-sections home-sub-sections">
         <div class="sub-section-wrapper">
-            <h3 class="title">Configure your new Marshall</h3>
+            <h2 class="title">Configure your new Marshall</h2>
             <div class="content">
                 <img class="content-img" src="images/sub-section-bg-1.png" alt="">
                 <div class="text-wrapper">
@@ -96,7 +96,7 @@
             </div>
         </div>
         <div class="sub-section-wrapper">
-            <h3 class="title">Official Marshall spares</h3>
+            <h2 class="title">Official Marshall spares</h2>
             <div class="content">
                 <img class="content-img" src="images/sub-section-bg-2.png" alt="">
                 <div class="text-wrapper">
