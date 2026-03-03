@@ -106,7 +106,10 @@ export default {
         <div class="configuration-actions">
             <div class="heading-wrapper">
                 <div class="heading">
-                    <h2 class="title">Email, Download, or Order your Marshall</h2>
+                    <h2 class="title stepped-title">
+                        <span class="step-number">Step 04:</span>
+                        <span>Email, Download, or Order your Marshall</span>
+                    </h2>
                 </div>
             </div>
 
