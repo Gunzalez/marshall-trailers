@@ -170,7 +170,7 @@
                     </div>
 
                     <options-basket 
-                        :options="selectedOptions"
+                        :selected-options="selectedOptions"
                         :initial-option="initialOption"></options-basket>
 
                     <options-form
@@ -191,9 +191,7 @@
 
                 function showOptionsApp() {
                     $('#options-app').removeClass('display-none');
-                    document
-                        .getElementById('options-app')
-                        .scrollIntoView({behavior: 'smooth'});
+                    $('#options-app')[0].scrollIntoView({behavior: 'smooth'});
                     $(".btn_AddOptions").prop("disabled", true);
                 }
 
@@ -209,6 +207,10 @@
 
                 function groupOptionsByType(options) {
                     return Object.groupBy(options, (item) => item.type.name)
+                }
+
+                function decorateOptions(data) {
+                    return Object.entries(groupOptionsByType(wrapWithStateProps(data)))
                 }
 
                 document.addEventListener('DOMContentLoaded', () => {
@@ -361,13 +363,13 @@
                                             };
 
                                             const handleDownloadPDF = (notes) => {
-                                                // Implement PDF download logic here
+                                                // TODO: @Sheg/@Rob Implement PDF download logic here
                                                 console.log("Download PDF clicked");
                                                 console.log({groupedOptions: groupedOptions.value, initialOption: initialOption.value, notes});
                                             };
 
                                             const handleEmailEnquiry = (data) => {
-                                                // Implement email enquiry logic here
+                                                // TODO: @Sheg/@Rob Implement email enquiry logic here
                                                 console.log("Email Enquiry clicked");
                                                 console.log({groupedOptions: groupedOptions.value, initialOption: initialOption.value, data});
                                             };
@@ -382,7 +384,7 @@
                                             }, {deep: true});
 
                                             onMounted(() => {
-                                                groupedOptions.value = Object.entries(groupOptionsByType(wrapWithStateProps(optionsData.data)));
+                                                groupedOptions.value = decorateOptions(optionsData.data);
                                                 initialOption.value = window.basicMachine;
                                                 showOptionsApp();
                                             });
@@ -400,7 +402,7 @@
                                     }).mount("#options-app");
                                 } else {
                                     // update data in existing app
-                                    groupedOptions.value = Object.entries(groupOptionsByType(wrapWithStateProps(optionsData.data)));
+                                    groupedOptions.value = decorateOptions(optionsData.data);
                                     initialOption.value = window.basicMachine;
                                     showOptionsApp();
                                 }

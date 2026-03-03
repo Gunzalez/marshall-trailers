@@ -1,21 +1,26 @@
-const { computed } = Vue;
+const { computed, watch, ref } = Vue;
 
 export default {
   props: {
-    options: Array,
+    selectedOptions: Array,
     initialOption: Object,
   },
 
   setup(props) {
-    const selection = computed(() => {
-      if (props.initialOption) {
-        return [
-          props.initialOption,
-          ...props.options.filter((option) => option.isSelected),
-        ];
-      }
-      return props.options.filter((option) => option.isSelected);
-    });
+    const selection = ref([]);
+
+    watch(
+      () => props,
+      (newOptions) => {
+        if (newOptions) {
+          selection.value = [
+            newOptions.initialOption,
+            ...newOptions.selectedOptions,
+          ];
+        }
+      },
+      { deep: true },
+    );
 
     const totalPrice = computed(() => {
       const value = selection.value.reduce((total, option) => {
@@ -37,7 +42,7 @@ export default {
     };
   },
   template: `
-    <div v-if="options.length" class="options-basket">
+    <div v-if="selection.length" class="options-basket">
         <div class="heading-wrapper">
           <div class="heading">
               <h2 class="title stepped-title">
