@@ -10,7 +10,11 @@ function clearFilters() {
   for (var i = 2; i <= totalNumFilters; i++) {
     var $filter = $("#filter" + i);
     $filter.empty().parent(".slide").removeClass("selected");
-    $filter.parent(".slide").find("h3").text(filter_title);
+    $filter
+      .parent(".slide")
+      .find("h3")
+      .html('<span class="empty">' + filter_title + "</span>")
+      .removeClass("stepped-title");
   }
 }
 
@@ -73,7 +77,12 @@ document.addEventListener("DOMContentLoaded", () => {
             .parent(".slide")
             .addClass("selected")
             .find("h3")
-            .text(selectedItemName);
+            .addClass("stepped-title short")
+            .html(
+              '<span class="step-number">Step 02:</span> <span>' +
+                selectedItemName +
+                "</span>",
+            );
 
           for (var i = 0; i < dat.cats.length; i++) {
             $("#filter2").append(
@@ -149,7 +158,14 @@ document.addEventListener("DOMContentLoaded", () => {
           $("#filter" + nextFilter)
             .parent(".slide")
             .find("h3")
-            .text(selectedItemName);
+            .addClass("stepped-title short")
+            .html(
+              '<span class="step-number">Step ' +
+                nextFilter +
+                ":</span> <span>" +
+                selectedItemName +
+                "</span>",
+            );
 
           for (var i = 0; i < dat.cats.length; i++) {
             $("#filter" + nextFilter).append(
