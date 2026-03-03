@@ -541,6 +541,7 @@
   .selectric {
     background-color: var(--brand-red);
     border-color: var(--brand-red) !important;
+    transition: all 0.3s ease-in-out;
 
     .label {
       color: white;
@@ -548,7 +549,21 @@
 
     .button {
       color: var(--brand-yellow) !important;
-      background-color: var(--brand-red);
+      background-color: transparent !important;
+    }
+
+    @media (hover: hover) {
+      &:hover {
+        background-color: var(--brand-red-dark);
+        border-color: var(--brand-red-dark) !important;
+      }
+    }
+  }
+
+  .selectric-open {
+    .selectric {
+      background-color: var(--brand-red-dark);
+      border-color: var(--brand-red-dark) !important;
     }
   }
 
