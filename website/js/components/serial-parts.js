@@ -18,10 +18,10 @@ export default {
   },
   template: `
     <div class="section body-copy">
-        <h3 id="secondary-part-category" class="underlined stepped-title">
+        <h2 id="secondary-part-category" class="underlined stepped-title">
             <span class="step-number">Step 02:</span>
             <span>Select secondary part category</span>
-        </h3>
+        </h2>
 
         <form id="serial-parts-form" class="form">
           <RecursiveContainer :node="parts" :depth="1"

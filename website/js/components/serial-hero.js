@@ -39,10 +39,10 @@ export default {
         <div class="page-divider"></div>
 
         <div class="section body-copy">
-            <h3 class="underlined stepped-title">
+            <h2 class="underlined stepped-title">
                 <span class="step-number">Step 01:</span>
                 <span>Select primary part category</span>
-            </h3>
+            </h2>
             <ul class="parts-categories-list grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
                 <li v-for="(category, i) in categories" :key="i" class="category-item">
                     <a :href="category.key" :class="{ 'selected': selectedCategoryKey === category.key }" @click.prevent="$emit('category-click', category.key)">

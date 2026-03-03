@@ -1146,6 +1146,15 @@
   .step-number {
     color: var(--brand-gray-dark);
   }
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    align-items: flex-start;
+
+    .step-number {
+      font-size: 1rem;
+    }
+  }
 }
 
 /* ================================================================= */
