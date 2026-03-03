@@ -1106,6 +1106,17 @@
   }
 }
 
+.stepped-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 0.75rem;
+
+  .step-number {
+    color: var(--brand-gray-dark);
+  }
+}
+
 /* ================================================================= */
 /* ================================================================= */
 .spacer {

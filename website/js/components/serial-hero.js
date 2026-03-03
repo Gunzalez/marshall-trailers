@@ -40,7 +40,7 @@ export default {
 
         <div class="section body-copy">
             <h3 class="underlined stepped-title">
-                <span>Step 01:</span>
+                <span class="step-number">Step 01:</span>
                 <span>Select primary part category</span>
             </h3>
             <ul class="parts-categories-list grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
