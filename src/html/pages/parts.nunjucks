@@ -46,7 +46,10 @@
 
             <div id="parts-filters" class="parts-filters controllers">
                 <div class="slide selected form-slide">
-                    <h3>Select part</h3>
+                    <h3 class="stepped-title short">
+                        <span class="step-number">Step 01:</span>
+                        <span>Select part</span>
+                    </h3>
                     <form id="filter-form" class="filter-inputs form" method="post" autoComplete="off">
                         <fieldset id="fields" class="fields">
 
@@ -243,27 +246,33 @@
                     </form>
                 </div>
                 <div class="slide">
-                    <h3>Additional filter</h3>
+                    <h3>
+                        <span class="empty">Additional filter</span></h3>
                     <ol id="filter2" data-level="2"></ol>
                 </div>
                 <div class="slide">
-                    <h3>Additional filter</h3>
+                    <h3>
+                        <span class="empty">Additional filter</span></h3>
                     <ol id="filter3" data-level="3"></ol>
                 </div>
                 <div class="slide">
-                    <h3>Additional filter</h3>
+                    <h3>
+                        <span class="empty">Additional filter</span></h3>
                     <ol id="filter4" data-level="4"></ol>
                 </div>
                 <div class="slide">
-                    <h3>Additional filter</h3>
+                    <h3>
+                        <span class="empty">Additional filter</span></h3>
                     <ol id="filter5" data-level="5"></ol>
                 </div>
                 <div class="slide">
-                    <h3>Additional filter</h3>
+                    <h3>
+                        <span class="empty">Additional filter</span></h3>
                     <ol id="filter6" data-level="6"></ol>
                 </div>
                 <div class="slide">
-                    <h3>Additional filter</h3>
+                    <h3>
+                        <span class="empty">Additional filter</span></h3>
                     <ol id="filter7" data-level="7"></ol>
                 </div>
             </div>
