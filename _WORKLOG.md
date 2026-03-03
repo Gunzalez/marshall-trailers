@@ -58,12 +58,13 @@
 
 - 1st March: 3hrs
 - 2nd March: 6hrs
-- 3rd March: 1hr
+- 3rd March: 3hr
 
 #### NEXT
 
 - Dropdown Menu bug
 - See about selectric in Vue
+- fix light box behaviour
 
 - Move to real repo
 - Site wide tweaks - numbers on header, colors on header, of buttons and icons
