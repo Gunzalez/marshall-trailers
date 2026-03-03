@@ -538,6 +538,20 @@
     padding: 12px 16px 10px 16px;
   }
 
+  .selectric {
+    background-color: var(--brand-red);
+    border-color: var(--brand-red) !important;
+
+    .label {
+      color: white;
+    }
+
+    .button {
+      color: var(--brand-yellow) !important;
+      background-color: var(--brand-red);
+    }
+  }
+
   .selectric-items li {
     &:first-child {
       display: none;
