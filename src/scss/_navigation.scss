@@ -58,7 +58,7 @@
   justify-content: start;
   gap: 4px;
 
-  .home-link {
+  .mobile-nav-link {
     display: none;
   }
 }
@@ -223,6 +223,8 @@
 /* ================================================================= */
 .mm-panels {
   --colour-links: var(--system-black);
+
+  font-family: "Geometr415", sans-serif;
 
   .mm-panel {
     background-color: white;

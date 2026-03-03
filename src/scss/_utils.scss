@@ -326,6 +326,10 @@
     }
   }
 
+  &.top-section {
+    margin-bottom: 1rem;
+  }
+
   @media screen and (min-width: 768px) {
     margin-bottom: 60px;
 
@@ -371,7 +375,7 @@
 .breadcrumbs {
   padding-left: 1rem;
   padding-right: 1rem;
-  padding-bottom: 1rem;
+  padding-bottom: 2rem;
   margin: 0 auto;
   max-width: var(--max-width);
   width: 100%;
