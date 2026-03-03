@@ -568,6 +568,29 @@
       }
     }
   }
+
+  &.active-bttn {
+    background-color: white;
+    border-color: var(--brand-red);
+
+    i,
+    span {
+      color: var(--brand-red);
+    }
+
+    @media (hover: hover) {
+      &:hover {
+        background-color: white;
+        border-color: var(--brand-red);
+
+        span {
+          &:last-child {
+            color: var(--brand-red);
+          }
+        }
+      }
+    }
+  }
 }
 
 .image-link {
@@ -952,6 +975,10 @@
       color: var(--brand-yellow);
     }
   }
+}
+
+.scroll-margin {
+  scroll-margin-top: 50px;
 }
 
 .expanding-link {

@@ -29,7 +29,7 @@
             <div class="buttons-and-form-fields">
                 <div>
                     <div class="actions-buttons">
-                        <button type="button" class="bttn btn_MyAccount">
+                        <button type="button" class="bttn btn_MyAccount active-bttn">
                             <span>
                                 <i class="fa-solid fa-user"></i>
                             </span>
@@ -62,7 +62,7 @@
                     </div>
                 </div>
 
-                <div id="section_MyAccount" class="fieldset-width">
+                <div id="section_MyAccount" class="fieldset-width scroll-margin">
                     <div id="mode-edit" class="display-none">
                         <div class="form-fields">
                             <h2 class="title underlined">My Account</h2>
@@ -127,7 +127,7 @@
                     </div>
                 </div>
 
-                <div id="section_Addresses" class="fieldset-width display-none">
+                <div id="section_Addresses" class="fieldset-width scroll-margin display-none">
                     <h2 class="title underlined">My Addresses</h2>
                     <ul class="addresses-list">
                         <li class="address-item">
@@ -209,7 +209,7 @@
                     </div>
                 </div>
 
-                <div id="section_OrderHistory" class="fieldset-width display-none">
+                <div id="section_OrderHistory" class="fieldset-width scroll-margin display-none">
                     <h2 class="title underlined">Order History</h2>
                     <p>You have no past orders.</p>
                 </div>
@@ -220,7 +220,27 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            function endEditMode() {
+            function resetSections(currentSection) {
+                $('#section_MyAccount').addClass('display-none');
+                $('#section_Addresses').addClass('display-none');
+                $('#section_OrderHistory').addClass('display-none');
+                if (currentSection) {
+                    $('#' + currentSection).removeClass('display-none');
+                    if (window.innerWidth < 768) {
+                        // Scroll to the active section on mobile when a button is clicked
+                        $('#' + currentSection)[0].scrollIntoView({top: 200, behavior: 'smooth'});
+                    }
+                }
+            }
+
+            function resetActiveButtons(currentButton) {
+                $('.actions-buttons .bttn').removeClass('active-bttn');
+                if (currentButton) {
+                    $(currentButton).addClass('active-bttn');
+                }
+            }
+
+            function stopEditMode() {
                 $('#mode-view').removeClass('display-none');
                 $('#mode-edit').addClass('display-none');
             }
@@ -230,29 +250,36 @@
                 $('#mode-view').addClass('display-none');
                 $('#mode-edit').removeClass('display-none');
             });
+
             $('.btn_AccountSave').click(function (e) {
                 e.preventDefault();
-                endEditMode();
+                // TODO: Add form validation and submission logic here
+                stopEditMode();
             });
 
             $('.btn_MyAccount').click(function (e) {
                 e.preventDefault();
-                endEditMode();
-                $('#section_MyAccount').removeClass('display-none');
-                $('#section_Addresses').addClass('display-none');
-                $('#section_OrderHistory').addClass('display-none');
+                stopEditMode(); // To ensure View mode is active when navigating back to My Account
+                resetActiveButtons($(this));
+                resetSections('section_MyAccount');
             });
+
             $('.btn_Addresses').click(function (e) {
                 e.preventDefault();
-                $('#section_MyAccount').addClass('display-none');
-                $('#section_Addresses').removeClass('display-none');
-                $('#section_OrderHistory').addClass('display-none');
+                resetActiveButtons($(this));
+                resetSections('section_Addresses');
             });
+
             $('.btn_OrderHistory').click(function (e) {
                 e.preventDefault();
-                $('#section_MyAccount').addClass('display-none');
-                $('#section_Addresses').addClass('display-none');
-                $('#section_OrderHistory').removeClass('display-none');
+                resetActiveButtons($(this));
+                resetSections('section_OrderHistory');
+            });
+
+            $('.btn_LogOut').click(function (e) {
+                e.preventDefault();
+                // TODO: @Rob Add logout logic here (e.g., clear session, make API call, etc.)
+                window.location.href = 'index.html';
             });
         });
     </script>
