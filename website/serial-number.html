@@ -522,10 +522,17 @@
             @more-details-click="handleMoreDetailsClick"></serial-hero>
 
         <serial-parts 
-            :parts="partsData" 
+            :parts="partsData"
             @part-click="handlePartClick"
             @buy-now-click="handleBuyNowClick"
             @add-to-basket-click="handleAddToBasketClick"></serial-parts>
+
+        <div v-if="isBusy" id="processing" class="alwaysOn">
+            <div class="wrapper">
+                <p>Processing your request...</p>
+                <i class="fa-solid fa-spinner"></i>
+            </div>
+        </div>
 
     </div>
 
@@ -580,7 +587,7 @@
             const serial_number = urlParams.get('serial-number');
             $('.dummy-data-serial-number-TEXT').text(serial_number);
         });
-        const serialNumberData = {"title":"QM-1600","specifications":[{"name":"Material Description","value":"BC/25-10ton Bale/Flat Trailer"},{"name":"Goods Issue Date","value":"17.05.2023"},{"name":"Axles","value":"6 Stud Axle (300 x 100mm)"},{"name":"Braking System","value":"Hydraulic Brakes"},{"name":"Suspension","value":"Rockers"}],"categories":[{"name":"Axles","key":"axles"},{"name":"Bearings","key":"bearings"},{"name":"Bolts","key":"bolts"},{"name":"Cover Couplings","key":"cover-couplings"},{"name":"Handbrakes","key":"handbrakes"},{"name":"Hitches","key":"hitches"},{"name":"Hydraulic Hoses","key":"hydraulic-hoses"},{"name":"Lights","key":"lights"},{"name":"Mesh","key":"mesh"},{"name":"Miscellaneous","key":"miscellaneous"},{"name":"Other rams","key":"other-rams"},{"name":"Paint","key":"paint"},{"name":"Rocker Tandems","key":"rocker-tandems"},{"name":"Seals","key":"seals"},{"name":"Springs","key":"springs"},{"name":"Steel Sections","key":"steel-sections"},{"name":"Tip Rams","key":"tip-rams"},{"name":"Transfer","key":"transfer"},{"name":"Valves","key":"valves"}]};
+        const serialNumberData = {"title":"QM-1600","specifications":[{"name":"Material Description","value":"BC/25-10ton Bale/Flat Trailer"},{"name":"Goods Issue Date","value":"17.05.2023"},{"name":"Axles","value":"6 Stud Axle (300 x 100mm)"},{"name":"Braking System","value":"Hydraulic Brakes"},{"name":"Suspension","value":"Rockers"}],"categories":[{"name":"Axles","key":"axles"},{"name":"Bearings","key":"bearings"},{"name":"Bolts","key":"bolts"},{"name":"Cover Couplings","key":"cover+couplings"},{"name":"Handbrakes","key":"handbrakes"},{"name":"Hitches","key":"hitches"},{"name":"Hydraulic Hoses","key":"hydraulic+hoses"},{"name":"Lights","key":"lights"},{"name":"Mesh","key":"mesh"},{"name":"Miscellaneous","key":"miscellaneous"},{"name":"Other Rams","key":"other+rams"},{"name":"Paint","key":"paint"},{"name":"Rocker Tandems","key":"rocker+tandems"},{"name":"Seals","key":"seals"},{"name":"Springs","key":"springs"},{"name":"Steel Sections","key":"steel+sections"},{"name":"Tip Rams","key":"tip+rams"},{"name":"Transfer","key":"transfer"},{"name":"Valves","key":"valves"}]};
 
         document.addEventListener('DOMContentLoaded', () => {
             const {createApp, onMounted, ref} = Vue;
@@ -591,9 +598,9 @@
                     SerialParts
                 },
                 setup() {
-                    const selectedCategoryKey = ref(null);
                     const isBusy = ref(false);
                     const partsData = ref(null);
+                    const selectedCategoryKey = ref(null);
 
                     const options = {
                         method: 'GET',
@@ -603,10 +610,10 @@
                         }
                     };
 
-                    const updatePartsData = async (category) => {
+                    const updatePartsData = async (categoryKey) => {
                         isBusy.value = true;
                         try {
-                            const response = await fetch('/pp/mocks/ajax_sn_options.php?category=' + category, options);
+                            const response = await fetch('/pp/mocks/ajax_sn_options.php?categoryKey=' + categoryKey, options);
                             if (!response.ok) 
                                 throw new Error('Network response was not ok');
                             const returnedData = await response.json();
@@ -618,11 +625,11 @@
                         }
                     };
 
-                    const handleCategoryClick = (category) => {
+                    const handleCategoryClick = (categoryKey) => {
                         if (isBusy.value) 
                             return;
-                        selectedCategoryKey.value = category;
-                        updatePartsData(category);
+                        selectedCategoryKey.value = categoryKey;
+                        updatePartsData(categoryKey);
                     };
 
                     const handlePartClick = (partKey) => {
@@ -674,6 +681,7 @@
                     return {
                         data,
                         partsData,
+                        isBusy,
                         selectedCategoryKey,
                         handlePartClick,
                         handleBuyNowClick,

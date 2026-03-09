@@ -41,7 +41,6 @@ export default {
             <span class="step-number">Step 02:</span>
             <span>Select secondary part category</span>
         </h2>
-
         <form id="serial-parts-form" class="form">
           <RecursiveContainer :node="parts" :depth="1"
             @buy-now-click="$emit('buy-now-click', $event)"
