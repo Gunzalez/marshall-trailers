@@ -732,6 +732,9 @@
                     let groupedOptions = null;
                     let selectedOptions = null;
 
+                    var configureOptionsUrl = "/ajax/ajax_configure_get_options.php";
+                    var TEST_ConfigureOptionsUrl = "https://demo-mt.free.beeceptor.com/api/configure_get_options";
+
                     $("#product-detail").on("click", ".btn_AddOptions", function () {
 
                         if (!window.basicMachine) {
@@ -747,7 +750,7 @@
 
                         $.ajax({
                             type: "post",
-                            url: "/ajax/ajax_configure_get_options.php",
+                            url: TEST_ConfigureOptionsUrl,
                             data: "product_id=" + product_Id,
                             dataType: "json",
                             success: function (optionsData) {
