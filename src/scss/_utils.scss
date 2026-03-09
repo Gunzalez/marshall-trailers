@@ -855,14 +855,14 @@
     }
 
     &.selected {
-      border-color: var(--brand-red);
-      background-color: white;
+      border-color: var(--brand-yellow);
+      background-color: var(--brand-yellow);
       cursor: default;
 
       @media (hover: hover) {
         &:hover {
-          background-color: white;
-          border-color: var(--brand-red);
+          background-color: var(--brand-yellow);
+          border-color: var(--brand-yellow);
         }
       }
     }
