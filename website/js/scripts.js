@@ -620,6 +620,9 @@ window.data = data;
   var marshallTrailers = {
     CONSTS: {
       scrollThreshold: 200,
+      partsBasketUrl: "/ajax/ajax_spares_basket.php",
+      TEST_partsBasketUrl:
+        "https://demo-mt.free.beeceptor.com/api/spares_basket",
     },
   };
 
@@ -1094,7 +1097,7 @@ window.data = data;
 
       $.ajax({
         type: "post",
-        url: "/ajax/ajax_spares_basket.php",
+        url: marshallTrailers.CONSTS.TEST_partsBasketUrl,
         data: data,
         dataType: "json",
         success: function (response) {

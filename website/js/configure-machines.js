@@ -16,12 +16,12 @@
       return $("<li>").html(
         "<span class='label'>" +
           spec.label +
-          "</span><span class='value'>" +
+          "</span> <span class='value'>" +
           spec.value +
           "</span>",
       );
     });
-    $specsContent.find(".specs-list").empty().append($specsList);
+    $specsContent.find(".specs-list").empty().html($specsList);
     $specsContent.find(".product-price .value").text(data.price);
     $("#basic-machine").removeClass("display-none");
     console.log("time now: ", new Date().getTime());
