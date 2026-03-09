@@ -6,6 +6,12 @@ var numVisibleFilters = 3;
 var filters_sliding = false;
 var filter_title = "Additional filter";
 
+var spareBasketUrl = "/ajax/ajax_spares_basket.php";
+var TEST_spareBasketUrl = "/pp/mocks/ajax_spares_basket.php";
+
+var filterUrl = "/ajax/ajax_filter.php";
+var TEST_filterUrl = "/pp/mocks/ajax_filter.php";
+
 function clearFilters() {
   for (var i = 2; i <= totalNumFilters; i++) {
     var $filter = $("#filter" + i);
@@ -68,7 +74,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // get child cats //
     $.ajax({
       type: "get",
-      url: "/ajax/ajax_filter.php",
+      url: TEST_filterUrl,
       data: "level=2&pid=" + category_id,
       dataType: "json",
       success: function (dat) {
@@ -139,7 +145,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // get child cats //
     $.ajax({
       type: "get",
-      url: "/ajax/ajax_filter.php",
+      url: TEST_filterUrl,
       data: "level=" + nextFilter + "&pid=" + cat_id,
       dataType: "json",
       success: function (dat) {
@@ -387,7 +393,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     $.ajax({
       type: "post",
-      url: "/ajax/ajax_spares_basket.php",
+      url: TEST_spareBasketUrl,
       data: data,
       dataType: "json",
       success: function (dat) {
@@ -417,7 +423,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     $.ajax({
       type: "post",
-      url: "/ajax/ajax_spares_basket.php",
+      url: TEST_spareBasketUrl,
       data: data,
       dataType: "json",
       success: function (dat) {
