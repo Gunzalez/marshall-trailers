@@ -12,6 +12,9 @@ var TEST_spareBasketUrl = "/pp/mocks/ajax_spares_basket.php";
 var filterUrl = "/ajax/ajax_filter.php";
 var TEST_filterUrl = "/pp/mocks/ajax_filter.php";
 
+var resultsUrl = "/ajax/ajax_filter_results.php";
+var TEST_resultsUrl = "/pp/mocks/ajax_filter_results.php";
+
 function clearFilters() {
   for (var i = 2; i <= totalNumFilters; i++) {
     var $filter = $("#filter" + i);
@@ -106,7 +109,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // get spares results //
     $.ajax({
       type: "get",
-      url: "/ajax/ajax_filter_results.php",
+      url: TEST_resultsUrl,
       data:
         "level=1&cid=" +
         $(this).val() +
@@ -202,7 +205,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // get spares results //
     $.ajax({
       type: "get",
-      url: "/ajax/ajax_filter_results.php",
+      url: TEST_resultsUrl,
       data:
         "level=" +
         level +
@@ -261,7 +264,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // get spares results //
     $.ajax({
       type: "get",
-      url: "/ajax/ajax_filter_results.php",
+      url: TEST_resultsUrl,
       data: "level=" + level + "&cid=" + cat_id + "&range=" + rid,
       dataType: "html",
       success: function (content) {
@@ -286,7 +289,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // get spares result //
     $.ajax({
       type: "get",
-      url: "/ajax/ajax_filter_results.php",
+      url: TEST_resultsUrl,
       data:
         "level=" +
         level +
@@ -324,7 +327,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // get spares results //
     $.ajax({
       type: "post",
-      url: "/ajax/ajax_filter_results.php",
+      url: TEST_resultsUrl,
       data:
         "part_no=" + $("#part_no").val() + "&keyword=" + $("#keyword").val(),
       dataType: "html",
