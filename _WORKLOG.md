@@ -60,7 +60,8 @@
 - 2nd March: 6hrs
 - 3rd March: 5hr
 
-- 8th March: 2hr
+- 8th March: 2hrs
+- 9th March: 4hrs
 
 #### NEXT
 
