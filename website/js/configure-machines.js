@@ -2,8 +2,8 @@
 (function () {
   "use strict";
 
-  // var configureAjaxUrl = "/ajax/ajax_configure_get_content.php";
-  var configureAjaxUrl =
+  var configureAjaxUrl = "/ajax/ajax_configure_get_content.php";
+  var TEST_configureAjaxUrl =
     "https://demo-mt.free.beeceptor.com/api/configure_get_content";
 
   let isAjaxBusy = false;
@@ -61,7 +61,7 @@
 
     $.ajax({
       type: "post",
-      url: configureAjaxUrl,
+      url: TEST_configureAjaxUrl,
       data: "product_id=" + product_Id,
       dataType: "json",
       success: function (data) {
