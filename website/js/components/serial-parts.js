@@ -1,4 +1,4 @@
-const { computed, ref, watch } = Vue;
+const { ref, watch, nextTick } = Vue;
 
 import RecursiveContainer from "./serial-recursive.js";
 
@@ -7,22 +7,37 @@ export default {
     RecursiveContainer,
   },
   props: {
-    parts: Object,
+    parts: Object || null,
   },
   emits: ["buy-now-click", "add-to-basket-click"],
   setup(props) {
-    console.log(props.parts);
-    const isEmpty = computed(() => {
-      return !props.parts || Object.keys(props.parts).length === 0;
-    });
+    const parts = ref(null);
+    const secondaryPartCategory = ref(null);
+
+    const scrollToSecondaryPartCategory = async () => {
+      await nextTick();
+      secondaryPartCategory.value.scrollIntoView({ behavior: "smooth" });
+    };
+
+    watch(
+      () => props.parts,
+      (newParts) => {
+        parts.value = newParts;
+        if (newParts) {
+          scrollToSecondaryPartCategory();
+        }
+      },
+      { deep: true },
+    );
+
     return {
-      parts: props.parts,
-      isEmpty,
+      parts,
+      secondaryPartCategory,
     };
   },
   template: `
-    <div v-if="!isEmpty" class="section body-copy">
-        <h2 id="secondary-part-category" class="underlined stepped-title">
+    <div v-if="parts" class="section body-copy">
+        <h2 id="secondary-part-category" class="underlined stepped-title" ref="secondaryPartCategory">
             <span class="step-number">Step 02:</span>
             <span>Select secondary part category</span>
         </h2>
