@@ -46,6 +46,13 @@
             @buy-now-click="handleBuyNowClick"
             @add-to-basket-click="handleAddToBasketClick"></serial-parts>
 
+        <div v-if="isBusy" id="processing" class="alwaysOn">
+            <div class="wrapper">
+                <p>Processing your request...</p>
+                <i class="fa-solid fa-spinner"></i>
+            </div>
+        </div>
+
     </div>
 
     {{ macros.floatingBasket() }}
@@ -156,6 +163,7 @@
                     return {
                         data,
                         partsData,
+                        isBusy,
                         selectedCategoryKey,
                         handlePartClick,
                         handleBuyNowClick,
