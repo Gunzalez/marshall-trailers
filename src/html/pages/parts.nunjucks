@@ -277,9 +277,7 @@
                 </div>
             </div>
 
-            <div id="results" class="results controllers">
-                {{ macros.fakeResults() }}
-            </div>
+            <div id="results" class="results controllers"></div>
         </div>
     </div>
 
