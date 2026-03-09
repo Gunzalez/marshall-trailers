@@ -41,7 +41,7 @@
             @more-details-click="handleMoreDetailsClick"></serial-hero>
 
         <serial-parts 
-            :parts="partsData" 
+            :parts="partsData"
             @part-click="handlePartClick"
             @buy-now-click="handleBuyNowClick"
             @add-to-basket-click="handleAddToBasketClick"></serial-parts>
@@ -80,9 +80,9 @@
                     SerialParts
                 },
                 setup() {
-                    const selectedCategoryKey = ref(null);
                     const isBusy = ref(false);
                     const partsData = ref(null);
+                    const selectedCategoryKey = ref(null);
 
                     const options = {
                         method: 'GET',
@@ -92,10 +92,10 @@
                         }
                     };
 
-                    const updatePartsData = async (category) => {
+                    const updatePartsData = async (categoryKey) => {
                         isBusy.value = true;
                         try {
-                            const response = await fetch('/pp/mocks/ajax_sn_options.php?category=' + category, options);
+                            const response = await fetch('/pp/mocks/ajax_sn_options.php?categoryKey=' + categoryKey, options);
                             if (!response.ok) 
                                 throw new Error('Network response was not ok');
                             const returnedData = await response.json();
@@ -107,11 +107,11 @@
                         }
                     };
 
-                    const handleCategoryClick = (category) => {
+                    const handleCategoryClick = (categoryKey) => {
                         if (isBusy.value) 
                             return;
-                        selectedCategoryKey.value = category;
-                        updatePartsData(category);
+                        selectedCategoryKey.value = categoryKey;
+                        updatePartsData(categoryKey);
                     };
 
                     const handlePartClick = (partKey) => {
