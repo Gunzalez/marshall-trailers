@@ -12,12 +12,16 @@ export default {
   emits: ["buy-now-click", "add-to-basket-click"],
   setup(props) {
     console.log(props.parts);
+    const isEmpty = computed(() => {
+      return !props.parts || Object.keys(props.parts).length === 0;
+    });
     return {
       parts: props.parts,
+      isEmpty,
     };
   },
   template: `
-    <div class="section body-copy">
+    <div v-if="!isEmpty" class="section body-copy">
         <h2 id="secondary-part-category" class="underlined stepped-title">
             <span class="step-number">Step 02:</span>
             <span>Select secondary part category</span>

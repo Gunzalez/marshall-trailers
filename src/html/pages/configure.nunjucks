@@ -222,7 +222,7 @@
                     let selectedOptions = null;
 
                     var configureOptionsUrl = "/ajax/ajax_configure_get_options.php";
-                    var TEST_ConfigureOptionsUrl = "https://demo-mt.free.beeceptor.com/api/configure_get_options";
+                    var TEST_ConfigureOptionsUrl = "/pp/mocks/ajax_configure_get_options.php";
 
                     $("#product-detail").on("click", ".btn_AddOptions", function () {
 

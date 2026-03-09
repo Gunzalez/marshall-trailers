@@ -621,8 +621,7 @@ window.data = data;
     CONSTS: {
       scrollThreshold: 200,
       partsBasketUrl: "/ajax/ajax_spares_basket.php",
-      TEST_partsBasketUrl:
-        "https://demo-mt.free.beeceptor.com/api/spares_basket",
+      TEST_partsBasketUrl: "/pp/mocks/ajax_spares_basket.php",
     },
   };
 

@@ -3,8 +3,7 @@
   "use strict";
 
   var configureAjaxUrl = "/ajax/ajax_configure_get_content.php";
-  var TEST_configureAjaxUrl =
-    "https://demo-mt.free.beeceptor.com/api/configure_get_content";
+  var TEST_configureAjaxUrl = "/pp/mocks/ajax_configure_content.php";
 
   let isAjaxBusy = false;
   window.basicMachine = null;
