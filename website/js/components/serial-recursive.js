@@ -1,4 +1,4 @@
-const { ref, onMounted } = Vue;
+const { ref, onMounted, watch } = Vue;
 
 import ProductCard from "./serial-product.js";
 
@@ -21,6 +21,14 @@ export default {
     const toggle = () => {
       isOpen.value = !isOpen.value;
     };
+
+    watch(
+      () => props.node,
+      () => {
+        isOpen.value = isTopLevel.value;
+      },
+      { deep: false },
+    );
 
     onMounted(() => {
       if (isTopLevel.value) {
