@@ -137,7 +137,7 @@ export default {
                         </button>
                     </div>
                 </div>
-                <div v-if="formDisplayState" class="fieldset-width">
+                <div v-show="formDisplayState" class="fieldset-width">
                     <div id="contact-section" class="contact-section">
                         <h4>Email enquiry to Marshall & a copy to yourself.</h4>
                         <div class="field-set">
@@ -145,6 +145,7 @@ export default {
                                 <span>Title *</span>
                                 <div class="styled-select">
                                     <select id="title" name="title" v-model="title" :class="{ 'error': titleError }">
+                                        <option value="">Select...</option>
                                         <option value="Mr">Mr</option>
                                         <option value="Mrs">Mrs</option>
                                         <option value="Ms">Ms</option>
