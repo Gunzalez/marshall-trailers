@@ -18,6 +18,7 @@ export default {
   setup(props) {
     const isOpen = ref(false);
     const isTopLevel = ref(props.depth === 1);
+
     const toggle = () => {
       isOpen.value = !isOpen.value;
     };
@@ -64,7 +65,7 @@ export default {
                 </div>
                 <span class="underline"></span>
             </template>
-            <div v-if="isOpen" class="container-content">
+            <div v-show="isOpen"  class="container-content">
                 
                 <ProductCard v-if="node.product" :product="node.product"
                     @buy-now-click="$emit('buy-now-click', $event)"

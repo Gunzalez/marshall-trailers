@@ -5,20 +5,48 @@ export default {
     product: Object,
   },
   emits: ["buy-now-click", "add-to-basket-click"],
+  setup(props, { emit }) {
+    const quantity = ref(1);
+    const snSelectRef = ref(null);
 
-  setup(props) {
+    const valueFromSelect = () => {
+      // Due to jQuery selectric plugin and DOM manipulation,
+      // v-model doesn't work as expected on the select input,
+      // so we need to get the value directly from the DOM element using ref
+      return parseInt(snSelectRef.value.value, 10);
+    };
+
+    const onBuyNowClick = () => {
+      props.product &&
+        emit("buy-now-click", {
+          id: props.product.id,
+          quantity: valueFromSelect(),
+          unit_price: props.product.unit_price,
+        });
+    };
+
+    const onAddToBasketClick = () => {
+      props.product &&
+        emit("add-to-basket-click", {
+          id: props.product.id,
+          quantity: valueFromSelect(),
+          unit_price: props.product.unit_price,
+        });
+    };
+
     const unitPrice = computed(() =>
       props.product ? props.product.unit_price : null,
     );
 
-    const quantity = ref(1);
-
     return {
       unitPrice,
+      quantity,
+      snSelectRef,
       imgLrg: props.product.imgUrlLarge,
       imgSrl: props.product.imgUrlSmall,
       id: props.product.id,
-      quantity,
+      onBuyNowClick,
+      onAddToBasketClick,
     };
   },
   template: `
@@ -34,20 +62,20 @@ export default {
             <label>
                 <span class="sr-only">Quantity:</span>
                 <div class="styled-select">
-                    <select name="quantity-051-01-9080" id="quantity-051-01-9080" class="quantity select-input" v-model="quantity">
+                    <select :name="'quantity-' + id" :id="'quantity-' + id" class="quantity select-input" v-model="quantity" ref="snSelectRef">
                         <option v-for="n in 120" :key="n" :value="n">{{ n }}</option>
                     </select>
                 </div>
             </label>
             <div class="actions">
-                <a href="#" class="btn_buyNow bttn" @click.prevent="$emit('buy-now-click', { id: id, quantity: quantity, unit_price: unitPrice })">
+                <a href="#" class="btn_buyNow bttn" @click.prevent="onBuyNowClick">
                     <span class="icon">
                         <i class="fa-regular fa-credit-card"></i>
                     </span>
                     <span>Buy Now</span>
                 </a>
 
-                <a href="#" class="btn_addBasket bttn" @click.prevent="$emit('add-to-basket-click', { id: id, quantity: quantity, unit_price: unitPrice })">
+                <a href="#" class="btn_addBasket bttn" @click.prevent="onAddToBasketClick">
                     <span class="icon">
                         <i class="fa-solid fa-cart-shopping"></i>
                     </span>
