@@ -43,11 +43,6 @@ function clearInputFields() {
 
 function showResults(content) {
   $("#results").html(content).show();
-
-  // re-init lightbox for new content //
-  window.MT.lcLightBoxLinks.soloImageLinks();
-  window.MT.lcLightBoxLinks.soloTextLinks();
-
   // re-init selectric for new content //
   window.MT.global.init();
 }
