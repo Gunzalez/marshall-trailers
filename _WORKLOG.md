@@ -66,8 +66,8 @@
 #### NEXT
 
 - Dropdown Menu bug
-- See about selectric in Vue
 - fix light box behaviour
+- Unify adding to basket
 
 - Move to real repo
 - Site wide tweaks - numbers on header, colors on header, of buttons and icons
@@ -91,13 +91,15 @@
 
 ### DON'T
 
+- See about selectric in Vue, see contact form
+
 ### TECH DEBT
 
 --
 
 # TODO
 
-- Clean up mega carousel with Rpb
+- Clean up mega carousel with Rob
 - Fix carousel arrows in Spares section
 
 -
