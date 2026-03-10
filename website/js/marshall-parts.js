@@ -13,7 +13,7 @@ var filterUrl = "/ajax/ajax_filter.php";
 var TEST_filterUrl = "/pp/mocks/ajax_filter.php";
 
 var resultsUrl = "/ajax/ajax_filter_results.php";
-var TEST_resultsUrl = "/pp/mocks/ajax_filter_results.php";
+var TEST_resultsUrl = "/pp/mocks/ajax_parts.php";
 
 function clearFilters() {
   for (var i = 2; i <= totalNumFilters; i++) {
@@ -42,7 +42,12 @@ function clearInputFields() {
 }
 
 function showResults(content) {
-  $("#results").html(content).show();
+  $("#results")
+    .html(JSON.stringify(content, null, 2))
+    .show();
+  if (window.partsResultsApp) {
+    window.partsResultsApp.resultsData = content.data || [];
+  }
   // re-init selectric for new content //
   window.MT.global.init();
 }
@@ -112,7 +117,7 @@ document.addEventListener("DOMContentLoaded", () => {
         $("#range").val() +
         "&model=" +
         $("#model").val(),
-      dataType: "html",
+      dataType: "json",
       success: function (content) {
         $("#processing").fadeOut("fast");
         showResults(content);
@@ -210,7 +215,7 @@ document.addEventListener("DOMContentLoaded", () => {
         $("#range").val() +
         "&model=" +
         $("#model").val(),
-      dataType: "html",
+      dataType: "json",
       success: function (content) {
         $("#processing").fadeOut("fast");
         showResults(content);
@@ -261,7 +266,7 @@ document.addEventListener("DOMContentLoaded", () => {
       type: "get",
       url: TEST_resultsUrl,
       data: "level=" + level + "&cid=" + cat_id + "&range=" + rid,
-      dataType: "html",
+      dataType: "json",
       success: function (content) {
         $("#processing").fadeOut("fast");
         showResults(content);
@@ -294,7 +299,7 @@ document.addEventListener("DOMContentLoaded", () => {
         $("#range").val() +
         "&model=" +
         model_id,
-      dataType: "html",
+      dataType: "json",
       success: function (content) {
         $("#processing").fadeOut("fast");
         showResults(content);
@@ -325,7 +330,7 @@ document.addEventListener("DOMContentLoaded", () => {
       url: TEST_resultsUrl,
       data:
         "part_no=" + $("#part_no").val() + "&keyword=" + $("#keyword").val(),
-      dataType: "html",
+      dataType: "json",
       success: function (content) {
         $("#processing").fadeOut("fast");
         showResults(content);
