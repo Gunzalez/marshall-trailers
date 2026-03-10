@@ -277,7 +277,13 @@
                 </div>
             </div>
 
-            <div id="results" class="results controllers"></div>
+            <div id="parts-results-app" class="parts-results-app">
+                <parts-results 
+                    :data="resultsData" 
+                    @buy-now-click="handleBuyNowClick" 
+                    @add-to-basket-click="handleAddToBasketClick"></parts-results>
+            </div>
+
         </div>
     </div>
 
@@ -289,5 +295,27 @@
     </div>
 
     {{ macros.floatingBasket() }}
+
+    <script type="module">
+
+        import PartsResults from "./js/components/parts-results.js";
+
+        document.addEventListener('DOMContentLoaded', () => {
+
+            const {createApp, ref} = Vue;
+
+            window.partsResultsApp = createApp({
+                components: {
+                    PartsResults
+                },
+                setup() {
+                    const isBusy = ref(false);
+                    const resultsData = ref(null);
+                    return {isBusy, resultsData};
+                }
+            }).mount('#parts-results-app');
+
+        });
+    </script>
 
 {% endblock %}
