@@ -199,9 +199,10 @@
   scroll-margin-top: 4rem;
 }
 
-#results,
 .parts-results-app {
   --selectWidth: 80px;
+
+  margin-top: 2rem;
 
   .results-title {
     border-bottom: 1px solid var(--brand-gray-dark);
@@ -418,6 +419,7 @@
         flex-direction: row;
         margin-left: auto;
         align-items: flex-start;
+        gap: 0.5rem;
 
         .select-box {
           width: var(--selectWidth);
