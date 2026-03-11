@@ -311,7 +311,17 @@
                 setup() {
                     const isBusy = ref(false);
                     const resultsData = ref(null);
-                    return {isBusy, resultsData};
+
+                    const handleAddToBasketClick = (event) => {
+                        console.log("Add to basket clicked", event);
+                        const data = `sid=${event.sid}&qty=${event.quantity}&price=${event.price}`;
+                        window
+                            .MT
+                            .basket
+                            .update(data);
+                    };
+
+                    return {isBusy, resultsData, handleAddToBasketClick};
                 }
             }).mount('#parts-results-app');
 
