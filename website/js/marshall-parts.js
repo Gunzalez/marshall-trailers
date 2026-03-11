@@ -326,12 +326,14 @@ document.addEventListener("DOMContentLoaded", () => {
     $.ajax({
       type: "post",
       url: TEST_resultsUrl,
-      data:
-        "part_no=" + $("#part_no").val() + "&keyword=" + $("#keyword").val(),
+      data: "part_no=" + part_no + "&keyword=" + keyword,
       dataType: "json",
       success: function (content) {
         $("#processing").fadeOut("fast");
         showResults(content);
+        setTimeout(() => {
+          $("#parts-results-app")[0].scrollIntoView({ behavior: "smooth" });
+        }, 100);
       },
     });
   });

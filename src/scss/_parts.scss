@@ -195,13 +195,10 @@
   }
 }
 
-.parts-results-section {
-  scroll-margin-top: 4rem;
-}
-
 .parts-results-app {
   --selectWidth: 80px;
 
+  scroll-margin-top: 4rem;
   margin-top: 2rem;
 
   .results-title {

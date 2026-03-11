@@ -65,7 +65,7 @@ export default {
   },
   template: `
     <div class="result">
-        <a :href="imgLrg" class="lc_lightbox_link spare-thumbnail">
+        <a :href="imgLrg" :title="partNo + ' - ' + description" class="lc_lightbox_link spare-thumbnail">
             <img :src="imgSrl" :alt="description">
         </a>
         <div class="details">
@@ -112,7 +112,7 @@ export default {
                 <h4 class="header">Related items:</h4>
                 <ul class="related-items-list">
                     <li v-for="(item, index) in relatedItems" :key="index">
-                        <a :href="item.url" class="lc_lightbox_link_text">{{ item.part_no }}</a>
+                        <a :href="item.url" :title="item.part_no + ' - ' + item.description" class="lc_lightbox_link_text">{{ item.part_no }}</a>
                         <span>{{ item.description }}</span>
                         <button type="button" @click.prevent="()=>onAddRelatedClick(item)" class="bttn">
                             <span class="icon">
@@ -143,7 +143,7 @@ export default {
                             <option v-for="n in 120" :value="n">{{ n }}</option>
                     </select>
                 </div>
-                <button type="button" class="bttn" @click.prevent="onAddToBasketClick">
+                <button type="button" @click.prevent="onAddToBasketClick" class="bttn">
                     <span class="icon">
                         <i class="fa-solid fa-cart-shopping"></i>
                     </span>
