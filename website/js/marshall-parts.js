@@ -28,7 +28,9 @@ function clearFilters() {
 }
 
 function clearResults() {
-  $("#results").empty();
+  if (window.partsResultsApp) {
+    window.partsResultsApp.resultsData = null;
+  }
 }
 
 function updateFieldsMeta(level, cid) {
@@ -42,14 +44,9 @@ function clearInputFields() {
 }
 
 function showResults(content) {
-  $("#results")
-    .html(JSON.stringify(content, null, 2))
-    .show();
   if (window.partsResultsApp) {
     window.partsResultsApp.resultsData = content.data || [];
   }
-  // re-init selectric for new content //
-  window.MT.global.init();
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -324,6 +321,7 @@ document.addEventListener("DOMContentLoaded", () => {
     $("#model").empty().prop("disabled", true).selectric("refresh");
 
     clearFilters();
+    clearResults();
     // get spares results //
     $.ajax({
       type: "post",
@@ -351,28 +349,6 @@ document.addEventListener("DOMContentLoaded", () => {
     var destination = $(this).attr("action");
     window.location.href =
       destination + "?serial-number=" + encodeURIComponent(serialNumber);
-  });
-
-  $("#results").on("click", ".btn_addBasket", function (event) {
-    event.preventDefault();
-
-    var pricing = $(this).parents(".pricing");
-    var sid = pricing.find("input.sid").val();
-    var price = pricing.find("input.price").val();
-    var qty = pricing.find(".quantity").val();
-    var data = "sid=" + sid + "&qty=" + qty + "&price=" + price;
-    window.MT.basket.update(data);
-  });
-
-  $("#results").on("click", ".btn_addBasketRelated", function (event) {
-    event.preventDefault();
-
-    var li = $(this).parent("li");
-    var sid = $(li).data("sid");
-    var price = $(li).data("price");
-    var qty = 1;
-    var data = "sid=" + sid + "&qty=" + qty + "&price=" + price;
-    window.MT.basket.update(data);
   });
 
   $(".btn_addBasketAll").on("click", function (event) {
