@@ -24,7 +24,7 @@
         <h1 class="page-title">Silage / Grain Trailers</h1>
     </div>
 
-    <div id="models-app" class="section in-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 pb-16 app-loading">
+    <div id="models-app" class="section grid-pods app-loading">
         <div v-for="(option, i) in options" :key="i" class="slide flex flex-col gap-4">
             <a class="pod link" :href="`product.html?id=${option.id}`">
                 <h4 class="title line-clamp-1">[[ option.name ]]</h4>

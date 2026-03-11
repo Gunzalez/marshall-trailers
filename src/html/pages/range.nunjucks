@@ -19,7 +19,7 @@
         <h1 class="page-title">Product Ranges</h1>
     </div>
 
-    <div id="product-ranges" class="section in-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 pb-16">
+    <div id="product-ranges" class="section grid-pods">
         {% for item in machinesData %}
             <div class="slide flex flex-col gap-4">
                 <a class="pod link" href="products.html?model={{ item.id }}">
