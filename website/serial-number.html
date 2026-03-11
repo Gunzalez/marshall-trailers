@@ -658,7 +658,8 @@
                             return;
                         console.log("Buy Now clicked for product:", product);
                         // Logic to navigate to the checkout page with the selected product
-                        window.location.href = "checkout.html?product_id=" + product.id + "&quantity=" + product.quantity;
+                        window.location.href = `checkout.html?product_id=${product.id}&quantity=${product.quantity}`;
+
                     };
 
                     const handleAddToBasketClick = (product) => {
@@ -667,7 +668,7 @@
                         
                         // Logic to add the selected product to the shopping basket
                         console.log("Add to Basket clicked for product:", product);
-                        const data = "sid=" + product.id + "&qty=" + product.quantity + "&price=" + product.unit_price;
+                        const data = `sid=${product.id}&qty=${product.quantity}&price=${product.unit_price}`;
                         window
                             .MT
                             .basket
