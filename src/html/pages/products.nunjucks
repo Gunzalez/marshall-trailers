@@ -36,7 +36,7 @@
     </div>
 
     <script>
-        // replace all with PHP
+        // PROD: replace entire script with PHP
         const machinesData = {{ machinesData | dump | safe }};
 
         document.addEventListener('DOMContentLoaded', () => {
