@@ -10,9 +10,8 @@ export default {
     const snSelectRef = ref(null);
 
     const valueFromSelect = () => {
-      // Due to jQuery selectric plugin and DOM manipulation,
-      // v-model doesn't work as expected on the select input,
-      // so we need to get the value directly from the DOM element using ref
+      // jQuery selectric DOM manipulation stops v-model updating correctly
+      // We get the value directly from the DOM element using ref
       return parseInt(snSelectRef.value.value, 10);
     };
 
@@ -68,14 +67,14 @@ export default {
                 </div>
             </label>
             <div class="actions">
-                <a href="#" class="btn_buyNow bttn" @click.prevent="onBuyNowClick">
+                <a href="#" class="bttn" @click.prevent="onBuyNowClick">
                     <span class="icon">
                         <i class="fa-regular fa-credit-card"></i>
                     </span>
                     <span>Buy Now</span>
                 </a>
 
-                <a href="#" class="btn_addBasket bttn" @click.prevent="onAddToBasketClick">
+                <a href="#" class=" bttn" @click.prevent="onAddToBasketClick">
                     <span class="icon">
                         <i class="fa-solid fa-cart-shopping"></i>
                     </span>

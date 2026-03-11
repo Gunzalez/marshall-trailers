@@ -9,6 +9,7 @@ export default {
     const quantity = ref(1);
     const snSelectRef = ref(null);
 
+    // currently unused
     const onBuyNowClick = () => {
       props.data &&
         emit("buy-now-click", {
@@ -18,25 +19,36 @@ export default {
         });
     };
 
-    const onAddToBasketClick = () => {
+    const onAddRelatedClick = (relatedItem) => {
       props.data &&
         emit("add-to-basket-click", {
-          id: props.data.id,
-          quantity: quantity.value,
-          unit_price: props.data.unit_price,
+          sid: relatedItem.sid,
+          quantity: 1,
+          price: parseFloat(relatedItem.price),
         });
     };
 
-    const costPerPrice = computed(() => {
+    const onAddToBasketClick = () => {
+      props.data &&
+        emit("add-to-basket-click", {
+          sid: props.data.sid,
+          // jQuery selectric DOM manipulation stops v-model updating correctly
+          // We get the value directly from the DOM element using ref
+          quantity: parseInt(snSelectRef.value.value, 10),
+          price: parseFloat(props.data.cost_per_item),
+        });
+    };
+
+    const costPerUnit = computed(() => {
       const val = props.data ? props.data.cost_per_item : null;
       return window.MT.utils.formatCurrency(val);
     });
 
     return {
       quantity,
-      costPerPrice,
+      costPerUnit,
       snSelectRef,
-      id: props.data.id,
+      id: props.data.sid,
       notes: props.data.notes,
       partNo: props.data.part_no,
       imgLrg: props.data.imgUrlLarge,
@@ -47,6 +59,7 @@ export default {
       description: props.data.description,
       relatedItems: props.data.related_items,
       onBuyNowClick,
+      onAddRelatedClick,
       onAddToBasketClick,
     };
   },
@@ -101,7 +114,7 @@ export default {
                     <li v-for="(item, index) in relatedItems" :key="index">
                         <a :href="item.url" class="lc_lightbox_link_text">{{ item.part_no }}</a>
                         <span>{{ item.description }}</span>
-                        <button type="button" @click.prevent="" class="btn_addBasket bttn">
+                        <button type="button" @click.prevent="()=>onAddRelatedClick(item)" class="bttn">
                             <span class="icon">
                                 <i class="fa-solid fa-cart-shopping"></i>
                             </span>
@@ -118,8 +131,8 @@ export default {
                 <span class="val">{{ unitWeight }}</span>
             </li>
             <li>
-                <span class="lbl">Cost per item:</span>
-                <span class="val price">{{ costPerPrice }}</span>
+                <span class="lbl">Cost per unit:</span>
+                <span class="val price">{{ costPerUnit }}</span>
             </li>
             <li class="add-to-basket">
                 <div class="select-box">
@@ -130,7 +143,7 @@ export default {
                             <option v-for="n in 120" :value="n">{{ n }}</option>
                     </select>
                 </div>
-                <button class="btn_addBasket bttn" @click.prevent="onAddToBasketClick">
+                <button type="button" class="bttn" @click.prevent="onAddToBasketClick">
                     <span class="icon">
                         <i class="fa-solid fa-cart-shopping"></i>
                     </span>
