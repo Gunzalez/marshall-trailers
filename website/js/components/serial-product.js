@@ -67,19 +67,19 @@ export default {
                 </div>
             </label>
             <div class="actions">
-                <a href="#" class="bttn" @click.prevent="onBuyNowClick">
+                <button type="button" class="bttn" @click.prevent="onBuyNowClick">
                     <span class="icon">
                         <i class="fa-regular fa-credit-card"></i>
                     </span>
                     <span>Buy Now</span>
-                </a>
+                </button>
 
-                <a href="#" class=" bttn" @click.prevent="onAddToBasketClick">
+                <button type="button" class="bttn" @click.prevent="onAddToBasketClick">
                     <span class="icon">
                         <i class="fa-solid fa-cart-shopping"></i>
                     </span>
                     <span>Add</span>
-                </a>
+                </button>
             </div>
         </div>
     </div>
