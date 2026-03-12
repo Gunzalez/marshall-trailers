@@ -9,17 +9,22 @@ export default {
     const quantity = ref(1);
     const snSelectRef = ref(null);
 
-    // currently unused
-    const onBuyNowClick = () => {
+    const valueFromSelect = () => {
+      // jQuery selectric DOM manipulation stops v-model updating correctly
+      // We get the value directly from the DOM element using ref
+      return parseInt(snSelectRef.value.value, 10);
+    };
+
+    const onBuyNowRelatedClick = (relatedItem) => {
       props.data &&
         emit("buy-now-click", {
-          id: props.data.id,
-          quantity: quantity.value,
-          unit_price: props.data.unit_price,
+          sid: relatedItem.sid,
+          quantity: 1,
+          price: parseFloat(relatedItem.price),
         });
     };
 
-    const onAddRelatedClick = (relatedItem) => {
+    const onAddToBasketRelatedClick = (relatedItem) => {
       props.data &&
         emit("add-to-basket-click", {
           sid: relatedItem.sid,
@@ -28,13 +33,20 @@ export default {
         });
     };
 
+    const onBuyNowClick = () => {
+      props.data &&
+        emit("buy-now-click", {
+          sid: props.data.sid,
+          quantity: valueFromSelect(),
+          price: parseFloat(props.data.cost_per_item),
+        });
+    };
+
     const onAddToBasketClick = () => {
       props.data &&
         emit("add-to-basket-click", {
           sid: props.data.sid,
-          // jQuery selectric DOM manipulation stops v-model updating correctly
-          // We get the value directly from the DOM element using ref
-          quantity: parseInt(snSelectRef.value.value, 10),
+          quantity: valueFromSelect(),
           price: parseFloat(props.data.cost_per_item),
         });
     };
@@ -58,8 +70,9 @@ export default {
       categories: props.data.categories,
       description: props.data.description,
       relatedItems: props.data.related_items,
+      onBuyNowRelatedClick,
+      onAddToBasketRelatedClick,
       onBuyNowClick,
-      onAddRelatedClick,
       onAddToBasketClick,
     };
   },
@@ -114,12 +127,20 @@ export default {
                     <li v-for="(item, index) in relatedItems" :key="index">
                         <a :href="item.url" :title="item.part_no + ' - ' + item.description" class="lc_lightbox_link_text">{{ item.part_no }}</a>
                         <span>{{ item.description }}</span>
-                        <button type="button" @click.prevent="()=>onAddRelatedClick(item)" class="bttn">
-                            <span class="icon">
-                                <i class="fa-solid fa-cart-shopping"></i>
-                            </span>
-                            <span>Add</span>
-                        </button>
+                        <div class="actions">
+                            <button type="button" class="bttn" @click.prevent="onBuyNowRelatedClick(item)">
+                                <span class="icon">
+                                    <i class="fa-regular fa-credit-card"></i>
+                                </span>
+                                <span>Buy Now</span>
+                            </button>
+                            <button type="button" @click.prevent="()=>onAddToBasketRelatedClick(item)" class="bttn">
+                                <span class="icon">
+                                    <i class="fa-solid fa-cart-shopping"></i>
+                                </span>
+                                <span>Add</span>
+                            </button>
+                        </div>
                     </li>
                 </ul>
             </div>
@@ -143,6 +164,12 @@ export default {
                             <option v-for="n in 120" :value="n">{{ n }}</option>
                     </select>
                 </div>
+                <button type="button" class="bttn" @click.prevent="onBuyNowClick">
+                    <span class="icon">
+                        <i class="fa-regular fa-credit-card"></i>
+                    </span>
+                    <span>Buy Now</span>
+                </button>
                 <button type="button" @click.prevent="onAddToBasketClick" class="bttn">
                     <span class="icon">
                         <i class="fa-solid fa-cart-shopping"></i>

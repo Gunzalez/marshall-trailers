@@ -413,9 +413,9 @@
       }
 
       .add-to-basket {
-        flex-direction: row;
+        flex-direction: column;
         margin-left: auto;
-        align-items: flex-start;
+        align-items: flex-end;
         gap: 0.5rem;
 
         .select-box {
