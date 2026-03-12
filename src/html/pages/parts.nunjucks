@@ -313,7 +313,6 @@
                     const resultsData = ref(null);
 
                     const handleAddToBasketClick = (event) => {
-                        console.log("Add to basket clicked", event);
                         const data = `sid=${event.sid}&qty=${event.quantity}&price=${event.price}`;
                         window
                             .MT

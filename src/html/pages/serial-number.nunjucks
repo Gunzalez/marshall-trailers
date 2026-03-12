@@ -149,7 +149,6 @@
                             return;
                         
                         // Logic to add the selected product to the shopping basket
-                        console.log("Add to Basket clicked for product:", product);
                         const data = `sid=${product.id}&qty=${product.quantity}&price=${product.unit_price}`;
                         window
                             .MT

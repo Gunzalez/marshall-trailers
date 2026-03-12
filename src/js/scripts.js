@@ -473,6 +473,8 @@
     },
 
     update: function (data) {
+      console.log("Basket updated: ", data);
+
       if (!data || this.busyState) return;
 
       this.$element.addClass("open busy");
@@ -493,7 +495,6 @@
         },
         error: function (xhr, status, error) {
           // TODO: Show user-friendly error message on the page
-          console.log(xhr, status, error);
           marshallTrailers.basket.$element.removeClass("busy");
           marshallTrailers.basket.busyState = false;
         },
