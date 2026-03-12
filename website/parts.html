@@ -830,6 +830,11 @@
                     const isBusy = ref(false);
                     const resultsData = ref(null);
 
+                    const handleBuyNowClick = (event) => {
+                        const data = `sid=${event.sid}&qty=${event.quantity}&price=${event.price}`;
+                        window.location.href = "checkout.html?" + data;
+                    };
+
                     const handleAddToBasketClick = (event) => {
                         const data = `sid=${event.sid}&qty=${event.quantity}&price=${event.price}`;
                         window
@@ -838,7 +843,7 @@
                             .update(data);
                     };
 
-                    return {isBusy, resultsData, handleAddToBasketClick};
+                    return {isBusy, resultsData, handleBuyNowClick, handleAddToBasketClick};
                 }
             }).mount('#parts-results-app');
 
