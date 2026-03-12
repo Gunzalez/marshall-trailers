@@ -382,6 +382,7 @@
               .find("li")
               .removeClass("selected");
           }
+          window.clearPartsResults();
         },
       );
 

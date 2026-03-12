@@ -27,7 +27,7 @@ function clearFilters() {
   }
 }
 
-function clearResults() {
+function clearPartsResults() {
   if (window.partsResultsApp) {
     window.partsResultsApp.resultsData = null;
   }
@@ -43,7 +43,7 @@ function clearInputFields() {
   $("#keyword").val("");
 }
 
-function showResults(content) {
+function showPartsResults(content) {
   if (window.partsResultsApp) {
     window.partsResultsApp.resultsData = content.data || [];
   }
@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
     $("#range").val("").prop("disabled", true).selectric("refresh");
     $("#model").empty().prop("disabled", true).selectric("refresh");
     clearFilters();
-    clearResults();
+    clearPartsResults();
     clearInputFields();
 
     var category_id = $(this).val();
@@ -117,7 +117,7 @@ document.addEventListener("DOMContentLoaded", () => {
       dataType: "json",
       success: function (content) {
         $("#processing").fadeOut("fast");
-        showResults(content);
+        showPartsResults(content);
       },
       error: function (error) {
         console.log(error["statusText"]);
@@ -185,12 +185,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
           // Scrolls only on desktop. This value is null on mobile, as the carousel is not initialised on mobile.
           if (window.MT.partsFilters.carousel) {
-            if (nextFilter > numVisibleFilters) {
-              window.MT.partsFilters.carousel.slick(
-                "slickGoTo",
-                nextFilter - numVisibleFilters,
-              );
-            }
+            var $slide = $("#filter" + nextFilter).parent(".slide");
+            var slideIndex = $slide.index();
+            window.MT.partsFilters.carousel.slick("slickGoTo", slideIndex - 2);
           }
         }
 
@@ -198,7 +195,7 @@ document.addEventListener("DOMContentLoaded", () => {
       },
     });
 
-    clearResults();
+    clearPartsResults();
     // get spares results //
     $.ajax({
       type: "get",
@@ -215,7 +212,7 @@ document.addEventListener("DOMContentLoaded", () => {
       dataType: "json",
       success: function (content) {
         $("#processing").fadeOut("fast");
-        showResults(content);
+        showPartsResults(content);
       },
     });
   });
@@ -257,7 +254,7 @@ document.addEventListener("DOMContentLoaded", () => {
       },
     });
 
-    clearResults();
+    clearPartsResults();
     // get spares results //
     $.ajax({
       type: "get",
@@ -266,7 +263,7 @@ document.addEventListener("DOMContentLoaded", () => {
       dataType: "json",
       success: function (content) {
         $("#processing").fadeOut("fast");
-        showResults(content);
+        showPartsResults(content);
       },
     });
   });
@@ -282,7 +279,7 @@ document.addEventListener("DOMContentLoaded", () => {
     var level = $("#fields").data("level");
     var cat_id = $("#fields").data("cid");
 
-    clearResults();
+    clearPartsResults();
     // get spares result //
     $.ajax({
       type: "get",
@@ -299,7 +296,7 @@ document.addEventListener("DOMContentLoaded", () => {
       dataType: "json",
       success: function (content) {
         $("#processing").fadeOut("fast");
-        showResults(content);
+        showPartsResults(content);
       },
     });
   });
@@ -321,7 +318,7 @@ document.addEventListener("DOMContentLoaded", () => {
     $("#model").empty().prop("disabled", true).selectric("refresh");
 
     clearFilters();
-    clearResults();
+    clearPartsResults();
     // get spares results //
     $.ajax({
       type: "post",
@@ -330,7 +327,8 @@ document.addEventListener("DOMContentLoaded", () => {
       dataType: "json",
       success: function (content) {
         $("#processing").fadeOut("fast");
-        showResults(content);
+        showPartsResults(content);
+        // TODO: refactor
         setTimeout(() => {
           $("#parts-results-app")[0].scrollIntoView({ behavior: "smooth" });
         }, 100);
@@ -446,6 +444,8 @@ document.addEventListener("DOMContentLoaded", () => {
     $("#notes").val("");
     $("#order_form_pdf:visible").slideUp();
   });
+
+  // TODO: --end
 
   $("#btn_ContinueShop").click(function (event) {
     event.preventDefault();
