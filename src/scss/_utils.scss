@@ -439,7 +439,7 @@
 }
 
 .introduction {
-  border-bottom: 1px solid var(--brand-gray-dark);
+  border-bottom: 1px solid var(--brand-gray-bg);
   padding-bottom: 0.5rem;
 }
 
@@ -839,7 +839,7 @@
   padding-top: 1rem;
 
   a {
-    background-color: var(--brand-gray);
+    background-color: var(--brand-gray-bg);
     text-decoration: none;
     display: block;
     line-height: 1;
@@ -1137,7 +1137,7 @@
     content: "";
     flex: 1;
     height: 1px;
-    background: var(--brand-gray);
+    background: var(--brand-gray-bg);
   }
 }
 

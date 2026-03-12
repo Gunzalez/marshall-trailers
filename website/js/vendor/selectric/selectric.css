@@ -190,12 +190,12 @@
 }
 
 .selectric-items li.highlighted {
-  background: var(--brand-gray);
+  background: var(--brand-gray-bg);
   color: #000000;
 }
 
 .selectric-items li:hover {
-  background: var(--brand-gray);
+  background: var(--brand-gray-bg);
 }
 
 .selectric-items .disabled {
