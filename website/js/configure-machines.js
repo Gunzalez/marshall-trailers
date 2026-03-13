@@ -5,8 +5,44 @@
   var configureAjaxUrl = "/ajax/ajax_configure_get_content.php";
   var TEST_configureAjaxUrl = "/pp/mocks/ajax_configure_content.php";
 
+  var configureOptionsUrl = "/ajax/ajax_configure_get_options.php";
+  var TEST_ConfigureOptionsUrl = "/pp/mocks/ajax_configure_get_options.php";
+
   let isAjaxBusy = false;
   window.basicMachine = null;
+
+  function showOptionsApp() {
+    $("#options-app").removeClass("display-none");
+    $("#options-app")[0].scrollIntoView({ behavior: "smooth" });
+    $(".btn_AddOptions").prop("disabled", true);
+  }
+
+  function clearAppData() {
+    if (window.configureMachineApp) {
+      window.configureMachineApp.optionsData = [];
+    }
+  }
+
+  $("#product-detail").on("click", ".btn_AddOptions", function () {
+    if (!window.basicMachine) return;
+
+    var $button = $(this);
+
+    clearAppData();
+    $.ajax({
+      type: "post",
+      url: TEST_ConfigureOptionsUrl,
+      data: "product_id=" + window.basicMachine.id,
+      dataType: "json",
+      success: function (optionsData) {
+        if (window.configureMachineApp) {
+          window.configureMachineApp.optionsData = optionsData.data;
+        }
+        $button.prop("disabled", true);
+      },
+      error: function (xhr, status, error) {},
+    });
+  });
 
   function showBasicInfo(data) {
     var $specsContent = $("#basic-machine .specs-content");
@@ -33,10 +69,6 @@
     });
     window.basicMachine = dataWithTime;
     console.log("basicMachine set to: ", window.basicMachine);
-  }
-
-  function hideOptionsApp() {
-    $("#options-app").addClass("display-none");
   }
 
   function hideBasicInfo() {
@@ -108,7 +140,7 @@
       var product_Id = $(this).val();
       if (!product_Id?.trim()) return;
 
-      hideOptionsApp();
+      clearAppData();
       updateUrlWithProductId(product_Id);
       fetchMachineDetails(product_Id);
 
