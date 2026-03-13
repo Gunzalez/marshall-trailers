@@ -496,7 +496,7 @@
   font-weight: 100;
   padding: 11px 16px 10px;
   font-size: 1rem;
-  border-radius: 2px;
+  border-radius: 5px;
   cursor: pointer;
   line-height: 1;
   white-space: nowrap;
@@ -507,7 +507,6 @@
   display: inline-flex;
   gap: 6px;
   align-items: center;
-
   background-color: var(--brand-red);
   color: white;
 
