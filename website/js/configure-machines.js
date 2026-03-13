@@ -11,15 +11,10 @@
   let isAjaxBusy = false;
   window.basicMachine = null;
 
-  function showOptionsApp() {
-    $("#options-app").removeClass("display-none");
-    $("#options-app")[0].scrollIntoView({ behavior: "smooth" });
-    $(".btn_AddOptions").prop("disabled", true);
-  }
-
   function clearAppData() {
     if (window.configureMachineApp) {
       window.configureMachineApp.optionsData = [];
+      window.configureMachineApp.initialOption = null;
     }
   }
 
@@ -27,7 +22,6 @@
     if (!window.basicMachine) return;
 
     var $button = $(this);
-
     clearAppData();
     $.ajax({
       type: "post",
@@ -36,11 +30,16 @@
       dataType: "json",
       success: function (optionsData) {
         if (window.configureMachineApp) {
+          window.configureMachineApp.initialOption = window.basicMachine;
           window.configureMachineApp.optionsData = optionsData.data;
         }
         $button.prop("disabled", true);
       },
-      error: function (xhr, status, error) {},
+      error: function (xhr, status, error) {
+        // TODO: Show user-friendly error message on the page
+        console.log({ xhr, status, error });
+        console.error("Error fetching machine details:", error);
+      },
     });
   });
 

@@ -203,6 +203,7 @@
                             const optionsData = ref([]);
                             const groupedOptions = ref([]);
                             const selectedOptions = ref([]);
+                            const initialOption = ref(null);
 
                             const wrapWithStateProps = (options) => {
                                 return options.map((option) => {
@@ -331,17 +332,17 @@
                             const handleDownloadPDF = (notes) => {
                                 // TODO: @Sheg/@Rob Implement PDF download logic here
                                 console.log("Download PDF clicked");
-                                console.log({groupedOptions: groupedOptions.value, initialOption: window.basicMachine, notes});
+                                console.log({selectedOptions: selectedOptions.value, initialOption: initialOption.value, notes});
                             };
 
                             const handleEmailEnquiry = (data) => {
                                 // TODO: @Sheg/@Rob Implement email enquiry logic here
                                 console.log("Email Enquiry clicked");
-                                console.log({groupedOptions: groupedOptions.value, initialOption: window.basicMachine, data});
+                                console.log({selectedOptions: selectedOptions.value, initialOption: initialOption.value, data});
                             };
 
                             const handlePurchase = (notes) => {
-                                console.log({groupedOptions: groupedOptions.value, initialOption: window.basicMachine, notes});
+                                console.log({selectedOptions: selectedOptions.value, initialOption: initialOption.value, notes});
                                 window.location.href = "checkout.html";
                             };
 
@@ -353,9 +354,14 @@
                                 }
                             }, {deep: true});
 
+                            watch(groupedOptions, (newGroupedOptions) => {
+                                selectedOptions.value = newGroupedOptions.flatMap(group => group[1].filter(option => option.isSelected));
+                            }, {deep: true});
+
                             return {
                                 optionsData,
                                 groupedOptions,
+                                initialOption,
                                 selectedOptions,
                                 handlePurchase,
                                 handleOptionClick,

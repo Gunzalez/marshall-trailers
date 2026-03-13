@@ -7,20 +7,12 @@ export default {
   },
 
   setup(props) {
-    const selection = ref([]);
-
-    watch(
-      () => props,
-      (newOptions) => {
-        if (newOptions) {
-          selection.value = [
-            newOptions.initialOption,
-            ...newOptions.selectedOptions,
-          ];
-        }
-      },
-      { deep: true },
-    );
+    const selection = computed(() => {
+      if (props.initialOption) {
+        return [props.initialOption, ...props.selectedOptions];
+      }
+      return props.selectedOptions;
+    });
 
     const totalPrice = computed(() => {
       const value = selection.value.reduce((total, option) => {
@@ -30,7 +22,7 @@ export default {
       return window.MT.utils.formatCurrency(value);
     });
 
-    const convertedPrice = (price) => {
+    const formatPriceToCurrency = (price) => {
       const value = parseFloat(price.replace(/[^0-9.-]+/g, ""));
       return isNaN(value) ? price : window.MT.utils.formatCurrency(value);
     };
@@ -38,7 +30,7 @@ export default {
     return {
       selection,
       totalPrice,
-      convertedPrice,
+      formatPriceToCurrency,
     };
   },
   template: `
@@ -68,7 +60,7 @@ export default {
                       <span>{{ option.title }}</span>
                       <span class="desktop-only description">{{ option.description }}</span>
                     </td>
-                    <td class="price-cell">{{ convertedPrice(option.price) }}</td>
+                    <td class="price-cell">{{ formatPriceToCurrency(option.price) }}</td>
                 </tr>
             </tbody>
         </table>
