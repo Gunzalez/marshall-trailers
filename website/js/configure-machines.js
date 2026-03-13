@@ -29,11 +29,22 @@
       data: "product_id=" + window.basicMachine.id,
       dataType: "json",
       success: function (optionsData) {
+        // disable button
+        $button.prop("disabled", true);
+        // update Vue app
         if (window.configureMachineApp) {
           window.configureMachineApp.initialOption = window.basicMachine;
           window.configureMachineApp.optionsData = optionsData.data;
         }
-        $button.prop("disabled", true);
+        // update global basket
+        var data =
+          "sid=" +
+          window.basicMachine.id +
+          "&qty=" +
+          1 +
+          "&price=" +
+          window.basicMachine.price;
+        window.MT.basket.update(data);
       },
       error: function (xhr, status, error) {
         // TODO: Show user-friendly error message on the page
