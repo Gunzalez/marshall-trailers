@@ -12,7 +12,6 @@ export default {
   emits: ["buy-now-click", "add-to-basket-click"],
   setup(props) {
     const results = ref(null);
-    const sectionRef = ref(null);
 
     watch(
       () => props.data,
@@ -36,6 +35,7 @@ export default {
           <span class="count">{{ results.length }}</span>
           <span class="text">Item{{ results.length === 1 ? '' : 's'}} found.</span>
         </h2>
+
         <div class="result-items">
           <PartsResult v-for="(result, index) in results" 
             :key="index" 

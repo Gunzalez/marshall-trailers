@@ -328,7 +328,6 @@ document.addEventListener("DOMContentLoaded", () => {
       success: function (content) {
         $("#processing").fadeOut("fast");
         showPartsResults(content);
-        // TODO: refactor
         setTimeout(() => {
           $("#parts-results-app")[0].scrollIntoView({ behavior: "smooth" });
         }, 100);

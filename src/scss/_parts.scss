@@ -198,12 +198,11 @@
 .parts-results-app {
   --selectWidth: 80px;
 
-  scroll-margin-top: 4rem;
   margin-top: 2rem;
+  scroll-margin-top: 4rem;
 
   .results-title {
     border-bottom: 1px solid var(--brand-gray-dark);
-
     display: flex;
     gap: 0.5rem;
   }
