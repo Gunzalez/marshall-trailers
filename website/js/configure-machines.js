@@ -56,18 +56,10 @@
       );
     });
     $specsContent.find(".specs-list").empty().html($specsList);
-    $specsContent.find(".product-price .value").text(data.price);
+    var price = window.MT.utils.formatCurrency(data.price);
+    $specsContent.find(".product-price .value").text(price);
     $("#basic-machine").removeClass("display-none");
-    console.log("time now: ", new Date().getTime());
-    var timeNow = new Date().getTime();
-    // change to human readable format
-    var humanReadableTime = new Date(timeNow).toLocaleString();
-
-    var dataWithTime = Object.assign({}, data, {
-      title: data.title + " : " + humanReadableTime,
-    });
-    window.basicMachine = dataWithTime;
-    console.log("basicMachine set to: ", window.basicMachine);
+    window.basicMachine = data;
   }
 
   function hideBasicInfo() {
