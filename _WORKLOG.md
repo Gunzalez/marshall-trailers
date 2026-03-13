@@ -66,9 +66,14 @@
 
 #### NEXT
 
-- Dropdown Menu bug
-- fix light box behaviour
-- Unify adding to basket
+- Trello bugs
+- Odd jumping in filters in carousel in spares
+- See about FOUC site wide
+- see about removing Tailwind from http://gunzalez.com/pp/trailers/range.html
+- backtop top
+
+- Dropdown Menu bug (Huh?)
+- fix light box behaviour (Huh?)
 
 - Move to real repo
 - Site wide tweaks - numbers on header, colors on header, of buttons and icons
@@ -85,6 +90,7 @@
 - Hook up select boxes, to calculate respective totals, plus data in JSON
 - Zoom on lightbox images in basket
 - Radio, Checkbox and Textarea
+- Unify adding to basket
 - mobile version of parts
 - fast scroll to start on part filters
 - main menu active page state - yellow underline
