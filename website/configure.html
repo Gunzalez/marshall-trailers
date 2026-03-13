@@ -701,19 +701,18 @@
                 import OptionsForm from "./js/components/form.js";
 
                 document.addEventListener('DOMContentLoaded', () => {
-                    const {createApp, ref, watch, nextTick} = Vue;
+                    const {createApp, ref, watch, nextTick, computed} = Vue;
 
                     window.configureMachineApp = createApp({
                         components: {
                             OptionCard,
-                            OptionsBasket,
+                            GroupHeader,
                             OptionsForm,
-                            GroupHeader
+                            OptionsBasket
                         },
                         setup() {
                             const optionsData = ref([]);
                             const groupedOptions = ref([]);
-                            const selectedOptions = ref([]);
                             const initialOption = ref(null);
 
                             const wrapWithStateProps = (options) => {
@@ -857,16 +856,18 @@
                                 window.location.href = "checkout.html";
                             };
 
+                            const selectedOptions = computed(() => {
+                                return groupedOptions
+                                    .value
+                                    .flatMap(group => group[1].filter(option => option.isSelected));
+                            });
+
                             watch(optionsData, async (newVal) => {
                                 if (newVal) {
                                     groupedOptions.value = decorateOptions(newVal);
                                     await nextTick();
                                     $(".options-app")[0].scrollIntoView({behavior: "smooth"});
                                 }
-                            }, {deep: true});
-
-                            watch(groupedOptions, (newGroupedOptions) => {
-                                selectedOptions.value = newGroupedOptions.flatMap(group => group[1].filter(option => option.isSelected));
                             }, {deep: true});
 
                             return {
