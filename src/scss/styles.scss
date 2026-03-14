@@ -606,9 +606,9 @@
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    font-family: "Geometr415", sans-serif;
 
     ul {
-      font-size: 0.9rem;
       height: 100%;
       overflow: scroll;
     }
@@ -1228,7 +1228,7 @@
   .options-list {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
-    gap: 1rem;
+    gap: 2rem;
   }
 
   .meta {
@@ -1637,7 +1637,7 @@
 
     td {
       padding: 2px 1rem;
-      background-color: var(--brand-gray);
+      background-color: var(--brand-gray-bg);
       text-align: right;
     }
 
