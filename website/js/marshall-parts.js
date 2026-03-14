@@ -361,6 +361,17 @@ document.addEventListener("DOMContentLoaded", () => {
     window.MT.basket.update(data);
   });
 
+  $(".btn_BuyNowAll").on("click", function (event) {
+    event.preventDefault();
+
+    var form = $(this).parents(".form");
+    var sid = form.find("input.sid").val();
+    var price = form.find("input.price").val();
+    var qty = form.find(".quantity").val();
+    var data = "sid=" + sid + "&qty=" + qty + "&price=" + price;
+    window.location.href = "checkout.html??" + data;
+  });
+
   // TODO: Implement basket functionality
 
   $(".btn_delBasket").click(function (event) {

@@ -38,15 +38,54 @@
     </div>
 
     <div class="section">
-        <div class="clearance">
-            <ol class="items-grid">
-                {% for item in clearanceData %}
-                    <li>
-                        {{ macros.bagItem(item.description, item.cost, item.image, item.info, item.part_no, item.sid) }}
-                    </li>
-                {% endfor %}
-            </ol>
-        </div>
+        <ol class="stock-items">
+            {% for item in clearanceData %}
+                <li>
+                    <div class="stock-item">
+                        <h5 class="line-clamp-2 title">
+                            {{ item.title }}
+                        </h5>
+                        <div class="content">
+                            <div class="details">
+                                <div class="image-wrapper">
+                                    <a href="{{ item.image }}" title="{{ item.title }}" class="lc_lightbox_link image-link">
+                                        <img src="{{ item.image }}" alt="{{ item.title }}">
+                                    </a>
+                                </div>
+                                <div class="copy-wrapper">
+                                    <div class="copy">
+                                        {{ item.info }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="actions">
+                                <div class="price-wrapper">
+                                    <span class="lbl">Cost per unit:</span>
+                                    <span class="val">{{ item.price }}</span>
+                                </div>
+                                <form class="form stock-form" action="basket.html" method="post">
+                                    {{ macros.quantityField("quantity-" ~ item.part_no, 1) }}
+                                    <button type="button" class="bttn btn_BuyNowAll">
+                                        <span class="icon">
+                                            <i class="fa-regular fa-credit-card"></i>
+                                        </span>
+                                        <span>Buy Now</span>
+                                    </button>
+                                    <button type="button" class="bttn btn_addBasketAll">
+                                        <span class="icon">
+                                            <i class="fa-solid fa-cart-shopping"></i>
+                                        </span>
+                                        <span>Add</span>
+                                    </button>
+                                    <input type="hidden" class="sid" name="sid" value="{{ item.sid }}">
+                                    <input type="hidden" class="price" name="price" value="{{ item.price }}">
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            {% endfor %}
+        </ol>
     </div>
 
     {{ macros.floatingBasket() }}
