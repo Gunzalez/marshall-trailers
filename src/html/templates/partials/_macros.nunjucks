@@ -245,9 +245,11 @@
                     <a href="{{ image }}" title="{{ title }}" class="lc_lightbox_link image-link">
                         <img src="{{ image }}" alt="{{ title }}">
                     </a>
-                    <div class="flex flex-col gap-0 text-sm">
-                        <span>Part No:</span>
-                        <strong>{{ part_no }}</strong>
+                    <div class="product-meta">
+                        <div class="part-wrapper">
+                            <span class="lbl">Part No:</span>
+                            <span class="val">{{ part_no }}</span>
+                        </div>
                         <div class="price-wrapper">
                             <span class="lbl">Cost per unit:</span>
                             <span class="val">£{{ price }}</span>
@@ -260,13 +262,18 @@
                     </div>
                 </div>
             </div>
-            <button type="button" class="bttn btn_addBasketAll">
+        </div>
+        <form class="form enquire_form" action="enquire.html" method="post">
+            <input type="hidden" name="price" value="{{ price }}">
+            <input type="hidden" name="part_no" value="{{ part_no }}">
+            <input type="hidden" name="title" value="{{ title }}">
+            <button type="button" class="bttn btn_enquireAll">
                 <span class="icon">
                     <i class="fa-solid fa-envelope"></i>
                 </span>
                 <span>Enquire</span>
             </button>
-        </div>
+        </form>
     </div>
 {% endmacro %}
 

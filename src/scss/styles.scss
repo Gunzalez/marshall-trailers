@@ -296,7 +296,7 @@
     button {
       padding: 10px;
       line-height: 1;
-      border-bottom: 2px solid transparent;
+      border-bottom: 4px solid transparent;
       cursor: pointer;
       transition: all 0.33s ease-in-out;
       font-family: "Geometr415", sans-serif;
@@ -387,7 +387,7 @@
 
   .tabs-content {
     padding: 1rem 0 0 0;
-    border-top: 1px solid var(--brand-gray);
+    border-top: 1px solid var(--brand-gray-bg);
   }
 }
 
@@ -835,7 +835,7 @@
   ul {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
-    gap: 0.75rem;
+    gap: 1.5rem;
 
     @media screen and (min-width: 768px) {
       grid-template-columns: repeat(2, 1fr);
@@ -1813,7 +1813,7 @@
       }
 
       .price {
-        font-size: 1.5rem;
+        font-size: 1.2rem;
         font-family: "Geometr415", sans-serif;
       }
     }
