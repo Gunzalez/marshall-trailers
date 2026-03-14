@@ -373,6 +373,19 @@ document.addEventListener("DOMContentLoaded", () => {
     window.location.href = destination + "?" + data;
   });
 
+  $(".btn_enquireAll").on("click", function (event) {
+    event.preventDefault();
+
+    var $form = $(this).parents(".form");
+    var price = $form.find("input.price").val();
+    var part_no = $form.find("input.part_no").val();
+    var title = encodeURIComponent($form.find("input.title").val());
+    var data = "part_no=" + part_no + "&title=" + title + "&price=" + price;
+    var formAction = $form.attr("action");
+    var destination = formAction + "?" + data;
+    window.location.href = destination;
+  });
+
   // TODO: Implement basket functionality
 
   $(".btn_delBasket").click(function (event) {

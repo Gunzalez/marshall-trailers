@@ -264,9 +264,9 @@
             </div>
         </div>
         <form class="form enquire_form" action="enquire.html" method="post">
-            <input type="hidden" name="price" value="{{ price }}">
-            <input type="hidden" name="part_no" value="{{ part_no }}">
-            <input type="hidden" name="title" value="{{ title }}">
+            <input type="hidden" name="price" class="price" value="{{ price }}">
+            <input type="hidden" name="part_no" class="part_no" value="{{ part_no }}">
+            <input type="hidden" name="title" class="title" value="{{ title }}">
             <button type="button" class="bttn btn_enquireAll">
                 <span class="icon">
                     <i class="fa-solid fa-envelope"></i>
