@@ -353,10 +353,10 @@ document.addEventListener("DOMContentLoaded", () => {
   $(".btn_addBasketAll").on("click", function (event) {
     event.preventDefault();
 
-    var form = $(this).parents(".form");
-    var sid = form.find("input.sid").val();
-    var price = form.find("input.price").val();
-    var qty = form.find(".quantity").val();
+    var $form = $(this).parents(".form");
+    var sid = $form.find("input.sid").val();
+    var price = $form.find("input.price").val();
+    var qty = $form.find(".quantity").val();
     var data = "sid=" + sid + "&qty=" + qty + "&price=" + price;
     window.MT.basket.update(data);
   });
@@ -364,12 +364,13 @@ document.addEventListener("DOMContentLoaded", () => {
   $(".btn_BuyNowAll").on("click", function (event) {
     event.preventDefault();
 
-    var form = $(this).parents(".form");
-    var sid = form.find("input.sid").val();
-    var price = form.find("input.price").val();
-    var qty = form.find(".quantity").val();
+    var $form = $(this).parents(".form");
+    var sid = $form.find("input.sid").val();
+    var price = $form.find("input.price").val();
+    var qty = $form.find(".quantity").val();
     var data = "sid=" + sid + "&qty=" + qty + "&price=" + price;
-    window.location.href = "checkout.html??" + data;
+    var destination = $form.attr("action");
+    window.location.href = destination + "?" + data;
   });
 
   // TODO: Implement basket functionality
