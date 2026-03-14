@@ -64,6 +64,11 @@
 - 9th March: 8hrs
 - 10th March: 8hrs
 
+- 12th March: 5hrs
+- 13th March: 5hrs
+
+- 14th March: 6hrs
+
 #### NEXT
 
 - Trello bugs
