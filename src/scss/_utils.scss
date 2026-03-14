@@ -508,7 +508,7 @@
   gap: 6px;
   align-items: center;
   background-color: var(--brand-red);
-  color: white;
+  color: var(--brand-yellow);
 
   &.small {
     font-size: 0.8rem;
@@ -542,8 +542,12 @@
 
   span {
     &:last-child {
-      color: var(--brand-yellow);
+      color: white;
       font-size: 1.1rem;
+    }
+
+    &.white {
+      color: white;
     }
   }
 
@@ -559,12 +563,6 @@
     &:hover {
       background-color: var(--brand-red-dark);
       border-color: var(--brand-red-dark);
-
-      span {
-        &:last-child {
-          color: #f8b52d;
-        }
-      }
     }
   }
 

@@ -1326,8 +1326,11 @@
 
       &.btn_Remove {
         background-color: var(--brand-yellow);
-        color: var(--brand-text);
         border-color: var(--brand-yellow);
+
+        span {
+          color: var(--brand-text);
+        }
       }
     }
 

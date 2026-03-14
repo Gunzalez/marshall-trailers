@@ -65,12 +65,12 @@ export default {
 
       <span class="bttn" :class="{ 'btn_Add': !option.isSelected, 'btn_Remove': option.isSelected }">
         <template v-if="option.isSelected">
-          <span>Remove</span>
-          <i class="fa-solid fa-minus"></i>
+          <span class="white">Remove</span>
+          <span class="white"><i class="fa-solid fa-minus"></i></span>
         </template>
         <template v-else>
-          <span>Click to add</span>
-          <i class="fa-solid fa-plus"></i>
+          <span class="white">Click to add</span>
+          <span class="white"><i class="fa-solid fa-plus"></i></span>
         </template>
       </span>
 
