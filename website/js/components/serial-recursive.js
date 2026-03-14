@@ -40,7 +40,7 @@ export default {
     return { isOpen, toggle, isTopLevel, props };
   },
   template: `
-        <div class="container-wrapper" :class="{ 'top-level': isTopLevel }">
+        <div class="container-wrapper" :class="{ 'top-level': isTopLevel, ['level-' + props.depth]: !isTopLevel }">
             <template v-if="isTopLevel">
                 <div class="fixed-header">
                     <div class="strikethrough-title">
