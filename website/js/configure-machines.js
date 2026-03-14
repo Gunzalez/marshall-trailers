@@ -54,17 +54,26 @@
     });
   });
 
+  function printValueSpans(value) {
+    if (Array.isArray(value)) {
+      return value.map(function (item) {
+        return "<span>" + item + "</span> ";
+      });
+    }
+    return "<span>" + value + "</span>";
+  }
+
   function showBasicInfo(data) {
     var $specsContent = $("#basic-machine .specs-content");
     $specsContent.find(".title").text(data.title);
     var $specsList = data.specs.map(function (spec) {
-      return $("<li>").html(
-        "<span class='label'>" +
-          spec.label +
-          "</span> <span class='value'>" +
-          spec.value +
-          "</span>",
+      var $li = $("<li>").html(
+        "<span class='label'>" + spec.label + "</span> ",
       );
+      var $valueSpan = $("<span class='value'></span>");
+      $valueSpan.append(printValueSpans(spec.value));
+      $li.append($valueSpan);
+      return $li;
     });
     $specsContent.find(".specs-list").empty().html($specsList);
     var price = window.MT.utils.formatCurrency(data.price);
