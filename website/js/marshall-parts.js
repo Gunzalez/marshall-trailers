@@ -229,8 +229,6 @@ document.addEventListener("DOMContentLoaded", () => {
     var level = $("#fields").data("level");
     var cat_id = $("#fields").data("cid");
 
-    // $("#model").empty().prop("disabled", false).selectric("refresh");
-
     // get products //
     $.ajax({
       type: "get",
