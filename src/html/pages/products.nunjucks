@@ -38,7 +38,7 @@
                     <span>[[ option.capacity ]]</span>
                 </span>
                 <span class="unit-meta">
-                    <i class="fa-solid fa-arrows-left-right text-lg"></i>
+                    <i class="fa-solid fa-arrows-left-right text-xl"></i>
                     <span>[[ option.dimension ]]</span>
                 </span>
             </div>
