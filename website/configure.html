@@ -656,7 +656,7 @@
 
     </div>
 
-    <div id="options-app" class="options-app">
+    <div id="options-app" class="options-app app-loading">
         <div class="section" v-if="optionsData.length > 0">
             <div class="app-content">
                 <form class="form options-form">
@@ -707,7 +707,7 @@
                 import OptionsForm from "./js/components/form.js";
 
                 document.addEventListener('DOMContentLoaded', () => {
-                    const {createApp, ref, watch, nextTick, computed} = Vue;
+                    const {createApp, ref, watch, nextTick, computed, onMounted} = Vue;
 
                     window.configureMachineApp = createApp({
                         components: {
@@ -875,6 +875,10 @@
                                     $(".options-app")[0].scrollIntoView({behavior: "smooth"});
                                 }
                             }, {deep: true});
+
+                            onMounted(()=> {
+                                $("#options-app").removeClass("app-loading")
+                            })
 
                             return {
                                 optionsData,
