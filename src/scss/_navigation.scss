@@ -1,6 +1,9 @@
 #top-drawer {
+  --originalDistanceTop: -160px;
+  --buttonsPlusLogoDistanceTop: 0;
+
   position: fixed;
-  top: -160px;
+  top: var(--originalDistanceTop);
   left: 0;
   width: 100%;
   z-index: 1000;
@@ -19,11 +22,7 @@
   }
 
   &.peek {
-    top: 0;
-  }
-
-  &.scrolled {
-    top: -105px;
+    top: var(--buttonsPlusLogoDistanceTop);
   }
 
   @media (max-width: $breakpoint4) {
@@ -37,15 +36,16 @@
 }
 
 #top-navigation {
-  &.opened {
-    margin-top: 0;
-  }
-
-  &.scrolled {
-    margin-top: -105px;
-  }
-
   transition: height 0.2s ease;
+}
+
+#page {
+  --buttonsOnlyHeightDistanceTop: -105px;
+  &.invoked {
+    #top-drawer {
+      top: var(--buttonsOnlyHeightDistanceTop);
+    }
+  }
 }
 
 #top-navigation .main-menu {
@@ -210,11 +210,20 @@
   font-family: var(--brand-font);
   position: fixed;
   top: 400px;
-  right: 0;
+  right: -45px;
   z-index: 1000;
+  transition: right 0.15s ease-out;
 
   @media (max-width: 768px) {
     display: none;
+  }
+}
+
+#page {
+  &.scrolled {
+    #floating-nav {
+      right: 0;
+    }
   }
 }
 

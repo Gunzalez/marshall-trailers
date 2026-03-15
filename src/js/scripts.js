@@ -719,6 +719,7 @@
    */
   marshallTrailers.topNavigation = {
     init: function () {
+      var $thePage = $("#page");
       var $topDrawer = $("#top-drawer");
       var $topNavigation = $("#top-navigation");
       var topNavHeight = $topNavigation.outerHeight();
@@ -758,12 +759,20 @@
         $topDrawer.addClass("peek");
       });
 
+      $("#floating-nav").on("click", "a", function () {
+        var classNames = $(this).attr("class");
+        if (classNames.includes("menu")) {
+          $("#page").toggleClass("invoked");
+          return false;
+        }
+      });
+
       $("#close-navigation").on("click", function () {
         $topDrawer.removeClass("peek");
       });
 
       if (window.scrollY > marshallTrailers.CONSTS.scrollThreshold) {
-        $topDrawer.addClass("scrolled");
+        $thePage.addClass("scrolled");
       }
 
       $topDrawer.removeClass("pre-script");
@@ -781,7 +790,9 @@
         $("#top-drawer").removeClass("peek");
       }
 
-      $("#top-drawer").toggleClass(
+      $("#page").removeClass("invoked");
+
+      $("#page").toggleClass(
         "scrolled",
         window.scrollY > marshallTrailers.CONSTS.scrollThreshold,
       );
