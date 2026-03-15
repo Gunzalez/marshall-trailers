@@ -68,6 +68,7 @@
 - 13th March: 5hrs
 
 - 14th March: 6hrs
+- 15th March: 6hrs
 
 #### NEXT
 
