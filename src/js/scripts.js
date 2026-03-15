@@ -698,7 +698,6 @@
       var $topDrawer = $("#top-drawer");
       var $topNavigation = $("#top-navigation");
       var topNavHeight = 136;
-      console.log({topNavHeight})
 
       $("#desktop-navigation .main-menu > li")
         .on("mouseenter", function () {
