@@ -697,7 +697,8 @@
       var $thePage = $("#page");
       var $topDrawer = $("#top-drawer");
       var $topNavigation = $("#top-navigation");
-      var topNavHeight = $topNavigation.outerHeight();
+      var topNavHeight = 136;
+      console.log({topNavHeight})
 
       $("#desktop-navigation .main-menu > li")
         .on("mouseenter", function () {
