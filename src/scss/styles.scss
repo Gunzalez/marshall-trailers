@@ -692,7 +692,7 @@
 
 .map-hero-mobile,
 .quick-specs-mobile {
-  background-color: var(--brand-gray);
+  background-color: var(--brand-gray-bg);
   padding-top: 1rem;
   padding-bottom: 1rem;
 }
@@ -790,8 +790,8 @@
     > span {
       display: inline-block;
       position: relative;
-      padding-right: 0.65rem;
-      margin-right: 0.15rem;
+      padding-right: 0.75rem;
+      margin-right: 0.25rem;
       word-break: break-all;
 
       &::after {
