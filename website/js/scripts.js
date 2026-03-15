@@ -620,6 +620,7 @@ window.data = data;
   var marshallTrailers = {
     CONSTS: {
       scrollThreshold: 200,
+      longScrollThreshold: 1200,
       partsBasketUrl: "/ajax/ajax_spares_basket.php",
       TEST_partsBasketUrl: "/pp/mocks/ajax_spares_basket.php",
     },
@@ -1302,32 +1303,6 @@ window.data = data;
     },
   };
 
-  /*---------------------------------------------------------------- */
-
-  /**
-   * @backToTop
-   * Helps navigate up and down long pages
-   * PS: Not being used ATM.
-   */
-  marshallTrailers.backToTop = {
-    init: function () {
-      var btn = $("#back-to-top");
-
-      $(window).scroll(function () {
-        if ($(window).scrollTop() > 300) {
-          btn.addClass("show");
-        } else {
-          btn.removeClass("show");
-        }
-      });
-
-      btn.on("click", function (e) {
-        e.preventDefault();
-        $("html, body").animate({ scrollTop: 0 }, "300");
-      });
-    },
-  };
-
   /**
    * @topNavigation
    * Handles the desktop navigation drawer behaviour
@@ -1411,6 +1386,11 @@ window.data = data;
       $("#page").toggleClass(
         "scrolled",
         window.scrollY > marshallTrailers.CONSTS.scrollThreshold,
+      );
+
+      $("#page").toggleClass(
+        "long-scrolled",
+        window.scrollY > marshallTrailers.CONSTS.longScrollThreshold,
       );
     },
   };
