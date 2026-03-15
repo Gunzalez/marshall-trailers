@@ -27,11 +27,21 @@
     <div id="models-app" class="section grid-pods app-loading">
         <div v-for="(option, i) in options" :key="i" class="slide flex flex-col gap-4">
             <a class="pod link" :href="`product.html?id=${option.id}`">
-                <h4 class="title line-clamp-1">[[ option.name ]]</h4>
+                <h4 class="title line-clamp-1">[[ option.model ]]</h4>
                 <div class="image-wrapper">
                     <img :src="option.image" :alt="option.title">
                 </div>
             </a>
+            <div class="units-meta">
+                <span class="unit-meta">
+                    <i class="fa-solid fa-weight-hanging text-sm"></i>
+                    <span>[[ option.capacity ]]</span>
+                </span>
+                <span class="unit-meta">
+                    <i class="fa-solid fa-arrows-left-right text-lg"></i>
+                    <span>[[ option.dimension ]]</span>
+                </span>
+            </div>
         </div>
     </div>
 
@@ -54,22 +64,14 @@
                         const urlParams = new URLSearchParams(queryString);
                         const model = urlParams.get('model');
 
-                        const modelDetails = machinesData.filter(function (product) {
+                        const modelDetails = machinesData.find(function (product) {
                             return product
                                 .id
                                 .toLowerCase() === model.toLowerCase();
                         });
 
-                        if (modelDetails.length > 0) {
-                            options.value = modelDetails[0]
-                                .options
-                                .map(option => {
-                                    return {
-                                        ...option,
-                                        name: option.model + ' - ' + (
-                                        option.capacity || option.length || option.volume || option.spec)
-                                    }
-                                });
+                        if (modelDetails) {
+                            options.value = modelDetails.options
                         }
 
                         $('#models-app').removeClass('app-loading');
