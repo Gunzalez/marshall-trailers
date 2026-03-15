@@ -687,6 +687,24 @@
     },
   };
 
+  /*---------------------------------------------------------------- */
+
+  /**
+   * @backToTop
+   * Helps navigate up and down long pages
+   * PS: Not being used ATM.
+   */
+  marshallTrailers.backToTop = {
+    init: function () {
+      var $link = $("#back-to-top a");
+
+      $link.on("click", function (e) {
+        e.preventDefault();
+        $("html, body").animate({ scrollTop: 0 });
+      });
+    },
+  };
+
   /**
    * @topNavigation
    * Handles the desktop navigation drawer behaviour
@@ -804,6 +822,7 @@
     marshallTrailers.partsFilters.init();
     marshallTrailers.checkout.init();
     marshallTrailers.global.init();
+    marshallTrailers.backToTop.init();
 
     window.MT = marshallTrailers;
   };
