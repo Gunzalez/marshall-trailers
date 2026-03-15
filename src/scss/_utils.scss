@@ -541,6 +541,12 @@
   }
 
   span {
+    &:empty {
+      display: none;
+    }
+  }
+
+  span {
     &:last-child {
       color: white;
       font-size: 1.1rem;
@@ -1024,6 +1030,10 @@
     cursor: pointer;
     transform: scale(1.2);
   }
+
+  .menu {
+    display: none;
+  }
 }
 
 .products {
@@ -1155,7 +1165,7 @@
   }
 
   @media (hover: hover) {
-    &:hover {
+    &:not(.no-expand):hover {
       i {
         margin-right: 10px;
       }
