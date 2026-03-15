@@ -21,6 +21,7 @@
   $("#product-detail").on("click", ".btn_AddOptions", function () {
     if (!window.basicMachine) return;
 
+    showProcessing();
     var $button = $(this);
     clearAppData();
     $.ajax({
@@ -45,6 +46,7 @@
           "&price=" +
           window.basicMachine.price;
         window.MT.basket.update(data);
+        hideProcessing();
       },
       error: function (xhr, status, error) {
         // TODO: Show user-friendly error message on the page
