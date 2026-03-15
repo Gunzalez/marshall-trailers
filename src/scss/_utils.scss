@@ -3,7 +3,7 @@
 }
 
 .desktop-buttons {
-  font-family: "Geometr415", sans-serif;
+  font-family: var(--brand-font);
   display: block;
 }
 
@@ -379,7 +379,7 @@
   margin: 0 auto;
   max-width: var(--max-width);
   width: 100%;
-  font-family: "Geometr415", sans-serif;
+  font-family: var(--brand-font);
 
   ol {
     border-top: 1px solid var(--brand-gray);
@@ -492,7 +492,7 @@
 }
 
 .bttn {
-  font-family: "Geometr415", sans-serif;
+  font-family: var(--brand-font);
   font-weight: 100;
   padding: 11px 16px 10px;
   font-size: 1rem;
@@ -962,7 +962,7 @@
     display: block;
     line-height: 1;
     padding: 12px 12px 10px;
-    border-left: var(--branded-border-width) solid transparent;
+    border-left: var(--brand-border-width) solid transparent;
     transition: all 0.3s ease-in-out;
 
     &:hover {
