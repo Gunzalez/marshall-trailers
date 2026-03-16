@@ -66,6 +66,10 @@
   }
 
   function showBasicInfo(data) {
+    $("#product-hero-image").css(
+      "background-image",
+      "url('" + data.image + "')",
+    );
     var $specsContent = $("#basic-machine .specs-content");
     $specsContent.find(".title").text(data.title);
     var $specsList = data.specs.map(function (spec) {
