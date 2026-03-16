@@ -712,10 +712,14 @@
    */
   marshallTrailers.topNavigation = {
     init: function () {
+      var topNavHeight = 136;
       var $thePage = $("#page");
       var $topDrawer = $("#top-drawer");
       var $topNavigation = $("#top-navigation");
-      var topNavHeight = 136;
+      var $megaNavList = $("#mega-nav-list");
+      var $productSpotlight = $("#product-spotlight");
+      var $imagePlaceholder = $("#product-image-placeholder");
+      var $descriptionPlaceholder = $("#product-description-placeholder");
 
       $("#desktop-navigation .main-menu > li")
         .on("mouseenter", function () {
@@ -730,22 +734,37 @@
           $topDrawer.removeClass("open");
         });
 
-      $("#mega-nav-list").on("mouseenter", "li", function () {
-        var imageSrc = $(this).find("> a").data("image-src");
-        var textDesc = $(this).find("> a").text().trim();
-        $("#product-image-placeholder").attr("src", imageSrc);
-        $("#product-title-placeholder").text(textDesc);
-        $("#product-spotlight").stop(true, true).fadeIn();
+      $megaNavList.on("mouseenter", "li", function () {
+        var $anchorTag = $(this).find("> a");
+        var anchorType = $anchorTag.data("type");
 
-        $("#mega-nav-list").find("li").removeClass("active");
+        var imageSrc = $anchorTag.data("image-src");
+        var capacity = $anchorTag.data("capacity");
+        var dimension = $anchorTag.data("dimension");
+        var textDesc = $anchorTag.text().trim();
+
+        $imagePlaceholder.attr("src", imageSrc);
+        $descriptionPlaceholder.removeClass("model option");
+        $descriptionPlaceholder.addClass(anchorType);
+
+        if (anchorType === "model") {
+          $descriptionPlaceholder.find(".product-title").text(textDesc);
+        }
+        if (anchorType === "option") {
+          $descriptionPlaceholder.find(".capacity").text(capacity);
+          $descriptionPlaceholder.find(".dimension").text(dimension);
+        }
+
+        $productSpotlight.stop(true, true).fadeIn();
+        $megaNavList.find("li").removeClass("active");
         $(this).addClass("active");
       });
 
-      $("#mega-nav-list").on("mouseleave", function () {
-        $("#product-image-placeholder").attr("src", "");
-        $("#product-title-placeholder").text("");
-        $("#product-spotlight").stop(true, true).fadeOut("fast");
-        $("#mega-nav-list").find("li").removeClass("active");
+      $megaNavList.on("mouseleave", function () {
+        $imagePlaceholder.attr("src", "");
+        $descriptionPlaceholder.removeClass("model option");
+        $productSpotlight.stop(true, true).fadeOut("fast");
+        $megaNavList.find("li").removeClass("active");
       });
 
       $("#open-navigation").on("click", function () {

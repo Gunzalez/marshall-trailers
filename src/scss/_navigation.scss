@@ -199,10 +199,28 @@
 
   .text-wrapper {
     border-top: 1px solid var(--brand-gray-bg);
-    padding: 0.5rem;
+    padding: 0.5rem 0;
     text-align: center;
     font-weight: 600;
     font-size: 1.2rem;
+
+    > * {
+      display: none;
+    }
+
+    &.model {
+      .product-title {
+        display: block;
+      }
+    }
+
+    &.option {
+      .units-meta {
+        display: flex;
+        margin-top: 0.25rem;
+        font-size: 1rem;
+      }
+    }
   }
 }
 
