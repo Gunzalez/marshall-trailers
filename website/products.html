@@ -525,20 +525,20 @@
         <div v-for="(option, i) in options" :key="i" class="slide flex flex-col gap-4">
             <a class="pod link" :href="`product.html?id=${option.id}`">
                 <h4 class="title line-clamp-1">[[ option.model ]]</h4>
+                <div class="units-meta">
+                    <span class="unit-meta">
+                        <i class="fa-solid fa-weight-hanging text-sm"></i>
+                        <span>[[ option.capacity ]]</span>
+                    </span>
+                    <span class="unit-meta">
+                        <i class="fa-solid fa-arrows-left-right text-xl"></i>
+                        <span>[[ option.dimension ]]</span>
+                    </span>
+                </div>
                 <div class="image-wrapper">
                     <img :src="option.image" :alt="option.title">
                 </div>
             </a>
-            <div class="units-meta">
-                <span class="unit-meta">
-                    <i class="fa-solid fa-weight-hanging text-sm"></i>
-                    <span>[[ option.capacity ]]</span>
-                </span>
-                <span class="unit-meta">
-                    <i class="fa-solid fa-arrows-left-right text-xl"></i>
-                    <span>[[ option.dimension ]]</span>
-                </span>
-            </div>
         </div>
     </div>
 
