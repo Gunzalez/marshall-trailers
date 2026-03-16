@@ -99,6 +99,55 @@
   }
 }
 
+.slick-dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 1rem;
+
+  button {
+    text-indent: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    transition: all 0.3s ease-in-out;
+    background-color: var(--brand-gray);
+
+    &:hover {
+      @media (hover: hover) {
+        background-color: var(--brand-yellow);
+      }
+    }
+  }
+
+  .slick-active {
+    button {
+      background-color: var(--brand-yellow);
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    button {
+      width: 10px;
+      height: 10px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.5s ease-in-out;
+    }
+
+    .slick-active {
+      button {
+        width: 60px;
+        border-radius: 6px;
+        cursor: default;
+      }
+    }
+  }
+}
+
 .carousel-main {
   .slide {
     height: 380px;
@@ -124,37 +173,6 @@
         rgba(0, 0, 0, 0.6),
         rgba(0, 0, 0, 0)
       );
-    }
-  }
-
-  .slick-dots {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
-    margin-top: 1rem;
-
-    button {
-      text-indent: 100%;
-      white-space: nowrap;
-      overflow: hidden;
-      width: 0.5rem;
-      height: 0.5rem;
-      border-radius: 50%;
-      transition: all 0.3s ease-in-out;
-      background-color: var(--brand-gray);
-
-      &:hover {
-        @media (hover: hover) {
-          background-color: var(--brand-yellow);
-        }
-      }
-    }
-
-    .slick-active {
-      button {
-        background-color: var(--brand-yellow);
-      }
     }
   }
 
@@ -199,25 +217,10 @@
   @media screen and (min-width: 768px) {
     .slick-dots {
       max-width: var(--max-width);
-      margin: 20px auto 1rem auto;
+      margin-left: auto;
+      margin-right: auto;
       justify-content: end;
       padding: 0 16px;
-
-      button {
-        width: 10px;
-        height: 10px;
-        border-radius: 4px;
-        cursor: pointer;
-        transition: all 0.5s ease-in-out;
-      }
-
-      .slick-active {
-        button {
-          width: 60px;
-          border-radius: 6px;
-          cursor: default;
-        }
-      }
     }
 
     .copy-wrapper {
@@ -233,6 +236,14 @@
           padding-right: 20%;
         }
       }
+    }
+  }
+}
+
+.carousel-mini {
+  @media screen and (min-width: 768px) {
+    .slick-dots {
+      justify-content: end;
     }
   }
 }

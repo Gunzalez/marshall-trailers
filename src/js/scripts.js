@@ -283,16 +283,9 @@
    * Mini carousel implementation for the Range slider on Homepage.
    */
   marshallTrailers.carouselMini = {
-    carouselMini: null,
-    next: function () {
-      this.carouselMini.slick("slickNext");
-    },
-    previous: function () {
-      this.carouselMini.slick("slickPrev");
-    },
     init: function () {
-      this.carouselMini = $(".carousel-mini").slick({
-        dots: false,
+      $(".carousel-mini").slick({
+        dots: true,
         slidesToShow: 3,
         slidesToScroll: 3,
         autoplay: false,
@@ -316,14 +309,6 @@
             },
           },
         ],
-      });
-
-      $(".mini-carousel-next").on("click", function () {
-        marshallTrailers.carouselMini.next();
-      });
-
-      $(".mini-carousel-prev").on("click", function () {
-        marshallTrailers.carouselMini.previous();
       });
 
       $("#carousel-mini").removeClass("preload");
