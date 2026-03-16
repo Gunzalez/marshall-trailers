@@ -114,6 +114,7 @@
 
         <div id="basic-machine" class="display-none">
             <div class="product-hero">
+                <div style="background-image: url('images/sample-hero-bg.jpg')" class="product-hero-bg"></div>
                 <div class="section">
                     <div class="copy-wrapper desktop-only">
                         <div class="inner-wrapper">
@@ -190,7 +191,14 @@
                 import OptionsForm from "./js/components/form.js";
 
                 document.addEventListener('DOMContentLoaded', () => {
-                    const {createApp, ref, watch, nextTick, computed, onMounted} = Vue;
+                    const {
+                        createApp,
+                        ref,
+                        watch,
+                        nextTick,
+                        computed,
+                        onMounted
+                    } = Vue;
 
                     window.configureMachineApp = createApp({
                         components: {
@@ -359,7 +367,7 @@
                                 }
                             }, {deep: true});
 
-                            onMounted(()=> {
+                            onMounted(() => {
                                 $("#options-app").removeClass("app-loading")
                             })
 

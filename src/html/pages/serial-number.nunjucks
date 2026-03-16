@@ -158,6 +158,7 @@
                     };
 
                     const data = {
+                        image: serialNumberData.image,
                         title: serialNumberData.title,
                         specifications: serialNumberData.specifications,
                         categories: serialNumberData.categories
