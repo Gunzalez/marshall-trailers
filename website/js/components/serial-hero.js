@@ -1,4 +1,4 @@
-const {} = Vue;
+const { computed } = Vue;
 
 import Specifications from "./serial-specs.js";
 
@@ -12,7 +12,17 @@ export default {
   },
   emits: ["more-details-click", "category-click"],
   setup(props) {
+    const heroStyle = computed(() => {
+      return {
+        backgroundImage: props.data.image
+          ? `url('${props.data.image}')`
+          : "none",
+      };
+    });
+
     return {
+      heroStyle,
+      image: props.data.image,
       title: props.data.title,
       specifications: props.data.specifications,
       categories: props.data.categories,
@@ -21,6 +31,7 @@ export default {
   template: `
     <div>
         <div class="product-hero">
+            <div :style="heroStyle" class="product-hero-bg"></div>
             <div class="section">
                 <div class="copy-wrapper desktop-only">
                     <div class="inner-wrapper">
