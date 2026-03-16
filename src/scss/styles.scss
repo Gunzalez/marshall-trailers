@@ -43,6 +43,11 @@
     font-size: 1.3rem;
   }
 
+  .units-meta {
+    margin: 0.875rem 0 0.5rem 0;
+    z-index: 10;
+  }
+
   .image-wrapper {
     width: 100%;
     height: 100%;
@@ -95,7 +100,7 @@
   .title {
     text-align: left;
     border-bottom: 1px solid var(--brand-gray);
-    padding-bottom: 0.5rem;
+    padding-bottom: 1rem;
   }
 }
 
