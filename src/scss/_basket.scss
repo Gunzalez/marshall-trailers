@@ -64,7 +64,7 @@
 }
 
 /* Desktop: Top Right */
-@media (min-width: 769px) {
+@media (min-width: $breakpoint3) {
   #floating-basket {
     top: 260px;
     right: -276px;
@@ -103,7 +103,7 @@
 }
 
 /* Mobile: Full Width Bottom */
-@media (max-width: 768px) {
+@media (max-width: $breakpoint3) {
   #floating-basket {
     bottom: -130px;
     transition: bottom 0.3s ease-in-out;
