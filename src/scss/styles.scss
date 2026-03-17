@@ -608,6 +608,8 @@
     background-color: white;
 
     @media (min-width: $breakpoint3) {
+      background-position: 70% center;
+
       clip-path: polygon(
         calc(50% - 4200px) 0%,
         calc(60% + 1300px) 0%,
@@ -731,6 +733,10 @@
   background-color: var(--brand-gray-bg);
   padding-top: 1rem;
   padding-bottom: 1rem;
+
+  .section {
+    margin-bottom: 0;
+  }
 }
 
 .departments {
