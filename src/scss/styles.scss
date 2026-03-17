@@ -608,13 +608,17 @@
     background-color: white;
 
     @media (min-width: $breakpoint3) {
-      background-position: 70% center;
+      background-position: calc(50% - 10vw) center;
 
       clip-path: polygon(
         calc(50% - 4200px) 0%,
         calc(60% + 1300px) 0%,
         40% 100%
       );
+    }
+
+    @media (min-width: 1840px) {
+      background-size: 130% auto;
     }
   }
 
@@ -730,9 +734,10 @@
 
 .map-hero-mobile,
 .quick-specs-mobile {
-  background-color: var(--brand-gray-bg);
+  background-color: var(--brand-gray-light);
   padding-top: 1rem;
   padding-bottom: 1rem;
+  font-family: var(--brand-font);
 
   .section {
     margin-bottom: 0;
