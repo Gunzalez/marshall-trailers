@@ -70,6 +70,7 @@
 - 14th March: 6hrs
 - 15th March: 6hrs
 - 16th March: 3hrs
+- 17th March: 2hrs
 
 #### NEXT
 
