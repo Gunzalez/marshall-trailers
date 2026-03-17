@@ -22,7 +22,8 @@
     if (!window.basicMachine) return;
 
     showProcessing();
-    var $button = $(this);
+    var $addOptionsButtons = $(".btn_AddOptions");
+    $addOptionsButtons.prop("disabled", true);
     clearAppData();
     $.ajax({
       type: "post",
@@ -31,7 +32,7 @@
       dataType: "json",
       success: function (optionsData) {
         // disable button
-        $button.prop("disabled", true);
+        $addOptionsButtons.prop("disabled", true);
         // update Vue app
         if (window.configureMachineApp) {
           window.configureMachineApp.initialOption = window.basicMachine;
