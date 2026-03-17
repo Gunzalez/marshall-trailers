@@ -69,16 +69,14 @@
 
 - 14th March: 6hrs
 - 15th March: 6hrs
+- 16th March: 3hrs
 
 #### NEXT
 
 - Trello bugs
 - Odd jumping in filters in carousel in spares
 - See about FOUC site wide
-- see about removing Tailwind from http://gunzalez.com/pp/trailers/range.html
-- backtop top
 
-- Dropdown Menu bug (Huh?)
 - fix light box behaviour (Huh?)
 
 - Move to real repo
@@ -89,6 +87,9 @@
 
 ### DONE
 
+- Dropdown Menu bug (when changing from mobile to desktop, hardcoded the menu Height 136 pixel, ugly but budget)
+- see about removing Tailwind from http://gunzalez.com/pp/trailers/range.html
+- back to top
 - Fix spares parts for mobile
 - Discuss spares serial number with Al/Rob
 - Discuss configuration completion - with Rob
