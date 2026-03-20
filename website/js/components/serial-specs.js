@@ -23,7 +23,7 @@ export default {
                 </li>
             </ul>
             <div class="more-details">
-                <a href="#" @click.prevent="$emit('more-details-click')">More Details</a>
+                <a href="#" @click.prevent="$emit('more-details-click')" class="text-lg">More About Your Marshall</a>
             </div>
         </div>
     </div>
