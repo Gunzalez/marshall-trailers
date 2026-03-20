@@ -524,7 +524,7 @@
         <div class="introduction flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
             <span>Your Marshall is built up of <strong>900</strong> parts.</span>
             <span>
-                <a href="spares.html">Not your Marshall?</a>
+                <a href="spares.html">Not Your Marshall?</a>
             </span>
         </div>
     </div>
@@ -539,7 +539,6 @@
 
         <serial-parts 
             :parts="partsData"
-            @part-click="handlePartClick"
             @buy-now-click="handleBuyNowClick"
             @add-to-basket-click="handleAddToBasketClick"></serial-parts>
 
@@ -603,7 +602,7 @@
             const serial_number = urlParams.get('serial-number');
             $('.dummy-data-serial-number-TEXT').text(serial_number);
         });
-        const serialNumberData = {"image":"images/sample-hero-bg.jpg","title":"QM-1600","specifications":[{"name":"Material Description","value":"BC/25-10ton Bale/Flat Trailer"},{"name":"Goods Issue Date","value":"17.05.2023"},{"name":"Axles","value":"6 Stud Axle (300 x 100mm)"},{"name":"Braking System","value":"Hydraulic Brakes"},{"name":"Suspension","value":"Rockers"}],"categories":[{"name":"Axles","key":"axles"},{"name":"Bearings","key":"bearings"},{"name":"Bolts","key":"bolts"},{"name":"Cover Couplings","key":"cover+couplings"},{"name":"Handbrakes","key":"handbrakes"},{"name":"Hitches","key":"hitches"},{"name":"Hydraulic Hoses","key":"hydraulic+hoses"},{"name":"Lights","key":"lights"},{"name":"Mesh","key":"mesh"},{"name":"Miscellaneous","key":"miscellaneous"},{"name":"Other Rams","key":"other+rams"},{"name":"Paint","key":"paint"},{"name":"Rocker Tandems","key":"rocker+tandems"},{"name":"Seals","key":"seals"},{"name":"Springs","key":"springs"},{"name":"Steel Sections","key":"steel+sections"},{"name":"Tip Rams","key":"tip+rams"},{"name":"Transfer","key":"transfer"},{"name":"Valves","key":"valves"}]};
+        const serialNumberData = {"id":"qm1800","image":"images/sample-hero-bg.jpg","title":"QM-1600","specifications":[{"name":"Material Description","value":"BC/25-10ton Bale/Flat Trailer"},{"name":"Goods Issue Date","value":"17.05.2023"},{"name":"Axles","value":"6 Stud Axle (300 x 100mm)"},{"name":"Braking System","value":"Hydraulic Brakes"},{"name":"Suspension","value":"Rockers"}],"categories":[{"name":"Axles","key":"axles"},{"name":"Bearings","key":"bearings"},{"name":"Bolts","key":"bolts"},{"name":"Cover Couplings","key":"cover+couplings"},{"name":"Handbrakes","key":"handbrakes"},{"name":"Hitches","key":"hitches"},{"name":"Hydraulic Hoses","key":"hydraulic+hoses"},{"name":"Lights","key":"lights"},{"name":"Mesh","key":"mesh"},{"name":"Miscellaneous","key":"miscellaneous"},{"name":"Other Rams","key":"other+rams"},{"name":"Paint","key":"paint"},{"name":"Rocker Tandems","key":"rocker+tandems"},{"name":"Seals","key":"seals"},{"name":"Springs","key":"springs"},{"name":"Steel Sections","key":"steel+sections"},{"name":"Tip Rams","key":"tip+rams"},{"name":"Transfer","key":"transfer"},{"name":"Valves","key":"valves"}]};
 
         document.addEventListener('DOMContentLoaded', () => {
             const {createApp, onMounted, ref, nextTick} = Vue;
@@ -617,6 +616,7 @@
                     const isBusy = ref(false);
                     const partsData = ref(null);
                     const selectedCategoryKey = ref(null);
+                    const data = ref(serialNumberData);
 
                     const options = {
                         method: 'GET',
@@ -647,56 +647,37 @@
                     };
 
                     const handleCategoryClick = (categoryKey) => {
-                        if (isBusy.value) 
+                        if (isBusy.value || selectedCategoryKey.value === categoryKey) 
                             return;
-                        if (selectedCategoryKey.value === categoryKey) 
-                            return;
+                        
                         selectedCategoryKey.value = categoryKey;
                         updatePartsData(categoryKey);
-                    };
-
-                    const handlePartClick = (partKey) => {
-                        if (isBusy.value) 
-                            return;
-                        console.log("Selected part:", partKey);
-                        // Logic to update selectedCategoryParts based on partKey
                     };
 
                     const handleMoreDetailsClick = () => {
                         if (isBusy.value) 
                             return;
-                        console.log("More details clicked");
-                        // Logic to navigate to the product details page or show a modal
+                        
+                        window.location.href = `product.html?id=${data.value.id}`;
                     };
 
                     const handleBuyNowClick = (product) => {
                         if (isBusy.value) 
                             return;
-                        console.log("Buy Now clicked for product:", product);
-                        // Logic to navigate to the checkout page with the selected product
+                        
                         window.location.href = `checkout.html?product_id=${product.id}&quantity=${product.quantity}`;
-
                     };
 
                     const handleAddToBasketClick = (product) => {
                         if (isBusy.value) 
                             return;
                         
-                        // Logic to add the selected product to the shopping basket
                         const data = `sid=${product.id}&qty=${product.quantity}&price=${product.unit_price}`;
                         window
                             .MT
                             .basket
                             .update(data);
-
                     };
-
-                    const data = {
-                        image: serialNumberData.image,
-                        title: serialNumberData.title,
-                        specifications: serialNumberData.specifications,
-                        categories: serialNumberData.categories
-                    }
 
                     onMounted(() => {
                         $('#serial-number-app').removeClass('app-loading');
@@ -704,11 +685,10 @@
 
                     return {
                         data,
-                        partsData,
                         isBusy,
-                        selectedCategoryKey,
-                        handlePartClick,
+                        partsData,
                         handleBuyNowClick,
+                        selectedCategoryKey,
                         handleCategoryClick,
                         handleMoreDetailsClick,
                         handleAddToBasketClick
