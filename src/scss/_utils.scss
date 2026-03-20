@@ -419,6 +419,14 @@
   }
 }
 
+.hero + .breadcrumbs {
+  margin-top: 1rem;
+
+  @media screen and (min-width: 768px) {
+    margin-top: 2rem;
+  }
+}
+
 .columned-content {
   margin-bottom: 1rem;
 
