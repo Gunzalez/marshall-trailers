@@ -563,6 +563,7 @@
       color: white;
       font-family: var(--brand-font);
       font-size: 1.1rem;
+      margin-left: 14px;
     }
 
     .button {
@@ -586,6 +587,9 @@
   }
 
   .selectric-items li {
+    padding-left: 14px;
+    padding-right: 14px;
+
     &:first-child {
       display: none;
     }
