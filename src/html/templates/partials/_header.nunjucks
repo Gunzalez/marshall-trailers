@@ -48,10 +48,10 @@
                 <li>
                   <a href="parts.html">By Parts</a>
                 </li>
+                <li>
+                  <a href="stock-clearance.html">Stock Clearance</a>
+                </li>
               </ul>
-            </li>
-            <li {% if main_page === "stock-clearance" %} class="active" {% endif %} >
-              <a href="stock-clearance.html">Stock Clearance</a>
             </li>
             <li {% if main_page === "about" %} class="active" {% endif %}>
               <a href="about.html">About us</a>
@@ -69,6 +69,9 @@
                   <a href="about.html#value">Value</a>
                 </li>
               </ul>
+            </li>
+            <li {% if main_page === "news" %} class="active" {% endif %} >
+              <a href="news.html">News</a>
             </li>
             <li {% if main_page === "contact" %} class="active" {% endif %}>
               <a href="contact.html">Contact</a>
