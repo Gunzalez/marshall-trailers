@@ -42,6 +42,6 @@
 
 <div id="back-to-top" class="back-to-top">
     <a href="#page" aria-label="Back To Top" aria-role="button" class="expanding-link">
-        <i class="fa-solid fa-chevron-up"></i>
+        <i class="fa-solid fa-chevron-up text-xl"></i>
     </a>
 </div>

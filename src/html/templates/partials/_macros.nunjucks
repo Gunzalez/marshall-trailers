@@ -70,7 +70,7 @@
   <ul>
     <li>
       <a href="#page" aria-label="Menu" class="expanding-link no-expand menu">
-        <i class="fa-solid fa-bars text-lg"></i>
+        <i class="fa-solid fa-bars text-xl"></i>
         <span>Menu</span>
       </a>
     </li>
