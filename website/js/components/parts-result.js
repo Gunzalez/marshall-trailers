@@ -138,7 +138,7 @@ export default {
                                 <span class="icon">
                                     <i class="fa-solid fa-cart-shopping"></i>
                                 </span>
-                                <span>Add</span>
+                                <span>Add To Basket</span>
                             </button>
                         </div>
                     </li>
