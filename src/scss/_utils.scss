@@ -1103,24 +1103,38 @@
 
   .expanding-link {
     background-color: var(--brand-red-dark);
-    color: white;
+    color: var(--brand-yellow);
+
+    span {
+      color: white;
+    }
   }
 
   .selected {
     background-color: var(--brand-red);
 
     svg {
-      color: var(--brand-yellow);
+      color: white;
     }
   }
 }
 
 #page {
+  &.home,
+  &.about {
+    .quick-nav-top {
+      a {
+        svg {
+          color: white;
+        }
+      }
+    }
+  }
   &.spares {
     .quick-nav-float {
       .spares {
         svg {
-          color: var(--brand-yellow);
+          color: white;
         }
       }
     }
@@ -1129,7 +1143,7 @@
     .quick-nav-float {
       .configure {
         svg {
-          color: var(--brand-yellow);
+          color: white;
         }
       }
     }
@@ -1138,7 +1152,7 @@
     .quick-nav-float {
       .products {
         svg {
-          color: var(--brand-yellow);
+          color: white;
         }
       }
     }
