@@ -35,7 +35,7 @@ export default {
             <div class="section">
                 <div class="copy-wrapper desktop-only">
                     <div class="inner-wrapper">
-                        <Specifications :title="title" :specifications="specifications" @click="$emit('more-details-click')" />
+                        <Specifications :title="title" :specifications="specifications" @more-details-click="$emit('more-details-click')" />
                     </div>
                 </div>
             </div>
@@ -43,7 +43,7 @@ export default {
 
         <div class="mobile-only quick-specs-mobile">
             <div class="section">
-                <Specifications :title="title" :specifications="specifications" @click="$emit('more-details-click')" />
+                <Specifications :title="title" :specifications="specifications" @more-details-click="$emit('more-details-click')" />
             </div>
         </div>
 
