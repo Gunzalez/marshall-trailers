@@ -602,6 +602,25 @@
       }
     }
   }
+
+  &.secondary-buy {
+    background-color: transparent;
+    padding: 0;
+    border: none;
+    border-bottom: 1px solid var(--brand-red);
+    color: var(--brand-red);
+    border-radius: 0;
+
+    span {
+      color: var(--brand-red);
+    }
+
+    @media (hover: hover) {
+      &:hover {
+        border-color: transparent;
+      }
+    }
+  }
 }
 
 .image-link {
@@ -1005,7 +1024,7 @@
 
 .quick-nav-top {
   ul {
-    display: inline-flex;
+    display: flex;
     list-style: none;
   }
 
@@ -1021,7 +1040,8 @@
     transform: scale(1.2);
   }
 
-  .menu {
+  .menu,
+  .basket {
     display: none;
   }
 }
@@ -1135,6 +1155,7 @@
   padding: 8px 10px;
   transition: all 0.3s ease-in-out;
   white-space: nowrap;
+  display: flex;
 
   i {
     width: 24px;

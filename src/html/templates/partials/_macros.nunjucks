@@ -430,7 +430,7 @@
     </div>
     <button id="btn_AddOptions" class="bttn btn_AddOptions">
       <span>Add</span>
-      <span>options</span>
+      <span>Your Options</span>
     </button>
   </div>
 {% endmacro %}

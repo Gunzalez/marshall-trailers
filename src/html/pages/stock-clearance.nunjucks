@@ -75,7 +75,7 @@
                                         <span class="icon">
                                             <i class="fa-solid fa-cart-shopping"></i>
                                         </span>
-                                        <span>Add</span>
+                                        <span>Add To Basket</span>
                                     </button>
                                     <input type="hidden" class="sid" name="sid" value="{{ item.sid }}">
                                     <input type="hidden" class="price" name="price" value="{{ item.cost }}">

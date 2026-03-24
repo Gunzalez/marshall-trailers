@@ -128,13 +128,13 @@ export default {
                         <a :href="item.url" :title="item.part_no + ' - ' + item.description" class="lc_lightbox_link_text">{{ item.part_no }}</a>
                         <span>{{ item.description }}</span>
                         <div class="actions">
-                            <button type="button" class="bttn" @click.prevent="onBuyNowRelatedClick(item)">
+                            <button type="button" class="bttn secondary-buy" @click.prevent="onBuyNowRelatedClick(item)">
                                 <span class="icon">
                                     <i class="fa-regular fa-credit-card"></i>
                                 </span>
                                 <span>Buy Now</span>
                             </button>
-                            <button type="button" @click.prevent="()=>onAddToBasketRelatedClick(item)" class="bttn">
+                            <button type="button" @click.prevent="onAddToBasketRelatedClick(item)" class="bttn secondary-buy">
                                 <span class="icon">
                                     <i class="fa-solid fa-cart-shopping"></i>
                                 </span>
@@ -174,7 +174,7 @@ export default {
                     <span class="icon">
                         <i class="fa-solid fa-cart-shopping"></i>
                     </span>
-                    <span>Add</span>
+                    <span>Add To Basket</span>
                 </button>
             </li>
         </ul>
