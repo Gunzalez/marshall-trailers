@@ -635,13 +635,24 @@
   .copy-wrapper {
     width: 464px;
     height: 100%;
-    background-image: url("../images/bg-rectangle.png");
-    background-repeat: no-repeat;
-    background-position: top center;
+    position: relative;
+
+    &:after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 40px;
+      width: 383px;
+      height: 450px;
+      background: #ffffff;
+      transform: skewX(-10deg);
+    }
 
     .inner-wrapper {
       margin: 0 71px 0 100px;
       height: 100%;
+      position: relative;
+      z-index: 10;
     }
   }
 
@@ -702,23 +713,28 @@
 
   .copy-wrapper {
     width: 464px;
-    margin-top: 2rem;
-    padding-top: 20px;
-    height: 100%;
-    background-image: url("../images/bg-rectangle.png");
-    background-repeat: no-repeat;
-    background-position: top center;
-    height: 380px;
+    position: relative;
 
     .inner-wrapper {
-      margin: 0 71px 0 100px;
+      margin: 70px 71px 0 100px;
       height: 100%;
+      position: relative;
+      z-index: 10;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 40px;
+      right: 40px;
+      width: 383px;
+      height: 370px;
+      background: #ffffff;
+      transform: skewX(-10deg);
     }
   }
 
   .specs-content {
-    height: 450px;
-    padding-top: 24px;
     margin-bottom: 1rem;
     display: flex;
     flex-direction: column;
