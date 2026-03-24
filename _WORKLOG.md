@@ -71,6 +71,9 @@
 - 15th March: 6hrs
 - 16th March: 3hrs
 - 17th March: 2hrs
+- 21th March: 1hr
+- 22nd March: 1hr
+- 23rd March: 3hrs
 
 #### NEXT
 
