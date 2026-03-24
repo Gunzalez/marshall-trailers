@@ -4,8 +4,8 @@
   <defs>
     <style>
       .st0 {
-        fill: #fff;
-        fill-rule: evenodd;
+        fill: evenodd;
+        fill-rule: currentColor;
       }
     </style>
   </defs>

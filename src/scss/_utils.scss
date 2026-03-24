@@ -1029,7 +1029,7 @@
   }
 
   a {
-    i {
+    svg {
       color: var(--brand-yellow);
     }
   }
@@ -1049,7 +1049,7 @@
 .products {
   .quick-nav-top {
     .products {
-      i {
+      svg {
         color: var(--brand-red);
       }
     }
@@ -1059,7 +1059,7 @@
 .configure {
   .quick-nav-top {
     .configure {
-      i {
+      svg {
         color: var(--brand-red);
       }
     }
@@ -1069,7 +1069,7 @@
 .spares {
   .quick-nav-top {
     .spares {
-      i {
+      svg {
         color: var(--brand-red);
       }
     }
@@ -1079,7 +1079,7 @@
 .basket {
   .quick-nav-top {
     .basket {
-      i {
+      svg {
         color: var(--brand-red);
       }
     }
@@ -1109,7 +1109,7 @@
   .selected {
     background-color: var(--brand-red);
 
-    i {
+    svg {
       color: var(--brand-yellow);
     }
   }
@@ -1119,7 +1119,7 @@
   &.spares {
     .quick-nav-float {
       .spares {
-        i {
+        svg {
           color: var(--brand-yellow);
         }
       }
@@ -1128,7 +1128,7 @@
   &.configure {
     .quick-nav-float {
       .configure {
-        i {
+        svg {
           color: var(--brand-yellow);
         }
       }
@@ -1137,7 +1137,7 @@
   &.products {
     .quick-nav-float {
       .products {
-        i {
+        svg {
           color: var(--brand-yellow);
         }
       }
@@ -1165,7 +1165,7 @@
     text-align: left;
   }
 
-  img {
+  svg {
     width: 24px;
     height: auto;
     display: inline;
