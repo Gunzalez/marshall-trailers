@@ -772,6 +772,10 @@
         $thePage.addClass("scrolled");
       }
 
+      $topDrawer.on("mouseleave", function () {
+        $topDrawer.removeClass("peek");
+      });
+
       $topDrawer.removeClass("pre-script");
     },
 
