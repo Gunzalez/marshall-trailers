@@ -30,33 +30,18 @@
                 <div>
                     <div class="actions-buttons">
                         <button type="button" class="bttn btn_MyAccount active-bttn">
-                            <span>
-                                <i class="fa-solid fa-user"></i>
-                            </span>
                             <span>My Account</span>
                         </button>
                         <button type="button" class="bttn btn_Addresses">
-                            <span>
-                                <i class="fa-solid fa-map-marker-alt"></i>
-                            </span>
                             <span>My Addresses</span>
                         </button>
                         <button type="button" class="bttn btn_Addresses" disabled>
-                            <span>
-                                <i class="fa-solid fa-map-marker-alt"></i>
-                            </span>
                             <span>My Addresses</span>
                         </button>
                         <button type="button" class="bttn btn_OrderHistory">
-                            <span>
-                                <i class="fa-solid fa-history"></i>
-                            </span>
                             <span>Order History</span>
                         </button>
                         <button type="button" class="bttn btn_LogOut">
-                            <span>
-                                <i class="fa-solid fa-sign-out-alt"></i>
-                            </span>
                             <span>Log out</span>
                         </button>
                     </div>
@@ -201,9 +186,6 @@
                     </ul>
                     <div class="addresses-actions">
                         <button type="button" class="bttn btn_AddAddress">
-                            <span>
-                                <i class="fa-solid fa-plus"></i>
-                            </span>
                             <span>Add new address</span>
                         </button>
                     </div>

@@ -118,21 +118,12 @@ export default {
                     <h4>Choose one of the following options.</h4>
                     <div class="actions-buttons">
                         <button type="button" class="bttn" @click.prevent="handlePurchase">
-                            <span>
-                                <i class="fa-solid fa-cart-shopping"></i>
-                            </span>
                             <span>Purchase your Marshall</span>
                         </button>
                         <button type="button" class="bttn" @click.prevent="handleDownloadPDF">
-                            <span>
-                                <i class="fa-solid fa-download"></i>
-                            </span>
                             <span>Download quote as PDF</span>
                         </button>
                         <button type="button" class="bttn" @click.prevent="toggleFormDisplay">
-                            <span>
-                                <i class="fa-solid fa-paper-plane"></i>
-                            </span>
                             <span>Email enquiry to Marshall</span>
                         </button>
                     </div>

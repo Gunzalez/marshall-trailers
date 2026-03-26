@@ -573,6 +573,13 @@
     }
   }
 
+  > span {
+    svg {
+      width: 20px;
+      margin-right: 0.275rem;
+    }
+  }
+
   @media (hover: hover) {
     &:hover {
       background-color: var(--brand-red-dark);
@@ -599,6 +606,21 @@
             color: var(--brand-red);
           }
         }
+      }
+    }
+  }
+
+  &.btn_Secondary {
+    background-color: var(--brand-gray-bg);
+    border-color: var(--brand-gray-bg);
+    span {
+      color: var(--brand-text);
+    }
+
+    @media (hover: hover) {
+      &:hover {
+        background-color: var(--system-gray);
+        border-color: var(--system-gray);
       }
     }
   }

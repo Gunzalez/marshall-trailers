@@ -76,9 +76,6 @@
                                 <div class="actions">
                                     {{ macros.quantityField("id-" ~ item.part_no, item.qty) }}
                                     <button type="button" class="bttn btn_removeItem">
-                                        <span>
-                                            <i class="fa-solid fa-trash-can"></i>
-                                        </span>
                                         <span>Remove</span>
                                     </button>
                                 </div>
@@ -163,9 +160,6 @@
                     <i class="fa-brands fa-stripe text-4xl"></i>
                     <p>Pay with Stripe.</p>
                     <button type="submit" class="bttn btn_Submit">
-                        <span>
-                            <i class="fa-regular fa-credit-card"></i>
-                        </span>
                         <span>Make payment now</span>
                     </button>
                     <p class="mt-4">

@@ -18,9 +18,6 @@
             <span id="total_price" class="total-price">£0.00</span>
           </div>
           <button type="button" class="bttn btn_Checkout">
-            <span>
-              <i class="fa-solid fa-cart-shopping"></i>
-            </span>
             <span>Basket</span>
           </button>
         </div>
@@ -40,15 +37,9 @@
 {% macro checkoutNav() %}
   <div class="actions-buttons">
     <button type="button" class="bttn btn_Login">
-      <span>
-        <i class="fa-solid fa-sign-in-alt"></i>
-      </span>
       <span>Log In</span>
     </button>
     <button type="button" class="bttn btn_CreateAccount">
-      <span>
-        <i class="fa-solid fa-user-plus"></i>
-      </span>
       <span>Create Account</span>
     </button>
   </div>
