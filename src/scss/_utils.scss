@@ -624,7 +624,9 @@
   }
 
   &.btn_Chevron {
-    padding-right: 70px;
+    --paddingToAllowForChevron: 70px;
+
+    padding-right: var(--paddingToAllowForChevron);
     position: relative;
 
     &::after {
