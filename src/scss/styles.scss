@@ -567,7 +567,7 @@
     }
 
     .button {
-      color: var(--brand-yellow) !important;
+      color: white !important;
       background-color: transparent !important;
     }
 
@@ -1654,7 +1654,7 @@
   }
 
   .actions {
-    align-items: flex-end;
+    align-items: center;
     display: flex;
     gap: 0.5rem;
     justify-content: flex-end;
