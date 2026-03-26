@@ -923,7 +923,7 @@
   z-index: 1000;
 
   a {
-    background-color: var(--brand-red-dark);
+    background-color: var(--brand-red);
     color: #fff;
     border-bottom-left-radius: 2px;
     border-top-left-radius: 2px;
@@ -1148,7 +1148,7 @@
   }
 
   .expanding-link {
-    background-color: var(--brand-red-dark);
+    background-color: var(--brand-red);
     color: var(--brand-yellow);
 
     span {
@@ -1156,13 +1156,13 @@
     }
   }
 
-  .selected {
-    background-color: var(--brand-red);
+  // .selected {
+  //   background-color: var(--brand-red);
 
-    svg {
-      color: white;
-    }
-  }
+  //   svg {
+  //     color: white;
+  //   }
+  // }
 }
 
 #page {
