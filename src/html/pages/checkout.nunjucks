@@ -75,8 +75,10 @@
                                 <input type="hidden" name="qty" value="{{ item.qty }}">
                                 <div class="actions">
                                     {{ macros.quantityField("id-" ~ item.part_no, item.qty) }}
-                                    <button type="button" class="bttn btn_removeItem">
-                                        <span>Remove</span>
+                                    <button type="button" class="bttn btn_removeItem btn_Delete">
+                                        <span>
+                                            <i class="fa-regular fa-trash-can"></i>
+                                        </span>
                                     </button>
                                 </div>
                             {% endif %}
@@ -160,7 +162,10 @@
                     <i class="fa-brands fa-stripe text-4xl"></i>
                     <p>Pay with Stripe.</p>
                     <button type="submit" class="bttn btn_Submit">
-                        <span>Make payment now</span>
+                        <span class="icon">
+                            <i class="fa-regular fa-credit-card"></i>
+                        </span>
+                        <span>Pay Now</span>
                     </button>
                     <p class="mt-4">
                         <a href="checkout-done.html">Thank You page (for testing purposes)</a>
