@@ -117,14 +117,14 @@ export default {
                 <div>
                     <h4>Choose one of the following options.</h4>
                     <div class="actions-buttons">
-                        <button type="button" class="bttn" @click.prevent="handlePurchase">
-                            <span>Purchase your Marshall</span>
+                        <button type="button" class="bttn btn_Chevron" @click.prevent="handlePurchase">
+                            <span>Purchase Your Marshall</span>
                         </button>
-                        <button type="button" class="bttn" @click.prevent="handleDownloadPDF">
-                            <span>Download quote as PDF</span>
+                        <button type="button" class="bttn btn_Chevron" @click.prevent="handleDownloadPDF">
+                            <span>Download Quote As PDF</span>
                         </button>
-                        <button type="button" class="bttn" @click.prevent="toggleFormDisplay">
-                            <span>Email enquiry to Marshall</span>
+                        <button type="button" class="bttn btn_Chevron" @click.prevent="toggleFormDisplay">
+                            <span>Email Enquiry To Marshall</span>
                         </button>
                     </div>
                 </div>
@@ -180,10 +180,7 @@ export default {
                         </div>
 
                         <button type="button" class="bttn" @click.prevent="handleEmailEnquiry">
-                            <span>
-                                <i class="fa-solid fa-paper-plane"></i>
-                            </span>
-                            <span>Send email</span>
+                            <span>Send Email</span>
                         </button>
                     </div>
                 </div>

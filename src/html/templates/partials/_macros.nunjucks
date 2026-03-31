@@ -201,27 +201,32 @@
 
 {% macro overview() %}
   <div class="body-copy">
-    <h3>Overview of the QM-X</h3>
+    <h3 class="shewed-bg">
+      <span>Overview of the QM-X</span>
+    </h3>
     <div class="columned-content">
       <ul class="dotted-list">
-        <li>Large capacity</li>
-        <li>Fully welded construction eliminates rust traps</li>
-        <li>Fixed headboard (ensures a rigid body)</li>
-        <li>Fully braced hinge points (eliminates cracking of material)</li>
-        <li>Genuine Marshall Spares – a full collection of spares are available for all models in the range</li>
+        <li>The most accurate comparison when buying a trailer is the cost per cu. ft!</li>
+        <li>All tandem axle models available with springs or split oscillating suspension - with no price difference</li>
+        <li>All models have full in line and side loading silage panels as standard with silage kit complete with full height silage gate forming the canopy at the rear (eliminating silage catching during discharge)</li>
+        <li>Large cubic capacity (enabling user to not only carry the stated weight but to hold it as well)</li>
+        <li>QM/14, QM/1400, QM/16, QM/1600 & QM/1800 have commercial type axles, as used by road transport, fitted as standard</li>
+        <li>Flat floors (no open pressed sections that allow water to prematurely rust out joints)</li>
+        <li>Protected LED lights which are integrated into the back rail (eliminates any potential damage)</li>
+        <li>Standard LED Side Marker Lights</li>
+        <li>Single Chrome tipping ram on QM11 upwards</li>
+        <li>Unique design chassis combines unmatched strength and stability</li>
+        <li>Front inspection ladder is standard on all QM models</li>
       </ul>
-      <p>The smallest model of trailer we produce is the S/1 drop side trailer. It has been designed to match small, compact tractors for use in the groundcare and leisure sectors. Despite being the entry-level model the entire trailer is built using CNC controlled machines to guarantee strength and finish.</p>
-      <p>The drop side design provides excellent versatility, allowing the trailer to be used as a flat-bed or a proper trailer. This drastically increases the jobs this trailer can be used for, whether it is moving pallets, small machines, sand or grass; it really can handle all jobs. The S/1 also has the option of mesh sides, which further improves its versatility and makes it an ideal product for the leisure industry.</p>
-      <p>The body of the S/1 is built from 2.5mm steel, which is the perfect blend between strength and manageability; the sides still have to be easily removable. The hinge points for the sides are also reinforced to prevent cracking or twisting under heavy loads. To improve rigidity the trailer also has a fixed headboard, reducing flexing during loading and transport.</p>
-      <p>The trailer chassis utilies our tried and tested design developed over 60 years of trailer manufacturing, and provides exceptional strength. The S/1 is also fully-equipped with a hydraulic tipping ram, improving its efficiency and practicality.</p>
-      <p>The result of all these features and construction standards, is a heavy-duty drop-side trailer that is strong, practical and well finished.</p>
     </div>
   </div>
 {% endmacro %}
 
 {% macro ownersInfo() %}
   <div class="owners-info">
-    <h3>Downloads and links</h3>
+    <h3 class="shewed-bg">
+      <span>Downloads and links</span>
+    </h3>
     <ul class="downloads-list">
       <li>
         <a href="#">Tyre Pressure Chart</a>
@@ -284,9 +289,6 @@
       <input type="hidden" name="part_no" class="part_no" value="{{ part_no }}">
       <input type="hidden" name="title" class="title" value="{{ title }}">
       <button type="button" class="bttn btn_enquireAll">
-        <span class="icon">
-          <i class="fa-solid fa-envelope"></i>
-        </span>
         <span>Enquire</span>
       </button>
     </form>
@@ -295,7 +297,9 @@
 
 {% macro retroFit() %}
   <div class="body-copy">
-    <h3>Retro Fit concept</h3>
+    <h3 class="shewed-bg">
+      <span>Retro Fit concept</span>
+    </h3>
     <div class="columned-content">
       <p>Retro fitting involves upgrading existing equipment with new features or components to enhance performance and functionality.</p>
       <p>At Marshall Trailers, we offer a range of <a href="retro-fit.html">retro fit solutions</a> to improve your trailer's capabilities. 
@@ -313,8 +317,6 @@
 
 {% macro gallery() %}
   <div class="body-copy">
-    <h3>
-            Picture Showcase</h3>
     <ul class="gallery-list">
       <li>
         <a class="lc_lightbox_gallery_link" href="images/070420-1803-2655.jpg" title="Product Title - Front Views"><img src="images/070420-1803-2655.jpg" alt="QM1200"></a>

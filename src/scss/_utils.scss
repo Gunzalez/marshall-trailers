@@ -557,7 +557,6 @@
   span {
     &:last-child {
       color: white;
-      font-size: 1.1rem;
     }
 
     &.white {
@@ -573,7 +572,7 @@
 
   > span {
     svg {
-      width: 20px;
+      width: 18px;
       margin-right: 0.275rem;
     }
   }
@@ -802,7 +801,7 @@
 .items-grid {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
-  gap: 1.5rem;
+  gap: 2rem;
 
   @media screen and (min-width: 768px) {
     grid-template-columns: repeat(2, 1fr);
@@ -910,6 +909,22 @@
   }
 }
 
+.shewed-bg {
+  background-color: var(--brand-gray-bg);
+  display: inline-block;
+  padding: 8px 3.5rem 4px 1.5rem;
+  transform: skewX(-35deg);
+  margin-left: 16px;
+  margin-bottom: 1rem;
+
+  span {
+    display: inline-block;
+    transform: skewX(35deg);
+    text-align: center;
+    line-height: 1;
+  }
+}
+
 /* .back-to-top */
 .back-to-top {
   display: inline-block;
@@ -962,7 +977,7 @@
       position: absolute;
       left: 0;
       top: 0;
-      color: #000;
+      color: var(--brand-yellow);
       font-size: 1.5em;
       line-height: 1;
     }
@@ -1318,30 +1333,6 @@
 
   &.alwaysOn {
     display: block;
-  }
-}
-
-.dotted-list {
-  list-style: none;
-  padding-left: 0;
-  margin-bottom: 1rem;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-
-  li {
-    position: relative;
-    padding-left: 20px;
-
-    &::before {
-      content: "\2022";
-      position: absolute;
-      left: 0;
-      top: 0;
-      color: #000;
-      font-size: 1.5em;
-      line-height: 1;
-    }
   }
 }
 
