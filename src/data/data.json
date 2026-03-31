@@ -1401,5 +1401,19 @@
       { "name": "Transfer", "key": "transfer" },
       { "name": "Valves", "key": "valves" }
     ]
-  }
+  },
+  "featuresData": [
+    {
+      "title": "QM Range: Silage",
+      "imageUrl": "https://www.marshall-trailers.co.uk/uploads/products/features/080420-1438-9745.jpg",
+      "label": "Image label",
+      "text": "Available on all models; these sides simply bolt on to the trailer. They provide an increased capacity for light loads such as leaves and grass"
+    },
+    {
+      "title": "Spring Suspension Option Spring Suspension Option",
+      "imageUrl": "https://www.marshall-trailers.co.uk/uploads/products/features/271114-1035-1005.jpg",
+      "label": "Image label 2",
+      "text": "Our Whole drop-side range comes complete with hydraulically operated brakes as standard; the only exception is our S/2 model, which has the option to fit hydraulic brakes. The size of the brakes on our drop-side range are also more then acceptable; providing braking efficiency in excess of the current legal requirements."
+    }
+  ]
 }

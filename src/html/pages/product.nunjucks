@@ -55,7 +55,15 @@
                 <div class="tab-item">
                     <h3 class="tab-header">Features</h3>
                     <div class="tab-content">
-                        {{ macros.featureList() }}
+                        <div class="body-copy">
+                            <div class="features-list">
+                                <div class="accordion-mini">
+                                    {% for feature in featuresData %}
+                                        {{ macros.accordionItem(feature.title, feature.text, feature.imageUrl, feature.label, loop.index) }}
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
