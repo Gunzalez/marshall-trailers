@@ -75,6 +75,12 @@
 - 22nd March: 1hr
 - 23rd March: 4hrs
 
+- 27th March: 1hrs
+- 28th March: 1hrs
+- 29th March: 2hrs
+- 30th March: 4hrs
+- 31st March: 4hrs
+
 #### NEXT
 
 - Trello bugs
