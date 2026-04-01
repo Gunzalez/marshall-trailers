@@ -79,7 +79,7 @@
 - 28th March: 1hrs
 - 29th March: 2hrs
 - 30th March: 4hrs
-- 31st March: 4hrs
+- 31st March: 5hrs
 
 #### NEXT
 
