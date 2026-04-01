@@ -2008,3 +2008,62 @@
     grid-template-columns: repeat(3, 1fr);
   }
 }
+
+.news-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  > li {
+    border-bottom: 1px solid var(--brand-gray-bg);
+    padding-bottom: 2rem;
+
+    &:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+  }
+
+  .news-item {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    .news-date {
+      margin-bottom: 0.375rem;
+      color: var(--brand-gray-dark);
+    }
+
+    .news-title {
+      a {
+        text-decoration: none;
+      }
+    }
+
+    .news-description {
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    .news-item {
+      flex-direction: row;
+      gap: 2rem;
+    }
+
+    .news-image-link {
+      flex-shrink: 0;
+      width: 240px;
+      height: auto;
+
+      img {
+        width: 100%;
+        height: auto;
+        border-radius: 2px;
+        object-fit: cover;
+        aspect-ratio: 220/148;
+      }
+    }
+  }
+}

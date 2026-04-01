@@ -19,6 +19,31 @@
     <h1 class="page-title">News</h1>
   </div>
 
-  <div class="spacer" style="--height: 800px;"></div>
+  <div class="page-intro body-copy">
+    <p>Find the latest news and updates about Marshall Trailers.</p>
+  </div>
+
+  <div class="section body-copy">
+    <ul class="news-list">
+      {% for item in newsData %}
+        <li class="news-item">
+          <a href="article.html?id={{ item.id }}" class="news-image-link">
+            <img src="{{ item.image }}" alt="{{ item.title }}">
+          </a>
+          <div class="news-content">
+            <h3 class="news-title">
+              <a href="article.html?id={{ item.id }}">
+                {{ item.title }}</a>
+            </h3>
+            <p class="news-date">{{ item.date }}</p>
+            <p>{{ item.content }}...</p>
+            <a href="article.html?id={{ item.id }}" class="bttn">
+              <span>Read more</span>
+            </a>
+          </div>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
 
 {% endblock %}
