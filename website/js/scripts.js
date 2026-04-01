@@ -1048,6 +1048,15 @@ window.data = data;
     },
   };
 
+  marshallTrailers.accordionMini = {
+    init: function () {
+      $(".accordion-mini .accordion-header").on("click", function () {
+        var $item = $(this).parents(".accordion-item");
+        $item.toggleClass("active");
+      });
+    },
+  };
+
   /*---------------------------------------------------------------- */
 
   /**
@@ -1447,6 +1456,7 @@ window.data = data;
     marshallTrailers.checkout.init();
     marshallTrailers.global.init();
     marshallTrailers.backToTop.init();
+    marshallTrailers.accordionMini.init();
 
     window.MT = marshallTrailers;
   };

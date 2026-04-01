@@ -150,7 +150,9 @@
         <img src="{{ imageUrl }}" alt="{{ label }}">
       </div>
       <div class="content-text">
-        <p>{{ text }}</p>
+        {% for line in text %}
+          <p>{{ line }}</p>
+        {% endfor %}
       </div>
     </div>
   </div>

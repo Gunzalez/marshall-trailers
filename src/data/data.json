@@ -1407,13 +1407,39 @@
       "title": "QM Range: Silage",
       "imageUrl": "https://www.marshall-trailers.co.uk/uploads/products/features/080420-1438-9745.jpg",
       "label": "Image label",
-      "text": "Available on all models; these sides simply bolt on to the trailer. They provide an increased capacity for light loads such as leaves and grass"
+      "text": [
+        "Available on all models; these sides simply bolt on to the trailer. ",
+        "They provide an increased capacity for light loads such as leaves and grass."
+      ]
     },
     {
       "title": "Spring Suspension Option Spring Suspension Option",
       "imageUrl": "https://www.marshall-trailers.co.uk/uploads/products/features/271114-1035-1005.jpg",
       "label": "Image label 2",
-      "text": "Our Whole drop-side range comes complete with hydraulically operated brakes as standard; the only exception is our S/2 model, which has the option to fit hydraulic brakes. The size of the brakes on our drop-side range are also more then acceptable; providing braking efficiency in excess of the current legal requirements."
+      "text": [
+        "Our Whole drop-side range comes complete with hydraulically operated brakes as standard; the only exception is our S/2 model, which has the option to fit hydraulic brakes.",
+        "The size of the brakes on our drop-side range are also more then acceptable; providing braking efficiency in excess of the current legal requirements."
+      ]
+    },
+    {
+      "title": "Paint Finish",
+      "imageUrl": "https://www.marshall-trailers.co.uk/uploads/products/features/011222-1340-6102.jpg",
+      "label": "Image label 2",
+      "text": [
+        "Since November 2011 we have shot-blasted, this is acknowledged in the paint industry as the best possible method for preparing steel for painting.",
+        "The shot-blasting creates a profile for the paint to adhere to, improving adhesion and in turn the protection offered to the steel.",
+        "Our five man team of trained sprayers then use the latest spraying equipment to finish our products with a dual layer paint finish.",
+        "Every machine is finished with 80 microns of high-build primer and 50 microns of gloss polyurethane; this combination provides excellent protection and a high-quality finish."
+      ]
+    },
+    {
+      "title": "Spare Parts Availability",
+      "imageUrl": "https://www.marshall-trailers.co.uk/uploads/products/features/310715-1221-4056.jpg",
+      "label": "Image label 4",
+      "text": [
+        "Marshall Trailers has a full selection of spare parts for all our ranges, most of which can be dispatched immediately.",
+        "In some cases we have spares for machines dating back forty years, which gives you peace of mind when buying a Marshall that you will be properly supported well into the future."
+      ]
     }
   ]
 }
