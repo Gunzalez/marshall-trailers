@@ -37,12 +37,58 @@
             </h3>
             <p class="news-date">{{ item.date }}</p>
             <p>{{ item.content }}...</p>
-            <a href="article.html?id={{ item.id }}" class="bttn">
+            <a href="article.html?id={{ item.id }}" class="bttn btn_Chevron">
               <span>Read more</span>
             </a>
           </div>
         </li>
       {% endfor %}
+    </ul>
+  </div>
+
+  <div class="section">
+    <ul class="news-list-navigation">
+      <li>
+        <a href="#" class="active">
+          <span>1</span>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <span>2</span></a>
+      </li>
+      <li>
+        <a href="#">
+          <span>3</span></a>
+      </li>
+      <li>
+        <a href="#">
+          <span>4</span></a>
+      </li>
+      <li>
+        <a href="#">
+          <span>5</span></a>
+      </li>
+      <li>
+        <a href="#">
+          <span>6</span></a>
+      </li>
+      <li>
+        <a href="#">
+          <span>7</span></a>
+      </li>
+      <li>
+        <a href="#">
+          <span>8</span></a>
+      </li>
+      <li>
+        <a href="#">
+          <span>9</span></a>
+      </li>
+      <li>
+        <a href="#">
+          <span>10</span></a>
+      </li>
     </ul>
   </div>
 

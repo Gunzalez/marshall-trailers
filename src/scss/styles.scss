@@ -2067,3 +2067,45 @@
     }
   }
 }
+
+.news-list-navigation {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: 1rem 0;
+  flex-wrap: wrap;
+
+  > li > a {
+    display: block;
+    width: 36px;
+    height: 36px;
+    position: relative;
+    border: 1px solid var(--brand-gray);
+    border-radius: 4px;
+    background-color: transparent;
+    color: var(--brand-text);
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+
+    span {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    &:hover {
+      @media (hover: hover) {
+        background-color: var(--brand-gray);
+        color: white;
+      }
+    }
+
+    &.active {
+      background-color: var(--brand-red);
+      border-color: var(--brand-red);
+      color: white;
+      cursor: default;
+    }
+  }
+}
