@@ -48,7 +48,7 @@
 
   </head>
   <body>
-    <div id="page" class="configure">
+    <div id="page" class="news">
       <div id="top-drawer" class="shadow-md pre-script">
   <div id="top-navigation" class="w-full max-w-[var(--max-width)] mx-auto px-4 mt-4 transition-all duration-300 ease-in-out relative">
     <div class="inset-0 w-full flex gap-4 items-start justify-end">
@@ -376,7 +376,7 @@
             <li >
               <a href="retrofit.html">Retro Fit</a>
             </li>
-            <li class="desktop-only active">
+            <li class="desktop-only ">
               <a href="configure.html">Price & Configure</a>
             </li>
             <li >
@@ -407,7 +407,7 @@
                 </li>
               </ul>
             </li>
-            <li  >
+            <li  class="active"  >
               <a href="news.html">News</a>
             </li>
             <li >
@@ -530,449 +530,82 @@
             <li>
                 <a href="index.html">Home</a>
             </li>
-            <li>Configure Machine</li>
+            <li>
+                <a href="news.html">News</a>
+            </li>
+            <li>Article</li>
         </ol>
     </nav>
 
     <div class="title-wrapper">
-        <h1 class="page-title">Configure your Marshall</h1>
+        <h1 class="page-title">Bale Season is Here!</h1>
+        <p class="article-date">Published on 15th June 2024</p>
     </div>
 
-    <div id="product-detail">
-
-        <div id="configure-app" class="configure-app">
-            <div class="form-wrapper">
-                <form class="configure-form body-copy">
-                    <h2 class="stepped-title">
-                        <span class="step-number">Step 01:</span>
-                        <span>Select your machine</span>
-                    </h2>
-                    <select id="machine-select" name="machine" data-select-height="300" class="select-input">
-                        <option value="">Please select...</option>
-                        <optgroup label="Silage / Grain Trailers">
-                            <option value="4">QM-6 - 6.5 tons</option>
-                            <option value="6">QM-8 - 8.5 tons</option>
-                            <option value="38">QM-11 - 11 tons</option>
-                            <option value="39">QM-12 - 12 tons</option>
-                            <option value="48">QM-1200 - 12 tons</option>
-                            <option value="40">QM-14 - 14.5 tons</option>
-                            <option value="49">QM-1400 - 14.5 tons</option>
-                            <option value="41">QM-16 - 16.5 tons</option>
-                            <option value="50">QM-1600 - 16.5 tons</option>
-                            <option value="120">QM-1800 - 18.5 tons</option>
-                        </optgroup>
-                        <optgroup label="Drop-Side Trailers">
-                            <option value="59">S-1 - 1.5 tons</option>
-                            <option value="42">S-2 - 2 tons</option>
-                            <option value="43">S-4 - 4 tons</option>
-                            <option value="44">S-5 - 5 tons</option>
-                            <option value="45">S-6 - 6.5 tons</option>
-                            <option value="46">S-85 - 8.5 tons</option>
-                            <option value="47">S-10 - 10.5 tons</option>
-                        </optgroup>
-                        <optgroup label="Flat / Bale Trailers">
-                            <option value="33">BC-21 - 21' x 8' / 10 tons</option>
-                            <option value="34">BC-25-10T - 25' x 8'</option>
-                            <option value="35">BC-25-12T - 25' x 8' 4"</option>
-                            <option value="36">BC-28 - 28' x 8' 4" / 14 tons</option>
-                            <option value="37">BC-32-TAN - 32' x 8' 4" / 14 tons</option>
-                            <option value="127">BC-32-TRI - 32' x 8' 4" / 16 tons</option>
-                            <option value="133">BC-36-TAN - 36' x 8' 4" / 16 tons</option>
-                            <option value="134">BC-36-TRI - 36' x 8' 4" / 16 tons</option>
-                        </optgroup>
-                        <optgroup label="Low Loader Trailers">
-                            <option value="141">LL-26-TAN - 16 tons</option>
-                            <option value="142">LL-33-TRI - 21 tons</option>
-                        </optgroup>
-                        <optgroup label="Dumper Trailers">
-                            <option value="121">HD-6 - 6 tons / 3.7 cu.mtrs</option>
-                            <option value="122">HD-8 - 8 tons / 5.4 cu.mtrs</option>
-                            <option value="123">HD-12 - 12 tons / 7 cu.mtrs</option>
-                            <option value="124">HD-14 - 14 tons / 8.7 cu.mtrs</option>
-                            <option value="125">HD-16 - 16 tons / 10.5 cu.mtrs</option>
-                        </optgroup>
-                        <optgroup label="Feed Trailers">
-                            <option value="7">FT-15 - 15' Long</option>
-                            <option value="8">FT-20 - 20' Long</option>
-                        </optgroup>
-                        <optgroup label="Livestock Trailers / Containers">
-                            <option value="137">LST-21 - 21' Long</option>
-                            <option value="138">LST-25 - 25' Long</option>
-                            <option value="139">LST-28 - 28' Long</option>
-                            <option value="140">LST-32 - 32' Long</option>
-                        </optgroup>
-                        <optgroup label="Muck Spreaders">
-                            <option value="13">MS-60 - 6 cu.yds</option>
-                            <option value="14">MS-75 - 7.5 cu.yds</option>
-                            <option value="15">MS-90 - 9 cu.yds</option>
-                            <option value="16">MS-105 - 10.5 cu.yds</option>
-                        </optgroup>
-                        <optgroup label="Rear Discharge Muck Spreaders">
-                            <option value="17">VES-1500 - 9 tons</option>
-                            <option value="18">VES-2000 - 12 tons</option>
-                            <option value="19">VES-2500 - 14 tons</option>
-                        </optgroup>
-                        <optgroup label="Tankers">
-                            <option value="20">ST-1200 - 1220 gallons</option>
-                            <option value="21">ST-1400 - 1400 gallons</option>
-                            <option value="22">ST-1600 - 1550 gallons</option>
-                            <option value="23">ST-1800 - 1800 gallons</option>
-                            <option value="24">ST-2000 - 2150 gallons</option>
-                            <option value="25">ST-2300 - 2340 gallons</option>
-                            <option value="26">ST-2550 - 2560 gallons</option>
-                            <option value="126">ST-3000 - 3000 gallons</option>
-                            <option value="135">ST-3500 - 3500 gallons</option>
-                        </optgroup>
-                        <optgroup label="People Carrier Trailers">
-                            <option value="136">PC-21 - 21' x 8' / 27 People</option>
-                        </optgroup>
-                    </select>
-                </form>
-            </div>
-        </div>
-
-        <div id="basic-machine" class="display-none">
-            <div class="product-hero">
-                <div id="product-hero-image" class="product-hero-bg"></div>
-                <div class="section">
-                    <div class="copy-wrapper desktop-only">
-                        <div class="inner-wrapper">
-                            
-  <div class="quick-specs">
-    <div class="specs-content">
-      <h1 class="title"></h1>
-      <ul class="specs-list"></ul>
-      <p class="product-price">
-        <span class="label">Basic Price</span>
-        <span class="value"></span>
-      </p>
-    </div>
-    <button id="btn_AddOptions" class="bttn btn_AddOptions btn_Chevron">
-      <span>Add</span>
-      <span>Your Options</span>
-    </button>
-  </div>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="mobile-only quick-specs-mobile">
-                <div class="section">
-                    
-  <div class="quick-specs">
-    <div class="specs-content">
-      <h1 class="title"></h1>
-      <ul class="specs-list"></ul>
-      <p class="product-price">
-        <span class="label">Basic Price</span>
-        <span class="value"></span>
-      </p>
-    </div>
-    <button id="btn_AddOptions" class="bttn btn_AddOptions btn_Chevron">
-      <span>Add</span>
-      <span>Your Options</span>
-    </button>
-  </div>
-
-                </div>
-            </div>
-        </div>
-
-        <div id="processing">
-            <div class="wrapper">
-                <p>Processing your request...</p>
-                <i class="fa-solid fa-spinner"></i>
-            </div>
-        </div>
-
+    <div class="section body-copy">
+        <p>With bale season just around the corner, you need a trailer that's up for the job. When it comes to shifting silage, hay or straw, our range of bale trailers are the market leaders across the UK.</p>
+        <p>With over 450 machines in all shapes and configurations leaving our production line every year, means our customers have an almost infinite range of options to choose from, that include features such as:</p>
+        <ul class="article-list">
+            <li>21' to 36' long trailers, with options to add a foot to any model, and ranging from 10 to 16-ton capacities.</li>
+            <li>10-stud 420 x 180 commercial axles with a wide track & 32-ton mono-leaf spring suspension.</li>
+            <li>Sprung drawbars to reduce tractor bounce and trailer noise.</li>
+            <li>Smooth-running spring suspension for road work or rocking tandems for hillside stability.</li>
+            <li>Low bed heights, with a selection of low and wide wheel options plus twin or tri axles for stability.</li>
+            <li>Braking options ranging from basic hydraulic to full ABS S-cam air brakes.</li>
+            <li>Ease of use through multiple all-round heavy-duty rope hooks and ratchet strap points.</li>
+            <li>6mm folded side rails, strap box with integrated strap winder, adjustable front and rear harvest ladders.</li>
+            <li>Optional Easy Secure system for rapid load securing that reaches up to 3.1m high.</li>
+        </ul>
+        <p>Giving you the ability to select and engineer the perfect solution for your bale trailer needs. Combining quality, value and innovation, all delivered with the production heritage of the Marshall family business.</p>
+        <p>So, for your last minute orders on these easy to tow trailers get in touch with us or ask your dealer for a Marshall.</p>
     </div>
 
-    <div id="options-app" class="options-app app-loading">
-        <div class="section" v-if="optionsData.length > 0">
-            <div class="app-content">
-                <form class="form options-form">
-
-                    <div class="heading-wrapper">
-                        <div class="heading">
-                            <h2 class="title stepped-title">
-                                <span class="step-number">Step 02:</span>
-                                <span>Select your options</span>
-                            </h2>
-                        </div>
-                    </div>
-
-                    <div class="options-groups">
-                        <div class="options-group" v-for="(group, index) in groupedOptions" :key="index">
-                            <group-header :header="group[0]"></group-header>
-                            <div class="options-list">
-                                <option-card 
-                                    v-for="option in group[1]" 
-                                    :key="option.id"
-                                    :option="option"
-                                    :is-selected="option.isSelected"
-                                    :messages="option.messages"
-                                    @click="handleOptionClick"
-                                    class="option"></option-card>
-                            </div>
-                        </div>
-                    </div>
-
-                    <options-basket 
-                        :selected-options="selectedOptions"
-                        :initial-option="initialOption"></options-basket>
-
-                    <options-form
-                        @download-pdf="handleDownloadPDF"
-                        @purchase-marshall="handlePurchase"
-                        @email-enquiry="handleEmailEnquiry"></options-form>
-
-                </form>
-
-            </div>
-
-            <script type="module">
-
-                import OptionCard from "./js/components/card.js";
-                import GroupHeader from "./js/components/header.js";
-                import OptionsBasket from "./js/components/basket.js";
-                import OptionsForm from "./js/components/form.js";
-
-                document.addEventListener('DOMContentLoaded', () => {
-                    const {
-                        createApp,
-                        ref,
-                        watch,
-                        nextTick,
-                        computed,
-                        onMounted
-                    } = Vue;
-
-                    window.configureMachineApp = createApp({
-                        components: {
-                            OptionCard,
-                            GroupHeader,
-                            OptionsForm,
-                            OptionsBasket
-                        },
-                        setup() {
-                            const optionsData = ref([]);
-                            const groupedOptions = ref([]);
-                            const initialOption = ref(null);
-
-                            const wrapWithStateProps = (options) => {
-                                return options.map((option) => {
-                                    return {
-                                        ...option,
-                                        isSelected: false,
-                                        messages: []
-                                    };
-                                });
-                            }
-
-                            const groupOptionsByType = (options) => {
-                                return Object.groupBy(options, (item) => item.type.name);
-                            }
-
-                            const decorateOptions = (data) => {
-                                return Object.entries(groupOptionsByType(wrapWithStateProps(data)));
-                            }
-
-                            const handleOptionClick = (option) => {
-
-                                if (option.isSelected) {
-                                    const havenotsList = option.havenot.list || [];
-                                    havenotsList.forEach(haveNotId => {
-                                        const index = groupedOptions
-                                            .value
-                                            .flatMap(group => group[1])
-                                            .findIndex(item => item.id === haveNotId);
-
-                                        if (index !== -1) {
-                                            const messages = groupedOptions
-                                                .value
-                                                .flatMap(group => group[1])
-                                                .find(item => item.id === haveNotId)
-                                                .messages
-                                                .filter(msg => msg.id !== option.id);
-
-                                            groupedOptions
-                                                .value
-                                                .forEach(group => {
-                                                    group[1].forEach(item => {
-                                                        if (item.id === haveNotId) {
-                                                            item.messages = messages;
-                                                            if (messages.length === 0) {
-                                                                item.isSelected = false;
-                                                            }
-                                                        }
-                                                    });
-                                                });
-
-                                        }
-                                    });
-
-                                    const havesList = option.have.list || [];
-                                    havesList.forEach(haveId => {
-                                        const index = groupedOptions
-                                            .value
-                                            .flatMap(group => group[1])
-                                            .findIndex(item => item.id === haveId);
-                                        if (index !== -1) {
-                                            const messages = groupedOptions
-                                                .value
-                                                .flatMap(group => group[1])
-                                                .find(item => item.id === haveId)
-                                                .messages
-                                                .filter(msg => msg.id !== option.id);
-                                            groupedOptions
-                                                .value
-                                                .forEach(group => {
-                                                    group[1].forEach(item => {
-                                                        if (item.id === haveId) {
-                                                            item.messages = messages;
-                                                            if (messages.length === 0) {
-                                                                item.isSelected = false;
-                                                            }
-                                                        }
-                                                    });
-                                                });
-                                        }
-                                    });
-
-                                    option.isSelected = false;
-                                } else {
-                                    const havenotsList = option.havenot.list || [];
-                                    havenotsList.forEach(haveNotId => {
-                                        const index = groupedOptions
-                                            .value
-                                            .flatMap(group => group[1])
-                                            .findIndex(item => item.id === haveNotId);
-                                        if (index !== -1) {
-                                            groupedOptions
-                                                .value
-                                                .flatMap(group => group[1])
-                                                .find(item => item.id === haveNotId)
-                                                .messages
-                                                .push({id: option.id, text: option.havenot.message});
-                                        }
-                                    });
-
-                                    const havesList = option.have.list || [];
-                                    havesList.forEach(haveId => {
-                                        const index = groupedOptions
-                                            .value
-                                            .flatMap(group => group[1])
-                                            .findIndex(item => item.id === haveId);
-                                        if (index !== -1) {
-                                            groupedOptions
-                                                .value
-                                                .flatMap(group => group[1])
-                                                .find(item => item.id === haveId)
-                                                .isSelected = true;
-                                            groupedOptions
-                                                .value
-                                                .flatMap(group => group[1])
-                                                .find(item => item.id === haveId)
-                                                .messages
-                                                .push({id: option.id, text: option.have.message});
-                                        }
-                                    });
-
-                                    option.isSelected = true;
-                                }
-
-                            };
-
-                            const handleDownloadPDF = (notes) => {
-                                // TODO: @Sheg/@Rob Implement PDF download logic here
-                                console.log("Download PDF clicked");
-                                console.log({selectedOptions: selectedOptions.value, initialOption: initialOption.value, notes});
-                            };
-
-                            const handleEmailEnquiry = (data) => {
-                                // TODO: @Sheg/@Rob Implement email enquiry logic here
-                                console.log("Email Enquiry clicked");
-                                console.log({selectedOptions: selectedOptions.value, initialOption: initialOption.value, data});
-                            };
-
-                            const handlePurchase = (notes) => {
-                                console.log({selectedOptions: selectedOptions.value, initialOption: initialOption.value, notes});
-                                window.location.href = "checkout.html";
-                            };
-
-                            const selectedOptions = computed(() => {
-                                return groupedOptions
-                                    .value
-                                    .flatMap(group => group[1].filter(option => option.isSelected));
-                            });
-
-                            watch(optionsData, async (newVal) => {
-                                if (newVal) {
-                                    groupedOptions.value = decorateOptions(newVal);
-                                    await nextTick();
-                                    $(".options-app")[0].scrollIntoView({behavior: "smooth"});
-                                }
-                            }, {deep: true});
-
-                            onMounted(() => {
-                                $("#options-app").removeClass("app-loading")
-                            })
-
-                            return {
-                                optionsData,
-                                groupedOptions,
-                                initialOption,
-                                selectedOptions,
-                                handlePurchase,
-                                handleOptionClick,
-                                handleDownloadPDF,
-                                handleEmailEnquiry
-                            };
-                        }
-                    }).mount("#options-app");
-                });
-            </script>
-
+    <div class="section">
+        <h3 class="title underlined">Gallery</h3>
+        <div class="body-copy">
+            <ul class="gallery-list">
+                <li>
+                    <a class="lc_lightbox_gallery_link" href="images/070420-1803-2655.jpg" title="Product Title - Front Views"><img src="images/070420-1803-2655.jpg" alt="QM1200"></a>
+                </li>
+                <li>
+                    <a class="lc_lightbox_gallery_link" href="images/080118-1236-8198.jpg" title="QM/1200 - Front View"><img src="images/080118-1236-8198.jpg" alt="QM/1200 - Front View"></a>
+                </li>
+                <li>
+                    <a class="lc_lightbox_gallery_link" href="images/080118-1235-4824.jpg" title="QM/1200 Silage - Front View"><img src="images/080118-1235-4824.jpg" alt="QM/1200 Silage - Front View"></a>
+                </li>
+                <li>
+                    <a class="lc_lightbox_gallery_link" href="images/080118-1235-3843.jpg" title="QM/1200 Silage - Side View"><img src="images/080118-1235-3843.jpg" alt="QM/1200 Silage - Side View"></a>
+                </li>
+                <li>
+                    <a class="lc_lightbox_gallery_link" href="images/070420-1755-7885.jpg" title="QM1200 - Silage Sides, Black, 550-45x22.5 Wheels, Mudguards"><img src="images/070420-1755-7885.jpg" alt="QM1200 - Silage Sides, Black, 550-45x22.5 Wheels, Mudguards"></a>
+                </li>
+                <li>
+                    <a class="lc_lightbox_gallery_link" href="images/070420-1755-5154.jpg" title="QM1200 - Silage Sides, Black, 550-45x22.5 Wheels, Mudguards"><img src="images/070420-1755-5154.jpg" alt="QM1200 - Silage Sides, Black, 550-45x22.5 Wheels, Mudguards"></a>
+                </li>
+                <li>
+                    <a class="lc_lightbox_gallery_link" href="images/080118-1235-4824.jpg" title="QM/1200 Silage - Front View"><img src="images/080118-1235-4824.jpg" alt="QM/1200 Silage - Front View"></a>
+                </li>
+                <li>
+                    <a class="lc_lightbox_gallery_link" href="images/070420-1755-7885.jpg" title="QM1200 - Silage Sides, Black, 550-45x22.5 Wheels, Mudguards"><img src="images/070420-1755-7885.jpg" alt="QM1200 - Silage Sides, Black, 550-45x22.5 Wheels, Mudguards"></a>
+                </li>
+                <li>
+                    <a class="lc_lightbox_gallery_link" href="images/070420-1755-5154.jpg" title="QM1200 - Silage Sides, Black, 550-45x22.5 Wheels, Mudguards"><img src="images/070420-1755-5154.jpg" alt="QM1200 - Silage Sides, Black, 550-45x22.5 Wheels, Mudguards"></a>
+                </li>
+                <li>
+                    <a class="lc_lightbox_gallery_link" href="images/080118-1235-4824.jpg" title="QM/1200 Silage - Front View"><img src="images/080118-1235-4824.jpg" alt="QM/1200 Silage - Front View"></a>
+                </li>
+                <li>
+                    <a class="lc_lightbox_gallery_link" href="images/080118-1235-3843.jpg" title="QM/1200 Silage - Side View"><img src="images/080118-1235-3843.jpg" alt="QM/1200 Silage - Side View"></a>
+                </li>
+                <li>
+                    <a class="lc_lightbox_gallery_link" href="images/070420-1755-7885.jpg" title="QM1200 - Silage Sides, Black, 550-45x22.5 Wheels, Mudguards"><img src="images/070420-1755-7885.jpg" alt="QM1200 - Silage Sides, Black, 550-45x22.5 Wheels, Mudguards"></a>
+                </li>
+                <li>
+                    <a class="lc_lightbox_gallery_link" href="images/070420-1755-5154.jpg" title="QM1200 - Silage Sides, Black, 550-45x22.5 Wheels, Mudguards"><img src="https://www.marshall-trailers.co.uk/uploads/products/images/070420-1755-5154.jpg" alt="QM1200 - Silage Sides, Black, 550-45x22.5 Wheels, Mudguards"></a>
+                </li>
+            </ul>
         </div>
     </div>
-
-    
-  <div id="floating-basket" class="floating-basket">
-    <div class="basket-inner">
-      <div class="desktop-button">
-            Your Marshall
-        </div>
-      <div class="basket-wrapper">
-        <div class="basket-header">
-          <h4 class="title">Your basket</h4>
-          <button type="button" class="close-basket-button">
-            <i class="fa-solid fa-xmark text-lg"></i>
-          </button>
-        </div>
-
-        <div class="basket-content">
-          <div class="basket-details">
-            <span id="num_items" class="items">0 items</span>
-            <span id="total_price" class="total-price">£0.00</span>
-          </div>
-          <button type="button" class="bttn btn_Checkout">
-            <span>Checkout</span>
-          </button>
-        </div>
-
-        <div class="basket-progress">
-          <div class="flex items-center gap-2">
-            <i class="fa-solid fa-spinner fa-spin-pulse"></i>
-            <span>Updating basket...</span>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </div>
-
 
 
       

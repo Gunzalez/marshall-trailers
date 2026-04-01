@@ -2109,3 +2109,14 @@
     }
   }
 }
+
+.article-list {
+  list-style-type: disc;
+  padding-left: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+.article-date {
+  color: var(--brand-gray-dark);
+  margin: 0;
+}
