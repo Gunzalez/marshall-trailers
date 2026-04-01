@@ -121,6 +121,29 @@ export default {
                     </p>
                 </div>
             </div>
+            <div v-if="relatedItems && relatedItems.length > 0" class="related-items">
+                <h4 class="header">Related items:</h4>
+                <ul class="related-items-list">
+                    <li v-for="(item, index) in relatedItems" :key="index">
+                        <a :href="item.url" :title="item.part_no + ' - ' + item.description" class="lc_lightbox_link_text">{{ item.part_no }}</a>
+                        <span>{{ item.description }}</span>
+                        <div class="actions">
+                            <button type="button" class="bttn secondary-buy" @click.prevent="onBuyNowRelatedClick(item)">
+                                <span class="icon">
+                                    <i class="fa-regular fa-credit-card"></i>
+                                </span>
+                                <span>Buy Now</span>
+                            </button>
+                            <button type="button" @click.prevent="onAddToBasketRelatedClick(item)" class="bttn secondary-buy">
+                                <span class="icon">
+                                    <i class="fa-solid fa-cart-shopping"></i>
+                                </span>
+                                <span>Add To Basket</span>
+                            </button>
+                        </div>
+                    </li>
+                </ul>
+            </div>
         </div>
 
         <ul class="pricing">
@@ -155,29 +178,7 @@ export default {
                 </button>
             </li>
 
-            <li v-if="relatedItems && relatedItems.length > 0" class="related-items">
-                <h4 class="header">Related items:</h4>
-                <ul class="related-items-list">
-                    <li v-for="(item, index) in relatedItems" :key="index">
-                        <a :href="item.url" :title="item.part_no + ' - ' + item.description" class="lc_lightbox_link_text">{{ item.part_no }}</a>
-                        <span>{{ item.description }}</span>
-                        <div class="actions">
-                            <button type="button" class="bttn secondary-buy" @click.prevent="onBuyNowRelatedClick(item)">
-                                <span class="icon">
-                                    <i class="fa-regular fa-credit-card"></i>
-                                </span>
-                                <span>Buy Now</span>
-                            </button>
-                            <button type="button" @click.prevent="onAddToBasketRelatedClick(item)" class="bttn secondary-buy">
-                                <span class="icon">
-                                    <i class="fa-solid fa-cart-shopping"></i>
-                                </span>
-                                <span>Add To Basket</span>
-                            </button>
-                        </div>
-                    </li>
-                </ul>
-            </li>
+            
         </ul>
     </div>
   `,
