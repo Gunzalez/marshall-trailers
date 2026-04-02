@@ -23,14 +23,14 @@
         <p class="article-date">Published on 15th June 2024</p>
     </div>
 
-    <div class="section body-copy">
+    <div class="section">
         <div class="article-content">
             <div class="article-image">
                 <a href="images/news-1.jpg" title="Bale Season" class="lc_lightbox_link image-link">
                     <img src="images/news-1.jpg" alt="Bale Season">
                 </a>
             </div>
-            <div class="article-text">
+            <div class="article-text body-copy">
                 <p>With bale season just around the corner, you need a trailer that's up for the job. When it comes to shifting silage, hay or straw, our range of bale trailers are the market leaders across the UK.</p>
                 <p>With over 450 machines in all shapes and configurations leaving our production line every year, means our customers have an almost infinite range of options to choose from, that include features such as:</p>
                 <ul>
