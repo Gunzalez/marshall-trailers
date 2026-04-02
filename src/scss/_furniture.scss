@@ -23,7 +23,7 @@ body {
   font-optical-sizing: auto;
   margin: 0;
   padding: 0;
-  font-family: "Inter", sans-serif;
+  font-family: var(--brand-font);
   font-style: normal;
   display: flex;
   flex-direction: column;
