@@ -16,7 +16,7 @@
   </nav>
 
   <div class="title-wrapper">
-    <h1 class="page-title">News</h1>
+    <h1 class="page-title">Marshall News</h1>
   </div>
 
   <div class="page-intro body-copy">
@@ -38,7 +38,7 @@
             <p class="news-date">{{ item.date }}</p>
             <p>{{ item.content }}...</p>
             <a href="article.html?id={{ item.id }}" class="bttn btn_Chevron">
-              <span>Read more</span>
+              <span>Read More</span>
             </a>
           </div>
         </li>
