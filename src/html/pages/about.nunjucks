@@ -15,7 +15,7 @@
           <div class="copy-wrapper">
             <div class="copy-content">
               <div class="content-box">
-                <a href="{{ item.url }}" class="bttn transparent-bttn">{{ item.label }}</a>
+                <a href="{{ item.url }}" class="bttn btn_Transparent">{{ item.label }}</a>
                 <h2 class="title">{{ item.title }}</h2>
               </div>
             </div>

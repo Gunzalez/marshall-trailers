@@ -108,6 +108,14 @@
   margin-right: auto;
   padding: 0 16px;
   width: 100%;
+
+  &.homepage-special {
+    margin-top: -1.7rem;
+
+    @media screen and (max-width: 768px) {
+      display: none;
+    }
+  }
 }
 
 .page-intro {
@@ -520,7 +528,7 @@
   font-weight: 100;
   padding: 10px 16px;
   font-size: 1rem;
-  border-radius: 5px;
+  border-radius: 3px;
   cursor: pointer;
   line-height: 1;
   white-space: nowrap;
@@ -542,8 +550,26 @@
     border: 1px solid #d68188;
   }
 
-  &.transparent-bttn {
-    background-color: transparent;
+  &.btn_Narrow {
+    padding-left: 6px;
+    padding-right: 6px;
+  }
+
+  &.btn_Carousel {
+    background-color: white;
+    border-color: var(--brand-gray);
+
+    @media (hover: hover) {
+      &:hover {
+        color: var(--brand-red);
+        border-color: var(--brand-red);
+        background-color: white;
+      }
+    }
+  }
+
+  &.btn_Transparent {
+    background-color: #00000060;
     color: white;
     text-shadow: 0 0 3px #000;
     border: 1px solid rgb(201, 201, 201);

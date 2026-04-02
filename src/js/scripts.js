@@ -164,7 +164,8 @@
     /** initiate the carousel */
     initSlick: function () {
       $(".carousel-main .slide").removeClass("preload");
-      $(".carousel-main").slick({
+      var $carousel = $(".carousel-main");
+      $carousel.slick({
         dots: true,
         infinite: true,
         autoplay: true,
@@ -172,6 +173,14 @@
         fade: true,
         autoplaySpeed: 7000,
         cssEase: "linear",
+      });
+
+      $(".carousel-main .carousel-control-next").on("click", function () {
+        $carousel.slick("slickNext");
+      });
+
+      $(".carousel-main .carousel-control-prev").on("click", function () {
+        $carousel.slick("slickPrev");
       });
     },
 
@@ -284,7 +293,8 @@
    */
   marshallTrailers.carouselMini = {
     init: function () {
-      $(".carousel-mini").slick({
+      var $miniCarousel = $(".mini-carousel");
+      $miniCarousel.slick({
         dots: true,
         slidesToShow: 3,
         slidesToScroll: 3,
@@ -312,6 +322,14 @@
       });
 
       $("#carousel-mini").removeClass("preload");
+
+      $("#carousel-mini .carousel-control-next").on("click", function () {
+        $miniCarousel.slick("slickNext");
+      });
+
+      $("#carousel-mini .carousel-control-prev").on("click", function () {
+        $miniCarousel.slick("slickPrev");
+      });
     },
   };
 

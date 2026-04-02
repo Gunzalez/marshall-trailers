@@ -15,8 +15,18 @@
                     <div class="copy-wrapper">
                         <div class="copy-content">
                             <div class="content-box">
-                                <a href="{{ item.url }}" class="bttn transparent-bttn">{{ item.label }}</a>
                                 <h2 class="title">{{ item.title }}</h2>
+                                <div class="carousel-CTAs">
+                                    <div class="carousel-buttons">
+                                        <span class="carousel-control-prev bttn btn_Transparent btn_Narrow" aria-label="Previous" aria-role="button">
+                                            <i class="fa-solid fa-chevron-left"></i>
+                                        </span>
+                                        <span class="carousel-control-next bttn btn_Transparent btn_Narrow" aria-label="Next" aria-role="button">
+                                            <i class="fa-solid fa-chevron-right"></i>
+                                        </span>
+                                    </div>
+                                    <a href="{{ item.url }}" class="bttn btn_Transparent">{{ item.label }}</a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -25,19 +35,17 @@
         </div>
     </div>
 
-    <div>
-        <h2 class="section-title">Built for today. Driven by tomorrow.</h2>
-    </div>
+    <h2 class="section-title homepage-special">Built for today. Driven by tomorrow.</h2>
 
-    <div class="mt-4 w-full pb-6 md:mt-8 md:pb-8 max-w-[var(--max-width)] mx-auto">
+    <div class="mt-4 w-full pb-6 md:mt-6 md:pb-8 max-w-[var(--max-width)] mx-auto">
         <div class="border-t border-[var(--brand-gray)] mx-4"></div>
     </div>
 
-    <div id="carousel-mini" class="section flex flex-col gap-2 preload">
+    <div id="carousel-mini" class="section flex flex-col gap-2 preload carousel-mini">
         <h2>
             <a href="range.html">Product Ranges</a>
         </h2>
-        <div class="carousel-mini">
+        <div class="mini-carousel">
             {% for item in machinesData %}
                 <div class="slide">
                     <a class="pod link" href="products.html?model={{ item.id }}">
@@ -48,6 +56,14 @@
                     </a>
                 </div>
             {% endfor %}
+        </div>
+        <div class="carousel-buttons">
+            <span class="carousel-control-prev bttn btn_Carousel btn_Narrow" aria-label="Previous" aria-role="button">
+                <i class="fa-solid fa-chevron-left"></i>
+            </span>
+            <span class="carousel-control-next bttn btn_Carousel btn_Narrow" aria-label="Next" aria-role="button">
+                <i class="fa-solid fa-chevron-right"></i>
+            </span>
         </div>
     </div>
 
