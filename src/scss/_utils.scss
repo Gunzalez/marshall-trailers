@@ -1510,6 +1510,20 @@
   }
 }
 
+.auxiliary-navigation {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  border-bottom: 1px solid var(--brand-gray-bg);
+  padding-bottom: 0.5rem;
+
+  a {
+    &:has(i) {
+      color: var(--brand-red);
+    }
+  }
+}
+
 /* ================================================================= */
 /* ================================================================= */
 .spacer {

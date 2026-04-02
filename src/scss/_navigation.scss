@@ -10,7 +10,6 @@
   background-color: white;
   border-bottom: 2px solid white;
   min-height: 154px;
-  font-family: var(--brand-font);
 
   transition:
     height 0.3s,
@@ -225,7 +224,6 @@
 }
 
 #floating-nav {
-  font-family: var(--brand-font);
   position: fixed;
   top: 400px;
   right: -60px;
@@ -249,7 +247,6 @@
 /* ================================================================= */
 .mm-panels {
   --colour-links: var(--system-black);
-  font-family: var(--brand-font);
 
   .mm-panel {
     background-color: white;
