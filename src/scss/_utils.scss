@@ -34,6 +34,25 @@
       }
     }
   }
+
+  ul {
+    margin-bottom: 1.5rem;
+    max-width: 65ch;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    > li {
+      position: relative;
+      padding-left: 1.5rem;
+
+      &::before {
+        content: "•";
+        position: absolute;
+        left: 0;
+      }
+    }
+  }
 }
 
 .desktop-only {

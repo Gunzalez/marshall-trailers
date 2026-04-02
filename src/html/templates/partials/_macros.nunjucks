@@ -275,49 +275,47 @@
 {% endmacro %}
 
 {% macro gallery() %}
-  <div class="body-copy">
-    <ul class="gallery-list">
-      <li>
-        <a class="lc_lightbox_gallery_link" href="images/070420-1803-2655.jpg" title="Product Title - Front Views"><img src="images/070420-1803-2655.jpg" alt="QM1200"></a>
-      </li>
-      <li>
-        <a class="lc_lightbox_gallery_link" href="images/080118-1236-8198.jpg" title="QM/1200 - Front View"><img src="images/080118-1236-8198.jpg" alt="QM/1200 - Front View"></a>
-      </li>
-      <li>
-        <a class="lc_lightbox_gallery_link" href="images/080118-1235-4824.jpg" title="QM/1200 Silage - Front View"><img src="images/080118-1235-4824.jpg" alt="QM/1200 Silage - Front View"></a>
-      </li>
-      <li>
-        <a class="lc_lightbox_gallery_link" href="images/080118-1235-3843.jpg" title="QM/1200 Silage - Side View"><img src="images/080118-1235-3843.jpg" alt="QM/1200 Silage - Side View"></a>
-      </li>
-      <li>
-        <a class="lc_lightbox_gallery_link" href="images/070420-1755-7885.jpg" title="QM1200 - Silage Sides, Black, 550-45x22.5 Wheels, Mudguards"><img src="images/070420-1755-7885.jpg" alt="QM1200 - Silage Sides, Black, 550-45x22.5 Wheels, Mudguards"></a>
-      </li>
-      <li>
-        <a class="lc_lightbox_gallery_link" href="images/070420-1755-5154.jpg" title="QM1200 - Silage Sides, Black, 550-45x22.5 Wheels, Mudguards"><img src="images/070420-1755-5154.jpg" alt="QM1200 - Silage Sides, Black, 550-45x22.5 Wheels, Mudguards"></a>
-      </li>
-      <li>
-        <a class="lc_lightbox_gallery_link" href="images/080118-1235-4824.jpg" title="QM/1200 Silage - Front View"><img src="images/080118-1235-4824.jpg" alt="QM/1200 Silage - Front View"></a>
-      </li>
-      <li>
-        <a class="lc_lightbox_gallery_link" href="images/070420-1755-7885.jpg" title="QM1200 - Silage Sides, Black, 550-45x22.5 Wheels, Mudguards"><img src="images/070420-1755-7885.jpg" alt="QM1200 - Silage Sides, Black, 550-45x22.5 Wheels, Mudguards"></a>
-      </li>
-      <li>
-        <a class="lc_lightbox_gallery_link" href="images/070420-1755-5154.jpg" title="QM1200 - Silage Sides, Black, 550-45x22.5 Wheels, Mudguards"><img src="images/070420-1755-5154.jpg" alt="QM1200 - Silage Sides, Black, 550-45x22.5 Wheels, Mudguards"></a>
-      </li>
-      <li>
-        <a class="lc_lightbox_gallery_link" href="images/080118-1235-4824.jpg" title="QM/1200 Silage - Front View"><img src="images/080118-1235-4824.jpg" alt="QM/1200 Silage - Front View"></a>
-      </li>
-      <li>
-        <a class="lc_lightbox_gallery_link" href="images/080118-1235-3843.jpg" title="QM/1200 Silage - Side View"><img src="images/080118-1235-3843.jpg" alt="QM/1200 Silage - Side View"></a>
-      </li>
-      <li>
-        <a class="lc_lightbox_gallery_link" href="images/070420-1755-7885.jpg" title="QM1200 - Silage Sides, Black, 550-45x22.5 Wheels, Mudguards"><img src="images/070420-1755-7885.jpg" alt="QM1200 - Silage Sides, Black, 550-45x22.5 Wheels, Mudguards"></a>
-      </li>
-      <li>
-        <a class="lc_lightbox_gallery_link" href="images/070420-1755-5154.jpg" title="QM1200 - Silage Sides, Black, 550-45x22.5 Wheels, Mudguards"><img src="https://www.marshall-trailers.co.uk/uploads/products/images/070420-1755-5154.jpg" alt="QM1200 - Silage Sides, Black, 550-45x22.5 Wheels, Mudguards"></a>
-      </li>
-    </ul>
-  </div>
+  <ul class="gallery-list">
+    <li>
+      <a class="lc_lightbox_gallery_link" href="images/070420-1803-2655.jpg" title="Product Title - Front Views"><img src="images/070420-1803-2655.jpg" alt="QM1200"></a>
+    </li>
+    <li>
+      <a class="lc_lightbox_gallery_link" href="images/080118-1236-8198.jpg" title="QM/1200 - Front View"><img src="images/080118-1236-8198.jpg" alt="QM/1200 - Front View"></a>
+    </li>
+    <li>
+      <a class="lc_lightbox_gallery_link" href="images/080118-1235-4824.jpg" title="QM/1200 Silage - Front View"><img src="images/080118-1235-4824.jpg" alt="QM/1200 Silage - Front View"></a>
+    </li>
+    <li>
+      <a class="lc_lightbox_gallery_link" href="images/080118-1235-3843.jpg" title="QM/1200 Silage - Side View"><img src="images/080118-1235-3843.jpg" alt="QM/1200 Silage - Side View"></a>
+    </li>
+    <li>
+      <a class="lc_lightbox_gallery_link" href="images/070420-1755-7885.jpg" title="QM1200 - Silage Sides, Black, 550-45x22.5 Wheels, Mudguards"><img src="images/070420-1755-7885.jpg" alt="QM1200 - Silage Sides, Black, 550-45x22.5 Wheels, Mudguards"></a>
+    </li>
+    <li>
+      <a class="lc_lightbox_gallery_link" href="images/070420-1755-5154.jpg" title="QM1200 - Silage Sides, Black, 550-45x22.5 Wheels, Mudguards"><img src="images/070420-1755-5154.jpg" alt="QM1200 - Silage Sides, Black, 550-45x22.5 Wheels, Mudguards"></a>
+    </li>
+    <li>
+      <a class="lc_lightbox_gallery_link" href="images/080118-1235-4824.jpg" title="QM/1200 Silage - Front View"><img src="images/080118-1235-4824.jpg" alt="QM/1200 Silage - Front View"></a>
+    </li>
+    <li>
+      <a class="lc_lightbox_gallery_link" href="images/070420-1755-7885.jpg" title="QM1200 - Silage Sides, Black, 550-45x22.5 Wheels, Mudguards"><img src="images/070420-1755-7885.jpg" alt="QM1200 - Silage Sides, Black, 550-45x22.5 Wheels, Mudguards"></a>
+    </li>
+    <li>
+      <a class="lc_lightbox_gallery_link" href="images/070420-1755-5154.jpg" title="QM1200 - Silage Sides, Black, 550-45x22.5 Wheels, Mudguards"><img src="images/070420-1755-5154.jpg" alt="QM1200 - Silage Sides, Black, 550-45x22.5 Wheels, Mudguards"></a>
+    </li>
+    <li>
+      <a class="lc_lightbox_gallery_link" href="images/080118-1235-4824.jpg" title="QM/1200 Silage - Front View"><img src="images/080118-1235-4824.jpg" alt="QM/1200 Silage - Front View"></a>
+    </li>
+    <li>
+      <a class="lc_lightbox_gallery_link" href="images/080118-1235-3843.jpg" title="QM/1200 Silage - Side View"><img src="images/080118-1235-3843.jpg" alt="QM/1200 Silage - Side View"></a>
+    </li>
+    <li>
+      <a class="lc_lightbox_gallery_link" href="images/070420-1755-7885.jpg" title="QM1200 - Silage Sides, Black, 550-45x22.5 Wheels, Mudguards"><img src="images/070420-1755-7885.jpg" alt="QM1200 - Silage Sides, Black, 550-45x22.5 Wheels, Mudguards"></a>
+    </li>
+    <li>
+      <a class="lc_lightbox_gallery_link" href="images/070420-1755-5154.jpg" title="QM1200 - Silage Sides, Black, 550-45x22.5 Wheels, Mudguards"><img src="https://www.marshall-trailers.co.uk/uploads/products/images/070420-1755-5154.jpg" alt="QM1200 - Silage Sides, Black, 550-45x22.5 Wheels, Mudguards"></a>
+    </li>
+  </ul>
 {% endmacro %}
 
 {% macro quickSpecsProduct() %}

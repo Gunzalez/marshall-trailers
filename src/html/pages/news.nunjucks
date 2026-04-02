@@ -23,7 +23,7 @@
     <p>Find the latest news and updates about Marshall Trailers.</p>
   </div>
 
-  <div class="section body-copy">
+  <div class="section">
     <ul class="news-list">
       {% for item in newsData %}
         <li class="news-item">
