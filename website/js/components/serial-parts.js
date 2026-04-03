@@ -36,7 +36,7 @@ export default {
     };
   },
   template: `
-    <div v-if="parts" class="section body-copy">
+    <div v-if="parts" class="section">
         <h2 id="secondary-part-category" class="underlined stepped-title" ref="secondaryPartCategory">
             <span class="step-number">Step 02:</span>
             <span>Select secondary part category</span>
