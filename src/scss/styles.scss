@@ -710,7 +710,14 @@
 
     ul {
       height: 100%;
-      overflow: scroll;
+      overflow-y: scroll;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
+      scrollbar-width: none;
+      -ms-overflow-style: none;
     }
 
     .title {
