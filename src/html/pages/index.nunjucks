@@ -9,7 +9,7 @@
     </div>
 
     <div class="hero">
-        <div id="carousel-main" class="carousel-main">
+        <div id="carousel-main" class="carousel-main homepage-carousel-main">
             {% for item in carouselData %}
                 <div class="slide preload" style="background-image: url('{{ item.image }}')">
                     <div class="copy-wrapper">

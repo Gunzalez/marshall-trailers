@@ -156,7 +156,7 @@
 .carousel-main {
   .slide {
     height: 380px;
-    background-position: center;
+    background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
     overflow: hidden;
@@ -178,6 +178,13 @@
         rgba(0, 0, 0, 0.6),
         rgba(0, 0, 0, 0)
       );
+    }
+  }
+
+  &.homepage-carousel-main {
+    .slide {
+      background-position: bottom center;
+      background-size: unset;
     }
   }
 
@@ -240,6 +247,7 @@
       margin-right: auto;
       justify-content: end;
       padding: 0 16px;
+      margin-top: 2rem;
     }
 
     .copy-wrapper {
@@ -251,6 +259,21 @@
       .content-box {
         .title {
           padding-right: 20%;
+        }
+      }
+    }
+  }
+
+  &.homepage-carousel-main {
+    @media screen and (min-width: 768px) {
+      .slick-dots {
+        margin-top: 1rem;
+      }
+
+      .copy-wrapper {
+        .copy-content {
+          padding-bottom: 41px;
+          background: none;
         }
       }
     }
