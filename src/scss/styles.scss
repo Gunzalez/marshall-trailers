@@ -355,9 +355,7 @@
 
 .tabs-section {
   .tabs-list {
-    display: flex;
-    justify-content: end;
-    gap: 1rem;
+    display: none;
 
     button {
       padding: 10px;
@@ -395,7 +393,7 @@
       margin: 0;
 
       &:after {
-        content: "\f0da";
+        content: "\f078";
         font-family: FontAwesome;
         font-weight: normal;
         font-style: normal;
@@ -405,7 +403,7 @@
         position: absolute;
         right: 16px;
         top: 50%;
-        transform: translateY(-50%) rotate(0deg);
+        transform: translateY(-50%) rotate(-90deg);
         transition: all 0.3s ease-in-out;
       }
     }
@@ -425,7 +423,7 @@
         border-bottom: 3px solid var(--brand-yellow);
 
         &:after {
-          transform: translateY(-50%) rotate(90deg);
+          transform: translateY(-50%) rotate(0deg);
         }
       }
 
@@ -435,13 +433,13 @@
     }
   }
 
-  @media screen and (min-width: 769px) {
-    .tab-item {
-      .tab-header {
-        display: none;
-      }
-    }
-  }
+  // @media screen and (min-width: $breakpoint2) {
+  //   .tab-item {
+  //     .tab-header {
+  //       display: none;
+  //     }
+  //   }
+  // }
 }
 
 .features-tabs-section {
@@ -452,7 +450,22 @@
 
   .tabs-content {
     padding: 2rem 0 0 0;
-    border-top: 1px solid var(--brand-gray-bg);
+  }
+
+  @media screen and (min-width: $breakpoint3) {
+    .tabs-content {
+      border-top: 1px solid var(--brand-gray);
+    }
+
+    .tabs-list {
+      display: flex;
+      justify-content: end;
+      gap: 1rem;
+    }
+
+    .tab-header {
+      display: none;
+    }
   }
 }
 
@@ -462,7 +475,7 @@
     background-color: var(--brand-red);
     margin-bottom: 2rem;
 
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: $breakpoint2) {
       margin-bottom: 60px;
     }
   }
@@ -518,7 +531,17 @@
     flex-direction: column;
   }
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: $breakpoint2) {
+    .tabs-list {
+      display: flex;
+      justify-content: end;
+      gap: 1rem;
+    }
+
+    .tab-header {
+      display: none;
+    }
+
     .inner-content {
       flex-direction: row;
       gap: 4rem;
@@ -1187,25 +1210,9 @@
     .bordered-bottom {
       border-color: #e0e0e0;
     }
-  }
 
-  // Hides the Specifications app on narrows screens.
-  @media screen and (max-width: 1200px) {
-    display: none;
-  }
-}
-
-// Hides the 3rd button/tab for the Specifications app on narrow screens.
-.features-tabs-section {
-  .tabs-list {
-    li {
-      &:nth-child(3) {
-        display: none;
-
-        @media screen and (min-width: 1199px) {
-          display: block;
-        }
-      }
+    @media screen and (max-width: $breakpoint3) {
+      display: none;
     }
   }
 }

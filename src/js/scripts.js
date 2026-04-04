@@ -231,11 +231,11 @@
   marshallTrailers.responsiveTabs = {
     init: function () {
       var $tabsContainer = $(".tabs-section");
-      var startIndex = $tabsContainer.data("active-tab-index");
+      var activeTabIndex = $tabsContainer.data("active-tab-index");
 
       $tabsContainer.find(".tab-item").each(function (index, tabItem) {
         var $tabItem = $(tabItem);
-        var $$tabHeader = $tabItem.find(".tab-header");
+        var $tabHeader = $tabItem.find(".tab-header");
 
         var setActiveTab = function () {
           if ($tabItem.hasClass("active") && window.innerWidth < 768) {
@@ -248,9 +248,9 @@
           $tabsContainer.find(".tabs-list button").eq(index).addClass("active");
         };
 
-        $$tabHeader.on("click", setActiveTab);
+        $tabHeader.on("click", setActiveTab);
 
-        var tabTitle = $$tabHeader.text().trim();
+        var tabTitle = $tabHeader.text().trim();
         var $tabButton = $(
           '<button type="button" role="tab">' + tabTitle + "</button>",
         );
@@ -262,9 +262,9 @@
 
       $tabsContainer
         .find(".tabs-list button")
-        .eq(startIndex)
+        .eq(activeTabIndex)
         .addClass("active");
-      $tabsContainer.find(".tab-item").eq(startIndex).addClass("active");
+      $tabsContainer.find(".tab-item").eq(activeTabIndex).addClass("active");
       $tabsContainer.find(".tab-item").last().addClass("last-tab");
     },
   };

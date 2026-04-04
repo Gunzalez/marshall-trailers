@@ -69,7 +69,7 @@
 
     <h2 class="section-title">Our Values</h2>
     <div id="tabs-section" data-active-tab-index="0" class="homepage-tabs-section tabs-section">
-        <ul class="tabs-list desktop-only" role="presentation"></ul>
+        <ul class="tabs-list" role="presentation"></ul>
         <div class="tabs-content">
             {% for item in tabsData %}
                 <div class="tab-item">
