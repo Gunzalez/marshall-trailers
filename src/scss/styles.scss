@@ -292,15 +292,18 @@
       position: absolute;
       bottom: -0.4rem;
       left: 1rem;
-
       display: flex;
-      gap: 6px;
     }
 
     .slick-dots {
       justify-content: end;
     }
   }
+}
+
+.carousel-buttons {
+  display: flex;
+  gap: 6px;
 }
 
 .carousel-controls {
@@ -1137,14 +1140,14 @@
       }
     }
 
-    .carousel-controls {
+    .carousel-buttons {
       position: absolute;
       bottom: 1rem;
       left: 1rem;
     }
   }
 
-  .carousel-controls {
+  .carousel-buttons {
     &.app-footer {
       margin: 1rem;
       position: static;
