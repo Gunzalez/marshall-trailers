@@ -720,6 +720,13 @@
       }
     }
   }
+
+  &[disabled] {
+    color: var(--brand-gray);
+    opacity: 0.375;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
 }
 
 .image-link {

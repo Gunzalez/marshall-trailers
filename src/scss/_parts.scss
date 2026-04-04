@@ -10,7 +10,7 @@
     display: none;
   }
 
-  .carousel-controls {
+  .carousel-buttons {
     margin-top: 0;
     display: none;
   }
@@ -163,8 +163,9 @@
       max-width: 250px;
     }
 
-    .carousel-controls {
+    .carousel-buttons {
       display: flex;
+      justify-content: flex-end;
     }
 
     @media (max-width: 1200px) {
