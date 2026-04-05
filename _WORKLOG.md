@@ -84,6 +84,10 @@
 - 1st April: 4hrs
 - 2nd March: 5hrs
 
+- 3rd March: 5hrs
+- 4th March: 3hrs
+- 5th March: 3hrs
+
 #### NEXT
 
 - Trello bugs
