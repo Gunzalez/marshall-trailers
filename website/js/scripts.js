@@ -4,7 +4,7 @@ var data = {
       id: "4",
       range_id: "silage-grain-trailers",
       range_title: "Silage / Grain Trailers",
-      title: "QM-6",
+      title: "QM-6666",
       image: "images/range-1.png",
       "Basic Price": "£9,911",
       "Silage Price - Hyd Door Attach Style": "£11,493",
