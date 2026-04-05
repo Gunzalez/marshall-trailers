@@ -432,6 +432,7 @@
     margin: 0 auto;
     justify-content: center;
     margin-bottom: 4px;
+    max-width: var(--max-width);
 
     button {
       font-size: 1.3rem;
