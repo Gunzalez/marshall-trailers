@@ -431,8 +431,8 @@
   .tabs-list {
     margin: 0 auto;
     justify-content: center;
-    margin-bottom: 4px;
     max-width: var(--max-width);
+    padding: 0 1rem;
 
     button {
       font-size: 1.3rem;

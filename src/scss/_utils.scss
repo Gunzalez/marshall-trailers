@@ -1525,6 +1525,16 @@
       .accordion-content {
         max-height: 1000px;
       }
+
+      .accordion-header {
+        cursor: default;
+
+        @media (hover: hover) {
+          &:hover {
+            background-color: white;
+          }
+        }
+      }
     }
   }
 
