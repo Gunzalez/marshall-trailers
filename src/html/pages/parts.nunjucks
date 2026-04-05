@@ -37,7 +37,7 @@
                     <i class="fa-solid fa-chevron-left"></i>
                 </button>
                 <button type="button" class="reset-filters  carousel-control-prev bttn btn_Carousel btn_Narrow" disabled>
-                    <i class="fa-solid fa-pause"></i>
+                    <i class="fa-solid fa-backward-step"></i>
                 </button>
             </div>
 
