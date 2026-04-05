@@ -584,6 +584,46 @@
     }
   }
 
+  &.btn_ToggleOptions {
+    background-color: white;
+    border-color: var(--brand-yellow);
+    color: var(--brand-text);
+    width: 100%;
+    font-weight: 600;
+    position: relative;
+    justify-content: center;
+
+    span {
+      color: var(--brand-text) !important;
+    }
+
+    &::after {
+      content: "\f078";
+      font-family: FontAwesome;
+      font-weight: normal;
+      font-style: normal;
+      position: absolute;
+      right: 16px;
+      top: 50%;
+      transform: translateY(-50%) rotate(180deg);
+      color: var(--brand-yellow);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    @media (hover: hover) {
+      &:hover {
+        background-color: white;
+        border-color: var(--brand-red);
+      }
+    }
+  }
+
+  .compact-layout &.btn_ToggleOptions {
+    &::after {
+      transform: translateY(-50%);
+    }
+  }
+
   &[disabled] {
     opacity: 0.5;
     cursor: not-allowed;
