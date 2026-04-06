@@ -158,7 +158,6 @@
     height: 380px;
     background-position: center center;
     background-repeat: no-repeat;
-    background-size: cover;
     overflow: hidden;
     position: relative;
 
@@ -181,13 +180,6 @@
     // }
   }
 
-  &.homepage-carousel-main {
-    .slide {
-      background-position: bottom center;
-      background-size: unset;
-    }
-  }
-
   .carousel-CTAs {
     display: flex;
     gap: 1.5rem;
@@ -208,7 +200,7 @@
       width: 100%;
       z-index: 10;
       color: white;
-      background: linear-gradient(to top, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0));
+      // background: linear-gradient(to top, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0));
     }
 
     .content-box {
