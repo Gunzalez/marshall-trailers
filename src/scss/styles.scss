@@ -163,22 +163,22 @@
     position: relative;
 
     @media (min-width: $breakpoint1) {
-      height: 660px;
+      height: 640px;
     }
 
-    &:before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 30%;
-      background: linear-gradient(
-        to bottom,
-        rgba(0, 0, 0, 0.6),
-        rgba(0, 0, 0, 0)
-      );
-    }
+    // &:before {
+    //   content: "";
+    //   position: absolute;
+    //   top: 0;
+    //   left: 0;
+    //   width: 100%;
+    //   height: 30%;
+    //   background: linear-gradient(
+    //     to bottom,
+    //     rgba(0, 0, 0, 0.6),
+    //     rgba(0, 0, 0, 0)
+    //   );
+    // }
   }
 
   &.homepage-carousel-main {
@@ -630,17 +630,12 @@
     background-color: white;
 
     @media (min-width: $breakpoint3) {
-      background-position: calc(50% - 10vw) center;
-
+      background-size: unset;
       clip-path: polygon(
         calc(50% - 4200px) 0%,
         calc(60% + 1300px) 0%,
         40% 100%
       );
-    }
-
-    @media (min-width: 1840px) {
-      background-size: 130% auto;
     }
   }
 
