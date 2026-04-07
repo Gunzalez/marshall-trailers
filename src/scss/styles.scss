@@ -1095,17 +1095,10 @@
     }
 
     .highlight {
-      &:not(.footer-row) {
+      &:not(.footer-row, .optional-header) {
         background-color: var(--brand-yellow);
         border-color: var(--brand-yellow);
       }
-    }
-
-    .divider {
-      min-height: 60px;
-      background-color: rgb(228, 228, 228);
-      color: rgb(0, 0, 0);
-      font-weight: bold;
     }
 
     .bordered-bottom {
@@ -1143,6 +1136,15 @@
     @media screen and (max-width: $breakpoint3) {
       display: none;
     }
+  }
+
+  .optional-header {
+    font-size: 1.2rem;
+    font-weight: 600;
+    height: 5rem;
+    display: flex;
+    align-items: flex-end;
+    background-color: white;
   }
 
   .specifications-footer {
@@ -1189,12 +1191,26 @@
         background-color: #f9f9f9;
       }
     }
+
+    .optional-header {
+      span {
+        display: none;
+      }
+    }
   }
 
   @media screen and (max-width: $breakpoint3) {
     .comparison-title,
     .footer-row {
       display: none;
+    }
+
+    .product-specs {
+      .optional-header {
+        span {
+          display: block;
+        }
+      }
     }
   }
 

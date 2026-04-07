@@ -94,6 +94,9 @@
                                         <li v-for="(key, iIndex) in productKeys" :key="key" class="text-sm font-semibold bordered-bottom">
                                         [[ key ]]
                                     </li>
+                                        <li class="optional bordered-bottom optional-header">
+                                            <span>Optional Equipment</span>
+                                        </li>
                                         <li v-for="(key, iIndex) in optionalKeys" :key="key" class="text-sm font-semibold optional bordered-bottom">
                                         Optional [[ key ]]
                                     </li>
@@ -120,6 +123,8 @@
                                             <li v-for="(key, kIndex) in productKeys" :key="key" class="text-sm bordered-bottom">
                                         [[ product[key] ]]                                    
                                     </li>
+                                            <li class="optional bordered-bottom optional-header">
+                                                <span>Optional Equipment</span></li>
                                             <li v-for="(key, kIndex) in optionalKeys" :key="key" class="text-sm optional bordered-bottom">
                                         [[ product.optional[key]  ]]
                                     </li>
