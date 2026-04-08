@@ -1353,7 +1353,7 @@
   .options-list {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
-    gap: 2rem;
+    gap: 2.5rem 2rem;
   }
 
   .meta {
@@ -1478,6 +1478,12 @@
         span {
           color: var(--brand-text);
         }
+      }
+    }
+
+    &.selected {
+      .title {
+        background-color: var(--brand-yellow);
       }
     }
 
