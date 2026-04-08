@@ -59,11 +59,17 @@ export default {
           </div>
         </div>
         <div class="copy-wrapper">
-          <p class="text">{{ option.description }}</p>
+          <div v-if="isDisabled" class="disabled-messages">
+              <p v-for="msg in messages" :key="msg.id" class="message">{{ msg.text }}</p>
+          </div>
+          <p v-else class="text">{{ option.description }}</p>
         </div>
       </div>
 
-      <span class="bttn" :class="{ 'btn_Add': !option.isSelected, 'btn_Remove': option.isSelected }">
+      <div v-if="isDisabled" class="item-unavailable">
+        <span>Action disabled</span>
+      </div>
+      <span v-else class="bttn" :class="{ 'btn_Add': !option.isSelected, 'btn_Remove': option.isSelected }">
         <template v-if="option.isSelected">
           <span class="white">Remove</span>
           <span class="white"><i class="fa-solid fa-minus"></i></span>
@@ -73,12 +79,6 @@ export default {
           <span class="white"><i class="fa-solid fa-plus"></i></span>
         </template>
       </span>
-
-      <div v-if="isDisabled" class="option-card-overlay">
-        <div class="overlay-content">
-          <p v-for="msg in messages" :key="msg.id" class="message">{{ msg.text }}</p>
-        </div>
-      </div>
 
     </div>
   `,
