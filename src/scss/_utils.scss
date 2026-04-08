@@ -1002,13 +1002,13 @@
   background-color: var(--brand-gray-bg);
   display: inline-block;
   padding: 8px 3.5rem 4px 1.5rem;
-  transform: skewX(-35deg);
-  margin-left: 16px;
+  transform: skewX(-25deg);
+  margin-left: 12px;
   margin-bottom: 1rem;
 
   span {
     display: inline-block;
-    transform: skewX(35deg);
+    transform: skewX(25deg);
     text-align: center;
     line-height: 1;
   }
@@ -1578,16 +1578,16 @@
       position: relative;
       padding-left: 1.5rem;
 
-      &::before {
-        content: "";
-        position: absolute;
-        top: 5px;
-        left: 36px;
-        width: 140px;
-        height: 100px;
-        background-color: var(--brand-gray-bg);
-        transform: skewX(35deg);
-      }
+      // &::before {
+      //   content: "";
+      //   position: absolute;
+      //   top: 5px;
+      //   left: 36px;
+      //   width: 140px;
+      //   height: 100px;
+      //   background-color: var(--brand-gray-bg);
+      //   transform: skewX(35deg);
+      // }
     }
   }
 }

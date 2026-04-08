@@ -647,9 +647,84 @@
             </div>
         </div>
 
-        <div id="tabs-section" data-active-tab-index="2" class="features-tabs-section tabs-section ">
+        <div id="tabs-section" data-active-tab-index="0" class="features-tabs-section tabs-section ">
             <ul class="tabs-list" role="presentation"></ul>
             <div class="tabs-content">
+
+                <div id="specifications-app" class="tab-item app-loading specifications-app compact-layout">
+                    <h3 class="tab-header">Specifications</h3>
+                    <div id="specifications-app-vue">
+                        <div class="tab-content">
+                            <h2 class="comparison-title">Compare specifications</h2>
+                            <div class="flex specs-carousel-wrapper">
+                                <div class="fixed-column w-[290px] flex-shrink-0">
+                                    <ul class="specs-list flex flex-col">
+                                        <li class="image-row">
+                                            <div class="carousel-buttons">
+                                                <span class="carousel-control-prev bttn btn_Carousel btn_Narrow" aria-label="Previous" aria-role="button" @click="prev">
+                                                    <i class="fa-solid fa-chevron-left"></i>
+                                                </span>
+                                                <span class="carousel-control-next bttn btn_Carousel btn_Narrow" aria-label="Next" aria-role="button" @click="next">
+                                                    <i class="fa-solid fa-chevron-right"></i>
+                                                </span>
+                                            </div>
+                                        </li>
+                                        <li v-for="(key, iIndex) in productKeys" :key="key" class="text-sm font-semibold bordered-bottom">
+                                        [[ key ]]
+                                    </li>
+                                        <li class="optional bordered-bottom optional-header">
+                                            <span>Optional Equipment</span>
+                                        </li>
+                                        <li v-for="(key, iIndex) in optionalKeys" :key="key" class="text-sm font-semibold optional bordered-bottom">
+                                        Optional [[ key ]]
+                                    </li>
+                                        <li class="footer-row optional">
+                                            <div class="carousel-buttons app-footer">
+                                                <span class="carousel-control-prev bttn btn_Carousel btn_Narrow" aria-label="Previous" aria-role="button" @click="prev">
+                                                    <i class="fa-solid fa-chevron-left"></i>
+                                                </span>
+                                                <span class="carousel-control-next bttn btn_Carousel btn_Narrow" aria-label="Next" aria-role="button" @click="next">
+                                                    <i class="fa-solid fa-chevron-right"></i>
+                                                </span>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="w-full overflow-hidden">
+                                    <div id="product-specs" class="product-specs">
+                                        <ul v-for="(product, pIndex) in allProducts" :key="pIndex" class="w-full specs-list flex flex-col w-[300px]" :class="{ 'selected': product.id === selectedProductId }">
+                                            <li class="image-row">
+                                                <p class="line-clamp-1 title">[[ product.title ]]</p>
+                                                <a :href="`product.html?id=${product.id}`">
+                                                    <img :src="product.image" :alt="product.title"/></a>
+                                            </li>
+                                            <li v-for="(key, kIndex) in productKeys" :key="key" class="text-sm bordered-bottom">
+                                        [[ product[key] ]]                                    
+                                    </li>
+                                            <li class="optional bordered-bottom optional-header">
+                                                <span>Optional Equipment</span></li>
+                                            <li v-for="(key, kIndex) in optionalKeys" :key="key" class="text-sm optional bordered-bottom">
+                                        [[ product.optional[key]  ]]
+                                    </li>
+                                            <li class="footer-row optional">
+                                                <p class="line-clamp-1 title">
+                                                    <a :href="`product.html?id=${product.id}`" :class="{ 'cursor-default': product.id === selectedProductId }">[[ product.title ]]</a>
+                                                </p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="specifications-footer">
+                                <button type="button" id="toggleOptionsButton" class="bttn btn_ToggleOptions">
+                                    <span class="show-options">See Optional Equipment</span>
+                                    <span class="hide-options">Hide Optional Equipment</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="tab-item">
                     <h3 class="tab-header">Features</h3>
                     <div class="tab-content">
@@ -776,80 +851,6 @@
     </div>
   </div>
 
-                    </div>
-                </div>
-
-                <div id="specifications-app" class="tab-item app-loading specifications-app compact-layout">
-                    <h3 class="tab-header">Specifications</h3>
-                    <div id="specifications-app-vue">
-                        <div class="tab-content">
-                            <h2 class="comparison-title">Compare specifications</h2>
-                            <div class="flex specs-carousel-wrapper">
-                                <div class="fixed-column w-[290px] flex-shrink-0">
-                                    <ul class="specs-list flex flex-col">
-                                        <li class="image-row">
-                                            <div class="carousel-buttons">
-                                                <span class="carousel-control-prev bttn btn_Carousel btn_Narrow" aria-label="Previous" aria-role="button" @click="prev">
-                                                    <i class="fa-solid fa-chevron-left"></i>
-                                                </span>
-                                                <span class="carousel-control-next bttn btn_Carousel btn_Narrow" aria-label="Next" aria-role="button" @click="next">
-                                                    <i class="fa-solid fa-chevron-right"></i>
-                                                </span>
-                                            </div>
-                                        </li>
-                                        <li v-for="(key, iIndex) in productKeys" :key="key" class="text-sm font-semibold bordered-bottom">
-                                        [[ key ]]
-                                    </li>
-                                        <li class="optional bordered-bottom optional-header">
-                                            <span>Optional Equipment</span>
-                                        </li>
-                                        <li v-for="(key, iIndex) in optionalKeys" :key="key" class="text-sm font-semibold optional bordered-bottom">
-                                        Optional [[ key ]]
-                                    </li>
-                                        <li class="footer-row optional">
-                                            <div class="carousel-buttons app-footer">
-                                                <span class="carousel-control-prev bttn btn_Carousel btn_Narrow" aria-label="Previous" aria-role="button" @click="prev">
-                                                    <i class="fa-solid fa-chevron-left"></i>
-                                                </span>
-                                                <span class="carousel-control-next bttn btn_Carousel btn_Narrow" aria-label="Next" aria-role="button" @click="next">
-                                                    <i class="fa-solid fa-chevron-right"></i>
-                                                </span>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="w-full overflow-hidden">
-                                    <div id="product-specs" class="product-specs">
-                                        <ul v-for="(product, pIndex) in allProducts" :key="pIndex" class="w-full specs-list flex flex-col w-[300px]" :class="{ 'selected': product.id === selectedProductId }">
-                                            <li class="image-row">
-                                                <p class="line-clamp-1 title">[[ product.title ]]</p>
-                                                <a :href="`product.html?id=${product.id}`">
-                                                    <img :src="product.image" :alt="product.title"/></a>
-                                            </li>
-                                            <li v-for="(key, kIndex) in productKeys" :key="key" class="text-sm bordered-bottom">
-                                        [[ product[key] ]]                                    
-                                    </li>
-                                            <li class="optional bordered-bottom optional-header">
-                                                <span>Optional Equipment</span></li>
-                                            <li v-for="(key, kIndex) in optionalKeys" :key="key" class="text-sm optional bordered-bottom">
-                                        [[ product.optional[key]  ]]
-                                    </li>
-                                            <li class="footer-row optional">
-                                                <p class="line-clamp-1 title">
-                                                    <a :href="`product.html?id=${product.id}`" :class="{ 'cursor-default': product.id === selectedProductId }">[[ product.title ]]</a>
-                                                </p>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="specifications-footer">
-                                <button type="button" id="toggleOptionsButton" class="bttn btn_ToggleOptions">
-                                    <span class="show-options">See Optional Equipment</span>
-                                    <span class="hide-options">Hide Optional Equipment</span>
-                                </button>
-                            </div>
-                        </div>
                     </div>
                 </div>
 
