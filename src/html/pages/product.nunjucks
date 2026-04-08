@@ -48,30 +48,9 @@
             </div>
         </div>
 
-        <div id="tabs-section" data-active-tab-index="2" class="features-tabs-section tabs-section ">
+        <div id="tabs-section" data-active-tab-index="0" class="features-tabs-section tabs-section ">
             <ul class="tabs-list" role="presentation"></ul>
             <div class="tabs-content">
-                <div class="tab-item">
-                    <h3 class="tab-header">Features</h3>
-                    <div class="tab-content">
-                        <div class="body-copy">
-                            <div class="features-list">
-                                <div class="accordion-mini">
-                                    {% for feature in featuresData %}
-                                        {{ macros.accordionItem(feature.title, feature.text, feature.imageUrl, feature.label, loop.index) }}
-                                    {% endfor %}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="tab-item">
-                    <h3 class="tab-header">Overview</h3>
-                    <div class="tab-content">
-                        {{ macros.overview('product') }}
-                    </div>
-                </div>
 
                 <div id="specifications-app" class="tab-item app-loading specifications-app compact-layout">
                     <h3 class="tab-header">Specifications</h3>
@@ -144,6 +123,28 @@
                                 </button>
                             </div>
                         </div>
+                    </div>
+                </div>
+
+                <div class="tab-item">
+                    <h3 class="tab-header">Features</h3>
+                    <div class="tab-content">
+                        <div class="body-copy">
+                            <div class="features-list">
+                                <div class="accordion-mini">
+                                    {% for feature in featuresData %}
+                                        {{ macros.accordionItem(feature.title, feature.text, feature.imageUrl, feature.label, loop.index) }}
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-item">
+                    <h3 class="tab-header">Overview</h3>
+                    <div class="tab-content">
+                        {{ macros.overview('product') }}
                     </div>
                 </div>
 

@@ -664,19 +664,19 @@
     },
     {
       "title": "Our Drop-Side trailers",
-      "image": "images/sample-hero-2.jpg",
+      "image": "images/homepage-hero-1.jpg",
       "url": "products.html?model=drop-side-trailers",
       "label": "Wide Range"
     },
     {
       "title": "The Marshall Livestock Container",
-      "image": "images/sample-hero-3.jpg",
+      "image": "images/homepage-hero-2.jpg",
       "url": "contact.html",
       "label": "Talk To Us"
     },
     {
       "title": "Marshall Drop-side Trailer",
-      "image": "images/sample-hero-4.jpg",
+      "image": "images/homepage-hero-3.jpg",
       "url": "about.html",
       "label": "About Marshalls"
     }
