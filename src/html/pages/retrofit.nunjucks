@@ -23,11 +23,11 @@
         <p>Enhance your existing trailer with Marshall Trailers' Retro Fit service.</p>
     </div>
 
-    <div class="section body-copy">
+    <div class="section">
         <ul class="retrofit-steps">
             <li>
                 <h4 class="title">Step 01:</h4>
-                <ul class="dotted-list">
+                <ul class="dotted-list body-copy">
                     <li>
                         <span>Check your Marshall model is after 2016</span>
                         <img src="images/070420-1755-5154.jpg" alt="Step 1: Check your Marshall model is after 2016">
@@ -36,7 +36,7 @@
             </li>
             <li>
                 <h4 class="title">Step 02:</h4>
-                <ul class="dotted-list">
+                <ul class="dotted-list body-copy">
                     <li>Review <a href="#">Retro Fit kits & price list</a>
                     </li>
                     <li>Order kit <a href="#">here</a> or call <a href="tel:+441224722777">(01224) 722777</a>.</li>
@@ -44,7 +44,7 @@
             </li>
             <li>
                 <h4 class="title">Step 03:</h4>
-                <ul class="dotted-list">
+                <ul class="dotted-list body-copy">
                     <li>Fit the kit - without fabrication or paint rectification</li>
                     <li>See fitting <a href="#">times & price list</a>
                     </li>
