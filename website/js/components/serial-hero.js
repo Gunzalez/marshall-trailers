@@ -10,7 +10,7 @@ export default {
     data: Object,
     selectedCategoryKey: String,
   },
-  emits: ["more-details-click", "category-click"],
+  emits: ["more-details-click", "category-click", "not-my-marshall-click"],
   setup(props) {
     const heroStyle = computed(() => {
       return {
@@ -23,7 +23,6 @@ export default {
     return {
       heroStyle,
       image: props.data.image,
-      title: props.data.title,
       specifications: props.data.specifications,
       categories: props.data.categories,
     };
@@ -33,9 +32,9 @@ export default {
         <div class="product-hero">
             <div :style="heroStyle" class="product-hero-bg"></div>
             <div class="section">
-                <div class="copy-wrapper desktop-only">
+                <div class="copy-wrapper serial-number-copy desktop-only">
                     <div class="inner-wrapper">
-                        <Specifications :title="title" :specifications="specifications" @more-details-click="$emit('more-details-click')" />
+                        <Specifications :specifications="specifications" @more-details-click="$emit('more-details-click')" @not-my-marshall-click="$emit('not-my-marshall-click')" />
                     </div>
                 </div>
             </div>
@@ -43,7 +42,7 @@ export default {
 
         <div class="mobile-only quick-specs-mobile">
             <div class="section">
-                <Specifications :title="title" :specifications="specifications" @more-details-click="$emit('more-details-click')" />
+                <Specifications :specifications="specifications" @more-details-click="$emit('more-details-click')" @not-my-marshall-click="$emit('not-my-marshall-click')" />
             </div>
         </div>
 

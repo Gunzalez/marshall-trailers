@@ -2,30 +2,28 @@ const {} = Vue;
 
 export default {
   props: {
-    title: String,
     specifications: Array,
   },
-  emits: ["more-details-click"],
+  emits: ["more-details-click", "not-my-marshall-click"],
   setup(props) {
     return {
-      title: props.title,
       specifications: props.specifications,
     };
   },
   template: `
-    <div class="quick-specs block-level">
-        <div class="specs-content">
-            <h1 class="title">{{ title }}</h1>
-            <ul>
-                <li v-for="(spec, index) in specifications" :key="index">
-                    <span class="label">{{ spec.name }}</span>
-                    <span class="value">{{ spec.value }}</span>
-                </li>
-            </ul>
-            <div class="more-details">
-                <a href="#" @click.prevent="$emit('more-details-click')" class="text-lg">More About Your Marshall</a>
-            </div>
-        </div>
+    <div class="serial-specs">
+      <table class="specs-table">
+          <tbody>
+            <tr v-for="(spec, index) in specifications" :key="index">
+              <th><span class="label">{{ spec.name }}</span></th>
+              <td><span class="value">{{ spec.value }}</span></td>
+            </tr>
+          </tbody>
+      </table>
+      <div class="specs-actions">
+        <a href="#" @click.prevent="$emit('more-details-click')" class="bttn btn_ToggleOptions Chevron-Right">More Details</a>
+        <a href="#" @click.prevent="$emit('not-my-marshall-click')" class="body-link">Not Your Marshall?</a>
+      </div>
     </div>
   `,
 };
