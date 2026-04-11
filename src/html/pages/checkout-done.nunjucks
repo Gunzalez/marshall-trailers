@@ -24,9 +24,6 @@
     <div class="confirmation-message">
       <h3>Payment received and your order has been successfully placed.</h3>
       <h4>Order reference: 801-026</h4>
-      <button id="download-invoice" type="button" class="bttn btn_DownloadInvoice">
-        <span>Download Invoice</span>
-      </button>
     </div>
     <p>Mr. O. Tester</p>
     <p>123 Test Street</p>

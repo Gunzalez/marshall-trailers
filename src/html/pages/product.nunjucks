@@ -122,6 +122,11 @@
                                     <span class="hide-options">Hide Optional Equipment</span>
                                 </button>
                             </div>
+                            <ul class="downloads-list">
+                                <li>
+                                    <a href="#">Download specification sheet</a>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -172,8 +177,6 @@
             </div>
         </div>
     </div>
-
-    {{ macros.floatingBasket() }}
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
@@ -298,6 +301,7 @@
                         $("#toggleOptionsButton").on("click", () => {
                             $('#specifications-app').toggleClass("compact-layout");
                         });
+
                         $('#specifications-app').addClass("compact-layout");
 
                         $(".btn_Configure").on("click", () => {

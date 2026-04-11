@@ -20,15 +20,11 @@
 
     <div class="title-wrapper">
         <h1 class="page-title">Serial Number: <span class="dummy-data-serial-number-TEXT"></span></h1>
-        <p>Ordering parts for machines built in or after 2020.</p>
     </div>
 
     <div class="introduction-wrapper body-copy">
         <div class="introduction flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
             <span>Your Marshall is built up of <strong>900</strong> parts.</span>
-            <span>
-                <a href="spares.html">Not Your Marshall?</a>
-            </span>
         </div>
     </div>
 
@@ -38,6 +34,7 @@
             :data="data"
             :selected-category-key="selectedCategoryKey"
             @category-click="handleCategoryClick"
+            @not-my-marshall-click="handleNotMyMarshallClick"
             @more-details-click="handleMoreDetailsClick"></serial-hero>
 
         <serial-parts 
@@ -127,6 +124,13 @@
                         window.location.href = `product.html?id=${data.value.id}`;
                     };
 
+                    const handleNotMyMarshallClick = () => {
+                        if (isBusy.value) 
+                            return;
+                        
+                        window.location.href = "spares.html";
+                    };
+
                     const handleBuyNowClick = (product) => {
                         if (isBusy.value) 
                             return;
@@ -157,7 +161,8 @@
                         selectedCategoryKey,
                         handleCategoryClick,
                         handleMoreDetailsClick,
-                        handleAddToBasketClick
+                        handleAddToBasketClick,
+                        handleNotMyMarshallClick
                     }
                 }
             }).mount('#serial-number-app');

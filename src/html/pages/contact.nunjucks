@@ -56,19 +56,6 @@
                         </div>
                     {% endfor %}
                 </div>
-                <div class="department-list">
-                    {% for item in departmentsContacts %}
-                        <div class="department-card">
-                            <div class="details">
-                                <h3>{{ item.name }}</h3>
-                                <p class="department-name">{{ item.position }}</p>
-                                <p>
-                                    <a href="mailto:{{ item.email }}">{{ item.email }}</a>
-                                </p>
-                            </div>
-                        </div>
-                    {% endfor %}
-                </div>
             </div>
         </div>
     </div>
