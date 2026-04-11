@@ -82,13 +82,19 @@
 - 31st March: 5hrs
 
 - 1st April: 4hrs
-- 2nd March: 5hrs
+- 2nd April: 5hrs
 
-- 3rd March: 5hrs
-- 4th March: 3hrs
-- 5th March: 3hrs
+- 3rd April: 5hrs
+- 4th April: 3hrs
+- 5th April: 3hrs
+- 6th April: 1hrs
+- 7th April: 1hrs
+
+- 11th April: 8hrs
 
 #### NEXT
+
+ADJUSTED FOR 15 hours
 
 - Trello bugs
 - Odd jumping in filters in carousel in spares
