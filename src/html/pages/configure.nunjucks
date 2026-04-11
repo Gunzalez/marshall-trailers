@@ -389,6 +389,6 @@
         </div>
     </div>
 
-    {{ macros.floatingBasket() }}
+    {{ macros.floatingBasket("Summary") }}
 
 {% endblock %}

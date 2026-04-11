@@ -88,6 +88,6 @@
         </ol>
     </div>
 
-    {{ macros.floatingBasket() }}
+    {{ macros.floatingBasket("Your Basket") }}
 
 {% endblock %}

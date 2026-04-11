@@ -51,7 +51,7 @@
 
     </div>
 
-    {{ macros.floatingBasket() }}
+    {{ macros.floatingBasket("Your Basket") }}
 
     <script type="module">
 
