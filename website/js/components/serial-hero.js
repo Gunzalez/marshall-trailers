@@ -49,7 +49,7 @@ export default {
         <div class="page-divider"></div>
 
         <div class="section">
-            <h2 class="underlined stepped-title">
+            <h2 class="stepped-title deep-underline">
                 <span class="step-number">Step 01:</span>
                 <span>Select primary part category</span>
             </h2>

@@ -21,7 +21,7 @@
 
     <form id="checkout-form" class="form" method="post" action="/submit-payment">
         <div class="section">
-            <h2 class="title underlined">Your Basket</h2>
+            <h2 class="title deep-underline">Order Basket</h2>
             <ul id="checkout-items" class="checkout-items">
                 {% for item in checkoutData %}
                     <li class="checkout-item">

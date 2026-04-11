@@ -46,7 +46,7 @@ export default {
         <table>
             <thead>
                 <tr>
-                    <th class="image-cell"></th>
+                    <th class="image-cell">Image</th>
                     <th class="name-cell">Product name</th>
                     <th class="price-cell">Cost</th>
                 </tr>
@@ -58,7 +58,6 @@ export default {
                     </td>
                     <td class="name-cell">
                       <span>{{ option.title }}</span>
-                      <span class="desktop-only description">{{ option.description }}</span>
                     </td>
                     <td class="price-cell">{{ formatPriceToCurrency(option.price) }}</td>
                 </tr>

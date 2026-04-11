@@ -19,11 +19,11 @@
     </nav>
 
     <div class="title-wrapper">
-        <h1 class="page-title">Serial Number: <span class="dummy-data-serial-number-TEXT"></span></h1>
+        <h1 class="page-title">Parts Ordering: Serial Number <span class="dummy-data-serial-number-TEXT"></span></h1>
     </div>
 
-    <div class="introduction-wrapper body-copy">
-        <div class="introduction flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
+    <div class="introduction-wrapper">
+        <div class="introduction deep-underline">
             <span>Your Marshall is built up of <strong>900</strong> parts.</span>
         </div>
     </div>

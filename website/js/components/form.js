@@ -118,13 +118,16 @@ export default {
                     <h4>Choose one of the following options.</h4>
                     <div class="actions-buttons">
                         <button type="button" class="bttn btn_Chevron" @click.prevent="handlePurchase">
-                            <span>Purchase Your Marshall</span>
+                            <span>Purchase</span>
+                            <span>& Pay for your Marshall</span>
                         </button>
                         <button type="button" class="bttn btn_Chevron" @click.prevent="handleDownloadPDF">
-                            <span>Download Quote As PDF</span>
+                            <span>Download</span>
+                            <span>Quote As PDF</span>
                         </button>
                         <button type="button" class="bttn btn_Chevron" @click.prevent="toggleFormDisplay">
-                            <span>Email Enquiry To Marshall</span>
+                            <span>Enquiry</span>
+                            <span>To Marshall</span>
                         </button>
                     </div>
                 </div>

@@ -51,11 +51,15 @@ export default {
         <div class="image-copy-wrapper">
           <img :src="option.image_url" :alt="option.title" class="image" />
           <div class="meta">
-            <div class="option_no">
-                <span class="label">Option No:</span>
-                <span class="value">{{ option.option_no }}</span>
-            </div>
             <p class="price">{{ convertedPrice }}</p>
+            <div v-if="option.SAP_no" class="sub_meta">
+                <span class="label">SAP No:</span>
+                <span class="value">{{ option.SAP_no }}</span>
+            </div>
+            <div v-if="option.retro_fit" class="sub_meta">
+                <span class="label">Retro Fit:</span>
+                <span class="value">{{ option.retro_fit }}</span>
+            </div>
           </div>
         </div>
         <div class="copy-wrapper">

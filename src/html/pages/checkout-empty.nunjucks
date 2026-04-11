@@ -21,7 +21,7 @@
 
   <form id="checkout-form" class="form" method="post" action="/submit-payment">
     <div class="section body-copy">
-      <h2 class="title underlined">Your Basket</h2>
+      <h2 class="title deep-underline">Your Basket</h2>
 
       <div class="empty-basket-message">
         <p>Your basket is currently empty.</p>
@@ -36,7 +36,7 @@
         </div>
         <div class="fieldset-width">
           <div class="address-details">
-            <h2 class="title underlined">Address details</h2>
+            <h2 class="title deep-underline">Address details</h2>
             <div class="input-group-pair">
               <div class="input-group">
                 <label for="name">First name</label>

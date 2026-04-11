@@ -31,7 +31,7 @@ export default {
   },
   template: `
     <div v-if="results">
-        <h2 class="results-title">
+        <h2 class="results-title deep-underline">
           <span class="count">{{ results.length }}</span>
           <span class="text">Item{{ results.length === 1 ? '' : 's'}} found.</span>
         </h2>
