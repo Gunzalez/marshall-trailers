@@ -1277,43 +1277,6 @@
       "email": "david@marshall-trailers.co.uk"
     }
   ],
-  "departmentsContacts": [
-    {
-      "name": "Diane Innes",
-      "position": "Sales Parts",
-      "email": "admin@marshall-trailers.co.uk"
-    },
-    {
-      "name": "Andrew Duncan",
-      "position": "Transport",
-      "email": "admin@marshall-trailers.co.uk"
-    },
-    {
-      "name": "Michelle Mcintosh",
-      "position": "Accounts/Administration",
-      "email": "admin@marshall-trailers.co.uk"
-    },
-    {
-      "name": "David Marshall",
-      "position": "Technical",
-      "email": "david@marshall-trailers.co.uk"
-    },
-    {
-      "name": "Charles R Marshall (Snr)",
-      "position": "Technical",
-      "email": "charles@marshall-trailers.co.uk"
-    },
-    {
-      "name": "Charles R Marshall (Snr)",
-      "position": "Human Resources",
-      "email": "charles@marshall-trailers.co.uk"
-    },
-    {
-      "name": "Charles R Marshall (Snr)",
-      "position": "Purchasing",
-      "email": "charles@marshall-trailers.co.uk"
-    }
-  ],
   "checkoutData": [
     {
       "img_url_large": "images/machine-image.jpg",
@@ -1360,12 +1323,28 @@
     "title": "QM-1600",
     "specifications": [
       {
+        "name": "Model",
+        "value": "QM-1600"
+      },
+      {
         "name": "Material Description",
         "value": "BC/25-10ton Bale/Flat Trailer"
       },
       {
-        "name": "Goods Issue Date",
-        "value": "17.05.2023"
+        "name": "Basic Trailer Weight",
+        "value": "340 kgs"
+      },
+      {
+        "name": "Tipping Mechanism",
+        "value": "Single 5 Stage Hydraulic Ram"
+      },
+      {
+        "name": "Carrying Capacity",
+        "value": "5 tons"
+      },
+      {
+        "name": "Standard Tyre Size",
+        "value": "10.0 x 15 - 10 ply"
       },
       {
         "name": "Axles",
