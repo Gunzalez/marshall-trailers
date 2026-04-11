@@ -539,15 +539,11 @@
 
     <div class="title-wrapper">
         <h1 class="page-title">Serial Number: <span class="dummy-data-serial-number-TEXT"></span></h1>
-        <p>Ordering parts for machines built in or after 2020.</p>
     </div>
 
     <div class="introduction-wrapper body-copy">
         <div class="introduction flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
             <span>Your Marshall is built up of <strong>900</strong> parts.</span>
-            <span>
-                <a href="spares.html">Not Your Marshall?</a>
-            </span>
         </div>
     </div>
 
@@ -557,6 +553,7 @@
             :data="data"
             :selected-category-key="selectedCategoryKey"
             @category-click="handleCategoryClick"
+            @not-my-marshall-click="handleNotMyMarshallClick"
             @more-details-click="handleMoreDetailsClick"></serial-hero>
 
         <serial-parts 
@@ -621,7 +618,7 @@
             const serial_number = urlParams.get('serial-number');
             $('.dummy-data-serial-number-TEXT').text(serial_number);
         });
-        const serialNumberData = {"id":"qm1800","image":"images/sample-hero-bg.jpg","title":"QM-1600","specifications":[{"name":"Material Description","value":"BC/25-10ton Bale/Flat Trailer"},{"name":"Goods Issue Date","value":"17.05.2023"},{"name":"Axles","value":"6 Stud Axle (300 x 100mm)"},{"name":"Braking System","value":"Hydraulic Brakes"},{"name":"Suspension","value":"Rockers"}],"categories":[{"name":"Axles","key":"axles"},{"name":"Bearings","key":"bearings"},{"name":"Bolts","key":"bolts"},{"name":"Cover Couplings","key":"cover+couplings"},{"name":"Handbrakes","key":"handbrakes"},{"name":"Hitches","key":"hitches"},{"name":"Hydraulic Hoses","key":"hydraulic+hoses"},{"name":"Lights","key":"lights"},{"name":"Mesh","key":"mesh"},{"name":"Miscellaneous","key":"miscellaneous"},{"name":"Other Rams","key":"other+rams"},{"name":"Paint","key":"paint"},{"name":"Rocker Tandems","key":"rocker+tandems"},{"name":"Seals","key":"seals"},{"name":"Springs","key":"springs"},{"name":"Steel Sections","key":"steel+sections"},{"name":"Tip Rams","key":"tip+rams"},{"name":"Transfer","key":"transfer"},{"name":"Valves","key":"valves"}]};
+        const serialNumberData = {"id":"qm1800","image":"images/sample-hero-bg.jpg","title":"QM-1600","specifications":[{"name":"Model","value":"QM-1600"},{"name":"Material Description","value":"BC/25-10ton Bale/Flat Trailer"},{"name":"Basic Trailer Weight","value":"340 kgs"},{"name":"Tipping Mechanism","value":"Single 5 Stage Hydraulic Ram"},{"name":"Carrying Capacity","value":"5 tons"},{"name":"Standard Tyre Size","value":"10.0 x 15 - 10 ply"},{"name":"Axles","value":"6 Stud Axle (300 x 100mm)"},{"name":"Braking System","value":"Hydraulic Brakes"},{"name":"Suspension","value":"Rockers"}],"categories":[{"name":"Axles","key":"axles"},{"name":"Bearings","key":"bearings"},{"name":"Bolts","key":"bolts"},{"name":"Cover Couplings","key":"cover+couplings"},{"name":"Handbrakes","key":"handbrakes"},{"name":"Hitches","key":"hitches"},{"name":"Hydraulic Hoses","key":"hydraulic+hoses"},{"name":"Lights","key":"lights"},{"name":"Mesh","key":"mesh"},{"name":"Miscellaneous","key":"miscellaneous"},{"name":"Other Rams","key":"other+rams"},{"name":"Paint","key":"paint"},{"name":"Rocker Tandems","key":"rocker+tandems"},{"name":"Seals","key":"seals"},{"name":"Springs","key":"springs"},{"name":"Steel Sections","key":"steel+sections"},{"name":"Tip Rams","key":"tip+rams"},{"name":"Transfer","key":"transfer"},{"name":"Valves","key":"valves"}]};
 
         document.addEventListener('DOMContentLoaded', () => {
             const {createApp, onMounted, ref, nextTick} = Vue;
@@ -680,6 +677,13 @@
                         window.location.href = `product.html?id=${data.value.id}`;
                     };
 
+                    const handleNotMyMarshallClick = () => {
+                        if (isBusy.value) 
+                            return;
+                        
+                        window.location.href = "spares.html";
+                    };
+
                     const handleBuyNowClick = (product) => {
                         if (isBusy.value) 
                             return;
@@ -710,7 +714,8 @@
                         selectedCategoryKey,
                         handleCategoryClick,
                         handleMoreDetailsClick,
-                        handleAddToBasketClick
+                        handleAddToBasketClick,
+                        handleNotMyMarshallClick
                     }
                 }
             }).mount('#serial-number-app');

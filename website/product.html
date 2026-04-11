@@ -721,6 +721,11 @@
                                     <span class="hide-options">Hide Optional Equipment</span>
                                 </button>
                             </div>
+                            <ul class="downloads-list">
+                                <li>
+                                    <a href="#">Download specification sheet</a>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -1160,42 +1165,6 @@
         </div>
     </div>
 
-    
-  <div id="floating-basket" class="floating-basket">
-    <div class="basket-inner">
-      <div class="desktop-button">
-            Your Marshall
-        </div>
-      <div class="basket-wrapper">
-        <div class="basket-header">
-          <h4 class="title">Your basket</h4>
-          <button type="button" class="close-basket-button">
-            <i class="fa-solid fa-xmark text-lg"></i>
-          </button>
-        </div>
-
-        <div class="basket-content">
-          <div class="basket-details">
-            <span id="num_items" class="items">0 items</span>
-            <span id="total_price" class="total-price">£0.00</span>
-          </div>
-          <button type="button" class="bttn btn_Checkout">
-            <span>Checkout</span>
-          </button>
-        </div>
-
-        <div class="basket-progress">
-          <div class="flex items-center gap-2">
-            <i class="fa-solid fa-spinner fa-spin-pulse"></i>
-            <span>Updating basket...</span>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </div>
-
-
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const {createApp, onMounted, ref} = Vue;
@@ -1319,6 +1288,7 @@
                         $("#toggleOptionsButton").on("click", () => {
                             $('#specifications-app').toggleClass("compact-layout");
                         });
+
                         $('#specifications-app').addClass("compact-layout");
 
                         $(".btn_Configure").on("click", () => {
