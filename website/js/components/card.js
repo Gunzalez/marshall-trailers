@@ -59,10 +59,7 @@ export default {
           </div>
         </div>
         <div class="copy-wrapper">
-          <div v-if="isDisabled" class="disabled-messages">
-              <p v-for="msg in messages" :key="msg.id" class="message">{{ msg.text }}</p>
-          </div>
-          <p v-else class="text">{{ option.description }}</p>
+          <p class="text">{{ option.description }}</p>
         </div>
       </div>
 
@@ -79,6 +76,10 @@ export default {
           <span class="white"><i class="fa-solid fa-plus"></i></span>
         </template>
       </span>
+
+      <div v-if="isDisabled" class="disabled-messages">
+          <p v-for="msg in messages" :key="msg.id" class="message">{{ msg.text }}</p>
+      </div>
 
     </div>
   `,
