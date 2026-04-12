@@ -116,6 +116,9 @@
                                     </div>
                                 </div>
                             </div>
+
+                            <table id="single-column" class="single-column"></table>
+
                             <div class="specifications-footer">
                                 <button type="button" id="toggleOptionsButton" class="bttn btn_ToggleOptions">
                                     <span class="show-options">See Optional Equipment</span>
@@ -204,6 +207,7 @@
                     const productKeys = allKeys.filter(key => !keysToExclude.includes(key));
                     const optionalKeys = Object.keys(allProducts.value[0].optional || {});
                     const displayAdditionalOptions = ref(false);
+                    const currentProductArray = ref([]);
 
                     const productCarousel = ref(null);
                     const prev = () => {
@@ -236,6 +240,10 @@
                         const initialSlideIndex = allProducts
                             .value
                             .findIndex(product => product.id === selectedProductId);
+
+                        const currentProduct = allProducts
+                            .value
+                            .find(product => product.id === selectedProductId);
 
                         productCarousel.value = $("#product-specs").slick({
                             dots: false,
@@ -298,6 +306,37 @@
                         // dummy data for demo purposes
                         insertDummyData();
 
+                        const productMatch = allProducts
+                            .value
+                            .find(product => product.id === selectedProductId);
+
+                        if (productMatch) {
+                            currentProductArray.value = Object
+                                .entries(productMatch)
+                                .filter(([key]) => {
+                                    return !keysToExclude.includes(key);
+                                });
+
+                            const tableRows = currentProductArray
+                                .value
+                                .map(([key, value]) => {
+                                    return `<tr><th>${key}</th><td>${value}</td></tr>`;
+                                })
+                                .join('');
+
+                            const optionalEquipment = productMatch.optional || {};
+                            const optionalRows = Object
+                                .entries(optionalEquipment)
+                                .map(([key, value]) => {
+                                    return `<tr class="optional"><th>Optional ${key}</th><td>${value}</td></tr>`;
+                                })
+                                .join('');
+
+                            const optionsHeader = `<tr class="optional optional-header"><th colspan="2">Optional Equipment</th></tr>`;
+
+                            $("#single-column").html(tableRows + optionsHeader + optionalRows);
+                        }
+
                         $("#toggleOptionsButton").on("click", () => {
                             $('#specifications-app').toggleClass("compact-layout");
                         });
@@ -316,7 +355,8 @@
                         productKeys,
                         optionalKeys,
                         selectedProductId,
-                        displayAdditionalOptions
+                        displayAdditionalOptions,
+                        currentProductArray
                     };
                 }
             }).mount('#specifications-app-vue');

@@ -1203,6 +1203,7 @@
     display: flex;
     align-items: flex-end;
     background-color: white;
+    color: var(--brand-red) !important;
   }
 
   .specifications-footer {
@@ -1257,10 +1258,55 @@
     }
   }
 
+  .single-column {
+    display: none;
+
+    tr {
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+
+      th,
+      td {
+        padding: 4px 10px;
+      }
+
+      th {
+        padding-top: 10px;
+      }
+
+      td {
+        padding-bottom: 10px;
+      }
+
+      &:nth-child(odd) {
+        th,
+        td {
+          background-color: #f9f9f9;
+        }
+      }
+
+      &.optional-header {
+        flex-direction: row;
+      }
+    }
+
+    th {
+      &::after {
+        content: ":";
+      }
+    }
+  }
+
   @media screen and (max-width: $breakpoint3) {
     .comparison-title,
+    .specs-carousel-wrapper,
     .footer-row {
       display: none;
+    }
+
+    .single-column {
+      display: block;
     }
 
     .product-specs {
