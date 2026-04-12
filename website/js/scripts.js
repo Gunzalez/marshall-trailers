@@ -782,6 +782,7 @@ window.data = data;
       $(".carousel-main .slide").removeClass("preload");
       var $carousel = $(".carousel-main");
       $carousel.slick({
+        accessibility: false,
         dots: true,
         infinite: true,
         autoplay: true,
