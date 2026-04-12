@@ -255,7 +255,6 @@
                             centerMode: true,
                             infinite: true,
                             arrows: false,
-                            draggable: false,
                             responsive: [
                                 {
                                     breakpoint: 1200,

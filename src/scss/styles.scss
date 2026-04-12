@@ -1199,6 +1199,10 @@
     @media screen and (max-width: $breakpoint3) {
       display: none;
     }
+
+    .footer-row {
+      cursor: default;
+    }
   }
 
   .optional-header {
@@ -1221,6 +1225,7 @@
     height: 120px;
     display: flex;
     align-items: flex-end;
+    cursor: grab;
 
     .title {
       font-size: 1.3rem;
