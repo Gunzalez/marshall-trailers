@@ -90,7 +90,7 @@
 - 6th April: 1hrs
 - 7th April: 1hrs
 
-- 11th April: 8hrs
+- 11th April: 10hrs
 
 #### NEXT
 
