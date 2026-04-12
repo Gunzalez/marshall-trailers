@@ -323,10 +323,6 @@
     }
   }
 
-  .tab-content {
-    margin-top: 1rem;
-  }
-
   .tab-item {
     .tab-header {
       line-height: 1;
@@ -360,7 +356,10 @@
     }
 
     .tab-content {
-      display: none;
+      padding: 0;
+      height: 0;
+      visibility: hidden;
+      overflow: hidden;
     }
 
     &.active {
@@ -373,7 +372,9 @@
       }
 
       .tab-content {
-        display: block;
+        visibility: visible;
+        height: auto;
+        padding: 1rem 0 0 0;
       }
     }
   }
@@ -385,10 +386,6 @@
   padding: 1rem;
   width: 100%;
 
-  .tabs-content {
-    padding: 2rem 0 0 0;
-  }
-
   @media screen and (min-width: $breakpoint3) {
     .tabs-list {
       display: flex;
@@ -396,6 +393,14 @@
       gap: 1rem;
       border-bottom: 1px solid var(--brand-gray);
       box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.2);
+    }
+
+    .tab-item {
+      &.active {
+        .tab-content {
+          padding: 2rem 0 0 0;
+        }
+      }
     }
 
     .tab-header {
