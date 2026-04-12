@@ -30,7 +30,8 @@
                 </a>
                 <div id="{{ item.id }}" class="product-selector">
                     <select id="{{ item.id }}-selector" name="{{ item.id }}-selector" data-destination="product.html">
-                        <option selected>Select from {{ item.options|length }} models</option>
+                        <option selected>Select from {{ item.options|length }} model{% if item.options | length > 1 %}s{% endif %}
+                        </option>
                         {% for option in item.options %}
                             <option value="{{ option.id }}">{{ option.model }} - {{ option.capacity or option.length or option.volume or option.spec }}</option>
                         {% endfor %}
