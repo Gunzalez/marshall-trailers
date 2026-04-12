@@ -339,7 +339,10 @@
 
                         $("#toggleOptionsButton").on("click", () => {
                             $('#specifications-app').toggleClass("compact-layout");
-                            $(".optional-header:visible")[0].scrollIntoView({behavior: "smooth", block: "center"});
+                            var $visibleHeaders = $(".optional-header:visible");
+                            if ($visibleHeaders.length > 0) {
+                                $visibleHeaders[0].scrollIntoView({behavior: "smooth", block: "center"});
+                            }
                         });
 
                         $('#specifications-app').addClass("compact-layout");
