@@ -974,6 +974,12 @@
   }
 }
 
+.checkout-form {
+  .title {
+    margin-bottom: 2rem;
+  }
+}
+
 .features-list {
   padding-bottom: 1rem;
   font-size: 0.9rem;
@@ -1802,7 +1808,7 @@
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.5rem;
 
   .checkout-item {
     display: flex;
@@ -1812,7 +1818,7 @@
 
   > li {
     border-bottom: 1px solid var(--brand-gray);
-    padding-bottom: 1rem;
+    padding-bottom: 1.5rem;
 
     &:last-child {
       padding-bottom: 0;

@@ -19,7 +19,7 @@
     <h1 class="page-title">Checkout</h1>
   </div>
 
-  <form id="checkout-form" class="form" method="post" action="/submit-payment">
+  <form id="checkout-form" class="form checkout-form" method="post" action="/submit-payment">
     <div class="section body-copy">
       <h2 class="title deep-underline">Your Basket</h2>
 
