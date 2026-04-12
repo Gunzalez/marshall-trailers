@@ -1197,13 +1197,15 @@
   }
 
   .optional-header {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     font-weight: 600;
-    height: 5rem;
+    height: 6rem;
     display: flex;
     align-items: flex-end;
     background-color: white;
     color: var(--brand-red) !important;
+    padding-bottom: 0.875rem !important;
+    scroll-margin-top: 2rem;
   }
 
   .specifications-footer {
