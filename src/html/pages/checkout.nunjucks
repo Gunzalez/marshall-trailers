@@ -27,13 +27,13 @@
                     <li class="checkout-item">
                         {% if item.product_type == "machine" %}
                             <div class="image machine-image">
-                                <a href="{{ item.img_url_large }}" title="{{ item.product_title }} - {{ item.description }}" class="lc_lightbox_link image-link">
+                                <a href="{{ item.img_url_large }}" title="{{ item.product_title }} - {{ item.description }}" class="glightbox_solo image-link" data-gallery="gallery-{{ item.id }}">
                                     <img src="{{ item.img_url_small }}" alt="{{ item.product_title }}">
                                 </a>
                             </div>
                         {% else %}
                             <div class="image part-image">
-                                <a href="{{ item.img_url_large }}" title="{{ item.part_no }}" class="lc_lightbox_link image-link">
+                                <a href="{{ item.img_url_large }}" title="{{ item.part_no }}" class="glightbox_solo image-link" data-gallery="gallery-{{ item.id }}">
                                     <img src="{{ item.img_url_small }}" alt="{{ item.part_no }}">
                                 </a>
                             </div>
