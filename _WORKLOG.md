@@ -93,6 +93,9 @@
 - 11th April: 10hrs
 - 12th April: 3hrs
 
+- 13th April: 3hrs
+- 14th April: 4hrs
+
 #### NEXT
 
 ADJUSTED FOR 15 hours
