@@ -4,82 +4,82 @@
 
 {% block content %}
 
-  {{ macros.header("images/logo-marshall-trailers-color.png") }}
+    {{ macros.header("images/logo-marshall-trailers-color.png") }}
 
-  <nav aria-label="breadcrumbs" class="breadcrumbs">
-    <ol>
-      <li>
-        <a href="index.html">Home</a>
-      </li>
-      <li>
-        <a href="news.html">News</a>
-      </li>
-      <li>Article</li>
-    </ol>
-  </nav>
+    <nav aria-label="breadcrumbs" class="breadcrumbs">
+        <ol>
+            <li>
+                <a href="index.html">Home</a>
+            </li>
+            <li>
+                <a href="news.html">News</a>
+            </li>
+            <li>Article</li>
+        </ol>
+    </nav>
 
-  <div class="title-wrapper">
-    <h1 class="page-title">Bale Season is Here!</h1>
-    <p class="article-date">Published on 15th June 2024</p>
-  </div>
+    <div class="title-wrapper">
+        <h1 class="page-title">Bale Season is Here!</h1>
+        <p class="article-date">Published on 15th June 2024</p>
+    </div>
 
-  <div class="section">
-    <div class="article-content">
-      <div class="article-image">
-        <a href="images/news-1.jpg" title="Bale Season" class="glightbox_solo image-link">
-          <img src="images/news-1.jpg" alt="Bale Season">
-        </a>
-      </div>
-      <div class="article-text body-copy">
-        <p>With bale season just around the corner, you need a trailer that's up for the job. When it comes to shifting silage, hay or straw, our range of bale trailers are the market leaders across the UK.</p>
-        <p>With over 450 machines in all shapes and configurations leaving our production line every year, means our customers have an almost infinite range of options to choose from, that include features such as:</p>
-        <ul>
-          <li>21' to 36' long trailers, with options to add a foot to any model, and ranging from 10 to 16-ton capacities.</li>
-          <li>10-stud 420 x 180 commercial axles with a wide track & 32-ton mono-leaf spring suspension.</li>
-          <li>Sprung drawbars to reduce tractor bounce and trailer noise.</li>
-          <li>Smooth-running spring suspension for road work or rocking tandems for hillside stability.</li>
-          <li>Low bed heights, with a selection of low and wide wheel options plus twin or tri axles for stability.</li>
-          <li>Braking options ranging from basic hydraulic to full ABS S-cam air brakes.</li>
-          <li>Ease of use through multiple all-round heavy-duty rope hooks and ratchet strap points.</li>
-          <li>6mm folded side rails, strap box with integrated strap winder, adjustable front and rear harvest ladders.</li>
-          <li>Optional Easy Secure system for rapid load securing that reaches up to 3.1m high.</li>
+    <div class="section">
+        <div class="article-content">
+            <div class="article-image">
+                <a href="images/news-1.jpg" title="Insert LightBox Title Here" class="glightbox_solo image-link">
+                    <img src="images/news-1.jpg" alt="Bale Season is Here!">
+                </a>
+            </div>
+            <div class="article-text body-copy">
+                <p>With bale season just around the corner, you need a trailer that's up for the job. When it comes to shifting silage, hay or straw, our range of bale trailers are the market leaders across the UK.</p>
+                <p>With over 450 machines in all shapes and configurations leaving our production line every year, means our customers have an almost infinite range of options to choose from, that include features such as:</p>
+                <ul>
+                    <li>21' to 36' long trailers, with options to add a foot to any model, and ranging from 10 to 16-ton capacities.</li>
+                    <li>10-stud 420 x 180 commercial axles with a wide track & 32-ton mono-leaf spring suspension.</li>
+                    <li>Sprung drawbars to reduce tractor bounce and trailer noise.</li>
+                    <li>Smooth-running spring suspension for road work or rocking tandems for hillside stability.</li>
+                    <li>Low bed heights, with a selection of low and wide wheel options plus twin or tri axles for stability.</li>
+                    <li>Braking options ranging from basic hydraulic to full ABS S-cam air brakes.</li>
+                    <li>Ease of use through multiple all-round heavy-duty rope hooks and ratchet strap points.</li>
+                    <li>6mm folded side rails, strap box with integrated strap winder, adjustable front and rear harvest ladders.</li>
+                    <li>Optional Easy Secure system for rapid load securing that reaches up to 3.1m high.</li>
+                </ul>
+                <p>Giving you the ability to select and engineer the perfect solution for your bale trailer needs. Combining quality, value and innovation, all delivered with the production heritage of the Marshall family business.</p>
+                <p>So, for your last minute orders on these easy to tow trailers get in touch with us or ask your dealer for a Marshall.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h3 class="title underlined">Gallery</h3>
+        <ul class="gallery-list">
+            <li>
+                <a class="glightbox_gallery video-link" href="https://youtu.be/fyXb1v3t_7A?si=eVFzXeUMhtAjEsRT" title="Insert Video Title Here"><img src="images/video-thumbnail.jpg" alt="QM1200"></a>
+            </li>
+            <li>
+                <a class="glightbox_gallery" href="images/080118-1236-8198.jpg" title="QM/1200 - Front View"><img src="images/080118-1236-8198.jpg" alt="QM/1200 - Front View"></a>
+            </li>
+            <li>
+                <a class="glightbox_gallery" href="images/080118-1235-4824.jpg" title="QM/1200 Silage - Front View"><img src="images/080118-1235-4824.jpg" alt="QM/1200 Silage - Front View"></a>
+            </li>
+            <li>
+                <a class="glightbox_gallery" href="images/080118-1235-3843.jpg" title="QM/1200 Silage - Side View"><img src="images/080118-1235-3843.jpg" alt="QM/1200 Silage - Side View"></a>
+            </li>
+            <li>
+                <a class="glightbox_gallery video-link" href="https://youtu.be/-RLYu-7C150?si=En63EJWnc1EIRahT" title="VES Speed Control Unit Walk-Through"><img src="images/video-thumbnail-2.jpg" alt="QM1200 - Silage Sides, Black, 550-45x22.5 Wheels, Mudguards"></a>
+            </li>
+            <li>
+                <a class="glightbox_gallery" href="images/070420-1755-5154.jpg" title="QM1200 - Silage Sides, Black, 550-45x22.5 Wheels, Mudguards"><img src="images/070420-1755-5154.jpg" alt="QM1200 - Silage Sides, Black, 550-45x22.5 Wheels, Mudguards"></a>
+            </li>
+            <li>
+                <a class="glightbox_gallery" href="images/080118-1235-4824.jpg" title="QM/1200 Silage - Front View"><img src="images/080118-1235-4824.jpg" alt="QM/1200 Silage - Front View"></a>
+            </li>
         </ul>
-        <p>Giving you the ability to select and engineer the perfect solution for your bale trailer needs. Combining quality, value and innovation, all delivered with the production heritage of the Marshall family business.</p>
-        <p>So, for your last minute orders on these easy to tow trailers get in touch with us or ask your dealer for a Marshall.</p>
-      </div>
+        <div class="return-link">
+            <a href="news.html" class="bttn btn_Chevron">
+                <span>Marshall News</span>
+            </a>
+        </div>
     </div>
-  </div>
-
-  <div class="section">
-    <h3 class="title underlined">Gallery</h3>
-    <ul class="gallery-list">
-      <li>
-        <a class="glightbox_gallery" href="images/070420-1803-2655.jpg" title="Product Title - Front Views"><img src="images/070420-1803-2655.jpg" alt="QM1200"></a>
-      </li>
-      <li>
-        <a class="glightbox_gallery" href="images/080118-1236-8198.jpg" title="QM/1200 - Front View"><img src="images/080118-1236-8198.jpg" alt="QM/1200 - Front View"></a>
-      </li>
-      <li>
-        <a class="glightbox_gallery" href="images/080118-1235-4824.jpg" title="QM/1200 Silage - Front View"><img src="images/080118-1235-4824.jpg" alt="QM/1200 Silage - Front View"></a>
-      </li>
-      <li>
-        <a class="glightbox_gallery" href="images/080118-1235-3843.jpg" title="QM/1200 Silage - Side View"><img src="images/080118-1235-3843.jpg" alt="QM/1200 Silage - Side View"></a>
-      </li>
-      <li>
-        <a class="glightbox_gallery" href="images/070420-1755-7885.jpg" title="QM1200 - Silage Sides, Black, 550-45x22.5 Wheels, Mudguards"><img src="images/070420-1755-7885.jpg" alt="QM1200 - Silage Sides, Black, 550-45x22.5 Wheels, Mudguards"></a>
-      </li>
-      <li>
-        <a class="glightbox_gallery" href="images/070420-1755-5154.jpg" title="QM1200 - Silage Sides, Black, 550-45x22.5 Wheels, Mudguards"><img src="images/070420-1755-5154.jpg" alt="QM1200 - Silage Sides, Black, 550-45x22.5 Wheels, Mudguards"></a>
-      </li>
-      <li>
-        <a class="glightbox_gallery" href="images/080118-1235-4824.jpg" title="QM/1200 Silage - Front View"><img src="images/080118-1235-4824.jpg" alt="QM/1200 Silage - Front View"></a>
-      </li>
-    </ul>
-    <div class="return-link">
-      <a href="news.html" class="bttn btn_Chevron">
-        <span>Back To News</span>
-      </a>
-    </div>
-  </div>
 
 {% endblock %}

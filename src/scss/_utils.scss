@@ -1086,7 +1086,7 @@
   background-color: var(--brand-red-dark) !important;
 }
 
-.lc_lightbox_link_text {
+.glightbox_text {
   position: relative;
 
   &::after {
@@ -1104,7 +1104,7 @@
   }
 }
 
-.lc_lightbox_link {
+.glightbox_solo {
   @media (hover: hover) {
     position: relative;
 
@@ -1124,6 +1124,21 @@
       color: white;
       font-size: 1rem;
     }
+  }
+}
+
+.gdesc-inner {
+  border-top: 4px solid var(--brand-yellow);
+}
+
+.gslide-description {
+  .gslide-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--brand-text);
+    font-family: var(--brand-font);
+    margin-bottom: 0;
+    line-height: 1.3;
   }
 }
 

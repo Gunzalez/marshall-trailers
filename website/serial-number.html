@@ -21,10 +21,9 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
       type="text/css">
-    <link rel="stylesheet" href="css/styles.css" type="text/css">
     <link rel="stylesheet" href="js/vendor/selectric/selectric.css" type="text/css">
-    <link rel="stylesheet" href="js/vendor/lc_lightbox/lc_lightbox.min.css" type="text/css">
-    <link rel="stylesheet" href="js/vendor/lc_lightbox/skins/dark.css" type="text/css">
+    <link rel="stylesheet" href="js/vendor/glightbox/css/glightbox.min.css"/>
+    <link rel="stylesheet" href="css/styles.css" type="text/css">
 
     <!-- javaScript -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4" defer></script>
@@ -35,7 +34,7 @@
       crossorigin="anonymous" defer></script>
     <script src="js/vendor/slick/slick.min.js" defer></script>
 
-    <script src="js/vendor/lc_lightbox/lc_lightbox.lite.min.js" defer></script>
+    <script src="js/vendor/glightbox/js/glightbox.min.js"></script>
 
     <script src="js/vendor/jquery.validate.min.js" defer></script>
     <script src="js/vendor/selectric/jquery.selectric.min.js" defer></script>
@@ -620,6 +619,20 @@
         });
         const serialNumberData = {"id":"qm1800","image":"images/sample-hero-bg.jpg","title":"QM-1600","specifications":[{"name":"Model","value":"QM-1600"},{"name":"Material Description","value":"BC/25-10ton Bale/Flat Trailer"},{"name":"Basic Trailer Weight","value":"340 kgs"},{"name":"Tipping Mechanism","value":"Single 5 Stage Hydraulic Ram"},{"name":"Carrying Capacity","value":"5 tons"},{"name":"Standard Tyre Size","value":"10.0 x 15 - 10 ply"},{"name":"Axles","value":"6 Stud Axle (300 x 100mm)"},{"name":"Braking System","value":"Hydraulic Brakes"},{"name":"Suspension","value":"Rockers"}],"categories":[{"name":"Axles","key":"axles"},{"name":"Bearings","key":"bearings"},{"name":"Bolts","key":"bolts"},{"name":"Cover Couplings","key":"cover+couplings"},{"name":"Handbrakes","key":"handbrakes"},{"name":"Hitches","key":"hitches"},{"name":"Hydraulic Hoses","key":"hydraulic+hoses"},{"name":"Lights","key":"lights"},{"name":"Mesh","key":"mesh"},{"name":"Miscellaneous","key":"miscellaneous"},{"name":"Other Rams","key":"other+rams"},{"name":"Paint","key":"paint"},{"name":"Rocker Tandems","key":"rocker+tandems"},{"name":"Seals","key":"seals"},{"name":"Springs","key":"springs"},{"name":"Steel Sections","key":"steel+sections"},{"name":"Tip Rams","key":"tip+rams"},{"name":"Transfer","key":"transfer"},{"name":"Valves","key":"valves"}]};
 
+        var GLightBoxLinksObserver = new MutationObserver((mutations) => {
+            window
+                .MT
+                .GLightBoxLinks
+                .init();
+        });
+
+        function initiateObservers() {
+            GLightBoxLinksObserver.observe(document.querySelector("#serial-number-app"), {
+                childList: true,
+                subtree: true
+            },);
+        }
+
         document.addEventListener('DOMContentLoaded', () => {
             const {createApp, onMounted, ref, nextTick} = Vue;
 
@@ -704,6 +717,7 @@
 
                     onMounted(() => {
                         $('#serial-number-app').removeClass('app-loading');
+                        initiateObservers();
                     });
 
                     return {

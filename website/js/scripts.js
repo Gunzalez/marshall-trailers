@@ -1252,60 +1252,33 @@ window.data = data;
   /*---------------------------------------------------------------- */
 
   /**
-   * @lcLightBoxLinks
+   * @GLightBoxLinks
    * Attaches lightbox functionality to links, gallery and single image
    */
-  marshallTrailers.lcLightBoxLinks = {
+  marshallTrailers.GLightBoxLinks = {
     mobileWidthThreshold: 768,
 
     galleryImageLinks: function () {
-      if (window.innerWidth < this.mobileWidthThreshold) {
-        $(".lc_lightbox_gallery_link").on("click", function (e) {
-          e.preventDefault();
-        });
-        return;
-      }
-
-      lc_lightbox(".lc_lightbox_gallery_link", {
-        wrap_class: "lcl_fade_oc",
-        gallery: true,
-        skin: "dark",
-        socials: false,
-        fullscreen: false,
-        touchswipe: false,
-        mousewheel: false,
-        txt_toggle_cmd: false,
-        max_width: "80%",
-        max_height: "75%",
+      GLightbox({
+        selector: ".glightbox_gallery",
+        touchNavigation: true,
+        loop: true,
       });
     },
 
     soloImageLinks: function () {
-      if (window.innerWidth < this.mobileWidthThreshold) {
-        $(".lc_lightbox_link").on("click", function (e) {
-          e.preventDefault();
-        });
-        return;
-      }
-
-      lc_lightbox(".lc_lightbox_link", {
-        wrap_class: "lcl_fade_oc",
-        gallery: false,
-        skin: "dark",
-        txt_toggle_cmd: false,
-        max_width: "80%",
-        max_height: "75%",
+      GLightbox({
+        selector: ".glightbox_solo",
+        touchNavigation: false,
+        loop: false,
       });
     },
 
     soloTextLinks: function () {
-      lc_lightbox(".lc_lightbox_link_text", {
-        wrap_class: "lcl_fade_oc",
-        gallery: false,
-        skin: "dark",
-        txt_toggle_cmd: false,
-        max_width: "80%",
-        max_height: "75%",
+      GLightbox({
+        selector: ".glightbox_text",
+        touchNavigation: false,
+        loop: false,
       });
     },
 
@@ -1465,7 +1438,7 @@ window.data = data;
   marshallTrailers.init = function () {
     marshallTrailers.topNavigation.init();
     marshallTrailers.mobileNavigation.init();
-    marshallTrailers.lcLightBoxLinks.init();
+    marshallTrailers.GLightBoxLinks.init();
     marshallTrailers.responsiveTabs.init();
     marshallTrailers.carousel.init();
     marshallTrailers.carouselMini.init();

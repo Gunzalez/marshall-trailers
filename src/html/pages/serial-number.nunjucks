@@ -67,6 +67,20 @@
         });
         const serialNumberData = {{ serialNumberData | dump | safe }};
 
+        var GLightBoxLinksObserver = new MutationObserver((mutations) => {
+            window
+                .MT
+                .GLightBoxLinks
+                .init();
+        });
+
+        function initiateObservers() {
+            GLightBoxLinksObserver.observe(document.querySelector("#serial-number-app"), {
+                childList: true,
+                subtree: true
+            },);
+        }
+
         document.addEventListener('DOMContentLoaded', () => {
             const {createApp, onMounted, ref, nextTick} = Vue;
 
@@ -151,6 +165,7 @@
 
                     onMounted(() => {
                         $('#serial-number-app').removeClass('app-loading');
+                        initiateObservers();
                     });
 
                     return {

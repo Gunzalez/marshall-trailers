@@ -78,7 +78,7 @@ export default {
   },
   template: `
     <div class="result">
-        <a :href="imgLrg" :title="partNo + ' - ' + description" class="lc_lightbox_link spare-thumbnail">
+        <a :href="imgLrg" :title="partNo + ' - ' + description" class="glightbox_solo spare-thumbnail" :data-gallery="'part-' + id">
             <img :src="imgSrl" :alt="description">
         </a>
         <div class="details">
@@ -125,7 +125,7 @@ export default {
                 <h4 class="header">Related items:</h4>
                 <ul class="related-items-list">
                     <li v-for="(item, index) in relatedItems" :key="index">
-                        <a :href="item.url" :title="item.part_no + ' - ' + item.description" class="lc_lightbox_link_text">{{ item.part_no }}</a>
+                        <a :href="item.url" :title="item.part_no + ' - ' + item.description" class="glightbox_text" :data-gallery="'related-item-' + id + '-' + item.part_no">{{ item.part_no }}</a>
                         <span>{{ item.description }}</span>
                         <div class="actions">
                             <button type="button" class="bttn secondary-buy" @click.prevent="onBuyNowRelatedClick(item)">

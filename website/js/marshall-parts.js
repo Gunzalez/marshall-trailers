@@ -49,6 +49,10 @@ function showPartsResults(content) {
   }
 }
 
+var GLightBoxLinksObserver = new MutationObserver((mutations) => {
+  window.MT.GLightBoxLinks.init();
+});
+
 document.addEventListener("DOMContentLoaded", () => {
   $("#filter1").on("change", function () {
     $("#range").val("").prop("disabled", true).selectric("refresh");
@@ -467,13 +471,6 @@ document.addEventListener("DOMContentLoaded", () => {
     $("#order_form_pdf:visible").slideUp();
   });
 
-  // TODO: --end
-
-  $("#btn_ContinueShop").click(function (event) {
-    event.preventDefault();
-    document.location.href = "/spares";
-  });
-
   $("#order_form").submit(function (e) {
     $(".progress").remove();
 
@@ -525,6 +522,25 @@ document.addEventListener("DOMContentLoaded", () => {
         },
       });
     }
+  });
+
+  // TODO: --end
+
+  if ($("#parts-results-app").length) {
+    /* Initialize GLightBoxLinks for any dynamically 
+    loaded content in the parts results section */
+    GLightBoxLinksObserver.observe(
+      document.querySelector("#parts-results-app"),
+      {
+        childList: true,
+        subtree: true,
+      },
+    );
+  }
+
+  $("#btn_ContinueShop").click(function (event) {
+    event.preventDefault();
+    document.location.href = "/spares";
   });
 
   $(".filter-select").selectric({

@@ -50,7 +50,7 @@ export default {
   },
   template: `
     <div class="serial-product-card">
-        <a :href="imgLrg" class="lc_lightbox_link image-link product-link">
+        <a :href="imgLrg" :title="product.part_no + ' ' + product.description" class="glightbox_solo image-link product-link" :data-gallery="'gallery-' + id">
             <img :src="imgSrl" :alt="product.part_no + ' ' + product.description" />
         </a>
         <div class="pricing">
