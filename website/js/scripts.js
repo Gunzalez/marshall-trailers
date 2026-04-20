@@ -661,7 +661,7 @@ window.data = data;
     init: function () {
       $(".pre-script").removeClass("pre-script");
 
-      var defaultSelectHeight = 168;
+      var defaultSelectHeight = 85;
       $(".select-input").each(function () {
         var selectHeight = $(this).data("select-height");
         $(this).selectric({

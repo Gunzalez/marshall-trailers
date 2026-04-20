@@ -737,9 +737,9 @@
                                 <h4 class="title">Or search for a part:</h4>
 
                                 <label for="part_no">
-                                    <span class="sr-only">Part no:</span><input id="part_no" type="text" placeholder="Part no." name="part_no"></label>
+                                    <span class="sr-only">Part no:</span><input id="part_no" type="text" placeholder="Part no." name="part_no" maxlength="50"></label>
                                 <label for="keyword">
-                                    <span class="sr-only">Keyword:</span><input id="keyword" type="text" placeholder="Keyword" name="keyword"></label>
+                                    <span class="sr-only">Keyword:</span><input id="keyword" type="text" placeholder="Keyword" name="keyword" maxlength="50"></label>
                             </div>
 
                             <div class="form-buttons">
@@ -855,12 +855,12 @@
                     const resultsData = ref(null);
 
                     const handleBuyNowClick = (event) => {
-                        const data = `sid=${event.sid}&qty=${event.quantity}&price=${event.price}`;
+                        const data = `id=${event.id}&qty=${event.quantity}&price=${event.price}`;
                         window.location.href = "checkout.html?" + data;
                     };
 
                     const handleAddToBasketClick = (event) => {
-                        const data = `sid=${event.sid}&qty=${event.quantity}&price=${event.price}`;
+                        const data = `id=${event.id}&qty=${event.quantity}&price=${event.price}`;
                         window
                             .MT
                             .basket
