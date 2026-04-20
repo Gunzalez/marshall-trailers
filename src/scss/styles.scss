@@ -626,6 +626,10 @@
     background-color: white;
     background-position: -170px 0;
 
+    @media (min-width: $breakpoint2) {
+      background-position: center center;
+    }
+
     @media (min-width: $breakpoint3) {
       background-position: center center;
       background-size: unset;
