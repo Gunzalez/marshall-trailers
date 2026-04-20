@@ -18,7 +18,7 @@ export default {
     const onBuyNowRelatedClick = (relatedItem) => {
       props.data &&
         emit("buy-now-click", {
-          sid: relatedItem.sid,
+          id: relatedItem.id,
           quantity: 1,
           price: parseFloat(relatedItem.price),
         });
@@ -27,7 +27,7 @@ export default {
     const onAddToBasketRelatedClick = (relatedItem) => {
       props.data &&
         emit("add-to-basket-click", {
-          sid: relatedItem.sid,
+          id: relatedItem.id,
           quantity: 1,
           price: parseFloat(relatedItem.price),
         });
@@ -36,23 +36,23 @@ export default {
     const onBuyNowClick = () => {
       props.data &&
         emit("buy-now-click", {
-          sid: props.data.sid,
+          id: props.data.id,
           quantity: valueFromSelect(),
-          price: parseFloat(props.data.cost_per_item),
+          price: parseFloat(props.data.price),
         });
     };
 
     const onAddToBasketClick = () => {
       props.data &&
         emit("add-to-basket-click", {
-          sid: props.data.sid,
+          id: props.data.id,
           quantity: valueFromSelect(),
-          price: parseFloat(props.data.cost_per_item),
+          price: parseFloat(props.data.price),
         });
     };
 
     const costPerUnit = computed(() => {
-      const val = props.data ? props.data.cost_per_item : null;
+      const val = props.data ? props.data.price : null;
       return window.MT.utils.formatCurrency(val);
     });
 
@@ -60,16 +60,16 @@ export default {
       quantity,
       costPerUnit,
       snSelectRef,
-      id: props.data.sid,
+      id: props.data.id,
       notes: props.data.notes,
       partNo: props.data.part_no,
-      imgLrg: props.data.imgUrlLarge,
-      imgSrl: props.data.imgUrlSmall,
+      imageLarge: props.data.imageLarge,
+      imageSmall: props.data.imageSmall,
       unitWeight: props.data.unit_weight,
-      machines: props.data.machines,
+      products: props.data.products,
       categories: props.data.categories,
-      description: props.data.description,
-      relatedItems: props.data.related_items,
+      title: props.data.title,
+      relatedItems: props.data.related,
       onBuyNowRelatedClick,
       onAddToBasketRelatedClick,
       onBuyNowClick,
@@ -78,9 +78,12 @@ export default {
   },
   template: `
     <div class="result">
-        <a :href="imgLrg" :title="partNo + ' - ' + description" class="glightbox_solo spare-thumbnail" :data-gallery="'part-' + id">
-            <img :src="imgSrl" :alt="description">
+        <a v-if="imageLarge && imageSmall" :href="imageLarge" :title="partNo + ' - ' + title" class="glightbox_solo spare-thumbnail" :data-gallery="'part-' + id">
+            <img :src="imageSmall" :alt="title">
         </a>
+        <div v-else class="coming-soon">
+            <p>Image Coming Soon</p>
+        </div>
         <div class="details">
             <h3 class="title">
                 <div>
@@ -89,18 +92,18 @@ export default {
                 </div>
                 <div>
                     <span class="lbl">Description:</span>
-                    <span class="val">{{ description }}</span>
+                    <span class="val">{{ title }}</span>
                 </div>
             </h3>
-            <div v-if="machines && machines.length > 0" class="machines-wrapper">
-                <h4 class="header">Machines:</h4>
-                <ul class="machines-list">
-                    <li v-for="(machine, index) in machines" :key="index">
-                        <template v-if="machine.link">
-                            <a :href="machine.link" :title="machine.name">{{ machine.name }}</a>
+            <div v-if="products && products.length > 0" class="products-wrapper">
+                <h4 class="header">Products:</h4>
+                <ul class="products-list">
+                    <li v-for="(product, index) in products" :key="index">
+                        <template v-if="product.slug">
+                            <a :href="product.slug" :title="product.title">{{ product.title }}</a>
                         </template>
                         <template v-else>
-                            <span>{{ machine.name }}</span>
+                            <span>{{ product.title }}</span>
                         </template>
                     </li>
                 </ul>
@@ -116,8 +119,13 @@ export default {
             <div v-if="notes && notes.length > 0" class="notes">
                 <h4 class="header">Notes:</h4>
                 <div class="notes-list">
-                    <p v-for="(note, index) in notes" :key="index">
+                    <template v-if="Array.isArray(notes)">
+                        <p v-for="(note, index) in notes" :key="index">
                         {{ note }}
+                    </p>
+                    </template>
+                    <p v-else>
+                        {{ notes }}
                     </p>
                 </div>
             </div>
@@ -125,8 +133,8 @@ export default {
                 <h4 class="header">Related items:</h4>
                 <ul class="related-items-list">
                     <li v-for="(item, index) in relatedItems" :key="index">
-                        <a :href="item.url" :title="item.part_no + ' - ' + item.description" class="glightbox_text" :data-gallery="'related-item-' + id + '-' + item.part_no">{{ item.part_no }}</a>
-                        <span>{{ item.description }}</span>
+                        <a :href="item.image" :title="item.part_no + ' - ' + item.title" class="glightbox_text" :data-gallery="'related-item-' + id + '-' + item.part_no">{{ item.part_no }}</a>
+                        <span>{{ item.title }}</span>
                         <div class="actions">
                             <button type="button" class="bttn secondary-buy" @click.prevent="onBuyNowRelatedClick(item)">
                                 <span class="icon">
@@ -147,7 +155,7 @@ export default {
         </div>
 
         <ul class="pricing">
-            <li>
+            <li v-if="unitWeight">
                 <span class="lbl">Unit weight:</span>
                 <span class="val">{{ unitWeight }}</span>
             </li>

@@ -9,10 +9,10 @@ var filter_title = "Additional filter";
 var spareBasketUrl = "/ajax/ajax_spares_basket.php";
 var TEST_spareBasketUrl = "/pp/mocks/ajax_spares_basket.php";
 
-var filterUrl = "/ajax/ajax_filter.php";
+var filterUrl = "https://dev.marshall.sugarshaker.com/api/spares/filter/";
 var TEST_filterUrl = "/pp/mocks/ajax_filter.php";
 
-var resultsUrl = "/ajax/ajax_filter_results.php";
+var resultsUrl = "https://dev.marshall.sugarshaker.com/api/spares";
 var TEST_resultsUrl = "/pp/mocks/ajax_parts.php";
 
 function clearFilters() {
@@ -78,56 +78,56 @@ document.addEventListener("DOMContentLoaded", () => {
     // get child cats //
     $.ajax({
       type: "get",
-      url: TEST_filterUrl,
-      data: "level=2&pid=" + category_id,
+      url: filterUrl + category_id,
       dataType: "json",
-      success: function (dat) {
-        if (dat.cats !== null) {
-          $("#filter2")
-            .parent(".slide")
-            .addClass("selected")
-            .find("h3")
-            .addClass("stepped-title short")
-            .html(
-              '<span class="step-number">Step 02:</span> <span>' +
-                selectedItemName +
-                "</span>",
-            );
+      success: function (response) {
+        $("#filter2")
+          .parent(".slide")
+          .addClass("selected")
+          .find("h3")
+          .addClass("stepped-title short")
+          .html(
+            '<span class="step-number">Step 02:</span> <span class="truncate">' +
+              selectedItemName +
+              "</span>",
+          );
 
-          for (var i = 0; i < dat.cats.length; i++) {
+        if (response.data.length > 0) {
+          for (var i = 0; i < response.data.length; i++) {
             $("#filter2").append(
               '<li><a href="#" data-cid="' +
-                dat.cats[i].id +
+                response.data[i].id +
                 '" class="filter">' +
-                dat.cats[i].category_name +
+                response.data[i].category_name +
                 "</a></li>",
             );
           }
         }
+        $("#processing").fadeOut("fast");
       },
     });
 
     // get spares results //
-    $.ajax({
-      type: "get",
-      url: TEST_resultsUrl,
-      data:
-        "level=1&cid=" +
-        $(this).val() +
-        "&range=" +
-        $("#range").val() +
-        "&model=" +
-        $("#model").val(),
-      dataType: "json",
-      success: function (content) {
-        $("#processing").fadeOut("fast");
-        showPartsResults(content);
-      },
-      error: function (error) {
-        console.log(error["statusText"]);
-        $("#processing").fadeOut("fast");
-      },
-    });
+    // $.ajax({
+    //   type: "get",
+    //   url: TEST_resultsUrl,
+    //   data:
+    //     "level=1&cid=" +
+    //     $(this).val() +
+    //     "&range=" +
+    //     $("#range").val() +
+    //     "&model=" +
+    //     $("#model").val(),
+    //   dataType: "json",
+    //   success: function (content) {
+    //     $("#processing").fadeOut("fast");
+    //     showPartsResults(content);
+    //   },
+    //   error: function (error) {
+    //     console.log(error["statusText"]);
+    //     $("#processing").fadeOut("fast");
+    //   },
+    // });
   });
 
   $("#parts-filters").on("click", ".filter", function (event) {
@@ -308,10 +308,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     var part_no = $("#part_no").val().trim();
     var keyword = $("#keyword").val().trim();
-
     if (part_no === "" && keyword === "") {
       return;
     }
+    var postData = {
+      part_no: part_no || "",
+      keyword: keyword || "",
+    };
 
     $("#processing").fadeIn("fast");
 
@@ -324,8 +327,8 @@ document.addEventListener("DOMContentLoaded", () => {
     // get spares results //
     $.ajax({
       type: "post",
-      url: TEST_resultsUrl,
-      data: "part_no=" + part_no + "&keyword=" + keyword,
+      url: resultsUrl,
+      data: postData,
       dataType: "json",
       success: function (content) {
         $("#processing").fadeOut("fast");
