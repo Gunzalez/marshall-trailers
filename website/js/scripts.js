@@ -716,18 +716,24 @@ window.data = data;
 
     /**
      * Formats a float as a localized currency string.
-     * @param {number} value - The float/number to format.
+     * @param {number|string} value - The float/number/string to format.
      * @returns {string} The formatted currency string.
      */
     formatCurrency: function (value) {
-      var currency = "GBP"; // - The ISO 4217 currency code (e.g., 'USD', 'EUR').
-      var locale = "en-GB"; // - The BCP 47 language tag (e.g., 'en-US', 'de-DE').
+      var currency = "GBP";
+      var locale = "en-GB";
+      var cleanValue = parseFloat(String(value).replace(/,/g, ""));
+
+      if (isNaN(cleanValue)) {
+        cleanValue = 0;
+      }
+
       return new Intl.NumberFormat(locale, {
         style: "currency",
         currency: currency,
         minimumFractionDigits: 2,
         maximumFractionDigits: 2,
-      }).format(value);
+      }).format(cleanValue);
     },
 
     /**

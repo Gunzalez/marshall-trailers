@@ -771,114 +771,71 @@
                             }
 
                             const groupOptionsByType = (options) => {
-                                return Object.groupBy(options, (item) => item.type.name);
+                                return Object.groupBy(options, (item) => item.category_name);
                             }
 
                             const decorateOptions = (data) => {
                                 return Object.entries(groupOptionsByType(wrapWithStateProps(data)));
                             }
 
-                            const handleOptionClick = (option) => {
+                            const handleOptionClick = async (option) => {
+
+                                const productId = window.basicMachine.id
+                                const optionId = option.id;
+                                const relatedOptionsUrl = `https://dev.marshall.sugarshaker.com/api/configure/${productId}/option/${optionId}/related`;
+
+                                const fetchRelated = async () => {
+                                    try {
+                                        const res = await fetch(relatedOptionsUrl, {
+                                            method: "GET",
+                                            headers: {
+                                                "Content-Type": "application/json"
+                                            }
+                                        });
+                                        return await res.json();
+                                    } catch (error) {
+                                        console.error("Error fetching related options:", error);
+                                        return [];
+                                    }
+                                };
+
+                                const relatedOptions = await fetchRelated();
+                                const relatedOptionIds = relatedOptions.map(msg => msg.id);
+                                const relatedMessage = relatedOptions[0]
+                                    ?.message || "Default Conflict Message";
+
+                                const type = relatedOptions[0]
+                                    ?.type || "---";
 
                                 if (option.isSelected) {
-                                    const havenotsList = option.havenot.list || [];
-                                    havenotsList.forEach(haveNotId => {
-                                        const index = groupedOptions
+                                    if (type === "SER") {
+                                        groupedOptions
                                             .value
-                                            .flatMap(group => group[1])
-                                            .findIndex(item => item.id === haveNotId);
-
-                                        if (index !== -1) {
-                                            const messages = groupedOptions
-                                                .value
-                                                .flatMap(group => group[1])
-                                                .find(item => item.id === haveNotId)
-                                                .messages
-                                                .filter(msg => msg.id !== option.id);
-
-                                            groupedOptions
-                                                .value
-                                                .forEach(group => {
-                                                    group[1].forEach(item => {
-                                                        if (item.id === haveNotId) {
-                                                            item.messages = messages;
-                                                            if (messages.length === 0) {
-                                                                item.isSelected = false;
-                                                            }
-                                                        }
-                                                    });
+                                            .forEach(group => {
+                                                group[1].forEach(item => {
+                                                    if (relatedOptionIds.includes(item.id)) {
+                                                        item.messages = (item.messages || []).filter(msg => msg.id !== option.id);
+                                                    }
                                                 });
-
-                                        }
-                                    });
-
-                                    const havesList = option.have.list || [];
-                                    havesList.forEach(haveId => {
-                                        const index = groupedOptions
-                                            .value
-                                            .flatMap(group => group[1])
-                                            .findIndex(item => item.id === haveId);
-                                        if (index !== -1) {
-                                            const messages = groupedOptions
-                                                .value
-                                                .flatMap(group => group[1])
-                                                .find(item => item.id === haveId)
-                                                .messages
-                                                .filter(msg => msg.id !== option.id);
-                                            groupedOptions
-                                                .value
-                                                .forEach(group => {
-                                                    group[1].forEach(item => {
-                                                        if (item.id === haveId) {
-                                                            item.messages = messages;
-                                                            if (messages.length === 0) {
-                                                                item.isSelected = false;
-                                                            }
-                                                        }
-                                                    });
-                                                });
-                                        }
-                                    });
-
+                                            });
+                                    }
                                     option.isSelected = false;
                                 } else {
-                                    const havenotsList = option.havenot.list || [];
-                                    havenotsList.forEach(haveNotId => {
-                                        const index = groupedOptions
+                                    if (type === "SER") {
+                                        groupedOptions
                                             .value
-                                            .flatMap(group => group[1])
-                                            .findIndex(item => item.id === haveNotId);
-                                        if (index !== -1) {
-                                            groupedOptions
-                                                .value
-                                                .flatMap(group => group[1])
-                                                .find(item => item.id === haveNotId)
-                                                .messages
-                                                .push({id: option.id, text: option.havenot.message});
-                                        }
-                                    });
-
-                                    const havesList = option.have.list || [];
-                                    havesList.forEach(haveId => {
-                                        const index = groupedOptions
-                                            .value
-                                            .flatMap(group => group[1])
-                                            .findIndex(item => item.id === haveId);
-                                        if (index !== -1) {
-                                            groupedOptions
-                                                .value
-                                                .flatMap(group => group[1])
-                                                .find(item => item.id === haveId)
-                                                .isSelected = true;
-                                            groupedOptions
-                                                .value
-                                                .flatMap(group => group[1])
-                                                .find(item => item.id === haveId)
-                                                .messages
-                                                .push({id: option.id, text: option.have.message});
-                                        }
-                                    });
-
+                                            .forEach(group => {
+                                                group[1].forEach(item => {
+                                                    if (relatedOptionIds.includes(item.id)) {
+                                                        const messages = item.messages || [];
+                                                        if (!messages.find(msg => msg.id === option.id)) {
+                                                            messages.push({id: option.id, text: relatedMessage});
+                                                            item.messages = messages;
+                                                        }
+                                                    }
+                                                });
+                                            });
+                                    }
                                     option.isSelected = true;
                                 }
 
