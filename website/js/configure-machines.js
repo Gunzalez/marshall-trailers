@@ -3,7 +3,8 @@
   "use strict";
 
   var configureAjaxUrl = "/ajax/ajax_configure_get_content.php";
-  var TEST_configureAjaxUrl = "/pp/mocks/ajax_configure_content.php";
+  var TEST_configureAjaxUrl =
+    "https://dev.marshall.sugarshaker.com/api/configure/";
 
   var configureOptionsUrl = "/ajax/ajax_configure_get_options.php";
   var TEST_ConfigureOptionsUrl = "/pp/mocks/ajax_configure_get_options.php";
@@ -67,12 +68,11 @@
   }
 
   function showBasicInfo(data) {
-    $("#product-hero-image").css(
-      "background-image",
-      "url('" + data.image + "')",
-    );
+    var imageUrl = data.image ? data.image : "images/sample-hero-bg.jpg";
+    $("#product-hero-image").css("background-image", "url('" + imageUrl + "')");
     var $specsContent = $("#basic-machine .specs-content");
     $specsContent.find(".title").text(data.title);
+
     var $specsList = data.specs.map(function (spec) {
       var $li = $("<li>").html(
         "<span class='label'>" + spec.label + "</span> ",
@@ -109,12 +109,11 @@
     hideBasicInfo();
 
     $.ajax({
-      type: "post",
-      url: TEST_configureAjaxUrl,
-      data: "product_id=" + product_Id,
+      type: "get",
+      url: TEST_configureAjaxUrl + product_Id,
       dataType: "json",
-      success: function (data) {
-        showBasicInfo(data);
+      success: function (response) {
+        showBasicInfo(response.data);
         isAjaxBusy = false;
         hideProcessing();
       },
