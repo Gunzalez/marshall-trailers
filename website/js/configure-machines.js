@@ -2,12 +2,7 @@
 (function () {
   "use strict";
 
-  var configureAjaxUrl = "/ajax/ajax_configure_get_content.php";
-  var TEST_configureAjaxUrl =
-    "https://dev.marshall.sugarshaker.com/api/configure/";
-
-  var configureOptionsUrl = "/ajax/ajax_configure_get_options.php";
-  var TEST_ConfigureOptionsUrl = "/pp/mocks/ajax_configure_get_options.php";
+  var configureAjaxUrl = "https://dev.marshall.sugarshaker.com/api/configure/";
 
   let isAjaxBusy = false;
   window.basicMachine = null;
@@ -20,42 +15,28 @@
   }
 
   $("#product-detail").on("click", ".btn_AddOptions", function () {
-    if (!window.basicMachine) return;
+    if (
+      !window.basicMachine ||
+      (window.basicMachine.options || []).length === 0
+    )
+      return;
 
-    showProcessing();
     var $addOptionsButtons = $(".btn_AddOptions");
     $addOptionsButtons.prop("disabled", true);
     clearAppData();
-    $.ajax({
-      type: "post",
-      url: TEST_ConfigureOptionsUrl,
-      data: "product_id=" + window.basicMachine.id,
-      dataType: "json",
-      success: function (optionsData) {
-        // disable button
-        $addOptionsButtons.prop("disabled", true);
-        // update Vue app
-        if (window.configureMachineApp) {
-          window.configureMachineApp.initialOption = window.basicMachine;
-          window.configureMachineApp.optionsData = optionsData.data;
-        }
-        // update global basket
-        var data =
-          "sid=" +
-          window.basicMachine.id +
-          "&qty=" +
-          1 +
-          "&price=" +
-          window.basicMachine.price;
-        window.MT.basket.update(data);
-        hideProcessing();
-      },
-      error: function (xhr, status, error) {
-        // TODO: Show user-friendly error message on the page
-        console.log({ xhr, status, error });
-        console.error("Error fetching machine details:", error);
-      },
-    });
+
+    if (window.configureMachineApp) {
+      window.configureMachineApp.initialOption = window.basicMachine;
+      window.configureMachineApp.optionsData = window.basicMachine.options;
+    }
+    var data =
+      "id=" +
+      window.basicMachine.id +
+      "&qty=" +
+      1 +
+      "&price=" +
+      window.basicMachine.price;
+    window.MT.basket.update(data);
   });
 
   function printValueSpans(value) {
@@ -110,7 +91,7 @@
 
     $.ajax({
       type: "get",
-      url: TEST_configureAjaxUrl + product_Id,
+      url: configureAjaxUrl + product_Id,
       dataType: "json",
       success: function (response) {
         showBasicInfo(response.data);
