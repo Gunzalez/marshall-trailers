@@ -1574,8 +1574,21 @@
     }
 
     .image {
-      width: 160px;
+      width: 140px;
       transition: all 0.3s ease-in-out;
+    }
+
+    .missing-image {
+      width: 140px;
+      height: 140px;
+      padding: 0 10px;
+      background-color: var(--brand-gray-dark);
+      display: flex;
+      align-items: center;
+      text-align: center;
+      justify-content: center;
+      color: var(--brand-text);
+      font-size: 0.9rem;
     }
 
     .price {
