@@ -778,11 +778,24 @@
                                 return Object.entries(groupOptionsByType(wrapWithStateProps(data)));
                             }
 
+                            const getRelatedOptionsUrl = (productId, optionId) => {
+                                return `https://dev.marshall.sugarshaker.com/api/configure/${productId}/option/${optionId}/related`;
+                            }
+
                             const handleOptionClick = async (option) => {
+
+                                if (!option.has_related) {
+                                    if (option.isSelected) {
+                                        option.isSelected = false;
+                                    } else {
+                                        option.isSelected = true;
+                                    }
+                                    return;
+                                }
 
                                 const productId = window.basicMachine.id
                                 const optionId = option.id;
-                                const relatedOptionsUrl = `https://dev.marshall.sugarshaker.com/api/configure/${productId}/option/${optionId}/related`;
+                                const relatedOptionsUrl = getRelatedOptionsUrl(productId, optionId);
 
                                 const fetchRelated = async () => {
                                     try {
@@ -801,41 +814,51 @@
 
                                 const relatedOptions = await fetchRelated();
                                 const relatedOptionIds = relatedOptions.map(msg => msg.id);
-                                const relatedMessage = relatedOptions[0]
-                                    ?.message || "Default Conflict Message";
 
                                 const type = relatedOptions[0]
                                     ?.type || "---";
 
                                 if (option.isSelected) {
-                                    if (type === "SER") {
-                                        groupedOptions
-                                            .value
-                                            .forEach(group => {
-                                                group[1].forEach(item => {
-                                                    if (relatedOptionIds.includes(item.id)) {
-                                                        item.messages = (item.messages || []).filter(msg => msg.id !== option.id);
+                                    groupedOptions
+                                        .value
+                                        .forEach(group => {
+                                            group[1].forEach(item => {
+                                                if (relatedOptionIds.includes(item.id)) {
+
+                                                    const relatedOption = relatedOptions.find(option => option.id === item.id);
+                                                    if (relatedOption.action === "add") {
+                                                        item.isSelected = false;
                                                     }
-                                                });
+
+                                                    item.messages = (item.messages || []).filter(msg => msg.id !== option.id);
+                                                }
                                             });
-                                    }
+                                        });
                                     option.isSelected = false;
                                 } else {
-                                    if (type === "SER") {
-                                        groupedOptions
-                                            .value
-                                            .forEach(group => {
-                                                group[1].forEach(item => {
-                                                    if (relatedOptionIds.includes(item.id)) {
-                                                        const messages = item.messages || [];
-                                                        if (!messages.find(msg => msg.id === option.id)) {
-                                                            messages.push({id: option.id, text: relatedMessage});
-                                                            item.messages = messages;
-                                                        }
+                                    groupedOptions
+                                        .value
+                                        .forEach(group => {
+                                            group[1].forEach(item => {
+                                                if (relatedOptionIds.includes(item.id)) {
+
+                                                    const relatedOption = relatedOptions.find(option => option.id === item.id);
+                                                    if (relatedOption.action === "add") {
+                                                        item.isSelected = true;
                                                     }
-                                                });
+
+                                                    const messages = item.messages || [];
+                                                    if (!messages.find(msg => msg.id === option.id)) {
+                                                        const relatedMessage = relatedOption
+                                                            ?.message || "Related option";
+
+                                                        messages.push({id: option.id, text: relatedMessage});
+                                                        item.messages = messages;
+
+                                                    }
+                                                }
                                             });
-                                    }
+                                        });
                                     option.isSelected = true;
                                 }
 

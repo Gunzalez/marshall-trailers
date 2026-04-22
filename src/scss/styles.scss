@@ -1643,17 +1643,21 @@
       }
     }
 
-    &.selected {
-      .title {
-        background-color: var(--brand-yellow);
-      }
-    }
-
     &.disabled {
       cursor: not-allowed;
 
+      .title {
+        background-color: var(--brand-gray);
+      }
+
       .image {
         opacity: 0.4;
+      }
+    }
+
+    &.selected {
+      .title {
+        background-color: var(--brand-yellow);
       }
     }
 
