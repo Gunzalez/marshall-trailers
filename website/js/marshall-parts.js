@@ -149,10 +149,9 @@ document.addEventListener("DOMContentLoaded", () => {
     // get child cats //
     $.ajax({
       type: "get",
-      url: TEST_filterUrl,
-      data: "level=" + nextFilter + "&pid=" + cat_id,
+      url: filterUrl + cat_id,
       dataType: "json",
-      success: function (dat) {
+      success: function (response) {
         for (var i = nextFilter; i <= totalNumFilters; i++) {
           $("#filter" + i)
             .parent(".slide")
@@ -160,29 +159,26 @@ document.addEventListener("DOMContentLoaded", () => {
           $("#filter" + i).empty();
         }
 
-        if (dat.cats !== null) {
+        if (response.data.length > 0) {
           $("#filter" + nextFilter)
             .parent(".slide")
-            .addClass("selected");
-
-          $("#filter" + nextFilter)
-            .parent(".slide")
+            .addClass("selected")
             .find("h3")
             .addClass("stepped-title short")
             .html(
               '<span class="step-number">Step ' +
                 nextFilter +
-                ":</span> <span>" +
+                ':</span> <span class="truncate">' +
                 selectedItemName +
                 "</span>",
             );
 
-          for (var i = 0; i < dat.cats.length; i++) {
+          for (var i = 0; i < response.data.length; i++) {
             $("#filter" + nextFilter).append(
               '<li><a href="#" data-cid="' +
-                dat.cats[i].id +
+                response.data[i].id +
                 '" class="filter">' +
-                dat.cats[i].category_name +
+                response.data[i].category_name +
                 "</a></li>",
             );
           }
@@ -201,24 +197,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
     clearPartsResults();
     // get spares results //
-    $.ajax({
-      type: "get",
-      url: TEST_resultsUrl,
-      data:
-        "level=" +
-        level +
-        "&cid=" +
-        cat_id +
-        "&range=" +
-        $("#range").val() +
-        "&model=" +
-        $("#model").val(),
-      dataType: "json",
-      success: function (content) {
-        $("#processing").fadeOut("fast");
-        showPartsResults(content);
-      },
-    });
+    // $.ajax({
+    //   type: "get",
+    //   url: TEST_resultsUrl,
+    //   data:
+    //     "level=" +
+    //     level +
+    //     "&cid=" +
+    //     cat_id +
+    //     "&range=" +
+    //     $("#range").val() +
+    //     "&model=" +
+    //     $("#model").val(),
+    //   dataType: "json",
+    //   success: function (content) {
+    //     $("#processing").fadeOut("fast");
+    //     showPartsResults(content);
+    //   },
+    // });
   });
 
   $("#range").on("change", function () {
