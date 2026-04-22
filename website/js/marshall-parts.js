@@ -6,14 +6,14 @@ var numVisibleFilters = 3;
 var filters_sliding = false;
 var filter_title = "Additional filter";
 
-var spareBasketUrl = "/ajax/ajax_spares_basket.php";
 var TEST_spareBasketUrl = "/pp/mocks/ajax_spares_basket.php";
-
 var filterUrl = "https://dev.marshall.sugarshaker.com/api/spares/filter/";
-var TEST_filterUrl = "/pp/mocks/ajax_filter.php";
+var sparesSearchUrl = "https://dev.marshall.sugarshaker.com/api/spares";
+var resultsUrl = "https://dev.marshall.sugarshaker.com/api/spares/category/";
 
-var resultsUrl = "https://dev.marshall.sugarshaker.com/api/spares";
-var TEST_resultsUrl = "/pp/mocks/ajax_parts.php";
+function getProductsFromRangeUrl(rid) {
+  return `https://dev.marshall.sugarshaker.com/api/spares/filter/range/${rid}/products`;
+}
 
 function clearFilters() {
   for (var i = 2; i <= totalNumFilters; i++) {
@@ -33,9 +33,9 @@ function clearPartsResults() {
   }
 }
 
-function updateFieldsMeta(level, cid) {
-  $("#fields").data("level", level);
-  $("#fields").data("cid", cid);
+function updateFieldsMeta(values) {
+  $("#fields").data("level", values.level);
+  $("#fields").data("cid", values.cid);
 }
 
 function clearInputFields() {
@@ -67,12 +67,11 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     $("#range").prop("disabled", false).selectric("refresh");
-
     $("#processing").fadeIn("fast");
 
     // set data, used by model, range selects
     var category_id = $(this).val();
-    updateFieldsMeta(1, category_id);
+    updateFieldsMeta({ level: 1, cid: category_id });
     var selectedItemName = $("#filter1 option:selected").text();
 
     // get child cats //
@@ -103,31 +102,23 @@ document.addEventListener("DOMContentLoaded", () => {
             );
           }
         }
-        $("#processing").fadeOut("fast");
       },
     });
 
     // get spares results //
-    // $.ajax({
-    //   type: "get",
-    //   url: TEST_resultsUrl,
-    //   data:
-    //     "level=1&cid=" +
-    //     $(this).val() +
-    //     "&range=" +
-    //     $("#range").val() +
-    //     "&model=" +
-    //     $("#model").val(),
-    //   dataType: "json",
-    //   success: function (content) {
-    //     $("#processing").fadeOut("fast");
-    //     showPartsResults(content);
-    //   },
-    //   error: function (error) {
-    //     console.log(error["statusText"]);
-    //     $("#processing").fadeOut("fast");
-    //   },
-    // });
+    $.ajax({
+      type: "get",
+      url: resultsUrl + category_id,
+      dataType: "json",
+      success: function (response) {
+        showPartsResults(response);
+        $("#processing").fadeOut("fast");
+      },
+      error: function (error) {
+        console.log(error["statusText"]);
+        $("#processing").fadeOut("fast");
+      },
+    });
   });
 
   $("#parts-filters").on("click", ".filter", function (event) {
@@ -143,8 +134,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     var cat_id = $(this).data("cid");
 
-    // set data, used by model, range selects //
-    updateFieldsMeta(level, cat_id);
+    /* set data, used by model, range selects */
+    updateFieldsMeta({ level: level, cid: cat_id });
 
     // get child cats //
     $.ajax({
@@ -190,31 +181,24 @@ document.addEventListener("DOMContentLoaded", () => {
             window.MT.partsFilters.carousel.slick("slickGoTo", slideIndex - 2);
           }
         }
-
-        $("#processing").fadeOut("fast");
       },
     });
 
     clearPartsResults();
     // get spares results //
-    // $.ajax({
-    //   type: "get",
-    //   url: TEST_resultsUrl,
-    //   data:
-    //     "level=" +
-    //     level +
-    //     "&cid=" +
-    //     cat_id +
-    //     "&range=" +
-    //     $("#range").val() +
-    //     "&model=" +
-    //     $("#model").val(),
-    //   dataType: "json",
-    //   success: function (content) {
-    //     $("#processing").fadeOut("fast");
-    //     showPartsResults(content);
-    //   },
-    // });
+    $.ajax({
+      type: "get",
+      url: resultsUrl + cat_id,
+      dataType: "json",
+      success: function (response) {
+        showPartsResults(response);
+        $("#processing").fadeOut("fast");
+      },
+      error: function (error) {
+        console.log(error["statusText"]);
+        $("#processing").fadeOut("fast");
+      },
+    });
   });
 
   $("#range").on("change", function () {
@@ -232,18 +216,17 @@ document.addEventListener("DOMContentLoaded", () => {
     // get products //
     $.ajax({
       type: "get",
-      url: "/ajax/ajax_get_products.php",
-      data: "rid=" + rid,
+      url: getProductsFromRangeUrl(rid),
       dataType: "json",
-      success: function (dat) {
-        if (dat.products != null) {
+      success: function (response) {
+        if (response.length > 0) {
           $("#model").append('<option value=""> Select a model </option>');
-          for (var i = 0; i < dat.products.length; i++) {
+          for (var i = 0; i < response.length; i++) {
             $("#model").append(
               '<option value="' +
-                dat.products[i].id +
+                response[i].id +
                 '"> ' +
-                dat.products[i].product_title +
+                response[i].title +
                 " </option>",
             );
           }
@@ -256,12 +239,11 @@ document.addEventListener("DOMContentLoaded", () => {
     // get spares results //
     $.ajax({
       type: "get",
-      url: TEST_resultsUrl,
-      data: "level=" + level + "&cid=" + cat_id + "&range=" + rid,
+      url: resultsUrl + cat_id + "/" + rid,
       dataType: "json",
-      success: function (content) {
+      success: function (response) {
         $("#processing").fadeOut("fast");
-        showPartsResults(content);
+        showPartsResults(response);
       },
     });
   });
@@ -276,25 +258,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
     var level = $("#fields").data("level");
     var cat_id = $("#fields").data("cid");
+    var rid = $("#range").val();
 
     clearPartsResults();
     // get spares result //
     $.ajax({
       type: "get",
-      url: TEST_resultsUrl,
-      data:
-        "level=" +
-        level +
-        "&cid=" +
-        cat_id +
-        "&range=" +
-        $("#range").val() +
-        "&model=" +
-        model_id,
+      url: resultsUrl + cat_id + "/" + rid + "/" + model_id,
       dataType: "json",
-      success: function (content) {
+      success: function (response) {
+        showPartsResults(response);
         $("#processing").fadeOut("fast");
-        showPartsResults(content);
       },
     });
   });
@@ -307,10 +281,16 @@ document.addEventListener("DOMContentLoaded", () => {
     if (part_no === "" && keyword === "") {
       return;
     }
-    var postData = {
-      part_no: part_no || "",
-      keyword: keyword || "",
+    var rawData = {
+      part_no: part_no,
+      keyword: keyword,
     };
+
+    var postData = Object.fromEntries(
+      Object.entries(rawData).filter(
+        ([_, value]) => value !== "" && value != null,
+      ),
+    );
 
     $("#processing").fadeIn("fast");
 
@@ -323,12 +303,12 @@ document.addEventListener("DOMContentLoaded", () => {
     // get spares results //
     $.ajax({
       type: "post",
-      url: resultsUrl,
+      url: sparesSearchUrl,
       data: postData,
       dataType: "json",
-      success: function (content) {
+      success: function (response) {
         $("#processing").fadeOut("fast");
-        showPartsResults(content);
+        showPartsResults(response);
         setTimeout(() => {
           $("#parts-results-app")[0].scrollIntoView({ behavior: "smooth" });
         }, 100);
