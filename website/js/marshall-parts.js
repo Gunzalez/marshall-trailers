@@ -124,6 +124,10 @@ document.addEventListener("DOMContentLoaded", () => {
   $("#parts-filters").on("click", ".filter", function (event) {
     event.preventDefault();
 
+    if ($(this).parent().hasClass("selected")) {
+      return;
+    }
+
     $("#processing").fadeIn("fast");
     $(this).parent().addClass("selected");
     $(this).parent().siblings().removeClass("selected");
@@ -140,46 +144,51 @@ document.addEventListener("DOMContentLoaded", () => {
     // get child cats //
     $.ajax({
       type: "get",
-      url: filterUrl + cat_id,
+      url: `${filterUrl}${cat_id}`,
       dataType: "json",
       success: function (response) {
-        for (var i = nextFilter; i <= totalNumFilters; i++) {
-          $("#filter" + i)
-            .parent(".slide")
-            .removeClass("selected");
-          $("#filter" + i).empty();
+        const { data } = response;
+        const hasData = data && data.length > 0;
+        const $carousel = window.MT.partsFilters.carousel;
+
+        for (let i = nextFilter; i <= totalNumFilters; i++) {
+          const $container = $(`#filter${i}`);
+          $container.empty().parent(".slide").removeClass("selected");
+          $container
+            .siblings("h3")
+            .removeClass("stepped-title")
+            .html(`<span class="empty">${filter_title}</span>`);
         }
 
-        if (response.data.length > 0) {
-          $("#filter" + nextFilter)
+        if (hasData) {
+          const $currentFilter = $(`#filter${nextFilter}`);
+          const $parentSlide = $currentFilter.parent(".slide");
+
+          $parentSlide.addClass("selected");
+          $parentSlide.find("h3").addClass("stepped-title short").html(`
+          <span class="step-number">Step ${nextFilter}:</span> 
+          <span class="truncate">${selectedItemName}</span>
+        `);
+
+          const listItems = data
+            .map(
+              (item) => `
+        <li>
+          <a href="#" data-cid="${item.id}" class="filter">${item.category_name}</a>
+        </li>
+      `,
+            )
+            .join("");
+
+          $currentFilter.append(listItems);
+        }
+
+        if ($carousel) {
+          const targetLevel = hasData ? nextFilter : level;
+          const slideIndex = $(`#filter${targetLevel}`)
             .parent(".slide")
-            .addClass("selected")
-            .find("h3")
-            .addClass("stepped-title short")
-            .html(
-              '<span class="step-number">Step ' +
-                nextFilter +
-                ':</span> <span class="truncate">' +
-                selectedItemName +
-                "</span>",
-            );
-
-          for (var i = 0; i < response.data.length; i++) {
-            $("#filter" + nextFilter).append(
-              '<li><a href="#" data-cid="' +
-                response.data[i].id +
-                '" class="filter">' +
-                response.data[i].category_name +
-                "</a></li>",
-            );
-          }
-
-          // Scrolls only on desktop. This value is null on mobile, as the carousel is not initialised on mobile.
-          if (window.MT.partsFilters.carousel) {
-            var $slide = $("#filter" + nextFilter).parent(".slide");
-            var slideIndex = $slide.index();
-            window.MT.partsFilters.carousel.slick("slickGoTo", slideIndex - 2);
-          }
+            .index();
+          $carousel.slick("slickGoTo", slideIndex - 2);
         }
       },
     });

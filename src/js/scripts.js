@@ -361,10 +361,6 @@
       this.carousel.slick("slickPrev");
     },
 
-    reset: function () {
-      this.carousel.slick("slickGoTo", 0);
-    },
-
     init: function () {
       if (window.innerWidth < this.desktopWidthThreshold) return;
 
@@ -383,21 +379,6 @@
       $(".parts-filters-wrapper").addClass("initialized");
 
       this.carousel.on(
-        "beforeChange",
-        function (event, slick, currentSlideIndex, nextSlideIndex) {
-          if (currentSlideIndex > nextSlideIndex) {
-            $(
-              "#filter" +
-                (nextSlideIndex + marshallTrailers.partsFilters.visibleSlides),
-            )
-              .find("li")
-              .removeClass("selected");
-          }
-          window.clearPartsResults();
-        },
-      );
-
-      this.carousel.on(
         "afterChange",
         function (event, slick, currentSlideIndex) {
           if (currentSlideIndex > 0) {
@@ -406,14 +387,16 @@
             $(".prev-filter").prop("disabled", true);
           }
 
-          if (
-            currentSlideIndex >=
-            marshallTrailers.partsFilters.totalSlides -
-              marshallTrailers.partsFilters.visibleSlides
-          ) {
-            $(".reset-filters").prop("disabled", false);
+          var $currentFilter = $(
+            "#filter" +
+              (currentSlideIndex +
+                slick.slideCount -
+                slick.options.slidesToShow),
+          );
+          if ($currentFilter.parent(".slide").hasClass("selected")) {
+            $(".next-filter").prop("disabled", false);
           } else {
-            $(".reset-filters").prop("disabled", true);
+            $(".next-filter").prop("disabled", true);
           }
         },
       );
@@ -424,10 +407,6 @@
 
       $(".next-filter").on("click", function () {
         marshallTrailers.partsFilters.next();
-      });
-
-      $(".reset-filters").on("click", function () {
-        marshallTrailers.partsFilters.reset();
       });
     },
   };

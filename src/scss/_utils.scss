@@ -1128,7 +1128,9 @@
 }
 
 .gdesc-inner {
-  border-top: 4px solid var(--brand-yellow);
+  @media (min-width: 768px) {
+    border-top: 4px solid var(--brand-yellow);
+  }
 }
 
 .gslide-description {
