@@ -55,7 +55,7 @@ export default {
             </h2>
             <ul class="parts-categories-list grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
                 <li v-for="category in categories" :key="category.id" class="category-item">
-                    <a :href="category.id" :class="{ 'selected': selectedCategoryId === category.id }" @click.prevent="$emit('category-click', category.id)">
+                    <a :href="category.id" :class="{ 'selected': selectedCategoryId === category.id }" @click.prevent="$emit('category-click', category)">
                         {{ category.category_name }}
                     </a>
                 </li>

@@ -7,16 +7,18 @@ export default {
     RecursiveContainer,
   },
   props: {
+    selectedCategoryName: String,
     parts: Object || null,
   },
   emits: ["buy-now-click", "add-to-basket-click"],
   setup(props) {
     const parts = ref(null);
-    const secondaryPartCategory = ref(null);
+    const scrollRef = ref(null);
+    const selectedCategoryName = ref("");
 
     const scrollToSecondaryPartCategory = async () => {
       await nextTick();
-      secondaryPartCategory.value.scrollIntoView({ behavior: "smooth" });
+      scrollRef.value.scrollIntoView({ behavior: "smooth" });
     };
 
     watch(
@@ -30,19 +32,30 @@ export default {
       { deep: true },
     );
 
+    watch(
+      () => props.selectedCategoryName,
+      (newName) => {
+        selectedCategoryName.value = newName;
+      },
+    );
+
     return {
       parts,
-      secondaryPartCategory,
+      scrollRef,
+      selectedCategoryName,
     };
   },
   template: `
     <div v-if="parts" class="section">
-        <h2 id="secondary-part-category" class="stepped-title deep-underline" ref="secondaryPartCategory">
+        <h2 id="secondary-part-category" class="stepped-title deep-underline" ref="scrollRef">
             <span class="step-number">Step 02:</span>
             <span>Select secondary part category</span>
         </h2>
-        <form id="serial-parts-form" class="form">
-          <RecursiveContainer :node="parts" :depth="1"
+        <form id="serial-parts-form" class="form serial-parts-form">
+          <div class="strikethrough-title">
+              <h3 class="main-title">{{ selectedCategoryName }}: {{ parts.length }} result{{ parts.length !== 1 ? 's' : '' }} found.</h3>
+          </div>
+          <RecursiveContainer v-for="(part, index) in parts" :key="index" :node="part" :depth="1"
             @buy-now-click="$emit('buy-now-click', $event)"
             @add-to-basket-click="$emit('add-to-basket-click', $event)" />
         </form>
