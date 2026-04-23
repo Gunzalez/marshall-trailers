@@ -95,6 +95,10 @@
 
 - 13th April: 3hrs
 - 14th April: 4hrs
+- 19th April: 1hr
+- 20th April: 4hrs
+- 21st April: 2hrs
+- 22nd April: 6hrs
 
 #### NEXT
 
