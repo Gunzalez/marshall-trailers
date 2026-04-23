@@ -550,7 +550,7 @@
 
         <serial-hero 
             :data="data"
-            :selected-category-key="selectedCategoryKey"
+            :selected-category-id="selectedCategoryId"
             @category-click="handleCategoryClick"
             @not-my-marshall-click="handleNotMyMarshallClick"
             @more-details-click="handleMoreDetailsClick"></serial-hero>
@@ -610,14 +610,7 @@
         import SerialHero from "./js/components/serial-hero.js";
         import SerialParts from "./js/components/serial-parts.js";
 
-        // replace with PHP
-        document.addEventListener('DOMContentLoaded', () => {
-            const queryString = window.location.search;
-            const urlParams = new URLSearchParams(queryString);
-            const serial_number = urlParams.get('serial-number');
-            $('.dummy-data-serial-number-TEXT').text(serial_number);
-        });
-        const serialNumberData = {"id":"qm1800","image":"images/sample-hero-bg.jpg","title":"QM-1600","specifications":[{"name":"Model","value":"QM-1600"},{"name":"Material Description","value":"BC/25-10ton Bale/Flat Trailer"},{"name":"Basic Trailer Weight","value":"340 kgs"},{"name":"Tipping Mechanism","value":"Single 5 Stage Hydraulic Ram"},{"name":"Carrying Capacity","value":"5 tons"},{"name":"Standard Tyre Size","value":"10.0 x 15 - 10 ply"},{"name":"Axles","value":"6 Stud Axle (300 x 100mm)"},{"name":"Braking System","value":"Hydraulic Brakes"},{"name":"Suspension","value":"Rockers"}],"categories":[{"name":"Axles","key":"axles"},{"name":"Bearings","key":"bearings"},{"name":"Bolts","key":"bolts"},{"name":"Cover Couplings","key":"cover+couplings"},{"name":"Handbrakes","key":"handbrakes"},{"name":"Hitches","key":"hitches"},{"name":"Hydraulic Hoses","key":"hydraulic+hoses"},{"name":"Lights","key":"lights"},{"name":"Mesh","key":"mesh"},{"name":"Miscellaneous","key":"miscellaneous"},{"name":"Other Rams","key":"other+rams"},{"name":"Paint","key":"paint"},{"name":"Rocker Tandems","key":"rocker+tandems"},{"name":"Seals","key":"seals"},{"name":"Springs","key":"springs"},{"name":"Steel Sections","key":"steel+sections"},{"name":"Tip Rams","key":"tip+rams"},{"name":"Transfer","key":"transfer"},{"name":"Valves","key":"valves"}]};
+        const serialNumberData = {"id":"qm1800","image":"images/sample-hero-bg.jpg","title":"QM-1600","specifications":[{"name":"Model","value":"QM-1600"},{"name":"Material Description","value":"BC/25-10ton Bale/Flat Trailer"},{"name":"Basic Trailer Weight","value":"340 kgs"},{"name":"Tipping Mechanism","value":"Single 5 Stage Hydraulic Ram"},{"name":"Carrying Capacity","value":"5 tons"},{"name":"Standard Tyre Size","value":"10.0 x 15 - 10 ply"},{"name":"Axles","value":"6 Stud Axle (300 x 100mm)"},{"name":"Braking System","value":"Hydraulic Brakes"},{"name":"Suspension","value":"Rockers"}],"categories":[{"id":"1","category_name":"Muckspreader Shafts"},{"id":"2","category_name":"Marshall Products"},{"id":"3","category_name":"Bolts"},{"id":"4","category_name":"Hydraulic Hoses"},{"id":"5","category_name":"Drive Chains"},{"id":"6","category_name":"Hitches"},{"id":"7","category_name":"Other Rams"},{"id":"8","category_name":"Sprockets"},{"id":"9","category_name":"Bearings"},{"id":"10","category_name":"Flail Chains"},{"id":"11","category_name":"Lights"},{"id":"12","category_name":"Handbrakes"},{"id":"13","category_name":"Transfers"},{"id":"14","category_name":"Miscellaneous"},{"id":"15","category_name":"Couplings"},{"id":"16","category_name":"Seals"},{"id":"17","category_name":"Timber"},{"id":"18","category_name":"Paint"},{"id":"19","category_name":"Wheels"},{"id":"20","category_name":"PTO Shafts"},{"id":"21","category_name":"Axles"}]};
 
         var GLightBoxLinksObserver = new MutationObserver((mutations) => {
             window
@@ -626,11 +619,22 @@
                 .init();
         });
 
+        function getSerialNumberFromUrl() {
+            const queryString = window.location.search;
+            const urlParams = new URLSearchParams(queryString);
+            return urlParams.get('serial-number');
+        }
+
         function initiateObservers() {
             GLightBoxLinksObserver.observe(document.querySelector("#serial-number-app"), {
                 childList: true,
                 subtree: true
             },);
+        }
+
+        function createFetchUrl(options) {
+            const {serialNo, categoryId} = options;
+            return `https://dev.marshall.sugarshaker.com/api/serial-number/${serialNo}/${categoryId}`;
         }
 
         document.addEventListener('DOMContentLoaded', () => {
@@ -644,7 +648,7 @@
                 setup() {
                     const isBusy = ref(false);
                     const partsData = ref(null);
-                    const selectedCategoryKey = ref(null);
+                    const selectedCategoryId = ref(null);
                     const data = ref(serialNumberData);
 
                     const options = {
@@ -655,10 +659,11 @@
                         }
                     };
 
-                    const updatePartsData = async (categoryKey) => {
+                    const updatePartsData = async (options) => {
                         isBusy.value = true;
                         try {
-                            const response = await fetch('/pp/mocks/ajax_sn_options.php?categoryKey=' + categoryKey, options);
+                            const fetchUrl = createFetchUrl(options);
+                            const response = await fetch(fetchUrl, options);
                             if (!response.ok) 
                                 throw new Error('Network response was not ok');
                             const returnedData = await response.json();
@@ -675,12 +680,12 @@
                         }
                     };
 
-                    const handleCategoryClick = (categoryKey) => {
-                        if (isBusy.value || selectedCategoryKey.value === categoryKey) 
+                    const handleCategoryClick = (categoryId) => {
+                        if (isBusy.value || selectedCategoryId.value === categoryId) 
                             return;
-                        
-                        selectedCategoryKey.value = categoryKey;
-                        updatePartsData(categoryKey);
+                        const serialNo = getSerialNumberFromUrl();
+                        selectedCategoryId.value = categoryId;
+                        updatePartsData({serialNo: serialNo, categoryId: categoryId});
                     };
 
                     const handleMoreDetailsClick = () => {
@@ -718,6 +723,9 @@
                     onMounted(() => {
                         $('#serial-number-app').removeClass('app-loading');
                         initiateObservers();
+
+                        // replace with PHP
+                        $('.dummy-data-serial-number-TEXT').text(getSerialNumberFromUrl());
                     });
 
                     return {
@@ -725,7 +733,7 @@
                         isBusy,
                         partsData,
                         handleBuyNowClick,
-                        selectedCategoryKey,
+                        selectedCategoryId,
                         handleCategoryClick,
                         handleMoreDetailsClick,
                         handleAddToBasketClick,

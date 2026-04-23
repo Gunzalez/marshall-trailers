@@ -32,7 +32,7 @@
 
         <serial-hero 
             :data="data"
-            :selected-category-key="selectedCategoryKey"
+            :selected-category-id="selectedCategoryId"
             @category-click="handleCategoryClick"
             @not-my-marshall-click="handleNotMyMarshallClick"
             @more-details-click="handleMoreDetailsClick"></serial-hero>
@@ -58,13 +58,6 @@
         import SerialHero from "./js/components/serial-hero.js";
         import SerialParts from "./js/components/serial-parts.js";
 
-        // replace with PHP
-        document.addEventListener('DOMContentLoaded', () => {
-            const queryString = window.location.search;
-            const urlParams = new URLSearchParams(queryString);
-            const serial_number = urlParams.get('serial-number');
-            $('.dummy-data-serial-number-TEXT').text(serial_number);
-        });
         const serialNumberData = {{ serialNumberData | dump | safe }};
 
         var GLightBoxLinksObserver = new MutationObserver((mutations) => {
@@ -74,11 +67,22 @@
                 .init();
         });
 
+        function getSerialNumberFromUrl() {
+            const queryString = window.location.search;
+            const urlParams = new URLSearchParams(queryString);
+            return urlParams.get('serial-number');
+        }
+
         function initiateObservers() {
             GLightBoxLinksObserver.observe(document.querySelector("#serial-number-app"), {
                 childList: true,
                 subtree: true
             },);
+        }
+
+        function createFetchUrl(options) {
+            const {serialNo, categoryId} = options;
+            return `https://dev.marshall.sugarshaker.com/api/serial-number/${serialNo}/${categoryId}`;
         }
 
         document.addEventListener('DOMContentLoaded', () => {
@@ -92,7 +96,7 @@
                 setup() {
                     const isBusy = ref(false);
                     const partsData = ref(null);
-                    const selectedCategoryKey = ref(null);
+                    const selectedCategoryId = ref(null);
                     const data = ref(serialNumberData);
 
                     const options = {
@@ -103,10 +107,11 @@
                         }
                     };
 
-                    const updatePartsData = async (categoryKey) => {
+                    const updatePartsData = async (options) => {
                         isBusy.value = true;
                         try {
-                            const response = await fetch('/pp/mocks/ajax_sn_options.php?categoryKey=' + categoryKey, options);
+                            const fetchUrl = createFetchUrl(options);
+                            const response = await fetch(fetchUrl, options);
                             if (!response.ok) 
                                 throw new Error('Network response was not ok');
                             const returnedData = await response.json();
@@ -123,12 +128,12 @@
                         }
                     };
 
-                    const handleCategoryClick = (categoryKey) => {
-                        if (isBusy.value || selectedCategoryKey.value === categoryKey) 
+                    const handleCategoryClick = (categoryId) => {
+                        if (isBusy.value || selectedCategoryId.value === categoryId) 
                             return;
-                        
-                        selectedCategoryKey.value = categoryKey;
-                        updatePartsData(categoryKey);
+                        const serialNo = getSerialNumberFromUrl();
+                        selectedCategoryId.value = categoryId;
+                        updatePartsData({serialNo: serialNo, categoryId: categoryId});
                     };
 
                     const handleMoreDetailsClick = () => {
@@ -166,6 +171,9 @@
                     onMounted(() => {
                         $('#serial-number-app').removeClass('app-loading');
                         initiateObservers();
+
+                        // replace with PHP
+                        $('.dummy-data-serial-number-TEXT').text(getSerialNumberFromUrl());
                     });
 
                     return {
@@ -173,7 +181,7 @@
                         isBusy,
                         partsData,
                         handleBuyNowClick,
-                        selectedCategoryKey,
+                        selectedCategoryId,
                         handleCategoryClick,
                         handleMoreDetailsClick,
                         handleAddToBasketClick,

@@ -1364,25 +1364,90 @@
       }
     ],
     "categories": [
-      { "name": "Axles", "key": "axles" },
-      { "name": "Bearings", "key": "bearings" },
-      { "name": "Bolts", "key": "bolts" },
-      { "name": "Cover Couplings", "key": "cover+couplings" },
-      { "name": "Handbrakes", "key": "handbrakes" },
-      { "name": "Hitches", "key": "hitches" },
-      { "name": "Hydraulic Hoses", "key": "hydraulic+hoses" },
-      { "name": "Lights", "key": "lights" },
-      { "name": "Mesh", "key": "mesh" },
-      { "name": "Miscellaneous", "key": "miscellaneous" },
-      { "name": "Other Rams", "key": "other+rams" },
-      { "name": "Paint", "key": "paint" },
-      { "name": "Rocker Tandems", "key": "rocker+tandems" },
-      { "name": "Seals", "key": "seals" },
-      { "name": "Springs", "key": "springs" },
-      { "name": "Steel Sections", "key": "steel+sections" },
-      { "name": "Tip Rams", "key": "tip+rams" },
-      { "name": "Transfer", "key": "transfer" },
-      { "name": "Valves", "key": "valves" }
+      {
+        "id": "1",
+        "category_name": "Muckspreader Shafts"
+      },
+      {
+        "id": "2",
+        "category_name": "Marshall Products"
+      },
+      {
+        "id": "3",
+        "category_name": "Bolts"
+      },
+      {
+        "id": "4",
+        "category_name": "Hydraulic Hoses"
+      },
+      {
+        "id": "5",
+        "category_name": "Drive Chains"
+      },
+      {
+        "id": "6",
+        "category_name": "Hitches"
+      },
+      {
+        "id": "7",
+        "category_name": "Other Rams"
+      },
+      {
+        "id": "8",
+        "category_name": "Sprockets"
+      },
+      {
+        "id": "9",
+        "category_name": "Bearings"
+      },
+      {
+        "id": "10",
+        "category_name": "Flail Chains"
+      },
+      {
+        "id": "11",
+        "category_name": "Lights"
+      },
+      {
+        "id": "12",
+        "category_name": "Handbrakes"
+      },
+      {
+        "id": "13",
+        "category_name": "Transfers"
+      },
+      {
+        "id": "14",
+        "category_name": "Miscellaneous"
+      },
+      {
+        "id": "15",
+        "category_name": "Couplings"
+      },
+      {
+        "id": "16",
+        "category_name": "Seals"
+      },
+      {
+        "id": "17",
+        "category_name": "Timber"
+      },
+      {
+        "id": "18",
+        "category_name": "Paint"
+      },
+      {
+        "id": "19",
+        "category_name": "Wheels"
+      },
+      {
+        "id": "20",
+        "category_name": "PTO Shafts"
+      },
+      {
+        "id": "21",
+        "category_name": "Axles"
+      }
     ]
   },
   "featuresData": [
