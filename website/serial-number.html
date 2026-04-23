@@ -557,6 +557,7 @@
 
         <serial-parts 
             :parts="partsData"
+            :selected-category-name="selectedCategoryName"
             @buy-now-click="handleBuyNowClick"
             @add-to-basket-click="handleAddToBasketClick"></serial-parts>
 
@@ -649,6 +650,7 @@
                     const isBusy = ref(false);
                     const partsData = ref(null);
                     const selectedCategoryId = ref(null);
+                    const selectedCategoryName = ref("");
                     const data = ref(serialNumberData);
 
                     const options = {
@@ -680,12 +682,13 @@
                         }
                     };
 
-                    const handleCategoryClick = (categoryId) => {
-                        if (isBusy.value || selectedCategoryId.value === categoryId) 
+                    const handleCategoryClick = (category) => {
+                        if (isBusy.value || selectedCategoryId.value === category.id) 
                             return;
                         const serialNo = getSerialNumberFromUrl();
-                        selectedCategoryId.value = categoryId;
-                        updatePartsData({serialNo: serialNo, categoryId: categoryId});
+                        selectedCategoryId.value = category.id;
+                        selectedCategoryName.value = category.category_name;
+                        updatePartsData({serialNo: serialNo, categoryId: category.id});
                     };
 
                     const handleMoreDetailsClick = () => {
@@ -734,6 +737,7 @@
                         partsData,
                         handleBuyNowClick,
                         selectedCategoryId,
+                        selectedCategoryName,
                         handleCategoryClick,
                         handleMoreDetailsClick,
                         handleAddToBasketClick,
