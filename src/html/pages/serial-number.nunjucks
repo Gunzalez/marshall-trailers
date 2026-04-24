@@ -163,7 +163,7 @@
                         if (isBusy.value) 
                             return;
                         
-                        window.location.href = `product.html?id=${data.value.id}`;
+                        window.location.href = data.value.product.slug;
                     };
 
                     const handleNotMyMarshallClick = () => {
