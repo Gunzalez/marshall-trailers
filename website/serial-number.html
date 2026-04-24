@@ -43,7 +43,7 @@
     <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js" defer></script>
     <script src="js/marshall-parts.js" defer></script>
     <script src="js/configure-machines.js" defer></script>
-    <script src="js/scripts.js?cb=1776989490968" defer></script>
+    <script src="js/scripts.js?cb=123" defer></script>
 
   </head>
   <body>
@@ -715,7 +715,7 @@
                         if (isBusy.value) 
                             return;
                         
-                        window.location.href = `product.html?id=${data.value.id}`;
+                        window.location.href = data.value.product.slug;
                     };
 
                     const handleNotMyMarshallClick = () => {
