@@ -70,7 +70,7 @@
                 <div class="tab-item">
                     <h3 class="tab-header">Overview</h3>
                     <div class="tab-content">
-                        {{ macros.overview('product') }}
+                        {{ macros.overview() }}
                     </div>
                 </div>
 
@@ -188,7 +188,7 @@
     </div>
 
     <script>
-        function applyButtonBehavior() {
+        function applyButtonBehavior({id: selectedProductId}) {
             $("#toggleOptionsButton").on("click", () => {
                 $('#specifications-app').toggleClass("compact-layout");
                 var $visibleHeaders = $(".optional-header:visible");
@@ -334,7 +334,7 @@
                         await nextTick();
                         initiateCarousel();
                         attachHighlightEvents();
-                        applyButtonBehavior();
+                        applyButtonBehavior({id: selectedProductId});
 
                         // replace with PHP
                         insertDummyData();

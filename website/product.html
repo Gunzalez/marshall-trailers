@@ -1174,7 +1174,7 @@
     </div>
 
     <script>
-        function applyButtonBehavior() {
+        function applyButtonBehavior({id: selectedProductId}) {
             $("#toggleOptionsButton").on("click", () => {
                 $('#specifications-app').toggleClass("compact-layout");
                 var $visibleHeaders = $(".optional-header:visible");
@@ -1320,7 +1320,7 @@
                         await nextTick();
                         initiateCarousel();
                         attachHighlightEvents();
-                        applyButtonBehavior();
+                        applyButtonBehavior({id: selectedProductId});
 
                         // replace with PHP
                         insertDummyData();
