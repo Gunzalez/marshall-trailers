@@ -22,7 +22,6 @@ export default {
 
     return {
       heroStyle,
-      image: props.data.image,
       specifications: props.data.specification,
       categories: props.data.categories,
     };
@@ -30,7 +29,7 @@ export default {
   template: `
     <div>
         <div class="product-hero">
-            <div :style="heroStyle" class="product-hero-bg"></div>
+            <div class="product-hero-bg"></div>
             <div class="section">
                 <div class="copy-wrapper serial-number-copy desktop-only">
                     <div class="inner-wrapper">
