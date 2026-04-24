@@ -727,18 +727,35 @@
     text-align: left;
     font-weight: normal;
     padding-bottom: 5px;
-    padding-right: 2rem;
 
-    span {
-      &::after {
-        content: ":";
-      }
-    }
+    // span {
+    //   &::after {
+    //     content: ":";
+    //   }
+    // }
   }
 
   td {
     padding-bottom: 5px;
     font-weight: bold;
+  }
+
+  tr {
+    th,
+    td {
+      width: 50%;
+      padding-right: 1rem;
+      padding-top: 4px;
+      padding-bottom: 3px;
+      border-bottom: 1px solid var(--brand-gray-bg);
+    }
+
+    &:last-child {
+      th,
+      td {
+        border: none;
+      }
+    }
   }
 }
 
@@ -2098,6 +2115,7 @@
         display: flex;
         gap: 0.5rem;
         flex-direction: column;
+        margin-bottom: -7px;
       }
 
       .price-info {
