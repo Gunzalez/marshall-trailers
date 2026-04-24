@@ -789,12 +789,12 @@
                                     <ul class="specs-list flex flex-col">
                                         <li class="image-row">
                                             <div class="carousel-buttons">
-                                                <span class="carousel-control-prev bttn btn_Carousel btn_Narrow" aria-label="Previous" aria-role="button" @click="prev">
+                                                <button type="button" class="carousel-control-prev bttn btn_Carousel btn_Narrow" aria-label="Previous" aria-role="button" @click="prev" :disabled="isDisabled">
                                                     <i class="fa-solid fa-chevron-left"></i>
-                                                </span>
-                                                <span class="carousel-control-next bttn btn_Carousel btn_Narrow" aria-label="Next" aria-role="button" @click="next">
+                                                </button>
+                                                <button type="button" class="carousel-control-next bttn btn_Carousel btn_Narrow" aria-label="Next" aria-role="button" @click="next" :disabled="isDisabled">
                                                     <i class="fa-solid fa-chevron-right"></i>
-                                                </span>
+                                                </button>
                                             </div>
                                         </li>
                                         <li class="text-sm font-semibold bordered-bottom">
@@ -811,12 +811,12 @@
                                     </li>
                                         <li class="footer-row optional">
                                             <div class="carousel-buttons app-footer">
-                                                <span class="carousel-control-prev bttn btn_Carousel btn_Narrow" aria-label="Previous" aria-role="button" @click="prev">
+                                                <button type="button" class="carousel-control-prev bttn btn_Carousel btn_Narrow" aria-label="Previous" aria-role="button" @click="prev" :disabled="isDisabled">
                                                     <i class="fa-solid fa-chevron-left"></i>
-                                                </span>
-                                                <span class="carousel-control-next bttn btn_Carousel btn_Narrow" aria-label="Next" aria-role="button" @click="next">
+                                                </button>
+                                                <button type="button" class="carousel-control-next bttn btn_Carousel btn_Narrow" aria-label="Next" aria-role="button" @click="next" :disabled="isDisabled">
                                                     <i class="fa-solid fa-chevron-right"></i>
-                                                </span>
+                                                </button>
                                             </div>
                                         </li>
                                     </ul>
@@ -1174,6 +1174,24 @@
     </div>
 
     <script>
+        function applyButtonBehavior() {
+            $("#toggleOptionsButton").on("click", () => {
+                $('#specifications-app').toggleClass("compact-layout");
+                var $visibleHeaders = $(".optional-header:visible");
+                if ($visibleHeaders.length > 0) {
+                    $visibleHeaders[0].scrollIntoView({behavior: "smooth", block: "center"});
+                }
+            });
+
+            $('#specifications-app')
+                .removeClass('app-loading')
+                .addClass("compact-layout")
+
+            $(".btn_Configure").on("click", () => {
+                window.location.href = `configure.html?id=${selectedProductId}`;
+            });
+        }
+
         document.addEventListener('DOMContentLoaded', () => {
             const {createApp, onMounted, ref, nextTick} = Vue;
 
@@ -1185,11 +1203,18 @@
                     const queryString = window.location.search;
                     const urlParams = new URLSearchParams(queryString);
                     const selectedProductId = parseInt(urlParams.get('id'));
+                    const NUMBER_OF_VISIBLE_SLIDES = 3;
+
                     const standardLabels = ref([]);
                     const optionalLabels = ref([]);
                     const productsData = ref([]);
                     const displayAdditionalOptions = ref(false);
                     const slickInstance = ref(null);
+                    const isDisabled = ref(true);
+
+                    const getComparisonDataFetchUrl = () => {
+                        return `https://dev.marshall.sugarshaker.com/api/products/${selectedProductId}/comparisons`;
+                    }
 
                     const prev = () => {
                         slickInstance
@@ -1278,8 +1303,8 @@
 
                     onMounted(async () => {
 
-                        const comparisonUrl = `https://dev.marshall.sugarshaker.com/api/products/${selectedProductId}/comparisons`;
-                        const response = await fetch(comparisonUrl);
+                        const fetchUrl = getComparisonDataFetchUrl();
+                        const response = await fetch(fetchUrl);
                         const comparisonData = await response.json();
 
                         if (comparisonData && comparisonData.labels) {
@@ -1288,27 +1313,17 @@
                             productsData.value = comparisonData.products || [];
                         };
 
-                        await nextTick();
+                        if (productsData.value.length > NUMBER_OF_VISIBLE_SLIDES) {
+                            isDisabled.value = false;
+                        }
 
+                        await nextTick();
                         initiateCarousel();
                         attachHighlightEvents();
+                        applyButtonBehavior();
+
+                        // replace with PHP
                         insertDummyData();
-
-                        $("#toggleOptionsButton").on("click", () => {
-                            $('#specifications-app').toggleClass("compact-layout");
-                            var $visibleHeaders = $(".optional-header:visible");
-                            if ($visibleHeaders.length > 0) {
-                                $visibleHeaders[0].scrollIntoView({behavior: "smooth", block: "center"});
-                            }
-                        });
-
-                        $('#specifications-app')
-                            .removeClass('app-loading')
-                            .addClass("compact-layout")
-
-                        $(".btn_Configure").on("click", () => {
-                            window.location.href = `configure.html?id=${selectedProductId}`;
-                        });
                     });
 
                     return {
@@ -1316,6 +1331,7 @@
                         next,
                         standardLabels,
                         optionalLabels,
+                        isDisabled,
                         displayAdditionalOptions,
                         productsData,
                         selectedProductId
