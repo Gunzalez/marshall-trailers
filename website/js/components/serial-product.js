@@ -18,6 +18,7 @@ export default {
     const valueFromSelect = () => {
       // jQuery selectric DOM manipulation stops v-model updating correctly
       // We get the value directly from the DOM element using ref
+      console.log("Select value from DOM:", snSelectRef.value); // Debug log to check the value
       return parseInt(snSelectRef.value.value, 10);
     };
 
@@ -39,6 +40,8 @@ export default {
 
     return {
       props,
+      quantity,
+      snSelectRef,
       onBuyNowClick,
       onAddToBasketClick,
     };

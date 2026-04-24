@@ -16,8 +16,16 @@ export default {
   },
   emits: ["buy-now-click", "add-to-basket-click"],
   setup(props) {
-    const isBuyableOpen = ref(false);
     const isListOpen = ref(false);
+    const isBuyableOpen = ref(false);
+
+    watch(
+      () => props.node,
+      () => {
+        isListOpen.value = false;
+        isBuyableOpen.value = false;
+      },
+    );
 
     const toggleBuyable = () => {
       isBuyableOpen.value = !isBuyableOpen.value;

@@ -18,19 +18,20 @@
         </ol>
     </nav>
 
-    <div class="title-wrapper">
-        <h1 class="page-title">Parts Ordering: Serial Number <span class="dummy-data-serial-number-TEXT"></span></h1>
-    </div>
-
-    <div class="introduction-wrapper">
-        <div class="introduction deep-underline">
-            <span>Your Marshall is built up of <strong>900</strong> parts.</span>
-        </div>
-    </div>
-
     <div id="serial-number-app" class="serial-number-app app-loading">
 
-        <serial-hero 
+        <div class="title-wrapper">
+            <h1 class="page-title" v-if="data">Parts Ordering: Serial Number [[ data.serial_no ]]</h1>
+        </div>
+
+        <div class="introduction-wrapper">
+            <div class="introduction deep-underline">
+                <span v-if="data">Your Marshall is built up of <strong>[[ data.total_parts ]]</strong> parts.</span>
+            </div>
+        </div>
+
+        <serial-hero
+            v-if="data" 
             :data="data"
             :selected-category-id="selectedCategoryId"
             @category-click="handleCategoryClick"
@@ -59,8 +60,6 @@
         import SerialHero from "./js/components/serial-hero.js";
         import SerialParts from "./js/components/serial-parts.js";
 
-        const serialNumberData = {{ serialNumberData | dump | safe }};
-
         var GLightBoxLinksObserver = new MutationObserver((mutations) => {
             window
                 .MT
@@ -81,7 +80,11 @@
             },);
         }
 
-        function createFetchUrl(options) {
+        function getSerialNumberDataFetchUrl(serialNo) {
+            return `https://dev.marshall.sugarshaker.com/api/serial-number/${serialNo}`;
+        }
+
+        function getPartsFetchUrl(options) {
             const {serialNo, categoryId} = options;
             return `https://dev.marshall.sugarshaker.com/api/serial-number/${serialNo}/${categoryId}`;
         }
@@ -94,12 +97,15 @@
                     SerialHero,
                     SerialParts
                 },
+                delimiters: [
+                    '[[', ']]'
+                ],
                 setup() {
+                    const data = ref(null);
                     const isBusy = ref(false);
                     const partsData = ref(null);
                     const selectedCategoryId = ref(null);
                     const selectedCategoryName = ref("");
-                    const data = ref(serialNumberData);
 
                     const options = {
                         method: 'GET',
@@ -112,7 +118,7 @@
                     const updatePartsData = async (options) => {
                         isBusy.value = true;
                         try {
-                            const fetchUrl = createFetchUrl(options);
+                            const fetchUrl = getPartsFetchUrl(options);
                             const response = await fetch(fetchUrl, options);
                             if (!response.ok) 
                                 throw new Error('Network response was not ok');
@@ -129,6 +135,20 @@
                             isBusy.value = false;
                         }
                     };
+
+                    const updateSerialData = async () => {
+                        const serialNo = getSerialNumberFromUrl();
+                        const fetchUrl = getSerialNumberDataFetchUrl(serialNo);
+                        try {
+                            const response = await fetch(fetchUrl, options);
+                            if (!response.ok) 
+                                throw new Error('Network response was not ok');
+                            const returnedData = await response.json();
+                            data.value = returnedData.data;
+                        } catch (error) {
+                            console.error("There was an error!", error);
+                        }
+                    }
 
                     const handleCategoryClick = (category) => {
                         if (isBusy.value || selectedCategoryId.value === category.id) 
@@ -171,12 +191,10 @@
                             .update(data);
                     };
 
-                    onMounted(() => {
+                    onMounted(async () => {
+                        updateSerialData();
                         $('#serial-number-app').removeClass('app-loading');
                         initiateObservers();
-
-                        // replace with PHP
-                        $('.dummy-data-serial-number-TEXT').text(getSerialNumberFromUrl());
                     });
 
                     return {

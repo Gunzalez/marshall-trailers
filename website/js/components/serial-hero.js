@@ -23,7 +23,7 @@ export default {
     return {
       heroStyle,
       image: props.data.image,
-      specifications: props.data.specifications,
+      specifications: props.data.specification,
       categories: props.data.categories,
     };
   },
