@@ -2091,7 +2091,7 @@
     }
 
     .serial-product-card {
-      margin: 5px 0 10px 0;
+      margin: 5px 0 1rem 0;
       display: flex;
       align-items: flex-start;
       gap: 1rem;
@@ -2301,14 +2301,18 @@
   }
 
   .serial-parts-form {
-    padding-top: 1rem;
-
-    .main-title {
-      font-size: 1.3rem;
-    }
+    padding-top: 0.5rem;
   }
 
   @media screen and (max-width: $breakpoint2) {
+    .serial-parts-form {
+      padding-top: 1rem;
+
+      .main-title {
+        font-size: 1.3rem;
+      }
+    }
+
     .container-wrapper {
       .serial-product-card {
         flex-direction: column;
