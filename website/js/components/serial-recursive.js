@@ -41,11 +41,11 @@ export default {
 
     return {
       props,
-      hasChildren,
       isListOpen,
+      hasChildren,
       isBuyableOpen,
-      toggleBuyable,
       toggleList,
+      toggleBuyable,
     };
   },
   template: `
