@@ -4,7 +4,7 @@ var spares_total = 0; // running total for spares basket
 var totalNumFilters = 7;
 var numVisibleFilters = 3;
 var filters_sliding = false;
-var filter_title = "Additional filter";
+var empty_filter_title = "Additional filter";
 
 var TEST_spareBasketUrl = "/pp/mocks/ajax_spares_basket.php";
 var filterUrl = "https://dev.marshall.sugarshaker.com/api/spares/filter/";
@@ -22,7 +22,7 @@ function clearFilters() {
     $filter
       .parent(".slide")
       .find("h3")
-      .html('<span class="empty">' + filter_title + "</span>")
+      .html('<span class="empty">' + empty_filter_title + "</span>")
       .removeClass("stepped-title");
   }
 }
@@ -157,7 +157,7 @@ document.addEventListener("DOMContentLoaded", () => {
           $container
             .siblings("h3")
             .removeClass("stepped-title")
-            .html(`<span class="empty">${filter_title}</span>`);
+            .html(`<span class="empty">${empty_filter_title}</span>`);
         }
 
         if (hasData) {
@@ -183,12 +183,13 @@ document.addEventListener("DOMContentLoaded", () => {
           $currentFilter.append(listItems);
         }
 
+        var carousel_offset = 2;
         if ($carousel) {
           const targetLevel = hasData ? nextFilter : level;
           const slideIndex = $(`#filter${targetLevel}`)
             .parent(".slide")
             .index();
-          $carousel.slick("slickGoTo", slideIndex - 2);
+          $carousel.slick("slickGoTo", slideIndex - carousel_offset);
         }
       },
     });
@@ -212,8 +213,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   $("#range").on("change", function () {
     $("#model").empty().prop("disabled", true).selectric("refresh");
-    var rid = $(this).val();
-    if (rid.trim() === "") {
+    var range_id = $(this).val();
+    if (range_id.trim() === "") {
       return;
     }
 
@@ -225,7 +226,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // get products //
     $.ajax({
       type: "get",
-      url: getProductsFromRangeUrl(rid),
+      url: getProductsFromRangeUrl(range_id),
       dataType: "json",
       success: function (response) {
         if (response.length > 0) {
@@ -248,7 +249,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // get spares results //
     $.ajax({
       type: "get",
-      url: resultsUrl + cat_id + "/" + rid,
+      url: resultsUrl + cat_id + "/" + range_id,
       dataType: "json",
       success: function (response) {
         $("#processing").fadeOut("fast");
@@ -267,13 +268,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     var level = $("#fields").data("level");
     var cat_id = $("#fields").data("cid");
-    var rid = $("#range").val();
+    var range_id = $("#range").val();
 
     clearPartsResults();
     // get spares result //
     $.ajax({
       type: "get",
-      url: resultsUrl + cat_id + "/" + rid + "/" + model_id,
+      url: resultsUrl + cat_id + "/" + range_id + "/" + model_id,
       dataType: "json",
       success: function (response) {
         showPartsResults(response);
@@ -329,15 +330,15 @@ document.addEventListener("DOMContentLoaded", () => {
     event.preventDefault();
     $("#serial-number").removeClass("error");
 
-    var serialNumber = $("#serial-number").val().trim();
-    if (serialNumber === "") {
+    var serial_no = $("#serial-number").val().trim();
+    if (serial_no === "") {
       $("#serial-number").addClass("error");
       return;
     }
 
     var destination = $(this).attr("action");
     window.location.href =
-      destination + "?serial-number=" + encodeURIComponent(serialNumber);
+      destination + "?serial-number=" + encodeURIComponent(serial_no);
   });
 
   $(".btn_addBasketAll").on("click", function (event) {
