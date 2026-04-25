@@ -3,7 +3,6 @@ const { ref } = Vue;
 export default {
   props: {},
   emits: ["download-pdf", "purchase-marshall", "email-enquiry"],
-
   setup(props, { emit }) {
     const additionalNotes = ref("");
     const title = ref("");

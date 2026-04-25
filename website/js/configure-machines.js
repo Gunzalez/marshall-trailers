@@ -1,4 +1,5 @@
-// Fetches machine details, passes to the Vue app on configure.html
+// This code fetches machine details.
+// Passes to the Vue app on configure.html
 (function () {
   "use strict";
 

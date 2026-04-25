@@ -4,8 +4,7 @@ export default {
   props: {
     option: Object,
   },
-  emits: ["click"],
-
+  emits: ["option-click"],
   setup(props, { emit }) {
     const option = ref(null);
 
@@ -34,7 +33,7 @@ export default {
 
     const handleClick = () => {
       if (!isDisabled.value) {
-        emit("click", props.option);
+        emit("option-click", props.option);
       }
     };
 
@@ -53,9 +52,9 @@ export default {
     return {
       option,
       isDisabled,
-      handleClick,
       convertedPrice,
       combinedMessages,
+      handleClick,
     };
   },
   template: `
