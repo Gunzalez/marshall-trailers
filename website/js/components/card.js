@@ -1,3 +1,5 @@
+import { has } from "browser-sync";
+
 const { computed, ref, watch } = Vue;
 
 export default {
@@ -5,17 +7,12 @@ export default {
     option: Object,
     isSelected: Boolean,
     messages: Array, // { id: String, text: String }[]
+    hasCombos: Array, // { id: String, title: String }[]
   },
   emits: ["click"],
 
   setup(props, { emit }) {
     const option = ref(props.option);
-
-    const handleClick = () => {
-      if (props.messages.length === 0) {
-        emit("click", props.option);
-      }
-    };
 
     const convertedPrice = computed(() => {
       if (option.value && option.value.price) {
@@ -25,8 +22,17 @@ export default {
     });
 
     const isDisabled = computed(() => {
-      return props.messages.length > 0;
+      return (
+        props.messages.length > 0 ||
+        (props.hasCombos && props.hasCombos.length > 0)
+      );
     });
+
+    const handleClick = () => {
+      if (!isDisabled.value) {
+        emit("click", props.option);
+      }
+    };
 
     watch(
       () => props.option,

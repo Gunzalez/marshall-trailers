@@ -969,7 +969,7 @@
         position: absolute;
         right: 0;
         top: 0;
-        color: var(--brand-gray);
+        color: var(--brand-yellow);
       }
 
       &:last-child {
@@ -2126,6 +2126,7 @@
 
         .lbl {
           font-size: 0.9rem;
+          color: #888;
         }
 
         .price {
