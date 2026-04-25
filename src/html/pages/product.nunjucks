@@ -188,7 +188,7 @@
     </div>
 
     <script>
-        function applyButtonBehavior({id: selectedProductId}) {
+        function applyButtonBehavior(selectedProductId) {
             $("#toggleOptionsButton").on("click", () => {
                 $('#specifications-app').toggleClass("compact-layout");
                 var $visibleHeaders = $(".optional-header:visible");
@@ -206,6 +206,24 @@
             });
         }
 
+        function getParamFromUrl(parameterName) {
+            const urlParams = new URLSearchParams(window.location.search);
+            const queryId = urlParams.get(parameterName);
+
+            if (queryId) 
+                return queryId;
+            
+            const segments = window
+                .location
+                .pathname
+                .split('/')
+                .filter(Boolean);
+            const lastSegment = segments[segments.length - 1];
+            return lastSegment
+                ? lastSegment.replace('.html', '')
+                : null;
+        }
+
         document.addEventListener('DOMContentLoaded', () => {
             const {createApp, onMounted, ref, nextTick} = Vue;
 
@@ -214,9 +232,7 @@
                     '[[', ']]'
                 ],
                 setup() {
-                    const queryString = window.location.search;
-                    const urlParams = new URLSearchParams(queryString);
-                    const selectedProductId = parseInt(urlParams.get('id'));
+                    const selectedProductId = parseInt(getParamFromUrl("id"));
                     const NUMBER_OF_VISIBLE_SLIDES = 3;
 
                     const standardLabels = ref([]);
@@ -248,7 +264,7 @@
                             const rangeId = productsData.value[0]
                                 ?.range_id || "1";
 
-                            $(".dummy-data-parent-link-HREF").attr("href", "products.html?id=" + rangeId);
+                            $(".dummy-data-parent-link-HREF").attr("href", "products.html?model=" + rangeId);
                         }
                     }
 
@@ -334,7 +350,7 @@
                         await nextTick();
                         initiateCarousel();
                         attachHighlightEvents();
-                        applyButtonBehavior({id: selectedProductId});
+                        applyButtonBehavior(selectedProductId);
 
                         // replace with PHP
                         insertDummyData();

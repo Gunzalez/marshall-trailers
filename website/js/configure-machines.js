@@ -113,12 +113,15 @@
     $("#machine-select").val(product_Id).selectric("refresh");
   }
 
-  function extractProductIdFromURL() {
-    const queryString = window.location.search;
-    const urlParams = new URLSearchParams(queryString);
-    var product_Id = urlParams.get("id");
+  function getParamFromUrl(parameterName) {
+    const urlParams = new URLSearchParams(window.location.search);
+    const queryId = urlParams.get(parameterName);
 
-    return product_Id;
+    if (queryId) return queryId;
+
+    const segments = window.location.pathname.split("/").filter(Boolean);
+    const lastSegment = segments[segments.length - 1];
+    return lastSegment ? lastSegment.replace(".html", "") : null;
   }
 
   function updateUrlWithProductId(product_Id) {
@@ -151,7 +154,7 @@
   if ($("#configure-app").length) {
     initMachineSelect();
 
-    var urlProductId = extractProductIdFromURL();
+    var urlProductId = getParamFromUrl("id");
     if (urlProductId) {
       updateSelect(urlProductId);
       fetchMachineDetails(urlProductId);

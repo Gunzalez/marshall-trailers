@@ -2,25 +2,19 @@ const { computed, onMounted } = Vue;
 
 export default {
   props: {
-    specifications: Object,
+    specification: Array,
   },
   emits: ["more-details-click", "not-my-marshall-click"],
-  setup(props) {
-    const formattedSpecifications = computed(() => {
-      return Object.entries(props.specifications).map(([name, value]) => {
-        return { name, value };
-      });
-    });
-
+  setup(props, { emit }) {
     return {
-      formattedSpecifications,
+      props,
     };
   },
   template: `
     <div class="serial-specs">
       <table class="specs-table">
           <tbody>
-            <tr v-for="(spec, index) in formattedSpecifications" :key="index">
+            <tr v-for="(spec, index) in props.specification" :key="index">
               <th valign="top"><span class="label">{{ spec.name }}</span></th>
               <td valign="top"><span class="value">{{ spec.value }}</span></td>
             </tr>

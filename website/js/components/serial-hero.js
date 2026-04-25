@@ -1,10 +1,10 @@
 const { computed } = Vue;
 
-import Specifications from "./serial-specs.js";
+import Specification from "./serial-specs.js";
 
 export default {
   components: {
-    Specifications,
+    Specification,
   },
   props: {
     data: Object,
@@ -22,7 +22,7 @@ export default {
 
     return {
       heroStyle,
-      specifications: props.data.specification,
+      specification: props.data.specification,
       categories: props.data.categories,
     };
   },
@@ -33,7 +33,7 @@ export default {
             <div class="section">
                 <div class="copy-wrapper serial-number-copy desktop-only">
                     <div class="inner-wrapper">
-                        <Specifications :specifications="specifications" @more-details-click="$emit('more-details-click')" @not-my-marshall-click="$emit('not-my-marshall-click')" />
+                        <Specification :specification="specification" @more-details-click="$emit('more-details-click')" @not-my-marshall-click="$emit('not-my-marshall-click')" />
                     </div>
                 </div>
             </div>
@@ -41,7 +41,7 @@ export default {
 
         <div class="mobile-only quick-specs-mobile">
             <div class="section">
-                <Specifications :specifications="specifications" @more-details-click="$emit('more-details-click')" @not-my-marshall-click="$emit('not-my-marshall-click')" />
+                <Specification :specification="specification" @more-details-click="$emit('more-details-click')" @not-my-marshall-click="$emit('not-my-marshall-click')" />
             </div>
         </div>
 

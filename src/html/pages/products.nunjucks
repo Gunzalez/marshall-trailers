@@ -49,6 +49,24 @@
         // PROD: replace entire script with PHP
         const machinesData = {{ machinesData | dump | safe }};
 
+        function getParamFromUrl(parameterName) {
+            const urlParams = new URLSearchParams(window.location.search);
+            const queryId = urlParams.get(parameterName);
+
+            if (queryId) 
+                return queryId;
+            
+            const segments = window
+                .location
+                .pathname
+                .split('/')
+                .filter(Boolean);
+            const lastSegment = segments[segments.length - 1];
+            return lastSegment
+                ? lastSegment.replace('.html', '')
+                : null;
+        }
+
         document.addEventListener('DOMContentLoaded', () => {
             const {createApp, onMounted, ref, computed} = Vue;
 
@@ -60,10 +78,7 @@
                     const options = ref([]);
 
                     onMounted(() => {
-                        const queryString = window.location.search;
-                        const urlParams = new URLSearchParams(queryString);
-                        const model = urlParams.get('model');
-
+                        const model = getParamFromUrl('model');
                         const modelDetails = machinesData.find(function (product) {
                             return product
                                 .id

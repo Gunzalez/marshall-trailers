@@ -67,10 +67,22 @@
                 .init();
         });
 
-        function getSerialNumberFromUrl() {
-            const queryString = window.location.search;
-            const urlParams = new URLSearchParams(queryString);
-            return urlParams.get('serial-number');
+        function getParamFromUrl(parameterName) {
+            const urlParams = new URLSearchParams(window.location.search);
+            const queryId = urlParams.get(parameterName);
+
+            if (queryId) 
+                return queryId;
+            
+            const segments = window
+                .location
+                .pathname
+                .split('/')
+                .filter(Boolean);
+            const lastSegment = segments[segments.length - 1];
+            return lastSegment
+                ? lastSegment.replace('.html', '')
+                : null;
         }
 
         function initiateObservers() {
@@ -137,7 +149,7 @@
                     };
 
                     const updateSerialData = async () => {
-                        const serialNo = getSerialNumberFromUrl();
+                        const serialNo = getParamFromUrl("serial-number");
                         const fetchUrl = getSerialNumberDataFetchUrl(serialNo);
                         try {
                             const response = await fetch(fetchUrl, options);
@@ -153,7 +165,7 @@
                     const handleCategoryClick = (category) => {
                         if (isBusy.value || selectedCategoryId.value === category.id) 
                             return;
-                        const serialNo = getSerialNumberFromUrl();
+                        const serialNo = getParamFromUrl("serial-number");
                         selectedCategoryId.value = category.id;
                         selectedCategoryName.value = category.category_name;
                         updatePartsData({serialNo: serialNo, categoryId: category.id});
