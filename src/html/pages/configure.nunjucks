@@ -162,7 +162,7 @@
                                     v-for="option in group[1]" 
                                     :key="option.id"
                                     :option="option"
-                                    @click="handleOptionClick"
+                                    @option-click="handleOptionClick"
                                     class="option"></option-card>
                             </div>
                         </div>
@@ -206,11 +206,11 @@
                             OptionsBasket
                         },
                         setup() {
+                            const DEFAULT_MESSAGE = "Not Compatible OR Part of a combo";
+
                             const optionsData = ref([]);
                             const groupedOptions = ref([]);
                             const initialOption = ref(null);
-
-                            const DEFAULT_MESSAGE = "Not Compatible OR Part of a combo";
 
                             const wrapWithStateProps = (options) => {
                                 return options.map((option) => {
@@ -231,7 +231,7 @@
                                 return Object.entries(groupOptionsByType(wrapWithStateProps(data)));
                             }
 
-                            const getRelatedOptionsUrl = (productId, optionId) => {
+                            const getRelatedOptionsUrl = ({productId, optionId}) => {
                                 return `https://dev.marshall.sugarshaker.com/api/configure/${productId}/option/${optionId}/related`;
                             }
 
@@ -248,7 +248,7 @@
 
                                 const productId = window.basicMachine.id
                                 const optionId = option.id;
-                                const relatedOptionsUrl = getRelatedOptionsUrl(productId, optionId);
+                                const relatedOptionsUrl = getRelatedOptionsUrl({productId, optionId});
 
                                 const fetchRelated = async () => {
                                     try {
