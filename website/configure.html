@@ -710,8 +710,6 @@
                                     v-for="option in group[1]" 
                                     :key="option.id"
                                     :option="option"
-                                    :is-selected="option.isSelected"
-                                    :messages="option.messages"
                                     @click="handleOptionClick"
                                     class="option"></option-card>
                             </div>
@@ -719,7 +717,7 @@
                     </div>
 
                     <options-basket 
-                        :selected-options="selectedOptions"
+                        :basket-options="basketOptions"
                         :initial-option="initialOption"></options-basket>
 
                     <options-form
@@ -760,11 +758,14 @@
                             const groupedOptions = ref([]);
                             const initialOption = ref(null);
 
+                            const DEFAULT_MESSAGE = "Not Compatible OR Part of a combo";
+
                             const wrapWithStateProps = (options) => {
                                 return options.map((option) => {
                                     return {
                                         ...option,
                                         isSelected: false,
+                                        combos: [],
                                         messages: []
                                     };
                                 });
@@ -815,9 +816,6 @@
                                 const relatedOptions = await fetchRelated();
                                 const relatedOptionIds = relatedOptions.map(msg => msg.id);
 
-                                const type = relatedOptions[0]
-                                    ?.type || "---";
-
                                 if (option.isSelected) {
                                     groupedOptions
                                         .value
@@ -827,10 +825,25 @@
 
                                                     const relatedOption = relatedOptions.find(option => option.id === item.id);
                                                     if (relatedOption.action === "add") {
-                                                        item.isSelected = false;
+                                                        const combos = item.combos || [];
+                                                        const comboIndex = combos.findIndex(combo => combo.id === option.id);
+                                                        if (comboIndex !== -1) {
+                                                            combos.splice(comboIndex, 1);
+                                                            item.combos = combos;
+                                                        }
                                                     }
 
-                                                    item.messages = (item.messages || []).filter(msg => msg.id !== option.id);
+                                                    if (relatedOption.action === "disable") {
+                                                        const messageIndex = item
+                                                            .messages
+                                                            .findIndex(msg => msg.id === option.id);
+                                                        if (messageIndex !== -1) {
+                                                            item
+                                                                .messages
+                                                                .splice(messageIndex, 1);
+                                                        }
+                                                    }
+
                                                 }
                                             });
                                         });
@@ -844,47 +857,56 @@
 
                                                     const relatedOption = relatedOptions.find(option => option.id === item.id);
                                                     if (relatedOption.action === "add") {
-                                                        item.isSelected = true;
+                                                        const combos = item.combos || [];
+                                                        if (!combos.find(combo => combo.id === option.id)) {
+                                                            const relatedMessage = relatedOption
+                                                                ?.message || DEFAULT_MESSAGE;
+
+                                                            combos.push({id: option.id, text: relatedMessage});
+                                                            item.combos = combos;
+                                                        }
                                                     }
 
-                                                    const messages = item.messages || [];
-                                                    if (!messages.find(msg => msg.id === option.id)) {
-                                                        const relatedMessage = relatedOption
-                                                            ?.message || "Related option";
+                                                    if (relatedOption.action === "disable") {
+                                                        item.isSelected = false;
+                                                        if (!item.messages.find(msg => msg.id === option.id)) {
+                                                            const relatedMessage = relatedOption
+                                                                ?.message || DEFAULT_MESSAGE;
 
-                                                        messages.push({id: option.id, text: relatedMessage});
-                                                        item.messages = messages;
-
+                                                            item
+                                                                .messages
+                                                                .push({id: option.id, text: relatedMessage});
+                                                        }
                                                     }
+
                                                 }
                                             });
                                         });
                                     option.isSelected = true;
                                 }
-
                             };
 
                             const handleDownloadPDF = (notes) => {
                                 // TODO: @Sheg/@Rob Implement PDF download logic here
                                 console.log("Download PDF clicked");
-                                console.log({selectedOptions: selectedOptions.value, initialOption: initialOption.value, notes});
+                                console.log({basketOptions: basketOptions.value, initialOption: initialOption.value, notes});
                             };
 
                             const handleEmailEnquiry = (data) => {
                                 // TODO: @Sheg/@Rob Implement email enquiry logic here
                                 console.log("Email Enquiry clicked");
-                                console.log({selectedOptions: selectedOptions.value, initialOption: initialOption.value, data});
+                                console.log({basketOptions: basketOptions.value, initialOption: initialOption.value, data});
                             };
 
                             const handlePurchase = (notes) => {
-                                console.log({selectedOptions: selectedOptions.value, initialOption: initialOption.value, notes});
+                                console.log({basketOptions: basketOptions.value, initialOption: initialOption.value, notes});
                                 window.location.href = "checkout.html";
                             };
 
-                            const selectedOptions = computed(() => {
+                            const basketOptions = computed(() => {
                                 return groupedOptions
                                     .value
-                                    .flatMap(group => group[1].filter(option => option.isSelected));
+                                    .flatMap(group => group[1].filter(option => option.isSelected || (option.combos && option.combos.length > 0)));
                             });
 
                             watch(optionsData, async (newVal) => {
@@ -903,7 +925,7 @@
                                 optionsData,
                                 groupedOptions,
                                 initialOption,
-                                selectedOptions,
+                                basketOptions,
                                 handlePurchase,
                                 handleOptionClick,
                                 handleDownloadPDF,

@@ -2,16 +2,16 @@ const { computed, watch, ref } = Vue;
 
 export default {
   props: {
-    selectedOptions: Array,
+    basketOptions: Array,
     initialOption: Object,
   },
 
   setup(props) {
     const selection = computed(() => {
       if (props.initialOption) {
-        return [props.initialOption, ...props.selectedOptions];
+        return [props.initialOption, ...props.basketOptions];
       }
-      return props.selectedOptions;
+      return props.basketOptions;
     });
 
     const totalPrice = computed(() => {

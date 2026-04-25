@@ -1,18 +1,13 @@
-import { has } from "browser-sync";
-
-const { computed, ref, watch } = Vue;
+const { computed, ref, watch, onMounted } = Vue;
 
 export default {
   props: {
     option: Object,
-    isSelected: Boolean,
-    messages: Array, // { id: String, text: String }[]
-    hasCombos: Array, // { id: String, title: String }[]
   },
   emits: ["click"],
 
   setup(props, { emit }) {
-    const option = ref(props.option);
+    const option = ref(null);
 
     const convertedPrice = computed(() => {
       if (option.value && option.value.price) {
@@ -23,9 +18,18 @@ export default {
 
     const isDisabled = computed(() => {
       return (
-        props.messages.length > 0 ||
-        (props.hasCombos && props.hasCombos.length > 0)
+        option.value &&
+        (option.value.messages.length > 0 || option.value.combos.length > 0)
       );
+    });
+
+    const combinedMessages = computed(() => {
+      if (option.value) {
+        const messages = option.value.messages || [];
+        const combos = option.value.combos || [];
+        return [...messages, ...combos];
+      }
+      return [];
     });
 
     const handleClick = () => {
@@ -42,15 +46,20 @@ export default {
       { deep: true },
     );
 
+    onMounted(() => {
+      option.value = props.option;
+    });
+
     return {
       option,
       isDisabled,
       handleClick,
       convertedPrice,
+      combinedMessages,
     };
   },
   template: `
-    <div class="option-card" @click.prevent="handleClick" :class="{ 'selected': option.isSelected, 'disabled': isDisabled }" role="button" :aria-disabled="isDisabled">
+    <div v-if="option" class="option-card" @click.prevent="handleClick" :class="{ 'selected': option.isSelected, 'disabled': isDisabled }" role="button" :aria-disabled="isDisabled">
       <h5 class="line-clamp-2 title">{{ option.title }}</h5>
 
       <div class="details">
@@ -89,7 +98,7 @@ export default {
       </span>
 
       <div v-if="isDisabled" class="disabled-messages">
-          <p v-for="msg in messages" :key="msg.id" class="message">{{ msg.text }}</p>
+          <p v-for="msg in combinedMessages" :key="msg.id" class="message">{{ msg.text }}</p>
       </div>
 
     </div>
