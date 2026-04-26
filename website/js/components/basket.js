@@ -1,4 +1,4 @@
-const { computed, watch, ref } = Vue;
+const { computed } = Vue;
 
 export default {
   props: {

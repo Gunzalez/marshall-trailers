@@ -620,21 +620,14 @@
         });
 
         function getParamFromUrl(parameterName) {
+            // @TODO: @Rob - Convert to param js for domain/product/1234
             const urlParams = new URLSearchParams(window.location.search);
             const queryId = urlParams.get(parameterName);
 
             if (queryId) 
                 return queryId;
             
-            const segments = window
-                .location
-                .pathname
-                .split('/')
-                .filter(Boolean);
-            const lastSegment = segments[segments.length - 1];
-            return lastSegment
-                ? lastSegment.replace('.html', '')
-                : null;
+            return "";
         }
 
         function initiateObservers() {
@@ -644,13 +637,13 @@
             },);
         }
 
-        function getSerialNumberDataFetchUrl(serialNo) {
-            return `https://dev.marshall.sugarshaker.com/api/serial-number/${serialNo}`;
+        function getSerialNumberDataFetchUrl(serial_no) {
+            return `https://dev.marshall.sugarshaker.com/api/serial-number/${serial_no}`;
         }
 
         function getPartsFetchUrl(options) {
-            const {serialNo, categoryId} = options;
-            return `https://dev.marshall.sugarshaker.com/api/serial-number/${serialNo}/${categoryId}`;
+            const {serial_no, category_id} = options;
+            return `https://dev.marshall.sugarshaker.com/api/serial-number/${serial_no}/${category_id}`;
         }
 
         document.addEventListener('DOMContentLoaded', () => {
@@ -701,8 +694,8 @@
                     };
 
                     const updateSerialData = async () => {
-                        const serialNo = getParamFromUrl("serial-number");
-                        const fetchUrl = getSerialNumberDataFetchUrl(serialNo);
+                        const serial_no = getParamFromUrl("serial-number");
+                        const fetchUrl = getSerialNumberDataFetchUrl(serial_no);
                         try {
                             const response = await fetch(fetchUrl, options);
                             if (!response.ok) 
@@ -717,10 +710,10 @@
                     const handleCategoryClick = (category) => {
                         if (isBusy.value || selectedCategoryId.value === category.id) 
                             return;
-                        const serialNo = getParamFromUrl("serial-number");
+                        const serial_no = getParamFromUrl("serial-number");
                         selectedCategoryId.value = category.id;
                         selectedCategoryName.value = category.category_name;
-                        updatePartsData({serialNo: serialNo, categoryId: category.id});
+                        updatePartsData({serial_no, category_id: category.id});
                     };
 
                     const handleMoreDetailsClick = () => {

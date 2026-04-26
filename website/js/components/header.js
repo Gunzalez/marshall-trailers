@@ -1,17 +1,15 @@
-const { computed, ref, watch } = Vue;
-
 export default {
   props: {
     header: String,
   },
   setup(props) {
     return {
-      header: props.header,
+      props,
     };
   },
   template: `
     <div class="strikethrough-title">
-      <h3>{{ header }}</h3>
+      <h3>{{ props.header }}</h3>
     </div>
   `,
 };

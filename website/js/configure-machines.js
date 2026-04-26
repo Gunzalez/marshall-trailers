@@ -114,14 +114,13 @@
   }
 
   function getParamFromUrl(parameterName) {
+    // @TODO: @Rob - Convert to param js for domain/configure/1234
     const urlParams = new URLSearchParams(window.location.search);
     const queryId = urlParams.get(parameterName);
 
     if (queryId) return queryId;
 
-    const segments = window.location.pathname.split("/").filter(Boolean);
-    const lastSegment = segments[segments.length - 1];
-    return lastSegment ? lastSegment.replace(".html", "") : null;
+    return "";
   }
 
   function updateUrlWithProductId(product_Id) {
@@ -155,7 +154,7 @@
     initMachineSelect();
 
     var urlProductId = getParamFromUrl("id");
-    if (urlProductId) {
+    if (urlProductId !== "") {
       updateSelect(urlProductId);
       fetchMachineDetails(urlProductId);
     }
