@@ -760,16 +760,58 @@
                             const groupedOptions = ref([]);
                             const initialOption = ref(null);
 
-                            const wrapWithStateProps = (options) => {
-                                return options.map((option) => {
-                                    return {
+                            const allItemsMap = computed(() => {
+                                const map = new Map();
+                                groupedOptions
+                                    .value
+                                    .forEach(group => {
+                                        group[1].forEach(item => {
+                                            map.set(item.id, item);
+                                        });
+                                    });
+                                return map;
+                            });
+
+                            const deselectOption = (option) => {
+                                if (!option.isSelected) 
+                                    return;
+                                
+                                option
+                                    .related_options
+                                    .forEach(rel => {
+                                        const targetItem = allItemsMap
+                                            .value
+                                            .get(rel.id);
+                                        if (!targetItem) 
+                                            return;
+                                        
+                                        if (rel.action === "add") {
+                                            targetItem.combos = targetItem
+                                                .combos
+                                                .filter(c => c.id !== option.id);
+                                        }
+
+                                        if (rel.action === "disable") {
+                                            targetItem.messages = targetItem
+                                                .messages
+                                                .filter(m => m.id !== option.id);
+                                        }
+                                    });
+
+                                option.related_options = [];
+                                option.isSelected = false;
+                            };
+
+                            const wrapWithStateProps = (options = []) => {
+                                return options
+                                    ?.map((option) => ({
                                         ...option,
                                         isSelected: false,
                                         combos: [],
-                                        messages: []
-                                    };
-                                });
-                            }
+                                        messages: [],
+                                        related_options: []
+                                    })) || [];
+                            };
 
                             const groupOptionsByType = (options) => {
                                 return Object.groupBy(options, (item) => item.category_name);
@@ -784,105 +826,61 @@
                             }
 
                             const handleOptionClick = async (option) => {
+                                const itemsMap = allItemsMap.value;
 
-                                if (!option.has_related) {
-                                    if (option.isSelected) {
-                                        option.isSelected = false;
-                                    } else {
-                                        option.isSelected = true;
-                                    }
+                                if (option.isSelected) {
+                                    deselectOption(option);
                                     return;
                                 }
 
-                                const productId = window.basicMachine.id
-                                const optionId = option.id;
-                                const relatedOptionsUrl = getRelatedOptionsUrl({productId, optionId});
-
-                                const fetchRelated = async () => {
-                                    try {
-                                        const res = await fetch(relatedOptionsUrl, {
-                                            method: "GET",
-                                            headers: {
-                                                "Content-Type": "application/json"
-                                            }
-                                        });
-                                        return await res.json();
-                                    } catch (error) {
-                                        console.error("Error fetching related options:", error);
-                                        return [];
-                                    }
-                                };
-
-                                const relatedOptions = await fetchRelated();
-                                const relatedOptionIds = relatedOptions.map(msg => msg.id);
-
-                                if (option.isSelected) {
-                                    groupedOptions
-                                        .value
-                                        .forEach(group => {
-                                            group[1].forEach(item => {
-                                                if (relatedOptionIds.includes(item.id)) {
-
-                                                    const relatedOption = relatedOptions.find(option => option.id === item.id);
-                                                    if (relatedOption.action === "add") {
-                                                        const combos = item.combos || [];
-                                                        const comboIndex = combos.findIndex(combo => combo.id === option.id);
-                                                        if (comboIndex !== -1) {
-                                                            combos.splice(comboIndex, 1);
-                                                            item.combos = combos;
-                                                        }
-                                                    }
-
-                                                    if (relatedOption.action === "disable") {
-                                                        const messageIndex = item
-                                                            .messages
-                                                            .findIndex(msg => msg.id === option.id);
-                                                        if (messageIndex !== -1) {
-                                                            item
-                                                                .messages
-                                                                .splice(messageIndex, 1);
-                                                        }
-                                                    }
-
-                                                }
-                                            });
-                                        });
-                                    option.isSelected = false;
-                                } else {
-                                    groupedOptions
-                                        .value
-                                        .forEach(group => {
-                                            group[1].forEach(item => {
-                                                if (relatedOptionIds.includes(item.id)) {
-
-                                                    const relatedOption = relatedOptions.find(option => option.id === item.id);
-                                                    if (relatedOption.action === "add") {
-                                                        const combos = item.combos || [];
-                                                        if (!combos.find(combo => combo.id === option.id)) {
-                                                            const relatedMessage = relatedOption
-                                                                ?.message || DEFAULT_MESSAGE;
-
-                                                            combos.push({id: option.id, text: relatedMessage});
-                                                            item.combos = combos;
-                                                        }
-                                                    }
-
-                                                    if (relatedOption.action === "disable") {
-                                                        item.isSelected = false;
-                                                        if (!item.messages.find(msg => msg.id === option.id)) {
-                                                            const relatedMessage = relatedOption
-                                                                ?.message || DEFAULT_MESSAGE;
-
-                                                            item
-                                                                .messages
-                                                                .push({id: option.id, text: relatedMessage});
-                                                        }
-                                                    }
-
-                                                }
-                                            });
-                                        });
+                                if (!option.has_related) {
                                     option.isSelected = true;
+                                    return;
+                                }
+
+                                try {
+                                    const productId = window.basicMachine.id;
+                                    const url = getRelatedOptionsUrl({productId, optionId: option.id});
+                                    const res = await fetch(url);
+                                    const relatedData = await res.json();
+
+                                    relatedData.forEach(relAction => {
+                                        const targetItem = itemsMap.get(relAction.id);
+                                        if (!targetItem) 
+                                            return;
+                                        
+                                        const message = relAction.message || DEFAULT_MESSAGE;
+
+                                        if (relAction.action === "add") {
+                                            if (!targetItem.combos.some(c => c.id === option.id)) {
+                                                targetItem
+                                                    .combos
+                                                    .push({id: option.id, text: message});
+                                                option
+                                                    .related_options
+                                                    .push({id: targetItem.id, action: "add"});
+                                            }
+                                        }
+
+                                        if (relAction.action === "disable") {
+                                            if (targetItem.isSelected) {
+                                                deselectOption(targetItem);
+                                            }
+
+                                            if (!targetItem.messages.some(m => m.id === option.id)) {
+                                                targetItem
+                                                    .messages
+                                                    .push({id: option.id, text: message});
+                                                option
+                                                    .related_options
+                                                    .push({id: targetItem.id, action: "disable"});
+                                            }
+                                        }
+                                    });
+
+                                    option.isSelected = true;
+                                } catch (error) {
+                                    console.error("Selection failed", error);
                                 }
                             };
 
