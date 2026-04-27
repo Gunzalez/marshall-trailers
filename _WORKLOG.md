@@ -100,6 +100,12 @@
 - 21st April: 2hrs
 - 22nd April: 6hrs
 
+- 23rd April: 3hrs
+
+- 25th April: 3hrs
+- 26th April: 3hrs
+- 27th April: 1hr
+
 #### NEXT
 
 ADJUSTED FOR 15 hours
