@@ -4,7 +4,7 @@
 
 {% block content %}
 
-  {{ macros.header("images/logo-marshall-trailers-color.png") }}
+  {{ macros.header("images/logo-marshall-trailers-color.svg") }}
 
   <nav aria-label="breadcrumbs" class="breadcrumbs">
     <ol>

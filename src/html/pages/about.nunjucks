@@ -5,7 +5,7 @@
 {% block content %}
 
   <div class="homepage mx-auto top-0 left-1/2 -translate-x-1/2 w-full max-w-[var(--max-width)] z-10 absolute">
-    {{ macros.header("images/logo-marshall-trailers.png") }}
+    {{ macros.header("images/logo-marshall-trailers.svg") }}
   </div>
 
   <div class="hero">

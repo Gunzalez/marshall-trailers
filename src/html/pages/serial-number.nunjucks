@@ -4,33 +4,33 @@
 
 {% block content %}
 
-    {{ macros.header("images/logo-marshall-trailers-color.png") }}
+  {{ macros.header("images/logo-marshall-trailers-color.svg") }}
 
-    <nav aria-label="breadcrumbs" class="breadcrumbs">
-        <ol>
-            <li>
-                <a href="index.html">Home</a>
-            </li>
-            <li>
-                <a href="spares.html">Spares</a>
-            </li>
-            <li>Serial Number</li>
-        </ol>
-    </nav>
+  <nav aria-label="breadcrumbs" class="breadcrumbs">
+    <ol>
+      <li>
+        <a href="index.html">Home</a>
+      </li>
+      <li>
+        <a href="spares.html">Spares</a>
+      </li>
+      <li>Serial Number</li>
+    </ol>
+  </nav>
 
-    <div id="serial-number-app" class="serial-number-app app-loading">
+  <div id="serial-number-app" class="serial-number-app app-loading">
 
-        <div class="title-wrapper">
-            <h1 class="page-title" v-if="data">Parts Ordering: Serial Number [[ data.serial_no ]]</h1>
-        </div>
+    <div class="title-wrapper">
+      <h1 class="page-title" v-if="data">Parts Ordering: Serial Number [[ data.serial_no ]]</h1>
+    </div>
 
-        <div class="introduction-wrapper">
-            <div class="introduction deep-underline">
-                <span v-if="data">Your Marshall is built up of <strong>[[ data.total_parts ]]</strong> parts.</span>
-            </div>
-        </div>
+    <div class="introduction-wrapper">
+      <div class="introduction deep-underline">
+        <span v-if="data">Your Marshall is built up of <strong>[[ data.total_parts ]]</strong> parts.</span>
+      </div>
+    </div>
 
-        <serial-hero
+    <serial-hero
             v-if="data" 
             :data="data"
             :selected-category-id="selectedCategoryId"
@@ -38,186 +38,186 @@
             @not-my-marshall-click="handleNotMyMarshallClick"
             @more-details-click="handleMoreDetailsClick"></serial-hero>
 
-        <serial-parts 
+    <serial-parts 
             :parts="partsData"
             :selected-category-name="selectedCategoryName"
             @buy-now-click="handleBuyNowClick"
             @add-to-basket-click="handleAddToBasketClick"></serial-parts>
 
-        <div v-if="isBusy" id="processing" class="alwaysOn">
-            <div class="wrapper">
-                <p>Processing your request...</p>
-                <i class="fa-solid fa-spinner"></i>
-            </div>
-        </div>
-
+    <div v-if="isBusy" id="processing" class="alwaysOn">
+      <div class="wrapper">
+        <p>Processing your request...</p>
+        <i class="fa-solid fa-spinner"></i>
+      </div>
     </div>
 
-    {{ macros.floatingBasket("Your Basket") }}
+  </div>
 
-    <script type="module">
+  {{ macros.floatingBasket("Your Basket") }}
 
-        import SerialHero from "./js/components/serial-hero.js";
-        import SerialParts from "./js/components/serial-parts.js";
+  <script type="module">
 
-        var GLightBoxLinksObserver = new MutationObserver((mutations) => {
-            window
+    import SerialHero from "./js/components/serial-hero.js";
+    import SerialParts from "./js/components/serial-parts.js";
+
+    var GLightBoxLinksObserver = new MutationObserver((mutations) => {
+      window
+        .MT
+        .GLightBoxLinks
+        .init();
+    });
+
+    function getParamFromUrl(parameterName) {
+      // @TODO: @Rob - Convert to param js for domain/product/1234
+      const urlParams = new URLSearchParams(window.location.search);
+      const queryId = urlParams.get(parameterName);
+
+      if (queryId) 
+        return queryId;
+      
+      return "";
+    }
+
+    function initiateObservers() {
+      GLightBoxLinksObserver.observe(document.querySelector("#serial-number-app"), {
+        childList: true,
+        subtree: true
+      },);
+    }
+
+    function getSerialNumberDataFetchUrl(serial_no) {
+      return `https://dev.marshall.sugarshaker.com/api/serial-number/${serial_no}`;
+    }
+
+    function getPartsFetchUrl(options) {
+      const {serial_no, category_id} = options;
+      return `https://dev.marshall.sugarshaker.com/api/serial-number/${serial_no}/${category_id}`;
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const {createApp, onMounted, ref, nextTick} = Vue;
+
+      createApp({
+        components: {
+          SerialHero,
+          SerialParts
+        },
+        delimiters: [
+          '[[', ']]'
+        ],
+        setup() {
+          const data = ref(null);
+          const isBusy = ref(false);
+          const partsData = ref(null);
+          const selectedCategoryId = ref(null);
+          const selectedCategoryName = ref("");
+
+          const options = {
+            method: 'GET',
+            headers: {
+              'Content-Type': 'application/json',
+              'Accept': 'application/json'
+            }
+          };
+
+          const updatePartsData = async (options) => {
+            isBusy.value = true;
+            try {
+              const fetchUrl = getPartsFetchUrl(options);
+              const response = await fetch(fetchUrl, options);
+              if (!response.ok) 
+                throw new Error('Network response was not ok');
+              const returnedData = await response.json();
+              partsData.value = returnedData.data;
+            } catch (error) {
+              console.error("There was an error!", error);
+            } finally {
+              await nextTick();
+              window
                 .MT
-                .GLightBoxLinks
+                .global
                 .init();
-        });
+              isBusy.value = false;
+            }
+          };
 
-        function getParamFromUrl(parameterName) {
-            // @TODO: @Rob - Convert to param js for domain/product/1234
-            const urlParams = new URLSearchParams(window.location.search);
-            const queryId = urlParams.get(parameterName);
+          const updateSerialData = async () => {
+            const serial_no = getParamFromUrl("serial-number");
+            const fetchUrl = getSerialNumberDataFetchUrl(serial_no);
+            try {
+              const response = await fetch(fetchUrl, options);
+              if (!response.ok) 
+                throw new Error('Network response was not ok');
+              const returnedData = await response.json();
+              data.value = returnedData.data;
+            } catch (error) {
+              console.error("There was an error!", error);
+            }
+          }
 
-            if (queryId) 
-                return queryId;
+          const handleCategoryClick = (category) => {
+            if (isBusy.value || selectedCategoryId.value === category.id) 
+              return;
+            const serial_no = getParamFromUrl("serial-number");
+            selectedCategoryId.value = category.id;
+            selectedCategoryName.value = category.category_name;
+            updatePartsData({serial_no, category_id: category.id});
+          };
+
+          const handleMoreDetailsClick = () => {
+            if (isBusy.value) 
+              return;
             
-            return "";
+            window.location.href = data.value.product.slug;
+          };
+
+          const handleNotMyMarshallClick = () => {
+            if (isBusy.value) 
+              return;
+            
+            window.location.href = "spares.html";
+          };
+
+          const handleBuyNowClick = (product) => {
+            if (isBusy.value) 
+              return;
+            
+            window.location.href = `checkout.html?product_id=${product.id}&quantity=${product.quantity}`;
+          };
+
+          const handleAddToBasketClick = (product) => {
+            if (isBusy.value) 
+              return;
+            
+            const data = `sid=${product.id}&qty=${product.quantity}&price=${product.unit_price}`;
+            window
+              .MT
+              .basket
+              .update(data);
+          };
+
+          onMounted(async () => {
+            updateSerialData();
+            $('#serial-number-app').removeClass('app-loading');
+            initiateObservers();
+          });
+
+          return {
+            data,
+            isBusy,
+            partsData,
+            handleBuyNowClick,
+            selectedCategoryId,
+            selectedCategoryName,
+            handleCategoryClick,
+            handleMoreDetailsClick,
+            handleAddToBasketClick,
+            handleNotMyMarshallClick
+          }
         }
+      }).mount('#serial-number-app');
 
-        function initiateObservers() {
-            GLightBoxLinksObserver.observe(document.querySelector("#serial-number-app"), {
-                childList: true,
-                subtree: true
-            },);
-        }
-
-        function getSerialNumberDataFetchUrl(serial_no) {
-            return `https://dev.marshall.sugarshaker.com/api/serial-number/${serial_no}`;
-        }
-
-        function getPartsFetchUrl(options) {
-            const {serial_no, category_id} = options;
-            return `https://dev.marshall.sugarshaker.com/api/serial-number/${serial_no}/${category_id}`;
-        }
-
-        document.addEventListener('DOMContentLoaded', () => {
-            const {createApp, onMounted, ref, nextTick} = Vue;
-
-            createApp({
-                components: {
-                    SerialHero,
-                    SerialParts
-                },
-                delimiters: [
-                    '[[', ']]'
-                ],
-                setup() {
-                    const data = ref(null);
-                    const isBusy = ref(false);
-                    const partsData = ref(null);
-                    const selectedCategoryId = ref(null);
-                    const selectedCategoryName = ref("");
-
-                    const options = {
-                        method: 'GET',
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'Accept': 'application/json'
-                        }
-                    };
-
-                    const updatePartsData = async (options) => {
-                        isBusy.value = true;
-                        try {
-                            const fetchUrl = getPartsFetchUrl(options);
-                            const response = await fetch(fetchUrl, options);
-                            if (!response.ok) 
-                                throw new Error('Network response was not ok');
-                            const returnedData = await response.json();
-                            partsData.value = returnedData.data;
-                        } catch (error) {
-                            console.error("There was an error!", error);
-                        } finally {
-                            await nextTick();
-                            window
-                                .MT
-                                .global
-                                .init();
-                            isBusy.value = false;
-                        }
-                    };
-
-                    const updateSerialData = async () => {
-                        const serial_no = getParamFromUrl("serial-number");
-                        const fetchUrl = getSerialNumberDataFetchUrl(serial_no);
-                        try {
-                            const response = await fetch(fetchUrl, options);
-                            if (!response.ok) 
-                                throw new Error('Network response was not ok');
-                            const returnedData = await response.json();
-                            data.value = returnedData.data;
-                        } catch (error) {
-                            console.error("There was an error!", error);
-                        }
-                    }
-
-                    const handleCategoryClick = (category) => {
-                        if (isBusy.value || selectedCategoryId.value === category.id) 
-                            return;
-                        const serial_no = getParamFromUrl("serial-number");
-                        selectedCategoryId.value = category.id;
-                        selectedCategoryName.value = category.category_name;
-                        updatePartsData({serial_no, category_id: category.id});
-                    };
-
-                    const handleMoreDetailsClick = () => {
-                        if (isBusy.value) 
-                            return;
-                        
-                        window.location.href = data.value.product.slug;
-                    };
-
-                    const handleNotMyMarshallClick = () => {
-                        if (isBusy.value) 
-                            return;
-                        
-                        window.location.href = "spares.html";
-                    };
-
-                    const handleBuyNowClick = (product) => {
-                        if (isBusy.value) 
-                            return;
-                        
-                        window.location.href = `checkout.html?product_id=${product.id}&quantity=${product.quantity}`;
-                    };
-
-                    const handleAddToBasketClick = (product) => {
-                        if (isBusy.value) 
-                            return;
-                        
-                        const data = `sid=${product.id}&qty=${product.quantity}&price=${product.unit_price}`;
-                        window
-                            .MT
-                            .basket
-                            .update(data);
-                    };
-
-                    onMounted(async () => {
-                        updateSerialData();
-                        $('#serial-number-app').removeClass('app-loading');
-                        initiateObservers();
-                    });
-
-                    return {
-                        data,
-                        isBusy,
-                        partsData,
-                        handleBuyNowClick,
-                        selectedCategoryId,
-                        selectedCategoryName,
-                        handleCategoryClick,
-                        handleMoreDetailsClick,
-                        handleAddToBasketClick,
-                        handleNotMyMarshallClick
-                    }
-                }
-            }).mount('#serial-number-app');
-
-        });
-    </script>
+    });
+  </script>
 
 {% endblock %}

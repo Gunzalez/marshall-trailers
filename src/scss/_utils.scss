@@ -19,6 +19,32 @@
   }
 }
 
+.logo-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 22px;
+
+  .logo-link {
+    display: inline-block;
+
+    img {
+      width: 120px;
+      height: auto;
+    }
+  }
+
+  @media screen and (min-width: $breakpoint2) {
+    align-items: flex-start;
+
+    .logo-link {
+      img {
+        width: 207px;
+      }
+    }
+  }
+}
+
 .mobile-only {
   display: none !important;
 }
@@ -362,7 +388,8 @@
     }
   }
 
-  &.top-section {
+  &.logo-section {
+    padding-top: 16px;
     margin-bottom: 1rem;
   }
 

@@ -4,60 +4,60 @@
 
 {% block content %}
 
-    {{ macros.header("images/logo-marshall-trailers-color.png") }}
+  {{ macros.header("images/logo-marshall-trailers-color.svg") }}
 
-    <nav aria-label="breadcrumbs" class="breadcrumbs">
-        <ol>
-            <li>
-                <a href="index.html">Home</a>
-            </li>
-            <li>Contact us</li>
-        </ol>
-    </nav>
+  <nav aria-label="breadcrumbs" class="breadcrumbs">
+    <ol>
+      <li>
+        <a href="index.html">Home</a>
+      </li>
+      <li>Contact us</li>
+    </ol>
+  </nav>
 
-    <div class="title-wrapper">
-        <h1 class="page-title">Contact us</h1>
-        <p>General Enquiries</p>
-    </div>
+  <div class="title-wrapper">
+    <h1 class="page-title">Contact us</h1>
+    <p>General Enquiries</p>
+  </div>
 
-    <div class="map-hero">
-        <div class="section">
-            <div class="copy-wrapper desktop-only">
-                <div class="inner-wrapper">
-                    {{ macros.marshallContact() }}
-                </div>
-            </div>
+  <div class="map-hero">
+    <div class="section">
+      <div class="copy-wrapper desktop-only">
+        <div class="inner-wrapper">
+          {{ macros.marshallContact() }}
         </div>
+      </div>
     </div>
+  </div>
 
-    <div class="mobile-only map-hero-mobile">
-        <div class="section">
-            {{ macros.marshallContact() }}
-        </div>
+  <div class="mobile-only map-hero-mobile">
+    <div class="section">
+      {{ macros.marshallContact() }}
     </div>
+  </div>
 
-    <div class="section body-copy">
-        <div class="section-padding">
-            <div class="departments-title deep-underline">
-                <h2 class="title">Department Details</h2>
+  <div class="section body-copy">
+    <div class="section-padding">
+      <div class="departments-title deep-underline">
+        <h2 class="title">Department Details</h2>
+      </div>
+      <div class="departments">
+        <div class="department-list">
+          {% for item in departmentsHeads %}
+            <div class="department-card has-image">
+              <img src="{{ item.image }}" alt="{{ item.name }}" class="contact-image">
+              <div class="details">
+                <h3>{{ item.name }}</h3>
+                <p class="department-name">{{ item.position }}</p>
+                <p>
+                  <a href="mailto:{{ item.email }}">{{ item.email }}</a>
+                </p>
+              </div>
             </div>
-            <div class="departments">
-                <div class="department-list">
-                    {% for item in departmentsHeads %}
-                        <div class="department-card has-image">
-                            <img src="{{ item.image }}" alt="{{ item.name }}" class="contact-image">
-                            <div class="details">
-                                <h3>{{ item.name }}</h3>
-                                <p class="department-name">{{ item.position }}</p>
-                                <p>
-                                    <a href="mailto:{{ item.email }}">{{ item.email }}</a>
-                                </p>
-                            </div>
-                        </div>
-                    {% endfor %}
-                </div>
-            </div>
+          {% endfor %}
         </div>
+      </div>
     </div>
+  </div>
 
 {% endblock %}

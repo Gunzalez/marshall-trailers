@@ -4,92 +4,92 @@
 
 {% block content %}
 
-    {{ macros.header("images/logo-marshall-trailers-color.png") }}
+  {{ macros.header("images/logo-marshall-trailers-color.svg") }}
 
-    <nav aria-label="breadcrumbs" class="breadcrumbs">
-        <ol>
-            <li>
-                <a href="index.html">Home</a>
-            </li>
-            <li>
-                <a href="range.html">Ranges</a>
-            </li>
-            <li>
-                <span class="mobile-only">Products</span>
-                <span class="desktop-only">Silage / Grain Trailers</span></li>
-        </ol>
-    </nav>
+  <nav aria-label="breadcrumbs" class="breadcrumbs">
+    <ol>
+      <li>
+        <a href="index.html">Home</a>
+      </li>
+      <li>
+        <a href="range.html">Ranges</a>
+      </li>
+      <li>
+        <span class="mobile-only">Products</span>
+        <span class="desktop-only">Silage / Grain Trailers</span></li>
+    </ol>
+  </nav>
 
-    <div class="title-wrapper">
-        <h1 class="page-title">Silage / Grain Trailers</h1>
-    </div>
+  <div class="title-wrapper">
+    <h1 class="page-title">Silage / Grain Trailers</h1>
+  </div>
 
-    <div id="models-app" class="section grid-pods app-loading">
-        <div v-for="(option, i) in options" :key="i" class="slide flex flex-col gap-4">
-            <a class="pod link" :href="`product.html?id=${option.id}`">
-                <h4 class="title line-clamp-1">[[ option.model ]]</h4>
-                <div class="units-meta">
-                    <span class="unit-meta">
-                        <i class="fa-solid fa-weight-hanging text-sm"></i>
-                        <span>[[ option.capacity ]]</span>
-                    </span>
-                    <span class="unit-meta">
-                        <i class="fa-solid fa-arrows-left-right text-xl"></i>
-                        <span>[[ option.dimension ]]</span>
-                    </span>
-                </div>
-                <div class="image-wrapper">
-                    <img :src="option.image" :alt="option.title">
-                </div>
-            </a>
+  <div id="models-app" class="section grid-pods app-loading">
+    <div v-for="(option, i) in options" :key="i" class="slide flex flex-col gap-4">
+      <a class="pod link" :href="`product.html?id=${option.id}`">
+        <h4 class="title line-clamp-1">[[ option.model ]]</h4>
+        <div class="units-meta">
+          <span class="unit-meta">
+            <i class="fa-solid fa-weight-hanging text-sm"></i>
+            <span>[[ option.capacity ]]</span>
+          </span>
+          <span class="unit-meta">
+            <i class="fa-solid fa-arrows-left-right text-xl"></i>
+            <span>[[ option.dimension ]]</span>
+          </span>
         </div>
+        <div class="image-wrapper">
+          <img :src="option.image" :alt="option.title">
+        </div>
+      </a>
     </div>
+  </div>
 
-    <script>
-        // PROD: replace entire script with PHP
-        const machinesData = {{ machinesData | dump | safe }};
+  <script>
+    // PROD: replace entire script with PHP
+    const machinesData = {{ machinesData | dump | safe }};
 
-        function getParamFromUrl(parameterName) {
-            // @TODO: @Rob - Convert to param js for domain/products/model/1234
-            const urlParams = new URLSearchParams(window.location.search);
-            const queryId = urlParams.get(parameterName);
+    function getParamFromUrl(parameterName) {
+      // @TODO: @Rob - Convert to param js for domain/products/model/1234
+      const urlParams = new URLSearchParams(window.location.search);
+      const queryId = urlParams.get(parameterName);
 
-            if (queryId) 
-                return queryId;
-            
-            return "";
+      if (queryId) 
+        return queryId;
+      
+      return "";
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const {createApp, onMounted, ref, computed} = Vue;
+
+      createApp({
+        delimiters: [
+          '[[', ']]'
+        ],
+        setup() {
+          const options = ref([]);
+
+          onMounted(() => {
+            const model = getParamFromUrl('model');
+            const modelDetails = machinesData.find(function (product) {
+              return product
+                .id
+                .toLowerCase() === model.toLowerCase();
+            });
+
+            if (modelDetails) {
+              options.value = modelDetails.options
+            }
+
+            $('#models-app').removeClass('app-loading');
+          });
+
+          return {options}
         }
+      }).mount('#models-app');
 
-        document.addEventListener('DOMContentLoaded', () => {
-            const {createApp, onMounted, ref, computed} = Vue;
-
-            createApp({
-                delimiters: [
-                    '[[', ']]'
-                ],
-                setup() {
-                    const options = ref([]);
-
-                    onMounted(() => {
-                        const model = getParamFromUrl('model');
-                        const modelDetails = machinesData.find(function (product) {
-                            return product
-                                .id
-                                .toLowerCase() === model.toLowerCase();
-                        });
-
-                        if (modelDetails) {
-                            options.value = modelDetails.options
-                        }
-
-                        $('#models-app').removeClass('app-loading');
-                    });
-
-                    return {options}
-                }
-            }).mount('#models-app');
-
-        });
-    </script>
+    });
+  </script>
 
 {% endblock %}

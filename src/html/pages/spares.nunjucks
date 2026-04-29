@@ -4,62 +4,62 @@
 
 {% block content %}
 
-    {{ macros.header("images/logo-marshall-trailers-color.png") }}
+  {{ macros.header("images/logo-marshall-trailers-color.svg") }}
 
-    <nav aria-label="breadcrumbs" class="breadcrumbs">
-        <ol>
-            <li>
-                <a href="index.html">Home</a>
-            </li>
-            <li>Spares</li>
-        </ol>
-    </nav>
+  <nav aria-label="breadcrumbs" class="breadcrumbs">
+    <ol>
+      <li>
+        <a href="index.html">Home</a>
+      </li>
+      <li>Spares</li>
+    </ol>
+  </nav>
 
-    <div class="title-wrapper">
-        <h1 class="page-title">Spares</h1>
-    </div>
+  <div class="title-wrapper">
+    <h1 class="page-title">Spares</h1>
+  </div>
 
-    <div class="page-intro body-copy">
-        <p>Find the right parts for your Marshall trailer with our comprehensive spare parts catalog.
+  <div class="page-intro body-copy">
+    <p>Find the right parts for your Marshall trailer with our comprehensive spare parts catalog.
         <br>What year was your machine built?</p>
-    </div>
+  </div>
 
-    <div class="section has-sub-sections home-sub-sections body-copy">
-        <div class="sub-section-wrapper">
-            <h2 class="title">Built in or after 2020</h2>
-            <div class="content highlighted">
-                <img class="content-img" src="images/sub-section-bg-3.png" alt="">
-                <div class="text-wrapper">
-                    <p>Quickly find parts specific to your machine using its unique serial number.
+  <div class="section has-sub-sections home-sub-sections body-copy">
+    <div class="sub-section-wrapper">
+      <h2 class="title">Built in or after 2020</h2>
+      <div class="content highlighted">
+        <img class="content-img" src="images/sub-section-bg-3.png" alt="">
+        <div class="text-wrapper">
+          <p>Quickly find parts specific to your machine using its unique serial number.
                     <span class="relative w-fit pre-script">
-                            <i class="fa-solid fa-circle-question text-stone-500 peer"></i>
-                            <span class="bottom-full left-1/2 -translate-x-1/2 absolute text-stone-50 text-xs bg-stone-800 opacity-0 px-2 py-1 rounded-md w-max -translate-y-0.5 peer-hover:-translate-y-1 peer-hover:opacity-100 transition-all max-w-xs">Not sure where to find it? It's usually located on a plate on the front of the trailer, near the hitch.</span>
-                        </span>
-                    </p>
-                    <form id="serial-number-form" action="serial-number.html" method="get" class="form">
-                        <label for="serial-number" class="input-group">
-                            <span class="sr-only">Serial Number</span>
-                            <input type="text" id="serial-number" name="serial-number" placeholder="Enter serial number">
-                        </label>
-                        <button class="bttn" type="submit">
-                            <span>Search machine</span>
-                        </button>
-                    </form>
-                </div>
-            </div>
+              <i class="fa-solid fa-circle-question text-stone-500 peer"></i>
+              <span class="bottom-full left-1/2 -translate-x-1/2 absolute text-stone-50 text-xs bg-stone-800 opacity-0 px-2 py-1 rounded-md w-max -translate-y-0.5 peer-hover:-translate-y-1 peer-hover:opacity-100 transition-all max-w-xs">Not sure where to find it? It's usually located on a plate on the front of the trailer, near the hitch.</span>
+            </span>
+          </p>
+          <form id="serial-number-form" action="serial-number.html" method="get" class="form">
+            <label for="serial-number" class="input-group">
+              <span class="sr-only">Serial Number</span>
+              <input type="text" id="serial-number" name="serial-number" placeholder="Enter serial number">
+            </label>
+            <button class="bttn" type="submit">
+              <span>Search machine</span>
+            </button>
+          </form>
         </div>
-        <div class="sub-section-wrapper">
-            <h2 class="title">Built in or before 2019</h2>
-            <div class="content highlighted">
-                <img class="content-img" src="images/sub-section-bg-4.png" alt="">
-                <div class="text-wrapper">
-                    <p>View general parts lists sorted by category and trailer type.</p>
-                    <a href="parts.html" class="bttn">
-                        <span>Search parts</span>
-                    </a>
-                </div>
-            </div>
-        </div>
+      </div>
     </div>
+    <div class="sub-section-wrapper">
+      <h2 class="title">Built in or before 2019</h2>
+      <div class="content highlighted">
+        <img class="content-img" src="images/sub-section-bg-4.png" alt="">
+        <div class="text-wrapper">
+          <p>View general parts lists sorted by category and trailer type.</p>
+          <a href="parts.html" class="bttn">
+            <span>Search parts</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
 
 {% endblock %}

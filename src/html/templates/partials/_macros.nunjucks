@@ -112,8 +112,10 @@
 {% endmacro %}
 
 {% macro header(logoSrc) %}
-    <div class="section top-section flex items-center sm:items-start justify-between pt-4">
-        <a href="index.html"><img src="{{ logoSrc }}" alt="Marshall Trailers Logo" class="h-16 sm:h-12 sm:h-20"></a>
+    <div class="section logo-section">
+        <a href="index.html" class="logo-link">
+            <img src="{{ logoSrc }}" alt="Marshall Trailers Logo">
+        </a>
         <div class="desktop-buttons">
             <div class="gap-2 items-end flex flex-col">
                 <div class="auxiliary-navigation">

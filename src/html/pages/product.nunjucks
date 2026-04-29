@@ -4,364 +4,364 @@
 
 {% block content %}
 
-    {{ macros.header("images/logo-marshall-trailers-color.png") }}
+  {{ macros.header("images/logo-marshall-trailers-color.svg") }}
 
-    <div id="product-detail">
-        <nav aria-label="breadcrumbs" class="breadcrumbs">
-            <ol>
-                <li>
-                    <a href="index.html">Home</a>
-                </li>
-                <li>
-                    <a href="range.html">Ranges</a>
-                </li>
-                <li>
-                    <span class="mobile-only">
-                        <a href="#" class="dummy-data-parent-link-HREF">Products</a>
-                    </span>
-                    <span class="desktop-only">
-                        <a href="#" class="dummy-data-parent-link-HREF">Silage / Grain Trailers</a>
-                    </span>
-                </li>
+  <div id="product-detail">
+    <nav aria-label="breadcrumbs" class="breadcrumbs">
+      <ol>
+        <li>
+          <a href="index.html">Home</a>
+        </li>
+        <li>
+          <a href="range.html">Ranges</a>
+        </li>
+        <li>
+          <span class="mobile-only">
+            <a href="#" class="dummy-data-parent-link-HREF">Products</a>
+          </span>
+          <span class="desktop-only">
+            <a href="#" class="dummy-data-parent-link-HREF">Silage / Grain Trailers</a>
+          </span>
+        </li>
 
-                <li>
-                    <span class="mobile-only">Product</span>
-                    <span class="desktop-only">
+        <li>
+          <span class="mobile-only">Product</span>
+          <span class="desktop-only">
                         QM-X</span></li>
-            </ol>
-        </nav>
+      </ol>
+    </nav>
 
-        <div class="product-hero">
-            <div style="background-image: url('images/sample-hero-bg.jpg')" class="product-hero-bg"></div>
-            <div class="section">
-                <div class="copy-wrapper desktop-only">
-                    <div class="inner-wrapper">
-                        {{ macros.quickSpecsProduct() }}
-                    </div>
-                </div>
-            </div>
+    <div class="product-hero">
+      <div style="background-image: url('images/sample-hero-bg.jpg')" class="product-hero-bg"></div>
+      <div class="section">
+        <div class="copy-wrapper desktop-only">
+          <div class="inner-wrapper">
+            {{ macros.quickSpecsProduct() }}
+          </div>
         </div>
-
-        <div class="mobile-only quick-specs-mobile">
-            <div class="section">
-                {{ macros.quickSpecsProduct() }}
-            </div>
-        </div>
-
-        <div id="tabs-section" data-active-tab-index="0" class="features-tabs-section tabs-section ">
-            <ul class="tabs-list" role="presentation"></ul>
-            <div class="tabs-content">
-
-                <div class="tab-item">
-                    <h3 class="tab-header">Features</h3>
-                    <div class="tab-content">
-                        <div class="body-copy">
-                            <div class="features-list">
-                                <div class="accordion-mini">
-                                    {% for feature in featuresData %}
-                                        {{ macros.accordionItem(feature.title, feature.text, feature.imageUrl, feature.label, loop.index) }}
-                                    {% endfor %}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="tab-item">
-                    <h3 class="tab-header">Overview</h3>
-                    <div class="tab-content">
-                        {{ macros.overview() }}
-                    </div>
-                </div>
-
-                <div id="specifications-app" class="tab-item app-loading specifications-app compact-layout">
-                    <h3 class="tab-header">Specifications</h3>
-                    <div id="specifications-app-vue">
-                        <div class="tab-content">
-                            <h2 class="comparison-title">Compare specifications</h2>
-                            <div class="flex specs-carousel-wrapper">
-                                <div class="fixed-column w-[290px] flex-shrink-0">
-                                    <ul class="specs-list flex flex-col">
-                                        <li class="image-row">
-                                            <div class="carousel-buttons">
-                                                <button type="button" class="carousel-control-prev bttn btn_Carousel btn_Narrow" aria-label="Previous" aria-role="button" @click="prev" :disabled="isDisabled">
-                                                    <i class="fa-solid fa-chevron-left"></i>
-                                                </button>
-                                                <button type="button" class="carousel-control-next bttn btn_Carousel btn_Narrow" aria-label="Next" aria-role="button" @click="next" :disabled="isDisabled">
-                                                    <i class="fa-solid fa-chevron-right"></i>
-                                                </button>
-                                            </div>
-                                        </li>
-                                        <li class="text-sm font-semibold bordered-bottom">
-                                        Basic Price
-                                    </li>
-                                        <li v-for="(key, iIndex) in standardLabels" :key="key" class="text-sm font-semibold bordered-bottom">
-                                        [[ key ]]
-                                    </li>
-                                        <li class="optional bordered-bottom optional-header">
-                                            <span>Optional Equipment</span>
-                                        </li>
-                                        <li v-for="(key, iIndex) in optionalLabels" :key="key" class="text-sm font-semibold optional bordered-bottom">
-                                        [[ key ]]
-                                    </li>
-                                        <li class="footer-row optional">
-                                            <div class="carousel-buttons app-footer">
-                                                <button type="button" class="carousel-control-prev bttn btn_Carousel btn_Narrow" aria-label="Previous" aria-role="button" @click="prev" :disabled="isDisabled">
-                                                    <i class="fa-solid fa-chevron-left"></i>
-                                                </button>
-                                                <button type="button" class="carousel-control-next bttn btn_Carousel btn_Narrow" aria-label="Next" aria-role="button" @click="next" :disabled="isDisabled">
-                                                    <i class="fa-solid fa-chevron-right"></i>
-                                                </button>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="w-full overflow-hidden">
-                                    <div id="product-specs" class="product-specs">
-                                        <ul v-for="(product, pIndex) in productsData" :key="pIndex" class="w-full specs-list flex flex-col w-[300px]" :class="{ 'selected': product.id === selectedProductId }">
-                                            <li class="image-row">
-                                                <p class="line-clamp-1 title">[[ product.title ]]</p>
-                                                <a :href="`product.html?id=${product.id}`">
-                                                    <img :src="product.image" :alt="product.title"/></a>
-                                            </li>
-                                            <li class="text-sm bordered-bottom">
-                                        [[ product.price ]]                                    
-                                    </li>
-                                            <li v-for="(key, kIndex) in product['specification']['standard']" :key="key" class="text-sm bordered-bottom">
-                                        [[ key ]]                                    
-                                    </li>
-                                            <li class="optional bordered-bottom optional-header">
-                                                <span>Optional Equipment</span></li>
-                                            <li v-for="(key, kIndex) in product['specification']['optional']" :key="key" class="text-sm optional bordered-bottom">
-                                        [[ key  ]]
-                                    </li>
-                                            <li class="footer-row optional">
-                                                <p class="line-clamp-1 title">
-                                                    <a :href="`product.html?id=${product.id}`" :class="{ 'cursor-default': product.id === selectedProductId }">[[ product.title ]]</a>
-                                                </p>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <table id="single-column" class="single-column"></table>
-
-                            <div class="specifications-footer">
-                                <button type="button" id="toggleOptionsButton" class="bttn btn_ToggleOptions">
-                                    <span class="show-options">See Optional Equipment</span>
-                                    <span class="hide-options">Hide Optional Equipment</span>
-                                </button>
-                            </div>
-                            <ul class="downloads-list">
-                                <li>
-                                    <a href="#">Download specification sheet</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="tab-item">
-                    <h3 class="tab-header">Gallery</h3>
-                    <div class="tab-content">
-                        {{ macros.gallery() }}
-                    </div>
-                </div>
-
-                <div class="tab-item">
-                    <h3 class="tab-header">Owner's Info</h3>
-                    <div class="tab-content">
-                        {{ macros.ownersInfo() }}
-                    </div>
-                </div>
-
-                <div class="tab-item">
-                    <h3 class="tab-header">Retro Fit</h3>
-                    <div class="tab-content">
-                        {{ macros.retroFit() }}
-                    </div>
-                </div>
-
-            </div>
-        </div>
+      </div>
     </div>
 
-    <script>
-        function applyButtonBehavior(selectedProductId) {
-            $("#toggleOptionsButton").on("click", () => {
-                $('#specifications-app').toggleClass("compact-layout");
-                var $visibleHeaders = $(".optional-header:visible");
-                if ($visibleHeaders.length > 0) {
-                    $visibleHeaders[0].scrollIntoView({behavior: "smooth", block: "center"});
-                }
-            });
+    <div class="mobile-only quick-specs-mobile">
+      <div class="section">
+        {{ macros.quickSpecsProduct() }}
+      </div>
+    </div>
 
-            $('#specifications-app')
-                .removeClass('app-loading')
-                .addClass("compact-layout")
+    <div id="tabs-section" data-active-tab-index="0" class="features-tabs-section tabs-section ">
+      <ul class="tabs-list" role="presentation"></ul>
+      <div class="tabs-content">
 
-            $(".btn_Configure").on("click", () => {
-                window.location.href = `configure.html?id=${selectedProductId}`;
-            });
+        <div class="tab-item">
+          <h3 class="tab-header">Features</h3>
+          <div class="tab-content">
+            <div class="body-copy">
+              <div class="features-list">
+                <div class="accordion-mini">
+                  {% for feature in featuresData %}
+                    {{ macros.accordionItem(feature.title, feature.text, feature.imageUrl, feature.label, loop.index) }}
+                  {% endfor %}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-item">
+          <h3 class="tab-header">Overview</h3>
+          <div class="tab-content">
+            {{ macros.overview() }}
+          </div>
+        </div>
+
+        <div id="specifications-app" class="tab-item app-loading specifications-app compact-layout">
+          <h3 class="tab-header">Specifications</h3>
+          <div id="specifications-app-vue">
+            <div class="tab-content">
+              <h2 class="comparison-title">Compare specifications</h2>
+              <div class="flex specs-carousel-wrapper">
+                <div class="fixed-column w-[290px] flex-shrink-0">
+                  <ul class="specs-list flex flex-col">
+                    <li class="image-row">
+                      <div class="carousel-buttons">
+                        <button type="button" class="carousel-control-prev bttn btn_Carousel btn_Narrow" aria-label="Previous" aria-role="button" @click="prev" :disabled="isDisabled">
+                          <i class="fa-solid fa-chevron-left"></i>
+                        </button>
+                        <button type="button" class="carousel-control-next bttn btn_Carousel btn_Narrow" aria-label="Next" aria-role="button" @click="next" :disabled="isDisabled">
+                          <i class="fa-solid fa-chevron-right"></i>
+                        </button>
+                      </div>
+                    </li>
+                    <li class="text-sm font-semibold bordered-bottom">
+                                        Basic Price
+                                    </li>
+                    <li v-for="(key, iIndex) in standardLabels" :key="key" class="text-sm font-semibold bordered-bottom">
+                                        [[ key ]]
+                                    </li>
+                    <li class="optional bordered-bottom optional-header">
+                      <span>Optional Equipment</span>
+                    </li>
+                    <li v-for="(key, iIndex) in optionalLabels" :key="key" class="text-sm font-semibold optional bordered-bottom">
+                                        [[ key ]]
+                                    </li>
+                    <li class="footer-row optional">
+                      <div class="carousel-buttons app-footer">
+                        <button type="button" class="carousel-control-prev bttn btn_Carousel btn_Narrow" aria-label="Previous" aria-role="button" @click="prev" :disabled="isDisabled">
+                          <i class="fa-solid fa-chevron-left"></i>
+                        </button>
+                        <button type="button" class="carousel-control-next bttn btn_Carousel btn_Narrow" aria-label="Next" aria-role="button" @click="next" :disabled="isDisabled">
+                          <i class="fa-solid fa-chevron-right"></i>
+                        </button>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+                <div class="w-full overflow-hidden">
+                  <div id="product-specs" class="product-specs">
+                    <ul v-for="(product, pIndex) in productsData" :key="pIndex" class="w-full specs-list flex flex-col w-[300px]" :class="{ 'selected': product.id === selectedProductId }">
+                      <li class="image-row">
+                        <p class="line-clamp-1 title">[[ product.title ]]</p>
+                        <a :href="`product.html?id=${product.id}`">
+                          <img :src="product.image" :alt="product.title"/></a>
+                      </li>
+                      <li class="text-sm bordered-bottom">
+                                        [[ product.price ]]                                    
+                                    </li>
+                      <li v-for="(key, kIndex) in product['specification']['standard']" :key="key" class="text-sm bordered-bottom">
+                                        [[ key ]]                                    
+                                    </li>
+                      <li class="optional bordered-bottom optional-header">
+                        <span>Optional Equipment</span></li>
+                      <li v-for="(key, kIndex) in product['specification']['optional']" :key="key" class="text-sm optional bordered-bottom">
+                                        [[ key  ]]
+                                    </li>
+                      <li class="footer-row optional">
+                        <p class="line-clamp-1 title">
+                          <a :href="`product.html?id=${product.id}`" :class="{ 'cursor-default': product.id === selectedProductId }">[[ product.title ]]</a>
+                        </p>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <table id="single-column" class="single-column"></table>
+
+              <div class="specifications-footer">
+                <button type="button" id="toggleOptionsButton" class="bttn btn_ToggleOptions">
+                  <span class="show-options">See Optional Equipment</span>
+                  <span class="hide-options">Hide Optional Equipment</span>
+                </button>
+              </div>
+              <ul class="downloads-list">
+                <li>
+                  <a href="#">Download specification sheet</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-item">
+          <h3 class="tab-header">Gallery</h3>
+          <div class="tab-content">
+            {{ macros.gallery() }}
+          </div>
+        </div>
+
+        <div class="tab-item">
+          <h3 class="tab-header">Owner's Info</h3>
+          <div class="tab-content">
+            {{ macros.ownersInfo() }}
+          </div>
+        </div>
+
+        <div class="tab-item">
+          <h3 class="tab-header">Retro Fit</h3>
+          <div class="tab-content">
+            {{ macros.retroFit() }}
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function applyButtonBehavior(selectedProductId) {
+      $("#toggleOptionsButton").on("click", () => {
+        $('#specifications-app').toggleClass("compact-layout");
+        var $visibleHeaders = $(".optional-header:visible");
+        if ($visibleHeaders.length > 0) {
+          $visibleHeaders[0].scrollIntoView({behavior: "smooth", block: "center"});
         }
+      });
 
-        function getParamFromUrl(parameterName) {
-            // @TODO: @Rob - Convert to param js for domain/product/1234
-            const urlParams = new URLSearchParams(window.location.search);
-            const queryId = urlParams.get(parameterName);
+      $('#specifications-app')
+        .removeClass('app-loading')
+        .addClass("compact-layout")
 
-            if (queryId) 
-                return queryId;
-            
-            return "";
-        }
+      $(".btn_Configure").on("click", () => {
+        window.location.href = `configure.html?id=${selectedProductId}`;
+      });
+    }
 
-        document.addEventListener('DOMContentLoaded', () => {
-            const {createApp, onMounted, ref, nextTick} = Vue;
+    function getParamFromUrl(parameterName) {
+      // @TODO: @Rob - Convert to param js for domain/product/1234
+      const urlParams = new URLSearchParams(window.location.search);
+      const queryId = urlParams.get(parameterName);
 
-            createApp({
-                delimiters: [
-                    '[[', ']]'
-                ],
-                setup() {
-                    const selectedProductId = parseInt(getParamFromUrl("id"));
-                    const NUMBER_OF_VISIBLE_SLIDES = 3;
+      if (queryId) 
+        return queryId;
+      
+      return "";
+    }
 
-                    const standardLabels = ref([]);
-                    const optionalLabels = ref([]);
-                    const productsData = ref([]);
-                    const displayAdditionalOptions = ref(false);
-                    const slickInstance = ref(null);
-                    const isDisabled = ref(true);
+    document.addEventListener('DOMContentLoaded', () => {
+      const {createApp, onMounted, ref, nextTick} = Vue;
 
-                    const getComparisonDataFetchUrl = () => {
-                        return `https://dev.marshall.sugarshaker.com/api/products/${selectedProductId}/comparisons`;
-                    }
+      createApp({
+        delimiters: [
+          '[[', ']]'
+        ],
+        setup() {
+          const selectedProductId = parseInt(getParamFromUrl("id"));
+          const NUMBER_OF_VISIBLE_SLIDES = 3;
 
-                    const prev = () => {
-                        slickInstance
-                            .value
-                            .slick('slickPrev');
-                    }
+          const standardLabels = ref([]);
+          const optionalLabels = ref([]);
+          const productsData = ref([]);
+          const displayAdditionalOptions = ref(false);
+          const slickInstance = ref(null);
+          const isDisabled = ref(true);
 
-                    const next = () => {
-                        slickInstance
-                            .value
-                            .slick('slickNext');
-                    }
+          const getComparisonDataFetchUrl = () => {
+            return `https://dev.marshall.sugarshaker.com/api/products/${selectedProductId}/comparisons`;
+          }
 
-                    const insertDummyData = () => {
-                        if (productsData.value.length > 0) {
+          const prev = () => {
+            slickInstance
+              .value
+              .slick('slickPrev');
+          }
 
-                            const rangeId = productsData.value[0]
-                                ?.range_id || "1";
+          const next = () => {
+            slickInstance
+              .value
+              .slick('slickNext');
+          }
 
-                            $(".dummy-data-parent-link-HREF").attr("href", "products.html?model=" + rangeId);
-                        }
-                    }
+          const insertDummyData = () => {
+            if (productsData.value.length > 0) {
 
-                    const initiateCarousel = () => {
+              const rangeId = productsData.value[0]
+                ?.range_id || "1";
 
-                        const initialSlideIndex = productsData
-                            .value
-                            .findIndex(product => product.id === selectedProductId);
+              $(".dummy-data-parent-link-HREF").attr("href", "products.html?model=" + rangeId);
+            }
+          }
 
-                        const initialSlide = initialSlideIndex >= 0
-                            ? initialSlideIndex
-                            : 0;
+          const initiateCarousel = () => {
 
-                        slickInstance.value = $("#product-specs").slick({
-                            dots: false,
-                            slidesToShow: 3,
-                            slidesToScroll: 1,
-                            autoplay: false,
-                            initialSlide: initialSlide,
-                            centerPadding: "0",
-                            centerMode: true,
-                            infinite: true,
-                            arrows: false,
-                            responsive: [
-                                {
-                                    breakpoint: 1200,
-                                    settings: {
-                                        slidesToShow: 2,
-                                        slidesToScroll: 2
-                                    }
-                                }, {
-                                    breakpoint: 992,
-                                    settings: {
-                                        slidesToShow: 1,
-                                        slidesToScroll: 1
-                                    }
-                                }
-                            ]
-                        });
-                    }
+            const initialSlideIndex = productsData
+              .value
+              .findIndex(product => product.id === selectedProductId);
 
-                    const attachHighlightEvents = () => {
-                        const handleHighlight = (event) => {
-                            const $listItem = $(event.currentTarget);
-                            const index = $listItem.index();
+            const initialSlide = initialSlideIndex >= 0
+              ? initialSlideIndex
+              : 0;
 
-                            if (index === 0) 
-                                return;
-                            
-                            const action = event.type === 'mouseenter'
-                                ? 'addClass'
-                                : 'removeClass';
-
-                            $(".specs-list").each(function () {
-                                $(this)
-                                    .find("li")
-                                    .eq(index)[action]("highlight");
-                            });
-                        };
-
-                        $(".specs-list li")
-                            .on("mouseenter", handleHighlight)
-                            .on("mouseleave", handleHighlight);
-
-                    }
-
-                    onMounted(async () => {
-
-                        const fetchUrl = getComparisonDataFetchUrl();
-                        const response = await fetch(fetchUrl);
-                        const comparisonData = await response.json();
-
-                        if (comparisonData && comparisonData.labels) {
-                            standardLabels.value = comparisonData.labels.standard || [];
-                            optionalLabels.value = comparisonData.labels.optional || [];
-                            productsData.value = comparisonData.products || [];
-                        };
-
-                        if (productsData.value.length > NUMBER_OF_VISIBLE_SLIDES) {
-                            isDisabled.value = false;
-                        }
-
-                        await nextTick();
-                        initiateCarousel();
-                        attachHighlightEvents();
-                        applyButtonBehavior(selectedProductId);
-
-                        // replace with PHP
-                        insertDummyData();
-                    });
-
-                    return {
-                        prev,
-                        next,
-                        standardLabels,
-                        optionalLabels,
-                        isDisabled,
-                        displayAdditionalOptions,
-                        productsData,
-                        selectedProductId
-                    };
+            slickInstance.value = $("#product-specs").slick({
+              dots: false,
+              slidesToShow: 3,
+              slidesToScroll: 1,
+              autoplay: false,
+              initialSlide: initialSlide,
+              centerPadding: "0",
+              centerMode: true,
+              infinite: true,
+              arrows: false,
+              responsive: [
+                {
+                  breakpoint: 1200,
+                  settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2
+                  }
+                }, {
+                  breakpoint: 992,
+                  settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                  }
                 }
-            }).mount('#specifications-app-vue');
-        });
-    </script>
+              ]
+            });
+          }
+
+          const attachHighlightEvents = () => {
+            const handleHighlight = (event) => {
+              const $listItem = $(event.currentTarget);
+              const index = $listItem.index();
+
+              if (index === 0) 
+                return;
+              
+              const action = event.type === 'mouseenter'
+                ? 'addClass'
+                : 'removeClass';
+
+              $(".specs-list").each(function () {
+                $(this)
+                  .find("li")
+                  .eq(index)[action]("highlight");
+              });
+            };
+
+            $(".specs-list li")
+              .on("mouseenter", handleHighlight)
+              .on("mouseleave", handleHighlight);
+
+          }
+
+          onMounted(async () => {
+
+            const fetchUrl = getComparisonDataFetchUrl();
+            const response = await fetch(fetchUrl);
+            const comparisonData = await response.json();
+
+            if (comparisonData && comparisonData.labels) {
+              standardLabels.value = comparisonData.labels.standard || [];
+              optionalLabels.value = comparisonData.labels.optional || [];
+              productsData.value = comparisonData.products || [];
+            };
+
+            if (productsData.value.length > NUMBER_OF_VISIBLE_SLIDES) {
+              isDisabled.value = false;
+            }
+
+            await nextTick();
+            initiateCarousel();
+            attachHighlightEvents();
+            applyButtonBehavior(selectedProductId);
+
+            // replace with PHP
+            insertDummyData();
+          });
+
+          return {
+            prev,
+            next,
+            standardLabels,
+            optionalLabels,
+            isDisabled,
+            displayAdditionalOptions,
+            productsData,
+            selectedProductId
+          };
+        }
+      }).mount('#specifications-app-vue');
+    });
+  </script>
 
 {% endblock %}

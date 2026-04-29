@@ -1,108 +1,110 @@
 <div id="top-drawer" class="shadow-md pre-script">
-  <div id="top-navigation" class="w-full max-w-[var(--max-width)] mx-auto px-4 mt-4 transition-all duration-300 ease-in-out relative">
-    <div class="inset-0 w-full flex gap-4 items-start justify-end">
-      <div class="flex flex-col w-full">
+    <div id="top-navigation" class="w-full max-w-[var(--max-width)] mx-auto px-4 mt-4 transition-all duration-300 ease-in-out relative">
+        <div class="inset-0 w-full flex gap-4 items-start justify-end">
+            <div class="flex flex-col w-full">
 
-        <div class="top-section flex items-center sm:items-start justify-between mb-4">
-          <a href="index.html"><img src="images/logo-marshall-trailers-color.png" alt="Marshall Trailers Logo" class="h-16 sm:h-12 sm:h-20"></a>
-          <div class="flex flex-col gap-2 items-end flex desktop-buttons">
-            <div class="flex gap-4 items-center">
-              <button type="button" aria-label="close menu" id="close-navigation" class="close-navigation">
-                <i class="fa-solid fa-xmark text-lg"></i>
-              </button>
-            </div>
-          </div>
-        </div>
+                <div class="logo-section">
+                    <a href="index.html" class="logo-link">
+                        <img src="images/logo-marshall-trailers-color.svg" alt="Marshall Trailers Logo">
+                    </a>
+                    <div class="flex flex-col gap-2 items-end flex desktop-buttons">
+                        <div class="flex gap-4 items-center">
+                            <button type="button" aria-label="close menu" id="close-navigation" class="close-navigation">
+                                <i class="fa-solid fa-xmark text-lg"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
 
-        <nav id="desktop-navigation">
-          <ul class="main-menu">
-            <li class="mobile-nav-link  {{ 'active' if main_page === 'home' }}">
-              <a href="index.html" title="Home">Home</a>
-            </li>
-            <li class="{{ 'active' if main_page === 'products' }}">
-              <a href="range.html" title="Products">Products</a>
-              <ul id="mega-nav-list">
-                {% for item in machinesData %}
-                  <li>
-                    <a href="products.html?model={{ item.id }}" data-type="model" data-image-src="{{ item.image }}">{{ item.category }}</a>
-                    <ul>
-                      {% for option in item.options %}
-                        <li>
-                          <a href="product.html?id={{ option.id }}" data-type="option" data-image-src="{{ option.image }}" data-capacity="{{ option.capacity }}" data-dimension="{{ option.dimension }}">{{ option.model }}</a>
+                <nav id="desktop-navigation">
+                    <ul class="main-menu">
+                        <li class="mobile-nav-link  {{ 'active' if main_page === 'home' }}">
+                            <a href="index.html" title="Home">Home</a>
                         </li>
-                      {% endfor %}
+                        <li class="{{ 'active' if main_page === 'products' }}">
+                            <a href="range.html" title="Products">Products</a>
+                            <ul id="mega-nav-list">
+                                {% for item in machinesData %}
+                                    <li>
+                                        <a href="products.html?model={{ item.id }}" data-type="model" data-image-src="{{ item.image }}">{{ item.category }}</a>
+                                        <ul>
+                                            {% for option in item.options %}
+                                                <li>
+                                                    <a href="product.html?id={{ option.id }}" data-type="option" data-image-src="{{ option.image }}" data-capacity="{{ option.capacity }}" data-dimension="{{ option.dimension }}">{{ option.model }}</a>
+                                                </li>
+                                            {% endfor %}
+                                        </ul>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </li>
+                        <li {% if main_page === "retrofit" %} class="active" {% endif %}>
+                            <a href="retrofit.html">Retro Fit</a>
+                        </li>
+                        <li class="desktop-only {{ 'active' if main_page === 'configure' }}">
+                            <a href="configure.html">Price & Configure</a>
+                        </li>
+                        <li {% if main_page === "spares" %} class="active" {% endif %}>
+                            <a href="spares.html">Spares</a>
+                            <ul>
+                                <li>
+                                    <a href="parts.html">By Parts</a>
+                                </li>
+                                <li>
+                                    <a href="stock-clearance.html">Stock Clearance</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li {% if main_page === "about" %} class="active" {% endif %}>
+                            <a href="about.html">About us</a>
+                            <ul>
+                                <li>
+                                    <a href="about.html#heritage">Heritage</a>
+                                </li>
+                                <li>
+                                    <a href="about.html#innovation">Innovation</a>
+                                </li>
+                                <li>
+                                    <a href="about.html#quality">Quality</a>
+                                </li>
+                                <li>
+                                    <a href="about.html#value">Value</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li {% if main_page === "news" %} class="active" {% endif %} >
+                            <a href="news.html">News</a>
+                        </li>
+                        <li {% if main_page === "contact" %} class="active" {% endif %}>
+                            <a href="contact.html">Contact</a>
+                        </li>
+                        <li {% if main_page === "search" %} class="active" {% endif %}>
+                            <a href="search.html">Search</a>
+                        </li>
+                        <li class="mobile-nav-link  {{ 'active' if main_page === 'accounts' }}">
+                            <a href="account.html">Register / Login</a>
+                        </li>
                     </ul>
-                  </li>
-                {% endfor %}
-              </ul>
-            </li>
-            <li {% if main_page === "retrofit" %} class="active" {% endif %}>
-              <a href="retrofit.html">Retro Fit</a>
-            </li>
-            <li class="desktop-only {{ 'active' if main_page === 'configure' }}">
-              <a href="configure.html">Price & Configure</a>
-            </li>
-            <li {% if main_page === "spares" %} class="active" {% endif %}>
-              <a href="spares.html">Spares</a>
-              <ul>
-                <li>
-                  <a href="parts.html">By Parts</a>
-                </li>
-                <li>
-                  <a href="stock-clearance.html">Stock Clearance</a>
-                </li>
-              </ul>
-            </li>
-            <li {% if main_page === "about" %} class="active" {% endif %}>
-              <a href="about.html">About us</a>
-              <ul>
-                <li>
-                  <a href="about.html#heritage">Heritage</a>
-                </li>
-                <li>
-                  <a href="about.html#innovation">Innovation</a>
-                </li>
-                <li>
-                  <a href="about.html#quality">Quality</a>
-                </li>
-                <li>
-                  <a href="about.html#value">Value</a>
-                </li>
-              </ul>
-            </li>
-            <li {% if main_page === "news" %} class="active" {% endif %} >
-              <a href="news.html">News</a>
-            </li>
-            <li {% if main_page === "contact" %} class="active" {% endif %}>
-              <a href="contact.html">Contact</a>
-            </li>
-            <li {% if main_page === "search" %} class="active" {% endif %}>
-              <a href="search.html">Search</a>
-            </li>
-            <li class="mobile-nav-link  {{ 'active' if main_page === 'accounts' }}">
-              <a href="account.html">Register / Login</a>
-            </li>
-          </ul>
-        </nav>
-      </div>
-    </div>
-    <div id="product-spotlight" class="product-spotlight">
-      <div class="image-wrapper">
-        <img id="product-image-placeholder" src="" alt="" class="product-image">
-      </div>
-      <div id="product-description-placeholder" class="text-wrapper">
-        <span class="product-title"></span>
-        <div class="units-meta">
-          <span class="unit-meta">
-            <i class="fa-solid fa-weight-hanging text-sm"></i>
-            <span class="capacity"></span>
-          </span>
-          <span class="unit-meta">
-            <i class="fa-solid fa-arrows-left-right text-xl"></i>
-            <span class="dimension"></span>
-          </span>
+                </nav>
+            </div>
         </div>
-      </div>
+        <div id="product-spotlight" class="product-spotlight">
+            <div class="image-wrapper">
+                <img id="product-image-placeholder" src="" alt="" class="product-image">
+            </div>
+            <div id="product-description-placeholder" class="text-wrapper">
+                <span class="product-title"></span>
+                <div class="units-meta">
+                    <span class="unit-meta">
+                        <i class="fa-solid fa-weight-hanging text-sm"></i>
+                        <span class="capacity"></span>
+                    </span>
+                    <span class="unit-meta">
+                        <i class="fa-solid fa-arrows-left-right text-xl"></i>
+                        <span class="dimension"></span>
+                    </span>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
 </div>
