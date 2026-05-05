@@ -44,6 +44,7 @@
   marshallTrailers.global = {
     init: function () {
       $(".pre-script").removeClass("pre-script");
+      $(".preload").removeClass("preload");
 
       var defaultSelectHeight = 85;
       $(".select-input").each(function () {
