@@ -74,30 +74,32 @@ export default {
             </div>
             <span class="underline"></span>
             <div class="container-content">
-                
-                <ProductCard v-show="node.is_buyable && isBuyableOpen"
-                    :id="node.id" 
-                    :part_no="node.part_no" 
-                    :title="node.title" 
-                    :price="node.price" 
-                    :weight="node.weight" 
-                    :quantity="node.quantity"
-                    :imageLarge="node.imageLarge" 
-                    :imageSmall="node.imageSmall" 
-                    :is_buyable="node.is_buyable"
-                    @buy-now-click="$emit('buy-now-click', $event)"
-                    @add-to-basket-click="$emit('add-to-basket-click', $event)" />
-
-                <div v-show="hasChildren && isListOpen" class="children-containers">
-                    <recursive-container 
-                        v-for="(child, idx) in node.children" 
-                        :key="idx" 
-                        :node="child" 
-                        :depth="depth + 1"
-                        @buy-now-click="$emit('buy-now-click', $event)"
-                        @add-to-basket-click="$emit('add-to-basket-click', $event)">
-                    </recursive-container>
-                </div>
+                <Transition>
+                  <ProductCard v-show="node.is_buyable && isBuyableOpen"
+                      :id="node.id" 
+                      :part_no="node.part_no" 
+                      :title="node.title" 
+                      :price="node.price" 
+                      :weight="node.weight" 
+                      :quantity="node.quantity"
+                      :imageLarge="node.imageLarge" 
+                      :imageSmall="node.imageSmall" 
+                      :is_buyable="node.is_buyable"
+                      @buy-now-click="$emit('buy-now-click', $event)"
+                      @add-to-basket-click="$emit('add-to-basket-click', $event)" />
+                </Transition>
+                <Transition>
+                  <div v-show="hasChildren && isListOpen" class="children-containers">
+                      <recursive-container 
+                          v-for="(child, idx) in node.children" 
+                          :key="idx" 
+                          :node="child" 
+                          :depth="depth + 1"
+                          @buy-now-click="$emit('buy-now-click', $event)"
+                          @add-to-basket-click="$emit('add-to-basket-click', $event)">
+                      </recursive-container>
+                  </div>
+                </Transition>
 
             </div>
         </div>
