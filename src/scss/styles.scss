@@ -2153,7 +2153,7 @@
 
     .container-header {
       border-left: var(--brand-border-width) solid var(--brand-red);
-      padding: 5px 0 5px 12px;
+      padding: 5px 8px 5px 12px;
       align-items: center;
       display: flex;
       gap: 1rem;
@@ -2161,6 +2161,10 @@
       .item-title {
         font-weight: 600;
         flex: 1;
+      }
+
+      &.low-light {
+        background-color: #f3f5f6;
       }
     }
 

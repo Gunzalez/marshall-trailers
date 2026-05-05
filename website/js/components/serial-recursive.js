@@ -50,7 +50,7 @@ export default {
   },
   template: `
         <div class="container-wrapper" :class="{ ['level-' + props.depth]: true, buyableOpen: isBuyableOpen, listOpen: isListOpen }">
-            <div class="container-header">
+            <div class="container-header" :class="{ 'low-light': !node.is_buyable && hasChildren }">
                 <template v-if="node.is_buyable">
                     <div class="item-title product-title">
                         <span class="part_no">Part: {{ node.part_no }}</span>
