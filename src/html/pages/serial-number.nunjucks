@@ -85,7 +85,33 @@
       },);
     }
 
-    function getSerialNumberDataFetchUrl(serial_no) {
+    function initiateScrollObservers() {
+      setTimeout(() => {
+        const anchor = document.querySelector('#scroll-anchor');
+        const targetElement = document.querySelector('.scroll-indicator');
+
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              targetElement
+                .classList
+                .add('at-bottom');
+            } else {
+              targetElement
+                .classList
+                .remove('at-bottom');
+            }
+          });
+        }, {
+          root: document.querySelector('.serial-specs-wrapper'),
+          threshold: 1.0
+        });
+
+        observer.observe(anchor);
+      }, 500);
+    }
+
+    function createSerialNumberDataFetchUrl(serial_no) {
       return `https://dev.marshall.sugarshaker.com/api/serial-number/${serial_no}`;
     }
 
@@ -143,7 +169,7 @@
 
           const updateSerialData = async () => {
             const serial_no = getParamFromUrl("serial-number");
-            const fetchUrl = getSerialNumberDataFetchUrl(serial_no);
+            const fetchUrl = createSerialNumberDataFetchUrl(serial_no);
             try {
               const response = await fetch(fetchUrl, options);
               if (!response.ok) 
@@ -200,6 +226,7 @@
             updateSerialData();
             $('#serial-number-app').removeClass('app-loading');
             initiateObservers();
+            initiateScrollObservers();
           });
 
           return {

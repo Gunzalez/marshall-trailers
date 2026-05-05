@@ -22,6 +22,7 @@ export default {
                 </tr>
               </tbody>
             </table>
+            <div id="scroll-anchor"></div>
         </div>
         <div class="scroll-indicator"></div>
       </div>

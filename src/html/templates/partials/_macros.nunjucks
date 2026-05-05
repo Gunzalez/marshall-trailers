@@ -392,7 +392,10 @@
     <div class="quick-specs">
         <div class="specs-content">
             <h1 class="title"></h1>
-            <ul class="specs-list"></ul>
+            <div class="specs-list-wrapper">
+                <ul class="specs-list"></ul>
+                <div class="scroll-indicator"></div>
+            </div>
             <p class="product-price">
                 <span class="label">Basic Price</span>
                 <span class="value"></span>

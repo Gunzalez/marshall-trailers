@@ -49,8 +49,33 @@
     return "<span>" + value + "</span>";
   }
 
+  function initiateScrollObservers() {
+    const anchor = document.querySelector(
+      ".specs-list li:last-child span:last-child span:last-child",
+    );
+    const targetElement = document.querySelector(".scroll-indicator");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            targetElement.classList.add("at-bottom");
+          } else {
+            targetElement.classList.remove("at-bottom");
+          }
+        });
+      },
+      {
+        root: document.querySelector(".specs-list"),
+        threshold: 1.0,
+      },
+    );
+
+    observer.observe(anchor);
+  }
+
   function showBasicInfo(data) {
-    var imageUrl = data.image ? data.image : "images/cutout-qm8.png";
+    var imageUrl = data.image ? data.image : "images/bg-about-qm8.png";
     $("#product-hero-image").attr("src", imageUrl).attr("alt", data.title);
 
     var $specsContent = $("#basic-machine .specs-content");
@@ -70,6 +95,8 @@
     $specsContent.find(".product-price .value").text(price);
     $("#basic-machine").removeClass("display-none");
     window.basicMachine = data;
+
+    initiateScrollObservers();
   }
 
   function hideBasicInfo() {
@@ -159,5 +186,7 @@
       updateSelect(urlProductId);
       fetchMachineDetails(urlProductId);
     }
+
+    // initiateScrollObservers();
   }
 })();
