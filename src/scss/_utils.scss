@@ -112,6 +112,10 @@
   display: none;
 }
 
+.initial-hidden {
+  display: none !important;
+}
+
 .small-print {
   * {
     font-size: 0.95rem;
