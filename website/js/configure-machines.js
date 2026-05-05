@@ -50,8 +50,9 @@
   }
 
   function showBasicInfo(data) {
-    var imageUrl = data.image ? data.image : "images/sample-hero-bg.jpg";
-    $("#product-hero-image").css("background-image", "url('" + imageUrl + "')");
+    var imageUrl = data.image ? data.image : "images/cutout-qm8.png";
+    $("#product-hero-image").attr("src", imageUrl).attr("alt", data.title);
+
     var $specsContent = $("#basic-machine .specs-content");
     $specsContent.find(".title").text(data.title);
 

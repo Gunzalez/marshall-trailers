@@ -615,6 +615,17 @@
   height: 300px;
   position: relative;
 
+  .cut-out {
+    position: absolute;
+    left: 50%;
+    top: 2rem;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 400px;
+    height: auto;
+    z-index: 10;
+  }
+
   .product-hero-bg {
     position: absolute;
     top: 0;
@@ -693,7 +704,7 @@
         overflow-y: scroll !important;
         display: block;
         scrollbar-width: thin;
-        scrollbar-color: var(--brand-red) transparent; /* thumb | track */
+        scrollbar-color: var(--brand-red) transparent;
       }
 
       .specs-table-wrapper::-webkit-scrollbar {
@@ -759,6 +770,27 @@
 
   @media (min-width: $breakpoint3) {
     height: 600px;
+
+    .cut-out {
+      position: absolute;
+      top: 33.33%;
+      transform: translateY(-33.33%);
+      left: 2rem;
+      width: 100%;
+      max-width: 500px;
+      height: auto;
+      z-index: 10;
+    }
+  }
+
+  @media (min-width: $breakpoint4) {
+    .cut-out {
+      max-width: 700px;
+
+      &.wider {
+        max-width: 720px;
+      }
+    }
   }
 }
 
