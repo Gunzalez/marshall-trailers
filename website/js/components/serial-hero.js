@@ -12,16 +12,17 @@ export default {
   },
   emits: ["more-details-click", "category-click", "not-my-marshall-click"],
   setup(props) {
-    const heroStyle = computed(() => {
-      return {
-        backgroundImage: props.data.image
-          ? `url('${props.data.image}')`
-          : "none",
-      };
+    const imageSrc = computed(() => {
+      return (props.data && props.data.image_url) || "images/cutout-qm8.png";
+    });
+
+    const imageAlt = computed(() => {
+      return props.data.title;
     });
 
     return {
-      heroStyle,
+      imageSrc,
+      imageAlt,
       specification: props.data.specification,
       categories: props.data.categories,
     };
@@ -36,6 +37,7 @@ export default {
                         <Specification :specification="specification" @more-details-click="$emit('more-details-click')" @not-my-marshall-click="$emit('not-my-marshall-click')" />
                     </div>
                 </div>
+                <img :src="imageSrc" class="cut-out" :alt="imageAlt" />
             </div>
         </div>
 

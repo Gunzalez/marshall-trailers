@@ -658,6 +658,7 @@
 
             </div>
           </div>
+          <img id="product-hero-image" src="" class="cut-out wider" alt=""/>
         </div>
       </div>
 
@@ -710,24 +711,18 @@
             <div class="options-group" v-for="(group, index) in groupedOptions" :key="index">
               <group-header :header="group[0]"></group-header>
               <div class="options-list">
-                <option-card 
-                                    v-for="option in group[1]" 
-                                    :key="option.id"
-                                    :option="option"
-                                    @option-click="handleOptionClick"
-                                    class="option"></option-card>
+                <option-card v-for="option in group[1]" 
+                    :key="option.id"
+                    :option="option"
+                    @option-click="handleOptionClick"
+                    class="option"></option-card>
               </div>
             </div>
           </div>
 
-          <options-basket 
-                        :basket-options="basketOptions"
-                        :initial-option="initialOption"></options-basket>
+          <options-basket :basket-options="basketOptions" :initial-option="initialOption"></options-basket>
 
-          <options-form
-                        @download-pdf="handleDownloadPDF"
-                        @purchase-marshall="handlePurchase"
-                        @email-enquiry="handleEmailEnquiry"></options-form>
+          <options-form @download-pdf="handleDownloadPDF" @purchase-marshall="handlePurchase" @email-enquiry="handleEmailEnquiry"></options-form>
 
         </form>
 
