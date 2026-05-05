@@ -106,7 +106,7 @@
 - 26th April: 3hrs
 - 27th April: 1hr
 
-- 5th March: 3hr
+- 5th March: 6hr
 
 #### NEXT
 
