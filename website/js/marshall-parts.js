@@ -368,13 +368,34 @@ document.addEventListener("DOMContentLoaded", () => {
     event.preventDefault();
 
     var $form = $(this).parents(".form");
-    var price = $form.find("input.price").val();
     var part_no = $form.find("input.part_no").val();
-    var title = encodeURIComponent($form.find("input.title").val());
-    var data = "part_no=" + part_no + "&title=" + title + "&price=" + price;
-    var formAction = $form.attr("action");
-    var destination = formAction + "?" + data;
-    window.location.href = destination;
+    var title = $form.find("input.title").val();
+    var product = title + " / " + part_no;
+    var recipientEmail = "charles@marshall-trailers.co.uk";
+    var subject = "Enquiry about " + product;
+    var bodyMessage = [
+      "I am interested in " +
+        product +
+        " Retro Fit kit and would like some further information.",
+      "",
+      "The details of my Marshall machine I would like to fit the kit to are as follows:",
+      "",
+      "Model:",
+      "Serial Number:",
+      "Age:",
+      "",
+      "Regards,",
+    ].join("\r\n");
+
+    var mailtoUrl =
+      "mailto:" +
+      recipientEmail +
+      "?subject=" +
+      encodeURIComponent(subject) +
+      "&body=" +
+      encodeURIComponent(bodyMessage);
+
+    window.location.href = mailtoUrl;
   });
 
   // TODO: Implement basket functionality

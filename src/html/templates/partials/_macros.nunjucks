@@ -243,8 +243,7 @@
                 </div>
             </div>
         </div>
-        <form class="form enquire_form" action="enquire.html" method="post">
-            <input type="hidden" name="price" class="price" value="{{ price }}">
+        <form class="form enquire_form">
             <input type="hidden" name="part_no" class="part_no" value="{{ part_no }}">
             <input type="hidden" name="title" class="title" value="{{ title }}">
             <button type="button" class="bttn btn_enquireAll">
@@ -322,32 +321,35 @@
     <div class="quick-specs">
         <div class="specs-content">
             <h1 class="title">QM-X</h1>
-            <ul>
-                <li>
-                    <span class="label">Tapered Body</span>
-                    <span class="value">12' x 7' 3" - 7'6" x 4'</span>
-                </li>
-                <li>
-                    <span class="label">Capacity</span>
-                    <span class="value">6.5 tons</span>
-                </li>
-                <li>
-                    <span class="label">Standard Equipment</span>
-                    <span class="value">
-                        <span>Commercial Springs</span>
-                        <span>8 Stud Axle - 80mm(350x90)</span>
-                        <span>385-65x22.5 (8 Stud) Wheels</span>
-                        <span>Mudflaps</span>
-                        <span>Hydraulic Brakes</span>
-                        <span>Spring Drawbar</span>
-                        <span>Hydraulic Up &amp; Over Grain Door</span>
-                        <span>Front Body Prop</span>
-                        <span>LED Lights</span>
-                        <span>Side Marker Lights</span>
-                        <span>Colour - Marshall Red</span>
-                    </span>
-                </li>
-            </ul>
+            <div class="specs-list-wrapper">
+                <ul class="specs-list">
+                    <li>
+                        <span class="label">Tapered Body</span>
+                        <span class="value">12' x 7' 3" - 7'6" x 4'</span>
+                    </li>
+                    <li>
+                        <span class="label">Capacity</span>
+                        <span class="value">6.5 tons</span>
+                    </li>
+                    <li>
+                        <span class="label">Standard Equipment</span>
+                        <span class="value">
+                            <span>Commercial Springs</span>
+                            <span>8 Stud Axle - 80mm(350x90)</span>
+                            <span>385-65x22.5 (8 Stud) Wheels</span>
+                            <span>Mudflaps</span>
+                            <span>Hydraulic Brakes</span>
+                            <span>Spring Drawbar</span>
+                            <span>Hydraulic Up &amp; Over Grain Door</span>
+                            <span>Front Body Prop</span>
+                            <span>LED Lights</span>
+                            <span>Side Marker Lights</span>
+                            <span>Colour - Marshall Red</span>
+                        </span>
+                    </li>
+                </ul>
+                <div class="scroll-indicator"></div>
+            </div>
             <p class="product-price">
                 <span class="label">Basic Price</span>
                 <span class="value">£11,493</span>
