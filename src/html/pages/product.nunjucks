@@ -188,6 +188,30 @@
   </div>
 
   <script>
+
+    function initiateScrollObservers() {
+      const anchor = document.querySelector(".specs-list li:last-child span:last-child span:last-child",);
+      const targetElement = document.querySelector(".scroll-indicator");
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            targetElement
+              .classList
+              .add("at-bottom");
+          } else {
+            targetElement
+              .classList
+              .remove("at-bottom");
+          }
+        });
+      }, {
+        root: document.querySelector(".specs-list"),
+        threshold: 1.0
+      },);
+
+      observer.observe(anchor);
+    }
     function applyButtonBehavior(selectedProductId) {
       $("#toggleOptionsButton").on("click", () => {
         $('#specifications-app').toggleClass("compact-layout");
@@ -344,6 +368,7 @@
             initiateCarousel();
             attachHighlightEvents();
             applyButtonBehavior(selectedProductId);
+            initiateScrollObservers();
 
             // replace with PHP
             insertDummyData();
