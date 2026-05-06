@@ -31,17 +31,17 @@
     </div>
 
     <serial-hero
-            v-if="data" 
-            :data="data"
-            :selected-category-id="selectedCategoryId"
-            @category-click="handleCategoryClick"
-            @not-my-marshall-click="handleNotMyMarshallClick"></serial-hero>
+        v-if="data" 
+        :data="data"
+        :selected-category-id="selectedCategoryId"
+        @category-click="handleCategoryClick"
+        @not-my-marshall-click="handleNotMyMarshallClick"></serial-hero>
 
     <serial-parts 
-            :parts="partsData"
-            :selected-category-name="selectedCategoryName"
-            @buy-now-click="handleBuyNowClick"
-            @add-to-basket-click="handleAddToBasketClick"></serial-parts>
+        :parts="partsData"
+        :selected-category-name="selectedCategoryName"
+        @buy-now-click="handleBuyNowClick"
+        @add-to-basket-click="handleAddToBasketClick"></serial-parts>
 
     <div v-if="isBusy" id="processing" class="alwaysOn">
       <div class="wrapper">
