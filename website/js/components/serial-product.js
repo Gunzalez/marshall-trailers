@@ -7,6 +7,7 @@ export default {
     title: String,
     price: String,
     weight: String || null,
+    quantity: String || null,
     imageLarge: String || null,
     imageSmall: String || null,
   },
@@ -55,34 +56,46 @@ export default {
             <span>Image coming soon</span>
         </div>
         <div class="details">
+            <div class="meta">
+              <div class="weight-info">
+                  <span class="lbl">Weight:</span>
+                  <span class="value weight">{{ props.weight }}</span>
+              </div>
+              <div class="quantity-info">
+                  <span class="lbl">Quantity:</span>
+                  <span class="value quantity">{{ props.quantity }}</span>
+              </div>
+            </div>
+            <div>
               <div class="pricing">
-                <div class="price-info">
-                    <span class="value price">£{{ props.price }}</span>
-                    <span class="lbl">Cost per item:</span>
-                </div>
                 <label>
                     <span class="sr-only">Quantity:</span>
                     <div class="styled-select">
-                        <select :name="'quantity-' + props.id" :id="'quantity-' + props.id" class="quantity select-input" v-model="quantity" ref="snSelectRef">
+                        <select :name="'quantity-' + props.id" :id="'quantity-' + props.id" data-select-height="200" class="quantity select-input" v-model="quantity" ref="snSelectRef">
                             <option v-for="n in 120" :key="n" :value="n">{{ n }}</option>
                         </select>
                     </div>
                 </label>
-            </div>
-            <div class="button-actions">
-                <button type="button" class="bttn" @click.prevent="onBuyNowClick">
-                    <span class="icon">
-                        <i class="fa-regular fa-credit-card"></i>
-                    </span>
-                    <span>Buy Now</span>
-                </button>
+                <div class="price-info">
+                    <span class="lbl">Cost per item:</span>
+                    <span class="value price">£{{ props.price }}</span>
+                </div>
+              </div>
+              <div class="button-actions">
+                  <button type="button" class="bttn" @click.prevent="onBuyNowClick">
+                      <span class="icon">
+                          <i class="fa-regular fa-credit-card"></i>
+                      </span>
+                      <span>Buy Now</span>
+                  </button>
 
-                <button type="button" class="bttn" @click.prevent="onAddToBasketClick">
-                    <span class="icon">
-                        <i class="fa-solid fa-cart-shopping"></i>
-                    </span>
-                    <span>Add To Basket</span>
-                </button>
+                  <button type="button" class="bttn" @click.prevent="onAddToBasketClick">
+                      <span class="icon">
+                          <i class="fa-solid fa-cart-shopping"></i>
+                      </span>
+                      <span>Add To Basket</span>
+                  </button>
+              </div>
             </div>
         </div>
     </div>
