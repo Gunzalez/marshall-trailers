@@ -67,13 +67,20 @@
   #floating-basket {
     top: calc(50% - 200px);
     transform: translateY(-50%);
-    right: -276px;
-    width: 320px;
+    right: -225px;
+    width: 270px;
     transition: right 0.3s ease-in-out;
-    padding-right: 16px;
+    padding-right: 10px;
 
     border-top-left-radius: 2px;
     border-bottom-left-radius: 2px;
+
+    .basket-content {
+      padding: 0;
+      border: none;
+      margin-top: auto;
+      margin-bottom: 10px;
+    }
 
     &.open {
       right: -1px;
@@ -82,15 +89,16 @@
 
   .basket-inner {
     display: flex;
-    gap: 1rem;
+    gap: 10px;
   }
 
   .desktop-button {
     background-color: var(--brand-red);
     color: white;
+    width: 45px;
     padding: 10px;
     writing-mode: vertical-rl;
-    font-size: 1rem;
+    font-size: 0.9rem;
     cursor: pointer;
   }
 
