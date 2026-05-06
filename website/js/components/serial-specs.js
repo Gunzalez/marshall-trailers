@@ -4,7 +4,7 @@ export default {
   props: {
     specification: Array,
   },
-  emits: ["more-details-click", "not-my-marshall-click"],
+  emits: ["not-my-marshall-click"],
   setup(props, { emit }) {
     return {
       props,
@@ -27,8 +27,7 @@ export default {
         <div class="scroll-indicator"></div>
       </div>
       <div class="specs-actions">
-        <a href="#" @click.prevent="$emit('more-details-click')" class="bttn btn_ToggleOptions Chevron-Right">More Details</a>
-        <a href="#" @click.prevent="$emit('not-my-marshall-click')" class="body-link">Not Your Marshall?</a>
+        <a href="#" @click.prevent="$emit('not-my-marshall-click')" class="bttn btn_ToggleOptions Chevron-Right">Not My Marshall?</a>
       </div>
     </div>
   `,

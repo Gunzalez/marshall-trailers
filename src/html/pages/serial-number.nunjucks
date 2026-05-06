@@ -35,8 +35,7 @@
             :data="data"
             :selected-category-id="selectedCategoryId"
             @category-click="handleCategoryClick"
-            @not-my-marshall-click="handleNotMyMarshallClick"
-            @more-details-click="handleMoreDetailsClick"></serial-hero>
+            @not-my-marshall-click="handleNotMyMarshallClick"></serial-hero>
 
     <serial-parts 
             :parts="partsData"
@@ -190,13 +189,6 @@
             updatePartsData({serial_no, category_id: category.id});
           };
 
-          const handleMoreDetailsClick = () => {
-            if (isBusy.value) 
-              return;
-            
-            window.location.href = data.value.product.slug;
-          };
-
           const handleNotMyMarshallClick = () => {
             if (isBusy.value) 
               return;
@@ -237,7 +229,6 @@
             selectedCategoryId,
             selectedCategoryName,
             handleCategoryClick,
-            handleMoreDetailsClick,
             handleAddToBasketClick,
             handleNotMyMarshallClick
           }

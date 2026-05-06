@@ -10,7 +10,7 @@ export default {
     data: Object,
     selectedCategoryId: String,
   },
-  emits: ["more-details-click", "category-click", "not-my-marshall-click"],
+  emits: ["category-click", "not-my-marshall-click"],
   setup(props) {
     const imageSrc = computed(() => {
       return (props.data && props.data.image_url) || "images/cutout-qm8.png";
@@ -34,7 +34,7 @@ export default {
             <div class="section">
                 <div class="copy-wrapper serial-number-copy desktop-only">
                     <div class="inner-wrapper">
-                        <Specification :specification="specification" @more-details-click="$emit('more-details-click')" @not-my-marshall-click="$emit('not-my-marshall-click')" />
+                        <Specification :specification="specification" @not-my-marshall-click="$emit('not-my-marshall-click')" />
                     </div>
                 </div>
                 <img :src="imageSrc" class="cut-out" :alt="imageAlt" />
@@ -43,7 +43,7 @@ export default {
 
         <div class="mobile-only quick-specs-mobile">
             <div class="section">
-                <Specification :specification="specification" @more-details-click="$emit('more-details-click')" @not-my-marshall-click="$emit('not-my-marshall-click')" />
+                <Specification :specification="specification" @not-my-marshall-click="$emit('not-my-marshall-click')" />
             </div>
         </div>
 
