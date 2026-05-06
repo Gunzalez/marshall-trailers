@@ -2236,7 +2236,7 @@
     }
 
     .serial-product-card {
-      margin: 5px 0 1rem 0;
+      margin: 0 0 1rem 0;
       display: flex;
       align-items: flex-start;
       gap: 1rem;
@@ -2313,12 +2313,12 @@
       &::before {
         content: "";
         width: 1px;
-        height: 36px;
+        height: 28px;
         background-color: var(--brand-gray);
         display: block;
         position: absolute;
         left: 50%;
-        top: 0;
+        top: 1px;
         transform: translateX(-50%);
       }
 
@@ -2436,12 +2436,12 @@
 
     &.buyableOpen {
       > .underline {
-        border-color: transparent;
+        display: none;
       }
     }
 
     .children-containers {
-      padding: 0 0 0 15px;
+      padding: 0 0 0 25px;
     }
   }
 
