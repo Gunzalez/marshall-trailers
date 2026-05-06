@@ -225,7 +225,8 @@
 
 #floating-nav {
   position: fixed;
-  top: 400px;
+  top: calc(50% - 30px);
+  transform: translateY(-50%);
   right: -60px;
   z-index: 1000;
   transition: right 0.15s ease-out;

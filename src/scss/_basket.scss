@@ -65,7 +65,8 @@
 /* Desktop: Top Right */
 @media (min-width: $breakpoint3) {
   #floating-basket {
-    top: 260px;
+    top: calc(50% - 200px);
+    transform: translateY(-50%);
     right: -276px;
     width: 320px;
     transition: right 0.3s ease-in-out;
