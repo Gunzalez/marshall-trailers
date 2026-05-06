@@ -58,7 +58,7 @@ export default {
     };
   },
   template: `
-    <div v-if="option" class="option-card" @click.prevent="handleClick" :class="{ 'selected': option.isSelected, 'disabled': isDisabled }" role="button" :aria-disabled="isDisabled">
+    <div v-if="option" class="option-card" @click.prevent="handleClick" :class="{ 'selected': option.isSelected || option.combos.length > 0, 'disabled': isDisabled }" role="button" :aria-disabled="isDisabled">
       <h5 class="line-clamp-2 title">{{ option.title }}</h5>
 
       <div class="details">
