@@ -1055,6 +1055,10 @@
     flex-direction: column;
     gap: 0.5rem;
     margin-bottom: 1.5rem;
+
+    .label {
+      display: block;
+    }
   }
 
   .label {
@@ -2180,6 +2184,7 @@
       display: flex;
       flex-direction: column;
       gap: 0.375rem;
+      cursor: pointer;
 
       @media screen and (min-width: 768px) {
         > * {
@@ -2197,6 +2202,10 @@
           }
         }
       }
+
+      span {
+        cursor: pointer;
+      }
     }
 
     .container-header {
@@ -2204,7 +2213,6 @@
       padding: 5px 8px 5px 12px;
       align-items: center;
       display: flex;
-      gap: 1rem;
 
       .item-title {
         font-weight: 600;
@@ -2213,6 +2221,17 @@
 
       &.low-light {
         background-color: #f3f5f6;
+      }
+
+      .product-title {
+        padding: 5px 10px 5px 0;
+        &:hover {
+          @media (hover: hover) {
+            & + .actions .toggle-buy {
+              background-color: var(--brand-gray-bg);
+            }
+          }
+        }
       }
     }
 
@@ -2291,7 +2310,6 @@
       gap: 2rem;
       position: relative;
 
-      // add a vertical line between buttons
       &::before {
         content: "";
         width: 1px;
@@ -2308,8 +2326,8 @@
         background-color: white;
         color: var(--brand-red);
         transition: all 0.3s ease-in-out;
-        width: 38px;
-        height: 38px;
+        width: 30px;
+        height: 30px;
         cursor: pointer;
         border-radius: 4px;
         position: relative;
@@ -2319,7 +2337,12 @@
           top: 50%;
           left: 50%;
           transform: translate(-50%, -50%);
-          font-size: 1.2rem;
+          font-size: 1rem;
+          transition: all 0.3s ease-in-out;
+
+          &.open_button {
+            transform: translate(-50%, -50%) rotate(90deg);
+          }
         }
 
         @media (hover: hover) {
@@ -2336,7 +2359,7 @@
           background-color: var(--brand-gray-light);
           color: var(--brand-gray);
           opacity: 0.5;
-          cursor: not-allowed;
+          cursor: default;
 
           span {
             color: var(--brand-gray-dark);

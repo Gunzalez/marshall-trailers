@@ -52,7 +52,7 @@ export default {
         <div class="container-wrapper" :class="{ ['level-' + props.depth]: true, buyableOpen: isBuyableOpen, listOpen: isListOpen }">
             <div class="container-header" :class="{ 'low-light': !node.is_buyable && hasChildren }">
                 <template v-if="node.is_buyable">
-                    <div class="item-title product-title">
+                    <div class="item-title product-title" @click.prevent="toggleBuyable">
                         <span class="part_no">Part: {{ node.part_no }}</span>
                         <span>{{ node.title }}</span>
                     </div>
@@ -60,13 +60,11 @@ export default {
                 <template v-else>
                     <span class="item-title list-title">{{ node.title }}</span>
                 </template>
-
                 <div class="actions">
-                    <button type="button" class="toggle-button" :disabled="!node.is_buyable" :class="{ open: isBuyableOpen, disabled: !node.is_buyable }" @click.prevent="toggleBuyable">
-                        <i v-if="!isBuyableOpen" class="fa-solid fa-chevron-right"></i>
-                        <i v-else class="fa-solid fa-chevron-down"></i>
+                    <button type="button" class="toggle-button toggle-buy" :disabled="!node.is_buyable" :class="{ open: isBuyableOpen, disabled: !node.is_buyable }" @click.prevent="toggleBuyable">
+                        <i class="fa-solid fa-chevron-right" :class="{ open_button: isBuyableOpen }"></i>
                     </button>
-                    <button type="button" class="toggle-button" :disabled="!hasChildren" :class="{ open: isListOpen, disabled: !hasChildren }" @click.prevent="toggleList">
+                    <button type="button" class="toggle-button toggle-list" :disabled="!hasChildren" :class="{ open: isListOpen, disabled: !hasChildren }" @click.prevent="toggleList">
                         <i v-if="!isListOpen" class="fa-solid fa-bars"></i>
                         <i v-else class="fa-solid fa-xmark text-xl"></i>
                     </button>
