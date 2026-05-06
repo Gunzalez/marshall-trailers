@@ -78,11 +78,8 @@
                         <li {% if main_page === "contact" %} class="active" {% endif %}>
                             <a href="contact.html">Contact</a>
                         </li>
-                        <li {% if main_page === "search" %} class="active" {% endif %}>
-                            <a href="search.html">Search</a>
-                        </li>
-                        <li class="mobile-nav-link  {{ 'active' if main_page === 'accounts' }}">
-                            <a href="account.html">Register / Login</a>
+                        <li class="{{ 'active' if main_page === 'accounts' }}">
+                            <a href="account.html">Account</a>
                         </li>
                     </ul>
                 </nav>
