@@ -2708,17 +2708,6 @@
     color: #222;
   }
 
-  .order-table .view-link {
-    color: var(--brand-red);
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 0.9rem;
-  }
-
-  .order-table .view-link:hover {
-    text-decoration: underline;
-  }
-
   /* --- Mobile Responsiveness --- */
   @media screen and (max-width: 600px) {
     .order-table thead {

@@ -36,6 +36,7 @@
     gap: 1rem;
     border: 1px solid var(--brand-gray);
     padding: 10px;
+    align-items: center;
   }
 
   .close-basket-button {
@@ -64,18 +65,17 @@
 /* Desktop: Top Right */
 @media (min-width: $breakpoint3) {
   #floating-basket {
-    top: calc(50% - 230px);
+    top: calc(50% - 210px);
     transform: translateY(-50%);
-    right: -155px;
-    width: 200px;
+    right: -115px;
+    width: 160px;
     transition: right 0.3s ease-in-out;
     padding-right: 10px;
-
     border-top-left-radius: 2px;
     border-bottom-left-radius: 2px;
 
     .bttn_CloseBasket {
-      margin-top: 4px;
+      display: none;
     }
 
     .basket-content {
@@ -85,13 +85,14 @@
       margin-bottom: 10px;
       flex-direction: column;
       gap: 10px;
+      align-items: flex-start;
 
       .items {
         font-size: 0.9rem;
       }
 
       .total-price {
-        font-size: 1.1rem;
+        font-size: 1rem;
       }
     }
 
@@ -109,16 +110,17 @@
     background-color: var(--brand-red);
     color: white;
     width: 45px;
-    padding: 10px;
+    padding: 10px 12px;
     writing-mode: vertical-rl;
     text-align: center;
     cursor: pointer;
+    font-size: 0.9rem;
   }
 
   .basket-wrapper {
-    flex-grow: 1;
     display: flex;
     flex-direction: column;
+    flex: 1;
   }
 }
 

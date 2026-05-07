@@ -747,10 +747,6 @@
   &.btn_Chevron {
     --paddingToAllowForChevron: 70px;
 
-    &.btn_Checkout {
-      --paddingToAllowForChevron: 40px;
-    }
-
     padding-right: var(--paddingToAllowForChevron);
     position: relative;
 
@@ -810,6 +806,24 @@
     opacity: 0.375;
     cursor: not-allowed;
     pointer-events: none;
+  }
+}
+
+.link_Button {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  color: var(--brand-red);
+  font-weight: bold;
+  text-transform: uppercase;
+  text-decoration: none !important;
+  font-size: 0.8rem;
+  cursor: pointer;
+
+  @media (hover: hover) {
+    &:hover {
+      text-decoration: underline !important;
+    }
   }
 }
 
@@ -1436,8 +1450,12 @@
 }
 
 .fieldset-width {
-  max-width: 600px;
+  max-width: 768px;
   width: 100%;
+
+  // @media (min-width: $breakpoint3) {
+  //   max-width: 840px;
+  // }
 }
 
 #page {
