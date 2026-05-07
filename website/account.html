@@ -712,7 +712,44 @@
 
         <div id="section_OrderHistory" class="fieldset-width scroll-margin display-none">
           <h2 class="title underlined">Order History</h2>
-          <p>You have no past orders.</p>
+          <div class="order-history-container">
+            <table class="order-table">
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Order ID</th>
+                  <th>Total (inc VAT)</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr onclick="window.location='/orders/99102';">
+                  <td data-label="Date">May 07, 2026</td>
+                  <td data-label="Order ID">#ORD-99102</td>
+                  <td data-label="Total" class="price">£21,039.81</td>
+                  <td>
+                    <a href="/orders/99102" class="view-link">View Details</a>
+                  </td>
+                </tr>
+                <tr onclick="window.location='/orders/88273';">
+                  <td data-label="Date">March 12, 2026</td>
+                  <td data-label="Order ID">#ORD-88273</td>
+                  <td data-label="Total" class="price">£452.20</td>
+                  <td>
+                    <a href="/orders/88273" class="view-link">View Details</a>
+                  </td>
+                </tr>
+                <tr onclick="window.location='/orders/00241';">
+                  <td data-label="Date">November 20, 2025</td>
+                  <td data-label="Order ID">#ORD-00241</td>
+                  <td data-label="Total" class="price">£33,452.00</td>
+                  <td>
+                    <a href="/orders/00241" class="view-link">View Details</a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
 
       </div>
