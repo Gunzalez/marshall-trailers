@@ -1,0 +1,134 @@
+{% set main_page = "accounts" %}
+{% extends "layout.nunjucks" %}
+{% import "../templates/partials/_macros.nunjucks" as macros %}
+
+{% block content %}
+
+    {{ macros.header("images/logo-marshall-trailers-color.svg") }}
+
+    <nav aria-label="breadcrumbs" class="breadcrumbs">
+        <ol>
+            <li>
+                <a href="index.html">Home</a>
+            </li>
+            <li>Account</li>
+        </ol>
+    </nav>
+
+    <div class="title-wrapper">
+        <h1 class="page-title">Order Details</h1>
+    </div>
+
+    <div class="section body-copy">
+        <div class="buttons-and-form-fields">
+            <div>
+                <div class="actions-buttons">
+                    <button type="button" class="bttn btn_MyAccount">
+                        <span>My Account</span>
+                    </button>
+                    <button type="button" class="bttn btn_LogOut">
+                        <span>Log out</span>
+                    </button>
+                </div>
+            </div>
+
+            <div id="section_OrderHistory" class="fieldset-width scroll-margin">
+                <h3 class="title underlined">Order #ORD-99102</h3>
+
+                <div class="order-details-container">
+
+                    <div class="summary-grid">
+                        <div class="summary-card">
+                            <h3>Order Information</h3>
+                            <p>
+                                <strong>Date:</strong> May 07, 2026</p>
+                            <p>
+                                <strong>Status:</strong>
+                                <span class="status-pill">Processing</span></p>
+                            <p>
+                                <strong>Payment:</strong> Visa ending in 4421</p>
+                        </div>
+                        <div class="summary-card">
+                            <h3>Shipping Address</h3>
+                            <p>James Marshall</p>
+                            <p>123 Farm Road</p>
+                            <p>Essex, CM17 0JX</p>
+                            <p>United Kingdom</p>
+                        </div>
+                    </div>
+
+                    <div class="items-list">
+                        <h3>Items Ordered</h3>
+                        <table class="details-table">
+                            <thead>
+                                <tr>
+                                    <th>Product</th>
+                                    <th class="text-center">Qty</th>
+                                    <th class="text-right">Price (ex. VAT)</th>
+                                    <th class="text-right">Total</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <span class="item-name">QM-1600 Silage Trailer</span>
+                                        <span class="item-meta">Colour: Marshall Red</span>
+                                    </td>
+                                    <td class="text-center" data-label="Qty">1</td>
+                                    <td class="text-right" data-label="Price">£17,650.00</td>
+                                    <td class="text-right" data-label="Total">£17,650.00</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span class="item-name">ESFA 10 Stud Axles</span>
+                                        <span class="item-meta">Part No: 065-05-3101</span>
+                                    </td>
+                                    <td class="text-center" data-label="Qty">2</td>
+                                    <td class="text-right" data-label="Price">£1.70</td>
+                                    <td class="text-right" data-label="Total">£3.40</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="totals-section">
+                        <div class="totals-row">
+                            <span>Subtotal</span>
+                            <span>£17,655.30</span>
+                        </div>
+                        <div class="totals-row">
+                            <span>Shipping</span>
+                            <span>£30.00</span>
+                        </div>
+                        <div class="totals-row">
+                            <span>VAT (19%)</span>
+                            <span>£3,354.51</span>
+                        </div>
+                        <div class="totals-row grand-total">
+                            <span>Total (inc VAT)</span>
+                            <span>£21,039.81</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            $('.btn_MyAccount').click(function (e) {
+                e.preventDefault();
+                window.location.href = 'account.html';
+            });
+
+            $('.btn_LogOut').click(function (e) {
+                e.preventDefault();
+                // TODO: @Rob Add logout logic here (e.g., clear session, make API call, etc.)
+                window.location.href = 'index.html';
+            });
+        });
+    </script>
+
+{% endblock %}

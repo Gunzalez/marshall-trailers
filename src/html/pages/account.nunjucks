@@ -204,28 +204,28 @@
                 </tr>
               </thead>
               <tbody>
-                <tr onclick="window.location='/orders/99102';">
+                <tr onclick="window.location='order-details.html?id=99102';">
                   <td data-label="Date">May 07, 2026</td>
                   <td data-label="Order ID">#ORD-99102</td>
                   <td data-label="Total" class="price">£21,039.81</td>
                   <td>
-                    <a href="/orders/99102" class="link_Button">View Details</a>
+                    <a href="order-details.html?id=99102" class="link_Button">View Details</a>
                   </td>
                 </tr>
-                <tr onclick="window.location='/orders/88273';">
+                <tr onclick="window.location='order-details.html?id=88273';">
                   <td data-label="Date">March 12, 2026</td>
                   <td data-label="Order ID">#ORD-88273</td>
                   <td data-label="Total" class="price">£452.20</td>
                   <td>
-                    <a href="/orders/88273" class="link_Button">View Details</a>
+                    <a href="order-details.html?id=88273" class="link_Button">View Details</a>
                   </td>
                 </tr>
-                <tr onclick="window.location='/orders/00241';">
+                <tr onclick="window.location='order-details.html?id=00241';">
                   <td data-label="Date">November 20, 2025</td>
                   <td data-label="Order ID">#ORD-00241</td>
                   <td data-label="Total" class="price">£33,452.00</td>
                   <td>
-                    <a href="/orders/00241" class="link_Button">View Details</a>
+                    <a href="order-details.html?id=00241" class="link_Button">View Details</a>
                   </td>
                 </tr>
               </tbody>
