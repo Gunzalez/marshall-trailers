@@ -8,11 +8,13 @@ export default {
   },
   props: {
     selectedCategoryName: String,
-    parts: Object || null,
+    parts: Array || null,
+    partsCount: Number || null,
   },
   emits: ["buy-now-click", "add-to-basket-click"],
   setup(props) {
     const parts = ref(null);
+    const partsCount = ref(null);
     const scrollRef = ref(null);
     const selectedCategoryName = ref("");
 
@@ -33,6 +35,13 @@ export default {
     );
 
     watch(
+      () => props.partsCount,
+      (newCount) => {
+        partsCount.value = newCount;
+      },
+    );
+
+    watch(
       () => props.selectedCategoryName,
       (newName) => {
         selectedCategoryName.value = newName;
@@ -41,6 +50,7 @@ export default {
 
     return {
       parts,
+      partsCount,
       scrollRef,
       selectedCategoryName,
     };
@@ -53,7 +63,7 @@ export default {
         </h2>
         <form id="serial-parts-form" class="form serial-parts-form">
           <div class="strikethrough-title">
-              <h3 class="main-title">{{ selectedCategoryName }}: {{ parts.length }} result{{ parts.length !== 1 ? 's' : '' }} found.</h3>
+              <h3 class="main-title">{{ selectedCategoryName }}: {{ partsCount }} result{{ partsCount !== 1 ? 's' : '' }} found.</h3>
           </div>
           <RecursiveContainer v-for="(part, index) in parts" :key="index" :node="part" :depth="1"
             @buy-now-click="$emit('buy-now-click', $event)"

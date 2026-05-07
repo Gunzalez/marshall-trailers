@@ -39,6 +39,7 @@
 
     <serial-parts 
         :parts="partsData"
+        :parts-count="partsCount"
         :selected-category-name="selectedCategoryName"
         @buy-now-click="handleBuyNowClick"
         @add-to-basket-click="handleAddToBasketClick"></serial-parts>
@@ -134,6 +135,7 @@
           const data = ref(null);
           const isBusy = ref(false);
           const partsData = ref(null);
+          const partsCount = ref(null);
           const selectedCategoryId = ref(null);
           const selectedCategoryName = ref("");
 
@@ -154,6 +156,7 @@
                 throw new Error('Network response was not ok');
               const returnedData = await response.json();
               partsData.value = returnedData.data;
+              partsCount.value = returnedData.total_count;
             } catch (error) {
               console.error("There was an error!", error);
             } finally {
@@ -225,6 +228,7 @@
             data,
             isBusy,
             partsData,
+            partsCount,
             handleBuyNowClick,
             selectedCategoryId,
             selectedCategoryName,
