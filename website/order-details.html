@@ -542,8 +542,8 @@
         <div class="buttons-and-form-fields">
             <div>
                 <div class="actions-buttons">
-                    <button type="button" class="bttn btn_MyAccount">
-                        <span>My Account</span>
+                    <button type="button" class="bttn btn_OrderHistory">
+                        <span>Order History</span>
                     </button>
                     <button type="button" class="bttn btn_LogOut">
                         <span>Log out</span>
@@ -581,7 +581,7 @@
                         <table class="details-table">
                             <thead>
                                 <tr>
-                                    <th>Product</th>
+                                    <th class="text-left">Product</th>
                                     <th class="text-center">Qty</th>
                                     <th class="text-right">Price (ex. VAT)</th>
                                     <th class="text-right">Total</th>
@@ -590,8 +590,11 @@
                             <tbody>
                                 <tr>
                                     <td>
-                                        <span class="item-name">QM-1600 Silage Trailer</span>
-                                        <span class="item-meta">Colour: Marshall Red</span>
+                                        <div class="item">
+                                            <span class="item-name">QM-1600 Silage Trailer</span>
+                                            <span class="item-meta">Colour: Marshall Red</span>
+                                        </div>
+
                                     </td>
                                     <td class="text-center" data-label="Qty">1</td>
                                     <td class="text-right" data-label="Price">£17,650.00</td>
@@ -599,8 +602,10 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <span class="item-name">ESFA 10 Stud Axles</span>
-                                        <span class="item-meta">Part No: 065-05-3101</span>
+                                        <div class="item">
+                                            <span class="item-name">ESFA 10 Stud Axles</span>
+                                            <span class="item-meta">Part No: 065-05-3101</span>
+                                        </div>
                                     </td>
                                     <td class="text-center" data-label="Qty">2</td>
                                     <td class="text-right" data-label="Price">£1.70</td>
@@ -637,9 +642,9 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
 
-            $('.btn_MyAccount').click(function (e) {
+            $('.btn_OrderHistory').click(function (e) {
                 e.preventDefault();
-                window.location.href = 'account.html';
+                window.location.href = 'account.html?section=order-history';
             });
 
             $('.btn_LogOut').click(function (e) {
