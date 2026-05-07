@@ -108,7 +108,7 @@
 
 - 5th March: 6hr
 - 6th March: 8hr
-- 7th March: 3hr
+- 7th March: 5hr
 
 #### NEXT
 
