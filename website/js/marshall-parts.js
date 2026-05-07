@@ -371,7 +371,7 @@ document.addEventListener("DOMContentLoaded", () => {
     var part_no = $form.find("input.part_no").val();
     var title = $form.find("input.title").val();
     var product = title + " / " + part_no;
-    var recipientEmail = "charles@marshall-trailers.co.uk";
+    var recipientEmail = "admin@marshall-trailers.co.uk";
     var subject = "Enquiry about " + product;
     var bodyMessage = [
       "I am interested in " +
