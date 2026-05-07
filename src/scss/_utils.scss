@@ -747,6 +747,10 @@
   &.btn_Chevron {
     --paddingToAllowForChevron: 70px;
 
+    &.btn_Checkout {
+      --paddingToAllowForChevron: 40px;
+    }
+
     padding-right: var(--paddingToAllowForChevron);
     position: relative;
 
