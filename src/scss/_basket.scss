@@ -4,7 +4,6 @@
   z-index: 1000;
   background: #fff;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  font-family: sans-serif;
   overflow: hidden;
 
   .title {
@@ -65,21 +64,35 @@
 /* Desktop: Top Right */
 @media (min-width: $breakpoint3) {
   #floating-basket {
-    top: calc(50% - 200px);
+    top: calc(50% - 230px);
     transform: translateY(-50%);
-    right: -225px;
-    width: 270px;
+    right: -145px;
+    width: 190px;
     transition: right 0.3s ease-in-out;
     padding-right: 10px;
 
     border-top-left-radius: 2px;
     border-bottom-left-radius: 2px;
 
+    .bttn_CloseBasket {
+      margin-top: 4px;
+    }
+
     .basket-content {
       padding: 0;
       border: none;
       margin-top: auto;
       margin-bottom: 10px;
+      flex-direction: column;
+      gap: 10px;
+
+      .items {
+        font-size: 0.9rem;
+      }
+
+      .total-price {
+        font-size: 1.1rem;
+      }
     }
 
     &.open {
@@ -98,7 +111,7 @@
     width: 45px;
     padding: 10px;
     writing-mode: vertical-rl;
-    font-size: 0.9rem;
+    text-align: center;
     cursor: pointer;
   }
 
