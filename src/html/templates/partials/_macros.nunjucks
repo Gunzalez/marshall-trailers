@@ -244,7 +244,7 @@
         <form class="form enquire_form">
             <input type="hidden" name="part_no" class="part_no" value="{{ part_no }}">
             <input type="hidden" name="title" class="title" value="{{ title }}">
-            <button type="button" class="bttn btn_enquireAll">
+            <button type="button" class="bttn btn_enquireAll btn_Envelope">
                 <span>Enquire</span>
             </button>
         </form>
