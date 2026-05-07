@@ -24,33 +24,35 @@
         See your order history and update your information as needed.</p>
   </div>
 
-  <form id="accounts-form" class="form" method="post" action="/account-save">
-    <div class="section body-copy">
-      <div class="buttons-and-form-fields">
-        <div>
-          <div class="actions-buttons">
-            <button type="button" class="bttn btn_MyAccount">
-              <span>My Account</span>
-            </button>
-            <button type="button" class="bttn btn_Addresses">
-              <span>My Addresses</span>
-            </button>
-            <button type="button" class="bttn btn_Addresses" disabled>
-              <span>My Addresses</span>
-            </button>
-            <button type="button" class="bttn btn_OrderHistory">
-              <span>Order History</span>
-            </button>
-            <button type="button" class="bttn btn_LogOut">
-              <span>Log out</span>
-            </button>
-          </div>
-        </div>
+  <form id="accounts-form" class="form" method="post" action="/account-save"></form>
 
-        <div id="section_MyAccount" class="fieldset-width scroll-margin display-none">
-          <div id="mode-edit" class="display-none">
+  <div class="section body-copy">
+    <div class="buttons-and-form-fields">
+      <div>
+        <div class="actions-buttons">
+          <button type="button" class="bttn btn_MyAccount">
+            <span>My Account</span>
+          </button>
+          <button type="button" class="bttn btn_Addresses">
+            <span>My Addresses</span>
+          </button>
+          <button type="button" class="bttn btn_OrderHistory">
+            <span>Order History</span>
+          </button>
+          <button type="button" class="bttn btn_Example" disabled>
+            <span>Disabled Button</span>
+          </button>
+          <button type="button" class="bttn btn_LogOut">
+            <span>Log out</span>
+          </button>
+        </div>
+      </div>
+
+      <div id="section_MyAccount" class="fieldset-width scroll-margin display-none">
+        <h2 class="title underlined">My Account</h2>
+        <div class="mode-edit display-none">
+          <form method="post" class="form" action="/account-save">
             <div class="form-fields">
-              <h2 class="title underlined">My Account</h2>
               <div class="input-group-pair">
                 <div class="input-group">
                   <label for="name">First name</label>
@@ -84,215 +86,290 @@
               </span>
               <span>Save / Update</span>
             </button>
-          </div>
-          <div id="mode-view">
-            <h2 class="title underlined">My Account</h2>
-            <div>
-              <span>Full name</span>
-              <h3>Mr. O. Tester</h3>
-            </div>
-            <div>
-              <span>Email address</span>
-              <h3>mister.ohtester@example.com</h3>
-            </div>
-            <div>
-              <span>Phone number</span>
-              <h3>01234567890</h3>
-            </div>
-            <div>
-              <span>Password</span>
-              <h3>********</h3>
-            </div>
-            <button type="button" class="bttn btn_AccountEdit">
-              <span>
-                <i class="fa-regular fa-pen-to-square"></i>
-              </span>
-              <span>Edit</span>
-            </button>
-          </div>
+          </form>
         </div>
-
-        <div id="section_Addresses" class="fieldset-width scroll-margin display-none">
-          <h2 class="title underlined">My Addresses</h2>
-          <ul class="addresses-list">
-            <li class="address-item">
-              <div class="input-group">
-                <label for="company">Company name</label>
-                <input type="text" id="company" name="company" value="ACME Corp.">
-              </div>
-              <div class="input-group">
-                <label for="address">Address</label>
-                <textarea id="address" name="address">Flat 11, 123 Main Street, AnyTown Forest Rd.</textarea>
-              </div>
-              <div class="input-group-pair">
-                <div class="input-group">
-                  <label for="postcode">Postcode</label>
-                  <input type="text" id="postcode" name="postcode" value="SW1A 1AA">
-                </div>
-                <div class="input-group">
-                  <label for="country">Country</label>
-                  <input type="text" id="country" name="country" value="United Kingdom">
-                </div>
-              </div>
-              <div class="actions">
-                <button type="button" class="bttn btn_EditAddress">
-                  <span>
-                    <i class="fa-regular fa-pen-to-square"></i>
-                  </span>
-                  <span>Update</span>
-                </button>
-                <button type="button" class="bttn btn_RemoveAddress" disabled>
-                  <span>
-                    <i class="fa-solid fa-trash-can"></i>
-                  </span>
-                  <span>Remove</span>
-                </button>
-              </div>
-            </li>
-            <li class="address-item">
-              <div class="input-group">
-                <label for="company">Company name</label>
-                <input type="text" id="company" name="company" value="">
-              </div>
-              <div class="input-group">
-                <label for="address">Address</label>
-                <textarea id="address" name="address"></textarea>
-              </div>
-              <div class="input-group-pair">
-                <div class="input-group">
-                  <label for="postcode">Postcode</label>
-                  <input type="text" id="postcode" name="postcode" value="">
-                </div>
-                <div class="input-group">
-                  <label for="country">Country</label>
-                  <input type="text" id="country" name="country" value="">
-                </div>
-              </div>
-              <div class="actions">
-                <button type="button" class="bttn btn_EditAddress">
-                  <span>
-                    <i class="fa-regular fa-floppy-disk"></i>
-                  </span>
-                  <span>Save</span>
-                </button>
-                <button type="button" class="bttn btn_RemoveAddress">
-                  <span>
-                    <i class="fa-solid fa-trash-can"></i>
-                  </span>
-                  <span>Remove</span>
-                </button>
-              </div>
-            </li>
-          </ul>
-          <div class="addresses-actions">
-            <button type="button" class="bttn btn_AddAddress">
-              <span>Add new address</span>
-            </button>
+        <div class="mode-view">
+          <div>
+            <span>Full name</span>
+            <h3>Mr. O. Tester</h3>
           </div>
-        </div>
-
-        <div id="section_OrderHistory" class="fieldset-width scroll-margin display-none">
-          <h2 class="title underlined">Order History</h2>
-          <div class="order-history-container">
-            <table class="order-table">
-              <thead>
-                <tr>
-                  <th>Date</th>
-                  <th>Order ID</th>
-                  <th>Total (inc VAT)</th>
-                  <th></th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr onclick="window.location='order-details.html?id=99102';">
-                  <td data-label="Date">May 07, 2026</td>
-                  <td data-label="Order ID">#ORD-99102</td>
-                  <td data-label="Total" class="price">£21,039.81</td>
-                  <td>
-                    <a href="order-details.html?id=99102" class="link_Button">View Details</a>
-                  </td>
-                </tr>
-                <tr onclick="window.location='order-details.html?id=88273';">
-                  <td data-label="Date">March 12, 2026</td>
-                  <td data-label="Order ID">#ORD-88273</td>
-                  <td data-label="Total" class="price">£452.20</td>
-                  <td>
-                    <a href="order-details.html?id=88273" class="link_Button">View Details</a>
-                  </td>
-                </tr>
-                <tr onclick="window.location='order-details.html?id=00241';">
-                  <td data-label="Date">November 20, 2025</td>
-                  <td data-label="Order ID">#ORD-00241</td>
-                  <td data-label="Total" class="price">£33,452.00</td>
-                  <td>
-                    <a href="order-details.html?id=00241" class="link_Button">View Details</a>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+          <div>
+            <span>Email address</span>
+            <h3>mister.ohtester@example.com</h3>
           </div>
+          <div>
+            <span>Phone number</span>
+            <h3>01234567890</h3>
+          </div>
+          <div>
+            <span>Password</span>
+            <h3>********</h3>
+          </div>
+          <button type="button" class="bttn btn_AccountEdit">
+            <span>
+              <i class="fa-regular fa-pen-to-square"></i>
+            </span>
+            <span>Edit</span>
+          </button>
         </div>
-
       </div>
+
+      <div id="section_Addresses" class="fieldset-width scroll-margin display-none">
+        <h2 class="title underlined">My Addresses</h2>
+        <div class="mode-edit display-none">
+          <form method="post" class="form" action="/addresses-save">
+            <div class="addresses-list">
+              <div class="address-item">
+                <h3>Shipping Address</h3>
+                <div class="input-group">
+                  <label for="shipping-line-1">Address</label>
+                  <input type="text" id="shipping-line-1" name="line-1" value="Flat 11, 123 Main Street">
+                </div>
+                <div class="input-group">
+                  <label for="shipping-address">Additional Address (Optional)</label>
+                  <textarea id="shipping-address" name="address">AnyTown Mountains, Coventry, England</textarea>
+                </div>
+                <div class="input-group-pair">
+                  <div class="input-group">
+                    <label for="shipping-postcode">Postcode</label>
+                    <input type="text" id="shipping-postcode" name="postcode" value="SW1A 1AA">
+                  </div>
+                  <div class="input-group">
+                    <label for="shipping-country">Country</label>
+                    <select id="shipping-country" name="country" data-select-height="200" class="select-input">
+                      <option value="">Please select...</option>
+                      <option value="1">United Kingdom</option>
+                      <option value="2">United States</option>
+                      <option value="3">France</option>
+                      <option value="4">Germany</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="actions">
+                  <button type="button" class="bttn btn_AddressSave">
+                    <span>
+                      <i class="fa-regular fa-floppy-disk"></i>
+                    </span>
+                    <span>Save / Update</span>
+                  </button>
+                </div>
+              </div>
+              <div class="address-item">
+                <div class="compound-header">
+                  <h3 class="title">Delivery Address</h3>
+                  <div class="same-as-shipping flex items-center gap-2">
+                    <label class="checkbox-label">
+                      <input type="checkbox" id="same-as-shipping" name="same-as-shipping">
+                      <span>Same as shipping address</span>
+                    </label>
+                  </div>
+                </div>
+                <div class="input-group">
+                  <label for="delivery-line-1">Address</label>
+                  <input type="text" id="delivery-line-1" name="line-1" value="">
+                </div>
+                <div class="input-group">
+                  <label for="delivery-address">Additional Address (Optional)</label>
+                  <textarea id="delivery-address" name="address"></textarea>
+                </div>
+                <div class="input-group-pair">
+                  <div class="input-group">
+                    <label for="delivery-postcode">Postcode</label>
+                    <input type="text" id="delivery-postcode" name="postcode" value="">
+                  </div>
+                  <div class="input-group">
+                    <label for="delivery-country">Country</label>
+                    <select id="delivery-country" name="country" data-select-height="200" class="select-input">
+                      <option value="">Please select...</option>
+                      <option value="1">United Kingdom</option>
+                      <option value="2">United States</option>
+                      <option value="3">France</option>
+                      <option value="4">Germany</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="actions">
+                  <button type="button" class="bttn btn_AddressSave">
+                    <span>
+                      <i class="fa-regular fa-floppy-disk"></i>
+                    </span>
+                    <span>Save / Update</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="mode-view">
+          <div class="addresses-list">
+            <div class="address-item">
+              <h3>Shipping Address</h3>
+              <p>Flat 11, 123 Main Street</p>
+              <p>AnyTown Mountains, Coventry, England</p>
+              <p>SW1A 1AA</p>
+              <p>United Kingdom</p>
+            </div>
+            <div class="address-item">
+              <h3>Delivery Address</h3>
+              <p>Flat 11, 123 Main Street</p>
+              <p>AnyTown Mountains, Coventry, England</p>
+              <p>SW1A 1AA</p>
+              <p>United States</p>
+            </div>
+          </div>
+          <button type="button" class="bttn btn_AddressEdit">
+            <span>
+              <i class="fa-regular fa-pen-to-square"></i>
+            </span>
+            <span>Edit</span>
+          </button>
+        </div>
+      </div>
+
+      <div id="section_OrderHistory" class="fieldset-width scroll-margin display-none">
+        <h2 class="title underlined">Order History</h2>
+        <div class="order-history-container">
+          <table class="order-table">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Order ID</th>
+                <th>Total (inc VAT)</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr onclick="window.location='order-details.html?id=99102';">
+                <td data-label="Date">May 07, 2026</td>
+                <td data-label="Order ID">#ORD-99102</td>
+                <td data-label="Total" class="price">£21,039.81</td>
+                <td>
+                  <a href="order-details.html?id=99102" class="link_Button">View Details</a>
+                </td>
+              </tr>
+              <tr onclick="window.location='order-details.html?id=88273';">
+                <td data-label="Date">March 12, 2026</td>
+                <td data-label="Order ID">#ORD-88273</td>
+                <td data-label="Total" class="price">£452.20</td>
+                <td>
+                  <a href="order-details.html?id=88273" class="link_Button">View Details</a>
+                </td>
+              </tr>
+              <tr onclick="window.location='order-details.html?id=00241';">
+                <td data-label="Date">November 20, 2025</td>
+                <td data-label="Order ID">#ORD-00241</td>
+                <td data-label="Total" class="price">£33,452.00</td>
+                <td>
+                  <a href="order-details.html?id=00241" class="link_Button">View Details</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
     </div>
-  </form>
+  </div>
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      function resetSections(currentSection) {
+      function setSection(sectionId) {
         $('#section_MyAccount').addClass('display-none');
         $('#section_Addresses').addClass('display-none');
         $('#section_OrderHistory').addClass('display-none');
-        if (currentSection) {
-          $('#' + currentSection).removeClass('display-none');
+        if (sectionId) {
+          $('#' + sectionId).removeClass('display-none');
           if (window.innerWidth < 768) {
             // Scroll to the active section on mobile when a button is clicked
-            $('#' + currentSection)[0].scrollIntoView({top: 200, behavior: 'smooth'});
+            $('#' + sectionId)[0].scrollIntoView({top: 200, behavior: 'smooth'});
           }
         }
       }
 
-      function resetActiveButtons(currentButton) {
+      function setButton(buttonElement) {
         $('.actions-buttons .bttn').removeClass('active-bttn');
-        if (currentButton) {
-          $(currentButton).addClass('active-bttn');
+        if (buttonElement) {
+          $(buttonElement).addClass('active-bttn');
         }
       }
 
-      function stopEditMode() {
-        $('#mode-view').removeClass('display-none');
-        $('#mode-edit').addClass('display-none');
+      function stopEditing(sectionId) {
+        var $section = $('#' + sectionId);
+        $section
+          .find('.mode-edit')
+          .addClass('display-none');
+        $section
+          .find('.mode-view')
+          .removeClass('display-none');
+      }
+
+      function startEditing(sectionId) {
+        var $section = $('#' + sectionId);
+        $section
+          .find('.mode-edit')
+          .removeClass('display-none');
+        $section
+          .find('.mode-view')
+          .addClass('display-none');
       }
 
       $('.btn_AccountEdit').click(function (e) {
         e.preventDefault();
-        $('#mode-view').addClass('display-none');
-        $('#mode-edit').removeClass('display-none');
+        startEditing('section_MyAccount');
+      });
+
+      $('.btn_AddressEdit').click(function (e) {
+        e.preventDefault();
+        startEditing('section_Addresses');
+      });
+
+      $('.btn_OrderHistoryEdit').click(function (e) {
+        e.preventDefault();
+        $section
+          .find('.mode-view')
+          .addClass('display-none');
+      });
+
+      $('.btn_AddressSave').click(function (e) {
+        e.preventDefault();
+        // TODO: Rob validation
+        var formData = $(this)
+          .closest('form')
+          .serialize();
+        console.log('Form data to be submitted:', formData);
+
+        window.location.href = 'account.html?section=my-addresses';
       });
 
       $('.btn_AccountSave').click(function (e) {
         e.preventDefault();
-        // TODO: Add form validation and submission logic here
-        stopEditMode();
+        // TODO: Rob validation
+        var formData = $(this)
+          .closest('form')
+          .serialize();
+        console.log('Form data to be submitted:', formData);
+
+        window.location.href = 'account.html?section=my-account';
       });
 
       $('.btn_MyAccount').click(function (e) {
         e.preventDefault();
-        stopEditMode(); // To ensure View mode is active when navigating back to My Account
-        resetActiveButtons($(this));
-        resetSections('section_MyAccount');
+        stopEditing('section_MyAccount'); // To ensure View mode is active when navigating back to My Account
+        setButton($(this));
+        setSection('section_MyAccount');
       });
 
       $('.btn_Addresses').click(function (e) {
         e.preventDefault();
-        resetActiveButtons($(this));
-        resetSections('section_Addresses');
+        stopEditing('section_Addresses'); // To ensure View mode is active when navigating back to Addresses
+        setButton($(this));
+        setSection('section_Addresses');
       });
 
       $('.btn_OrderHistory').click(function (e) {
         e.preventDefault();
-        resetActiveButtons($(this));
-        resetSections('section_OrderHistory');
+        setButton($(this));
+        setSection('section_OrderHistory');
       });
 
       $('.btn_LogOut').click(function (e) {
@@ -305,6 +382,8 @@
       const section = urlParams.get('section');
       if (section === 'order-history') {
         $('.btn_OrderHistory').trigger('click');
+      } else if (section === 'my-addresses') {
+        $('.btn_Addresses').trigger('click');
       } else {
         $('.btn_MyAccount').trigger('click');
       }

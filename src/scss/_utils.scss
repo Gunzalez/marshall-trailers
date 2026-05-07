@@ -1541,6 +1541,24 @@
   }
 }
 
+.compound-header {
+  margin-bottom: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  .title {
+    margin: 0;
+    padding: 0;
+  }
+
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
 .confirmation-message {
   margin-bottom: 2rem;
 }
