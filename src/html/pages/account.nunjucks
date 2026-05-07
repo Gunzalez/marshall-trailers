@@ -29,7 +29,7 @@
       <div class="buttons-and-form-fields">
         <div>
           <div class="actions-buttons">
-            <button type="button" class="bttn btn_MyAccount active-bttn">
+            <button type="button" class="bttn btn_MyAccount">
               <span>My Account</span>
             </button>
             <button type="button" class="bttn btn_Addresses">
@@ -47,7 +47,7 @@
           </div>
         </div>
 
-        <div id="section_MyAccount" class="fieldset-width scroll-margin">
+        <div id="section_MyAccount" class="fieldset-width scroll-margin display-none">
           <div id="mode-edit" class="display-none">
             <div class="form-fields">
               <h2 class="title underlined">My Account</h2>
@@ -300,6 +300,14 @@
         // TODO: @Rob Add logout logic here (e.g., clear session, make API call, etc.)
         window.location.href = 'index.html';
       });
+
+      const urlParams = new URLSearchParams(window.location.search);
+      const section = urlParams.get('section');
+      if (section === 'order-history') {
+        $('.btn_OrderHistory').trigger('click');
+      } else {
+        $('.btn_MyAccount').trigger('click');
+      }
     });
   </script>
 
