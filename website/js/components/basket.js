@@ -54,7 +54,8 @@ export default {
             <tbody>
                 <tr v-for="option in selection" :key="option.id">
                     <td class="image-cell">
-                      <img :src="option.image_url" :alt="option.title" class="image">
+                      <img v-if="option.image" :src="option.image" :alt="option.title" class="image">
+                      <div v-else class="missing-image">Image Coming Soon</div>
                     </td>
                     <td class="name-cell">
                       <span>{{ option.title }}</span>
