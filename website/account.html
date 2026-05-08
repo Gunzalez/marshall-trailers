@@ -637,8 +637,8 @@
         <h2 class="title underlined">My Addresses</h2>
         <div class="mode-edit display-none">
           <form method="post" class="form" action="/addresses-save">
-            <div class="addresses-list">
-              <div class="address-item">
+            <div class="address-types">
+              <div class="address-type">
                 <h3>Shipping Address</h3>
                 <div class="input-group">
                   <label for="shipping-line-1">Address</label>
@@ -657,32 +657,16 @@
                     <label for="shipping-country">Country</label>
                     <select id="shipping-country" name="country" data-select-height="200" class="select-input">
                       <option value="">Please select...</option>
-                      <option value="1">United Kingdom</option>
+                      <option value="1" selected="selected">United Kingdom</option>
                       <option value="2">United States</option>
                       <option value="3">France</option>
                       <option value="4">Germany</option>
                     </select>
                   </div>
                 </div>
-                <div class="actions">
-                  <button type="button" class="bttn btn_AddressSave">
-                    <span>
-                      <i class="fa-regular fa-floppy-disk"></i>
-                    </span>
-                    <span>Save / Update</span>
-                  </button>
-                </div>
               </div>
-              <div class="address-item">
-                <div class="compound-header">
-                  <h3 class="title">Delivery Address</h3>
-                  <div class="same-as-shipping flex items-center gap-2">
-                    <label class="checkbox-label">
-                      <input type="checkbox" id="same-as-shipping" name="same-as-shipping">
-                      <span>Same as shipping address</span>
-                    </label>
-                  </div>
-                </div>
+              <div class="address-type">
+                <h3 class="title">Delivery Address</h3>
                 <div class="input-group">
                   <label for="delivery-line-1">Address</label>
                   <input type="text" id="delivery-line-1" name="line-1" value="">
@@ -707,28 +691,28 @@
                     </select>
                   </div>
                 </div>
-                <div class="actions">
-                  <button type="button" class="bttn btn_AddressSave">
-                    <span>
-                      <i class="fa-regular fa-floppy-disk"></i>
-                    </span>
-                    <span>Save / Update</span>
-                  </button>
-                </div>
+              </div>
+              <div class="actions">
+                <button type="button" class="bttn btn_AddressSave">
+                  <span>
+                    <i class="fa-regular fa-floppy-disk"></i>
+                  </span>
+                  <span>Save / Update</span>
+                </button>
               </div>
             </div>
           </form>
         </div>
         <div class="mode-view">
-          <div class="addresses-list">
-            <div class="address-item">
+          <div class="summary-grid">
+            <div class="summary-card">
               <h3>Shipping Address</h3>
               <p>Flat 11, 123 Main Street</p>
               <p>AnyTown Mountains, Coventry, England</p>
               <p>SW1A 1AA</p>
               <p>United Kingdom</p>
             </div>
-            <div class="address-item">
+            <div class="summary-card">
               <h3>Delivery Address</h3>
               <p>Flat 11, 123 Main Street</p>
               <p>AnyTown Mountains, Coventry, England</p>
