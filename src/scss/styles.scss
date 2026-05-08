@@ -2286,7 +2286,7 @@
 
       .button-actions {
         display: flex;
-        gap: 1rem;
+        gap: 0.5rem;
         align-items: start;
         margin-top: auto;
       }
@@ -2464,6 +2464,10 @@
           flex-direction: column;
           gap: 0.5rem;
           align-items: flex-start;
+
+          .button-actions {
+            flex-direction: column;
+          }
         }
       }
 
