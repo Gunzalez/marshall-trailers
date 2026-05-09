@@ -131,26 +131,37 @@ export default {
             </div>
             <div v-if="relatedItems && relatedItems.length > 0" class="related-items">
                 <h4 class="header">Related items:</h4>
-                <ul class="related-items-list">
-                    <li v-for="(item, index) in relatedItems" :key="index">
-                        <a :href="item.image" :title="item.part_no + ' - ' + item.title" class="glightbox_text" :data-gallery="'related-item-' + id + '-' + item.part_no">{{ item.part_no }}</a>
-                        <span>{{ item.title }}</span>
-                        <div class="actions">
-                            <button type="button" class="bttn secondary-buy" @click.prevent="onBuyNowRelatedClick(item)">
-                                <span class="icon">
-                                    <i class="fa-regular fa-credit-card"></i>
-                                </span>
-                                <span>Buy Now</span>
-                            </button>
-                            <button type="button" @click.prevent="onAddToBasketRelatedClick(item)" class="bttn secondary-buy">
-                                <span class="icon">
-                                    <i class="fa-solid fa-cart-shopping"></i>
-                                </span>
-                                <span>Add To Basket</span>
-                            </button>
-                        </div>
-                    </li>
-                </ul>
+                <table class="related-items-table">
+                    <tbody>
+                        <tr v-for="(item, index) in relatedItems" :key="index">
+                            <td class="related-item-link">
+                                <a :href="item.image" 
+                                :title="item.part_no + ' - ' + item.title" 
+                                class="glightbox_text" 
+                                :data-gallery="'related-item-' + id + '-' + item.part_no">
+                                    {{ item.part_no }}
+                                </a>
+                            </td>
+                            <td class="related-item-title">{{ item.title }}</td>
+                            <td class="related-item-actions">
+                                <div class="related-item-buttons">
+                                    <button type="button" class="bttn secondary-buy" @click.prevent="onBuyNowRelatedClick(item)">
+                                        <span class="icon">
+                                            <i class="fa-regular fa-credit-card"></i>
+                                        </span>
+                                        <span>Buy</span>
+                                    </button>
+                                    <button type="button" @click.prevent="onAddToBasketRelatedClick(item)" class="bttn secondary-buy">
+                                        <span class="icon">
+                                            <i class="fa-solid fa-cart-shopping"></i>
+                                        </span>
+                                        <span>Add</span>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
 
@@ -168,6 +179,7 @@ export default {
                     <select :id="'quantity-' + id" 
                         :name="'quantity-' + id" 
                         class="quantity select-input" 
+                        data-select-height="160"
                         v-model="quantity" ref="snSelectRef">
                             <option v-for="n in 120" :value="n">{{ n }}</option>
                     </select>
