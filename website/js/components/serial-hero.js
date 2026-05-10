@@ -55,10 +55,10 @@ export default {
                 <span>Select primary part category</span>
             </h2>
             <ul class="parts-categories-list grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
-                <li v-for="category in categories" :key="category.id" class="category-item flex">
+                <li v-for="category in categories" :key="category.id">
                     <a 
-                        :href="category.id" 
-                        class="w-full category-link"
+                        :href="category.id"
+                        :title="category.category_name"
                         :class="[{ 'selected': selectedCategoryId === category.id}]"    
                         @click.prevent="$emit('category-click', category)"
                     >
