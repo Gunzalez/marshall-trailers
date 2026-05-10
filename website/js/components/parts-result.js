@@ -146,16 +146,10 @@ export default {
                             <td class="related-item-actions">
                                 <div class="related-item-buttons">
                                     <button type="button" class="bttn secondary-buy" @click.prevent="onBuyNowRelatedClick(item)">
-                                        <span class="icon">
-                                            <i class="fa-regular fa-credit-card"></i>
-                                        </span>
-                                        <span>Buy</span>
+                                        <span>Buy Now</span>
                                     </button>
                                     <button type="button" @click.prevent="onAddToBasketRelatedClick(item)" class="bttn secondary-buy">
-                                        <span class="icon">
-                                            <i class="fa-solid fa-cart-shopping"></i>
-                                        </span>
-                                        <span>Add</span>
+                                        <span>Add To Basket</span>
                                     </button>
                                 </div>
                             </td>
