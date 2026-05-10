@@ -804,15 +804,21 @@
     background-color: transparent;
     padding: 0;
     border: none;
-    border-bottom: 1px solid var(--brand-red);
+    border-bottom: 2px solid var(--brand-red);
     color: var(--brand-red);
     border-radius: 0;
+    transition: none;
 
     span {
       color: var(--brand-red);
+      font-size: 0.9rem;
     }
 
     @media (hover: hover) {
+      color: var(--brand-red-dark);
+      span {
+        color: var(--brand-red-dark);
+      }
       &:hover {
         border-color: transparent;
       }
@@ -1352,6 +1358,35 @@
       width: 8px;
       height: 23px;
       top: 4px;
+    }
+  }
+}
+
+.compound-title {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  .sub-title {
+    font-size: 1rem;
+  }
+
+  @media (min-width: $breakpoint4) {
+    display: flex;
+    align-items: flex-end;
+    flex-direction: row;
+    gap: 0.25rem;
+
+    .main-title {
+      &:after {
+        content: ":";
+        margin-left: 0.25rem;
+        margin-right: 0.25rem;
+      }
+    }
+
+    .sub-title {
+      font-size: 28px;
     }
   }
 }
