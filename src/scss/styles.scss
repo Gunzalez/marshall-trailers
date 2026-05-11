@@ -441,8 +441,8 @@
 
   .image-wrapper {
     width: 100%;
-    height: 240px;
-    background-size: 110%;
+    height: 260px;
+    background-size: 100%;
     background-position: top center;
     background-repeat: no-repeat;
   }
@@ -471,7 +471,7 @@
 
     .inner-content {
       flex-direction: row;
-      gap: 4rem;
+      gap: 2rem;
     }
 
     .text-wrapper {
@@ -484,7 +484,7 @@
       flex-grow: 1;
       height: auto;
       background-size: contain;
-      background-position: center center;
+      background-position: bottom center;
       margin-right: 1rem;
     }
 
