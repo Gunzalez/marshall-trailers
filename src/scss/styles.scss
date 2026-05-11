@@ -620,6 +620,8 @@
     height: 100%;
     overflow: hidden;
     background-image: linear-gradient(to bottom, #ffffff, var(--brand-gray-bg));
+    background-size: cover;
+    background-position: right 70% center;
 
     @media (min-width: $breakpoint3) {
       background-position: center center;
