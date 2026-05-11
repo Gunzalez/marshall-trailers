@@ -4,7 +4,7 @@
 
 {% block content %}
 
-    {{ macros.header("images/logo-marshall-trailers-color.svg", "Account Log Out") }}
+    {{ macros.header("images/logo-marshall-trailers-color.svg", "Account / Log Out") }}
 
     <nav aria-label="breadcrumbs" class="breadcrumbs">
         <ol>
