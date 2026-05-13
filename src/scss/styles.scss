@@ -429,6 +429,8 @@
     max-width: var(--max-width);
     margin: 0 auto;
     width: 100%;
+
+    padding: 0 !important;
   }
 
   .text-wrapper {
@@ -475,9 +477,9 @@
     }
 
     .text-wrapper {
-      padding: 2rem 1rem 1rem 1rem;
+      padding: 4rem 1rem 1rem 1rem;
       max-width: 30%;
-      min-height: 500px;
+      min-height: 430px;
     }
 
     .image-wrapper {
@@ -495,7 +497,7 @@
 
   @media screen and (min-width: $breakpoint4) {
     .image-wrapper {
-      background-size: cover;
+      background-size: 110%;
     }
   }
 }
