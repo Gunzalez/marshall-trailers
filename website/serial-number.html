@@ -731,11 +731,15 @@
             try {
               const response = await fetch(fetchUrl, options);
               if (!response.ok) 
-                throw new Error('Network response was not ok');
+                throw new Error('Network Response Error');
               const returnedData = await response.json();
               data.value = returnedData.data;
             } catch (err) {
-              console.error("There was an error!", err);
+              const isLocal = ['localhost', '127.0.0.1', ''].includes(window.location.hostname);
+
+              if (isLocal) {
+                console.error("Local Dev Error:", err);
+              }
               error.value = true;
             }
           }
