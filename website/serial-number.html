@@ -537,23 +537,29 @@
 
     <div class="title-wrapper">
       <h1 class="page-title">Parts Ordering:</h1>
-      <p class="subtitle">Serial Number [[ data.serial_no ]]</p>
+      <p class="subtitle">Serial Number <span class="serial-number-text"></span></p>
     </div>
 
-    <div class="introduction-wrapper">
+    <div v-if="data && error === false" class="introduction-wrapper">
       <div class="introduction deep-underline">
-        <span v-if="data">Your Marshall is built up of <strong>[[ data.total_parts ]]</strong> parts.</span>
+        <span>Your Marshall is built up of <strong>[[ data.total_parts ]]</strong> parts.</span>
       </div>
     </div>
 
+    <div v-if="error" class="error-wrapper">
+      <h2 class="error-message">Loading error</h2>
+      <p>Currently unable to load data. Please try again later.</p>
+    </div>
+
     <serial-hero
-        v-if="data" 
+        v-if="data && error === false" 
         :data="data"
         :selected-category-id="selectedCategoryId"
         @category-click="handleCategoryClick"
         @not-my-marshall-click="handleNotMyMarshallClick"></serial-hero>
 
     <serial-parts 
+        v-if="data && error === false"
         :parts="partsData"
         :parts-count="partsCount"
         :selected-category-name="selectedCategoryName"
@@ -661,13 +667,13 @@
       return `https://dev.marshall.sugarshaker.com/api/serial-number/${serial_no}`;
     }
 
-    function getPartsFetchUrl(options) {
+    function createPartsFetchUrl(options) {
       const {serial_no, category_id} = options;
       return `https://dev.marshall.sugarshaker.com/api/serial-number/${serial_no}/${category_id}`;
     }
 
     document.addEventListener('DOMContentLoaded', () => {
-      const {createApp, onMounted, ref, nextTick} = Vue;
+      const {createApp, onMounted, ref, nextTick, watch} = Vue;
 
       createApp({
         components: {
@@ -684,6 +690,7 @@
           const partsCount = ref(null);
           const selectedCategoryId = ref(null);
           const selectedCategoryName = ref("");
+          const error = ref(false);
 
           const options = {
             method: 'GET',
@@ -694,17 +701,19 @@
           };
 
           const updatePartsData = async (options) => {
+            error.value = false;
             isBusy.value = true;
             try {
-              const fetchUrl = getPartsFetchUrl(options);
+              const fetchUrl = createPartsFetchUrl(options);
               const response = await fetch(fetchUrl, options);
               if (!response.ok) 
                 throw new Error('Network response was not ok');
               const returnedData = await response.json();
               partsData.value = returnedData.data;
               partsCount.value = returnedData.total_count;
-            } catch (error) {
-              console.error("There was an error!", error);
+            } catch (err) {
+              console.error("There was an error!", err);
+              error.value = true;
             } finally {
               await nextTick();
               window
@@ -718,14 +727,16 @@
           const updateSerialData = async () => {
             const serial_no = getParamFromUrl("serial-number");
             const fetchUrl = createSerialNumberDataFetchUrl(serial_no);
+            error.value = false;
             try {
               const response = await fetch(fetchUrl, options);
               if (!response.ok) 
                 throw new Error('Network response was not ok');
               const returnedData = await response.json();
               data.value = returnedData.data;
-            } catch (error) {
-              console.error("There was an error!", error);
+            } catch (err) {
+              console.error("There was an error!", err);
+              error.value = true;
             }
           }
 
@@ -763,11 +774,17 @@
               .update(data);
           };
 
+          watch(() => data.value, (newData) => {
+            if (newData && newData.categories.length > 0) {
+              initiateObservers();
+              initiateScrollObservers();
+            }
+          })
+
           onMounted(async () => {
             updateSerialData();
             $('#serial-number-app').removeClass('app-loading');
-            initiateObservers();
-            initiateScrollObservers();
+            $('.serial-number-text').text(getParamFromUrl("serial-number"));
           });
 
           return {
@@ -775,6 +792,7 @@
             isBusy,
             partsData,
             partsCount,
+            error,
             handleBuyNowClick,
             selectedCategoryId,
             selectedCategoryName,
