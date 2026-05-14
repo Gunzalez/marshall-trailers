@@ -46,6 +46,7 @@
 
   <div class="title-wrapper">
     <h1 class="page-title">About Marshall</h1>
+    <p class="subtitle"></p>
   </div>
 
   <div class="section body-copy special-chevron">

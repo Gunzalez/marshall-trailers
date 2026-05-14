@@ -18,8 +18,9 @@
     </ol>
   </nav>
 
-  <div class="title-wrapper body-copy">
-    <h1 class="page-title">Parts Ordering: Pre 2020 Machine</h1>
+  <div class="title-wrapper">
+    <h1 class="page-title">Parts Ordering:</h1>
+    <p class="subtitle">Pre 2020 Machine</p>
   </div>
 
   <div class="section body-copy">

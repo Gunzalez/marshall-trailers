@@ -517,6 +517,52 @@
   width: 100%;
 }
 
+.title-wrapper {
+  display: flex;
+  gap: 0.5rem;
+  align-items: baseline;
+  margin-bottom: 1.5rem;
+
+  .subtitle {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    line-height: 35px;
+
+    &:empty {
+      display: none;
+    }
+  }
+
+  &:has(.subtitle) {
+    .page-title {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      line-height: 35px;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    gap: 0;
+    flex-direction: column;
+    margin-bottom: 1rem;
+
+    .subtitle {
+      font-size: 20px;
+      font-weight: normal;
+      line-height: 1.3rem;
+      padding-left: 20px;
+    }
+
+    &:has(.subtitle) {
+      .page-title {
+        margin-bottom: 1rem;
+      }
+    }
+  }
+}
+
 .introduction {
   padding-bottom: 0.875rem;
 }

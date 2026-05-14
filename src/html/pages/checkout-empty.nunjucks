@@ -16,7 +16,8 @@
   </nav>
 
   <div class="title-wrapper">
-    <h1 class="page-title">Checkout</h1>
+    <h1 class="page-title">Your Marshall:</h1>
+    <p class="subtitle">Checkout</p>
   </div>
 
   <form id="checkout-form" class="form checkout-form" method="post" action="/submit-payment">

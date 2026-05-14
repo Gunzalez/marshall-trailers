@@ -17,6 +17,7 @@
 
   <div class="title-wrapper">
     <h1 class="page-title">Stock Clearance</h1>
+    <p class="subtitle"></p>
   </div>
 
   <div class="section has-sub-sections body-copy">
