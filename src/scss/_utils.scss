@@ -508,16 +508,6 @@
   }
 }
 
-.error-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 300px;
-  text-align: center;
-  gap: 0;
-}
-
 .introduction-wrapper,
 .title-wrapper,
 .error-wrapper,
@@ -526,6 +516,18 @@
   margin: 0 auto;
   padding: 2px 1rem 1rem 1rem;
   width: 100%;
+}
+
+.error-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  text-align: center;
+  gap: 0;
 }
 
 .title-wrapper {
