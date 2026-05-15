@@ -547,8 +547,10 @@
     </div>
 
     <div v-if="error" class="error-wrapper">
-      <h2 class="error-message">Loading error</h2>
-      <p>Currently unable to load data. Please try again later.</p>
+      <h3 class="error-message">Sorry this serial number was not found, please try again.</h3>
+      <button onclick="window.location.href='spares.html'" class="bttn">
+        <span>Back to Spares</span>
+      </button>
     </div>
 
     <serial-hero
