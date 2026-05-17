@@ -1484,69 +1484,96 @@
 
 .retrofit-steps {
   display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  gap: 1.5rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
   margin-bottom: 2rem;
+  padding: 0;
+  border: none;
 
   img {
     width: 100%;
     height: auto;
     border-radius: 3px;
-    margin: 0.375rem 0;
-    max-width: 260px;
+    margin: 20px 0;
+    max-width: 80%;
   }
 
   .title {
-    padding-bottom: 0;
-    color: var(--brand-red);
     font-weight: 700;
-    margin-bottom: 0;
+    background-color: var(--brand-red);
+    color: white;
+    padding: 6px 12px;
+    padding-bottom: 0.25rem;
+    clip-path: polygon(0 0, 90% 0, 100% 100%, 0 100%);
   }
 
   > li {
     display: flex;
     flex-direction: column;
     gap: 0.25rem;
+    max-width: 360px;
+
+    padding: 0 110px 0 0;
+    background-image: url("../images/bg-big-arrow.png");
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: contain;
   }
 
   ul {
     display: flex;
     margin: 0;
-    padding: 12px;
-    border: 1px solid var(--brand-gray-bg);
-    border-radius: 4px;
     flex-direction: column;
     gap: 0.375rem;
-  }
-
-  @media screen and (min-width: $breakpoint3) {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 3rem;
     padding: 0;
     border: none;
+  }
+
+  @media screen and (max-width: $breakpoint3) {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1.5rem;
 
     img {
-      max-width: 80%;
-    }
-
-    ul {
-      padding: 0;
-      border: none;
+      max-width: 260px;
     }
 
     .title {
-      margin-bottom: 1rem;
-      padding-bottom: 0.25rem;
-      border-bottom: 1px solid var(--brand-red);
+      padding-bottom: 0;
+      background-color: transparent;
+      color: inherit;
+      padding: 0;
+      clip-path: none;
+    }
+
+    ul {
+      padding: 12px;
+      border: 1px solid var(--brand-gray-bg);
+      border-radius: 4px;
     }
 
     > li {
-      padding-right: 110px;
-      background-image: url("../images/bg-big-arrow.png");
+      padding: 0;
+      background: none;
+      max-width: none;
+    }
+  }
+
+  @media screen and (max-width: $breakpoint2) {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1.5rem;
+
+    > li {
+      padding: 0 0 90px 0;
+      background-image: url("../images/bg-big-arrow-down.png");
       background-repeat: no-repeat;
-      background-position: right center;
-      background-size: contain;
-      max-width: 360px;
+      background-position: bottom center;
+      background-size: 220px auto;
+      max-width: none;
+
+      &:last-child {
+        background: none;
+        padding-bottom: 0;
+      }
     }
   }
 }
