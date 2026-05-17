@@ -155,14 +155,16 @@
 
 .carousel-main {
   .slide {
-    height: 380px;
-    background-position: center center;
+    height: 400px;
+    background-position: top center;
     background-repeat: no-repeat;
-    overflow: hidden;
     position: relative;
+    background-size: auto 100%;
 
     @media (min-width: $breakpoint1) {
       height: 640px;
+      background-size: cover;
+      background-position: center center;
     }
   }
 
