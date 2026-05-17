@@ -118,6 +118,8 @@
 - 13th March: 3hr
 - 14th March: 6hr
 
+- 17th March: 2hr
+
 #### NEXT
 
 ADJUSTED FOR 15 hours
