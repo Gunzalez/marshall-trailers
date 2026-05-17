@@ -624,6 +624,7 @@
     background-image: linear-gradient(to bottom, #ffffff, var(--brand-gray-bg));
     background-size: cover;
     background-position: right 70% center;
+    background-repeat: no-repeat;
 
     @media (min-width: $breakpoint3) {
       background-position: center center;
@@ -1546,6 +1547,23 @@
       background-position: right center;
       background-size: contain;
       max-width: 360px;
+    }
+  }
+}
+
+.retrofit-band {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2rem;
+
+  @media screen and (min-width: $breakpoint3) {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 5rem;
+
+    .side-sub-section {
+      width: 250px;
     }
   }
 }
