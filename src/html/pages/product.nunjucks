@@ -48,7 +48,7 @@
       </div>
     </div>
 
-    <div id="tabs-section" data-active-tab-index="0" class="features-tabs-section tabs-section ">
+    <div id="tabs-section" data-active-tab-index="4" class="features-tabs-section tabs-section ">
       <ul class="tabs-list" role="presentation"></ul>
       <div class="tabs-content">
 
@@ -80,6 +80,7 @@
           <div id="specifications-app-vue">
             <div class="tab-content">
               <h2 class="comparison-title">Compare specifications</h2>
+
               <div class="flex specs-carousel-wrapper">
                 <div class="fixed-column w-[290px] flex-shrink-0">
                   <ul class="specs-list flex flex-col">
@@ -116,8 +117,7 @@
                     <ul v-for="(product, pIndex) in productsData" :key="pIndex" class="w-full specs-list flex flex-col w-[300px]" :class="{ 'selected': product.id === selectedProductId }">
                       <li class="image-row">
                         <p class="line-clamp-1 title">[[ product.title ]]</p>
-                        <a :href="`product.html?id=${product.id}`">
-                          <img :src="product.image" :alt="product.title"/></a>
+                        <a :href="`product.html?id=${product.id}`"><img :src="product.image" :alt="product.title"/></a>
                       </li>
                       <li class="text-sm bordered-bottom">[[ product.price ]]</li>
                       <li v-for="(key, kIndex) in product['specification']['standard']" :key="key" class="text-sm bordered-bottom">[[ key ]]</li>
@@ -161,6 +161,7 @@
                   <span class="hide-options">Hide Optional Equipment</span>
                 </button>
               </div>
+
               <ul class="downloads-list">
                 <li>
                   <a href="#">Download specification sheet</a>
@@ -180,7 +181,16 @@
         <div class="tab-item">
           <h3 class="tab-header">Owner's Info</h3>
           <div class="tab-content">
-            {{ macros.ownersInfo() }}
+            <div class="body-copy">
+              <div class="features-list">
+                <div class="accordion-mini">
+                  {% for item in ownersInfoData %}
+                    {{ macros.downloadItem(item.title, item.image, item.alt, item.download, item.text, loop.index) }}
+                  {% endfor %}
+                  <div class="accordion-mini-footer"></div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 

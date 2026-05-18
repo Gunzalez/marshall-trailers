@@ -1147,26 +1147,50 @@
   }
 }
 
-.downloads-list {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  margin-bottom: 1.75rem;
+.download-section {
+  margin-top: 2rem;
 
-  li {
-    position: relative;
-    padding-left: 25px;
+  .download-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 1.2rem;
+    text-decoration: none;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    line-height: 1;
+  }
 
-    &::before {
-      position: absolute;
-      content: "\f1c1";
-      font-family: "Font Awesome 6 Free";
-      font-weight: 900;
-      margin-right: 10px;
-      color: var(--brand-yellow);
-      left: 0;
-      top: -2px;
-    }
+  .download-link::before {
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    font-variant: normal;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    font-size: 28px;
+
+    content: "\f56d";
+    color: var(--brand-gray-dark);
+  }
+
+  .download-link.pdf-type::before {
+    content: "\f1c1";
+    color: var(--brand-yellow);
+  }
+
+  .download-link.docx-type::before {
+    content: "\f1c2";
+    color: var(--brand-blue);
+  }
+
+  .download-link.xlsx-type::before {
+    content: "\f1c3";
+    color: var(--brand-green);
+  }
+
+  .download-link.img-type::before {
+    content: "\f1c5";
+    color: var(--brand-orange);
   }
 }
 

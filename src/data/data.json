@@ -1361,6 +1361,84 @@
       ]
     }
   ],
+  "ownersInfoData": [
+    {
+      "title": "Tyre Pressure Chart",
+      "image": "images/cut-out-download-image.png",
+      "alt": "A tyre",
+      "download": {
+        "label": "Tyre Pressure Chart PDF",
+        "url": "images/sample-download.pdf",
+        "type": "pdf"
+      },
+      "text": [
+        "For models: S-4 S-5 S-6 S-85 S-10",
+        "Fitting Instructions - Drop-side Trailer Bale Extensions (Updated 13.12.17).pdf: PDF (255Kb)"
+      ]
+    },
+    {
+      "title": "Rotary Muckspreader Instruction Manual",
+      "image": "images/cut-out-download-image.png",
+      "alt": "Rotary Muckspreader",
+      "download": {
+        "label": "Rotary Muckspreader Poster",
+        "url": "images/sample-download.pdf",
+        "type": "img"
+      },
+      "text": [
+        "For models: MS-45 MS-60 MS-75 MS-90 MS-105",
+        "Fitting Instructions - Drop-side Trailer Bale Extensions (Updated 13.12.17).jpg: IMAGE (255Kb)"
+      ]
+    },
+    {
+      "title": "Livestock Container Instruction Manual",
+      "image": "images/cut-out-download-image.png",
+      "alt": "Space Sprocket",
+      "download": {
+        "label": "Spare Parts Catalogue",
+        "url": "images/sample-download.pdf",
+        "type": "docx"
+      },
+      "text": [
+        "For models: QM-6 QM-8 QM-11 QM-12 QM-14 QM-16 QM-1200 QM-1400 QM-1600 QM-1800 S-2 S-4 S-5 S-6 S-85 S-10 S-1 HD-6 HD-8 HD-12 HD-14 HD-16 FT-15 FT-20",
+        "24.01.22 Vantage Operating & Safety Instructions.doc: DOCX (795Kb)"
+      ]
+    },
+    {
+      "title": "Rear-discharge Vantage Muck Spreader Instruction Manual",
+      "image": "images/cut-out-download-image.png",
+      "alt": "Reverse Gazelle",
+      "download": {
+        "label": "Spreadsheet Template Instructions",
+        "url": "images/sample-download.pdf",
+        "type": "xlsx"
+      }
+    },
+    {
+      "title": "Decal Template Fusion Reactor",
+      "image": "images/cut-out-download-image.png",
+      "alt": "Decal Template Fusion Reactor",
+      "download": {
+        "label": "Default Icon",
+        "url": "images/sample-download.pdf",
+        "type": "text"
+      }
+    },
+    {
+      "title": "Tankers Instruction Manual",
+      "image": "images/cut-out-download-image.png",
+      "alt": "Tankers Instruction Manual",
+      "download": {
+        "label": "Tankers Instruction",
+        "url": "images/sample-download.pdf",
+        "type": "pdf"
+      },
+      "text": [
+        "For models: ST-1200 ST-1400 ST-1600 ST-2000 ST-1800 ST-2300 ST-2550 ST-3000 ST-3500",
+        "24.11.25 -Marshall-Trailers--Tankers-Instruction-Manual.pdf: PDF (1Mb)"
+      ]
+    }
+  ],
   "newsData": [
     {
       "id": "1",
