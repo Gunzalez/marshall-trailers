@@ -71,7 +71,7 @@ export default {
                 <span class="label">SAP No:</span>
                 <span class="value">{{ option.sap_no }}</span>
             </div>
-            <div v-if="option.retro_fit" class="sub_meta">
+            <div v-if="option.retro_fit && option.retro_fit !== '0.00'" class="sub_meta">
                 <span class="label">Retro Fit:</span>
                 <span class="value">{{ option.retro_fit }}</span>
             </div>
