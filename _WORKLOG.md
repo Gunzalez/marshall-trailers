@@ -119,6 +119,8 @@
 - 14th March: 6hr
 
 - 17th March: 2hr
+- 18th March: 3hr
+- 19th March: 4hr
 
 #### NEXT
 
