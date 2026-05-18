@@ -135,7 +135,7 @@
 
 {% macro accordionItem(title, text, imageUrl, label, index) %}
     <div class="accordion-item {% if index == 1 %}active{% endif %}">
-        <button class="accordion-header">
+        <button type="button" class="accordion-header">
             <span>{{ title }}</span>
             <i class="fa-solid fa-chevron-right"></i>
         </button>

@@ -48,7 +48,7 @@
       </div>
     </div>
 
-    <div id="tabs-section" data-active-tab-index="0" class="features-tabs-section tabs-section ">
+    <div id="tabs-section" data-active-tab-index="2" class="features-tabs-section tabs-section ">
       <ul class="tabs-list" role="presentation"></ul>
       <div class="tabs-content">
 
@@ -61,6 +61,7 @@
                   {% for feature in featuresData %}
                     {{ macros.accordionItem(feature.title, feature.text, feature.imageUrl, feature.label, loop.index) }}
                   {% endfor %}
+                  <div class="accordion-mini-footer"></div>
                 </div>
               </div>
             </div>
@@ -145,7 +146,26 @@
                 </div>
               </div>
 
-              <table id="single-column" class="single-column"></table>
+              <div class="single-column-wrapper">
+                <table id="single-column" class="single-column">
+                  <tr>
+                    <th>Basic Price</th>
+                    <td>[[ selectedProduct['price'] ]]</td>
+                  </tr>
+                  <tr v-for="(spec, index) in selectedProduct['specification']['standard']" :key="index">
+                    <th>[[ standardLabels[index] ]]</th>
+                    <td>[[ spec ]]</td>
+                  </tr>
+                  <tr>
+                    <td colspan="2" class="sub-header">
+                      <span>Optional Equipment</span></td>
+                  </tr>
+                  <tr v-for="(spec, index) in selectedProduct['specification']['optional']" :key="index" class="optional">
+                    <th>[[ optionalLabels[index] ]]</th>
+                    <td>[[ spec ]]</td>
+                  </tr>
+                </table>
+              </div>
 
               <div class="specifications-footer">
                 <button type="button" id="toggleOptionsButton" class="bttn btn_ToggleOptions">
@@ -212,6 +232,7 @@
 
       observer.observe(anchor);
     }
+
     function applyButtonBehavior(selectedProductId) {
       $("#toggleOptionsButton").on("click", () => {
         $('#specifications-app').toggleClass("compact-layout");
@@ -258,6 +279,7 @@
           const displayAdditionalOptions = ref(false);
           const slickInstance = ref(null);
           const isDisabled = ref(true);
+          const selectedProduct = ref(null);
 
           const getComparisonDataFetchUrl = () => {
             return `https://dev.marshall.sugarshaker.com/api/products/${selectedProductId}/comparisons`;
@@ -358,6 +380,9 @@
               standardLabels.value = comparisonData.labels.standard || [];
               optionalLabels.value = comparisonData.labels.optional || [];
               productsData.value = comparisonData.products || [];
+              selectedProduct.value = productsData
+                .value
+                .find(product => product.id === selectedProductId) || null;
             };
 
             if (productsData.value.length > NUMBER_OF_VISIBLE_SLIDES) {
@@ -382,6 +407,7 @@
             isDisabled,
             displayAdditionalOptions,
             productsData,
+            selectedProduct,
             selectedProductId
           };
         }
