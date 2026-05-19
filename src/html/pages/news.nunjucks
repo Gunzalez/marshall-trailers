@@ -36,7 +36,7 @@
               <a href="article.html?id={{ item.id }}">
                 {{ item.title }}</a>
             </h3>
-            <p class="news-date">{{ item.date }}</p>
+            <p>{{ item.date }}</p>
             <p>{{ item.content }}...</p>
             <a href="article.html?id={{ item.id }}" class="bttn btn_Chevron">
               <span>Read More</span>
