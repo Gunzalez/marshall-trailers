@@ -2632,11 +2632,6 @@
     flex-direction: column;
     gap: 1rem;
 
-    .news-date {
-      color: var(--brand-gray-dark);
-      font-weight: 600;
-    }
-
     .news-title {
       margin-bottom: 0.375rem;
       a {
@@ -2737,10 +2732,6 @@
       cursor: default;
     }
   }
-}
-
-.article-date {
-  color: var(--brand-gray-dark);
 }
 
 .return-link {
