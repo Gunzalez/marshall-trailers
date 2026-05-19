@@ -531,11 +531,6 @@
 }
 
 .title-wrapper {
-  display: flex;
-  gap: 0.5rem;
-  align-items: baseline;
-  margin-bottom: 1.5rem;
-
   .subtitle {
     font-size: 28px;
     font-weight: 600;
@@ -549,6 +544,11 @@
   }
 
   &:has(.subtitle) {
+    display: flex;
+    gap: 0.5rem;
+    align-items: baseline;
+    margin-bottom: 1.5rem;
+
     .page-title {
       margin-bottom: 0;
       padding-bottom: 0;
@@ -557,10 +557,6 @@
   }
 
   @media screen and (max-width: 768px) {
-    gap: 0;
-    flex-direction: column;
-    margin-bottom: 1rem;
-
     .subtitle {
       font-size: 20px;
       font-weight: normal;
@@ -569,6 +565,9 @@
     }
 
     &:has(.subtitle) {
+      gap: 0;
+      flex-direction: column;
+      margin-bottom: 1rem;
       .page-title {
         margin-bottom: 1rem;
       }
