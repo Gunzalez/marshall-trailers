@@ -770,6 +770,29 @@
                 return map;
               });
 
+              const wrapWithStateProps = (options = []) => {
+                return options
+                  ?.map((option) => ({
+                    ...option,
+                    isSelected: false,
+                    combos: [],
+                    messages: [],
+                    related_options: []
+                  })) || [];
+              };
+
+              const groupOptionsByType = (options) => {
+                return Object.groupBy(options, (item) => item.category_name);
+              }
+
+              const decorateOptions = (data) => {
+                return Object.entries(groupOptionsByType(wrapWithStateProps(data)));
+              }
+
+              const getRelatedOptionsUrl = ({productId, optionId}) => {
+                return `https://dev.marshall.sugarshaker.com/api/configure/${productId}/option/${optionId}/related`;
+              }
+
               const deselectOption = (option) => {
                 if (!option.isSelected) 
                   return;
@@ -800,29 +823,6 @@
                 option.isSelected = false;
               };
 
-              const wrapWithStateProps = (options = []) => {
-                return options
-                  ?.map((option) => ({
-                    ...option,
-                    isSelected: false,
-                    combos: [],
-                    messages: [],
-                    related_options: []
-                  })) || [];
-              };
-
-              const groupOptionsByType = (options) => {
-                return Object.groupBy(options, (item) => item.category_name);
-              }
-
-              const decorateOptions = (data) => {
-                return Object.entries(groupOptionsByType(wrapWithStateProps(data)));
-              }
-
-              const getRelatedOptionsUrl = ({productId, optionId}) => {
-                return `https://dev.marshall.sugarshaker.com/api/configure/${productId}/option/${optionId}/related`;
-              }
-
               const handleOptionClick = async (option) => {
                 const itemsMap = allItemsMap.value;
 
@@ -838,43 +838,54 @@
 
                 try {
                   const productId = window.basicMachine.id;
+                  const visited = new Set([option.id]);
+
+                  const applyRelatedData = async (relatedData) => {
+                    const secondaryFetches = [];
+
+                    relatedData.forEach(relAction => {
+                      const targetItem = itemsMap.get(relAction.id);
+                      if (!targetItem)
+                        return;
+
+                      const message = relAction.message || DEFAULT_MESSAGE;
+
+                      if (relAction.action === "add") {
+                        if (!targetItem.combos.some(c => c.id === option.id)) {
+                          targetItem.combos.push({id: option.id, text: message});
+                          option.related_options.push({id: targetItem.id, action: "add"});
+                        }
+
+                        if (targetItem.has_related && !visited.has(targetItem.id)) {
+                          visited.add(targetItem.id);
+                          secondaryFetches.push(targetItem.id);
+                        }
+                      }
+
+                      if (relAction.action === "disable") {
+                        if (targetItem.isSelected) {
+                          deselectOption(targetItem);
+                        }
+
+                        if (!targetItem.messages.some(m => m.id === option.id)) {
+                          targetItem.messages.push({id: option.id, text: message});
+                          option.related_options.push({id: targetItem.id, action: "disable"});
+                        }
+                      }
+                    });
+
+                    await Promise.all(secondaryFetches.map(async (relatedItemId) => {
+                      const url = getRelatedOptionsUrl({productId, optionId: relatedItemId});
+                      const res = await fetch(url);
+                      const data = await res.json();
+                      await applyRelatedData(data);
+                    }));
+                  };
+
                   const url = getRelatedOptionsUrl({productId, optionId: option.id});
                   const res = await fetch(url);
                   const relatedData = await res.json();
-
-                  relatedData.forEach(relAction => {
-                    const targetItem = itemsMap.get(relAction.id);
-                    if (!targetItem) 
-                      return;
-                    
-                    const message = relAction.message || DEFAULT_MESSAGE;
-
-                    if (relAction.action === "add") {
-                      if (!targetItem.combos.some(c => c.id === option.id)) {
-                        targetItem
-                          .combos
-                          .push({id: option.id, text: message});
-                        option
-                          .related_options
-                          .push({id: targetItem.id, action: "add"});
-                      }
-                    }
-
-                    if (relAction.action === "disable") {
-                      if (targetItem.isSelected) {
-                        deselectOption(targetItem);
-                      }
-
-                      if (!targetItem.messages.some(m => m.id === option.id)) {
-                        targetItem
-                          .messages
-                          .push({id: option.id, text: message});
-                        option
-                          .related_options
-                          .push({id: targetItem.id, action: "disable"});
-                      }
-                    }
-                  });
+                  await applyRelatedData(relatedData);
 
                   option.isSelected = true;
                 } catch (error) {
