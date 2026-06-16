@@ -186,7 +186,5 @@
       updateSelect(urlProductId);
       fetchMachineDetails(urlProductId);
     }
-
-    // initiateScrollObservers();
   }
 })();
