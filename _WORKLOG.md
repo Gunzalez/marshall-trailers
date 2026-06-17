@@ -122,6 +122,8 @@
 - 18th March: 3hr
 - 19th March: 4hr
 
+- 17th June: 1hr
+
 #### NEXT
 
 ADJUSTED FOR 15 hours
