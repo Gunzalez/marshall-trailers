@@ -1,7 +1,7 @@
 # Marshall Trailers website rebuild
 
 - OLD [https://www.marshall-trailers.co.uk/]
-- NEW [http://gunzalez.com/pp/marshall-trailers]
+- NEW [http://gunzalez.com/pp/trailers]
 
 Built with HTML, CSS, and Vanilla JavaScript.
 
