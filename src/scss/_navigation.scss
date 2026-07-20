@@ -61,7 +61,8 @@
   }
 }
 
-#top-navigation .main-menu a {
+#top-navigation .main-menu a,
+#top-navigation .main-menu span {
   display: block;
   padding: 8px 20px 5px 20px;
   text-decoration: none;
@@ -116,7 +117,8 @@
   }
 
   &:has(ul) {
-    > a {
+    > a,
+    > span {
       &:after {
         content: "\f0d7";
         font-family: FontAwesome;
