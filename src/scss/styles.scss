@@ -155,7 +155,7 @@
 
 .carousel-main {
   .slide {
-    height: 400px;
+    height: 360px;
     background-position: top center;
     background-repeat: no-repeat;
     position: relative;
@@ -188,13 +188,12 @@
       width: 100%;
       z-index: 10;
       color: white;
-      // background: linear-gradient(to top, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0));
     }
 
     .content-box {
       margin: 0 auto;
       max-width: var(--max-width);
-      padding: 1rem;
+      padding: 1rem 1rem 2.5rem 1rem;
       display: flex;
       flex-direction: column;
       gap: 16px;
@@ -211,6 +210,10 @@
         @media (min-width: $breakpoint1) {
           font-size: 3.2rem;
         }
+      }
+
+      @media (min-width: $breakpoint1) {
+        padding: 1rem;
       }
     }
   }
