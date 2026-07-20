@@ -658,27 +658,33 @@
   "carouselData": [
     {
       "title": "The Legendary Marshall Muckspreader",
-      "image": "images/sample-hero.jpg",
+      "image": "images/Marshall_HomeHeader_1.jpg",
       "url": "products.html?model=rear-discharge-muck-spreaders",
       "label": "Explore"
     },
     {
       "title": "Our Drop-Side trailers",
-      "image": "images/homepage-hero-1.jpg",
+      "image": "images/Marshall_HomeHeader_2.jpg",
       "url": "products.html?model=drop-side-trailers",
       "label": "Wide Range"
     },
     {
       "title": "The Marshall Livestock Container",
-      "image": "images/homepage-hero-2.jpg",
+      "image": "images/Marshall_HomeHeader_3.jpg",
       "url": "contact.html",
       "label": "Talk To Us"
     },
     {
       "title": "Marshall Drop-side Trailer",
-      "image": "images/homepage-hero-3.jpg",
+      "image": "images/Marshall_HomeHeader_4.jpg",
       "url": "about.html",
-      "label": "About Marshalls"
+      "label": "Marshall Are Here!"
+    },
+    {
+      "title": "Marshall Drop-side Trailer",
+      "image": "images/Marshall_HomeHeader_5.jpg",
+      "url": "about.html",
+      "label": "Coming Soon"
     }
   ],
   "clearanceData": [

@@ -126,8 +126,6 @@
 
 #### NEXT
 
-ADJUSTED FOR 15 hours
-
 - Trello bugs
 - Odd jumping in filters in carousel in spares
 - See about FOUC site wide

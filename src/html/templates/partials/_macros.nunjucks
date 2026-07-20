@@ -210,9 +210,10 @@
     <div class="details">
       <div class="image-copy-wrapper">
         <div class="image-wrapper">
-          <a href="{{ image }}" title="{{ title }}" class="glightbox_solo image-link" data-gallery="gallery-{{ sid }}">
-            <img src="{{ image }}" alt="{{ title }}">
-          </a>
+          <div class="no-image">
+            <span>Image coming soon</span>
+          </div>
+
           <div class="product-meta">
             <div class="part-wrapper">
               <span class="lbl">Part No:</span>
