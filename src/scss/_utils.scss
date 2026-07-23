@@ -522,6 +522,30 @@
     column-gap: 4rem;
     margin-bottom: 2rem;
   }
+
+  > ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    li {
+      position: relative;
+      padding-left: 20px;
+
+      &::before {
+        content: "\2022";
+        position: absolute;
+        left: 0;
+        top: 0;
+        color: var(--brand-yellow);
+        font-size: 1.5em;
+        line-height: 1;
+      }
+    }
+  }
 }
 
 .introduction-wrapper,
