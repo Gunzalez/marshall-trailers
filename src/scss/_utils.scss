@@ -538,6 +538,12 @@
   }
 }
 
+.retrofit-steps {
+  > li ul {
+    @include styled-list;
+  }
+}
+
 .sub-section-wrapper {
   > ul {
     @include styled-list;
