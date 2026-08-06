@@ -1693,8 +1693,7 @@
   .image {
     height: auto;
     object-fit: cover;
-    aspect-ratio: 1 / 1;
-    background-color: pink;
+    aspect-ratio: 5/4;
     border-radius: 1px;
   }
 
@@ -1706,7 +1705,7 @@
   }
 
   .option-card {
-    height: 360px;
+    height: 380px;
     display: flex;
     flex-direction: column;
     position: relative;
@@ -1774,6 +1773,7 @@
       justify-content: center;
       color: var(--brand-text);
       font-size: 0.9rem;
+      transition: all 0.3s ease-in-out;
     }
 
     .price {
