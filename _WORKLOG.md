@@ -169,4 +169,6 @@
 - Clean up mega carousel with Rob
 - Fix carousel arrows in Spares section
 
--
+- Post initial payment, dated 13th of August
+  PDF - 3 hours
+  Other minor bits - 3 hours
