@@ -1572,7 +1572,6 @@
   align-items: center;
   text-decoration: none;
   padding: 8px 10px;
-  transition: all 0.3s ease-in-out;
   white-space: nowrap;
   display: flex;
 
@@ -1613,10 +1612,6 @@
 .fieldset-width {
   max-width: 768px;
   width: 100%;
-
-  // @media (min-width: $breakpoint3) {
-  //   max-width: 840px;
-  // }
 }
 
 #page {
