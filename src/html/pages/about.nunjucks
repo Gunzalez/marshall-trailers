@@ -33,6 +33,8 @@
         </div>
       {% endfor %}
     </div>
+    <div class="side-slant slant-left"></div>
+    <div class="side-slant slant-right"></div>
   </div>
 
   <nav aria-label="breadcrumbs" class="breadcrumbs">
