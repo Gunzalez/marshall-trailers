@@ -172,3 +172,6 @@
 - Post initial payment, dated 13th of August
   PDF - 3 hours
   Other minor bits - 3 hours
+  Basket API - 6 hours
+  More minor bits - 2 hours
+  Homepage tweaks - 2 hours
