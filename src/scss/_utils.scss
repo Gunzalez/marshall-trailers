@@ -292,6 +292,7 @@
 
     .text-wrapper {
       width: 50%;
+      overflow: hidden;
     }
   }
 }
@@ -422,9 +423,18 @@
 
         .content-img {
           bottom: -1rem;
-          max-width: 72%;
+          max-width: 82%;
         }
       }
+    }
+  }
+}
+
+.home {
+  .content {
+    .content-img {
+      max-width: 82%;
+      width: 82%;
     }
   }
 }
@@ -1814,7 +1824,8 @@
       margin-top: 1rem;
 
       img {
-        width: 200px;
+        width: 100%;
+        max-width: 380px;
         height: auto;
         display: block;
         border-radius: 2px;
@@ -1865,28 +1876,6 @@
       right: 20px;
     }
 
-    .content-imagery {
-      position: relative;
-      padding-left: 45px;
-      margin-bottom: 2rem;
-
-      img {
-        position: relative;
-      }
-
-      &::before {
-        content: "";
-        position: absolute;
-        top: 30px;
-        left: 18px;
-        width: 230px;
-        height: 160px;
-        border-radius: 2px;
-        background-color: var(--brand-gray-bg);
-        transform: skewX(10deg);
-      }
-    }
-
     .content-text {
       flex: 1;
       margin-top: 1rem;
@@ -1899,6 +1888,29 @@
       flex-direction: row;
       gap: 2.5rem;
       position: relative;
+
+      .content-imagery {
+        position: relative;
+        padding-left: 45px;
+        margin-bottom: 2rem;
+
+        &::before {
+          content: "";
+          position: absolute;
+          top: 30px;
+          left: 18px;
+          width: 230px;
+          height: 160px;
+          border-radius: 2px;
+          background-color: var(--brand-gray-bg);
+          transform: skewX(10deg);
+        }
+
+        img {
+          position: relative;
+          width: 200px;
+        }
+      }
     }
 
     .accordion-mini-footer {
