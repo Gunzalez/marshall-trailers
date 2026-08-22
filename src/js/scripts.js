@@ -268,11 +268,21 @@
         $tabsContainer.find(".tabs-list").append($li);
       });
 
-      $tabsContainer
-        .find(".tabs-list button")
-        .eq(activeTabIndex)
-        .addClass("active");
-      $tabsContainer.find(".tab-item").eq(activeTabIndex).addClass("active");
+      if ($tabsContainer.hasClass("features-tabs-section")) {
+        if (window.innerWidth < 768) return;
+        $tabsContainer
+          .find(".tabs-list button")
+          .eq(activeTabIndex)
+          .addClass("active");
+        $tabsContainer.find(".tab-item").eq(activeTabIndex).addClass("active");
+      } else {
+        $tabsContainer
+          .find(".tabs-list button")
+          .eq(activeTabIndex)
+          .addClass("active");
+        $tabsContainer.find(".tab-item").eq(activeTabIndex).addClass("active");
+      }
+
       $tabsContainer.find(".tab-item").last().addClass("last-tab");
     },
   };
