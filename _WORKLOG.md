@@ -175,3 +175,8 @@
   Basket API - 6 hours
   More minor bits - 2 hours
   Homepage tweaks - 2 hours
+
+  Basket API
+  1st September - 5 hrs
+  2nd September - 4 hrs
+  3rd September - 3 hrs
