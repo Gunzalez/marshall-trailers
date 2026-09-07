@@ -1,8 +1,10 @@
-const { ref } = Vue;
+const { ref, watch } = Vue;
 
 export default {
-  props: {},
+  props: { successMessage: String },
+
   emits: ["download-pdf", "purchase-marshall", "email-enquiry"],
+
   setup(props, { emit }) {
     const additionalNotes = ref("");
     const title = ref("");
@@ -17,6 +19,7 @@ export default {
     const titleError = ref(false);
     const lastNameError = ref(false);
     const formDisplayState = ref(false);
+    const successMessage = ref("");
 
     const updateAdditionalNotes = (event) => {
       additionalNotes.value = event.target.value;
@@ -27,7 +30,9 @@ export default {
     };
 
     const handlePurchase = () => {
-      emit("purchase-marshall", { additionalNotes: additionalNotes.value });
+      emit("purchase-marshall", {
+        additionalNotes: additionalNotes.value,
+      });
     };
 
     const toggleFormDisplay = () => {
@@ -74,6 +79,16 @@ export default {
       });
     };
 
+    watch(
+      () => props.successMessage,
+      (newVal) => {
+        if (newVal) {
+          successMessage.value = newVal;
+        }
+      },
+      { deep: true },
+    );
+
     return {
       email,
       phone,
@@ -88,6 +103,7 @@ export default {
       lastNameError,
       additionalNotes,
       formDisplayState,
+      successMessage,
       handlePurchase,
       toggleFormDisplay,
       handleDownloadPDF,
@@ -99,7 +115,7 @@ export default {
     <div class="options-actions">
         <label for="additional-notes">
             <span>Provide additional notes or numbers to this specification.</span>
-            <textarea id="additional-notes" name="additional-notes" rows="5" cols="14" v-model="additionalNotes" @input="updateAdditionalNotes"></textarea>
+            <textarea id="additional-notes" name="additional-notes" rows="5" cols="14" maxlength="2000" v-model="additionalNotes" @input="updateAdditionalNotes"></textarea>
         </label>
 
         <div class="configuration-actions">
@@ -112,7 +128,7 @@ export default {
                 </div>
             </div>
 
-            <div class="buttons-and-form-fields">
+            <div class="buttons-and-form-fields" v-show="!successMessage">
                 <div>
                     <h4>Choose one of the following options.</h4>
                     <div class="actions-buttons">
@@ -154,30 +170,30 @@ export default {
                             </label>
                             <label for="first-name">
                                 <span>First name</span>
-                                <input type="text" name="first-name" id="first-name" v-model="firstName">
+                                <input type="text" name="first-name" id="first-name" maxlength="100" v-model="firstName">
                             </label>
                             <label for="last-name">
                                 <span>Last name *</span>
-                                <input type="text" name="last-name" id="last-name" v-model="lastName" :class="{ 'error': lastNameError }">
+                                <input type="text" name="last-name" id="last-name" maxlength="100" v-model="lastName" :class="{ 'error': lastNameError }">
                                 <span v-if="lastNameError" class="error-message">Last name is required</span>
                             </label>
                             <label for="email">
                                 <span>Email *</span>
-                                <input type="email" name="email" id="email" v-model="email" :class="{ 'error': emailError }">
+                                <input type="email" name="email" id="email" maxlength="250" v-model="email"  :class="{ 'error': emailError }">
                                 <span v-if="emailError" class="error-message">Email is required</span>
                             </label>
                             <label for="phone">
                                 <span>Phone *</span>
-                                <input type="tel" name="phone" id="phone" v-model="phone" :class="{ 'error': phoneError }">
+                                <input type="tel" name="phone" id="phone" maxlength="50" v-model="phone" :class="{ 'error': phoneError }">
                                 <span v-if="phoneError" class="error-message">Phone is required</span>
                             </label>
                             <label for="address">
                                 <span>Address</span>
-                                <textarea id="address" name="address" rows="3" cols="14" v-model="address"></textarea>
+                                <textarea id="address" name="address" rows="3" maxlength="1000" cols="14" v-model="address"></textarea>
                             </label>
                             <label for="message">
                                 <span>Message</span>
-                                <textarea id="message" name="message" rows="5" cols="14" v-model="message"></textarea>
+                                <textarea id="message" name="message" rows="5" maxlength="5000" cols="14" v-model="message"></textarea>
                             </label>
                         </div>
 
@@ -187,6 +203,11 @@ export default {
                     </div>
                 </div>
             </div>
+
+            <div class="success-message" v-if="successMessage">
+                <span>{{ successMessage }}</span>
+            </div>
+
         </div>
     </div>
     `,
