@@ -43,7 +43,7 @@
     <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js" defer></script>
     <script src="js/marshall-parts.js" defer></script>
     <script src="js/configure-machines.js" defer></script>
-    <script src="js/scripts.js?cb=1787570271283" defer></script>
+    <script src="js/scripts.js?cb=123" defer></script>
 
   </head>
   <body>
@@ -1025,7 +1025,7 @@
 
           <options-basket :basket-options="basketOptions" :initial-option="initialOption"></options-basket>
 
-          <options-form @download-pdf="handleDownloadPDF" @purchase-marshall="handlePurchase" @email-enquiry="handleEmailEnquiry"></options-form>
+          <options-form :success-message="successMessage" @download-pdf="handleDownloadPDF" @purchase-marshall="handlePurchase" @email-enquiry="handleEmailEnquiry"></options-form>
 
         </form>
 
@@ -1061,6 +1061,7 @@
               const optionsData = ref([]);
               const groupedOptions = ref([]);
               const initialOption = ref(null);
+              const successMessage = ref("");
 
               const allItemsMap = computed(() => {
                 const map = new Map();
@@ -1214,7 +1215,11 @@
               const handleEmailEnquiry = (data) => {
                 // TODO: @Sheg/@Rob Implement email enquiry logic here
                 console.log("Email Enquiry clicked");
+                console.log({successMessage: successMessage.value});
                 console.log({basketOptions: basketOptions.value, initialOption: initialOption.value, data});
+                successMessage.value = "Your email enquiry has been sent successfully.";
+                console.log({successMessage: successMessage.value});
+
               };
 
               const handlePurchase = (notes) => {
@@ -1242,6 +1247,7 @@
 
               return {
                 optionsData,
+                successMessage,
                 groupedOptions,
                 initialOption,
                 basketOptions,
