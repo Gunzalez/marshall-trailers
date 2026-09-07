@@ -180,3 +180,6 @@
   1st September - 5 hrs
   2nd September - 4 hrs
   3rd September - 3 hrs
+  4th September - 2 hrs completes basket API
+  5th & 6th September - 2 hrs concludes PDF
+  7th September - 2 hrs, completes email handling
