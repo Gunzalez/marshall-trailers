@@ -183,3 +183,5 @@
   4th September - 2 hrs completes basket API
   5th & 6th September - 2 hrs concludes PDF
   7th September - 2 hrs, completes email handling
+  8th September - 1 hrs code refactor, UI tweaks
+  9th September 1 hour, implementing latest imagery
