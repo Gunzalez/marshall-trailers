@@ -1,0 +1,112 @@
+{% set main_page = "about" %}
+{% extends "layout.nunjucks" %}
+{% import "../templates/partials/_macros.nunjucks" as macros %}
+
+{% block content %}
+
+    <div class="homepage mx-auto top-0 left-1/2 -translate-x-1/2 w-full max-w-[var(--max-width)] z-10 absolute">
+        {{ macros.header("images/logo-marshall-trailers.svg") }}
+    </div>
+
+    <div class="hero">
+        <div id="carousel-main" class="carousel-main about-carousel-main">
+            {% for item in aboutCarouselData %}
+                <div class="slide preload" style="background-image: url('{{ item.image }}')">
+                    <div class="copy-wrapper">
+                        <div class="copy-content">
+                            <div class="content-box">
+                                <h2 class="title">{{ item.title }}</h2>
+                                <div class="carousel-CTAs">
+                                    <div class="carousel-buttons">
+                                        <span class="carousel-control-prev bttn btn_Transparent btn_Narrow" aria-label="Previous" aria-role="button">
+                                            <i class="fa-solid fa-chevron-left"></i>
+                                        </span>
+                                        <span class="carousel-control-next bttn btn_Transparent btn_Narrow" aria-label="Next" aria-role="button">
+                                            <i class="fa-solid fa-chevron-right"></i>
+                                        </span>
+                                    </div>
+                                    <a href="{{ item.url }}" class="bttn btn_Transparent">{{ item.label }}</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="side-slant slant-left"></div>
+        <div class="side-slant slant-right"></div>
+    </div>
+
+    <nav aria-label="breadcrumbs" class="breadcrumbs">
+        <ol>
+            <li>
+                <a href="index.html">Home</a>
+            </li>
+            <li>About us</li>
+        </ol>
+    </nav>
+
+    <div class="title-wrapper">
+        <h1 class="page-title">Our History</h1>
+        <p class="subtitle">- A Young Entrepreneur's Vision in 1952</p>
+    </div>
+
+    <div class="section body-copy special-chevron">
+        <p>In 1952, 18-year-old apprentice joiner Charles J Marshall founded the business that would become <strong>Charles J Marshall (Aberdeen) Ltd</strong>. With the introduction of technically advanced tractors still in its early stages, Charles saw an opportunity to build and sell hydraulical tipping trailers for the agricultural market on a larger scale.</p>
+        <p>While completing his National Service in Aberdeen, he worked on building trailers in the evenings, combining military service with his determination to establish his own business. His ambition was simple but bold: to build a factory that could supply trailers throughout Scotland and become the region’s largest manufacturer.</p>
+    </div>
+
+    <div class="special-background">
+        <div class="section body-copy">
+            <div class="text-wrapper">
+                <h2 class="under-border yellow scroll-margin">Building Chapel Works and Growing the Business</h2>
+                <p>To turn his ambition into reality, Charles purchased land and a small croft just six miles from Aberdeen for £2,450. By 1956, the first section of the present factory, Chapel Works, had been completed, covering 12,000 square feet. True to his hands-on approach, Charles personally supervised the construction and even poured concrete blocks himself to maximise the value of his investment.</p>
+                <p>The new factory also introduced an early production-line system, allowing labour to be used as efficiently as possible. Charles continued to invest heavily in the business, buying large quantities of steel and components at competitive prices, which helped keep production costs down and fuelled further growth. Output rose dramatically, from just 46 trailers in 1952 to more than 1,600 units a year by the mid-1960s. New factory machinery, including a large press brake and guillotine, along with the adoption of MIG welding, helped the company keep pace with increasing demand.</p>
+            </div>
+            <div class="image-wrapper">
+                <img src="images/history-01-new.png" alt="" class="mobile-safe">
+            </div>
+        </div>
+    </div>
+
+    <div class="special-background-2">
+        <div class="section body-copy section-reversed">
+            <div class="text-wrapper">
+                <h2 class="under-border red scroll-margin">Expansion, Innovation and a New Generation</h2>
+                <p>Throughout the 1970s, when industrial disputes and strike action were widespread, Marshall Trailers continued to operate without a strike. Charles attributed this success to his own work ethic and his commitment to working alongside his employees on the factory floor. By this time, production had exceeded 2,000 units a year, and the company expanded its range with rotary spreaders, followed by the introduction of Marshall slurry tankers in the 1980s.</p>
+                <p>In 1980, Charles's son, Charles Richard, joined the business as an apprentice and followed the same path as his father, working throughout the factory to gain first-hand experience of every aspect of production. He became Managing Director in 1998 and successfully guided the company through challenging periods, including the BSE and foot-and-mouth crises, while remaining closely involved in purchasing, sales, after-sales service and the day-to-day running of the business.</p>
+            </div>
+            <div class="image-wrapper">
+                <img src="images/history-02-new.png" alt="" class="mobile-safe">
+            </div>
+        </div>
+    </div>
+
+    <div class="special-background-2">
+        <div class="section body-copy">
+            <div class="text-wrapper">
+                <h2 class="under-border yellow scroll-margin">Family Values and Looking to the Future</h2>
+                <p>Customer relationships have always been central to the Marshall philosophy. The company has never relied on automated answering services and has maintained its belief that customers deserve to speak directly to the people running the business. This commitment to traditional values has continued alongside significant investment in manufacturing. Today, the company remains based at its original Chapel Works premises, producing around 46 units each week for customers across the world.</p>
+                <p>In 2016, the business sadly lost its founder, Charles J Marshall, who passed away suddenly at the age of 81. He had remained actively involved right up until shortly before his illness, continuing to sell and deliver machinery. His legacy lives on through the family business, which remains independently owned and operated by the Marshall family.</p>
+            </div>
+            <div class="image-wrapper">
+                <img src="images/history-family.jpg" alt="Marshall family" class="mobile-safe">
+            </div>
+        </div>
+    </div>
+
+    <div class="special-background-2">
+        <div class="section body-copy section-reversed">
+            <div class="text-wrapper">
+                <h2 class="under-border red scroll-margin">70 Years On: Tradition Meets Modern Manufacturing</h2>
+                <p>The next generation has now joined the company, with Charles J Marshall's grandsons, Charles Peter and David, bringing fresh ideas, enthusiasm and expertise to the business. Both have gained practical experience across the company, continuing the family tradition of learning by doing. Their influence has helped drive major changes in recent years, particularly in the way machinery is manufactured.</p>
+                <p>Marshall Trailers has embraced modern production techniques inspired by the automotive industry, integrating state-of-the-art plasma cutters, presses and robotic welding technology into its production processes. The result is a new generation of machines that combine improved finish and quality with the traditional values on which the business was founded.</p>
+                <p>Seventy years after Charles J Marshall first began building trailers, the company remains proud to be the UK’s oldest and largest trailer manufacturer—a family business combining <strong>traditional values with modern, state-of-the-art manufacturing</strong>.</p>
+            </div>
+            <div class="image-wrapper">
+                <img src="images/history-70-years-on.jpg" alt="70 Years On: Tradition Meets Modern Manufacturing" class="mobile-safe">
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
