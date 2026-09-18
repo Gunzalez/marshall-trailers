@@ -47,7 +47,7 @@
 
   </head>
   <body>
-    <div id="page" class="spares">
+    <div id="page" class="about">
       <div id="top-drawer" class="shadow-md pre-script">
     <div id="top-navigation" class="w-full max-w-[var(--max-width)] mx-auto px-4 mt-4 transition-all duration-300 ease-in-out relative">
         <div class="inset-0 w-full flex gap-4 items-start justify-end">
@@ -403,7 +403,7 @@
                                 </li>
                             </ul>
                         </li>
-                        <li  class="active" >
+                        <li >
                             <a href="spares.html">Spares</a>
                             <ul>
                                 <li>
@@ -414,7 +414,7 @@
                                 </li>
                             </ul>
                         </li>
-                        <li >
+                        <li  class="active" >
                             <a href="about.html">About us</a>
                             <ul>
                                 <li>
@@ -469,10 +469,11 @@
 </div>
       
 
-  
+    <div class="homepage mx-auto top-0 left-1/2 -translate-x-1/2 w-full max-w-[var(--max-width)] z-10 absolute">
+        
   <div class="section logo-section">
     <a href="index.html" class="logo-link">
-      <img src="images/logo-marshall-trailers-color.svg" alt="Marshall Trailers Logo">
+      <img src="images/logo-marshall-trailers.svg" alt="Marshall Trailers Logo">
     </a>
     <div class="desktop-buttons">
       <div class="gap-2 items-end flex flex-col">
@@ -546,353 +547,171 @@
     </button>
   </div>
 
-
-  <nav aria-label="breadcrumbs" class="breadcrumbs">
-    <ol>
-      <li>
-        <a href="index.html">Home</a>
-      </li>
-      <li>
-        <a href="spares.html">Spares</a>
-      </li>
-      <li>Parts</li>
-    </ol>
-  </nav>
-
-  <div class="title-wrapper">
-    <h1 class="page-title">Parts Ordering:</h1>
-    <p class="subtitle">Pre 2020 Machine</p>
-  </div>
-
-  <div class="section body-copy">
-    <div class="parts-filters-wrapper">
-
-      <div id="reload-filters" class="reload-filter display-none">
-        <button type="button" class="bttn" onClick="location.reload();">
-          <span>Reload filters</span>
-        </button>
-      </div>
-
-      <div class="carousel-buttons controllers">
-        <button type="button" class="prev-filter carousel-control-prev bttn btn_Carousel btn_Narrow" disabled>
-          <i class="fa-solid fa-chevron-left"></i>
-        </button>
-        <button type="button" class="next-filter carousel-control-next bttn btn_Carousel btn_Narrow" disabled>
-          <i class="fa-solid fa-chevron-right"></i>
-        </button>
-      </div>
-
-      <div id="parts-filters" class="parts-filters controllers">
-        <div class="slide selected form-slide">
-          <h3 class="stepped-title short">
-            <span class="step-number">Step 01:</span>
-            <span>Select part</span>
-          </h3>
-          <form id="filter-form" class="filter-inputs form" method="post" autoComplete="off">
-            <fieldset id="fields" class="fields">
-
-              <div class="select-inputs">
-                <h4 class="title">Select part category:</h4>
-
-                <select id="filter1" class="filter-select">
-                  <option value="">Select a component </option>
-                  <option value="46"> Axles </option>
-                  <option value="1"> Bearings </option>
-                  <option value="4"> Bolts, nuts, fasteners &amp; washers </option>
-                  <option value="60"> Braking systems &amp; handbrakes </option>
-                  <option value="140"> Coupling </option>
-                  <option value="267"> Hitches, skids &amp; jackscrews </option>
-                  <option value="243"> Hydraulic hoses </option>
-                  <option value="34"> Lights </option>
-                  <option value="235"> Livestock container parts </option>
-                  <option value="29"> Muckspreader parts </option>
-                  <option value="128"> Mudguards &amp; mudflaps </option>
-                  <option value="329"> Paint </option>
-                  <option value="1061"> Pto shafts </option>
-                  <option value="16"> Pumps </option>
-                  <option value="121"> Rams &amp; ram seals </option>
-                  <option value="263"> Rocker tandems </option>
-                  <option value="472"> Spring drawbars </option>
-                  <option value="63"> Springs </option>
-                  <option value="42"> Tanker parts </option>
-                  <option value="74"> Trailer parts </option>
-                  <option value="80"> Transfers </option>
-                  <option value="69"> Vantage parts </option>
-                  <option value="836"> Wheels </option>
-                </select>
-
-                <select id="range" class="filter-select" disabled>
-                  <option value=""> Select a range </option>
-                  <option value="1"> Silage / Grain Trailers </option>
-                  <option value="2"> Drop-Side Trailers </option>
-                  <option value="3"> Flat / Bale Trailers </option>
-                  <option value="16"> Low Loader Trailers </option>
-                  <option value="4"> Dumper Trailers </option>
-                  <option value="5"> Feed Trailers </option>
-                  <option value="6"> Livestock Trailers / Containers </option>
-                  <option value="7"> Muck Spreaders </option>
-                  <option value="8"> Rear Discharge Muck Spreaders </option>
-                  <option value="9"> Tankers </option>
-                  <option value="15"> People Carrier Trailers </option>
-                </select>
-
-                <select id="model" class="filter-select" disabled>
-                  <option value=""> Select a model </option>
-                  <option value="132"> FT-18 </option>
-                  <option value="136"> PC-21 </option>
-                  <option value="4"> QM-6 </option>
-                  <option value="7"> FT-15 </option>
-                  <option value="17"> VES-1500 </option>
-                  <option value="20"> ST-1200 </option>
-                  <option value="33"> BC-21 </option>
-                  <option value="59"> S-1 </option>
-                  <option value="121"> HD-6 </option>
-                  <option value="141"> LL-26-TAN </option>
-                  <option value="137"> LST-21 </option>
-                  <option value="6"> QM-8 </option>
-                  <option value="8"> FT-20 </option>
-                  <option value="13"> MS-60 </option>
-                  <option value="18"> VES-2000 </option>
-                  <option value="21"> ST-1400 </option>
-                  <option value="34"> BC-25-10T </option>
-                  <option value="42"> S-2 </option>
-                  <option value="122"> HD-8 </option>
-                  <option value="138"> LST-25 </option>
-                  <option value="142"> LL-33-TRI </option>
-                  <option value="14"> MS-75 </option>
-                  <option value="19"> VES-2500 </option>
-                  <option value="22"> ST-1600 </option>
-                  <option value="35"> BC-25-12T </option>
-                  <option value="38"> QM-11 </option>
-                  <option value="43"> S-4 </option>
-                  <option value="123"> HD-12 </option>
-                  <option value="139"> LST-28 </option>
-                  <option value="15"> MS-90 </option>
-                  <option value="23"> ST-1800 </option>
-                  <option value="36"> BC-28 </option>
-                  <option value="39"> QM-12 </option>
-                  <option value="44"> S-5 </option>
-                  <option value="124"> HD-14 </option>
-                  <option value="130"> VES-2000-PO </option>
-                  <option value="140"> LST-32 </option>
-                  <option value="16"> MS-105 </option>
-                  <option value="24"> ST-2000 </option>
-                  <option value="37"> BC-32-TAN </option>
-                  <option value="45"> S-6 </option>
-                  <option value="48"> QM-1200 </option>
-                  <option value="125"> HD-16 </option>
-                  <option value="127"> BC-32-TRI </option>
-                  <option value="25"> ST-2300 </option>
-                  <option value="27"> QMD/6 </option>
-                  <option value="40"> QM-14 </option>
-                  <option value="46"> S-85 </option>
-                  <option value="26"> ST-2550 </option>
-                  <option value="28"> QMD/8 </option>
-                  <option value="47"> S-10 </option>
-                  <option value="49"> QM-1400 </option>
-                  <option value="133"> BC-36-TAN </option>
-                  <option value="29"> QMD/10H </option>
-                  <option value="134"> BC-36-TRI </option>
-                  <option value="41"> QM-16 </option>
-                  <option value="60"> S/1.5 </option>
-                  <option value="126"> ST-3000 </option>
-                  <option value="32"> BC/18 </option>
-                  <option value="50"> QM-1600 </option>
-                  <option value="106"> S/7 </option>
-                  <option value="119"> QMD/11 </option>
-                  <option value="135"> ST-3500 </option>
-                  <option value="30"> QMD/12H </option>
-                  <option value="61"> S/8 </option>
-                  <option value="71"> TAN850 </option>
-                  <option value="117"> BC/24 </option>
-                  <option value="120"> QM-1800 </option>
-                  <option value="31"> QMD/14H </option>
-                  <option value="63"> T/4 </option>
-                  <option value="72"> TAN1100 </option>
-                  <option value="128"> QM-12-CI </option>
-                  <option value="131"> BC-25-12T-CI </option>
-                  <option value="64"> T/5 </option>
-                  <option value="73"> TAN1300 </option>
-                  <option value="129"> QM-1400-HD </option>
-                  <option value="65"> T/6 </option>
-                  <option value="74"> TAN1500 </option>
-                  <option value="94"> EM/6 </option>
-                  <option value="62"> T/310 </option>
-                  <option value="75"> TAN1750 </option>
-                  <option value="95"> EM/8 </option>
-                  <option value="66"> EM/10 </option>
-                  <option value="76"> TAN2000 </option>
-                  <option value="107"> TT/7 </option>
-                  <option value="77"> TAN2250 </option>
-                  <option value="96"> EM/11 </option>
-                  <option value="116"> TT/10 </option>
-                  <option value="78"> TAN2450 </option>
-                  <option value="97"> MB/6 </option>
-                  <option value="100"> TRAN/A21 </option>
-                  <option value="67"> MB/8 </option>
-                  <option value="102"> TRAN/A25 </option>
-                  <option value="68"> MB/10 </option>
-                  <option value="104"> TRAN/A28 </option>
-                  <option value="69"> MB/12 </option>
-                  <option value="110"> TRAN/A32 </option>
-                  <option value="70"> MB/14 </option>
-                  <option value="87"> QM/10 </option>
-                  <option value="105"> MS55 </option>
-                  <option value="98"> MS65 </option>
-                  <option value="79"> MS70 </option>
-                  <option value="80"> MS85 </option>
-                  <option value="81"> MS105T </option>
-                  <option value="82"> MS155 </option>
-                  <option value="83"> MS155T </option>
-                  <option value="84"> EMS4.5 </option>
-                  <option value="85"> EMS5.5 </option>
-                  <option value="86"> EMS7 </option>
-                  <option value="88"> QMR/10 </option>
-                  <option value="89"> QMR/12 </option>
-                  <option value="90"> QMR/14 </option>
-                  <option value="91"> FEED/14-G </option>
-                  <option value="92"> FEED/14-P </option>
-                  <option value="93"> FEED/14-TMB </option>
-
-                </select>
-              </div>
-
-              <div class="text-inputs">
-                <h4 class="title">Or search for a part:</h4>
-
-                <label for="part_no">
-                  <span class="sr-only">Part no:</span><input id="part_no" type="text" placeholder="Part no." name="part_no" maxlength="50"></label>
-                <label for="keyword">
-                  <span class="sr-only">Keyword:</span><input id="keyword" type="text" placeholder="Keyword" name="keyword" maxlength="50"></label>
-              </div>
-
-              <div class="form-buttons">
-                <button type="submit" class="bttn btn_SearchParts">
-                  <span>Search</span>
-                </button>
-                <button type="button" class="bttn btn_ResetParts btn_Secondary" onClick="location.reload();">
-                  <span>Reset</span>
-                </button>
-              </div>
-            </fieldset>
-          </form>
-        </div>
-        <div class="slide">
-          <h3>
-            <span class="empty">Additional filter</span></h3>
-          <ol id="filter2" data-level="2"></ol>
-        </div>
-        <div class="slide">
-          <h3>
-            <span class="empty">Additional filter</span></h3>
-          <ol id="filter3" data-level="3"></ol>
-        </div>
-        <div class="slide">
-          <h3>
-            <span class="empty">Additional filter</span></h3>
-          <ol id="filter4" data-level="4"></ol>
-        </div>
-        <div class="slide">
-          <h3>
-            <span class="empty">Additional filter</span></h3>
-          <ol id="filter5" data-level="5"></ol>
-        </div>
-        <div class="slide">
-          <h3>
-            <span class="empty">Additional filter</span></h3>
-          <ol id="filter6" data-level="6"></ol>
-        </div>
-        <div class="slide">
-          <h3>
-            <span class="empty">Additional filter</span></h3>
-          <ol id="filter7" data-level="7"></ol>
-        </div>
-      </div>
-
-      <div id="parts-results-app" class="parts-results-app">
-        <parts-results 
-                    :data="resultsData" 
-                    @buy-now-click="handleBuyNowClick" 
-                    @add-to-basket-click="handleAddToBasketClick"></parts-results>
-      </div>
-
     </div>
-  </div>
 
-  <div id="processing">
-    <div class="wrapper">
-      <p>Processing your request...</p>
-      <i class="fa-solid fa-spinner"></i>
+    <div class="hero">
+        <div id="carousel-main" class="carousel-main about-carousel-main">
+            
+                <div class="slide preload" style="background-image: url('images/about-hero-1.jpg')">
+                    <div class="copy-wrapper">
+                        <div class="copy-content">
+                            <div class="content-box">
+                                <h2 class="title">Winners of Multiple Awards</h2>
+                                <div class="carousel-CTAs">
+                                    <div class="carousel-buttons">
+                                        <span class="carousel-control-prev bttn btn_Transparent btn_Narrow" aria-label="Previous" aria-role="button">
+                                            <i class="fa-solid fa-chevron-left"></i>
+                                        </span>
+                                        <span class="carousel-control-next bttn btn_Transparent btn_Narrow" aria-label="Next" aria-role="button">
+                                            <i class="fa-solid fa-chevron-right"></i>
+                                        </span>
+                                    </div>
+                                    <a href="about.html#quality" class="bttn btn_Transparent">Quality</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="slide preload" style="background-image: url('images/about-hero-2.jpg')">
+                    <div class="copy-wrapper">
+                        <div class="copy-content">
+                            <div class="content-box">
+                                <h2 class="title">Outstanding Value</h2>
+                                <div class="carousel-CTAs">
+                                    <div class="carousel-buttons">
+                                        <span class="carousel-control-prev bttn btn_Transparent btn_Narrow" aria-label="Previous" aria-role="button">
+                                            <i class="fa-solid fa-chevron-left"></i>
+                                        </span>
+                                        <span class="carousel-control-next bttn btn_Transparent btn_Narrow" aria-label="Next" aria-role="button">
+                                            <i class="fa-solid fa-chevron-right"></i>
+                                        </span>
+                                    </div>
+                                    <a href="about.html#value" class="bttn btn_Transparent">Value</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="slide preload" style="background-image: url('images/about-hero-3.jpg')">
+                    <div class="copy-wrapper">
+                        <div class="copy-content">
+                            <div class="content-box">
+                                <h2 class="title">The Marshall Family Heritage</h2>
+                                <div class="carousel-CTAs">
+                                    <div class="carousel-buttons">
+                                        <span class="carousel-control-prev bttn btn_Transparent btn_Narrow" aria-label="Previous" aria-role="button">
+                                            <i class="fa-solid fa-chevron-left"></i>
+                                        </span>
+                                        <span class="carousel-control-next bttn btn_Transparent btn_Narrow" aria-label="Next" aria-role="button">
+                                            <i class="fa-solid fa-chevron-right"></i>
+                                        </span>
+                                    </div>
+                                    <a href="about.html#heritage" class="bttn btn_Transparent">Heritage</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="slide preload" style="background-image: url('images/about-hero-4.jpg')">
+                    <div class="copy-wrapper">
+                        <div class="copy-content">
+                            <div class="content-box">
+                                <h2 class="title">Commitment to Innovation</h2>
+                                <div class="carousel-CTAs">
+                                    <div class="carousel-buttons">
+                                        <span class="carousel-control-prev bttn btn_Transparent btn_Narrow" aria-label="Previous" aria-role="button">
+                                            <i class="fa-solid fa-chevron-left"></i>
+                                        </span>
+                                        <span class="carousel-control-next bttn btn_Transparent btn_Narrow" aria-label="Next" aria-role="button">
+                                            <i class="fa-solid fa-chevron-right"></i>
+                                        </span>
+                                    </div>
+                                    <a href="about.html#innovation" class="bttn btn_Transparent">Innovation</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+        </div>
+        <div class="side-slant slant-left"></div>
+        <div class="side-slant slant-right"></div>
     </div>
-  </div>
 
-  
-  <div id="floating-basket" class="floating-basket">
-    <div class="basket-inner">
-      <div class="desktop-button">Your Marshall </div>
-      <div class="basket-wrapper">
-        <div class="basket-header">
-          <h4 class="title">Your Basket</h4>
-          <button type="button" class="close-basket-button bttn_CloseBasket">
-            <i class="fa-solid fa-xmark text-lg"></i>
-          </button>
-        </div>
+    <nav aria-label="breadcrumbs" class="breadcrumbs">
+        <ol>
+            <li>
+                <a href="index.html">Home</a>
+            </li>
+            <li>About us</li>
+        </ol>
+    </nav>
 
-        <div class="basket-content">
-          <div class="basket-details">
-            <span id="num_items" class="items">0 items</span>
-            <span id="total_price" class="total-price">£0.00</span>
-          </div>
-          <span class="btn_Checkout link_Button">Checkout</span>
-        </div>
-
-        <div class="basket-progress">
-          <div class="flex items-center gap-2">
-            <i class="fa-solid fa-spinner fa-spin-pulse"></i>
-            <span>Updating basket...</span>
-          </div>
-        </div>
-
-      </div>
+    <div class="title-wrapper">
+        <h1 class="page-title">Our History</h1>
+        <p class="subtitle">- A Young Entrepreneur's Vision in 1952</p>
     </div>
-  </div>
 
+    <div class="section body-copy special-chevron">
+        <p>In 1952, 18-year-old apprentice joiner Charles J Marshall founded the business that would become <strong>Charles J Marshall (Aberdeen) Ltd</strong>. With the introduction of technically advanced tractors still in its early stages, Charles saw an opportunity to build and sell hydraulical tipping trailers for the agricultural market on a larger scale.</p>
+        <p>While completing his National Service in Aberdeen, he worked on building trailers in the evenings, combining military service with his determination to establish his own business. His ambition was simple but bold: to build a factory that could supply trailers throughout Scotland and become the region’s largest manufacturer.</p>
+    </div>
 
-  <script type="module">
+    <div class="special-background">
+        <div class="section body-copy">
+            <div class="text-wrapper">
+                <h2 class="under-border yellow scroll-margin">Building Chapel Works and Growing the Business</h2>
+                <p>To turn his ambition into reality, Charles purchased land and a small croft just six miles from Aberdeen for £2,450. By 1956, the first section of the present factory, Chapel Works, had been completed, covering 12,000 square feet. True to his hands-on approach, Charles personally supervised the construction and even poured concrete blocks himself to maximise the value of his investment.</p>
+                <p>The new factory also introduced an early production-line system, allowing labour to be used as efficiently as possible. Charles continued to invest heavily in the business, buying large quantities of steel and components at competitive prices, which helped keep production costs down and fuelled further growth. Output rose dramatically, from just 46 trailers in 1952 to more than 1,600 units a year by the mid-1960s. New factory machinery, including a large press brake and guillotine, along with the adoption of MIG welding, helped the company keep pace with increasing demand.</p>
+            </div>
+            <div class="image-wrapper">
+                <img src="images/history-01-new.png" alt="" class="mobile-safe">
+            </div>
+        </div>
+    </div>
 
-    import PartsResults from "./js/components/parts-results.js";
+    <div class="special-background-2">
+        <div class="section body-copy section-reversed">
+            <div class="text-wrapper">
+                <h2 class="under-border red scroll-margin">Expansion, Innovation and a New Generation</h2>
+                <p>Throughout the 1970s, when industrial disputes and strike action were widespread, Marshall Trailers continued to operate without a strike. Charles attributed this success to his own work ethic and his commitment to working alongside his employees on the factory floor. By this time, production had exceeded 2,000 units a year, and the company expanded its range with rotary spreaders, followed by the introduction of Marshall slurry tankers in the 1980s.</p>
+                <p>In 1980, Charles's son, Charles Richard, joined the business as an apprentice and followed the same path as his father, working throughout the factory to gain first-hand experience of every aspect of production. He became Managing Director in 1998 and successfully guided the company through challenging periods, including the BSE and foot-and-mouth crises, while remaining closely involved in purchasing, sales, after-sales service and the day-to-day running of the business.</p>
+            </div>
+            <div class="image-wrapper">
+                <img src="images/history-02-new.png" alt="" class="mobile-safe">
+            </div>
+        </div>
+    </div>
 
-    document.addEventListener('DOMContentLoaded', () => {
+    <div class="special-background-2">
+        <div class="section body-copy">
+            <div class="text-wrapper">
+                <h2 class="under-border yellow scroll-margin">Family Values and Looking to the Future</h2>
+                <p>Customer relationships have always been central to the Marshall philosophy. The company has never relied on automated answering services and has maintained its belief that customers deserve to speak directly to the people running the business. This commitment to traditional values has continued alongside significant investment in manufacturing. Today, the company remains based at its original Chapel Works premises, producing around 46 units each week for customers across the world.</p>
+                <p>In 2016, the business sadly lost its founder, Charles J Marshall, who passed away suddenly at the age of 81. He had remained actively involved right up until shortly before his illness, continuing to sell and deliver machinery. His legacy lives on through the family business, which remains independently owned and operated by the Marshall family.</p>
+            </div>
+            <div class="image-wrapper">
+                <img src="images/history-family.jpg" alt="Marshall family" class="mobile-safe">
+            </div>
+        </div>
+    </div>
 
-      const {createApp, ref} = Vue;
-
-      window.partsResultsApp = createApp({
-        components: {
-          PartsResults
-        },
-        setup() {
-          const isBusy = ref(false);
-          const resultsData = ref(null);
-
-          const handleBuyNowClick = (event) => {
-            const data = `id=${event.id}&qty=${event.quantity}&price=${event.price}`;
-            window.location.href = "checkout.html?" + data;
-          };
-
-          const handleAddToBasketClick = (event) => {
-            const data = `id=${event.id}&qty=${event.quantity}&price=${event.price}`;
-            window
-              .MT
-              .basket
-              .update(data);
-          };
-
-          return {isBusy, resultsData, handleBuyNowClick, handleAddToBasketClick};
-        }
-      }).mount('#parts-results-app');
-
-    });
-  </script>
+    <div class="special-background-2">
+        <div class="section body-copy section-reversed">
+            <div class="text-wrapper">
+                <h2 class="under-border red scroll-margin">70 Years On: Tradition Meets Modern Manufacturing</h2>
+                <p>The next generation has now joined the company, with Charles J Marshall's grandsons, Charles Peter and David, bringing fresh ideas, enthusiasm and expertise to the business. Both have gained practical experience across the company, continuing the family tradition of learning by doing. Their influence has helped drive major changes in recent years, particularly in the way machinery is manufactured.</p>
+                <p>Marshall Trailers has embraced modern production techniques inspired by the automotive industry, integrating state-of-the-art plasma cutters, presses and robotic welding technology into its production processes. The result is a new generation of machines that combine improved finish and quality with the traditional values on which the business was founded.</p>
+                <p>Seventy years after Charles J Marshall first began building trailers, the company remains proud to be the UK’s oldest and largest trailer manufacturer—a family business combining <strong>traditional values with modern, state-of-the-art manufacturing</strong>.</p>
+            </div>
+            <div class="image-wrapper">
+                <img src="images/history-70-years-on.jpg" alt="70 Years On: Tradition Meets Modern Manufacturing" class="mobile-safe">
+            </div>
+        </div>
+    </div>
 
 
       
