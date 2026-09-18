@@ -186,3 +186,6 @@
   8th September - 1 hrs code refactor, UI tweaks
   9th September 1 hour, implementing latest imagery
   10th September - 1 hour - debugging HTML and Styling
+  11th - 16th September - 2 hours completes app bug fixes
+  17th September - 2 hours - meeting and development (history section)
+  18th September - 2 hours - completes history and about sections
