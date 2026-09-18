@@ -3032,3 +3032,16 @@
     grid-template-columns: 1fr;
   }
 }
+
+.mobile-safe {
+  height: auto;
+  margin-inline: auto;
+
+  @media (max-width: 1200px) {
+    max-width: 600px;
+  }
+
+  @media (max-width: 650px) {
+    max-width: 300px;
+  }
+}

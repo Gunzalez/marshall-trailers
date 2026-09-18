@@ -256,13 +256,20 @@
     padding-top: 3rem;
 
     .section {
-      flex-direction: row-reverse;
+      flex-direction: row;
       gap: 2rem;
+
+      &.section-reversed {
+        flex-direction: row-reverse;
+      }
     }
 
     .text-wrapper,
     .image-wrapper {
       flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
     img {
