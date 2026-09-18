@@ -195,6 +195,10 @@
   color: white;
   padding-top: 30px;
 
+  &.history-bg {
+    background-image: url("../images/history-bg.jpg");
+  }
+
   .section {
     display: flex;
     flex-direction: column;
