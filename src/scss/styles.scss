@@ -1097,6 +1097,10 @@
     .label {
       display: block;
     }
+
+    li:last-child {
+      margin-bottom: 2rem;
+    }
   }
 
   .label {
