@@ -189,3 +189,4 @@
   11th - 16th September - 2 hours completes app bug fixes
   17th September - 2 hours - meeting and development (history section)
   18th September - 2 hours - completes history and about sections
+  06 October - 3 hours - Add images to optional columns, reduce cell height, tweak fade, single column on slides styling
