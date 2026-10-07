@@ -190,3 +190,4 @@
   17th September - 2 hours - meeting and development (history section)
   18th September - 2 hours - completes history and about sections
   06 October - 3 hours - Add images to optional columns, reduce cell height, tweak fade, single column on slides styling
+  07 October - 2 hours PC/Chrome/Edge debugging, and scrolling/fading UI tweaks
